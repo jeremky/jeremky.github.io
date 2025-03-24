@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    
+      <title>
+        Authelia : serveur d&#39;authentification Open Source ::
+        JeremKy.fr
+      </title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta
+  name="description"
+  content="D&rsquo;après le site officiel, &ldquo;Authelia est un serveur et un portail d&rsquo;authentification open source remplissant le rôle de gestion des identités et des accès (IAM) en fournissant une authentification multifacteur et une authentification unique (SSO) pour vos applications via un portail Web. Il agit comme un compagnon pour les proxys inverses courants.&rdquo;
+Dans cet article, il sera présenté comment installer Authelia, et comment le connecter au reverse proxy nginx (voir cet article pour l&rsquo;installation de nginx). A noter que cet article se concentre uniquement sur une configuration simple permettant de remplacer l&rsquo;authentification par fichier .htpasswd interne à nginx.
+"
+/>
+<meta
+  name="keywords"
+  content=""
+/>
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://www.jeremky.fr/posts/authelia-serveur-dauthentification-open-source/" />
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/style.css" />
+
+<link rel="stylesheet" href="https://www.jeremky.fr/style.css" />
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://www.jeremky.fr/img/apple-touch-icon-144-precomposed.png" />
+<link rel="shortcut icon" href="https://www.jeremky.fr/img/favicon.png" />
+
+
+<link href="/fonts/Inter-Italic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/fonts/Inter-Regular.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/fonts/Inter-Medium.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/fonts/Inter-MediumItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/fonts/Inter-Bold.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/fonts/Inter-BoldItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Authelia : serveur d&#39;authentification Open Source">
+  <meta name="twitter:description" content="D’après le site officiel, “Authelia est un serveur et un portail d’authentification open source remplissant le rôle de gestion des identités et des accès (IAM) en fournissant une authentification multifacteur et une authentification unique (SSO) pour vos applications via un portail Web. Il agit comme un compagnon pour les proxys inverses courants.”
+Dans cet article, il sera présenté comment installer Authelia, et comment le connecter au reverse proxy nginx (voir cet article pour l’installation de nginx). A noter que cet article se concentre uniquement sur une configuration simple permettant de remplacer l’authentification par fichier .htpasswd interne à nginx.">
+
+
+
+<meta property="og:url" content="https://www.jeremky.fr/posts/authelia-serveur-dauthentification-open-source/">
+  <meta property="og:site_name" content="JeremKy.fr">
+  <meta property="og:title" content="Authelia : serveur d&#39;authentification Open Source">
+  <meta property="og:description" content="D’après le site officiel, “Authelia est un serveur et un portail d’authentification open source remplissant le rôle de gestion des identités et des accès (IAM) en fournissant une authentification multifacteur et une authentification unique (SSO) pour vos applications via un portail Web. Il agit comme un compagnon pour les proxys inverses courants.”
+Dans cet article, il sera présenté comment installer Authelia, et comment le connecter au reverse proxy nginx (voir cet article pour l’installation de nginx). A noter que cet article se concentre uniquement sur une configuration simple permettant de remplacer l’authentification par fichier .htpasswd interne à nginx.">
+  <meta property="og:locale" content="fr">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-11-11T23:34:44+00:00">
+    <meta property="article:modified_time" content="2024-11-11T23:34:44+00:00">
+    <meta property="article:tag" content="Admin">
+    <meta property="article:tag" content="Docker">
+    <meta property="article:tag" content="Podman">
+
+
+
+
+
+
+  </head>
+  <body >
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >JEREMKY.FR</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/apropos">A propos</a></li>
+        
+      
+        
+          <li><a href="/archives">Archives</a></li>
+        
+      
+        
+          <li><a href="/categories/news">News</a></li>
+        
+      
+        
+          <li><a href="/categories/tutos">Tutos</a></li>
+        
+      
+      
+      
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/apropos">A propos</a></li>
+      
+    
+      
+        <li><a href="/archives">Archives</a></li>
+      
+    
+      
+        <li><a href="/categories/news">News</a></li>
+      
+    
+      
+        <li><a href="/categories/tutos">Tutos</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg
+  class="theme-toggler"
+  width="24"
+  height="24"
+  viewBox="0 0 48 48"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"
+  />
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  
+  
+
+  <article class="post">
+    <h1 class="post-title">Authelia : serveur d&rsquo;authentification Open Source</h1>
+    <div class="post-meta">
+      
+        <time class="post-date">
+          11/11/2024
+        </time>
+
+        
+          
+        
+      
+
+      
+
+
+      
+        <span class="post-read-time"
+          >— 4 min de lecture</span
+        >
+      
+    </div>
+
+    
+      <span class="post-tags">
+        
+          <a href="https://www.jeremky.fr/tags/admin/">#admin</a>&nbsp;
+        
+          <a href="https://www.jeremky.fr/tags/docker/">#docker</a>&nbsp;
+        
+          <a href="https://www.jeremky.fr/tags/podman/">#podman</a>&nbsp;
+        
+      </span>
+    
+
+    
+      <figure class="post-cover">
+  
+    <img src="https://www.jeremky.fr/img/posts/authelia-serveur-dauthentification-open-source/cover.webp" alt="Authelia : serveur d&#39;authentification Open Source" width="700" />
+  
+
+  
+</figure>
+
+    
+
+    <div class="post-content">
+      
+        
+        <h2>Sommaire</h2>
+        <aside class="table-of-contents"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#installation">Installation</a>
+      <ul>
+        <li><a href="#reverse-proxy">Reverse proxy</a></li>
+      </ul>
+    </li>
+    <li><a href="#configuration">Configuration</a>
+      <ul>
+        <li><a href="#utilisateurs">Utilisateurs</a></li>
+        <li><a href="#configuration-de-nginx">Configuration de nginx</a></li>
+      </ul>
+    </li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ul>
+</nav></aside>
+        
+      
+      <p>D&rsquo;après le <a href="https://www.authelia.com/">site officiel</a>, <em>&ldquo;Authelia est un serveur et un portail d&rsquo;authentification open source remplissant le rôle de gestion des identités et des accès (IAM) en fournissant une authentification multifacteur et une authentification unique (SSO) pour vos applications via un portail Web. Il agit comme un compagnon pour les proxys inverses courants.&rdquo;</em></p>
+<p>Dans cet article, il sera présenté comment installer Authelia, et comment le connecter au reverse proxy nginx (voir <a href="/posts/reverse-proxy-nginx/">cet article</a> pour l&rsquo;installation de nginx). A noter que cet article se concentre uniquement sur une configuration simple permettant de remplacer l&rsquo;authentification par fichier <code>.htpasswd</code> interne à nginx.</p>
+<h2 id="installation">
+  Installation
+  <a href="#installation" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p>Pour l&rsquo;installation, un fichier <code>docker-compose.yml</code> :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#f92672">services</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">authelia</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">docker.io/authelia/authelia:latest</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">authelia</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">hostname</span>: <span style="color:#ae81ff">authelia</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">env_file</span>: <span style="color:#ae81ff">authelia.env</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">user</span>: <span style="color:#ae81ff">1000</span>:<span style="color:#ae81ff">1000</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">networks</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">nginx_proxy</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">/opt/authelia:/config</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">networks</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">nginx_proxy</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">external</span>: <span style="color:#66d9ef">true</span>
+</span></span></code></pre></div><p>Et son fichier <code>authelia.env</code> :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>TZ=Europe/Paris
+</span></span></code></pre></div><h3 id="reverse-proxy">
+  Reverse proxy
+  <a href="#reverse-proxy" class="h-anchor" aria-hidden="true">#</a>
+</h3>
+<p>Les fichiers de configuration ci-dessus sont prévus pour être utilisé avec un reverse proxy.</p>
+<blockquote>
+<p>Pour rappel, un article dédié est <a href="/posts/reverse-proxy-nginx/">disponible ici</a>.</p></blockquote>
+<p>L&rsquo;image Docker de <a href="https://docs.linuxserver.io/general/swag/">Linuxserver.io</a> propose un fichier sample de configuration, il vous suffit juste de modifier votre nom de domaine en conséquence :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo cp /opt/nginx/nginx/proxy-confs/authelia.subdomain.conf.sample /opt/nginx/nginx/proxy-confs/authelia.subdomain.conf
+</span></span><span style="display:flex;"><span>sudo sed -i <span style="color:#e6db74">&#34;s,server_name authelia,server_name &lt;votre_sous_domaine&gt;,g&#34;</span> /opt/nginx/nginx/proxy-confs/authelia.subdomain.conf
+</span></span></code></pre></div><p>Et enfin, un petit redémarrage pour la prise en compte du nouveau fichier :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo docker restart nginx
+</span></span></code></pre></div><h2 id="configuration">
+  Configuration
+  <a href="#configuration" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p>Avant de démarrer le conteneur, il est nécessaire de préparer le fichier de configuration de l&rsquo;application. Les étapes présentées ici seront à adapter selon vos modifications du fichier <code>docker-compose.yml</code>.</p>
+<p>Tout d&rsquo;abord, créez le dossier <code>/opt/authelia</code> :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo mkdir /opt/authelia
+</span></span></code></pre></div><p>Ensuite, créez un fichier nommé <code>configuration.yml</code> avec le contenu suivant :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>## Theme : light, dark, grey, auto.
+</span></span><span style="display:flex;"><span>theme: dark
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>server:
+</span></span><span style="display:flex;"><span>  address: tcp://0.0.0.0:9091/authelia
+</span></span><span style="display:flex;"><span>  buffers.read: 4096
+</span></span><span style="display:flex;"><span>  buffers.write: 4096
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>log:
+</span></span><span style="display:flex;"><span>  level: info
+</span></span><span style="display:flex;"><span>  file_path: /config/authelia.log
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>telemetry:
+</span></span><span style="display:flex;"><span>  metrics:
+</span></span><span style="display:flex;"><span>    enabled: false
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>identity_validation.reset_password.jwt_secret: &lt;clé aléatoire&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>authentication_backend:
+</span></span><span style="display:flex;"><span>  password_reset.disable: true
+</span></span><span style="display:flex;"><span>  file:
+</span></span><span style="display:flex;"><span>    path: /config/users.yml
+</span></span><span style="display:flex;"><span>    password:
+</span></span><span style="display:flex;"><span>      algorithm: argon2id
+</span></span><span style="display:flex;"><span>      iterations: 1
+</span></span><span style="display:flex;"><span>      key_length: 32
+</span></span><span style="display:flex;"><span>      salt_length: 16
+</span></span><span style="display:flex;"><span>      memory: 512
+</span></span><span style="display:flex;"><span>      parallelism: 8
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>access_control:
+</span></span><span style="display:flex;"><span>  default_policy: deny
+</span></span><span style="display:flex;"><span>  rules:
+</span></span><span style="display:flex;"><span>    - domain:
+</span></span><span style="display:flex;"><span>      - &#34;dom1.domaine.fr&#34;
+</span></span><span style="display:flex;"><span>      policy: one_factor
+</span></span><span style="display:flex;"><span>      subject:
+</span></span><span style="display:flex;"><span>        - [&#39;group:user&#39;]
+</span></span><span style="display:flex;"><span>    - domain:
+</span></span><span style="display:flex;"><span>      - &#34;dom2.domaine.fr&#34;
+</span></span><span style="display:flex;"><span>      - &#34;dom3.domaine.fr&#34;
+</span></span><span style="display:flex;"><span>      policy: one_factor
+</span></span><span style="display:flex;"><span>      subject:
+</span></span><span style="display:flex;"><span>        - [&#39;group:admin&#39;]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>totp:
+</span></span><span style="display:flex;"><span>  disable: false
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>session:
+</span></span><span style="display:flex;"><span>  name: authelia_session
+</span></span><span style="display:flex;"><span>  secret: &lt;clé secrète&gt;
+</span></span><span style="display:flex;"><span>  expiration: 2h
+</span></span><span style="display:flex;"><span>  inactivity: 1h
+</span></span><span style="display:flex;"><span>  remember_me: 1M
+</span></span><span style="display:flex;"><span>  cookies:
+</span></span><span style="display:flex;"><span>    - domain: domaine.fr
+</span></span><span style="display:flex;"><span>      authelia_url: https://auth.domaine.fr
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>regulation:
+</span></span><span style="display:flex;"><span>  max_retries: 3
+</span></span><span style="display:flex;"><span>  find_time: 2m
+</span></span><span style="display:flex;"><span>  ban_time: 5m
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>storage:
+</span></span><span style="display:flex;"><span>  encryption_key: &lt;clé secrète&gt;
+</span></span><span style="display:flex;"><span>  local:
+</span></span><span style="display:flex;"><span>    path: /config/db.sqlite3
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>notifier:
+</span></span><span style="display:flex;"><span>  filesystem:
+</span></span><span style="display:flex;"><span>    filename: /config/mails.txt
+</span></span></code></pre></div><p>Les éléments à modifier :</p>
+<ul>
+<li>Remplacez <code>domaine.fr</code> par votre domaine, ainsi que le sous domaine configuré pour Authelia (<code>auth.domaine.fr</code>)</li>
+<li>Remplacez chaque clé secrète par des passphrases générées aléatoirement (vous pouvez vous rendre sur <a href="https://passwordsgenerator.net/">ce site</a> pour cela)</li>
+<li>Selon vos préférences, vous pouvez changer le temps d&rsquo;expiration et d&rsquo;inactivité dans la section <code>session</code></li>
+<li>Si vous souhaitez utilisez de la double authentification, il suffit de remplacer la policy <code>one_factor</code> par <code>two_factor</code> dans la section <code>access_control</code></li>
+</ul>
+<p>Si vous voulez autoriser le changement de mot de passe, sachez qu&rsquo;un &ldquo;mail&rdquo; sera généré dans le fichier <code>/opt/authelia/mails.txt</code>. Si vous voulez mettre en place une gestion d&rsquo;envoi de mails, il faut modifier la section <code>notifier</code> de la façon suivante :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>notifier:
+</span></span><span style="display:flex;"><span>  smtp:
+</span></span><span style="display:flex;"><span>    address: &lt;serveur smtp&gt;
+</span></span><span style="display:flex;"><span>    timeout: 5s
+</span></span><span style="display:flex;"><span>    username: &lt;user&gt;
+</span></span><span style="display:flex;"><span>    password: &lt;password&gt;
+</span></span><span style="display:flex;"><span>    sender: &lt;mail&gt;
+</span></span><span style="display:flex;"><span>    tls.skip_verify: false
+</span></span><span style="display:flex;"><span>    subject: &#39;[Authelia] {title}&#39;
+</span></span><span style="display:flex;"><span>    startup_check_address: &lt;mail&gt;
+</span></span></code></pre></div><h3 id="utilisateurs">
+  Utilisateurs
+  <a href="#utilisateurs" class="h-anchor" aria-hidden="true">#</a>
+</h3>
+<p>Vos utilisateurs sont à renseigner dans un fichier nommé <code>/opt/authelia/users.yml</code> :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>users:
+</span></span><span style="display:flex;"><span>  user1:
+</span></span><span style="display:flex;"><span>    displayname: &#34;user1&#34;
+</span></span><span style="display:flex;"><span>    password: &#34;password_a_generer&#34;
+</span></span><span style="display:flex;"><span>    email: user1@mail.com
+</span></span><span style="display:flex;"><span>    groups:
+</span></span><span style="display:flex;"><span>      - user
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  user2:
+</span></span><span style="display:flex;"><span>    displayname: &#34;user2&#34;
+</span></span><span style="display:flex;"><span>    password: &#34;password_a_generer&#34;
+</span></span><span style="display:flex;"><span>    email: user2@mail.com
+</span></span><span style="display:flex;"><span>    groups:
+</span></span><span style="display:flex;"><span>      - user
+</span></span><span style="display:flex;"><span>      - admin
+</span></span></code></pre></div><p>Dans cet exemple, <code>user1</code> n&rsquo;a accès qu&rsquo;à dom1.domaine.fr, et <code>user2</code> a accès à <code>dom1.domaine.fr</code>, <code>dom2.domaine.fr</code>, et <code>dom3.domaine.fr</code>.</p>
+<h4 id="génération-des-mots-de-passe">
+  Génération des mots de passe
+  <a href="#g%c3%a9n%c3%a9ration-des-mots-de-passe" class="h-anchor" aria-hidden="true">#</a>
+</h4>
+<p>Pour générer une version chiffrée du mot de passe, utilisez la commande suivante :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo docker run --rm docker.io/authelia/authelia:latest authelia crypto hash generate argon2 --password <span style="color:#e6db74">&#39;votre_password&#39;</span>
+</span></span></code></pre></div><p>Insérez le résultat à la ligne correspondante.</p>
+<h3 id="configuration-de-nginx">
+  Configuration de nginx
+  <a href="#configuration-de-nginx" class="h-anchor" aria-hidden="true">#</a>
+</h3>
+<p>Vous devez maintenant activer Authelia dans vos fichiers de configuration présents dans <code>/opt/nginx/nginx/proxy-confs</code> pour protéger les services souhaités. 2 lignes sont à décommenter.</p>
+<p>Dans le bloc <code>server</code> :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>include /config/nginx/authelia-server.conf;
+</span></span></code></pre></div><p>Et dans le bloc <code>location</code> :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>include /config/nginx/authelia-location.conf;
+</span></span></code></pre></div><p>Redémarrez ensuite nginx pour prise en compte :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo docker restart nginx
+</span></span></code></pre></div><p>En vous rendant sur l&rsquo;application où cette modification a été effectuée, vous devriez tomber désormais sur la page de connexion d&rsquo;Authelia :</p>
+
+  <img src="/img/posts/authelia-serveur-dauthentification-open-source/login.webp"  class="center"  style="border-radius: 8px;"  />
+
+
+<h2 id="conclusion">
+  Conclusion
+  <a href="#conclusion" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p>Comparé à des alternatives comme <a href="https://www.keycloak.org/">Keycloak</a> ou <a href="https://goauthentik.io/">Authentik</a>, Authelia propose une solution vraiment légère pour une installation personnelle, malgré une configuration bien plus austère.</p>
+<p>Cependant, cette solution telle que décrite dans cet article ne propose pas de configuration de type OpenID/Oauth. Authelia a subit pas mal de changements dans ses dernières versions, et les articles permettant ce genre de configuration ne sont pas légion&hellip; Cela pourrait être un sujet d&rsquo;article à l&rsquo;avenir, mais je préfère pour le moment utiliser la gestion par mot de passe interne aux applications qui le permettent.</p>
+<p>En attendant, vous avez maintenant une protection centralisée de vos services auto hébergés qui ne disposent pas de protection par mot de passe.</p>
+
+    </div>
+    
+      
+        <div class="pagination">
+          <div class="pagination__title">
+            <span class="pagination__title-h"
+              >Autres posts</span
+            >
+            <hr />
+          </div>
+          <div class="pagination__buttons">
+            
+              <span class="button previous">
+                <a href="https://www.jeremky.fr/posts/wireguard-easy-simplifiez-la-gestion-de-vos-vpn-wireguard/">
+                  <span class="button__icon">←</span>
+                  <span class="button__text">Wireguard Easy : Simplifiez la gestion de Wireguard</span>
+                </a>
+              </span>
+            
+            
+              <span class="button next">
+                <a href="https://www.jeremky.fr/posts/personnaliser-vos-images-docker/">
+                  <span class="button__text">Personnaliser vos images Docker</span>
+                  <span class="button__icon">→</span>
+                </a>
+              </span>
+            
+          </div>
+        </div>
+      
+    
+
+    
+      
+        
+
+      
+    
+  </article>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >JEREMKY.FR</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+      <div class="copyright">
+          <div class="copyright">
+        <span>© 2025 Propulsé par <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span>
+      </div>
+    
+  </div>
+</footer>
+
+
+
+
+
+<script type="text/javascript" src="/bundle.min.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>

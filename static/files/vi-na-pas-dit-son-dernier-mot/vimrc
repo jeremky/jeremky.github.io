@@ -1,0 +1,148 @@
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Configuration de Vim
+
+" Ne pas charger le fichier par defaut
+let g:skip_defaults_vim = 1
+
+" Parametrage de base
+syntax on                       " Active la colorisation syntaxique
+set hlsearch                    " Affiche en surbrillance les recherches
+set background=dark             " Optimise l'affiche pour un terminal sombre
+set laststatus=2                " Affiche en permanence la barre de statut
+set smartindent                 " Indentation intelligente
+set smarttab                    " Gestion des espaces en debut de ligne
+set autoindent                  " Conserve l'indentation sur une nouvelle ligne
+set ruler                       " Affiche la position du curseur
+set tabstop=2                   " La largeur d'une tabulation est definie sur 2
+set shiftwidth=2                " Les retraits auront une largeur de 2
+set softtabstop=2               " Nombre de colonnes pour une tabulation
+set expandtab                   " Remplace les tab par des espaces
+set linebreak                   " Revient à la ligne sans couper les mots
+set showcmd                     " Afficher la commande dans la ligne d'etat
+set showmatch                   " Afficher les parentheses correspondantes
+set ignorecase                  " Ignorer la casse
+set smartcase                   " Faire un appariement intelligent
+set incsearch                   " Recherche incrementielle
+set hidden                      " Cacher les tampons lorsqu'ils sont abandonnes
+set mouse=                      " Desactive la souris par defaut
+set nobackup                    " Desactive les sauvegardes automatiques
+set spelllang=fr,en             " Specifie les langues du dictionnaire
+
+" Permet l'indentation automatique : gg=G
+filetype plugin indent on
+
+" Definition des caracteres invisibles
+let &listchars = "eol:$,space:\u00B7"
+
+" Changement automatique du curseur en fonction du mode
+let &t_SI = "\e[6 q"
+let &t_EI = "\e[2 q"
+
+" Fermeture automatique des brackets
+inoremap { {}<Esc>ha
+inoremap [ []<Esc>ha
+
+" Memoriser la derniere position du curseur
+autocmd BufReadPost * if (line("'\"") > 1) && (line("'\"") <= line("$")) | silent exe "silent! normal g'\"zO" | endif
+
+" Modification de certaines syntaxes
+autocmd BufNewFile,BufRead *.lpl set syntax=json
+
+" Configuration pour tmux
+if $TERM == 'tmux-256color'
+  set clipboard=unnamedplus
+  set mouse=a
+endif
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Explorateur de fichiers
+
+" Configuration
+let g:netrw_liststyle = 3         " Active le mode Treeview
+let g:netrw_sizestyle = "H"       " Active le mode human-readable
+let g:netrw_banner = 0            " Desactive la banniere
+let g:netrw_browse_split = 4      " Ouvre le fichier choisi dans un panel
+let g:netrw_winsize = 15          " Definit la taille de l'explorateur
+
+" Ferme automatiquement l'explorateur
+aug netrw_close
+  au!
+  au WinEnter * if winnr('$') == 1 && getbufvar(winbufnr(winnr()), "&filetype") == "netrw"|q|endif
+aug END
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Barre de statut
+
+" Elements à afficher
+set statusline+=%F
+set statusline+=\ %m
+set statusline+=%=
+set statusline+=\ %{strlen(&fenc)?&fenc:'none'}
+set statusline+=\ \|
+set statusline+=\ %P
+set statusline+=\ \|
+set statusline+=\ %l
+set statusline+=\:%c
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Mapping
+
+" Explorateur de fichiers
+nnoremap <F1> :Vexplore<CR>
+
+" Activation de la numerotation
+nnoremap <F2> :set number!<CR>
+
+" Correction orthographique (z= pour afficher les propositions)
+map <F3> :set spell!<CR>
+
+" Coloration syntaxique
+nnoremap <F4> :call ToggleSyntax()<CR>
+function! ToggleSyntax()
+  if &syntax == ''
+    syntax on
+    echo "Coloration syntaxique activee"
+  else
+    syntax off
+    set syntax=
+    echo "Coloration syntaxique desactivee"
+  endif
+endfunction
+
+" Indentation automatique
+nnoremap <F5> gg=G <CR>
+
+" Souris
+nnoremap <F6> :call ToggleMouse()<CR>
+function! ToggleMouse()
+  if &mouse == 'a'
+    set mouse=
+    echo "Souris desactivee"
+  else
+    set mouse=a
+    echo "Souris activee"
+  endif
+endfunction
+
+" Affichage des caracteres invisibles
+nnoremap <F7> :set list!<CR>
+
+" Changement de document
+nnoremap <S-TAB> <C-W>w
+nnoremap <TAB> :tabnext<CR>
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Theme
+
+" OneHalfDark
+if filereadable("/etc/vim/colors/onehalfdark.vim")
+  set cursorline
+  set t_Co=256
+  colorscheme onehalfdark
+  set termguicolors
+  set noshowmode
+endif

@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    
+      <title>
+        AriaNG : centralisez vos téléchargements ::
+        JeremKy.fr
+      </title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta
+  name="description"
+  content="Récemment, je vous ai présenté Transmission, un outil web de téléchargement de fichiers torrent. Mais son intérêt a pris un sacré coup dans l’aile depuis que je suis tombé sur AriaNG.
+AriaNG vous permet de centraliser la gestion de vos téléchargements, indépendamment du protocole : HTTP(s), FTP/SFTP, Bittorent, Metalink…
+Installation # Pour installer AriaNG, les fichiers pour Docker sont les suivants :
+services: ariang: image: docker.io/hurlenko/aria2-ariang:latest container_name: ariang hostname: ariang env_file: ariang.env networks: - nginx_proxy volumes: - /opt/ariang:/aria2/data - ./files:/aria2/conf restart: always networks: nginx_proxy: external: true Dans l’exemple, le volume du dossier des téléchargements est /opt/ariang, mais vous pouvez très bien le placer dans votre dossier utilisateur.
+"
+/>
+<meta
+  name="keywords"
+  content=""
+/>
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://www.jeremky.fr/posts/ariang-centralisez-vos-telechargements/" />
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/style.css" />
+
+<link rel="stylesheet" href="https://www.jeremky.fr/style.css" />
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://www.jeremky.fr/img/apple-touch-icon-144-precomposed.png" />
+<link rel="shortcut icon" href="https://www.jeremky.fr/img/favicon.png" />
+
+
+<link href="/fonts/Inter-Italic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/fonts/Inter-Regular.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/fonts/Inter-Medium.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/fonts/Inter-MediumItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/fonts/Inter-Bold.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/fonts/Inter-BoldItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="AriaNG : centralisez vos téléchargements">
+  <meta name="twitter:description" content="Récemment, je vous ai présenté Transmission, un outil web de téléchargement de fichiers torrent. Mais son intérêt a pris un sacré coup dans l’aile depuis que je suis tombé sur AriaNG.
+AriaNG vous permet de centraliser la gestion de vos téléchargements, indépendamment du protocole : HTTP(s), FTP/SFTP, Bittorent, Metalink…
+Installation # Pour installer AriaNG, les fichiers pour Docker sont les suivants :
+services: ariang: image: docker.io/hurlenko/aria2-ariang:latest container_name: ariang hostname: ariang env_file: ariang.env networks: - nginx_proxy volumes: - /opt/ariang:/aria2/data - ./files:/aria2/conf restart: always networks: nginx_proxy: external: true Dans l’exemple, le volume du dossier des téléchargements est /opt/ariang, mais vous pouvez très bien le placer dans votre dossier utilisateur.">
+
+
+
+<meta property="og:url" content="https://www.jeremky.fr/posts/ariang-centralisez-vos-telechargements/">
+  <meta property="og:site_name" content="JeremKy.fr">
+  <meta property="og:title" content="AriaNG : centralisez vos téléchargements">
+  <meta property="og:description" content="Récemment, je vous ai présenté Transmission, un outil web de téléchargement de fichiers torrent. Mais son intérêt a pris un sacré coup dans l’aile depuis que je suis tombé sur AriaNG.
+AriaNG vous permet de centraliser la gestion de vos téléchargements, indépendamment du protocole : HTTP(s), FTP/SFTP, Bittorent, Metalink…
+Installation # Pour installer AriaNG, les fichiers pour Docker sont les suivants :
+services: ariang: image: docker.io/hurlenko/aria2-ariang:latest container_name: ariang hostname: ariang env_file: ariang.env networks: - nginx_proxy volumes: - /opt/ariang:/aria2/data - ./files:/aria2/conf restart: always networks: nginx_proxy: external: true Dans l’exemple, le volume du dossier des téléchargements est /opt/ariang, mais vous pouvez très bien le placer dans votre dossier utilisateur.">
+  <meta property="og:locale" content="fr">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-12-13T18:07:03+00:00">
+    <meta property="article:modified_time" content="2024-12-13T18:07:03+00:00">
+    <meta property="article:tag" content="Fichiers">
+    <meta property="article:tag" content="Docker">
+    <meta property="article:tag" content="Podman">
+
+
+
+
+
+
+  </head>
+  <body >
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >JEREMKY.FR</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/apropos">A propos</a></li>
+        
+      
+        
+          <li><a href="/archives">Archives</a></li>
+        
+      
+        
+          <li><a href="/categories/news">News</a></li>
+        
+      
+        
+          <li><a href="/categories/tutos">Tutos</a></li>
+        
+      
+      
+      
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/apropos">A propos</a></li>
+      
+    
+      
+        <li><a href="/archives">Archives</a></li>
+      
+    
+      
+        <li><a href="/categories/news">News</a></li>
+      
+    
+      
+        <li><a href="/categories/tutos">Tutos</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg
+  class="theme-toggler"
+  width="24"
+  height="24"
+  viewBox="0 0 48 48"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"
+  />
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  
+  
+
+  <article class="post">
+    <h1 class="post-title">AriaNG : centralisez vos téléchargements</h1>
+    <div class="post-meta">
+      
+        <time class="post-date">
+          13/12/2024
+        </time>
+
+        
+          
+        
+      
+
+      
+
+
+      
+        <span class="post-read-time"
+          >— 3 min de lecture</span
+        >
+      
+    </div>
+
+    
+      <span class="post-tags">
+        
+          <a href="https://www.jeremky.fr/tags/fichiers/">#fichiers</a>&nbsp;
+        
+          <a href="https://www.jeremky.fr/tags/docker/">#docker</a>&nbsp;
+        
+          <a href="https://www.jeremky.fr/tags/podman/">#podman</a>&nbsp;
+        
+      </span>
+    
+
+    
+      <figure class="post-cover">
+  
+    <img src="https://www.jeremky.fr/img/posts/ariang-centralisez-vos-telechargements/cover.webp" alt="AriaNG : centralisez vos téléchargements" width="700" />
+  
+
+  
+</figure>
+
+    
+
+    <div class="post-content">
+      
+        
+        <h2>Sommaire</h2>
+        <aside class="table-of-contents"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#installation">Installation</a>
+      <ul>
+        <li><a href="#reverse-proxy">Reverse Proxy</a></li>
+      </ul>
+    </li>
+    <li><a href="#démarrage">Démarrage</a></li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ul>
+</nav></aside>
+        
+      
+      <p>Récemment, je vous ai présenté <a href="/posts/transmission-un-client-torrent-web/">Transmission</a>, un outil web de téléchargement de fichiers torrent. Mais son intérêt a pris un sacré coup dans l’aile depuis que je suis tombé sur <a href="https://github.com/hurlenko/aria2-ariang-docker">AriaNG</a>.</p>
+<p>AriaNG vous permet de centraliser la gestion de vos téléchargements, indépendamment du protocole : HTTP(s), FTP/SFTP, Bittorent, Metalink…</p>
+<h2 id="installation">
+  Installation
+  <a href="#installation" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p>Pour installer AriaNG, les fichiers pour Docker sont les suivants :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#f92672">services</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">ariang</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">docker.io/hurlenko/aria2-ariang:latest</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">ariang</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">hostname</span>: <span style="color:#ae81ff">ariang</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">env_file</span>: <span style="color:#ae81ff">ariang.env</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">networks</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">nginx_proxy</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">/opt/ariang:/aria2/data</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">./files:/aria2/conf</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">networks</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">nginx_proxy</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">external</span>: <span style="color:#66d9ef">true</span>
+</span></span></code></pre></div><blockquote>
+<p>Dans l’exemple, le volume du dossier des téléchargements est <code>/opt/ariang</code>, mais vous pouvez très bien le placer dans votre dossier utilisateur.</p></blockquote>
+<p>Le fichier <code>ariang.env</code> associé :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>PUID=1000
+</span></span><span style="display:flex;"><span>PGID=1000
+</span></span><span style="display:flex;"><span>ARIA2RPCPORT=443
+</span></span></code></pre></div><blockquote>
+<p>A noter qu’il est préférable d’utiliser l’id 1000, surtout si vous placez le dossier de téléchargements dans votre dossier personnel.</p></blockquote>
+<h3 id="reverse-proxy">
+  Reverse Proxy
+  <a href="#reverse-proxy" class="h-anchor" aria-hidden="true">#</a>
+</h3>
+<p>Les fichiers de configuration ci-dessus sont prévus pour être utilisé avec un reverse proxy.</p>
+<blockquote>
+<p>Pour rappel, un article dédié est <a href="/posts/reverse-proxy-nginx/">disponible ici</a>.</p></blockquote>
+<p>L’image Docker de <a href="https://docs.linuxserver.io/general/swag/">Linuxserver.io</a> ne propose pas de fichier sample de configuration pour cette version de AriaNG. Vous devez donc créer un fichier nommé <code>/opt/nginx/nginx/proxy-confs/ariang.subdomain.conf</code>, et y coller le contenu suivant :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>## Version 2024/07/16
+</span></span><span style="display:flex;"><span># make sure that your AriaNG container is named ariang
+</span></span><span style="display:flex;"><span># make sure that your dns has a cname set for ariang
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>server {
+</span></span><span style="display:flex;"><span>    listen 443 ssl;
+</span></span><span style="display:flex;"><span>    listen [::]:443 ssl;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    server_name ariang.*;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    include /config/nginx/ssl.conf;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    client_max_body_size 0;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    # enable for ldap auth (requires ldap-location.conf in the location block)
+</span></span><span style="display:flex;"><span>    #include /config/nginx/ldap-server.conf;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    # enable for Authelia (requires authelia-location.conf in the location block)
+</span></span><span style="display:flex;"><span>    #include /config/nginx/authelia-server.conf;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    # enable for Authentik (requires authentik-location.conf in the location block)
+</span></span><span style="display:flex;"><span>    #include /config/nginx/authentik-server.conf;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    location / {
+</span></span><span style="display:flex;"><span>        include /config/nginx/authelia-location.conf;
+</span></span><span style="display:flex;"><span>        include /config/nginx/proxy.conf;
+</span></span><span style="display:flex;"><span>        include /config/nginx/resolver.conf;
+</span></span><span style="display:flex;"><span>        set $upstream_app ariang;
+</span></span><span style="display:flex;"><span>        set $upstream_port 8080;
+</span></span><span style="display:flex;"><span>        set $upstream_proto http;
+</span></span><span style="display:flex;"><span>        proxy_pass $upstream_proto://$upstream_app:$upstream_port;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    location ~ (/ariang)?/jsonrpc {
+</span></span><span style="display:flex;"><span>        include /config/nginx/proxy.conf;
+</span></span><span style="display:flex;"><span>        include /config/nginx/resolver.conf;
+</span></span><span style="display:flex;"><span>        set $upstream_app ariang;
+</span></span><span style="display:flex;"><span>        set $upstream_port 6800;
+</span></span><span style="display:flex;"><span>        set $upstream_proto http;
+</span></span><span style="display:flex;"><span>        proxy_pass $upstream_proto://$upstream_app:$upstream_port/jsonrpc;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><blockquote>
+<p>Pensez à changer la section <code>server_name ariang.*;</code> selon votre sous domaine.</p></blockquote>
+<p>Et enfin, un petit redémarrage pour la prise en compte du nouveau fichier :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo docker restart nginx
+</span></span></code></pre></div><h2 id="démarrage">
+  Démarrage
+  <a href="#d%c3%a9marrage" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p>Au 1er lancement de la page, assurez vous que le service web se soit correctement connecté à aria2 :</p>
+
+  <img src="/img/posts/ariang-centralisez-vos-telechargements/aria2.webp"  class="center"  style="border-radius: 8px;"  />
+
+
+<p>Vous pouvez ensuite ajouter vos téléchargements &#x1f604;</p>
+
+  <img src="/img/posts/ariang-centralisez-vos-telechargements/add.webp"  class="center"  style="border-radius: 8px;"  />
+
+
+<p>Comme vu dans la capture, il est possible de lui balancer directement des liens de fichiers torrent. Il va se charger de télécharger le fichier et lancer le téléchargement dans la foulée :</p>
+
+  <img src="/img/posts/ariang-centralisez-vos-telechargements/download.webp"  class="center"  style="border-radius: 8px;"  />
+
+
+<h2 id="conclusion">
+  Conclusion
+  <a href="#conclusion" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p>Je vous laisserai parcourir les réglages si vous avez besoin. Je n’ai pas pris le temps de présenter les options possibles, la configuration de base lui permet d’être totalement fonctionnel en l’état.</p>
+
+    </div>
+    
+      
+        <div class="pagination">
+          <div class="pagination__title">
+            <span class="pagination__title-h"
+              >Autres posts</span
+            >
+            <hr />
+          </div>
+          <div class="pagination__buttons">
+            
+              <span class="button previous">
+                <a href="https://www.jeremky.fr/posts/syncthing-outil-open-source-synchroniser-fichiers/">
+                  <span class="button__icon">←</span>
+                  <span class="button__text">Syncthing : outil open source pour synchroniser vos fichiers</span>
+                </a>
+              </span>
+            
+            
+              <span class="button next">
+                <a href="https://www.jeremky.fr/posts/surveillez-vos-applications-avec-uptime-kuma/">
+                  <span class="button__text">Surveillez vos applications avec Uptime Kuma</span>
+                  <span class="button__icon">→</span>
+                </a>
+              </span>
+            
+          </div>
+        </div>
+      
+    
+
+    
+      
+        
+
+      
+    
+  </article>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >JEREMKY.FR</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+      <div class="copyright">
+          <div class="copyright">
+        <span>© 2025 Propulsé par <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span>
+      </div>
+    
+  </div>
+</footer>
+
+
+
+
+
+<script type="text/javascript" src="/bundle.min.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>

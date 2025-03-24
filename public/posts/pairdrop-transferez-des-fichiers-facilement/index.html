@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    
+      <title>
+        Pairdrop : transférez des fichiers facilement ::
+        JeremKy.fr
+      </title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta
+  name="description"
+  content="On continue avec les outils de transfert de fichiers. Si vous connaissez le service AirDrop, cette application vous semblera plus que familière…
+Pairdrop a en effet été conçu pour reproduire le service disponible sur iOS et MacOS. Totalement libre, il permettra à n’importe qui de se transférer des fichiers ou du texte directement d’un appareil à un autre, à partir du moment où ces appareils sont présents sur le même réseau local, et ce sans aucune configuration à effectuer.
+"
+/>
+<meta
+  name="keywords"
+  content=""
+/>
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://www.jeremky.fr/posts/pairdrop-transferez-des-fichiers-facilement/" />
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/style.css" />
+
+<link rel="stylesheet" href="https://www.jeremky.fr/style.css" />
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://www.jeremky.fr/img/apple-touch-icon-144-precomposed.png" />
+<link rel="shortcut icon" href="https://www.jeremky.fr/img/favicon.png" />
+
+
+<link href="/fonts/Inter-Italic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/fonts/Inter-Regular.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/fonts/Inter-Medium.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/fonts/Inter-MediumItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/fonts/Inter-Bold.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/fonts/Inter-BoldItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Pairdrop : transférez des fichiers facilement">
+  <meta name="twitter:description" content="On continue avec les outils de transfert de fichiers. Si vous connaissez le service AirDrop, cette application vous semblera plus que familière…
+Pairdrop a en effet été conçu pour reproduire le service disponible sur iOS et MacOS. Totalement libre, il permettra à n’importe qui de se transférer des fichiers ou du texte directement d’un appareil à un autre, à partir du moment où ces appareils sont présents sur le même réseau local, et ce sans aucune configuration à effectuer.">
+
+
+
+<meta property="og:url" content="https://www.jeremky.fr/posts/pairdrop-transferez-des-fichiers-facilement/">
+  <meta property="og:site_name" content="JeremKy.fr">
+  <meta property="og:title" content="Pairdrop : transférez des fichiers facilement">
+  <meta property="og:description" content="On continue avec les outils de transfert de fichiers. Si vous connaissez le service AirDrop, cette application vous semblera plus que familière…
+Pairdrop a en effet été conçu pour reproduire le service disponible sur iOS et MacOS. Totalement libre, il permettra à n’importe qui de se transférer des fichiers ou du texte directement d’un appareil à un autre, à partir du moment où ces appareils sont présents sur le même réseau local, et ce sans aucune configuration à effectuer.">
+  <meta property="og:locale" content="fr">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-12-21T18:07:50+00:00">
+    <meta property="article:modified_time" content="2024-12-21T18:07:50+00:00">
+    <meta property="article:tag" content="Fichiers">
+    <meta property="article:tag" content="Docker">
+    <meta property="article:tag" content="Podman">
+
+
+
+
+
+
+  </head>
+  <body >
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >JEREMKY.FR</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/apropos">A propos</a></li>
+        
+      
+        
+          <li><a href="/archives">Archives</a></li>
+        
+      
+        
+          <li><a href="/categories/news">News</a></li>
+        
+      
+        
+          <li><a href="/categories/tutos">Tutos</a></li>
+        
+      
+      
+      
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/apropos">A propos</a></li>
+      
+    
+      
+        <li><a href="/archives">Archives</a></li>
+      
+    
+      
+        <li><a href="/categories/news">News</a></li>
+      
+    
+      
+        <li><a href="/categories/tutos">Tutos</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg
+  class="theme-toggler"
+  width="24"
+  height="24"
+  viewBox="0 0 48 48"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"
+  />
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  
+  
+
+  <article class="post">
+    <h1 class="post-title">Pairdrop : transférez des fichiers facilement</h1>
+    <div class="post-meta">
+      
+        <time class="post-date">
+          21/12/2024
+        </time>
+
+        
+          
+        
+      
+
+      
+
+
+      
+        <span class="post-read-time"
+          >— 3 min de lecture</span
+        >
+      
+    </div>
+
+    
+      <span class="post-tags">
+        
+          <a href="https://www.jeremky.fr/tags/fichiers/">#fichiers</a>&nbsp;
+        
+          <a href="https://www.jeremky.fr/tags/docker/">#docker</a>&nbsp;
+        
+          <a href="https://www.jeremky.fr/tags/podman/">#podman</a>&nbsp;
+        
+      </span>
+    
+
+    
+      <figure class="post-cover">
+  
+    <img src="https://www.jeremky.fr/img/posts/pairdrop-transferez-des-fichiers-facilement/cover.webp" alt="Pairdrop : transférez des fichiers facilement" width="700" />
+  
+
+  
+</figure>
+
+    
+
+    <div class="post-content">
+      
+        
+        <h2>Sommaire</h2>
+        <aside class="table-of-contents"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#installation">Installation</a>
+      <ul>
+        <li><a href="#reverse-proxy">Reverse proxy</a></li>
+      </ul>
+    </li>
+    <li><a href="#utilisation">Utilisation</a>
+      <ul>
+        <li><a href="#association">Association</a></li>
+        <li><a href="#transferts">Transferts</a></li>
+      </ul>
+    </li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ul>
+</nav></aside>
+        
+      
+      <p>On continue avec les outils de transfert de fichiers. Si vous connaissez le service AirDrop, cette application vous semblera plus que familière…</p>
+<p><a href="https://github.com/schlagmichdoch/pairdrop">Pairdrop</a> a en effet été conçu pour reproduire le service disponible sur iOS et MacOS. Totalement libre, il permettra à n’importe qui de se transférer des fichiers ou du texte directement d’un appareil à un autre, à partir du moment où ces appareils sont présents sur le même réseau local, et ce sans aucune configuration à effectuer.</p>
+<p>Cette facilité d’utilisation n’est pas sans limite : vous ne pouvez transférer que des fichiers d’une taille inférieure à 200 Mo. Mais c’est en lien avec l’objectif de l’application : transférer simplement via une solution rapide, et ce sans aucun serveur de relai.</p>
+<p>L’application est disponible en suivant <a href="https://pairdrop.net/">ce lien officiel</a>.</p>
+<p>Si toutefois vous avez envie de profiter de ce service sans subir la limitation liée au réseau local, vous pouvez héberger l’application sur un serveur personnel, une <a href="https://docs.linuxserver.io/images/docker-pairdrop/">image Docker</a> est effectivement disponible.</p>
+<h2 id="installation">
+  Installation
+  <a href="#installation" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p>On commence par le fichier <code>docker-compose.yml</code> :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#f92672">services</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">pairdrop</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">lscr.io/linuxserver/pairdrop:latest</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">pairdrop</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">hostname</span>: <span style="color:#ae81ff">pairdrop</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">env_file</span>: <span style="color:#ae81ff">pairdrop.env</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">networks</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">nginx_proxy</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">networks</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">nginx_proxy</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">external</span>: <span style="color:#66d9ef">true</span>
+</span></span></code></pre></div><p>Et son fichier <code>pairdrop.env</code> :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>PUID=1000
+</span></span><span style="display:flex;"><span>PGID=1000
+</span></span><span style="display:flex;"><span>TZ=Europe/Paris
+</span></span><span style="display:flex;"><span>RATE_LIMIT=true
+</span></span><span style="display:flex;"><span>WS_FALLBACK=true
+</span></span></code></pre></div><ul>
+<li>
+<p>L’option <code>RATE_LIMIT</code> permet d’éviter les abus, en limitant les clients à 100 requêtes toutes les 5 minutes</p>
+</li>
+<li>
+<p>L’option <code>WS_FALLBACK</code> permet quant à elle de bypasser la connexion WebRTC afin de transférer des fichiers entre des appareils sur des réseaux différents, en utilisant ce serveur comme relai</p>
+</li>
+</ul>
+<h3 id="reverse-proxy">
+  Reverse proxy
+  <a href="#reverse-proxy" class="h-anchor" aria-hidden="true">#</a>
+</h3>
+<p>Les fichiers de configuration ci-dessus sont prévus pour être utilisé avec un reverse proxy.</p>
+<blockquote>
+<p>Pour rappel, un article dédié est <a href="/posts/reverse-proxy-nginx/">disponible ici</a>.</p></blockquote>
+<p>L’image Docker de <a href="https://docs.linuxserver.io/general/swag/">Linuxserver.io</a> ne propose pas de fichier sample de configuration pour PairDrop. Vous devez donc créer un fichier nommé <code>/opt/nginx/nginx/proxy-confs/pairdrop.subdomain.conf</code>, et y coller le contenu suivant :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>## Version 2024/07/16
+</span></span><span style="display:flex;"><span># make sure that your pairdrop container is named pairdrop
+</span></span><span style="display:flex;"><span># make sure that your dns has a cname set for pairdrop
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>server {
+</span></span><span style="display:flex;"><span>    listen 443 ssl;
+</span></span><span style="display:flex;"><span>    listen [::]:443 ssl;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    server_name pairdrop.*;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    include /config/nginx/ssl.conf;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    client_max_body_size 0;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    #include /config/nginx/authelia-server.conf;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    location / {
+</span></span><span style="display:flex;"><span>        #include /config/nginx/authelia-location.conf;
+</span></span><span style="display:flex;"><span>        include /config/nginx/proxy.conf;
+</span></span><span style="display:flex;"><span>        include /config/nginx/resolver.conf;
+</span></span><span style="display:flex;"><span>        set $upstream_app pairdrop;
+</span></span><span style="display:flex;"><span>        set $upstream_port 3000;
+</span></span><span style="display:flex;"><span>        set $upstream_proto http;
+</span></span><span style="display:flex;"><span>        proxy_pass $upstream_proto://$upstream_app:$upstream_port;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><blockquote>
+<p>Pensez à changer la section <code>server_name pairdrop.*;</code> selon votre sous domaine.</p></blockquote>
+<p>Et enfin, un petit redémarrage pour la prise en compte du nouveau fichier :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo docker restart nginx
+</span></span></code></pre></div><h2 id="utilisation">
+  Utilisation
+  <a href="#utilisation" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p>Comme dit plus haut, Pairdrop est terriblement simple à utiliser. Ouvrez la page depuis le navigateur des appareils que vous voulez transférer vos fichiers, et ils devraient se voir directement. Profitez-en pour leur donner un nom plus distinctif &#x1f604;</p>
+<h3 id="association">
+  Association
+  <a href="#association" class="h-anchor" aria-hidden="true">#</a>
+</h3>
+<p>Si vous hébergez l’application et que vous avez activé le routage du traffic, vous devez créer un salon et relier vos appareils via un échange de clé (option en haut à droite). Vous pouvez même directement scanner un QR code pour faciliter l’association.</p>
+
+  <img src="/img/posts/pairdrop-transferez-des-fichiers-facilement/associate.webp"  class="center"  style="border-radius: 8px;"  />
+
+
+<p>Vous verrez alors en bas que vous pouvez être visible à la fois sur le réseau local ou par les appareils couplés. Notez qu’il est également possible de faire la même chose avec des salons temporaires.</p>
+<h3 id="transferts">
+  Transferts
+  <a href="#transferts" class="h-anchor" aria-hidden="true">#</a>
+</h3>
+<p>Pour transférer des fichiers, il suffit de cliquer sur l’appareil destinataire, et d’aller chercher le fichier à envoyer.</p>
+
+  <img src="/img/posts/pairdrop-transferez-des-fichiers-facilement/file.webp"  class="center"  style="border-radius: 8px;"  />
+
+
+<p>Pour du texte, c’est via un clic droit (ou une pression longue sur mobile).</p>
+
+  <img src="/img/posts/pairdrop-transferez-des-fichiers-facilement/text.webp"  class="center"  style="border-radius: 8px;"  />
+
+
+<p>Un popup s’affichera sur le 2ème appareil, afin d’accepter la réception. Il est d’ailleurs possible d’ accepter automatiquement les fichiers envoyés une fois le couplage effectué.</p>
+
+  <img src="/img/posts/pairdrop-transferez-des-fichiers-facilement/auto.webp"  class="center"  style="border-radius: 8px;"  />
+
+
+<h2 id="conclusion">
+  Conclusion
+  <a href="#conclusion" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p>Rappelez vous de toutes les fois où vous aviez un fichier ou du texte à transférer rapidement d’un appareil à un autre (une photo, un lien…), et que vous vous êtes retrouvé à vous envoyer un mail… Plus besoin de sortir de son réseau pour cela &#x1f60a;</p>
+
+    </div>
+    
+      
+        <div class="pagination">
+          <div class="pagination__title">
+            <span class="pagination__title-h"
+              >Autres posts</span
+            >
+            <hr />
+          </div>
+          <div class="pagination__buttons">
+            
+              <span class="button previous">
+                <a href="https://www.jeremky.fr/posts/edito-au-revoir-minecraft/">
+                  <span class="button__icon">←</span>
+                  <span class="button__text">Édito : Au revoir Minecraft</span>
+                </a>
+              </span>
+            
+            
+              <span class="button next">
+                <a href="https://www.jeremky.fr/posts/syncthing-outil-open-source-synchroniser-fichiers/">
+                  <span class="button__text">Syncthing : outil open source pour synchroniser vos fichiers</span>
+                  <span class="button__icon">→</span>
+                </a>
+              </span>
+            
+          </div>
+        </div>
+      
+    
+
+    
+      
+        
+
+      
+    
+  </article>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >JEREMKY.FR</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+      <div class="copyright">
+          <div class="copyright">
+        <span>© 2025 Propulsé par <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span>
+      </div>
+    
+  </div>
+</footer>
+
+
+
+
+
+<script type="text/javascript" src="/bundle.min.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>

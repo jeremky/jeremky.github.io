@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    
+      <title>
+        Script de configuration pour Debian ::
+        JeremKy.fr
+      </title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta
+  name="description"
+  content="Afin de gagner un max de temps sur mes réinstallations de Debian, je me suis écrit un petit script qui installe les différents packages dont j&rsquo;ai besoin et configure quelques éléments du système.
+Vous pouvez récupérer le script en cliquant sur ce lien.
+Prérequis # Une fois le script sur votre machine, vous devez tout d&rsquo;abord modifier le fichier de configuration aptinstall.cfg. Il y a 2 éléments à modifier :
+"
+/>
+<meta
+  name="keywords"
+  content=""
+/>
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://www.jeremky.fr/posts/script-de-configuration-pour-debian/" />
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/style.css" />
+
+<link rel="stylesheet" href="https://www.jeremky.fr/style.css" />
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://www.jeremky.fr/img/apple-touch-icon-144-precomposed.png" />
+<link rel="shortcut icon" href="https://www.jeremky.fr/img/favicon.png" />
+
+
+<link href="/fonts/Inter-Italic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/fonts/Inter-Regular.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/fonts/Inter-Medium.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/fonts/Inter-MediumItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/fonts/Inter-Bold.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/fonts/Inter-BoldItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Script de configuration pour Debian">
+  <meta name="twitter:description" content="Afin de gagner un max de temps sur mes réinstallations de Debian, je me suis écrit un petit script qui installe les différents packages dont j’ai besoin et configure quelques éléments du système.
+Vous pouvez récupérer le script en cliquant sur ce lien.
+Prérequis # Une fois le script sur votre machine, vous devez tout d’abord modifier le fichier de configuration aptinstall.cfg. Il y a 2 éléments à modifier :">
+
+
+
+<meta property="og:url" content="https://www.jeremky.fr/posts/script-de-configuration-pour-debian/">
+  <meta property="og:site_name" content="JeremKy.fr">
+  <meta property="og:title" content="Script de configuration pour Debian">
+  <meta property="og:description" content="Afin de gagner un max de temps sur mes réinstallations de Debian, je me suis écrit un petit script qui installe les différents packages dont j’ai besoin et configure quelques éléments du système.
+Vous pouvez récupérer le script en cliquant sur ce lien.
+Prérequis # Une fois le script sur votre machine, vous devez tout d’abord modifier le fichier de configuration aptinstall.cfg. Il y a 2 éléments à modifier :">
+  <meta property="og:locale" content="fr">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-05-12T17:15:46+00:00">
+    <meta property="article:modified_time" content="2024-05-12T17:15:46+00:00">
+    <meta property="article:tag" content="Linux">
+
+
+
+
+
+
+  </head>
+  <body >
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >JEREMKY.FR</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/apropos">A propos</a></li>
+        
+      
+        
+          <li><a href="/archives">Archives</a></li>
+        
+      
+        
+          <li><a href="/categories/news">News</a></li>
+        
+      
+        
+          <li><a href="/categories/tutos">Tutos</a></li>
+        
+      
+      
+      
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/apropos">A propos</a></li>
+      
+    
+      
+        <li><a href="/archives">Archives</a></li>
+      
+    
+      
+        <li><a href="/categories/news">News</a></li>
+      
+    
+      
+        <li><a href="/categories/tutos">Tutos</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg
+  class="theme-toggler"
+  width="24"
+  height="24"
+  viewBox="0 0 48 48"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"
+  />
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  
+  
+
+  <article class="post">
+    <h1 class="post-title">Script de configuration pour Debian</h1>
+    <div class="post-meta">
+      
+        <time class="post-date">
+          12/05/2024
+        </time>
+
+        
+          
+        
+      
+
+      
+
+
+      
+        <span class="post-read-time"
+          >— 3 min de lecture</span
+        >
+      
+    </div>
+
+    
+      <span class="post-tags">
+        
+          <a href="https://www.jeremky.fr/tags/linux/">#linux</a>&nbsp;
+        
+      </span>
+    
+
+    
+      <figure class="post-cover">
+  
+    <img src="https://www.jeremky.fr/img/posts/script-de-configuration-pour-debian/cover.webp" alt="Script de configuration pour Debian" width="700" />
+  
+
+  
+</figure>
+
+    
+
+    <div class="post-content">
+      
+        
+        <h2>Sommaire</h2>
+        <aside class="table-of-contents"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#prérequis">Prérequis</a></li>
+    <li><a href="#les-packages-proposés">Les packages proposés</a></li>
+    <li><a href="#les-configurations-automatisées">Les configurations automatisées</a></li>
+  </ul>
+</nav></aside>
+        
+      
+      <p>Afin de gagner un max de temps sur mes réinstallations de Debian, je me suis écrit un petit script qui installe les différents packages dont j&rsquo;ai besoin et configure quelques éléments du système.</p>
+<p>Vous pouvez récupérer le script en cliquant sur <a href="https://github.com/jeremky/aptinstall.sh/archive/refs/heads/main.zip">ce lien</a>.</p>
+<h2 id="prérequis">
+  Prérequis
+  <a href="#pr%c3%a9requis" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p>Une fois le script sur votre machine, vous devez tout d&rsquo;abord modifier le fichier de configuration <em>aptinstall.cfg</em>. Il y a 2 éléments à modifier :</p>
+<ul>
+<li>Le nom de votre utilisateur. Cela est nécessaire pour la modification du serveur ssh de la machine, afin de limiter sshd à n&rsquo;accepter que les connexions de l&rsquo;utilisateur spécifié</li>
+<li>Les protocoles à autoriser à ufw. Ufw est un firewall très facile à utiliser. Vous pouvez lui indiquer un port à ouvrir, ou directement le nom d&rsquo;un service, pour les plus connus. Dans le fichier fourni, vous avez déjà ssh en exemple, mais vous pouvez ajouter d’autres services, comme samba (séparez les services par des espaces). A noter une chose, il n&rsquo;est pas nécessaire d&rsquo;autoriser les ports utilisés par vos applications Docker, ufw les laisse passer</li>
+</ul>
+<p>Une fois le fichier de configuration modifié, vous pouvez éditer le fichier <em>aptinstall.lst</em>. Ce fichier contient la liste des packages qui seront installés lors du lancement du script. Vous pouvez ajouter les votre, et commenter ou non ceux qui vous intéressent.</p>
+<h2 id="les-packages-proposés">
+  Les packages proposés
+  <a href="#les-packages-propos%c3%a9s" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Package</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>apache2-utils</td>
+          <td>utilisé pour générer des fichiers .htpasswd</td>
+      </tr>
+      <tr>
+          <td>certbot</td>
+          <td>permet de générer des certificats auto-signés</td>
+      </tr>
+      <tr>
+          <td>colordiff</td>
+          <td>comme la commande diff, mais en couleur</td>
+      </tr>
+      <tr>
+          <td>cron</td>
+          <td>planifacteur de tâches, pas toujours installé</td>
+      </tr>
+      <tr>
+          <td>curl</td>
+          <td>outil de transfert web</td>
+      </tr>
+      <tr>
+          <td>docker.io</td>
+          <td>docker, celui fourni par Debian</td>
+      </tr>
+      <tr>
+          <td>docker-compose</td>
+          <td>pas encore intégré au docker de base</td>
+      </tr>
+      <tr>
+          <td>duf</td>
+          <td>comme df, mais en plus joli</td>
+      </tr>
+      <tr>
+          <td>fail2ban</td>
+          <td>banni automatiquement les IP insistantes (écoute ssh par défaut)</td>
+      </tr>
+      <tr>
+          <td>htop</td>
+          <td>comme top, mais en mieux</td>
+      </tr>
+      <tr>
+          <td>lftp</td>
+          <td>un client ftp/sftp performant</td>
+      </tr>
+      <tr>
+          <td>lm-sensors</td>
+          <td>un addon de htop, pour obtenir certaines infos supplémentaires</td>
+      </tr>
+      <tr>
+          <td>localepurge</td>
+          <td>pour supprimer les fichiers de langue inutiles de votre système</td>
+      </tr>
+      <tr>
+          <td>mlocate</td>
+          <td>la commande locate, un find amélioré</td>
+      </tr>
+      <tr>
+          <td>ncdu</td>
+          <td>comme Treesize sous Windows</td>
+      </tr>
+      <tr>
+          <td>net-tools</td>
+          <td>les commandes &ldquo;de base&rdquo; pour le réseau</td>
+      </tr>
+      <tr>
+          <td>p7zip</td>
+          <td>pour dézipper du 7zip si nécessaire</td>
+      </tr>
+      <tr>
+          <td>ripgrep</td>
+          <td>comme grep, mais en couleur et récursif</td>
+      </tr>
+      <tr>
+          <td>rsync</td>
+          <td>pour effectuer de la synchro de dossiers</td>
+      </tr>
+      <tr>
+          <td>samba</td>
+          <td>serveur de partage Windows</td>
+      </tr>
+      <tr>
+          <td>sshfs</td>
+          <td>permet de monter directement en file system des connexions ssh</td>
+      </tr>
+      <tr>
+          <td>sudo</td>
+          <td>gestionnaire de droits, pas toujours installé</td>
+      </tr>
+      <tr>
+          <td>sysstat</td>
+          <td>les commandes &ldquo;de base&rdquo; pour du diagnostic système</td>
+      </tr>
+      <tr>
+          <td>tree</td>
+          <td>affiche les sous-dossiers et fichiers en récursif</td>
+      </tr>
+      <tr>
+          <td>ufw</td>
+          <td>petit firewall simple d&rsquo;utilisation</td>
+      </tr>
+      <tr>
+          <td>unzip</td>
+          <td>pour décompresser du fichier zip</td>
+      </tr>
+      <tr>
+          <td>unattended-upgrades</td>
+          <td>permet d&rsquo;installer automatiquement les mises à jour</td>
+      </tr>
+      <tr>
+          <td>vim</td>
+          <td>éditeur de fichiers Vi mais en amélioré</td>
+      </tr>
+      <tr>
+          <td>vim-youcompleteme</td>
+          <td>une extension à Vim pour faire de l&rsquo;autocomplétion</td>
+      </tr>
+      <tr>
+          <td>youtube-dl</td>
+          <td>pour télécharger des vidéos Youtube en ligne de commande</td>
+      </tr>
+      <tr>
+          <td>zip</td>
+          <td>pour compresser du fichier zip</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="les-configurations-automatisées">
+  Les configurations automatisées
+  <a href="#les-configurations-automatis%c3%a9es" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p>Une fois les packages installés, le script se chargera ensuite d&rsquo;effectuer quelques opérations :</p>
+<ul>
+<li>Lancer la commande <code>updatedb</code> pour activer le fonctionnement de la commande <code>locate</code> (si installée)</li>
+<li>Lancer la configuration de <code>unattended-upgrades</code> (si installé). Il vous sera nécessaire de répondre à quelques questions pour sa mise en place</li>
+<li>Sécuriser le serveur SSH. Sans rentrer dans les détails, des paramètres y sont ajoutés afin de ne pas utiliser des éléments jugés peu sécurisés</li>
+<li>Activer le firewall UFW (si installé). Veillez donc à bien laisser le protocole ssh dans le fichier de configuration afin de ne pas perdre votre connexion&hellip;</li>
+</ul>
+<p>Différentes questions vous seront posées lors de l’exécution du script, certaines étapes n’étant pas complètement automatisable.</p>
+<p>Un dernier point au sujet de SSH : j&rsquo;ai volontairement laissé l&rsquo;autorisation de connexion par mot de passe. Toutefois, il est préférable d&rsquo;utiliser des connexions par échange de clés ssh. Ce sera le sujet du prochain article.</p>
+
+    </div>
+    
+      
+        <div class="pagination">
+          <div class="pagination__title">
+            <span class="pagination__title-h"
+              >Autres posts</span
+            >
+            <hr />
+          </div>
+          <div class="pagination__buttons">
+            
+              <span class="button previous">
+                <a href="https://www.jeremky.fr/posts/securisation-de-vos-connexions-ssh/">
+                  <span class="button__icon">←</span>
+                  <span class="button__text">Sécurisation de vos connexions SSH</span>
+                </a>
+              </span>
+            
+            
+              <span class="button next">
+                <a href="https://www.jeremky.fr/posts/installation-et-configuration-dun-raspberry-pi/">
+                  <span class="button__text">Installation et configuration d&#39;un Raspberry Pi</span>
+                  <span class="button__icon">→</span>
+                </a>
+              </span>
+            
+          </div>
+        </div>
+      
+    
+
+    
+      
+        
+
+      
+    
+  </article>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >JEREMKY.FR</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+      <div class="copyright">
+          <div class="copyright">
+        <span>© 2025 Propulsé par <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span>
+      </div>
+    
+  </div>
+</footer>
+
+
+
+
+
+<script type="text/javascript" src="/bundle.min.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>

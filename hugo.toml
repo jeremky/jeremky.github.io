@@ -1,0 +1,74 @@
+baseurl = "https://www.jeremky.fr"
+languageCode = "fr"
+defaultContentLanguage = "fr"
+pagination.pagerSize = 10
+enableEmoji = true
+
+# iFrame
+[markup.goldmark.renderer]
+  unsafe = false
+
+[params]
+  # OgImage
+  #images = ["https://www.jeremky.fr/img/apple-touch-icon-144-precomposed.png"]
+  # dir name of your blog content
+  contentTypeName = "posts"
+
+  # OS theme is default when not provided, but you can force it to "light" or "dark"
+  # defaultTheme = "dark"
+
+  # if you set this to 0, only submenu trigger will be visible
+  showMenuItems = 4 
+
+  # Show reading time in minutes for posts
+  showReadingTime = true
+
+  # Show full page content in RSS feed items
+  rssFullText = false
+  rssImage = "https://www.jeremky.fr/img/favicon.png"
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+
+[services]
+  [services.disqus]
+    shortname = "jeremky"
+
+[languages]
+  [languages.fr.params]
+    title = "JeremKy.fr"
+    #subtitle = "Services en auto-hébergement"
+    keywords = ""
+    copyright = ""
+    menuMore = "Menu"
+    writtenBy = "Ecrit par"
+    readMore = "Lire le post"
+    readOtherPosts = "Autres posts"
+    newerPosts = "Posts récents"
+    olderPosts = "Anciens posts"
+    minuteReadingTime = "min de lecture"
+    dateFormatSingle = "02/01/2006"
+    dateFormatList = "02/01/2006"
+
+    [languages.fr.params.logo]
+      logoText = "JEREMKY.FR"
+      logoHomeLink = "/"
+
+    [languages.fr.menu]
+      [[languages.fr.menu.main]]
+        identifier = "apropos"
+        name = "A propos"
+        url = "/apropos"
+      [[languages.fr.menu.main]]
+        identifier = "archives"
+        name = "Archives"
+        url = "/archives"
+      [[languages.fr.menu.main]]
+        identifier = "tutos"
+        name = "Tutos"
+        url = "/categories/tutos"
+      [[languages.fr.menu.main]]
+        identifier = "news"
+        name = "News"
+        url = "/categories/news"

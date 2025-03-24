@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Reseau on JeremKy.fr</title>
+    
+    <image>
+      <url>https://www.jeremky.fr/tags/reseau/https://www.jeremky.fr/img/favicon.png</url>
+      <title>Reseau on JeremKy.fr</title>
+      <link>https://www.jeremky.fr/tags/reseau/</link>
+    </image>
+    
+    
+    <link>https://www.jeremky.fr/tags/reseau/</link>
+    <description>Recent content in Reseau on JeremKy.fr</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr</language>
+    <lastBuildDate>Sun, 17 Nov 2024 15:32:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.jeremky.fr/tags/reseau/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Wireguard Easy : Simplifiez la gestion de Wireguard</title>
+      <link>https://www.jeremky.fr/posts/wireguard-easy-simplifiez-la-gestion-de-vos-vpn-wireguard/</link>
+      <pubDate>Sun, 17 Nov 2024 15:32:00 +0000</pubDate>
+      
+      <guid>https://www.jeremky.fr/posts/wireguard-easy-simplifiez-la-gestion-de-vos-vpn-wireguard/</guid>
+      <description>
+        
+          &lt;img src=&#34;https://www.jeremky.fr/img/posts/wireguard-easy-simplifiez-la-gestion-de-wireguard/cover.webp&#34;/&gt;
+          
+        
+        
+        
+          &lt;p&gt;Comme vu dans &lt;a href=&#34;https://www.jeremky.fr/posts/mise-en-place-dun-vpn-avec-wireguard/&#34;&gt;cet article&lt;/a&gt;, &lt;a href=&#34;https://www.wireguard.com/&#34;&gt;Wireguard&lt;/a&gt; est un VPN très performant et facile à mettre en place, mais son administration via des fichiers de configuration peut paraître assez compliquée. C&amp;rsquo;est là qu&amp;rsquo;intervient Wiregard Easy.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/wg-easy/wg-easy&#34;&gt;Wireguard Easy&lt;/a&gt; est une interface graphique légère et open source conçue pour simplifier la gestion de WireGuard. Elle permet de gérer facilement les pairs (clients), de visualiser l&amp;rsquo;état des connexions, ainsi que la volumétrie de données transitant en temps réel. Il est également possible d&amp;rsquo;exporter facilement la configuration en cas de réinstallation ultérieure.&lt;/p&gt;
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Mise en place d&#39;un VPN avec Wireguard</title>
+      <link>https://www.jeremky.fr/posts/mise-en-place-dun-vpn-avec-wireguard/</link>
+      <pubDate>Sun, 23 Jun 2024 17:26:52 +0000</pubDate>
+      
+      <guid>https://www.jeremky.fr/posts/mise-en-place-dun-vpn-avec-wireguard/</guid>
+      <description>
+        
+          &lt;img src=&#34;https://www.jeremky.fr/img/posts/mise-en-place-dun-vpn-avec-wireguard/cover.webp&#34;/&gt;
+          
+        
+        
+        
+          &lt;p&gt;Je ne vous présente pas ce qu&amp;rsquo;est un VPN, &lt;a href=&#34;https://fr.wikipedia.org/wiki/R%C3%A9seau_priv%C3%A9_virtuel&#34;&gt;Wikipedia&lt;/a&gt; fait ça très bien. Il existe plusieurs solutions pour héberger un VPN chez soi, le plus connu étant OpenVPN. Mais un petit nouveau a fait son apparition depuis quelques années. Il s&amp;rsquo;agit de &lt;a href=&#34;https://fr.wikipedia.org/wiki/WireGuard&#34;&gt;Wireguard&lt;/a&gt;. Ce dernier offre des performances dingues, que ce soit au niveau de la consommation des ressources ou des capacités de transfert.&lt;/p&gt;
+&lt;h2 id=&#34;installation-du-serveur&#34;&gt;
+  Installation du serveur
+  &lt;a href=&#34;#installation-du-serveur&#34; class=&#34;h-anchor&#34; aria-hidden=&#34;true&#34;&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;Encore et toujours, je vous mets à disposition les fichiers compose que j&amp;rsquo;utilise. L&amp;rsquo;image utilisée est fournie par &lt;a href=&#34;https://www.linuxserver.io/&#34;&gt;Linuxserver.io&lt;/a&gt;.&lt;/p&gt;
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>ddclient : synchroniser un domaine à son IP automatiquement</title>
+      <link>https://www.jeremky.fr/posts/ddclient-synchroniser-un-domaine-a-son-ip-automatiquement/</link>
+      <pubDate>Sat, 22 Jun 2024 17:25:42 +0000</pubDate>
+      
+      <guid>https://www.jeremky.fr/posts/ddclient-synchroniser-un-domaine-a-son-ip-automatiquement/</guid>
+      <description>
+        
+          &lt;img src=&#34;https://www.jeremky.fr/img/posts/ddclient-synchroniser-un-domaine-a-son-ip-automatiquement/cover.webp&#34;/&gt;
+          
+        
+        
+        
+          &lt;p&gt;Lorsque vous hébergez un serveur à votre domicile, il est possible que vous soyez confronté à un problème : votre fournisseur d&amp;rsquo;accès ne vous attribue pas une IP publique fixe.
+L&amp;rsquo;idée de cet article est donc de vous proposer une solution efficace pour obtenir gratuitement un nom de domaine, qui sera mis à jour automatiquement lorsque l&amp;rsquo;IP de votre box changera.&lt;/p&gt;
+&lt;h2 id=&#34;création-dun-compte-chez-dynucom&#34;&gt;
+  Création d&amp;rsquo;un compte chez Dynu.com
+  &lt;a href=&#34;#cr%c3%a9ation-dun-compte-chez-dynucom&#34; class=&#34;h-anchor&#34; aria-hidden=&#34;true&#34;&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;Il existe plusieurs fournisseurs de nom de domaine dynamique. Toutefois, je recommande &lt;a href=&#34;https://www.dynu.com/fr-FR/&#34;&gt;Dynu&lt;/a&gt;, qui propose une solution gratuite, et surtout qui ne nécessite pas de confirmer que l&amp;rsquo;on existe toujours tous les mois&amp;hellip;
+Vous créez votre compte, et vous allez dans &lt;em&gt;DDNS Services&lt;/em&gt;. Vous cliquez ensuite sur le bouton &lt;em&gt;Ajouter&lt;/em&gt; :&lt;/p&gt;
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Mise en place d&#39;un service de test de débit</title>
+      <link>https://www.jeremky.fr/posts/mise-en-place-dun-service-de-test-de-debit/</link>
+      <pubDate>Wed, 29 May 2024 17:18:37 +0000</pubDate>
+      
+      <guid>https://www.jeremky.fr/posts/mise-en-place-dun-service-de-test-de-debit/</guid>
+      <description>
+        
+          &lt;img src=&#34;https://www.jeremky.fr/img/posts/mise-en-place-dun-service-de-test-de-debit/cover.webp&#34;/&gt;
+          
+        
+        
+        
+          &lt;p&gt;Il arrive régulièrement d&amp;rsquo;être amené à devoir tester son débit Internet. Malheureusement, on passe généralement par une application ou un site web, bourré de pubs et de télémétrie dans tous les sens. L&amp;rsquo;idée est donc de vous proposer ce simple service pour tester votre débit. Pas de fioriture, on va à l&amp;rsquo;essentiel. Son nom : &lt;a href=&#34;https://github.com/librespeed/speedtest?tab=readme-ov-file&#34;&gt;Librespeed&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Le service n&amp;rsquo;est plus accessible sur ce serveur. L&amp;rsquo;adresse officielle : &lt;a href=&#34;https://librespeed.org/&#34;&gt;https://librespeed.org/&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;son-fonctionnement&#34;&gt;
+  Son fonctionnement
+  &lt;a href=&#34;#son-fonctionnement&#34; class=&#34;h-anchor&#34; aria-hidden=&#34;true&#34;&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;Comme la plupart des services de test de débit, Librespeed va choisir pour vous le meilleur serveur distant en fonction de votre opérateur et de votre position géographique.&lt;/p&gt;
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Filtrage des requêtes DNS</title>
+      <link>https://www.jeremky.fr/posts/filtrage-des-requetes-dns/</link>
+      <pubDate>Sat, 30 Dec 2023 17:10:13 +0000</pubDate>
+      
+      <guid>https://www.jeremky.fr/posts/filtrage-des-requetes-dns/</guid>
+      <description>
+        
+          &lt;img src=&#34;https://www.jeremky.fr/img/posts/filtrage-des-requetes-dns/cover.webp&#34;/&gt;
+          
+        
+        
+        
+          &lt;p&gt;Utiliser un Adblock directement dans son navigateur rend la navigation plus agréable&amp;hellip; Mais on peut aller encore plus loin : bloquer les publicités directement au niveau des requêtes DNS, non seulement dans le navigateur, mais également sur tout le système d&amp;rsquo;exploitation. Il existe plusieurs solutions pour faire cela, mais je vais en présenter deux : Adguard et NextDNS.&lt;/p&gt;
+&lt;h2 id=&#34;adguard-dns-et-adguard-home&#34;&gt;
+  Adguard DNS et Adguard Home
+  &lt;a href=&#34;#adguard-dns-et-adguard-home&#34; class=&#34;h-anchor&#34; aria-hidden=&#34;true&#34;&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://adguard.com/fr/welcome.html&#34;&gt;Adguard&lt;/a&gt; existe sous la forme d&amp;rsquo;un bloqueur de pubs traditionnel, mais propose également des solutions de blocage DNS.&lt;/p&gt;
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Reverse Proxy NGINX</title>
+      <link>https://www.jeremky.fr/posts/reverse-proxy-nginx/</link>
+      <pubDate>Mon, 04 Sep 2023 17:06:51 +0000</pubDate>
+      
+      <guid>https://www.jeremky.fr/posts/reverse-proxy-nginx/</guid>
+      <description>
+        
+          &lt;img src=&#34;https://www.jeremky.fr/img/posts/reverse-proxy-nginx/cover.webp&#34;/&gt;
+          
+        
+        
+        
+          &lt;p&gt;Sur &lt;a href=&#34;https://fr.wikipedia.org/wiki/Proxy_inverse&#34;&gt;Wikipedia&lt;/a&gt;, il est dit qu&amp;rsquo;&lt;em&gt;un proxy inverse (reverse proxy) ou serveur mandataire inverse est un type de serveur, habituellement placé en frontal de serveurs web. Contrairement au serveur proxy qui permet à un utilisateur d&amp;rsquo;accéder au réseau Internet, le proxy inverse permet à un utilisateur d&amp;rsquo;Internet d&amp;rsquo;accéder à des serveurs internes.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;L&amp;rsquo;intérêt dans notre cas, est de pouvoir disposer de différentes applications Web conteneurisées, et de n&amp;rsquo;avoir qu&amp;rsquo;un seul accès Web en front. De plus, la mise en place d&amp;rsquo;un reverse proxy offre également ces avantages :&lt;/p&gt;
+          
+        
+        </description>
+    </item>
+    
+  </channel>
+</rss>

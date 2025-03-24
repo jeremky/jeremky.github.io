@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    
+      <title>
+        Visual Studio Code dans son navigateur ::
+        JeremKy.fr
+      </title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta
+  name="description"
+  content="D&rsquo;après Wikipedia,Visual Studio Code est un éditeur de code extensible développé par Microsoft pour Windows, Linux et macOS.Les fonctionnalités incluent la prise en charge du débogage, la mise en évidence de la syntaxe, la complétion intelligente du code (IntelliSense.), les snippets, la refactorisation du code et Git intégré. Les utilisateurs peuvent modifier le thème, les raccourcis clavier, les préférences et installer des extensions qui ajoutent des fonctionnalités supplémentaires.
+Appelé code-server, cette version est utilisable directement depuis un navigateur. L&rsquo;intérêt ici est d&rsquo;avoir une instance VS Code déportée de sa machine principale, afin de pouvoir y accéder de n&rsquo;importe où. A noter que cette solution n&rsquo;est pas multi utilisateur.
+"
+/>
+<meta
+  name="keywords"
+  content=""
+/>
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://www.jeremky.fr/posts/visual-studio-code-dans-son-navigateur/" />
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/style.css" />
+
+<link rel="stylesheet" href="https://www.jeremky.fr/style.css" />
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://www.jeremky.fr/img/apple-touch-icon-144-precomposed.png" />
+<link rel="shortcut icon" href="https://www.jeremky.fr/img/favicon.png" />
+
+
+<link href="/fonts/Inter-Italic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/fonts/Inter-Regular.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/fonts/Inter-Medium.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/fonts/Inter-MediumItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/fonts/Inter-Bold.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/fonts/Inter-BoldItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Visual Studio Code dans son navigateur">
+  <meta name="twitter:description" content="D’après Wikipedia,Visual Studio Code est un éditeur de code extensible développé par Microsoft pour Windows, Linux et macOS.Les fonctionnalités incluent la prise en charge du débogage, la mise en évidence de la syntaxe, la complétion intelligente du code (IntelliSense.), les snippets, la refactorisation du code et Git intégré. Les utilisateurs peuvent modifier le thème, les raccourcis clavier, les préférences et installer des extensions qui ajoutent des fonctionnalités supplémentaires.
+Appelé code-server, cette version est utilisable directement depuis un navigateur. L’intérêt ici est d’avoir une instance VS Code déportée de sa machine principale, afin de pouvoir y accéder de n’importe où. A noter que cette solution n’est pas multi utilisateur.">
+
+
+
+<meta property="og:url" content="https://www.jeremky.fr/posts/visual-studio-code-dans-son-navigateur/">
+  <meta property="og:site_name" content="JeremKy.fr">
+  <meta property="og:title" content="Visual Studio Code dans son navigateur">
+  <meta property="og:description" content="D’après Wikipedia,Visual Studio Code est un éditeur de code extensible développé par Microsoft pour Windows, Linux et macOS.Les fonctionnalités incluent la prise en charge du débogage, la mise en évidence de la syntaxe, la complétion intelligente du code (IntelliSense.), les snippets, la refactorisation du code et Git intégré. Les utilisateurs peuvent modifier le thème, les raccourcis clavier, les préférences et installer des extensions qui ajoutent des fonctionnalités supplémentaires.
+Appelé code-server, cette version est utilisable directement depuis un navigateur. L’intérêt ici est d’avoir une instance VS Code déportée de sa machine principale, afin de pouvoir y accéder de n’importe où. A noter que cette solution n’est pas multi utilisateur.">
+  <meta property="og:locale" content="fr">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-10-26T13:22:59+00:00">
+    <meta property="article:modified_time" content="2024-10-26T13:22:59+00:00">
+    <meta property="article:tag" content="Docker">
+    <meta property="article:tag" content="Podman">
+
+
+
+
+
+
+  </head>
+  <body >
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >JEREMKY.FR</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/apropos">A propos</a></li>
+        
+      
+        
+          <li><a href="/archives">Archives</a></li>
+        
+      
+        
+          <li><a href="/categories/news">News</a></li>
+        
+      
+        
+          <li><a href="/categories/tutos">Tutos</a></li>
+        
+      
+      
+      
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/apropos">A propos</a></li>
+      
+    
+      
+        <li><a href="/archives">Archives</a></li>
+      
+    
+      
+        <li><a href="/categories/news">News</a></li>
+      
+    
+      
+        <li><a href="/categories/tutos">Tutos</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg
+  class="theme-toggler"
+  width="24"
+  height="24"
+  viewBox="0 0 48 48"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"
+  />
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  
+  
+
+  <article class="post">
+    <h1 class="post-title">Visual Studio Code dans son navigateur</h1>
+    <div class="post-meta">
+      
+        <time class="post-date">
+          26/10/2024
+        </time>
+
+        
+          
+        
+      
+
+      
+
+
+      
+        <span class="post-read-time"
+          >— 4 min de lecture</span
+        >
+      
+    </div>
+
+    
+      <span class="post-tags">
+        
+          <a href="https://www.jeremky.fr/tags/docker/">#docker</a>&nbsp;
+        
+          <a href="https://www.jeremky.fr/tags/podman/">#podman</a>&nbsp;
+        
+      </span>
+    
+
+    
+      <figure class="post-cover">
+  
+    <img src="https://www.jeremky.fr/img/posts/visual-studio-code-dans-son-navigateur/cover.webp" alt="Visual Studio Code dans son navigateur" width="700" />
+  
+
+  
+</figure>
+
+    
+
+    <div class="post-content">
+      
+        
+        <h2>Sommaire</h2>
+        <aside class="table-of-contents"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#installation">Installation</a>
+      <ul>
+        <li><a href="#reverse-proxy">Reverse proxy</a></li>
+      </ul>
+    </li>
+    <li><a href="#sécurisation-par-fichier-htpasswd">Sécurisation par fichier htpasswd</a></li>
+    <li><a href="#passer-lapplication-en-français">Passer l&rsquo;application en français</a></li>
+    <li><a href="#utilisation-de-git">Utilisation de git</a></li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ul>
+</nav></aside>
+        
+      
+      <p>D&rsquo;après <a href="https://fr.wikipedia.org/wiki/Visual_Studio_Code">Wikipedia</a>,<em>Visual Studio Code est un éditeur de code extensible développé par Microsoft pour Windows, Linux et macOS.Les fonctionnalités incluent la prise en charge du débogage, la mise en évidence de la syntaxe, la complétion intelligente du code (IntelliSense.), les snippets, la refactorisation du code et Git intégré. Les utilisateurs peuvent modifier le thème, les raccourcis clavier, les préférences et installer des extensions qui ajoutent des fonctionnalités supplémentaires.</em></p>
+<p>Appelé code-server, cette version est utilisable directement depuis un navigateur. L&rsquo;intérêt ici est d&rsquo;avoir une instance VS Code déportée de sa machine principale, afin de pouvoir y accéder de n&rsquo;importe où. A noter que cette solution n&rsquo;est pas multi utilisateur.</p>
+<h2 id="installation">
+  Installation
+  <a href="#installation" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p>Pour installer VS Code, voici les fichiers Docker/Podman nécessaires :</p>
+<p>Le fichier <code>docker-compose.yml</code> :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#f92672">services</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">code-server</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">lscr.io/linuxserver/code-server:latest</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">code-server</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">hostname</span>: <span style="color:#ae81ff">code-server</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">env_file</span>: <span style="color:#ae81ff">code-server.env</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">networks</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">nginx_proxy</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">/opt/code-server:/config</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">/opt/code-server/workspace:/config/workspace</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">networks</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">nginx_proxy</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">external</span>: <span style="color:#66d9ef">true</span>
+</span></span></code></pre></div><p>Et le fichier <code>code-server.env</code> associé :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>PUID=1000
+</span></span><span style="display:flex;"><span>PGID=1000
+</span></span><span style="display:flex;"><span>TZ=Europe/Paris
+</span></span><span style="display:flex;"><span>PASSWORD=
+</span></span><span style="display:flex;"><span>PROXY_DOMAIN=
+</span></span><span style="display:flex;"><span>DEFAULT_WORKSPACE=/config/workspace
+</span></span></code></pre></div><blockquote>
+<p>Pensez à adapter les volumes partagés dans le fichier <code>docker-compose.yml</code> et les variables du fichier <code>code-server.env</code> selon votre convenance</p></blockquote>
+<h3 id="reverse-proxy">
+  Reverse proxy
+  <a href="#reverse-proxy" class="h-anchor" aria-hidden="true">#</a>
+</h3>
+<p>Les fichiers de configuration ci-dessus sont prévus pour être utilisé avec un reverse proxy.</p>
+<blockquote>
+<p>Pour rappel, un article dédié est <a href="/posts/reverse-proxy-nginx/">disponible ici</a>.</p></blockquote>
+<p>L&rsquo;image Docker de <a href="https://docs.linuxserver.io/general/swag/">Linuxserver.io</a> propose un fichier sample de configuration, il vous suffit juste de modifier votre nom de domaine en conséquence :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo cp /opt/nginx/nginx/proxy-confs/code-server.subdomain.conf.sample /opt/nginx/nginx/proxy-confs/code-server.subdomain.conf
+</span></span><span style="display:flex;"><span>sudo sed -i <span style="color:#e6db74">&#34;s,server_name code-server,server_name &lt;votre_sous_domaine&gt;,g&#34;</span> /opt/nginx/nginx/proxy-confs/code-server.subdomain.conf
+</span></span></code></pre></div><p>Et enfin, un petit redémarrage pour la prise en compte du nouveau fichier :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo docker restart nginx
+</span></span></code></pre></div><p>La configuration proposée par le proxy apporte une fonctionnalité vraiment chouette : si vous démarrez un serveur web via votre instance VS Code, et que vous avez configuré la variable <code>PROXY_DOMAIN</code>, VS Code va automatiquement réacheminer vos ports d&rsquo;écoute vers un sous domaine.</p>
+<p>Pour mon utilisation avec le CMS Hugo, j&rsquo;ai maintenant une url en <code>https://1313.mondomaine.com</code> (notez que le ssl s&rsquo;active malgré un serveur de développement en http).</p>
+<h2 id="sécurisation-par-fichier-htpasswd">
+  Sécurisation par fichier htpasswd
+  <a href="#s%c3%a9curisation-par-fichier-htpasswd" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p>L&rsquo;image de <a href="https://docs.linuxserver.io/images/docker-code-server/">linuxserver.io</a> offre la possibilité de sécuriser l&rsquo;accès à VS Code via une authentification par mot de passe (voir fichier <code>code-server.env</code>). Personnellement, ayant plusieurs applications à sécuriser, j&rsquo;ai préféré opter pour une authentification par fichier .<code>htpasswd</code>, afin de centraliser la gestion des mots de passe directement dans la configuration du <a href="/posts/reverse-proxy-nginx/">reverse proxy</a>.</p>
+<p>Pour créer votre fichier <code>.htpasswd</code>, utilisez les commandes suivantes :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo htpasswd -c /opt/nginx/nginx/.htpasswd &lt;votre user&gt;
+</span></span><span style="display:flex;"><span>sudo chown 1000:1000: /opt/nginx/nginx/.htpasswd
+</span></span></code></pre></div><blockquote>
+<p>Je considère que vous avez suivi le tuto pour la mise en place du reverse proxy, le chemin et le user peuvent être différents selon votre configuration.</p></blockquote>
+<p>Une fois votre fichier <code>.htpasswd</code> créé, vous devez l&rsquo;activer sur votre proxy. Pour cela, modifiez le fichier <code>/opt/nginx/nginx/proxy-confs/code-server.subdomain.conf</code> et décommentez les lignes suivantes :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>auth_basic &#34;Restricted&#34;;
+</span></span><span style="display:flex;"><span>auth_basic_user_file /config/nginx/.htpasswd;
+</span></span></code></pre></div><p>Suivi d&rsquo;un redémarrage du proxy pour prise en compte :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo docker container restart nginx
+</span></span></code></pre></div><h2 id="passer-lapplication-en-français">
+  Passer l&rsquo;application en français
+  <a href="#passer-lapplication-en-fran%c3%a7ais" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p>La langue française n&rsquo;est pas installée par défaut sur cette instance VS Code. Pour régler cela, Il suffit d&rsquo;installer l&rsquo;extension <code>French Language Pack for Visual Studio Code</code>. Vous pourrez appliquer directement l&rsquo;extension  et relancer l&rsquo;application pour appliquer le pack de langue.</p>
+<p>Profitez-en pour installer l&rsquo;extension <code>French - Code Spell Checker</code> afin d&rsquo;avoir la vérification syntaxique.</p>
+
+  <img src="/img/posts/visual-studio-code-dans-son-navigateur/lang.webp"  class="center"  style="border-radius: 8px;"  />
+
+
+<h2 id="utilisation-de-git">
+  Utilisation de git
+  <a href="#utilisation-de-git" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p>Si vous avez besoin d&rsquo;utiliser git dans votre instance VS Code, une configuration est à effectuer dans les répertoires du conteneur. Si vous avez conservé le chemin <code>/opt/code-server</code>, créez y un fichier <code>.gitconfig</code> avec vos informations d&rsquo;utilisateur :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>[user]
+</span></span><span style="display:flex;"><span>    name = foobar
+</span></span><span style="display:flex;"><span>    email = foo@bar.com
+</span></span></code></pre></div><p>Créez ensuite un dossier <code>.ssh</code>, et dans ce dossier, créez un fichier <code>config</code> avec le contenu suivant :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>Host github.com
+</span></span><span style="display:flex;"><span>  HostName github.com
+</span></span><span style="display:flex;"><span>  User git
+</span></span><span style="display:flex;"><span>  Port 22
+</span></span><span style="display:flex;"><span>  IdentityFile ~/.ssh/id_github
+</span></span></code></pre></div><p>Il vous reste à créer votre clé RSA, via la commande suivante :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh-keygen -t rsa -b <span style="color:#ae81ff">4096</span> -a <span style="color:#ae81ff">100</span>
+</span></span></code></pre></div><p>Lorsque c&rsquo;est demandé, spécifiez le nom <code>id_github</code> et déplacez le dans <code>/opt/code-server/.ssh</code>. Il faut maintenant vous connecter sur github, et ajouter votre clé publique dans <code>settings&gt;SSH and GPG keys</code>, en cliquant sur <code>New SSH key</code>.</p>
+<p>Dernière étape, lancez un terminal dans votre VS Code et lancer la commande <code>ssh github.com</code> pour initialiser votre 1ère connexion SSH. Vous pourrez maintenant synchroniser vos projets Github directement dans l&rsquo;application &#x1f60e;</p>
+<h2 id="conclusion">
+  Conclusion
+  <a href="#conclusion" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p>Cette solution me permet principalement de gérer les scripts et les fichiers de ce site web présents sur mon serveur de manière plus flexible, notamment avec la possibilité d&rsquo;effectuer des synchronisations avec Github. A cela s&rsquo;ajoute l&rsquo;utilisation de l&rsquo;extension Front Matter, me permettant d&rsquo;administrer ce site web de façon bien plus conviviale.</p>
+
+  <img src="/img/posts/visual-studio-code-dans-son-navigateur/frontmatter.webp"  class="center"  style="border-radius: 8px;"  />
+
+
+<p>Toutefois, Cette solution à son lot de limitations, comme par exemple un manque de packages intégrés dans l&rsquo;image, ce qui peut rendre le développement avec certains langages compliqué. Il est nécessaire de rebuild l&rsquo;image à chaque changement si on veut conserver les packages après mise à jour. J&rsquo;ai également constaté que certaines extensions n&rsquo;étaient pas compatibles avec la version web.</p>
+<p>Je recommande quand même de tester cette solution, l&rsquo;expérience pouvant varier selon vos besoins. Bon dev !</p>
+
+    </div>
+    
+      
+        <div class="pagination">
+          <div class="pagination__title">
+            <span class="pagination__title-h"
+              >Autres posts</span
+            >
+            <hr />
+          </div>
+          <div class="pagination__buttons">
+            
+              <span class="button previous">
+                <a href="https://www.jeremky.fr/posts/personnaliser-vos-images-docker/">
+                  <span class="button__icon">←</span>
+                  <span class="button__text">Personnaliser vos images Docker</span>
+                </a>
+              </span>
+            
+            
+              <span class="button next">
+                <a href="https://www.jeremky.fr/posts/portainer-administrer-vos-conteneurs-via-une-interface-web/">
+                  <span class="button__text">Portainer : Administrer vos conteneurs via une interface web</span>
+                  <span class="button__icon">→</span>
+                </a>
+              </span>
+            
+          </div>
+        </div>
+      
+    
+
+    
+      
+        
+
+      
+    
+  </article>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >JEREMKY.FR</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+      <div class="copyright">
+          <div class="copyright">
+        <span>© 2025 Propulsé par <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span>
+      </div>
+    
+  </div>
+</footer>
+
+
+
+
+
+<script type="text/javascript" src="/bundle.min.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>

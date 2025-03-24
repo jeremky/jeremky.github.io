@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Admin on JeremKy.fr</title>
+    
+    <image>
+      <url>https://www.jeremky.fr/tags/admin/https://www.jeremky.fr/img/favicon.png</url>
+      <title>Admin on JeremKy.fr</title>
+      <link>https://www.jeremky.fr/tags/admin/</link>
+    </image>
+    
+    
+    <link>https://www.jeremky.fr/tags/admin/</link>
+    <description>Recent content in Admin on JeremKy.fr</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr</language>
+    <lastBuildDate>Wed, 04 Dec 2024 09:09:15 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.jeremky.fr/tags/admin/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Surveillez vos applications avec Uptime Kuma</title>
+      <link>https://www.jeremky.fr/posts/surveillez-vos-applications-avec-uptime-kuma/</link>
+      <pubDate>Wed, 04 Dec 2024 09:09:15 +0000</pubDate>
+      
+      <guid>https://www.jeremky.fr/posts/surveillez-vos-applications-avec-uptime-kuma/</guid>
+      <description>
+        
+          &lt;img src=&#34;https://www.jeremky.fr/img/posts/surveillez-vos-applications-avec-uptime-kuma/cover.webp&#34;/&gt;
+          
+        
+        
+        
+          &lt;p&gt;&lt;a href=&#34;https://uptime.kuma.pet/&#34;&gt;Uptime Kuma&lt;/a&gt; est un outil de surveillance d’état en temps réel qui vous permet de vérifier la disponibilité de vos sites web, serveurs et services. Open-source et auto-hébergé, il dispose d&amp;rsquo;une interface moderne et intuitive.&lt;/p&gt;
+&lt;h2 id=&#34;installation&#34;&gt;
+  Installation
+  &lt;a href=&#34;#installation&#34; class=&#34;h-anchor&#34; aria-hidden=&#34;true&#34;&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;Encore et toujours, un fichier &lt;code&gt;docker-compose.yml&lt;/code&gt; :&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yml&#34; data-lang=&#34;yml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;services&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;uptime-kuma&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;image&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;docker.io/louislam/uptime-kuma:1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;container_name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;uptime-kuma&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;hostname&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;uptime-kuma&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;networks&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#ae81ff&#34;&gt;nginx_proxy&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;volumes&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#ae81ff&#34;&gt;/opt/uptime-kuma:/app/data&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#ae81ff&#34;&gt;/var/run/docker.sock:/var/run/docker.sock:ro&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;restart&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;always&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;networks&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;nginx_proxy&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;external&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Dans les volumes, se trouve le lien avec le fichier &lt;code&gt;docker.sock&lt;/code&gt;. Cela permet à Uptime Kuma de monitorer des conteneurs prenant en charge le status (Healthy). Si vous utilisez Podman, remplacez le bloc volumes par le suivant :&lt;/p&gt;
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Authelia : serveur d&#39;authentification Open Source</title>
+      <link>https://www.jeremky.fr/posts/authelia-serveur-dauthentification-open-source/</link>
+      <pubDate>Mon, 11 Nov 2024 23:34:44 +0000</pubDate>
+      
+      <guid>https://www.jeremky.fr/posts/authelia-serveur-dauthentification-open-source/</guid>
+      <description>
+        
+          &lt;img src=&#34;https://www.jeremky.fr/img/posts/authelia-serveur-dauthentification-open-source/cover.webp&#34;/&gt;
+          
+        
+        
+        
+          &lt;p&gt;D&amp;rsquo;après le &lt;a href=&#34;https://www.authelia.com/&#34;&gt;site officiel&lt;/a&gt;, &lt;em&gt;&amp;ldquo;Authelia est un serveur et un portail d&amp;rsquo;authentification open source remplissant le rôle de gestion des identités et des accès (IAM) en fournissant une authentification multifacteur et une authentification unique (SSO) pour vos applications via un portail Web. Il agit comme un compagnon pour les proxys inverses courants.&amp;rdquo;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Dans cet article, il sera présenté comment installer Authelia, et comment le connecter au reverse proxy nginx (voir &lt;a href=&#34;https://www.jeremky.fr/posts/reverse-proxy-nginx/&#34;&gt;cet article&lt;/a&gt; pour l&amp;rsquo;installation de nginx). A noter que cet article se concentre uniquement sur une configuration simple permettant de remplacer l&amp;rsquo;authentification par fichier &lt;code&gt;.htpasswd&lt;/code&gt; interne à nginx.&lt;/p&gt;
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Portainer : Administrer vos conteneurs via une interface web</title>
+      <link>https://www.jeremky.fr/posts/portainer-administrer-vos-conteneurs-via-une-interface-web/</link>
+      <pubDate>Sat, 19 Oct 2024 12:50:53 +0200</pubDate>
+      
+      <guid>https://www.jeremky.fr/posts/portainer-administrer-vos-conteneurs-via-une-interface-web/</guid>
+      <description>
+        
+          &lt;img src=&#34;https://www.jeremky.fr/img/posts/portainer-administrer-vos-conteneurs-via-une-interface-web/cover.webp&#34;/&gt;
+          
+        
+        
+        
+          &lt;p&gt;Afin d&amp;rsquo;optimiser la consommation des ressources d&amp;rsquo;un serveur, il est préférable de se passer d&amp;rsquo;interface graphique/web et d&amp;rsquo;administrer ses applications en ligne de commande. Toutefois, cela demande d&amp;rsquo;apprendre à connaître les commandes, les emplacements des fichiers de configuration&amp;hellip; Il est donc plus agréable de passer par une interface graphique.&lt;/p&gt;
+&lt;p&gt;Pour l&amp;rsquo;administration de conteneurs, il existe différentes applications web afin de rendre les choses moins austères. &lt;a href=&#34;https://www.portainer.io/&#34;&gt;Portainer&lt;/a&gt; est l&amp;rsquo;une de ces solutions.&lt;/p&gt;
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Watchtower : un conteneur pour les gouverner tous</title>
+      <link>https://www.jeremky.fr/posts/watchtower-un-conteneur-pour-les-gouverner-tous/</link>
+      <pubDate>Tue, 25 Jun 2024 17:28:32 +0000</pubDate>
+      
+      <guid>https://www.jeremky.fr/posts/watchtower-un-conteneur-pour-les-gouverner-tous/</guid>
+      <description>
+        
+          &lt;img src=&#34;https://www.jeremky.fr/img/posts/watchtower-un-conteneur-pour-les-gouverner-tous/cover.webp&#34;/&gt;
+          
+        
+        
+        
+          &lt;p&gt;Docker est un outil incroyable qui permet de déployer facilement tout un tas de solutions logicielles. Grâce à lui, pas besoin de vous soucier de l&amp;rsquo;OS, de sa version, et des risques d&amp;rsquo;une mauvaise installation à cause des différentes opérations manuelles à effectuer, le tout étant déjà préparé dans les images que vous déployez.&lt;/p&gt;
+&lt;p&gt;De plus, lorsque vous êtes amené à mettre vos applications à jour, vous pouviez être confronté à effectuer des opérations fastidieuses. Grâce à Docker, il suffit de récupérer la dernière version d’une image et le tour est joué.&lt;/p&gt;
+          
+        
+        </description>
+    </item>
+    
+  </channel>
+</rss>

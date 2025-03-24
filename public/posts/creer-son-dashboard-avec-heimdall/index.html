@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    
+      <title>
+        Créer son dashboard avec Heimdall ::
+        JeremKy.fr
+      </title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta
+  name="description"
+  content="Heimdall est une application web vous permettant d&rsquo;y configurer votre dashboard personnalisé.
+&ldquo;Heimdall⁠ est un moyen d&rsquo;organiser de manière simple les liens vers vos sites Web et applications Web les plus utilisés. La simplicité est la clé de Heimdall. Pourquoi ne pas l&rsquo;utiliser comme page de démarrage de votre navigateur ? Il a même la possibilité d&rsquo;inclure une barre de recherche utilisant Google, Bing ou DuckDuckGo.&rdquo;
+Vous pouvez y créer vos propres applications sous forme de lien web, mais il est parfois possible d&rsquo;avoir davantage d&rsquo;interactions, afin d&rsquo;y afficher des informations supplémentaires sous forme de widget.
+"
+/>
+<meta
+  name="keywords"
+  content=""
+/>
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://www.jeremky.fr/posts/creer-son-dashboard-avec-heimdall/" />
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/style.css" />
+
+<link rel="stylesheet" href="https://www.jeremky.fr/style.css" />
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://www.jeremky.fr/img/apple-touch-icon-144-precomposed.png" />
+<link rel="shortcut icon" href="https://www.jeremky.fr/img/favicon.png" />
+
+
+<link href="/fonts/Inter-Italic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/fonts/Inter-Regular.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/fonts/Inter-Medium.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/fonts/Inter-MediumItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/fonts/Inter-Bold.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/fonts/Inter-BoldItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Créer son dashboard avec Heimdall">
+  <meta name="twitter:description" content="Heimdall est une application web vous permettant d’y configurer votre dashboard personnalisé.
+“Heimdall⁠ est un moyen d’organiser de manière simple les liens vers vos sites Web et applications Web les plus utilisés. La simplicité est la clé de Heimdall. Pourquoi ne pas l’utiliser comme page de démarrage de votre navigateur ? Il a même la possibilité d’inclure une barre de recherche utilisant Google, Bing ou DuckDuckGo.”
+Vous pouvez y créer vos propres applications sous forme de lien web, mais il est parfois possible d’avoir davantage d’interactions, afin d’y afficher des informations supplémentaires sous forme de widget.">
+
+
+
+<meta property="og:url" content="https://www.jeremky.fr/posts/creer-son-dashboard-avec-heimdall/">
+  <meta property="og:site_name" content="JeremKy.fr">
+  <meta property="og:title" content="Créer son dashboard avec Heimdall">
+  <meta property="og:description" content="Heimdall est une application web vous permettant d’y configurer votre dashboard personnalisé.
+“Heimdall⁠ est un moyen d’organiser de manière simple les liens vers vos sites Web et applications Web les plus utilisés. La simplicité est la clé de Heimdall. Pourquoi ne pas l’utiliser comme page de démarrage de votre navigateur ? Il a même la possibilité d’inclure une barre de recherche utilisant Google, Bing ou DuckDuckGo.”
+Vous pouvez y créer vos propres applications sous forme de lien web, mais il est parfois possible d’avoir davantage d’interactions, afin d’y afficher des informations supplémentaires sous forme de widget.">
+  <meta property="og:locale" content="fr">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-07-25T20:40:43+02:00">
+    <meta property="article:modified_time" content="2024-07-25T20:40:43+02:00">
+    <meta property="article:tag" content="Docker">
+    <meta property="article:tag" content="Podman">
+
+
+
+
+
+
+  </head>
+  <body >
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >JEREMKY.FR</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/apropos">A propos</a></li>
+        
+      
+        
+          <li><a href="/archives">Archives</a></li>
+        
+      
+        
+          <li><a href="/categories/news">News</a></li>
+        
+      
+        
+          <li><a href="/categories/tutos">Tutos</a></li>
+        
+      
+      
+      
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/apropos">A propos</a></li>
+      
+    
+      
+        <li><a href="/archives">Archives</a></li>
+      
+    
+      
+        <li><a href="/categories/news">News</a></li>
+      
+    
+      
+        <li><a href="/categories/tutos">Tutos</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg
+  class="theme-toggler"
+  width="24"
+  height="24"
+  viewBox="0 0 48 48"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"
+  />
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  
+  
+
+  <article class="post">
+    <h1 class="post-title">Créer son dashboard avec Heimdall</h1>
+    <div class="post-meta">
+      
+        <time class="post-date">
+          25/07/2024
+        </time>
+
+        
+          
+        
+      
+
+      
+
+
+      
+        <span class="post-read-time"
+          >— 3 min de lecture</span
+        >
+      
+    </div>
+
+    
+      <span class="post-tags">
+        
+          <a href="https://www.jeremky.fr/tags/docker/">#docker</a>&nbsp;
+        
+          <a href="https://www.jeremky.fr/tags/podman/">#podman</a>&nbsp;
+        
+      </span>
+    
+
+    
+      <figure class="post-cover">
+  
+    <img src="https://www.jeremky.fr/img/posts/creer-son-dashboard-avec-heimdall/cover.webp" alt="Créer son dashboard avec Heimdall" width="700" />
+  
+
+  
+</figure>
+
+    
+
+    <div class="post-content">
+      
+        
+        <h2>Sommaire</h2>
+        <aside class="table-of-contents"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#installation">Installation</a>
+      <ul>
+        <li><a href="#reverse-proxy">Reverse proxy</a></li>
+      </ul>
+    </li>
+    <li><a href="#configuration">Configuration</a>
+      <ul>
+        <li><a href="#applications-web">Applications Web</a></li>
+        <li><a href="#applications-améliorées">Applications améliorées</a></li>
+      </ul>
+    </li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ul>
+</nav></aside>
+        
+      
+      <p><a href="https://heimdall.site/">Heimdall</a> est une application web vous permettant d&rsquo;y configurer votre dashboard personnalisé.</p>
+<p><em>&ldquo;Heimdall⁠ est un moyen d&rsquo;organiser de manière simple les liens vers vos sites Web et applications Web les plus utilisés.</em>
+<em>La simplicité est la clé de Heimdall.</em>
+<em>Pourquoi ne pas l&rsquo;utiliser comme page de démarrage de votre navigateur ? Il a même la possibilité d&rsquo;inclure une barre de recherche utilisant Google, Bing ou DuckDuckGo.&rdquo;</em></p>
+<p>Vous pouvez y créer vos propres applications sous forme de lien web, mais il est parfois possible d&rsquo;avoir davantage d&rsquo;interactions, afin d&rsquo;y afficher des informations supplémentaires sous forme de widget.</p>
+<p>Plus d&rsquo;informations <a href="https://heimdall.site/">sur leur site web</a>.</p>
+
+  <img src="/img/posts/creer-son-dashboard-avec-heimdall/website.webp"  class="center"  style="border-radius: 8px;"  />
+
+
+<h2 id="installation">
+  Installation
+  <a href="#installation" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p>Les fichiers nécessaires au déploiement de Heimdall sont les suivants :</p>
+<p>Le fichier <code>docker-compose.yml</code> :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#f92672">services</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">heimdall</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">lscr.io/linuxserver/heimdall:latest</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">heimdall</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">hostname</span>: <span style="color:#ae81ff">heimdall</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">env_file</span>: <span style="color:#ae81ff">heimdall.env</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">networks</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">nginx_proxy</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">/opt/heimdall:/config</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">networks</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">nginx_proxy</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">external</span>: <span style="color:#66d9ef">true</span>
+</span></span></code></pre></div><p>Et son fichier <code>heimdall.env</code> :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>PUID=1000
+</span></span><span style="display:flex;"><span>PGID=1000
+</span></span><span style="display:flex;"><span>TZ=Europe/Paris
+</span></span></code></pre></div><h3 id="reverse-proxy">
+  Reverse proxy
+  <a href="#reverse-proxy" class="h-anchor" aria-hidden="true">#</a>
+</h3>
+<p>Les fichiers de configuration ci-dessus sont prévus pour être utilisé avec un reverse proxy.</p>
+<blockquote>
+<p>Pour rappel, un article dédié est <a href="/posts/reverse-proxy-nginx/">disponible ici</a>.</p></blockquote>
+<p>L&rsquo;image Docker de <a href="https://docs.linuxserver.io/general/swag/">Linuxserver.io</a> propose un fichier sample de configuration, il vous suffit juste de modifier votre nom de domaine en conséquence :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo cp /opt/nginx/nginx/proxy-confs/heimdall.subdomain.conf.sample /opt/nginx/nginx/proxy-confs/heimdall.subdomain.conf
+</span></span><span style="display:flex;"><span>sudo sed -i <span style="color:#e6db74">&#34;s,server_name heimdall,server_name &lt;votre_sous_domaine&gt;,g&#34;</span> /opt/nginx/nginx/proxy-confs/heimdall.subdomain.conf
+</span></span></code></pre></div><p>Et enfin, un petit redémarrage pour la prise en compte du nouveau fichier :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo docker restart nginx
+</span></span></code></pre></div><h2 id="configuration">
+  Configuration
+  <a href="#configuration" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p>Une fois le déploiement terminé, vérifiez le bon fonctionnement de l&rsquo;app dans votre navigateur :</p>
+
+  <img src="/img/posts/creer-son-dashboard-avec-heimdall/default.webp"  class="center"  style="border-radius: 8px;"  />
+
+
+<p>Commencez par vous rendre dans la partie <code>user</code> pour modifier l&rsquo;utilisateur par défaut. Lui assigner un mot de passe désactivera l&rsquo;accès public.</p>
+<p>Vous pouvez ensuite vous rendre dans <code>settings</code> pour changer les paramètres de langue, le fond d&rsquo;écran&hellip;</p>
+
+  <img src="/img/posts/creer-son-dashboard-avec-heimdall/settings.webp"  class="center"  style="border-radius: 8px;"  />
+
+
+<p>Une fois cela effectué, relancez votre navigateur, et votre conteneur via la commande :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo docker restart heimdall
+</span></span></code></pre></div>
+  <img src="/img/posts/creer-son-dashboard-avec-heimdall/login.webp"  class="center"  style="border-radius: 8px;"  />
+
+
+<h3 id="applications-web">
+  Applications Web
+  <a href="#applications-web" class="h-anchor" aria-hidden="true">#</a>
+</h3>
+<p>Il est temps d&rsquo;y ajouter vos applications. Après avoir cliqué sur le bouton <code>Liste des applications</code>, un bouton <code>ADD</code> se trouve en haut à droite.
+Vous pouvez lui spécifier quelle application parmi la liste, ou pointer directement sur un site web.</p>
+
+  <img src="/img/posts/creer-son-dashboard-avec-heimdall/webapp.webp"  class="center"  style="border-radius: 8px;"  />
+
+
+<h3 id="applications-améliorées">
+  Applications améliorées
+  <a href="#applications-am%c3%a9lior%c3%a9es" class="h-anchor" aria-hidden="true">#</a>
+</h3>
+<p>Vous trouverez la liste des applications disponibles <a href="https://apps.heimdall.site/applications/enhanced">sur cette page</a>. Téléchargez y l&rsquo;application de votre choix et déposez le fichier zip dans le dossier <code>/opt/heimdall/config/www/SupportedApps</code>.</p>
+
+  <img src="/img/posts/creer-son-dashboard-avec-heimdall/addapp.webp"  class="center"  style="border-radius: 8px;"  />
+
+
+<p>Redémarrez ensuite Heimdall, toujours avec cette commande :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo docker restart heimdall
+</span></span></code></pre></div><p>Vous pouvez maintenant ajouter votre application. Dans mon cas File Browser :</p>
+
+  <img src="/img/posts/creer-son-dashboard-avec-heimdall/appconfig.webp"  class="center"  style="border-radius: 8px;"  />
+
+
+<p>Une fois les paramètres de connexion renseignés, l&rsquo;application affiche des informations extraites.</p>
+<h2 id="conclusion">
+  Conclusion
+  <a href="#conclusion" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p>Pas vraiment de conclusion pour cet article, mais un exemple de rendu :</p>
+
+  <img src="/img/posts/creer-son-dashboard-avec-heimdall/example.webp"  class="center"  style="border-radius: 8px;"  />
+
+
+<p>En espérant pour lui qu&rsquo;il trouvera preneur parmi vous ! &#x1f60e;</p>
+
+    </div>
+    
+      
+        <div class="pagination">
+          <div class="pagination__title">
+            <span class="pagination__title-h"
+              >Autres posts</span
+            >
+            <hr />
+          </div>
+          <div class="pagination__buttons">
+            
+              <span class="button previous">
+                <a href="https://www.jeremky.fr/posts/construire-son-cloud-avec-nextcloud/">
+                  <span class="button__icon">←</span>
+                  <span class="button__text">Construire son cloud avec Nextcloud</span>
+                </a>
+              </span>
+            
+            
+              <span class="button next">
+                <a href="https://www.jeremky.fr/posts/deploiement-du-cms-ghost-avec-docker/">
+                  <span class="button__text">Déploiement du CMS Ghost avec Docker</span>
+                  <span class="button__icon">→</span>
+                </a>
+              </span>
+            
+          </div>
+        </div>
+      
+    
+
+    
+      
+        
+
+      
+    
+  </article>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >JEREMKY.FR</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+      <div class="copyright">
+          <div class="copyright">
+        <span>© 2025 Propulsé par <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span>
+      </div>
+    
+  </div>
+</footer>
+
+
+
+
+
+<script type="text/javascript" src="/bundle.min.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>

@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    
+      <title>
+        Flame : un Dashboard léger et efficace ::
+        JeremKy.fr
+      </title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta
+  name="description"
+  content="Il y a quelques mois, j&rsquo;avais fait la présentation de l&rsquo;application Heimdall. Ce dashboard est joli et simple à configurer. Mais dans l&rsquo;utilisation, je trouvais qu&rsquo;il manquait de productivité. J&rsquo;ai donc regardé les alternatives et je suis tombé sur le dashboard Flame.
+Flame est un dashboard ultra minimaliste, se concentrant sur son efficacité. Ses points forts :
+Il permet de regrouper ses applications web et ses favoris au même endroit Les applications Docker peuvent automatiquement être ajoutées et retirées du dashboard, via des labels à ajouter à vos fichiers docker-compose.yml Il dispose d&rsquo;une barre de recherche unifiée, permettant de trouver rapidement un élément, et dans le cas contraire, vous renvoi sur le moteur de recherche de votre choix Installation # Cela devient redondant maintenant, mais vous vous en doutez :
+"
+/>
+<meta
+  name="keywords"
+  content=""
+/>
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://www.jeremky.fr/posts/flame-un-dashboard-leger-et-efficace/" />
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/style.css" />
+
+<link rel="stylesheet" href="https://www.jeremky.fr/style.css" />
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://www.jeremky.fr/img/apple-touch-icon-144-precomposed.png" />
+<link rel="shortcut icon" href="https://www.jeremky.fr/img/favicon.png" />
+
+
+<link href="/fonts/Inter-Italic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/fonts/Inter-Regular.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/fonts/Inter-Medium.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/fonts/Inter-MediumItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/fonts/Inter-Bold.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/fonts/Inter-BoldItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Flame : un Dashboard léger et efficace">
+  <meta name="twitter:description" content="Il y a quelques mois, j’avais fait la présentation de l’application Heimdall. Ce dashboard est joli et simple à configurer. Mais dans l’utilisation, je trouvais qu’il manquait de productivité. J’ai donc regardé les alternatives et je suis tombé sur le dashboard Flame.
+Flame est un dashboard ultra minimaliste, se concentrant sur son efficacité. Ses points forts :
+Il permet de regrouper ses applications web et ses favoris au même endroit Les applications Docker peuvent automatiquement être ajoutées et retirées du dashboard, via des labels à ajouter à vos fichiers docker-compose.yml Il dispose d’une barre de recherche unifiée, permettant de trouver rapidement un élément, et dans le cas contraire, vous renvoi sur le moteur de recherche de votre choix Installation # Cela devient redondant maintenant, mais vous vous en doutez :">
+
+
+
+<meta property="og:url" content="https://www.jeremky.fr/posts/flame-un-dashboard-leger-et-efficace/">
+  <meta property="og:site_name" content="JeremKy.fr">
+  <meta property="og:title" content="Flame : un Dashboard léger et efficace">
+  <meta property="og:description" content="Il y a quelques mois, j’avais fait la présentation de l’application Heimdall. Ce dashboard est joli et simple à configurer. Mais dans l’utilisation, je trouvais qu’il manquait de productivité. J’ai donc regardé les alternatives et je suis tombé sur le dashboard Flame.
+Flame est un dashboard ultra minimaliste, se concentrant sur son efficacité. Ses points forts :
+Il permet de regrouper ses applications web et ses favoris au même endroit Les applications Docker peuvent automatiquement être ajoutées et retirées du dashboard, via des labels à ajouter à vos fichiers docker-compose.yml Il dispose d’une barre de recherche unifiée, permettant de trouver rapidement un élément, et dans le cas contraire, vous renvoi sur le moteur de recherche de votre choix Installation # Cela devient redondant maintenant, mais vous vous en doutez :">
+  <meta property="og:locale" content="fr">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-11-23T20:42:50+00:00">
+    <meta property="article:modified_time" content="2024-11-23T20:42:50+00:00">
+    <meta property="article:tag" content="Docker">
+    <meta property="article:tag" content="Podman">
+
+
+
+
+
+
+  </head>
+  <body >
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >JEREMKY.FR</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/apropos">A propos</a></li>
+        
+      
+        
+          <li><a href="/archives">Archives</a></li>
+        
+      
+        
+          <li><a href="/categories/news">News</a></li>
+        
+      
+        
+          <li><a href="/categories/tutos">Tutos</a></li>
+        
+      
+      
+      
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/apropos">A propos</a></li>
+      
+    
+      
+        <li><a href="/archives">Archives</a></li>
+      
+    
+      
+        <li><a href="/categories/news">News</a></li>
+      
+    
+      
+        <li><a href="/categories/tutos">Tutos</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg
+  class="theme-toggler"
+  width="24"
+  height="24"
+  viewBox="0 0 48 48"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"
+  />
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  
+  
+
+  <article class="post">
+    <h1 class="post-title">Flame : un Dashboard léger et efficace</h1>
+    <div class="post-meta">
+      
+        <time class="post-date">
+          23/11/2024
+        </time>
+
+        
+          
+        
+      
+
+      
+
+
+      
+        <span class="post-read-time"
+          >— 5 min de lecture</span
+        >
+      
+    </div>
+
+    
+      <span class="post-tags">
+        
+          <a href="https://www.jeremky.fr/tags/docker/">#docker</a>&nbsp;
+        
+          <a href="https://www.jeremky.fr/tags/podman/">#podman</a>&nbsp;
+        
+      </span>
+    
+
+    
+      <figure class="post-cover">
+  
+    <img src="https://www.jeremky.fr/img/posts/flame-un-dashboard-leger-et-efficace/cover.webp" alt="Flame : un Dashboard léger et efficace" width="700" />
+  
+
+  
+</figure>
+
+    
+
+    <div class="post-content">
+      
+        
+        <h2>Sommaire</h2>
+        <aside class="table-of-contents"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#installation">Installation</a>
+      <ul>
+        <li><a href="#reverse-proxy">Reverse proxy</a></li>
+      </ul>
+    </li>
+    <li><a href="#configuration">Configuration</a>
+      <ul>
+        <li><a href="#theme">Theme</a></li>
+        <li><a href="#general">General</a></li>
+        <li><a href="#interface">Interface</a></li>
+        <li><a href="#weather">Weather</a></li>
+        <li><a href="#docker">Docker</a></li>
+        <li><a href="#css">CSS</a></li>
+      </ul>
+    </li>
+    <li><a href="#ajout-de-vos-éléments">Ajout de vos éléments</a></li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ul>
+</nav></aside>
+        
+      
+      <p>Il y a quelques mois, j&rsquo;avais fait la présentation de l&rsquo;application <a href="/posts/creer-son-dashboard-avec-heimdall/">Heimdall</a>. Ce dashboard est joli et simple à configurer. Mais dans l&rsquo;utilisation, je trouvais qu&rsquo;il manquait de productivité. J&rsquo;ai donc regardé les alternatives et je suis tombé sur le dashboard Flame.</p>
+<p><a href="https://github.com/pawelmalak/flame">Flame</a> est un dashboard ultra minimaliste, se concentrant sur son efficacité. Ses points forts :</p>
+<ul>
+<li>Il permet de regrouper ses applications web et ses favoris au même endroit</li>
+<li>Les applications Docker peuvent automatiquement être ajoutées et retirées du dashboard, via des labels à ajouter à vos fichiers <code>docker-compose.yml</code></li>
+<li>Il dispose d&rsquo;une barre de recherche unifiée, permettant de trouver rapidement un élément, et dans le cas contraire, vous renvoi sur le moteur de recherche de votre choix</li>
+</ul>
+<h2 id="installation">
+  Installation
+  <a href="#installation" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p>Cela devient redondant maintenant, mais vous vous en doutez :</p>
+<p>Un fichier <code>docker-compose.yml</code> :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#f92672">services</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">dashboard</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">docker.io/pawelmalak/flame</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">flame</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">hostname</span>: <span style="color:#ae81ff">flame</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">env_file</span>: <span style="color:#ae81ff">flame.env</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">networks</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">nginx_proxy</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">./files:/app/data</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">/var/run/docker.sock:/var/run/docker.sock:ro</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">secrets</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">password</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">networks</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">nginx_proxy</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">external</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">secrets</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">password</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">file</span>: <span style="color:#ae81ff">./.password</span>
+</span></span></code></pre></div><p>Et son fichier <code>flame.env</code> :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>PASSWORD_FILE=./.password
+</span></span></code></pre></div><p>2 choses importantes à noter :</p>
+<ul>
+<li>Dans les volumes, se trouve le lien avec le fichier <code>docker.sock</code>. Cela permet à Flame de visualiser les labels des autres conteneurs, pour l&rsquo;ajout automatique au dashboard. Si vous utilisez Podman, remplacez cette ligne par la suivante :
+<code>/var/run/podman/podman.sock:/var/run/docker.sock:ro</code></li>
+<li>Vous remarquerez la présence de l&rsquo;entrée <code>secrets</code>. J&rsquo;en reparlerai plus tard, mais sachez que vous devez créer un fichier <code>.password</code> et y saisir un mot de passe. Via cette méthode, votre mot de passe ne sera pas visible dans les variables d&rsquo;environnement du conteneur</li>
+</ul>
+<h3 id="reverse-proxy">
+  Reverse proxy
+  <a href="#reverse-proxy" class="h-anchor" aria-hidden="true">#</a>
+</h3>
+<p>Les fichiers de configuration ci-dessus sont prévus pour être utilisé avec un reverse proxy.</p>
+<blockquote>
+<p>Pour rappel, un article dédié est <a href="/posts/reverse-proxy-nginx/">disponible ici</a>.</p></blockquote>
+<p>L&rsquo;image Docker de <a href="https://docs.linuxserver.io/general/swag/">Linuxserver.io</a> ne propose pas de fichier sample de configuration pour Flame. Vous devez donc créer un fichier nommé <code>/opt/nginx/nginx/proxy-confs/flame.subdomain.conf</code>, et y coller le contenu suivant :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>## Version 2024/07/16
+</span></span><span style="display:flex;"><span># make sure that your wireguard container is named flame
+</span></span><span style="display:flex;"><span># make sure that your dns has a cname set for flame
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>server {
+</span></span><span style="display:flex;"><span>    listen 443 ssl;
+</span></span><span style="display:flex;"><span>    listen [::]:443 ssl;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    server_name flame.*;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    include /config/nginx/ssl.conf;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    client_max_body_size 0;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    # enable for ldap auth (requires ldap-location.conf in the location block)
+</span></span><span style="display:flex;"><span>    #include /config/nginx/ldap-server.conf;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    # enable for Authelia (requires authelia-location.conf in the location block)
+</span></span><span style="display:flex;"><span>    #include /config/nginx/authelia-server.conf;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    # enable for Authentik (requires authentik-location.conf in the location block)
+</span></span><span style="display:flex;"><span>    #include /config/nginx/authentik-server.conf;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    location / {
+</span></span><span style="display:flex;"><span>        # enable the next two lines for http auth
+</span></span><span style="display:flex;"><span>        #auth_basic &#34;Restricted&#34;;
+</span></span><span style="display:flex;"><span>        #auth_basic_user_file /config/nginx/.htpasswd;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        # enable for ldap auth (requires ldap-server.conf in the server block)
+</span></span><span style="display:flex;"><span>        #include /config/nginx/ldap-location.conf;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        # enable for Authelia (requires authelia-server.conf in the server block)
+</span></span><span style="display:flex;"><span>        #include /config/nginx/authelia-location.conf;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        # enable for Authentik (requires authentik-server.conf in the server block)
+</span></span><span style="display:flex;"><span>        #include /config/nginx/authentik-location.conf;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        include /config/nginx/proxy.conf;
+</span></span><span style="display:flex;"><span>        include /config/nginx/resolver.conf;
+</span></span><span style="display:flex;"><span>        set $upstream_app flame;
+</span></span><span style="display:flex;"><span>        set $upstream_port 5005;
+</span></span><span style="display:flex;"><span>        set $upstream_proto http;
+</span></span><span style="display:flex;"><span>        proxy_pass $upstream_proto://$upstream_app:$upstream_port;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><blockquote>
+<p>Pensez à changer la section <code>server_name flame.*;</code> selon votre sous domaine.</p></blockquote>
+<p>Et enfin, un petit redémarrage pour la prise en compte du nouveau fichier :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo docker restart nginx
+</span></span></code></pre></div><h2 id="configuration">
+  Configuration
+  <a href="#configuration" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p>Au 1er lancement de Flame, vous vous retrouverez sur une page austère vous proposant de vous rendre sur <code>/settings</code>. Il vous sera demandé de vous connecter pour accéder aux paramètres. Pour retourner plus tard sur la page des paramètres, une icône se trouve tout en bas à gauche.</p>
+<h3 id="theme">
+  Theme
+  <a href="#theme" class="h-anchor" aria-hidden="true">#</a>
+</h3>
+<p>Dans l&rsquo;onglet <code>Theme</code>, un choix de base vous est proposé, mais vous pouvez également créer le votre. Vous pouvez également spécifier un thème par défaut.</p>
+<h3 id="general">
+  General
+  <a href="#general" class="h-anchor" aria-hidden="true">#</a>
+</h3>
+<p>Dans l&rsquo;onglet <code>General</code>, il est possible de spécifier comment trier les différents éléments, et choisir le comportement de la barre de recherche. Par défaut, la recherche se fait d&rsquo;abord dans vos éléments locaux, et renvoie votre requête vers le moteur de recherche de votre choix si aucun résultat n&rsquo;est trouvé.</p>
+<h3 id="interface">
+  Interface
+  <a href="#interface" class="h-anchor" aria-hidden="true">#</a>
+</h3>
+<p>Cet onglet permet de modifier les éléments d&rsquo;affichage principaux. C&rsquo;est assez austère et particulier sur ce point. Je vous partage donc les éléments à remplacer pour une traduction en français.</p>
+<ul>
+<li><code>Custom greetings</code> :</li>
+</ul>
+<p><em>Bonsoir !;Bonjour !;Bonjour !;Bonsoir !</em></p>
+<ul>
+<li><code>Custom weekday names</code> :</li>
+</ul>
+<p><em>Dimanche;Lundi;Mardi;Mercredi;Jeudi;Vendredi;Samedi</em></p>
+<ul>
+<li><code>Custom month names</code> :</li>
+</ul>
+<p><em>Janvier;Février;Mars;Avril;Mai;Juin;Juillet;Août;Septembre;Octobre;Novembre;Décembre</em></p>
+<p>Enfin, vous pouvez choisir d&rsquo;afficher ou non les sections <code>Applications</code> et <code>Bookmarks</code>.</p>
+<h3 id="weather">
+  Weather
+  <a href="#weather" class="h-anchor" aria-hidden="true">#</a>
+</h3>
+<p>Pour ajouter l&rsquo;icône de météo, il faut disposer d&rsquo;un compte chez <a href="https://www.weatherapi.com/pricing.aspx">Weather API</a>. Le compte gratuit suffit largement, le nombre de requêtes ne sera jamais dépassé. Une fois votre compte créé, récupérez la clé d&rsquo;API pour l&rsquo;ajouter dans la configuration de Flame.</p>
+<p>Pour la localisation, utilisez le système de localisation en cliquant sur <code>Click to get current location</code>.</p>
+<h3 id="docker">
+  Docker
+  <a href="#docker" class="h-anchor" aria-hidden="true">#</a>
+</h3>
+<p>Dans cette section, vous pouvez comme vu plus haut ajouter/retirer automatiquement vos applications Docker. Activez <code>Use Docker API</code> et <code>Unpin stopped containers / other apps</code>.</p>
+<p>Pour que Flame sache comment ajouter les applications, il est nécessaire de modifier vos fichier <code>docker-compose.yml</code>, et y ajouter une section <code>labels</code>. Exemple avec Portainer :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#f92672">services</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">portainer</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">docker.io/portainer/portainer-ce:sts</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">portainer</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">hostname</span>: <span style="color:#ae81ff">portainer</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">labels</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">flame.type=application</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">flame.name=Portainer</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">flame.url=https://portainer.domaine.fr</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">flame.icon=docker</span>
+</span></span></code></pre></div><blockquote>
+<p>Le nom des icônes est à récupérer sur le site <a href="https://pictogrammers.com/library/mdi/">Pictogrammers</a></p></blockquote>
+<h3 id="css">
+  CSS
+  <a href="#css" class="h-anchor" aria-hidden="true">#</a>
+</h3>
+<p>Enfin, l&rsquo;onglet CSS vous permet de modifier en détail des éléments d&rsquo;interface. Je vous partage mes quelques modifications :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span><span style="color:#75715e">/* Taille de police */</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">body</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">font-size</span>: <span style="color:#ae81ff">16</span><span style="color:#66d9ef">px</span> <span style="color:#75715e">!important</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/* Taille du message */</span>
+</span></span><span style="display:flex;"><span>.<span style="color:#a6e22e">Header_Header__GCJdR</span> <span style="color:#f92672">h1</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">font-size</span>: <span style="color:#ae81ff">3</span><span style="color:#66d9ef">em</span> <span style="color:#75715e">!important</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/* Largeur du contenu */</span>
+</span></span><span style="display:flex;"><span>.<span style="color:#a6e22e">Layout_Container__HIHX7</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">95</span><span style="color:#66d9ef">%</span> <span style="color:#75715e">!important</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/* Supprimer l&#39;URL des apps */</span>
+</span></span><span style="display:flex;"><span>.<span style="color:#a6e22e">AppCard_AppCardDetails__HgNoY</span> <span style="color:#f92672">span</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">display</span>: <span style="color:#66d9ef">none</span> <span style="color:#75715e">!important</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/* Comportement des tuiles */</span>
+</span></span><span style="display:flex;"><span>.<span style="color:#a6e22e">AppCard_AppCard__NPTM5</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">padding</span>: <span style="color:#ae81ff">16</span><span style="color:#66d9ef">px</span> <span style="color:#75715e">!important</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">margin-bottom</span>: <span style="color:#ae81ff">0</span> <span style="color:#75715e">!important</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">border-radius</span>: <span style="color:#ae81ff">0.5</span><span style="color:#66d9ef">rem</span> <span style="color:#75715e">!important</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/* Style du bouton settings */</span>
+</span></span><span style="display:flex;"><span>.<span style="color:#a6e22e">Home_SettingsButton__DrUPz</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">border-radius</span>: <span style="color:#ae81ff">0.5</span><span style="color:#66d9ef">rem</span> <span style="color:#75715e">!important</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Petit bonus si vous désirez un fond d&rsquo;écran :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span><span style="color:#75715e">/* Fond d&#39;écran */</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">body</span>:<span style="color:#a6e22e">before</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">content</span>: <span style="color:#e6db74">&#34;&#34;</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">position</span>: <span style="color:#66d9ef">fixed</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">overflow</span>: <span style="color:#66d9ef">hidden</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">background-image</span>: url(<span style="color:#e6db74">&#34;&lt;url&gt;&#34;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">background-size</span>: <span style="color:#66d9ef">cover</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">z-index</span>: <span style="color:#ae81ff">-999</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">height</span>: <span style="color:#ae81ff">100</span><span style="color:#66d9ef">%</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">100</span><span style="color:#66d9ef">%</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">transform</span>: scale(<span style="color:#ae81ff">1.1</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><blockquote>
+<p>Pour le fond d&rsquo;écran, vous pouvez récupérer une url sur le site <a href="https://wallpaperscraft.com/">WallpapersCraft</a></p></blockquote>
+<h2 id="ajout-de-vos-éléments">
+  Ajout de vos éléments
+  <a href="#ajout-de-vos-%c3%a9l%c3%a9ments" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p>Maintenant que Flame est configuré, il ne reste plus qu&rsquo;à l&rsquo;alimenter !</p>
+<p>Si vous avez redémarré vos conteneurs après y avoir ajouté la section <code>labels</code>, vous devriez déjà avoir la 1ère section déjà alimentée. Il ne vous reste plus qu&rsquo;à ajouter vos bookmarks.</p>
+<p>Cliquez sur <code>Bookmarks</code>, et créez les catégories et les favoris que vous désirez :</p>
+
+  <img src="/img/posts/flame-un-dashboard-leger-et-efficace/add.webp"  class="center"  style="border-radius: 8px;"  />
+
+
+<h2 id="conclusion">
+  Conclusion
+  <a href="#conclusion" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p>Voici quelques rendus possibles une fois la configuration de Flame terminée :</p>
+
+  <img src="/img/posts/flame-un-dashboard-leger-et-efficace/exemple1.webp"  class="center"  style="border-radius: 8px;"  />
+
+
+<hr>
+
+  <img src="/img/posts/flame-un-dashboard-leger-et-efficace/exemple2.webp"  class="center"  style="border-radius: 8px;"  />
+
+
+<hr>
+
+  <img src="/img/posts/flame-un-dashboard-leger-et-efficace/exemple3.webp"  class="center"  style="border-radius: 8px;"  />
+
+
+<p>N&rsquo;hésitez pas à me contacter par <a href="mailto:contact@jeremky.fr">e-mail</a> si vous avez des questions.</p>
+
+    </div>
+    
+      
+        <div class="pagination">
+          <div class="pagination__title">
+            <span class="pagination__title-h"
+              >Autres posts</span
+            >
+            <hr />
+          </div>
+          <div class="pagination__buttons">
+            
+              <span class="button previous">
+                <a href="https://www.jeremky.fr/posts/diun-etre-notifie-des-nouvelles-images-docker/">
+                  <span class="button__icon">←</span>
+                  <span class="button__text">Diun : être notifié des nouvelles images Docker</span>
+                </a>
+              </span>
+            
+            
+              <span class="button next">
+                <a href="https://www.jeremky.fr/posts/transmission-un-client-torrent-web/">
+                  <span class="button__text">Transmission : un client torrent en Web</span>
+                  <span class="button__icon">→</span>
+                </a>
+              </span>
+            
+          </div>
+        </div>
+      
+    
+
+    
+      
+        
+
+      
+    
+  </article>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >JEREMKY.FR</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+      <div class="copyright">
+          <div class="copyright">
+        <span>© 2025 Propulsé par <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span>
+      </div>
+    
+  </div>
+</footer>
+
+
+
+
+
+<script type="text/javascript" src="/bundle.min.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>

@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    
+      <title>
+        Utilisation de Docker Compose ::
+        JeremKy.fr
+      </title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta
+  name="description"
+  content="Après avoir succinctement présenté Docker, on passe à son acolyte, Docker compose.
+Docker Compose est un logiciel pour définir et exécuter des applications à partir de multiples conteneurs. Il est basé sur un fichier YAML qui permet de définir les services et les paramètres de leurs créations et ainsi de les démarrer par une commande unique. La V1 avait son propre exécutable (docker-compose) alors que la V2 est un plugin de Docker, exécutable par la commande docker compose
+"
+/>
+<meta
+  name="keywords"
+  content=""
+/>
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://www.jeremky.fr/posts/utilisation-de-docker-compose/" />
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/style.css" />
+
+<link rel="stylesheet" href="https://www.jeremky.fr/style.css" />
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://www.jeremky.fr/img/apple-touch-icon-144-precomposed.png" />
+<link rel="shortcut icon" href="https://www.jeremky.fr/img/favicon.png" />
+
+
+<link href="/fonts/Inter-Italic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/fonts/Inter-Regular.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/fonts/Inter-Medium.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/fonts/Inter-MediumItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/fonts/Inter-Bold.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/fonts/Inter-BoldItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Utilisation de Docker Compose">
+  <meta name="twitter:description" content="Après avoir succinctement présenté Docker, on passe à son acolyte, Docker compose.
+Docker Compose est un logiciel pour définir et exécuter des applications à partir de multiples conteneurs. Il est basé sur un fichier YAML qui permet de définir les services et les paramètres de leurs créations et ainsi de les démarrer par une commande unique. La V1 avait son propre exécutable (docker-compose) alors que la V2 est un plugin de Docker, exécutable par la commande docker compose">
+
+
+
+<meta property="og:url" content="https://www.jeremky.fr/posts/utilisation-de-docker-compose/">
+  <meta property="og:site_name" content="JeremKy.fr">
+  <meta property="og:title" content="Utilisation de Docker Compose">
+  <meta property="og:description" content="Après avoir succinctement présenté Docker, on passe à son acolyte, Docker compose.
+Docker Compose est un logiciel pour définir et exécuter des applications à partir de multiples conteneurs. Il est basé sur un fichier YAML qui permet de définir les services et les paramètres de leurs créations et ainsi de les démarrer par une commande unique. La V1 avait son propre exécutable (docker-compose) alors que la V2 est un plugin de Docker, exécutable par la commande docker compose">
+  <meta property="og:locale" content="fr">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-08-24T18:20:29+00:00">
+    <meta property="article:modified_time" content="2023-08-24T18:20:29+00:00">
+    <meta property="article:tag" content="Docker">
+
+
+
+
+
+
+  </head>
+  <body >
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >JEREMKY.FR</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/apropos">A propos</a></li>
+        
+      
+        
+          <li><a href="/archives">Archives</a></li>
+        
+      
+        
+          <li><a href="/categories/news">News</a></li>
+        
+      
+        
+          <li><a href="/categories/tutos">Tutos</a></li>
+        
+      
+      
+      
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/apropos">A propos</a></li>
+      
+    
+      
+        <li><a href="/archives">Archives</a></li>
+      
+    
+      
+        <li><a href="/categories/news">News</a></li>
+      
+    
+      
+        <li><a href="/categories/tutos">Tutos</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg
+  class="theme-toggler"
+  width="24"
+  height="24"
+  viewBox="0 0 48 48"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"
+  />
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  
+  
+
+  <article class="post">
+    <h1 class="post-title">Utilisation de Docker Compose</h1>
+    <div class="post-meta">
+      
+        <time class="post-date">
+          24/08/2023
+        </time>
+
+        
+          
+        
+      
+
+      
+
+
+      
+        <span class="post-read-time"
+          >— 3 min de lecture</span
+        >
+      
+    </div>
+
+    
+      <span class="post-tags">
+        
+          <a href="https://www.jeremky.fr/tags/docker/">#docker</a>&nbsp;
+        
+      </span>
+    
+
+    
+      <figure class="post-cover">
+  
+    <img src="https://www.jeremky.fr/img/posts/utilisation-de-docker-compose/cover.webp" alt="Utilisation de Docker Compose" width="700" />
+  
+
+  
+</figure>
+
+    
+
+    <div class="post-content">
+      
+        
+        <h2>Sommaire</h2>
+        <aside class="table-of-contents"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#exemple-dun-fichier-docker-compose">Exemple d&rsquo;un fichier docker-compose</a></li>
+    <li><a href="#le-fichier-de-variables-env">Le fichier de variables .env</a></li>
+    <li><a href="#déploiement">Déploiement</a></li>
+    <li><a href="#script-jdockersh">Script jdocker.sh</a></li>
+  </ul>
+</nav></aside>
+        
+      
+      <p>Après avoir succinctement présenté Docker, on passe à son acolyte, Docker compose.</p>
+<p><em><a href="https://fr.wikipedia.org/wiki/Docker_%28logiciel%29">Docker Compose</a> est un logiciel pour définir et exécuter des applications à partir de multiples conteneurs. Il est basé sur un fichier YAML qui permet de définir les services et les paramètres de leurs créations et ainsi de les démarrer par une commande unique. La V1 avait son propre exécutable (docker-compose) alors que la V2 est un plugin de Docker, exécutable par la commande docker compose</em></p>
+<p>Si vous avez suivi l&rsquo;installation de l&rsquo;article précédent, c&rsquo;est la V1 qui a été installée. La V2 offre surtout le support intégré des solutions Amazon ECS et Microsoft ACI. Les déploiements que j&rsquo;effectue se font en local, la V1 est donc suffisante pour mon utilisation.</p>
+<h2 id="exemple-dun-fichier-docker-compose">
+  Exemple d&rsquo;un fichier docker-compose
+  <a href="#exemple-dun-fichier-docker-compose" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p>Comme dit dans l&rsquo;introduction, il est possible de déployer plusieurs conteneurs dans un seul projet. Dans ce fichier, nommé <code>docker-compose.yml</code>, vous pouvez y définir confortablement les paramètres et variables d&rsquo;environnement de vos conteneurs. Comme exemple, nous allons prendre celui de Nextcloud, composé de l&rsquo;application web elle-même, et de la base de données :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">services</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">nextcloud-db</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">docker.io/postgres:16.4</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">nextcloud-db</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">hostname</span>: <span style="color:#ae81ff">nextcloud-db</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">networks</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">default</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">env_file</span>: <span style="color:#ae81ff">nextcloud-db.env</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">/opt/nextcloud/postgres:/var/lib/postgresql/data</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">nextcloud-web</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">lscr.io/linuxserver/nextcloud:latest</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">nextcloud-web</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">hostname</span>: <span style="color:#ae81ff">nextcloud-web</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">env_file</span>: <span style="color:#ae81ff">nextcloud.env</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">${DIRECTORY}/config:/config</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">${DIRECTORY}/data:/data</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">ports</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">${HTTPPORT}:80</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">${HTTPSPORT}:443</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">depends_on</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">nextcloud-db</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
+</span></span></code></pre></div><p>Les éléments clés :</p>
+<ul>
+<li>La définition des services, avec son nom, l&rsquo;image utilisée, et le nom du conteneur</li>
+<li>env_file : spécifie le nom du fichier où seront stockées les variables utilisées par le conteneur (que nous allons voir plus loin dans cet article)</li>
+<li>volumes : se sont les répertoires partagés entre votre machine hôte et votre conteneur</li>
+<li>ports : les ports qui seront ouverts entre l&rsquo;hôte et le conteneur. Vous remarquerez que pour la base mysql, le port n&rsquo;a pas été ouvert. Mais ces 2 conteneurs seront dans le même réseau virtuel et le conteneur nextcloud-web pourra contacter la base via son hostname nextcloud-db</li>
+<li>restart : défini le comportement du conteneur en cas de crash par exemple</li>
+</ul>
+<blockquote>
+<p>Les images utilisées sont celles de <a href="https://www.linuxserver.io/">Linuxserver.io</a></p></blockquote>
+<h2 id="le-fichier-de-variables-env">
+  Le fichier de variables .env
+  <a href="#le-fichier-de-variables-env" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p>En plus de votre fichier <code>docker-compose.yml</code>, vous devez y associer un fichier contenant les variables que va utiliser compose. Il est possible d&rsquo;intégrer les valeurs directement dans le fichier yml, mais cela permet une meilleure flexibilité. Par défaut, il va chercher un fichier nommé <code>.env</code>. Mais il est possible de lui spécifier nous même le fichier grâce à l&rsquo;entrée <code>env_file</code>.</p>
+<p>Toujours pour notre exemple avec Nextcloud, voici le contenu :</p>
+<p>Fichier <code>nextcloud-db.env</code> :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>POSTGRES_PASSWORD=Password
+</span></span><span style="display:flex;"><span>POSTGRES_USER=nextcloud
+</span></span><span style="display:flex;"><span>POSTGRES_DB=nextcloud
+</span></span></code></pre></div><p>Fichier <code>nextcloud.env</code> :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>PUID=1002
+</span></span><span style="display:flex;"><span>PGID=1002
+</span></span><span style="display:flex;"><span>TZ=Europe/Paris
+</span></span></code></pre></div><p>Les variables dépendent de la façon dont a été constituée l&rsquo;image Docker. Celles de Linuxserver offrent la possibilité de spécifier l&rsquo;ID du user hôte et le timezone, pratique. Au sujet des variables de port, spécifier l&rsquo;IP devant permet de forcer à utiliser uniquement l&rsquo;IP V4.</p>
+<h2 id="déploiement">
+  Déploiement
+  <a href="#d%c3%a9ploiement" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p>Maintenant que vous avez vos 2 fichiers, il ne reste plus qu&rsquo;à déployer !
+Pour cela, lancez la commande suivante (il est nécessaire d&rsquo;être dans le répertoire où se trouvent vos 2 fichiers) :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo docker-compose up -d
+</span></span></code></pre></div><p>Docker va télécharger les images et procéder au déploiement.
+Votre instance Nextcloud devrait maintenant être accessible.</p>
+<p>Si vous voulez supprimer vos conteneurs :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo docker-compose down
+</span></span></code></pre></div><p>A noter que cela ne supprime ni les images, ni les répertoires partagés (dans notre cas, <code>/opt/nextcloud</code>).</p>
+<h2 id="script-jdockersh">
+  Script jdocker.sh
+  <a href="#script-jdockersh" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p>Afin de me faciliter l&rsquo;utilisation, je me suis fait un script bash contenant les principales commandes de Docker, ainsi qu&rsquo;une arborescence spécifique pour y stocker mes fichiers <code>docker-compose.yml</code>.</p>
+
+  <img src="/img/posts/utilisation-de-docker-compose/jdocker.webp"  class="center"  style="border-radius: 8px;"  />
+
+
+<p>Il intègre également un système de backup, et l&rsquo;installation d&rsquo;un outil pour regrouper les informations de votre installation Docker, dans une interface claire et dynamique : <a href="https://github.com/jesseduffield/lazydocker">lazydocker</a></p>
+
+  <img src="/img/posts/utilisation-de-docker-compose/lazydocker.webp"  class="center"  style="border-radius: 8px;"  />
+
+
+<p>Le script <code>jdocker.sh</code> est téléchargeable <a href="/https://github.com/jeremky/jdocker.sh">ici</a>.</p>
+
+    </div>
+    
+      
+        <div class="pagination">
+          <div class="pagination__title">
+            <span class="pagination__title-h"
+              >Autres posts</span
+            >
+            <hr />
+          </div>
+          <div class="pagination__buttons">
+            
+              <span class="button previous">
+                <a href="https://www.jeremky.fr/posts/monter-un-serveur-teeworlds/">
+                  <span class="button__icon">←</span>
+                  <span class="button__text">Monter un serveur Teeworlds</span>
+                </a>
+              </span>
+            
+            
+              <span class="button next">
+                <a href="https://www.jeremky.fr/posts/premiers-pas-avec-docker/">
+                  <span class="button__text">Premiers pas avec Docker</span>
+                  <span class="button__icon">→</span>
+                </a>
+              </span>
+            
+          </div>
+        </div>
+      
+    
+
+    
+      
+        
+
+      
+    
+  </article>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >JEREMKY.FR</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+      <div class="copyright">
+          <div class="copyright">
+        <span>© 2025 Propulsé par <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span>
+      </div>
+    
+  </div>
+</footer>
+
+
+
+
+
+<script type="text/javascript" src="/bundle.min.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>

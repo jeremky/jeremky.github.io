@@ -1,0 +1,1069 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutos on JeremKy.fr</title>
+    
+    <image>
+      <url>https://www.jeremky.fr/categories/tutos/https://www.jeremky.fr/img/favicon.png</url>
+      <title>Tutos on JeremKy.fr</title>
+      <link>https://www.jeremky.fr/categories/tutos/</link>
+    </image>
+    
+    
+    <link>https://www.jeremky.fr/categories/tutos/</link>
+    <description>Recent content in Tutos on JeremKy.fr</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr</language>
+    <lastBuildDate>Fri, 14 Mar 2025 16:29:39 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.jeremky.fr/categories/tutos/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Vim / Neovim : choisissez votre configuration</title>
+      <link>https://www.jeremky.fr/posts/vim-neovim-choisissez-votre-configuration/</link>
+      <pubDate>Fri, 14 Mar 2025 16:29:39 +0000</pubDate>
+      
+      <guid>https://www.jeremky.fr/posts/vim-neovim-choisissez-votre-configuration/</guid>
+      <description>
+        
+          &lt;img src=&#34;https://www.jeremky.fr/img/posts/vim-neovim-choisissez-votre-configuration/cover.webp&#34;/&gt;
+          
+        
+        
+        
+          &lt;p&gt;Dans &lt;a href=&#34;https://www.jeremky.fr/posts/neovim-un-fork-de-vim-moderne/&#34;&gt;l&amp;rsquo;article présentant NeoVim&lt;/a&gt;, je terminais en vous disant que j&amp;rsquo;attendais une version plus récente dans les dépôts Debian pour avoir une compatibilité avec les derniers plugins optimisés pour la dernière version.&lt;/p&gt;
+&lt;p&gt;Finalement mon impatience légendaire a eu raison de moi, et j&amp;rsquo;ai décidé de me créer un script afin d&amp;rsquo;installer la dernière version de NeoVim à partir des releases officielles sur &lt;a href=&#34;https://github.com/neovim/neovim/releases&#34;&gt;Github&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Dans cet article, nous allons voir différentes configurations pour Vim et NeoVim, de la plus simple à la plus complexe selon vos besoins, chacune ayant ses avantages et inconvénients.&lt;/p&gt;
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Webtop : Linux via son navigateur Internet</title>
+      <link>https://www.jeremky.fr/posts/webtop-linux-via-navigateur-internet/</link>
+      <pubDate>Thu, 06 Mar 2025 16:21:02 +0000</pubDate>
+      
+      <guid>https://www.jeremky.fr/posts/webtop-linux-via-navigateur-internet/</guid>
+      <description>
+        
+          &lt;img src=&#34;https://www.jeremky.fr/img/posts/webtop-linux-via-navigateur-internet/cover.webp&#34;/&gt;
+          
+        
+        
+        
+          &lt;p&gt;La flexibilité de Docker n&amp;rsquo;est plus à démontrer. Il m&amp;rsquo;est arrivé plusieurs fois d&amp;rsquo;être surpris par les possibilités de cet outil et par la créativité de certains développeurs dans l&amp;rsquo;intégration d&amp;rsquo;applications.&lt;/p&gt;
+&lt;p&gt;Mais si j&amp;rsquo;avais pour rôle de donner un prix pour l&amp;rsquo;image du moment, je le dédierais à &lt;a href=&#34;https://docs.linuxserver.io/images/docker-webtop/&#34;&gt;Webtop&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Webtop est une image fournie par l&amp;rsquo;équipe &lt;a href=&#34;https://www.linuxserver.io/&#34;&gt;Linuxserver.io&lt;/a&gt; qui a pour but de donner l&amp;rsquo;accès à un OS Linux complet, et ce via un serveur VNC accessible directement depuis son navigateur Web.&lt;/p&gt;
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>NeoVim : un fork de Vim moderne</title>
+      <link>https://www.jeremky.fr/posts/neovim-un-fork-de-vim-moderne/</link>
+      <pubDate>Sat, 25 Jan 2025 19:41:07 +0000</pubDate>
+      
+      <guid>https://www.jeremky.fr/posts/neovim-un-fork-de-vim-moderne/</guid>
+      <description>
+        
+          &lt;img src=&#34;https://www.jeremky.fr/img/posts/neovim-un-fork-de-vim-moderne/cover.webp&#34;/&gt;
+          
+        
+        
+        
+          &lt;p&gt;Je vous avais présenté mon éditeur en mode terminal favoris, Vim. Dans &lt;a href=&#34;https://www.jeremky.fr/posts/vi-na-pas-dit-son-dernier-mot/&#34;&gt;cet article&lt;/a&gt;, j&amp;rsquo;indiquais que je ne voulais pas dépendre de plugins additionnels&amp;hellip; Mais mon regard à changé depuis. Et quitte à refaire une configuration complète, je me suis dit qu&amp;rsquo;il était temps de passer à NeoVim.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://neovim.io/&#34;&gt;Neovim&lt;/a&gt; est un fork qui vise à améliorer l&amp;rsquo;extensibilité et la maintenabilité de Vim. Neovim partage la même syntaxe de configuration avec Vim ; par conséquent, le même fichier de configuration peut être utilisé avec les deux éditeurs (à quelques différences près). À partir de la version 0.1, sortie en décembre 2015, Neovim est compatible avec la quasi-totalité des fonctionnalités de Vim.&lt;/p&gt;
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>tmux : multiplexeur de terminaux</title>
+      <link>https://www.jeremky.fr/posts/tmux-multiplexeur-de-terminaux/</link>
+      <pubDate>Wed, 22 Jan 2025 22:06:43 +0000</pubDate>
+      
+      <guid>https://www.jeremky.fr/posts/tmux-multiplexeur-de-terminaux/</guid>
+      <description>
+        
+          &lt;img src=&#34;https://www.jeremky.fr/img/posts/tmux-multiplexeur-de-terminaux/cover.webp&#34;/&gt;
+          
+        
+        
+        
+          &lt;p&gt;&lt;a href=&#34;https://fr.wikipedia.org/wiki/Tmux&#34;&gt;tmux&lt;/a&gt; est un multiplexeur de terminaux libre en mode texte. Il permet d&amp;rsquo;utiliser plusieurs terminaux virtuels dans une seule fenêtre de terminal ou une session sur un terminal distant. tmux peut être détaché d&amp;rsquo;une session et continuer de fonctionner en arrière-plan, on peut également s&amp;rsquo;y rattacher plus tard. Il permet aussi de lancer, de gérer et de garder le visuel sur plusieurs processus en même temps.&lt;/p&gt;
+&lt;p&gt;Même si les émulateurs de terminaux modernes permettent diviser les fenêtres, il faut réapprendre les raccourcis clavier de ces applications. tmux permet d&amp;rsquo;unifier ses méthodes de travail, et de récupérer ses sessions en cas de coupure réseau par exemple.&lt;/p&gt;
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>podman-docker : une application pour faciliter la transition</title>
+      <link>https://www.jeremky.fr/posts/podman-docker-application-faciliter-transition/</link>
+      <pubDate>Sun, 19 Jan 2025 18:24:37 +0000</pubDate>
+      
+      <guid>https://www.jeremky.fr/posts/podman-docker-application-faciliter-transition/</guid>
+      <description>
+        
+          &lt;img src=&#34;https://www.jeremky.fr/img/posts/podman-docker-application-faciliter-transition/cover.webp&#34;/&gt;
+          
+        
+        
+        
+          &lt;p&gt;Comme évoqué dans un &lt;a href=&#34;https://www.jeremky.fr/posts/migration-de-docker-vers-podman/&#34;&gt;précédent article&lt;/a&gt;, j&amp;rsquo;ai pris la décision de migrer de Docker vers Podman pour la gestion de mes conteneurs.&lt;/p&gt;
+&lt;p&gt;Pour rappel, Podman a l&amp;rsquo;avantage de pouvoir fonctionner sans daemon central, ce qui améliore la sécurité du système. Cependant, même si un effort énorme est fourni pour faciliter la transition d&amp;rsquo;un service à l&amp;rsquo;autre, il subsiste &lt;a href=&#34;https://www.jeremky.fr/posts/reecriture-des-articles-docker/&#34;&gt;plusieurs inconvénients&lt;/a&gt;, notamment dans l’utilisation de &lt;code&gt;podman-compose&lt;/code&gt; avec certains paramètres.&lt;/p&gt;
+&lt;p&gt;La version fournie dans les paquets Debian est assez ancienne. Et même s&amp;rsquo;il est possible de passer sur une version plus récente avec les backports de Debian, il restait quelques éléments qui posaient problème.&lt;/p&gt;
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Pairdrop : transférez des fichiers facilement</title>
+      <link>https://www.jeremky.fr/posts/pairdrop-transferez-des-fichiers-facilement/</link>
+      <pubDate>Sat, 21 Dec 2024 18:07:50 +0000</pubDate>
+      
+      <guid>https://www.jeremky.fr/posts/pairdrop-transferez-des-fichiers-facilement/</guid>
+      <description>
+        
+          &lt;img src=&#34;https://www.jeremky.fr/img/posts/pairdrop-transferez-des-fichiers-facilement/cover.webp&#34;/&gt;
+          
+        
+        
+        
+          &lt;p&gt;On continue avec les outils de transfert de fichiers. Si vous connaissez le service AirDrop, cette application vous semblera plus que familière…&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/schlagmichdoch/pairdrop&#34;&gt;Pairdrop&lt;/a&gt; a en effet été conçu pour reproduire le service disponible sur iOS et MacOS. Totalement libre, il permettra à n’importe qui de se transférer des fichiers ou du texte directement d’un appareil à un autre, à partir du moment où ces appareils sont présents sur le même réseau local, et ce sans aucune configuration à effectuer.&lt;/p&gt;
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Syncthing : outil open source pour synchroniser vos fichiers</title>
+      <link>https://www.jeremky.fr/posts/syncthing-outil-open-source-synchroniser-fichiers/</link>
+      <pubDate>Wed, 18 Dec 2024 18:07:32 +0000</pubDate>
+      
+      <guid>https://www.jeremky.fr/posts/syncthing-outil-open-source-synchroniser-fichiers/</guid>
+      <description>
+        
+          &lt;img src=&#34;https://www.jeremky.fr/img/posts/syncthing-outil-open-source-synchroniser-fichiers/cover.webp&#34;/&gt;
+          
+        
+        
+        
+          &lt;p&gt;Il y a quelques mois, je vous avais parlé de l’outil de synchronisation de fichiers basé sur la technologie Bittorrent, &lt;a href=&#34;https://www.jeremky.fr/posts/synchroniser-ses-fichiers-avec-resilio-sync/&#34;&gt;Resilio Sync&lt;/a&gt;. Aujourd’hui, c’est au tour de son concurrent Open Source : &lt;a href=&#34;https://syncthing.net/&#34;&gt;Syncthing&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Syncthing est une application de synchronisation de fichiers pair à pair open source disponible pour Windows, Mac, Linux, Android, Solaris, Darwin et BSD3. Aucun compte ni enregistrement préalable à l’utilisation auprès d’un tiers (comme les géants du web, ou quelque autre entité) n’est nécessaire, ni même optionnelle. La sécurité et l’intégrité des données sont intégrées dans la conception du logiciel.&lt;/p&gt;
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>AriaNG : centralisez vos téléchargements</title>
+      <link>https://www.jeremky.fr/posts/ariang-centralisez-vos-telechargements/</link>
+      <pubDate>Fri, 13 Dec 2024 18:07:03 +0000</pubDate>
+      
+      <guid>https://www.jeremky.fr/posts/ariang-centralisez-vos-telechargements/</guid>
+      <description>
+        
+          &lt;img src=&#34;https://www.jeremky.fr/img/posts/ariang-centralisez-vos-telechargements/cover.webp&#34;/&gt;
+          
+        
+        
+        
+          &lt;p&gt;Récemment, je vous ai présenté &lt;a href=&#34;https://www.jeremky.fr/posts/transmission-un-client-torrent-web/&#34;&gt;Transmission&lt;/a&gt;, un outil web de téléchargement de fichiers torrent. Mais son intérêt a pris un sacré coup dans l’aile depuis que je suis tombé sur &lt;a href=&#34;https://github.com/hurlenko/aria2-ariang-docker&#34;&gt;AriaNG&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;AriaNG vous permet de centraliser la gestion de vos téléchargements, indépendamment du protocole : HTTP(s), FTP/SFTP, Bittorent, Metalink…&lt;/p&gt;
+&lt;h2 id=&#34;installation&#34;&gt;
+  Installation
+  &lt;a href=&#34;#installation&#34; class=&#34;h-anchor&#34; aria-hidden=&#34;true&#34;&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;Pour installer AriaNG, les fichiers pour Docker sont les suivants :&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yml&#34; data-lang=&#34;yml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;services&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;ariang&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;image&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;docker.io/hurlenko/aria2-ariang:latest&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;container_name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;ariang&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;hostname&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;ariang&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;env_file&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;ariang.env&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;networks&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#ae81ff&#34;&gt;nginx_proxy&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;volumes&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#ae81ff&#34;&gt;/opt/ariang:/aria2/data&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#ae81ff&#34;&gt;./files:/aria2/conf&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;restart&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;always&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;networks&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;nginx_proxy&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;external&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;Dans l’exemple, le volume du dossier des téléchargements est &lt;code&gt;/opt/ariang&lt;/code&gt;, mais vous pouvez très bien le placer dans votre dossier utilisateur.&lt;/p&gt;
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Surveillez vos applications avec Uptime Kuma</title>
+      <link>https://www.jeremky.fr/posts/surveillez-vos-applications-avec-uptime-kuma/</link>
+      <pubDate>Wed, 04 Dec 2024 09:09:15 +0000</pubDate>
+      
+      <guid>https://www.jeremky.fr/posts/surveillez-vos-applications-avec-uptime-kuma/</guid>
+      <description>
+        
+          &lt;img src=&#34;https://www.jeremky.fr/img/posts/surveillez-vos-applications-avec-uptime-kuma/cover.webp&#34;/&gt;
+          
+        
+        
+        
+          &lt;p&gt;&lt;a href=&#34;https://uptime.kuma.pet/&#34;&gt;Uptime Kuma&lt;/a&gt; est un outil de surveillance d’état en temps réel qui vous permet de vérifier la disponibilité de vos sites web, serveurs et services. Open-source et auto-hébergé, il dispose d&amp;rsquo;une interface moderne et intuitive.&lt;/p&gt;
+&lt;h2 id=&#34;installation&#34;&gt;
+  Installation
+  &lt;a href=&#34;#installation&#34; class=&#34;h-anchor&#34; aria-hidden=&#34;true&#34;&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;Encore et toujours, un fichier &lt;code&gt;docker-compose.yml&lt;/code&gt; :&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yml&#34; data-lang=&#34;yml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;services&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;uptime-kuma&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;image&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;docker.io/louislam/uptime-kuma:1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;container_name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;uptime-kuma&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;hostname&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;uptime-kuma&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;networks&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#ae81ff&#34;&gt;nginx_proxy&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;volumes&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#ae81ff&#34;&gt;/opt/uptime-kuma:/app/data&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#ae81ff&#34;&gt;/var/run/docker.sock:/var/run/docker.sock:ro&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;restart&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;always&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;networks&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;nginx_proxy&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;external&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Dans les volumes, se trouve le lien avec le fichier &lt;code&gt;docker.sock&lt;/code&gt;. Cela permet à Uptime Kuma de monitorer des conteneurs prenant en charge le status (Healthy). Si vous utilisez Podman, remplacez le bloc volumes par le suivant :&lt;/p&gt;
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Diun : être notifié des nouvelles images Docker</title>
+      <link>https://www.jeremky.fr/posts/diun-etre-notifie-des-nouvelles-images-docker/</link>
+      <pubDate>Mon, 02 Dec 2024 19:09:00 +0000</pubDate>
+      
+      <guid>https://www.jeremky.fr/posts/diun-etre-notifie-des-nouvelles-images-docker/</guid>
+      <description>
+        
+          &lt;img src=&#34;https://www.jeremky.fr/img/posts/diun-etre-notifie-des-nouvelles-images-docker/cover.webp&#34;/&gt;
+          
+        
+        
+        
+          &lt;p&gt;D&amp;rsquo;après leur site, &lt;a href=&#34;https://crazymax.dev/diun/&#34;&gt;Diun&lt;/a&gt;, pour &lt;em&gt;Docker Image Update Notifier&lt;/em&gt;, est une application qui permet de recevoir des notifications lorsqu’une image Docker est mise à jour sur un registre.&lt;/p&gt;
+&lt;p&gt;Contrairement à &lt;a href=&#34;https://www.jeremky.fr/posts/watchtower-un-conteneur-pour-les-gouverner-tous/&#34;&gt;Watchtower&lt;/a&gt;, Diun ne permet pas d&amp;rsquo;effectuer de mise à jour automatique, seulement de notifier. Cela a toutefois des avantages :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Le montage avec Docker est en Read Only. Cela assure donc un meilleur niveau de sécurité&lt;/li&gt;
+&lt;li&gt;Vous gardez le contrôle sur le moment où vous voulez mettre à jour, en faisant des tests au préalable si nécessaire&lt;/li&gt;
+&lt;li&gt;Diun est compatible avec &lt;a href=&#34;https://www.jeremky.fr/posts/migration-de-docker-vers-podman/&#34;&gt;Podman&lt;/a&gt;, contrairement à Watchtower&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;installation&#34;&gt;
+  Installation
+  &lt;a href=&#34;#installation&#34; class=&#34;h-anchor&#34; aria-hidden=&#34;true&#34;&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;On commence par le fichier &lt;code&gt;docker-compose.yml&lt;/code&gt; :&lt;/p&gt;
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Flame : un Dashboard léger et efficace</title>
+      <link>https://www.jeremky.fr/posts/flame-un-dashboard-leger-et-efficace/</link>
+      <pubDate>Sat, 23 Nov 2024 20:42:50 +0000</pubDate>
+      
+      <guid>https://www.jeremky.fr/posts/flame-un-dashboard-leger-et-efficace/</guid>
+      <description>
+        
+          &lt;img src=&#34;https://www.jeremky.fr/img/posts/flame-un-dashboard-leger-et-efficace/cover.webp&#34;/&gt;
+          
+        
+        
+        
+          &lt;p&gt;Il y a quelques mois, j&amp;rsquo;avais fait la présentation de l&amp;rsquo;application &lt;a href=&#34;https://www.jeremky.fr/posts/creer-son-dashboard-avec-heimdall/&#34;&gt;Heimdall&lt;/a&gt;. Ce dashboard est joli et simple à configurer. Mais dans l&amp;rsquo;utilisation, je trouvais qu&amp;rsquo;il manquait de productivité. J&amp;rsquo;ai donc regardé les alternatives et je suis tombé sur le dashboard Flame.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/pawelmalak/flame&#34;&gt;Flame&lt;/a&gt; est un dashboard ultra minimaliste, se concentrant sur son efficacité. Ses points forts :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Il permet de regrouper ses applications web et ses favoris au même endroit&lt;/li&gt;
+&lt;li&gt;Les applications Docker peuvent automatiquement être ajoutées et retirées du dashboard, via des labels à ajouter à vos fichiers &lt;code&gt;docker-compose.yml&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Il dispose d&amp;rsquo;une barre de recherche unifiée, permettant de trouver rapidement un élément, et dans le cas contraire, vous renvoi sur le moteur de recherche de votre choix&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;installation&#34;&gt;
+  Installation
+  &lt;a href=&#34;#installation&#34; class=&#34;h-anchor&#34; aria-hidden=&#34;true&#34;&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;Cela devient redondant maintenant, mais vous vous en doutez :&lt;/p&gt;
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Transmission : un client torrent en Web</title>
+      <link>https://www.jeremky.fr/posts/transmission-un-client-torrent-web/</link>
+      <pubDate>Sat, 23 Nov 2024 01:22:38 +0000</pubDate>
+      
+      <guid>https://www.jeremky.fr/posts/transmission-un-client-torrent-web/</guid>
+      <description>
+        
+          &lt;img src=&#34;https://www.jeremky.fr/img/posts/transmission-un-client-torrent-web/cover.webp&#34;/&gt;
+          
+        
+        
+        
+          &lt;p&gt;Transmission est une application de téléchargement BitTorrent légère et open-source. Elle existe également en version Web, ce qui nous intéresse ici. Cet article sera très court, l&amp;rsquo;objectif étant surtout de partager les fichiers nécessaires à son installation.&lt;/p&gt;
+&lt;h2 id=&#34;installation&#34;&gt;
+  Installation
+  &lt;a href=&#34;#installation&#34; class=&#34;h-anchor&#34; aria-hidden=&#34;true&#34;&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;Voici les fichiers de configuration Docker nécessaires pour l&amp;rsquo;installation de Transmission :&lt;/p&gt;
+&lt;p&gt;Le fichier &lt;code&gt;docker-compose.yml&lt;/code&gt; :&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yml&#34; data-lang=&#34;yml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;services&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;transmission&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;image&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;lscr.io/linuxserver/transmission:latest&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;container_name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;transmission&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;hostname&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;transmission&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;env_file&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;transmission.env&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;networks&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#ae81ff&#34;&gt;nginx_proxy&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;volumes&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#ae81ff&#34;&gt;/opt/transmission/data:/config&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#ae81ff&#34;&gt;/opt/transmission/downloads:/downloads&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#ae81ff&#34;&gt;/opt/transmission/folder:/watch&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;ports&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#ae81ff&#34;&gt;51413&lt;/span&gt;:&lt;span style=&#34;color:#ae81ff&#34;&gt;51413&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#ae81ff&#34;&gt;51413&lt;/span&gt;:&lt;span style=&#34;color:#ae81ff&#34;&gt;51413&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;/udp&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;restart&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;always&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;networks&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;nginx_proxy&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;external&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Et son fichier &lt;code&gt;transmission.env&lt;/code&gt; :&lt;/p&gt;
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Wireguard Easy : Simplifiez la gestion de Wireguard</title>
+      <link>https://www.jeremky.fr/posts/wireguard-easy-simplifiez-la-gestion-de-vos-vpn-wireguard/</link>
+      <pubDate>Sun, 17 Nov 2024 15:32:00 +0000</pubDate>
+      
+      <guid>https://www.jeremky.fr/posts/wireguard-easy-simplifiez-la-gestion-de-vos-vpn-wireguard/</guid>
+      <description>
+        
+          &lt;img src=&#34;https://www.jeremky.fr/img/posts/wireguard-easy-simplifiez-la-gestion-de-wireguard/cover.webp&#34;/&gt;
+          
+        
+        
+        
+          &lt;p&gt;Comme vu dans &lt;a href=&#34;https://www.jeremky.fr/posts/mise-en-place-dun-vpn-avec-wireguard/&#34;&gt;cet article&lt;/a&gt;, &lt;a href=&#34;https://www.wireguard.com/&#34;&gt;Wireguard&lt;/a&gt; est un VPN très performant et facile à mettre en place, mais son administration via des fichiers de configuration peut paraître assez compliquée. C&amp;rsquo;est là qu&amp;rsquo;intervient Wiregard Easy.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/wg-easy/wg-easy&#34;&gt;Wireguard Easy&lt;/a&gt; est une interface graphique légère et open source conçue pour simplifier la gestion de WireGuard. Elle permet de gérer facilement les pairs (clients), de visualiser l&amp;rsquo;état des connexions, ainsi que la volumétrie de données transitant en temps réel. Il est également possible d&amp;rsquo;exporter facilement la configuration en cas de réinstallation ultérieure.&lt;/p&gt;
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Authelia : serveur d&#39;authentification Open Source</title>
+      <link>https://www.jeremky.fr/posts/authelia-serveur-dauthentification-open-source/</link>
+      <pubDate>Mon, 11 Nov 2024 23:34:44 +0000</pubDate>
+      
+      <guid>https://www.jeremky.fr/posts/authelia-serveur-dauthentification-open-source/</guid>
+      <description>
+        
+          &lt;img src=&#34;https://www.jeremky.fr/img/posts/authelia-serveur-dauthentification-open-source/cover.webp&#34;/&gt;
+          
+        
+        
+        
+          &lt;p&gt;D&amp;rsquo;après le &lt;a href=&#34;https://www.authelia.com/&#34;&gt;site officiel&lt;/a&gt;, &lt;em&gt;&amp;ldquo;Authelia est un serveur et un portail d&amp;rsquo;authentification open source remplissant le rôle de gestion des identités et des accès (IAM) en fournissant une authentification multifacteur et une authentification unique (SSO) pour vos applications via un portail Web. Il agit comme un compagnon pour les proxys inverses courants.&amp;rdquo;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Dans cet article, il sera présenté comment installer Authelia, et comment le connecter au reverse proxy nginx (voir &lt;a href=&#34;https://www.jeremky.fr/posts/reverse-proxy-nginx/&#34;&gt;cet article&lt;/a&gt; pour l&amp;rsquo;installation de nginx). A noter que cet article se concentre uniquement sur une configuration simple permettant de remplacer l&amp;rsquo;authentification par fichier &lt;code&gt;.htpasswd&lt;/code&gt; interne à nginx.&lt;/p&gt;
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Personnaliser vos images Docker</title>
+      <link>https://www.jeremky.fr/posts/personnaliser-vos-images-docker/</link>
+      <pubDate>Sat, 02 Nov 2024 00:22:28 +0000</pubDate>
+      
+      <guid>https://www.jeremky.fr/posts/personnaliser-vos-images-docker/</guid>
+      <description>
+        
+          &lt;img src=&#34;https://www.jeremky.fr/img/posts/personnaliser-vos-images-docker/cover.webp&#34;/&gt;
+          
+        
+        
+        
+          &lt;p&gt;Les tutos présents sur ce site pour l&amp;rsquo;installation d&amp;rsquo;applications via &lt;a href=&#34;https://www.jeremky.fr/posts/premiers-pas-avec-docker/&#34;&gt;Docker&lt;/a&gt; utilisent des images disponibles directement sur &lt;a href=&#34;https://hub.docker.com/&#34;&gt;Dockerhub&lt;/a&gt;. Les images étant fonctionnelles en l&amp;rsquo;état, je n&amp;rsquo;ai jamais eu besoin de construire moi-même une image.&lt;/p&gt;
+&lt;p&gt;L&amp;rsquo;utilisation de &lt;a href=&#34;https://www.jeremky.fr/posts/visual-studio-code-dans-son-navigateur/&#34;&gt;VS Code&lt;/a&gt; m&amp;rsquo;a poussé à regarder comment transformer l&amp;rsquo;image créée par &lt;a href=&#34;https://hub.docker.com/r/linuxserver/code-server&#34;&gt;linuxserver.io&lt;/a&gt; pour y ajouter Hugo, sans avoir besoin de réinstaller l&amp;rsquo;application à chaque redéploiement.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Dans cet article, je ne fais référence qu&amp;rsquo;à Docker pour une question de lisibilité, mais cela est tout aussi valable pour Podman&lt;/p&gt;
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Visual Studio Code dans son navigateur</title>
+      <link>https://www.jeremky.fr/posts/visual-studio-code-dans-son-navigateur/</link>
+      <pubDate>Sat, 26 Oct 2024 13:22:59 +0000</pubDate>
+      
+      <guid>https://www.jeremky.fr/posts/visual-studio-code-dans-son-navigateur/</guid>
+      <description>
+        
+          &lt;img src=&#34;https://www.jeremky.fr/img/posts/visual-studio-code-dans-son-navigateur/cover.webp&#34;/&gt;
+          
+        
+        
+        
+          &lt;p&gt;D&amp;rsquo;après &lt;a href=&#34;https://fr.wikipedia.org/wiki/Visual_Studio_Code&#34;&gt;Wikipedia&lt;/a&gt;,&lt;em&gt;Visual Studio Code est un éditeur de code extensible développé par Microsoft pour Windows, Linux et macOS.Les fonctionnalités incluent la prise en charge du débogage, la mise en évidence de la syntaxe, la complétion intelligente du code (IntelliSense.), les snippets, la refactorisation du code et Git intégré. Les utilisateurs peuvent modifier le thème, les raccourcis clavier, les préférences et installer des extensions qui ajoutent des fonctionnalités supplémentaires.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Appelé code-server, cette version est utilisable directement depuis un navigateur. L&amp;rsquo;intérêt ici est d&amp;rsquo;avoir une instance VS Code déportée de sa machine principale, afin de pouvoir y accéder de n&amp;rsquo;importe où. A noter que cette solution n&amp;rsquo;est pas multi utilisateur.&lt;/p&gt;
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Portainer : Administrer vos conteneurs via une interface web</title>
+      <link>https://www.jeremky.fr/posts/portainer-administrer-vos-conteneurs-via-une-interface-web/</link>
+      <pubDate>Sat, 19 Oct 2024 12:50:53 +0200</pubDate>
+      
+      <guid>https://www.jeremky.fr/posts/portainer-administrer-vos-conteneurs-via-une-interface-web/</guid>
+      <description>
+        
+          &lt;img src=&#34;https://www.jeremky.fr/img/posts/portainer-administrer-vos-conteneurs-via-une-interface-web/cover.webp&#34;/&gt;
+          
+        
+        
+        
+          &lt;p&gt;Afin d&amp;rsquo;optimiser la consommation des ressources d&amp;rsquo;un serveur, il est préférable de se passer d&amp;rsquo;interface graphique/web et d&amp;rsquo;administrer ses applications en ligne de commande. Toutefois, cela demande d&amp;rsquo;apprendre à connaître les commandes, les emplacements des fichiers de configuration&amp;hellip; Il est donc plus agréable de passer par une interface graphique.&lt;/p&gt;
+&lt;p&gt;Pour l&amp;rsquo;administration de conteneurs, il existe différentes applications web afin de rendre les choses moins austères. &lt;a href=&#34;https://www.portainer.io/&#34;&gt;Portainer&lt;/a&gt; est l&amp;rsquo;une de ces solutions.&lt;/p&gt;
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>FreshRSS : un agrégateur de flux RSS</title>
+      <link>https://www.jeremky.fr/posts/freshrss-un-agregateur-de-flux-rss/</link>
+      <pubDate>Mon, 14 Oct 2024 18:03:58 +0200</pubDate>
+      
+      <guid>https://www.jeremky.fr/posts/freshrss-un-agregateur-de-flux-rss/</guid>
+      <description>
+        
+          &lt;img src=&#34;https://www.jeremky.fr/img/posts/freshrss-un-agregateur-de-flux-rss/cover.webp&#34;/&gt;
+          
+        
+        
+        
+          &lt;p&gt;FreshRSS est présenté sur &lt;a href=&#34;https://fr.wikipedia.org/wiki/FreshRSS&#34;&gt;Wikipedia&lt;/a&gt; comme &amp;ldquo;&lt;em&gt;un agrégateur de flux RSS, Atom Syndication Format et WebSub en ligne, sous licence libre GNU AGPL v32.&lt;/em&gt;&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;Pour celles et ceux qui seraient passés à côté, le &lt;em&gt;RSS (sigle venant de l&amp;rsquo;anglais Really Simple Syndication, litt. « syndication vraiment simple ») est une famille de Flux web, c&amp;rsquo;est-à-dire un type de formats de données utilisé pour la syndication de contenu Web.&lt;/em&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;Un produit RSS est une ressource du World Wide Web dont le contenu est produit automatiquement (sauf cas exceptionnels) en fonction des mises à jour d’un site Web. Les flux RSS sont des fichiers XML qui sont souvent utilisés par les sites d&amp;rsquo;actualité et les blogs pour présenter les titres des dernières informations consultables.&lt;/em&gt;&lt;/p&gt;
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Migration de Docker vers Podman</title>
+      <link>https://www.jeremky.fr/posts/migration-de-docker-vers-podman/</link>
+      <pubDate>Thu, 26 Sep 2024 17:43:20 +0200</pubDate>
+      
+      <guid>https://www.jeremky.fr/posts/migration-de-docker-vers-podman/</guid>
+      <description>
+        
+          &lt;img src=&#34;https://www.jeremky.fr/img/posts/migration-de-docker-vers-podman/cover.webp&#34;/&gt;
+          
+        
+        
+        
+          &lt;p&gt;&lt;a href=&#34;https://www.docker.com/&#34;&gt;Docker&lt;/a&gt;, ce logiciel incroyable dont je vante les mérites depuis quelques années maintenant, possède une version Windows, &lt;a href=&#34;https://www.docker.com/&#34;&gt;Docker Desktop&lt;/a&gt;, qui est désormais payante pour une utilisation en entreprise. Certaines rumeurs évoquent la possibilité que Docker finisse par être payant sur l&amp;rsquo;intégralité de leur produit. Il se peut que cela n&amp;rsquo;arrive jamais, mais dans le doute, il m&amp;rsquo;a été nécessaire d&amp;rsquo;envisager des alternatives. Conseillé par mes collègues, je me suis donc intéressé à l&amp;rsquo;application suivante : &lt;a href=&#34;https://podman.io/&#34;&gt;Podman&lt;/a&gt;.&lt;/p&gt;
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Mise à jour de ma configuration Vi</title>
+      <link>https://www.jeremky.fr/posts/mise-a-jour-de-ma-config-vi/</link>
+      <pubDate>Wed, 18 Sep 2024 16:33:53 +0200</pubDate>
+      
+      <guid>https://www.jeremky.fr/posts/mise-a-jour-de-ma-config-vi/</guid>
+      <description>
+        
+          &lt;img src=&#34;https://www.jeremky.fr/img/posts/mise-a-jour-de-ma-config-vi/cover.webp&#34;/&gt;
+          
+        
+        
+        
+          &lt;p&gt;Petit article pour vous partager les changements sur ma configuration de &lt;a href=&#34;https://www.vim.org/&#34;&gt;Vim&lt;/a&gt;. Pour rappel, un article avait été rédigé sur comment utiliser et configurer Vim. L&amp;rsquo;article est &lt;a href=&#34;https://www.jeremky.fr/posts/vi-na-pas-dit-son-dernier-mot/&#34;&gt;disponible ici&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Ce qui va suivre peut très bien être implémenté via des modules Vim. Mais ce n&amp;rsquo;est pas l&amp;rsquo;objectif ici, qui est d&amp;rsquo;utiliser les possibilités de base de Vim afin d&amp;rsquo;avoir une configuration la plus portable possible via un seul fichier.&lt;/p&gt;
+&lt;h2 id=&#34;ajout-dun-explorateur-de-fichier&#34;&gt;
+  Ajout d&amp;rsquo;un explorateur de fichier
+  &lt;a href=&#34;#ajout-dun-explorateur-de-fichier&#34; class=&#34;h-anchor&#34; aria-hidden=&#34;true&#34;&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;A l&amp;rsquo;ouverture d&amp;rsquo;un fichier, nous avons désormais sur notre gauche un explorateur de fichiers, se plaçant dans le répertoire courant :&lt;/p&gt;
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Synchroniser ses fichiers avec Resilio Sync</title>
+      <link>https://www.jeremky.fr/posts/synchroniser-ses-fichiers-avec-resilio-sync/</link>
+      <pubDate>Thu, 22 Aug 2024 21:00:33 +0200</pubDate>
+      
+      <guid>https://www.jeremky.fr/posts/synchroniser-ses-fichiers-avec-resilio-sync/</guid>
+      <description>
+        
+          &lt;img src=&#34;https://www.jeremky.fr/img/posts/synchroniser-ses-fichiers-avec-resilio-sync/cover.webp&#34;/&gt;
+          
+        
+        
+        
+          &lt;p&gt;D&amp;rsquo;après &lt;a href=&#34;https://en.wikipedia.org/wiki/Resilio_Sync&#34;&gt;Wikipedia&lt;/a&gt;, &lt;em&gt;Resilio Sync (anciennement BitTorrent Sync) de Resilio, Inc. est un outil propriétaire de synchronisation de fichiers peer-to-peer disponible pour Windows, Mac, Linux, Android, iOS, Windows Phone, Amazon Kindle Fire et BSD. Il peut synchroniser des fichiers entre appareils sur un réseau local ou entre appareils distants sur Internet via une version modifiée du protocole BitTorrent. Bien qu&amp;rsquo;il ne soit pas présenté par les développeurs comme un remplacement direct ni un concurrent des services de synchronisation de fichiers basés sur le cloud, il a acquis une grande partie de sa publicité dans ce rôle potentiel.&lt;/em&gt;&lt;/p&gt;
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Serveur Minecraft Infinity Dungeon</title>
+      <link>https://www.jeremky.fr/posts/serveur-minecraft-infinity-dungeon/</link>
+      <pubDate>Mon, 05 Aug 2024 20:56:18 +0200</pubDate>
+      
+      <guid>https://www.jeremky.fr/posts/serveur-minecraft-infinity-dungeon/</guid>
+      <description>
+        
+          &lt;img src=&#34;https://www.jeremky.fr/img/posts/serveur-minecraft-infinity-dungeon/cover.webp&#34;/&gt;
+          
+        
+        
+        
+          &lt;p&gt;Euh&amp;hellip; Minecraft ? Pas tout à fait. &lt;a href=&#34;https://www.planetminecraft.com/project/infinity-dungeons/&#34;&gt;Minecraft Infinity Dungeon&lt;/a&gt; est une map aventure de type &lt;a href=&#34;https://fr.wikipedia.org/wiki/Roguelike&#34;&gt;Roguelike&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Tous les codes de ce genre de jeu s&amp;rsquo;y trouvent : des zones générées de façon procédurale, des récompenses, des salles de boss&amp;hellip;&lt;/p&gt;
+
+  &lt;img src=&#34;https://www.jeremky.fr/img/posts/serveur-minecraft-infinity-dungeon/boss.webp&#34;  class=&#34;center&#34;  style=&#34;border-radius: 8px;&#34;  /&gt;
+
+
+&lt;h2 id=&#34;lobby&#34;&gt;
+  Lobby
+  &lt;a href=&#34;#lobby&#34; class=&#34;h-anchor&#34; aria-hidden=&#34;true&#34;&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;La map dispose d&amp;rsquo;un Lobby. Dans ce dernier, il est possible de consulter un livre contenant toutes les tentatives des joueurs avec diverses informations : le nombre de mobs tués, le nombre de salles ouvertes, le nombre de boss vaincus. Vous pouvez également vous entraîner à faire un peu de parkour, ou en bonus, tester le piano &amp;#x1f604;&lt;/p&gt;
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Construire son cloud avec Nextcloud</title>
+      <link>https://www.jeremky.fr/posts/construire-son-cloud-avec-nextcloud/</link>
+      <pubDate>Sat, 03 Aug 2024 15:34:10 +0200</pubDate>
+      
+      <guid>https://www.jeremky.fr/posts/construire-son-cloud-avec-nextcloud/</guid>
+      <description>
+        
+          &lt;img src=&#34;https://www.jeremky.fr/img/posts/construire-son-cloud-avec-nextcloud/cover.webp&#34;/&gt;
+          
+        
+        
+        
+          &lt;p&gt;D&amp;rsquo;après &lt;a href=&#34;https://fr.wikipedia.org/wiki/Nextcloud&#34;&gt;Wikipédia&lt;/a&gt;, &lt;em&gt;Nextcloud est un logiciel libre de site d&amp;rsquo;hébergement de fichiers et une plateforme de collaboration. À l&amp;rsquo;origine accessible via WebDAV, n&amp;rsquo;importe quel navigateur web, ou des clients spécialisés, son architecture ouverte a permis de voir ses fonctionnalités s&amp;rsquo;étendre depuis ses origines. En 2020, il propose de nombreux services.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://nextcloud.com/fr/&#34;&gt;Nextcloud&lt;/a&gt; est une plateforme de type &amp;ldquo;cloud&amp;rdquo; personnel, où vous allez pouvoir y stocker vos fichiers, mais aussi vos agendas, vos contacts, vos notes, vos photos&amp;hellip; Il propose également une série d&amp;rsquo;applications facultatives (travail collaboratif, visio&amp;hellip;).&lt;/p&gt;
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Créer son dashboard avec Heimdall</title>
+      <link>https://www.jeremky.fr/posts/creer-son-dashboard-avec-heimdall/</link>
+      <pubDate>Thu, 25 Jul 2024 20:40:43 +0200</pubDate>
+      
+      <guid>https://www.jeremky.fr/posts/creer-son-dashboard-avec-heimdall/</guid>
+      <description>
+        
+          &lt;img src=&#34;https://www.jeremky.fr/img/posts/creer-son-dashboard-avec-heimdall/cover.webp&#34;/&gt;
+          
+        
+        
+        
+          &lt;p&gt;&lt;a href=&#34;https://heimdall.site/&#34;&gt;Heimdall&lt;/a&gt; est une application web vous permettant d&amp;rsquo;y configurer votre dashboard personnalisé.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&amp;ldquo;Heimdall⁠ est un moyen d&amp;rsquo;organiser de manière simple les liens vers vos sites Web et applications Web les plus utilisés.&lt;/em&gt;
+&lt;em&gt;La simplicité est la clé de Heimdall.&lt;/em&gt;
+&lt;em&gt;Pourquoi ne pas l&amp;rsquo;utiliser comme page de démarrage de votre navigateur ? Il a même la possibilité d&amp;rsquo;inclure une barre de recherche utilisant Google, Bing ou DuckDuckGo.&amp;rdquo;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Vous pouvez y créer vos propres applications sous forme de lien web, mais il est parfois possible d&amp;rsquo;avoir davantage d&amp;rsquo;interactions, afin d&amp;rsquo;y afficher des informations supplémentaires sous forme de widget.&lt;/p&gt;
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Déploiement du CMS Ghost avec Docker</title>
+      <link>https://www.jeremky.fr/posts/deploiement-du-cms-ghost-avec-docker/</link>
+      <pubDate>Tue, 23 Jul 2024 20:00:26 +0200</pubDate>
+      
+      <guid>https://www.jeremky.fr/posts/deploiement-du-cms-ghost-avec-docker/</guid>
+      <description>
+        
+          &lt;img src=&#34;https://www.jeremky.fr/img/posts/deploiement-du-cms-ghost-avec-docker/cover.webp&#34;/&gt;
+          
+        
+        
+        
+          &lt;p&gt;Dans un &lt;a href=&#34;https://www.jeremky.fr/posts/retour-sur-le-generateur-de-site-hugo/&#34;&gt;précédent article&lt;/a&gt;, j&amp;rsquo;évoquais un retour sur le générateur de site &lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt;. Je tenais donc faire un article sur le déploiement de &lt;a href=&#34;https://ghost.org/&#34;&gt;Ghost&lt;/a&gt;, car même s&amp;rsquo;il ne correspond plus à mes besoins, ce moteur de blog est clairement une solution à envisager pour le déploiement d&amp;rsquo;un site Web de type blog.&lt;/p&gt;
+&lt;h2 id=&#34;description&#34;&gt;
+  Description
+  &lt;a href=&#34;#description&#34; class=&#34;h-anchor&#34; aria-hidden=&#34;true&#34;&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;D&amp;rsquo;après &lt;a href=&#34;https://fr.wikipedia.org/wiki/Ghost_%28moteur_de_blog%29&#34;&gt;Wikipédia&lt;/a&gt; :&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;Ghost est un moteur de blog libre et open source écrit en JavaScript et distribué sous licence MIT. Ghost est conçu pour simplifier le processus de publication en ligne par des blogueurs.&lt;/em&gt;&lt;/p&gt;
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Watchtower : un conteneur pour les gouverner tous</title>
+      <link>https://www.jeremky.fr/posts/watchtower-un-conteneur-pour-les-gouverner-tous/</link>
+      <pubDate>Tue, 25 Jun 2024 17:28:32 +0000</pubDate>
+      
+      <guid>https://www.jeremky.fr/posts/watchtower-un-conteneur-pour-les-gouverner-tous/</guid>
+      <description>
+        
+          &lt;img src=&#34;https://www.jeremky.fr/img/posts/watchtower-un-conteneur-pour-les-gouverner-tous/cover.webp&#34;/&gt;
+          
+        
+        
+        
+          &lt;p&gt;Docker est un outil incroyable qui permet de déployer facilement tout un tas de solutions logicielles. Grâce à lui, pas besoin de vous soucier de l&amp;rsquo;OS, de sa version, et des risques d&amp;rsquo;une mauvaise installation à cause des différentes opérations manuelles à effectuer, le tout étant déjà préparé dans les images que vous déployez.&lt;/p&gt;
+&lt;p&gt;De plus, lorsque vous êtes amené à mettre vos applications à jour, vous pouviez être confronté à effectuer des opérations fastidieuses. Grâce à Docker, il suffit de récupérer la dernière version d’une image et le tour est joué.&lt;/p&gt;
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Mise en place d&#39;un VPN avec Wireguard</title>
+      <link>https://www.jeremky.fr/posts/mise-en-place-dun-vpn-avec-wireguard/</link>
+      <pubDate>Sun, 23 Jun 2024 17:26:52 +0000</pubDate>
+      
+      <guid>https://www.jeremky.fr/posts/mise-en-place-dun-vpn-avec-wireguard/</guid>
+      <description>
+        
+          &lt;img src=&#34;https://www.jeremky.fr/img/posts/mise-en-place-dun-vpn-avec-wireguard/cover.webp&#34;/&gt;
+          
+        
+        
+        
+          &lt;p&gt;Je ne vous présente pas ce qu&amp;rsquo;est un VPN, &lt;a href=&#34;https://fr.wikipedia.org/wiki/R%C3%A9seau_priv%C3%A9_virtuel&#34;&gt;Wikipedia&lt;/a&gt; fait ça très bien. Il existe plusieurs solutions pour héberger un VPN chez soi, le plus connu étant OpenVPN. Mais un petit nouveau a fait son apparition depuis quelques années. Il s&amp;rsquo;agit de &lt;a href=&#34;https://fr.wikipedia.org/wiki/WireGuard&#34;&gt;Wireguard&lt;/a&gt;. Ce dernier offre des performances dingues, que ce soit au niveau de la consommation des ressources ou des capacités de transfert.&lt;/p&gt;
+&lt;h2 id=&#34;installation-du-serveur&#34;&gt;
+  Installation du serveur
+  &lt;a href=&#34;#installation-du-serveur&#34; class=&#34;h-anchor&#34; aria-hidden=&#34;true&#34;&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;Encore et toujours, je vous mets à disposition les fichiers compose que j&amp;rsquo;utilise. L&amp;rsquo;image utilisée est fournie par &lt;a href=&#34;https://www.linuxserver.io/&#34;&gt;Linuxserver.io&lt;/a&gt;.&lt;/p&gt;
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>ddclient : synchroniser un domaine à son IP automatiquement</title>
+      <link>https://www.jeremky.fr/posts/ddclient-synchroniser-un-domaine-a-son-ip-automatiquement/</link>
+      <pubDate>Sat, 22 Jun 2024 17:25:42 +0000</pubDate>
+      
+      <guid>https://www.jeremky.fr/posts/ddclient-synchroniser-un-domaine-a-son-ip-automatiquement/</guid>
+      <description>
+        
+          &lt;img src=&#34;https://www.jeremky.fr/img/posts/ddclient-synchroniser-un-domaine-a-son-ip-automatiquement/cover.webp&#34;/&gt;
+          
+        
+        
+        
+          &lt;p&gt;Lorsque vous hébergez un serveur à votre domicile, il est possible que vous soyez confronté à un problème : votre fournisseur d&amp;rsquo;accès ne vous attribue pas une IP publique fixe.
+L&amp;rsquo;idée de cet article est donc de vous proposer une solution efficace pour obtenir gratuitement un nom de domaine, qui sera mis à jour automatiquement lorsque l&amp;rsquo;IP de votre box changera.&lt;/p&gt;
+&lt;h2 id=&#34;création-dun-compte-chez-dynucom&#34;&gt;
+  Création d&amp;rsquo;un compte chez Dynu.com
+  &lt;a href=&#34;#cr%c3%a9ation-dun-compte-chez-dynucom&#34; class=&#34;h-anchor&#34; aria-hidden=&#34;true&#34;&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;Il existe plusieurs fournisseurs de nom de domaine dynamique. Toutefois, je recommande &lt;a href=&#34;https://www.dynu.com/fr-FR/&#34;&gt;Dynu&lt;/a&gt;, qui propose une solution gratuite, et surtout qui ne nécessite pas de confirmer que l&amp;rsquo;on existe toujours tous les mois&amp;hellip;
+Vous créez votre compte, et vous allez dans &lt;em&gt;DDNS Services&lt;/em&gt;. Vous cliquez ensuite sur le bouton &lt;em&gt;Ajouter&lt;/em&gt; :&lt;/p&gt;
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>File Browser : un explorateur de fichiers léger en web</title>
+      <link>https://www.jeremky.fr/posts/file-browser-un-explorateur-de-fichiers-leger-en-web/</link>
+      <pubDate>Thu, 06 Jun 2024 17:21:58 +0000</pubDate>
+      
+      <guid>https://www.jeremky.fr/posts/file-browser-un-explorateur-de-fichiers-leger-en-web/</guid>
+      <description>
+        
+          &lt;img src=&#34;https://www.jeremky.fr/img/posts/file-browser-un-explorateur-de-fichiers-leger-en-web/cover.webp&#34;/&gt;
+          
+        
+        
+        
+          &lt;p&gt;Il existe différentes solutions pour accéder à des fichiers sur un système. Nous avons le plus simple, le partage Windows (samba), mais limité au réseau local. Une autre solution efficace, c’est le FTP ou le SFTP, très pratique, mais pas vraiment confortable, et fastidieux pour du partage de fichiers à d&amp;rsquo;autres utilisateurs. A la place, je vous propose un logiciel qui fait parfaitement le job : &lt;a href=&#34;https://github.com/filebrowser/filebrowser&#34;&gt;File Browser&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;interface&#34;&gt;
+  Interface
+  &lt;a href=&#34;#interface&#34; class=&#34;h-anchor&#34; aria-hidden=&#34;true&#34;&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;L&amp;rsquo;interface se veut très légère, afin d&amp;rsquo;aller à l&amp;rsquo;essentiel. Vous accédez directement aux dossiers et fichiers présents sur le système (contrairement à Nextcloud par exemple qui possède sa propre arborescence).
+Beaucoup de fonctionnalités sont présentes :&lt;/p&gt;
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Héberger un serveur Xonotic</title>
+      <link>https://www.jeremky.fr/posts/heberger-un-serveur-xonotic/</link>
+      <pubDate>Fri, 31 May 2024 17:21:09 +0000</pubDate>
+      
+      <guid>https://www.jeremky.fr/posts/heberger-un-serveur-xonotic/</guid>
+      <description>
+        
+          &lt;img src=&#34;https://www.jeremky.fr/img/posts/heberger-un-serveur-xonotic/cover.webp&#34;/&gt;
+          
+        
+        
+        
+          &lt;p&gt;Selon &lt;a href=&#34;https://fr.wikipedia.org/wiki/Xonotic&#34;&gt;Wikipedia&lt;/a&gt;, &lt;em&gt;Xonotic est un jeu de tir à la première personne développé par Team Xonotic. C&amp;rsquo;est un jeu libre et ses données (sons, etc) sont des œuvres libres1. Il est distribué sous licence GPL2.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Ce Fast FPS est dans la veine de Quake III arena et d&amp;rsquo;Unreal Tournament. C&amp;rsquo;est donc du shoot bien speed, avec des mécaniques de saut particulières, le tout dans des arènes labyrinthiques avec quelques zones plus ouvertes.&lt;/p&gt;
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Mise en place d&#39;un service de test de débit</title>
+      <link>https://www.jeremky.fr/posts/mise-en-place-dun-service-de-test-de-debit/</link>
+      <pubDate>Wed, 29 May 2024 17:18:37 +0000</pubDate>
+      
+      <guid>https://www.jeremky.fr/posts/mise-en-place-dun-service-de-test-de-debit/</guid>
+      <description>
+        
+          &lt;img src=&#34;https://www.jeremky.fr/img/posts/mise-en-place-dun-service-de-test-de-debit/cover.webp&#34;/&gt;
+          
+        
+        
+        
+          &lt;p&gt;Il arrive régulièrement d&amp;rsquo;être amené à devoir tester son débit Internet. Malheureusement, on passe généralement par une application ou un site web, bourré de pubs et de télémétrie dans tous les sens. L&amp;rsquo;idée est donc de vous proposer ce simple service pour tester votre débit. Pas de fioriture, on va à l&amp;rsquo;essentiel. Son nom : &lt;a href=&#34;https://github.com/librespeed/speedtest?tab=readme-ov-file&#34;&gt;Librespeed&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Le service n&amp;rsquo;est plus accessible sur ce serveur. L&amp;rsquo;adresse officielle : &lt;a href=&#34;https://librespeed.org/&#34;&gt;https://librespeed.org/&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;son-fonctionnement&#34;&gt;
+  Son fonctionnement
+  &lt;a href=&#34;#son-fonctionnement&#34; class=&#34;h-anchor&#34; aria-hidden=&#34;true&#34;&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;Comme la plupart des services de test de débit, Librespeed va choisir pour vous le meilleur serveur distant en fonction de votre opérateur et de votre position géographique.&lt;/p&gt;
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Sécurisation de vos connexions SSH</title>
+      <link>https://www.jeremky.fr/posts/securisation-de-vos-connexions-ssh/</link>
+      <pubDate>Sun, 19 May 2024 17:16:47 +0000</pubDate>
+      
+      <guid>https://www.jeremky.fr/posts/securisation-de-vos-connexions-ssh/</guid>
+      <description>
+        
+          &lt;img src=&#34;https://www.jeremky.fr/img/posts/securisation-de-vos-connexions-ssh/cover.webp&#34;/&gt;
+          
+        
+        
+        
+          &lt;p&gt;Dans cet article, nous allons voir comment sécuriser vos connexion SSH, en vous proposant de mettre en place un échange de clés, bien plus sécurisé qu&amp;rsquo;une simple authentification par mot de passe. Nous allons également mettre en place un fichier de configuration permettant l&amp;rsquo;utilisation de plusieurs clés.&lt;/p&gt;
+&lt;h2 id=&#34;ssh-cest-quoi-&#34;&gt;
+  SSH c&amp;rsquo;est quoi ?
+  &lt;a href=&#34;#ssh-cest-quoi-&#34; class=&#34;h-anchor&#34; aria-hidden=&#34;true&#34;&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;SSH, ou Secure Socket Shell, est un protocole réseau qui permet aux administrateurs d&amp;rsquo;accéder à distance à un ordinateur, en toute sécurité. SSH désigne également l&amp;rsquo;ensemble des utilitaires qui mettent en oeuvre le protocole. Le protocole Secure Shell assure une authentification forte et des communications de données chiffrées sécurisées entre deux ordinateurs connectés sur un réseau peu sûr, tel qu&amp;rsquo;Internet. SSH est largement utilisé par les administrateurs réseau pour gérer à distance les systèmes et les applications, car il leur permet de se connecter à un autre ordinateur sur un réseau, d&amp;rsquo;exécuter des commandes et de déplacer des fichiers d&amp;rsquo;un ordinateur à un autre.&lt;/em&gt;&lt;/p&gt;
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Script de configuration pour Debian</title>
+      <link>https://www.jeremky.fr/posts/script-de-configuration-pour-debian/</link>
+      <pubDate>Sun, 12 May 2024 17:15:46 +0000</pubDate>
+      
+      <guid>https://www.jeremky.fr/posts/script-de-configuration-pour-debian/</guid>
+      <description>
+        
+          &lt;img src=&#34;https://www.jeremky.fr/img/posts/script-de-configuration-pour-debian/cover.webp&#34;/&gt;
+          
+        
+        
+        
+          &lt;p&gt;Afin de gagner un max de temps sur mes réinstallations de Debian, je me suis écrit un petit script qui installe les différents packages dont j&amp;rsquo;ai besoin et configure quelques éléments du système.&lt;/p&gt;
+&lt;p&gt;Vous pouvez récupérer le script en cliquant sur &lt;a href=&#34;https://github.com/jeremky/aptinstall.sh/archive/refs/heads/main.zip&#34;&gt;ce lien&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;prérequis&#34;&gt;
+  Prérequis
+  &lt;a href=&#34;#pr%c3%a9requis&#34; class=&#34;h-anchor&#34; aria-hidden=&#34;true&#34;&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;Une fois le script sur votre machine, vous devez tout d&amp;rsquo;abord modifier le fichier de configuration &lt;em&gt;aptinstall.cfg&lt;/em&gt;. Il y a 2 éléments à modifier :&lt;/p&gt;
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Installation et configuration d&#39;un Raspberry Pi</title>
+      <link>https://www.jeremky.fr/posts/installation-et-configuration-dun-raspberry-pi/</link>
+      <pubDate>Fri, 10 May 2024 17:14:39 +0000</pubDate>
+      
+      <guid>https://www.jeremky.fr/posts/installation-et-configuration-dun-raspberry-pi/</guid>
+      <description>
+        
+          &lt;img src=&#34;https://www.jeremky.fr/img/posts/installation-et-configuration-dun-raspberry-pi/cover.webp&#34;/&gt;
+          
+        
+        
+        
+          &lt;p&gt;Bonjour les gens ! Aujourd&amp;rsquo;hui, j&amp;rsquo;ai ressorti mon raspberry, principalement car j&amp;rsquo;avais besoin de remettre un serveur VPN à la maison. C&amp;rsquo;est donc l&amp;rsquo;occasion de vous faire un petit article sur ma manière d&amp;rsquo;installer Raspberry Pi OS, et de vous partager un petit script pour automatiser la configuration du bébé.&lt;/p&gt;
+&lt;h2 id=&#34;installation&#34;&gt;
+  Installation
+  &lt;a href=&#34;#installation&#34; class=&#34;h-anchor&#34; aria-hidden=&#34;true&#34;&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;Rien de particulier pour cette étape. Tout d&amp;rsquo;abord, on choisi son OS sur le &lt;a href=&#34;https://www.raspberrypi.com/software/operating-systems&#34;&gt;site officiel&lt;/a&gt;. Pour ma part, c&amp;rsquo;est Raspberry Pi OS (Lite) en 64 bits, compatible à partir de la version 3B (Certaines images Docker ne fonctionnant pas sur la 32 bits).&lt;/p&gt;
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Personnalisation du prompt Linux</title>
+      <link>https://www.jeremky.fr/posts/personnalisation-du-prompt-linux/</link>
+      <pubDate>Thu, 02 May 2024 17:13:12 +0000</pubDate>
+      
+      <guid>https://www.jeremky.fr/posts/personnalisation-du-prompt-linux/</guid>
+      <description>
+        
+          &lt;img src=&#34;https://www.jeremky.fr/img/posts/personnalisation-du-prompt-linux/cover.webp&#34;/&gt;
+          
+        
+        
+        
+          &lt;p&gt;Après avoir partagé mes configurations de Vi, c&amp;rsquo;est au tour de ma personnalisation des prompts Linux, le shell. Il sert d&amp;rsquo;interface entre l&amp;rsquo;utilisateur et le système d&amp;rsquo;exploitation. Différents shells existent, comme bash, zsh, fish&amp;hellip; Mais bash étant par défaut sur la plupart des distributions Linux, c&amp;rsquo;est sur ce dernier que je vais me focaliser.&lt;/p&gt;
+&lt;h2 id=&#34;explication&#34;&gt;
+  Explication
+  &lt;a href=&#34;#explication&#34; class=&#34;h-anchor&#34; aria-hidden=&#34;true&#34;&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;Au démarrage d&amp;rsquo;une session shell, différents fichiers se chargent automatiquement. Cela permet de charger les configurations nécessaires au fonctionnement du prompt, comme son apparence, les variables d&amp;rsquo;environnement&amp;hellip;&lt;/p&gt;
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Vi n&#39;a pas dit son dernier mot</title>
+      <link>https://www.jeremky.fr/posts/vi-na-pas-dit-son-dernier-mot/</link>
+      <pubDate>Wed, 01 May 2024 17:12:08 +0000</pubDate>
+      
+      <guid>https://www.jeremky.fr/posts/vi-na-pas-dit-son-dernier-mot/</guid>
+      <description>
+        
+          &lt;img src=&#34;https://www.jeremky.fr/img/posts/vi-na-pas-dit-son-dernier-mot/cover.webp&#34;/&gt;
+          
+        
+        
+        
+          &lt;p&gt;Aujourd&amp;rsquo;hui, je vous propose de parler de l&amp;rsquo;éditeur de fichiers vi. Parmi ceux qui le connaissent, il y a ceux qui l&amp;rsquo;adorent, et ceux qui en sont allergiques&amp;hellip; Sûrement parce que sans un peu d&amp;rsquo;entraînement, c&amp;rsquo;est effectivement un enfer à utiliser. Mais une fois qu&amp;rsquo;on s&amp;rsquo;habitue aux commandes de base, et qu&amp;rsquo;on l&amp;rsquo;a suffisamment personnalisé, il devient un outil extrêmement productif ! &amp;#x1f60e;&lt;/p&gt;
+&lt;h2 id=&#34;installation-de-la-version-improved&#34;&gt;
+  Installation de la version Improved
+  &lt;a href=&#34;#installation-de-la-version-improved&#34; class=&#34;h-anchor&#34; aria-hidden=&#34;true&#34;&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;Selon les distributions, la version Improved n&amp;rsquo;est pas forcément installée. Sur une distribution basée sur Debian :&lt;/p&gt;
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Héberger un serveur Minecraft</title>
+      <link>https://www.jeremky.fr/posts/heberger-un-serveur-minecraft/</link>
+      <pubDate>Sun, 31 Dec 2023 17:11:04 +0000</pubDate>
+      
+      <guid>https://www.jeremky.fr/posts/heberger-un-serveur-minecraft/</guid>
+      <description>
+        
+          &lt;img src=&#34;https://www.jeremky.fr/img/posts/heberger-un-serveur-minecraft/cover.webp&#34;/&gt;
+          
+        
+        
+        
+          &lt;p&gt;Pas la peine de présenter ce jeu, je fais seulement ce petit article pour expliquer comment déployer rapidement et simplement un serveur Minecraft sous Docker.&lt;/p&gt;
+&lt;p&gt;Je vous suggère de passer voir les articles concernant Docker pour son installation, et l&amp;rsquo;utilisation de Docker Compose si jamais ce n&amp;rsquo;est pas déjà fait. L&amp;rsquo;image que nous allons utiliser est celle de &lt;a href=&#34;https://docker-minecraft-server.readthedocs.io/en/latest/&#34;&gt;itzg&lt;/a&gt;, qui propose tout un tas de paramètres afin de personnaliser au mieux le déploiement du serveur. Que ce soit le type de serveur (Vanilla, Spigot, Paper), la version, le mode de jeu&amp;hellip; Plus de détails sur la page de son &lt;a href=&#34;https://github.com/itzg/docker-minecraft-server&#34;&gt;projet GitHub&lt;/a&gt;.&lt;/p&gt;
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Filtrage des requêtes DNS</title>
+      <link>https://www.jeremky.fr/posts/filtrage-des-requetes-dns/</link>
+      <pubDate>Sat, 30 Dec 2023 17:10:13 +0000</pubDate>
+      
+      <guid>https://www.jeremky.fr/posts/filtrage-des-requetes-dns/</guid>
+      <description>
+        
+          &lt;img src=&#34;https://www.jeremky.fr/img/posts/filtrage-des-requetes-dns/cover.webp&#34;/&gt;
+          
+        
+        
+        
+          &lt;p&gt;Utiliser un Adblock directement dans son navigateur rend la navigation plus agréable&amp;hellip; Mais on peut aller encore plus loin : bloquer les publicités directement au niveau des requêtes DNS, non seulement dans le navigateur, mais également sur tout le système d&amp;rsquo;exploitation. Il existe plusieurs solutions pour faire cela, mais je vais en présenter deux : Adguard et NextDNS.&lt;/p&gt;
+&lt;h2 id=&#34;adguard-dns-et-adguard-home&#34;&gt;
+  Adguard DNS et Adguard Home
+  &lt;a href=&#34;#adguard-dns-et-adguard-home&#34; class=&#34;h-anchor&#34; aria-hidden=&#34;true&#34;&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://adguard.com/fr/welcome.html&#34;&gt;Adguard&lt;/a&gt; existe sous la forme d&amp;rsquo;un bloqueur de pubs traditionnel, mais propose également des solutions de blocage DNS.&lt;/p&gt;
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Utilisation de transfer.sh</title>
+      <link>https://www.jeremky.fr/posts/utilisation-de-transfer.sh/</link>
+      <pubDate>Thu, 12 Oct 2023 17:07:52 +0000</pubDate>
+      
+      <guid>https://www.jeremky.fr/posts/utilisation-de-transfer.sh/</guid>
+      <description>
+        
+          &lt;img src=&#34;https://www.jeremky.fr/img/posts/utilisation-de-transfer.sh/cover.webp&#34;/&gt;
+          
+        
+        
+        
+          &lt;p&gt;Je ne sais pas pour vous, mais il m&amp;rsquo;est (trop) souvent arrivé d&amp;rsquo;avoir un fichier à transférer rapidement sans trop savoir comment. On avait les bonnes vieilles méthodes, que ce soit l&amp;rsquo;envoi via mail, un Google Drive, ou des services dédiés genre WeTransfer&amp;hellip; Mais faut soit créer un compte, soit on est limité à une taille de fichier, à un nombre de transferts par mois&amp;hellip; Sans compter que selon là où se trouve le fichier que l&amp;rsquo;on veut transférer (un serveur sans interface graphique par exemple&amp;hellip;), on doit d&amp;rsquo;abord le récupérer sur notre poste pour ensuite l&amp;rsquo;envoyer&amp;hellip; C&amp;rsquo;est là qu&amp;rsquo;intervient transfer.sh&lt;/p&gt;
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Reverse Proxy NGINX</title>
+      <link>https://www.jeremky.fr/posts/reverse-proxy-nginx/</link>
+      <pubDate>Mon, 04 Sep 2023 17:06:51 +0000</pubDate>
+      
+      <guid>https://www.jeremky.fr/posts/reverse-proxy-nginx/</guid>
+      <description>
+        
+          &lt;img src=&#34;https://www.jeremky.fr/img/posts/reverse-proxy-nginx/cover.webp&#34;/&gt;
+          
+        
+        
+        
+          &lt;p&gt;Sur &lt;a href=&#34;https://fr.wikipedia.org/wiki/Proxy_inverse&#34;&gt;Wikipedia&lt;/a&gt;, il est dit qu&amp;rsquo;&lt;em&gt;un proxy inverse (reverse proxy) ou serveur mandataire inverse est un type de serveur, habituellement placé en frontal de serveurs web. Contrairement au serveur proxy qui permet à un utilisateur d&amp;rsquo;accéder au réseau Internet, le proxy inverse permet à un utilisateur d&amp;rsquo;Internet d&amp;rsquo;accéder à des serveurs internes.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;L&amp;rsquo;intérêt dans notre cas, est de pouvoir disposer de différentes applications Web conteneurisées, et de n&amp;rsquo;avoir qu&amp;rsquo;un seul accès Web en front. De plus, la mise en place d&amp;rsquo;un reverse proxy offre également ces avantages :&lt;/p&gt;
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Monter un serveur Teeworlds</title>
+      <link>https://www.jeremky.fr/posts/monter-un-serveur-teeworlds/</link>
+      <pubDate>Wed, 30 Aug 2023 17:03:15 +0000</pubDate>
+      
+      <guid>https://www.jeremky.fr/posts/monter-un-serveur-teeworlds/</guid>
+      <description>
+        
+          &lt;img src=&#34;https://www.jeremky.fr/img/posts/monter-un-serveur-teeworlds/cover.webp&#34;/&gt;
+          
+        
+        
+        
+          &lt;p&gt;D&amp;rsquo;après &lt;a href=&#34;https://fr.wikipedia.org/wiki/Teeworlds&#34;&gt;Wikipedia&lt;/a&gt;, &lt;em&gt;Teeworlds, anciennement Teewars, est un jeu de tir TPS (third person shooter) multijoueur en 2D. Le joueur y incarne une petite créature ronde, le tee. A l&amp;rsquo;aide de plusieurs armes différentes, le joueur doit parcourir différentes cartes à la recherche de ses adversaires.&lt;/em&gt;&lt;/p&gt;
+
+  &lt;img src=&#34;https://www.jeremky.fr/img/posts/monter-un-serveur-teeworlds/screen.webp&#34;  class=&#34;center&#34;  style=&#34;border-radius: 8px;&#34;  /&gt;
+
+
+&lt;h2 id=&#34;installation-via-dockerpodman&#34;&gt;
+  Installation via Docker/Podman
+  &lt;a href=&#34;#installation-via-dockerpodman&#34; class=&#34;h-anchor&#34; aria-hidden=&#34;true&#34;&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;Pour héberger un serveur Teeworlds, voici les fichiers de configuration Docker à utiliser. Le fichier &lt;code&gt;docker-compose.yml&lt;/code&gt; :&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yml&#34; data-lang=&#34;yml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;services&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;teeworlds&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;image&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;docker.io/riftbit/teeworlds:latest&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;container_name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;teeworlds&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;hostname&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;teeworlds&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;env_file&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;teeworlds.env&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;volumes&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#ae81ff&#34;&gt;data:/teeworlds/data&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;ports&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#ae81ff&#34;&gt;8303&lt;/span&gt;:&lt;span style=&#34;color:#ae81ff&#34;&gt;8303&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;/udp&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;tty&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;stdin_open&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;restart&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;always&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;volumes&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;data&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Et son fichier de configuration &lt;code&gt;teeworlds.env&lt;/code&gt; :&lt;/p&gt;
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Utilisation de Docker Compose</title>
+      <link>https://www.jeremky.fr/posts/utilisation-de-docker-compose/</link>
+      <pubDate>Thu, 24 Aug 2023 18:20:29 +0000</pubDate>
+      
+      <guid>https://www.jeremky.fr/posts/utilisation-de-docker-compose/</guid>
+      <description>
+        
+          &lt;img src=&#34;https://www.jeremky.fr/img/posts/utilisation-de-docker-compose/cover.webp&#34;/&gt;
+          
+        
+        
+        
+          &lt;p&gt;Après avoir succinctement présenté Docker, on passe à son acolyte, Docker compose.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;a href=&#34;https://fr.wikipedia.org/wiki/Docker_%28logiciel%29&#34;&gt;Docker Compose&lt;/a&gt; est un logiciel pour définir et exécuter des applications à partir de multiples conteneurs. Il est basé sur un fichier YAML qui permet de définir les services et les paramètres de leurs créations et ainsi de les démarrer par une commande unique. La V1 avait son propre exécutable (docker-compose) alors que la V2 est un plugin de Docker, exécutable par la commande docker compose&lt;/em&gt;&lt;/p&gt;
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Premiers pas avec Docker</title>
+      <link>https://www.jeremky.fr/posts/premiers-pas-avec-docker/</link>
+      <pubDate>Thu, 24 Aug 2023 16:03:12 +0000</pubDate>
+      
+      <guid>https://www.jeremky.fr/posts/premiers-pas-avec-docker/</guid>
+      <description>
+        
+          &lt;img src=&#34;https://www.jeremky.fr/img/posts/premiers-pas-avec-docker/cover.webp&#34;/&gt;
+          
+        
+        
+        
+          &lt;p&gt;&lt;em&gt;&lt;a href=&#34;https://fr.wikipedia.org/wiki/Docker_%28logiciel%29&#34;&gt;Docker&lt;/a&gt; est une plateforme permettant de lancer certaines applications dans des conteneurs logiciels lancée en 2013.&lt;/em&gt;
+&lt;em&gt;Docker est un outil qui peut empaqueter une application et ses dépendances dans un conteneur isolé, qui pourra être exécuté sur n&amp;rsquo;importe quel serveur. Il ne s&amp;rsquo;agit pas de virtualisation, mais de conteneurisation, une forme plus légère qui s&amp;rsquo;appuie sur certaines parties de la machine hôte pour son fonctionnement. Cette approche permet d&amp;rsquo;accroître la flexibilité et la portabilité d&amp;rsquo;exécution d&amp;rsquo;une application, laquelle va pouvoir tourner de façon fiable et prévisible sur une grande variété de machines hôtes, que ce soit sur la machine locale, un cloud privé ou public, une machine nue, etc.&lt;/em&gt;&lt;/p&gt;
+          
+        
+        </description>
+    </item>
+    
+  </channel>
+</rss>

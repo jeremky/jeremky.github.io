@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    
+      <title>
+        Déploiement du CMS Ghost avec Docker ::
+        JeremKy.fr
+      </title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta
+  name="description"
+  content="Dans un précédent article, j&rsquo;évoquais un retour sur le générateur de site Hugo. Je tenais donc faire un article sur le déploiement de Ghost, car même s&rsquo;il ne correspond plus à mes besoins, ce moteur de blog est clairement une solution à envisager pour le déploiement d&rsquo;un site Web de type blog.
+Description # D&rsquo;après Wikipédia :
+Ghost est un moteur de blog libre et open source écrit en JavaScript et distribué sous licence MIT. Ghost est conçu pour simplifier le processus de publication en ligne par des blogueurs.
+"
+/>
+<meta
+  name="keywords"
+  content=""
+/>
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://www.jeremky.fr/posts/deploiement-du-cms-ghost-avec-docker/" />
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/style.css" />
+
+<link rel="stylesheet" href="https://www.jeremky.fr/style.css" />
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://www.jeremky.fr/img/apple-touch-icon-144-precomposed.png" />
+<link rel="shortcut icon" href="https://www.jeremky.fr/img/favicon.png" />
+
+
+<link href="/fonts/Inter-Italic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/fonts/Inter-Regular.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/fonts/Inter-Medium.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/fonts/Inter-MediumItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/fonts/Inter-Bold.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/fonts/Inter-BoldItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Déploiement du CMS Ghost avec Docker">
+  <meta name="twitter:description" content="Dans un précédent article, j’évoquais un retour sur le générateur de site Hugo. Je tenais donc faire un article sur le déploiement de Ghost, car même s’il ne correspond plus à mes besoins, ce moteur de blog est clairement une solution à envisager pour le déploiement d’un site Web de type blog.
+Description # D’après Wikipédia :
+Ghost est un moteur de blog libre et open source écrit en JavaScript et distribué sous licence MIT. Ghost est conçu pour simplifier le processus de publication en ligne par des blogueurs.">
+
+
+
+<meta property="og:url" content="https://www.jeremky.fr/posts/deploiement-du-cms-ghost-avec-docker/">
+  <meta property="og:site_name" content="JeremKy.fr">
+  <meta property="og:title" content="Déploiement du CMS Ghost avec Docker">
+  <meta property="og:description" content="Dans un précédent article, j’évoquais un retour sur le générateur de site Hugo. Je tenais donc faire un article sur le déploiement de Ghost, car même s’il ne correspond plus à mes besoins, ce moteur de blog est clairement une solution à envisager pour le déploiement d’un site Web de type blog.
+Description # D’après Wikipédia :
+Ghost est un moteur de blog libre et open source écrit en JavaScript et distribué sous licence MIT. Ghost est conçu pour simplifier le processus de publication en ligne par des blogueurs.">
+  <meta property="og:locale" content="fr">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-07-23T20:00:26+02:00">
+    <meta property="article:modified_time" content="2024-07-23T20:00:26+02:00">
+    <meta property="article:tag" content="Docker">
+    <meta property="article:tag" content="Podman">
+
+
+
+
+
+
+  </head>
+  <body >
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >JEREMKY.FR</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/apropos">A propos</a></li>
+        
+      
+        
+          <li><a href="/archives">Archives</a></li>
+        
+      
+        
+          <li><a href="/categories/news">News</a></li>
+        
+      
+        
+          <li><a href="/categories/tutos">Tutos</a></li>
+        
+      
+      
+      
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/apropos">A propos</a></li>
+      
+    
+      
+        <li><a href="/archives">Archives</a></li>
+      
+    
+      
+        <li><a href="/categories/news">News</a></li>
+      
+    
+      
+        <li><a href="/categories/tutos">Tutos</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg
+  class="theme-toggler"
+  width="24"
+  height="24"
+  viewBox="0 0 48 48"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"
+  />
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  
+  
+
+  <article class="post">
+    <h1 class="post-title">Déploiement du CMS Ghost avec Docker</h1>
+    <div class="post-meta">
+      
+        <time class="post-date">
+          23/07/2024
+        </time>
+
+        
+          
+        
+      
+
+      
+
+
+      
+        <span class="post-read-time"
+          >— 3 min de lecture</span
+        >
+      
+    </div>
+
+    
+      <span class="post-tags">
+        
+          <a href="https://www.jeremky.fr/tags/docker/">#docker</a>&nbsp;
+        
+          <a href="https://www.jeremky.fr/tags/podman/">#podman</a>&nbsp;
+        
+      </span>
+    
+
+    
+      <figure class="post-cover">
+  
+    <img src="https://www.jeremky.fr/img/posts/deploiement-du-cms-ghost-avec-docker/cover.webp" alt="Déploiement du CMS Ghost avec Docker" width="700" />
+  
+
+  
+</figure>
+
+    
+
+    <div class="post-content">
+      
+        
+        <h2>Sommaire</h2>
+        <aside class="table-of-contents"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#description">Description</a></li>
+    <li><a href="#installation">Installation</a>
+      <ul>
+        <li><a href="#reverse-proxy">Reverse proxy</a></li>
+      </ul>
+    </li>
+    <li><a href="#configuration">Configuration</a></li>
+    <li><a href="#utilisation">Utilisation</a></li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ul>
+</nav></aside>
+        
+      
+      <p>Dans un <a href="/posts/retour-sur-le-generateur-de-site-hugo/">précédent article</a>, j&rsquo;évoquais un retour sur le générateur de site <a href="https://gohugo.io/">Hugo</a>. Je tenais donc faire un article sur le déploiement de <a href="https://ghost.org/">Ghost</a>, car même s&rsquo;il ne correspond plus à mes besoins, ce moteur de blog est clairement une solution à envisager pour le déploiement d&rsquo;un site Web de type blog.</p>
+<h2 id="description">
+  Description
+  <a href="#description" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p>D&rsquo;après <a href="https://fr.wikipedia.org/wiki/Ghost_%28moteur_de_blog%29">Wikipédia</a> :</p>
+<blockquote>
+<p><em>Ghost est un moteur de blog libre et open source écrit en JavaScript et distribué sous licence MIT. Ghost est conçu pour simplifier le processus de publication en ligne par des blogueurs.</em></p>
+<p><em>L&rsquo;idée de Ghost a été écrite pour la première fois début novembre 2012 dans un billet de blog par le fondateur John O&rsquo;Nolan, ancien responsable de l&rsquo;équipe interface utilisateur de WordPress, à la suite de sa frustration face à la complexité d&rsquo;utilisation de WordPress en tant que moteur de blog plutôt qu&rsquo;en tant que système de gestion de contenu.</em></p></blockquote>
+<p>Le pari est réussi : Ghost va clairement à l&rsquo;essentiel et replace l&rsquo;édition de contenu au centre de l&rsquo;application.</p>
+<h2 id="installation">
+  Installation
+  <a href="#installation" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p>Les fichiers nécessaires au déploiement de Ghost sont les suivants :</p>
+<p>Le fichier <code>docker-compose.yml</code> :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#f92672">services</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">ghost-db</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">docker.io/mysql:8.0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">ghost-db</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">hostname</span>: <span style="color:#ae81ff">ghost-db</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">env_file</span>: <span style="color:#ae81ff">ghost-db.env</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">networks</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">default</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">/opt/ghost/mysql:/var/lib/mysql</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">ghost</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">docker.io/ghost:latest</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">ghost</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">hostname</span>: <span style="color:#ae81ff">ghost</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">env_file</span>: <span style="color:#ae81ff">ghost.env</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">networks</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">default</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">nginx_proxy</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">/opt/ghost/app:/var/lib/ghost/content</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">depends_on</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">ghost-db</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">networks</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">default</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">external</span>: <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">nginx_proxy</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">external</span>: <span style="color:#66d9ef">true</span>
+</span></span></code></pre></div><p>Le fichier <code>ghost-db.env</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>MYSQL_ROOT_PASSWORD=PASSWORD
+</span></span></code></pre></div><p>Et son fichier <code>ghost.env</code> :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>database__client=mysql
+</span></span><span style="display:flex;"><span>database__connection__host=ghost-db
+</span></span><span style="display:flex;"><span>database__connection__user=root
+</span></span><span style="display:flex;"><span>database__connection__password=PASSWORD
+</span></span><span style="display:flex;"><span>database__connection__database=ghost
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>url=https://www.foo.bar
+</span></span><span style="display:flex;"><span>mail__from=FooBar &lt;ghost@foo.bar&gt;
+</span></span></code></pre></div><p>Dans ce fichier <code>ghost.env</code>, vous devez modifier les variables <code>PASSWORD</code>, <code>url</code> et <code>mail__from</code>.</p>
+<h3 id="reverse-proxy">
+  Reverse proxy
+  <a href="#reverse-proxy" class="h-anchor" aria-hidden="true">#</a>
+</h3>
+<p>Les fichiers de configuration ci-dessus sont prévus pour être utilisé avec un reverse proxy.</p>
+<blockquote>
+<p>Pour rappel, un article dédié est <a href="/posts/reverse-proxy-nginx/">disponible ici</a>.</p></blockquote>
+<p>L&rsquo;image Docker de <a href="https://docs.linuxserver.io/general/swag/">Linuxserver.io</a> propose un fichier sample de configuration, il vous suffit juste de modifier votre nom de domaine en conséquence :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo cp /opt/nginx/nginx/proxy-confs/ghost.subdomain.conf.sample /opt/nginx/nginx/proxy-confs/ghost.subdomain.conf
+</span></span><span style="display:flex;"><span>sudo sed -i <span style="color:#e6db74">&#34;s,server_name ghost,server_name &lt;votre_sous_domaine&gt;,g&#34;</span> /opt/nginx/nginx/proxy-confs/ghost.subdomain.conf
+</span></span></code></pre></div><p>Et enfin, un petit redémarrage pour la prise en compte du nouveau fichier :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo docker restart nginx
+</span></span></code></pre></div><h2 id="configuration">
+  Configuration
+  <a href="#configuration" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p>Une fois le déploiement effectué, vous pouvez aller vérifier que tout est en ordre :</p>
+
+  <img src="/img/posts/deploiement-du-cms-ghost-avec-docker/default.webp"  class="center"  style="border-radius: 8px;"  />
+
+
+<p>Pour accéder a la page d&rsquo;administration, il faut ajouter <code>/ghost</code> après votre url. Il vous sera alors demandé de choisir un nom de site, et de saisir vos informations de compte principal.</p>
+<p>Ghost vous affichera ensuite un assistant de démarrage :</p>
+
+  <img src="/img/posts/deploiement-du-cms-ghost-avec-docker/admin.webp"  class="center"  style="border-radius: 8px;"  />
+
+
+<p>Vous pouvez modifier le design de votre site, afin de changer la couleur, la bannière, l&rsquo;affichage des articles&hellip; Et il est possible de changer de thème utilisé.</p>
+<p>Pensez à modifier rapidement les informations comme la langue et le timezone dans le panneau principal :</p>
+
+  <img src="/img/posts/deploiement-du-cms-ghost-avec-docker/settings.webp"  class="center"  style="border-radius: 8px;"  />
+
+
+<h2 id="utilisation">
+  Utilisation
+  <a href="#utilisation" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p>Une fois votre site personnalisé et correctement configuré, on peut passer à l&rsquo;édition &#x1f60e;</p>
+<p>Ghost propose une interface d&rsquo;édition confortable à utiliser :</p>
+
+  <img src="/img/posts/deploiement-du-cms-ghost-avec-docker/post.webp"  class="center"  style="border-radius: 8px;"  />
+
+
+<p>Résultat des modifications :</p>
+
+  <img src="/img/posts/deploiement-du-cms-ghost-avec-docker/modif.webp"  class="center"  style="border-radius: 8px;"  />
+
+
+<p>L&rsquo;article :</p>
+
+  <img src="/img/posts/deploiement-du-cms-ghost-avec-docker/result.webp"  class="center"  style="border-radius: 8px;"  />
+
+
+<h2 id="conclusion">
+  Conclusion
+  <a href="#conclusion" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p>Redémarrer une instance pour rédiger cet article m&rsquo;a presque fait regretter d&rsquo;être revenu sur Hugo. Ghost est rapide, et confortable. Il n&rsquo;est juste pas pensé pour générer un site statique, ce dont j&rsquo;avais besoin vu le service d&rsquo;hébergement gratuit proposé par OVH.</p>
+<p>Mais si vous avez l&rsquo;intention de vous lancer dans l&rsquo;écriture et que vous partez sans solution distante, Ghost est clairement une solution à considérer. Et il peut très bien fonctionner sur un raspberry pi, si jamais vous en avez un qui traîne &#x1f60f;</p>
+
+    </div>
+    
+      
+        <div class="pagination">
+          <div class="pagination__title">
+            <span class="pagination__title-h"
+              >Autres posts</span
+            >
+            <hr />
+          </div>
+          <div class="pagination__buttons">
+            
+              <span class="button previous">
+                <a href="https://www.jeremky.fr/posts/creer-son-dashboard-avec-heimdall/">
+                  <span class="button__icon">←</span>
+                  <span class="button__text">Créer son dashboard avec Heimdall</span>
+                </a>
+              </span>
+            
+            
+              <span class="button next">
+                <a href="https://www.jeremky.fr/posts/retour-sur-le-generateur-de-site-hugo/">
+                  <span class="button__text">Retour sur le générateur de site Hugo</span>
+                  <span class="button__icon">→</span>
+                </a>
+              </span>
+            
+          </div>
+        </div>
+      
+    
+
+    
+      
+        
+
+      
+    
+  </article>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >JEREMKY.FR</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+      <div class="copyright">
+          <div class="copyright">
+        <span>© 2025 Propulsé par <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span>
+      </div>
+    
+  </div>
+</footer>
+
+
+
+
+
+<script type="text/javascript" src="/bundle.min.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>

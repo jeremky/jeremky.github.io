@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on JeremKy.fr</title>
+    
+    <image>
+      <url>https://www.jeremky.fr/tags/https://www.jeremky.fr/img/favicon.png</url>
+      <title>Tags on JeremKy.fr</title>
+      <link>https://www.jeremky.fr/tags/</link>
+    </image>
+    
+    
+    <link>https://www.jeremky.fr/tags/</link>
+    <description>Recent content in Tags on JeremKy.fr</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr</language>
+    <lastBuildDate>Fri, 14 Mar 2025 16:29:39 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.jeremky.fr/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Linux</title>
+      <link>https://www.jeremky.fr/tags/linux/</link>
+      <pubDate>Fri, 14 Mar 2025 16:29:39 +0000</pubDate>
+      
+      <guid>https://www.jeremky.fr/tags/linux/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Docker</title>
+      <link>https://www.jeremky.fr/tags/docker/</link>
+      <pubDate>Thu, 06 Mar 2025 16:21:02 +0000</pubDate>
+      
+      <guid>https://www.jeremky.fr/tags/docker/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Podman</title>
+      <link>https://www.jeremky.fr/tags/podman/</link>
+      <pubDate>Thu, 06 Mar 2025 16:21:02 +0000</pubDate>
+      
+      <guid>https://www.jeremky.fr/tags/podman/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Editos</title>
+      <link>https://www.jeremky.fr/tags/editos/</link>
+      <pubDate>Sat, 28 Dec 2024 23:53:44 +0000</pubDate>
+      
+      <guid>https://www.jeremky.fr/tags/editos/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Jeux</title>
+      <link>https://www.jeremky.fr/tags/jeux/</link>
+      <pubDate>Sat, 28 Dec 2024 23:53:44 +0000</pubDate>
+      
+      <guid>https://www.jeremky.fr/tags/jeux/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Fichiers</title>
+      <link>https://www.jeremky.fr/tags/fichiers/</link>
+      <pubDate>Sat, 21 Dec 2024 18:07:50 +0000</pubDate>
+      
+      <guid>https://www.jeremky.fr/tags/fichiers/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Admin</title>
+      <link>https://www.jeremky.fr/tags/admin/</link>
+      <pubDate>Wed, 04 Dec 2024 09:09:15 +0000</pubDate>
+      
+      <guid>https://www.jeremky.fr/tags/admin/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Reseau</title>
+      <link>https://www.jeremky.fr/tags/reseau/</link>
+      <pubDate>Sun, 17 Nov 2024 15:32:00 +0000</pubDate>
+      
+      <guid>https://www.jeremky.fr/tags/reseau/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Infos</title>
+      <link>https://www.jeremky.fr/tags/infos/</link>
+      <pubDate>Mon, 07 Oct 2024 10:38:36 +0200</pubDate>
+      
+      <guid>https://www.jeremky.fr/tags/infos/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+  </channel>
+</rss>

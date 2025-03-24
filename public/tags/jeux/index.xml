@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Jeux on JeremKy.fr</title>
+    
+    <image>
+      <url>https://www.jeremky.fr/tags/jeux/https://www.jeremky.fr/img/favicon.png</url>
+      <title>Jeux on JeremKy.fr</title>
+      <link>https://www.jeremky.fr/tags/jeux/</link>
+    </image>
+    
+    
+    <link>https://www.jeremky.fr/tags/jeux/</link>
+    <description>Recent content in Jeux on JeremKy.fr</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr</language>
+    <lastBuildDate>Sat, 28 Dec 2024 23:53:44 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.jeremky.fr/tags/jeux/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Édito : Au revoir Minecraft</title>
+      <link>https://www.jeremky.fr/posts/edito-au-revoir-minecraft/</link>
+      <pubDate>Sat, 28 Dec 2024 23:53:44 +0000</pubDate>
+      
+      <guid>https://www.jeremky.fr/posts/edito-au-revoir-minecraft/</guid>
+      <description>
+        
+          &lt;img src=&#34;https://www.jeremky.fr/img/posts/edito-au-revoir-minecraft/cover.webp&#34;/&gt;
+          
+        
+        
+        
+          &lt;p&gt;Dans notre histoire de joueur, nous avons tous notre petite liste de jeux sur lesquels nous revenons régulièrement. Je peux tenter d’en citer quelques uns, comme Counter-Strike, WoW, Age of Empires, Destiny, Fortnite, League Of Legends, Starcraft, Overwatch…&lt;/p&gt;
+&lt;p&gt;Un des jeux qui fait partie de ma liste, c’est &lt;a href=&#34;https://www.minecraft.net/fr-fr&#34;&gt;Minecraft&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;i-will-survive&#34;&gt;
+  I will survive
+  &lt;a href=&#34;#i-will-survive&#34; class=&#34;h-anchor&#34; aria-hidden=&#34;true&#34;&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;Ma rencontre avec ce jeu remonte à quelques semaines après le début de sa commercialisation. Je croise des informations à droite à gauche, et je découvre un jeu qui a été ma première expérience dans le monde des jeux indépendants. Certains voyaient cela comme un truc où il n’y avait rien à faire, d’autres y voyaient un Lego virtuel géant. Moi ce qui m’a intrigué, c’était la survie et le craft, des éléments de gameplay qui étaient à cette époque complètement nouveaux pour moi.&lt;/p&gt;
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Serveur Minecraft Infinity Dungeon</title>
+      <link>https://www.jeremky.fr/posts/serveur-minecraft-infinity-dungeon/</link>
+      <pubDate>Mon, 05 Aug 2024 20:56:18 +0200</pubDate>
+      
+      <guid>https://www.jeremky.fr/posts/serveur-minecraft-infinity-dungeon/</guid>
+      <description>
+        
+          &lt;img src=&#34;https://www.jeremky.fr/img/posts/serveur-minecraft-infinity-dungeon/cover.webp&#34;/&gt;
+          
+        
+        
+        
+          &lt;p&gt;Euh&amp;hellip; Minecraft ? Pas tout à fait. &lt;a href=&#34;https://www.planetminecraft.com/project/infinity-dungeons/&#34;&gt;Minecraft Infinity Dungeon&lt;/a&gt; est une map aventure de type &lt;a href=&#34;https://fr.wikipedia.org/wiki/Roguelike&#34;&gt;Roguelike&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Tous les codes de ce genre de jeu s&amp;rsquo;y trouvent : des zones générées de façon procédurale, des récompenses, des salles de boss&amp;hellip;&lt;/p&gt;
+
+  &lt;img src=&#34;https://www.jeremky.fr/img/posts/serveur-minecraft-infinity-dungeon/boss.webp&#34;  class=&#34;center&#34;  style=&#34;border-radius: 8px;&#34;  /&gt;
+
+
+&lt;h2 id=&#34;lobby&#34;&gt;
+  Lobby
+  &lt;a href=&#34;#lobby&#34; class=&#34;h-anchor&#34; aria-hidden=&#34;true&#34;&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;La map dispose d&amp;rsquo;un Lobby. Dans ce dernier, il est possible de consulter un livre contenant toutes les tentatives des joueurs avec diverses informations : le nombre de mobs tués, le nombre de salles ouvertes, le nombre de boss vaincus. Vous pouvez également vous entraîner à faire un peu de parkour, ou en bonus, tester le piano &amp;#x1f604;&lt;/p&gt;
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Héberger un serveur Xonotic</title>
+      <link>https://www.jeremky.fr/posts/heberger-un-serveur-xonotic/</link>
+      <pubDate>Fri, 31 May 2024 17:21:09 +0000</pubDate>
+      
+      <guid>https://www.jeremky.fr/posts/heberger-un-serveur-xonotic/</guid>
+      <description>
+        
+          &lt;img src=&#34;https://www.jeremky.fr/img/posts/heberger-un-serveur-xonotic/cover.webp&#34;/&gt;
+          
+        
+        
+        
+          &lt;p&gt;Selon &lt;a href=&#34;https://fr.wikipedia.org/wiki/Xonotic&#34;&gt;Wikipedia&lt;/a&gt;, &lt;em&gt;Xonotic est un jeu de tir à la première personne développé par Team Xonotic. C&amp;rsquo;est un jeu libre et ses données (sons, etc) sont des œuvres libres1. Il est distribué sous licence GPL2.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Ce Fast FPS est dans la veine de Quake III arena et d&amp;rsquo;Unreal Tournament. C&amp;rsquo;est donc du shoot bien speed, avec des mécaniques de saut particulières, le tout dans des arènes labyrinthiques avec quelques zones plus ouvertes.&lt;/p&gt;
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>La fin d&#39;EmulatorJS</title>
+      <link>https://www.jeremky.fr/posts/la-fin-demulatorjs/</link>
+      <pubDate>Sun, 26 May 2024 17:17:57 +0000</pubDate>
+      
+      <guid>https://www.jeremky.fr/posts/la-fin-demulatorjs/</guid>
+      <description>
+        
+          &lt;img src=&#34;https://www.jeremky.fr/img/posts/la-fin-demulatorjs/cover.webp&#34;/&gt;
+          
+        
+        
+        
+          &lt;p&gt;EmulatorJS, c&amp;rsquo;est fini&amp;hellip; J&amp;rsquo;ai pris la décision d&amp;rsquo;arrêter de mettre à disposition le service emu.jeremky.fr, et ceci pour différentes raisons que je détaille ci-dessous.&lt;/p&gt;
+&lt;h2 id=&#34;problèmes-de-compatibilité&#34;&gt;
+  Problèmes de compatibilité
+  &lt;a href=&#34;#probl%c3%a8mes-de-compatibilit%c3%a9&#34; class=&#34;h-anchor&#34; aria-hidden=&#34;true&#34;&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;Faire fonctionner un émulateur dans un navigateur Web, c&amp;rsquo;est techniquement une prouesse, pas de doute. Mais cela amène son lot de problèmes de compatibilité avec les navigateurs.&lt;/p&gt;
+&lt;p&gt;Certaines consoles (PlayStation, Nintendo 64, Saturn&amp;hellip;) ne peuvent pas fonctionner sur certaines plateformes, à cause de la limitation en RAM. C&amp;rsquo;est le cas par exemple du navigateur Edge de la Xbox, qui est limité en mémoire par Microsoft. Et même sur les rares navigateurs compatibles, le rendu n’est pas toujours au rendez-vous.&lt;/p&gt;
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Héberger un serveur Minecraft</title>
+      <link>https://www.jeremky.fr/posts/heberger-un-serveur-minecraft/</link>
+      <pubDate>Sun, 31 Dec 2023 17:11:04 +0000</pubDate>
+      
+      <guid>https://www.jeremky.fr/posts/heberger-un-serveur-minecraft/</guid>
+      <description>
+        
+          &lt;img src=&#34;https://www.jeremky.fr/img/posts/heberger-un-serveur-minecraft/cover.webp&#34;/&gt;
+          
+        
+        
+        
+          &lt;p&gt;Pas la peine de présenter ce jeu, je fais seulement ce petit article pour expliquer comment déployer rapidement et simplement un serveur Minecraft sous Docker.&lt;/p&gt;
+&lt;p&gt;Je vous suggère de passer voir les articles concernant Docker pour son installation, et l&amp;rsquo;utilisation de Docker Compose si jamais ce n&amp;rsquo;est pas déjà fait. L&amp;rsquo;image que nous allons utiliser est celle de &lt;a href=&#34;https://docker-minecraft-server.readthedocs.io/en/latest/&#34;&gt;itzg&lt;/a&gt;, qui propose tout un tas de paramètres afin de personnaliser au mieux le déploiement du serveur. Que ce soit le type de serveur (Vanilla, Spigot, Paper), la version, le mode de jeu&amp;hellip; Plus de détails sur la page de son &lt;a href=&#34;https://github.com/itzg/docker-minecraft-server&#34;&gt;projet GitHub&lt;/a&gt;.&lt;/p&gt;
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Monter un serveur Teeworlds</title>
+      <link>https://www.jeremky.fr/posts/monter-un-serveur-teeworlds/</link>
+      <pubDate>Wed, 30 Aug 2023 17:03:15 +0000</pubDate>
+      
+      <guid>https://www.jeremky.fr/posts/monter-un-serveur-teeworlds/</guid>
+      <description>
+        
+          &lt;img src=&#34;https://www.jeremky.fr/img/posts/monter-un-serveur-teeworlds/cover.webp&#34;/&gt;
+          
+        
+        
+        
+          &lt;p&gt;D&amp;rsquo;après &lt;a href=&#34;https://fr.wikipedia.org/wiki/Teeworlds&#34;&gt;Wikipedia&lt;/a&gt;, &lt;em&gt;Teeworlds, anciennement Teewars, est un jeu de tir TPS (third person shooter) multijoueur en 2D. Le joueur y incarne une petite créature ronde, le tee. A l&amp;rsquo;aide de plusieurs armes différentes, le joueur doit parcourir différentes cartes à la recherche de ses adversaires.&lt;/em&gt;&lt;/p&gt;
+
+  &lt;img src=&#34;https://www.jeremky.fr/img/posts/monter-un-serveur-teeworlds/screen.webp&#34;  class=&#34;center&#34;  style=&#34;border-radius: 8px;&#34;  /&gt;
+
+
+&lt;h2 id=&#34;installation-via-dockerpodman&#34;&gt;
+  Installation via Docker/Podman
+  &lt;a href=&#34;#installation-via-dockerpodman&#34; class=&#34;h-anchor&#34; aria-hidden=&#34;true&#34;&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;Pour héberger un serveur Teeworlds, voici les fichiers de configuration Docker à utiliser. Le fichier &lt;code&gt;docker-compose.yml&lt;/code&gt; :&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yml&#34; data-lang=&#34;yml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;services&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;teeworlds&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;image&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;docker.io/riftbit/teeworlds:latest&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;container_name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;teeworlds&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;hostname&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;teeworlds&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;env_file&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;teeworlds.env&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;volumes&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#ae81ff&#34;&gt;data:/teeworlds/data&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;ports&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#ae81ff&#34;&gt;8303&lt;/span&gt;:&lt;span style=&#34;color:#ae81ff&#34;&gt;8303&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;/udp&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;tty&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;stdin_open&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;restart&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;always&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;volumes&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;data&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Et son fichier de configuration &lt;code&gt;teeworlds.env&lt;/code&gt; :&lt;/p&gt;
+          
+        
+        </description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    
+      <title>
+        Vim / Neovim : choisissez votre configuration ::
+        JeremKy.fr
+      </title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta
+  name="description"
+  content="Dans l&rsquo;article présentant NeoVim, je terminais en vous disant que j&rsquo;attendais une version plus récente dans les dépôts Debian pour avoir une compatibilité avec les derniers plugins optimisés pour la dernière version.
+Finalement mon impatience légendaire a eu raison de moi, et j&rsquo;ai décidé de me créer un script afin d&rsquo;installer la dernière version de NeoVim à partir des releases officielles sur Github.
+Dans cet article, nous allons voir différentes configurations pour Vim et NeoVim, de la plus simple à la plus complexe selon vos besoins, chacune ayant ses avantages et inconvénients.
+"
+/>
+<meta
+  name="keywords"
+  content=""
+/>
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://www.jeremky.fr/posts/vim-neovim-choisissez-votre-configuration/" />
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/style.css" />
+
+<link rel="stylesheet" href="https://www.jeremky.fr/style.css" />
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://www.jeremky.fr/img/apple-touch-icon-144-precomposed.png" />
+<link rel="shortcut icon" href="https://www.jeremky.fr/img/favicon.png" />
+
+
+<link href="/fonts/Inter-Italic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/fonts/Inter-Regular.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/fonts/Inter-Medium.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/fonts/Inter-MediumItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/fonts/Inter-Bold.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/fonts/Inter-BoldItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Vim / Neovim : choisissez votre configuration">
+  <meta name="twitter:description" content="Dans l’article présentant NeoVim, je terminais en vous disant que j’attendais une version plus récente dans les dépôts Debian pour avoir une compatibilité avec les derniers plugins optimisés pour la dernière version.
+Finalement mon impatience légendaire a eu raison de moi, et j’ai décidé de me créer un script afin d’installer la dernière version de NeoVim à partir des releases officielles sur Github.
+Dans cet article, nous allons voir différentes configurations pour Vim et NeoVim, de la plus simple à la plus complexe selon vos besoins, chacune ayant ses avantages et inconvénients.">
+
+
+
+<meta property="og:url" content="https://www.jeremky.fr/posts/vim-neovim-choisissez-votre-configuration/">
+  <meta property="og:site_name" content="JeremKy.fr">
+  <meta property="og:title" content="Vim / Neovim : choisissez votre configuration">
+  <meta property="og:description" content="Dans l’article présentant NeoVim, je terminais en vous disant que j’attendais une version plus récente dans les dépôts Debian pour avoir une compatibilité avec les derniers plugins optimisés pour la dernière version.
+Finalement mon impatience légendaire a eu raison de moi, et j’ai décidé de me créer un script afin d’installer la dernière version de NeoVim à partir des releases officielles sur Github.
+Dans cet article, nous allons voir différentes configurations pour Vim et NeoVim, de la plus simple à la plus complexe selon vos besoins, chacune ayant ses avantages et inconvénients.">
+  <meta property="og:locale" content="fr">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-03-14T16:29:39+00:00">
+    <meta property="article:modified_time" content="2025-03-14T16:29:39+00:00">
+    <meta property="article:tag" content="Linux">
+
+
+
+
+
+
+  </head>
+  <body >
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >JEREMKY.FR</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/apropos">A propos</a></li>
+        
+      
+        
+          <li><a href="/archives">Archives</a></li>
+        
+      
+        
+          <li><a href="/categories/news">News</a></li>
+        
+      
+        
+          <li><a href="/categories/tutos">Tutos</a></li>
+        
+      
+      
+      
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/apropos">A propos</a></li>
+      
+    
+      
+        <li><a href="/archives">Archives</a></li>
+      
+    
+      
+        <li><a href="/categories/news">News</a></li>
+      
+    
+      
+        <li><a href="/categories/tutos">Tutos</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg
+  class="theme-toggler"
+  width="24"
+  height="24"
+  viewBox="0 0 48 48"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"
+  />
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  
+  
+
+  <article class="post">
+    <h1 class="post-title">Vim / Neovim : choisissez votre configuration</h1>
+    <div class="post-meta">
+      
+        <time class="post-date">
+          14/03/2025
+        </time>
+
+        
+          
+        
+      
+
+      
+
+
+      
+        <span class="post-read-time"
+          >— 13 min de lecture</span
+        >
+      
+    </div>
+
+    
+      <span class="post-tags">
+        
+          <a href="https://www.jeremky.fr/tags/linux/">#linux</a>&nbsp;
+        
+      </span>
+    
+
+    
+      <figure class="post-cover">
+  
+    <img src="https://www.jeremky.fr/img/posts/vim-neovim-choisissez-votre-configuration/cover.webp" alt="Vim / Neovim : choisissez votre configuration" width="700" />
+  
+
+  
+</figure>
+
+    
+
+    <div class="post-content">
+      
+        
+        <h2>Sommaire</h2>
+        <aside class="table-of-contents"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#lessentiel--vim-sans-plugins">L&rsquo;essentiel : Vim sans plugins</a></li>
+    <li><a href="#un-vim-efficace-avec-plugins">Un Vim efficace avec plugins</a></li>
+    <li><a href="#neovim--vim-en-mode-ide">NeoVim : Vim en mode IDE</a>
+      <ul>
+        <li><a href="#installation-de-neovim">Installation de NeoVim</a></li>
+        <li><a href="#lazyvim-">LazyVim ?</a></li>
+        <li><a href="#des-icônes-">Des icônes ?</a></li>
+        <li><a href="#résultat">Résultat</a></li>
+      </ul>
+    </li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ul>
+</nav></aside>
+        
+      
+      <p>Dans <a href="/posts/neovim-un-fork-de-vim-moderne/">l&rsquo;article présentant NeoVim</a>, je terminais en vous disant que j&rsquo;attendais une version plus récente dans les dépôts Debian pour avoir une compatibilité avec les derniers plugins optimisés pour la dernière version.</p>
+<p>Finalement mon impatience légendaire a eu raison de moi, et j&rsquo;ai décidé de me créer un script afin d&rsquo;installer la dernière version de NeoVim à partir des releases officielles sur <a href="https://github.com/neovim/neovim/releases">Github</a>.</p>
+<p>Dans cet article, nous allons voir différentes configurations pour Vim et NeoVim, de la plus simple à la plus complexe selon vos besoins, chacune ayant ses avantages et inconvénients.</p>
+<h2 id="lessentiel--vim-sans-plugins">
+  L&rsquo;essentiel : Vim sans plugins
+  <a href="#lessentiel--vim-sans-plugins" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p>Si vous voulez utiliser Vim en tant qu&rsquo;éditeur simple, que vous voulez un fichier unique, sans plugins, mais avec tout de même quelques fonctionnalités, ainsi que le thème OneHalfDark, voici le fichier <code>.vimrc</code>, à créer dans votre dossier personnel :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vim" data-lang="vim"><span style="display:flex;"><span><span style="color:#75715e">&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">&#34; Configuration de Vim</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">&#34; Ne pas charger le fichier par défaut</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">g</span>:<span style="color:#a6e22e">skip_defaults_vim</span> = <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">&#34; Paramétrage de base</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">syntax</span> <span style="color:#a6e22e">on</span>                       <span style="color:#75715e">&#34; Active la colorisation syntaxique</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">set</span> <span style="color:#a6e22e">hlsearch</span>                    <span style="color:#75715e">&#34; Affiche en surbrillance les recherches</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">set</span> <span style="color:#a6e22e">background</span>=dark             <span style="color:#75715e">&#34; Optimise l&#39;affiche pour un terminal sombre</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">set</span> <span style="color:#a6e22e">laststatus</span>=<span style="color:#ae81ff">2</span>                <span style="color:#75715e">&#34; Affiche en permanence la barre de statut</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">set</span> <span style="color:#a6e22e">smartindent</span>                 <span style="color:#75715e">&#34; Indentation intelligente</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">set</span> <span style="color:#a6e22e">smarttab</span>                    <span style="color:#75715e">&#34; Gestion des espaces en début de ligne</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">set</span> <span style="color:#a6e22e">autoindent</span>                  <span style="color:#75715e">&#34; Conserve l&#39;indentation sur une nouvelle ligne</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">set</span> <span style="color:#a6e22e">ruler</span>                       <span style="color:#75715e">&#34; Affiche la position du curseur</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">set</span> <span style="color:#a6e22e">tabstop</span>=<span style="color:#ae81ff">2</span>                   <span style="color:#75715e">&#34; La largeur d&#39;une tabulation est définie sur 2</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">set</span> <span style="color:#a6e22e">shiftwidth</span>=<span style="color:#ae81ff">2</span>                <span style="color:#75715e">&#34; Les retraits auront une largeur de 2</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">set</span> <span style="color:#a6e22e">softtabstop</span>=<span style="color:#ae81ff">2</span>               <span style="color:#75715e">&#34; Nombre de colonnes pour une tabulation</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">set</span> <span style="color:#a6e22e">expandtab</span>                   <span style="color:#75715e">&#34; Remplace les tab par des espaces</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">set</span> <span style="color:#a6e22e">linebreak</span>                   <span style="color:#75715e">&#34; Revient à la ligne sans couper les mots</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">set</span> <span style="color:#a6e22e">showcmd</span>                     <span style="color:#75715e">&#34; Afficher la commande dans la ligne d&#39;état</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">set</span> <span style="color:#a6e22e">showmatch</span>                   <span style="color:#75715e">&#34; Afficher les parenthèses correspondantes</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">set</span> <span style="color:#a6e22e">ignorecase</span>                  <span style="color:#75715e">&#34; Ignorer la casse</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">set</span> <span style="color:#a6e22e">smartcase</span>                   <span style="color:#75715e">&#34; Faire un appariement intelligent</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">set</span> <span style="color:#a6e22e">incsearch</span>                   <span style="color:#75715e">&#34; Recherche incrémentielle</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">set</span> <span style="color:#a6e22e">hidden</span>                      <span style="color:#75715e">&#34; Cacher les tampons lorsqu&#39;ils sont abandonnés</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">set</span> <span style="color:#a6e22e">mouse</span>=                      <span style="color:#75715e">&#34; Désactive la souris par dÃ©faut</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">set</span> <span style="color:#a6e22e">nobackup</span>                    <span style="color:#75715e">&#34; Désactive les sauvegardes automatiques</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">set</span> <span style="color:#a6e22e">spelllang</span>=<span style="color:#a6e22e">fr</span>,<span style="color:#a6e22e">en</span>             <span style="color:#75715e">&#34; Spécifie les langues du dictionnaire</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">&#34; Permet l&#39;indentation automatique : gg=G</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">filetype</span> <span style="color:#a6e22e">plugin</span> <span style="color:#a6e22e">indent</span> <span style="color:#a6e22e">on</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">&#34; Définition des caractères invisibles</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> &amp;<span style="color:#a6e22e">listchars</span> = <span style="color:#e6db74">&#34;eol:$,space:\u00B7&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">&#34; Changement automatique du curseur en fonction du mode</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> &amp;<span style="color:#a6e22e">t_SI</span> = <span style="color:#e6db74">&#34;\e[6 q&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> &amp;<span style="color:#a6e22e">t_EI</span> = <span style="color:#e6db74">&#34;\e[2 q&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">&#34; Fermeture automatique des brackets</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">inoremap</span> { {}&lt;<span style="color:#a6e22e">Esc</span>&gt;<span style="color:#a6e22e">ha</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">inoremap</span> [ []&lt;<span style="color:#a6e22e">Esc</span>&gt;<span style="color:#a6e22e">ha</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">&#34; Mémoriser la dernière position du curseur</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">autocmd</span> <span style="color:#a6e22e">BufReadPost</span> * <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">line</span>(<span style="color:#e6db74">&#34;&#39;\&#34;&#34;</span>) &gt; <span style="color:#ae81ff">1</span>) &amp;&amp; (<span style="color:#a6e22e">line</span>(<span style="color:#e6db74">&#34;&#39;\&#34;&#34;</span>) &lt;= <span style="color:#a6e22e">line</span>(<span style="color:#e6db74">&#34;$&#34;</span>)) | <span style="color:#a6e22e">silent</span> <span style="color:#a6e22e">exe</span> <span style="color:#e6db74">&#34;silent! normal g&#39;\&#34;zO&#34;</span> | <span style="color:#66d9ef">endif</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">&#34; Modification de certaines syntaxes</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">autocmd</span> <span style="color:#a6e22e">BufNewFile</span>,<span style="color:#a6e22e">BufRead</span> *.<span style="color:#a6e22e">lpl</span> <span style="color:#66d9ef">set</span> <span style="color:#66d9ef">syntax</span>=<span style="color:#a6e22e">json</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">&#34; Configuration pour tmux</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> $<span style="color:#a6e22e">TERM</span> == <span style="color:#e6db74">&#39;tmux-256color&#39;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">set</span> <span style="color:#a6e22e">clipboard</span>=<span style="color:#a6e22e">unnamedplus</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">set</span> <span style="color:#a6e22e">mouse</span>=<span style="color:#a6e22e">a</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">endif</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">&#34; Explorateur de fichiers</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">&#34; Configuration</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">g</span>:<span style="color:#a6e22e">netrw_liststyle</span> = <span style="color:#ae81ff">3</span>         <span style="color:#75715e">&#34; Active le mode Treeview</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">g</span>:<span style="color:#a6e22e">netrw_sizestyle</span> = <span style="color:#e6db74">&#34;H&#34;</span>       <span style="color:#75715e">&#34; Active le mode human-readable</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">g</span>:<span style="color:#a6e22e">netrw_banner</span> = <span style="color:#ae81ff">0</span>            <span style="color:#75715e">&#34; Désactive la bannière</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">g</span>:<span style="color:#a6e22e">netrw_browse_split</span> = <span style="color:#ae81ff">4</span>      <span style="color:#75715e">&#34; Ouvre le fichier choisi dans un panel</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">g</span>:<span style="color:#a6e22e">netrw_winsize</span> = <span style="color:#ae81ff">15</span>          <span style="color:#75715e">&#34; Définit la taille de l&#39;explorateur</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">&#34; Ferme automatiquement l&#39;explorateur</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">aug</span> <span style="color:#a6e22e">netrw_close</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">au</span>!
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">au</span> <span style="color:#a6e22e">WinEnter</span> * <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">winnr</span>(<span style="color:#e6db74">&#39;$&#39;</span>) == <span style="color:#ae81ff">1</span> &amp;&amp; <span style="color:#a6e22e">getbufvar</span>(<span style="color:#a6e22e">winbufnr</span>(<span style="color:#a6e22e">winnr</span>()), <span style="color:#e6db74">&#34;&amp;filetype&#34;</span>) == <span style="color:#e6db74">&#34;netrw&#34;</span>|<span style="color:#a6e22e">q</span>|<span style="color:#66d9ef">endif</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">aug</span> <span style="color:#a6e22e">END</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">&#34; Barre de statut</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">&#34; Eléments à afficher</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">set</span> <span style="color:#a6e22e">statusline</span>+=%<span style="color:#a6e22e">F</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">set</span> <span style="color:#a6e22e">statusline</span>+=\ %<span style="color:#a6e22e">m</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">set</span> <span style="color:#a6e22e">statusline</span>+=%=
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">set</span> <span style="color:#a6e22e">statusline</span>+=\ %{<span style="color:#a6e22e">strlen</span>(&amp;<span style="color:#a6e22e">fenc</span>)?&amp;<span style="color:#a6e22e">fenc</span>:<span style="color:#e6db74">&#39;none&#39;</span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">set</span> <span style="color:#a6e22e">statusline</span>+=\ \|
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">set</span> <span style="color:#a6e22e">statusline</span>+=\ %<span style="color:#a6e22e">P</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">set</span> <span style="color:#a6e22e">statusline</span>+=\ \|
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">set</span> <span style="color:#a6e22e">statusline</span>+=\ %<span style="color:#a6e22e">l</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">set</span> <span style="color:#a6e22e">statusline</span>+=\:%<span style="color:#a6e22e">c</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">&#34; Mapping</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">&#34; Explorateur de fichiers</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">nnoremap</span> &lt;<span style="color:#a6e22e">F1</span>&gt; :<span style="color:#a6e22e">Vexplore</span>&lt;<span style="color:#a6e22e">CR</span>&gt;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">&#34; Activation de la numérotation</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">nnoremap</span> &lt;<span style="color:#a6e22e">F2</span>&gt; :<span style="color:#66d9ef">set</span> <span style="color:#a6e22e">number</span>!&lt;<span style="color:#a6e22e">CR</span>&gt;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">&#34; Correction orthographique (z= pour afficher les propositions)</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">map</span> &lt;<span style="color:#a6e22e">F3</span>&gt; :<span style="color:#66d9ef">set</span> <span style="color:#a6e22e">spell</span>!&lt;<span style="color:#a6e22e">CR</span>&gt;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">&#34; Coloration syntaxique</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">nnoremap</span> &lt;<span style="color:#a6e22e">F4</span>&gt; :<span style="color:#a6e22e">call</span> <span style="color:#a6e22e">ToggleSyntax</span>()&lt;<span style="color:#a6e22e">CR</span>&gt;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span>! <span style="color:#a6e22e">ToggleSyntax</span>()
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> &amp;<span style="color:#66d9ef">syntax</span> == <span style="color:#e6db74">&#39;&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">syntax</span> <span style="color:#a6e22e">on</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">echo</span> <span style="color:#e6db74">&#34;Coloration syntaxique activée&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">syntax</span> <span style="color:#a6e22e">off</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">set</span> <span style="color:#66d9ef">syntax</span>=
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">echo</span> <span style="color:#e6db74">&#34;Coloration syntaxique désactivée&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">endif</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">endfunction</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">&#34; Indentation automatique</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">nnoremap</span> &lt;<span style="color:#a6e22e">F5</span>&gt; <span style="color:#a6e22e">gg</span>=<span style="color:#a6e22e">G</span> &lt;<span style="color:#a6e22e">CR</span>&gt;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">&#34; Souris</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">nnoremap</span> &lt;<span style="color:#a6e22e">F6</span>&gt; :<span style="color:#a6e22e">call</span> <span style="color:#a6e22e">ToggleMouse</span>()&lt;<span style="color:#a6e22e">CR</span>&gt;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span>! <span style="color:#a6e22e">ToggleMouse</span>()
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> &amp;<span style="color:#a6e22e">mouse</span> == <span style="color:#e6db74">&#39;a&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">set</span> <span style="color:#a6e22e">mouse</span>=
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">echo</span> <span style="color:#e6db74">&#34;Souris désactivée&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">set</span> <span style="color:#a6e22e">mouse</span>=<span style="color:#a6e22e">a</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">echo</span> <span style="color:#e6db74">&#34;Souris activée&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">endif</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">endfunction</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">&#34; Affichage des caractères invisibles</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">nnoremap</span> &lt;<span style="color:#a6e22e">F7</span>&gt; :<span style="color:#66d9ef">set</span> <span style="color:#a6e22e">list</span>!&lt;<span style="color:#a6e22e">CR</span>&gt;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">&#34; Changement de document</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">nnoremap</span> &lt;<span style="color:#a6e22e">TAB</span>&gt; :<span style="color:#a6e22e">tabnext</span>&lt;<span style="color:#a6e22e">CR</span>&gt;
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">nnoremap</span> &lt;<span style="color:#a6e22e">S</span>-<span style="color:#a6e22e">TAB</span>&gt; &lt;<span style="color:#a6e22e">C</span>-<span style="color:#a6e22e">W</span>&gt;<span style="color:#a6e22e">w</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">&#34; Theme OneHalfDark</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">set</span> <span style="color:#a6e22e">cursorline</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">set</span> <span style="color:#a6e22e">t_Co</span>=<span style="color:#ae81ff">256</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">set</span> <span style="color:#a6e22e">termguicolors</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">set</span> <span style="color:#a6e22e">noshowmode</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">set</span> <span style="color:#a6e22e">background</span>=dark
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">highlight</span> <span style="color:#a6e22e">clear</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">syntax</span> <span style="color:#a6e22e">reset</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">g</span>:<span style="color:#a6e22e">colors_name</span>=<span style="color:#e6db74">&#34;onehalfdark&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">colors_name</span>=<span style="color:#e6db74">&#34;onehalfdark&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">black</span>       = { <span style="color:#e6db74">&#34;gui&#34;</span>: <span style="color:#e6db74">&#34;#282c34&#34;</span>, <span style="color:#e6db74">&#34;cterm&#34;</span>: <span style="color:#e6db74">&#34;236&#34;</span> }
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">red</span>         = { <span style="color:#e6db74">&#34;gui&#34;</span>: <span style="color:#e6db74">&#34;#e06c75&#34;</span>, <span style="color:#e6db74">&#34;cterm&#34;</span>: <span style="color:#e6db74">&#34;168&#34;</span> }
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">green</span>       = { <span style="color:#e6db74">&#34;gui&#34;</span>: <span style="color:#e6db74">&#34;#98c379&#34;</span>, <span style="color:#e6db74">&#34;cterm&#34;</span>: <span style="color:#e6db74">&#34;114&#34;</span> }
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">yellow</span>      = { <span style="color:#e6db74">&#34;gui&#34;</span>: <span style="color:#e6db74">&#34;#e5c07b&#34;</span>, <span style="color:#e6db74">&#34;cterm&#34;</span>: <span style="color:#e6db74">&#34;180&#34;</span> }
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">blue</span>        = { <span style="color:#e6db74">&#34;gui&#34;</span>: <span style="color:#e6db74">&#34;#61afef&#34;</span>, <span style="color:#e6db74">&#34;cterm&#34;</span>: <span style="color:#e6db74">&#34;75&#34;</span>  }
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">purple</span>      = { <span style="color:#e6db74">&#34;gui&#34;</span>: <span style="color:#e6db74">&#34;#c678dd&#34;</span>, <span style="color:#e6db74">&#34;cterm&#34;</span>: <span style="color:#e6db74">&#34;176&#34;</span> }
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">cyan</span>        = { <span style="color:#e6db74">&#34;gui&#34;</span>: <span style="color:#e6db74">&#34;#56b6c2&#34;</span>, <span style="color:#e6db74">&#34;cterm&#34;</span>: <span style="color:#e6db74">&#34;73&#34;</span>  }
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">white</span>       = { <span style="color:#e6db74">&#34;gui&#34;</span>: <span style="color:#e6db74">&#34;#abb2bf&#34;</span>, <span style="color:#e6db74">&#34;cterm&#34;</span>: <span style="color:#e6db74">&#34;188&#34;</span> }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">fg</span>          = <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">white</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">bg</span>          = <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">black</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">comment_fg</span>  = { <span style="color:#e6db74">&#34;gui&#34;</span>: <span style="color:#e6db74">&#34;#636a78&#34;</span>, <span style="color:#e6db74">&#34;cterm&#34;</span>: <span style="color:#e6db74">&#34;241&#34;</span> }
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">gutter_bg</span>   = { <span style="color:#e6db74">&#34;gui&#34;</span>: <span style="color:#e6db74">&#34;#282c34&#34;</span>, <span style="color:#e6db74">&#34;cterm&#34;</span>: <span style="color:#e6db74">&#34;236&#34;</span> }
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">gutter_fg</span>   = { <span style="color:#e6db74">&#34;gui&#34;</span>: <span style="color:#e6db74">&#34;#919baa&#34;</span>, <span style="color:#e6db74">&#34;cterm&#34;</span>: <span style="color:#e6db74">&#34;247&#34;</span> }
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">non_text</span>    = { <span style="color:#e6db74">&#34;gui&#34;</span>: <span style="color:#e6db74">&#34;#373C45&#34;</span>, <span style="color:#e6db74">&#34;cterm&#34;</span>: <span style="color:#e6db74">&#34;239&#34;</span> }
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">cursor_line</span> = { <span style="color:#e6db74">&#34;gui&#34;</span>: <span style="color:#e6db74">&#34;#313640&#34;</span>, <span style="color:#e6db74">&#34;cterm&#34;</span>: <span style="color:#e6db74">&#34;237&#34;</span> }
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">color_col</span>   = { <span style="color:#e6db74">&#34;gui&#34;</span>: <span style="color:#e6db74">&#34;#313640&#34;</span>, <span style="color:#e6db74">&#34;cterm&#34;</span>: <span style="color:#e6db74">&#34;237&#34;</span> }
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">selection</span>   = { <span style="color:#e6db74">&#34;gui&#34;</span>: <span style="color:#e6db74">&#34;#474e5d&#34;</span>, <span style="color:#e6db74">&#34;cterm&#34;</span>: <span style="color:#e6db74">&#34;239&#34;</span> }
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">vertsplit</span>   = { <span style="color:#e6db74">&#34;gui&#34;</span>: <span style="color:#e6db74">&#34;#313640&#34;</span>, <span style="color:#e6db74">&#34;cterm&#34;</span>: <span style="color:#e6db74">&#34;237&#34;</span> }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span>! <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">h</span>(<span style="color:#a6e22e">group</span>, <span style="color:#a6e22e">fg</span>, <span style="color:#a6e22e">bg</span>, <span style="color:#a6e22e">attr</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">type</span>(<span style="color:#a6e22e">a</span>:<span style="color:#a6e22e">fg</span>) == <span style="color:#a6e22e">type</span>({})
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">exec</span> <span style="color:#e6db74">&#34;hi &#34;</span> . <span style="color:#a6e22e">a</span>:<span style="color:#a6e22e">group</span> . <span style="color:#e6db74">&#34; guifg=&#34;</span> . <span style="color:#a6e22e">a</span>:<span style="color:#a6e22e">fg</span>.<span style="color:#a6e22e">gui</span> . <span style="color:#e6db74">&#34; ctermfg=&#34;</span> . <span style="color:#a6e22e">a</span>:<span style="color:#a6e22e">fg</span>.<span style="color:#a6e22e">cterm</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">exec</span> <span style="color:#e6db74">&#34;hi &#34;</span> . <span style="color:#a6e22e">a</span>:<span style="color:#a6e22e">group</span> . <span style="color:#e6db74">&#34; guifg=NONE cterm=NONE&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">endif</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">type</span>(<span style="color:#a6e22e">a</span>:<span style="color:#a6e22e">bg</span>) == <span style="color:#a6e22e">type</span>({})
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">exec</span> <span style="color:#e6db74">&#34;hi &#34;</span> . <span style="color:#a6e22e">a</span>:<span style="color:#a6e22e">group</span> . <span style="color:#e6db74">&#34; guibg=&#34;</span> . <span style="color:#a6e22e">a</span>:<span style="color:#a6e22e">bg</span>.<span style="color:#a6e22e">gui</span> . <span style="color:#e6db74">&#34; ctermbg=&#34;</span> . <span style="color:#a6e22e">a</span>:<span style="color:#a6e22e">bg</span>.<span style="color:#a6e22e">cterm</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">exec</span> <span style="color:#e6db74">&#34;hi &#34;</span> . <span style="color:#a6e22e">a</span>:<span style="color:#a6e22e">group</span> . <span style="color:#e6db74">&#34; guibg=NONE ctermbg=NONE&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">endif</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">a</span>:<span style="color:#a6e22e">attr</span> != <span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">exec</span> <span style="color:#e6db74">&#34;hi &#34;</span> . <span style="color:#a6e22e">a</span>:<span style="color:#a6e22e">group</span> . <span style="color:#e6db74">&#34; gui=&#34;</span> . <span style="color:#a6e22e">a</span>:<span style="color:#a6e22e">attr</span> . <span style="color:#e6db74">&#34; cterm=&#34;</span> . <span style="color:#a6e22e">a</span>:<span style="color:#a6e22e">attr</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">exec</span> <span style="color:#e6db74">&#34;hi &#34;</span> . <span style="color:#a6e22e">a</span>:<span style="color:#a6e22e">group</span> . <span style="color:#e6db74">&#34; gui=NONE cterm=NONE&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">endif</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">endfun</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">&#34; User interface colors {</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">call</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;Normal&#34;</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">fg</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">bg</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">call</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;Cursor&#34;</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">bg</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">blue</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">call</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;CursorColumn&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">cursor_line</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">call</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;CursorLine&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">cursor_line</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">call</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;LineNr&#34;</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">gutter_fg</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">gutter_bg</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">call</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;CursorLineNr&#34;</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">fg</span>, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">call</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;DiffAdd&#34;</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">green</span>, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">call</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;DiffChange&#34;</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">yellow</span>, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">call</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;DiffDelete&#34;</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">red</span>, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">call</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;DiffText&#34;</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">blue</span>, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">call</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;IncSearch&#34;</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">bg</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">yellow</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">call</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;Search&#34;</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">bg</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">yellow</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">call</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;ErrorMsg&#34;</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">fg</span>, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">call</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;ModeMsg&#34;</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">fg</span>, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">call</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;MoreMsg&#34;</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">fg</span>, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">call</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;WarningMsg&#34;</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">red</span>, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">call</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;Question&#34;</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">purple</span>, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">call</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;Pmenu&#34;</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">bg</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">fg</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">call</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;PmenuSel&#34;</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">fg</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">blue</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">call</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;PmenuSbar&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">selection</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">call</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;PmenuThumb&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">fg</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">call</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;SpellBad&#34;</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">red</span>, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">call</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;SpellCap&#34;</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">yellow</span>, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">call</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;SpellLocal&#34;</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">yellow</span>, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">call</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;SpellRare&#34;</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">yellow</span>, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">call</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;StatusLine&#34;</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">blue</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">cursor_line</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">call</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;StatusLineNC&#34;</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">comment_fg</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">cursor_line</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">call</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;TabLine&#34;</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">comment_fg</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">cursor_line</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">call</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;TabLineFill&#34;</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">comment_fg</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">cursor_line</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">call</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;TabLineSel&#34;</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">fg</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">bg</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">call</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;Visual&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">selection</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">call</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;VisualNOS&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">selection</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">call</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;ColorColumn&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">color_col</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">call</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;Conceal&#34;</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">fg</span>, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">call</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;Directory&#34;</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">blue</span>, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">call</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;VertSplit&#34;</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">vertsplit</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">vertsplit</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">call</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;Folded&#34;</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">fg</span>, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">call</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;FoldColumn&#34;</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">fg</span>, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">call</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;SignColumn&#34;</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">fg</span>, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">call</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;MatchParen&#34;</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">blue</span>, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#e6db74">&#34;underline&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">call</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;SpecialKey&#34;</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">fg</span>, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">call</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;Title&#34;</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">green</span>, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">call</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;WildMenu&#34;</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">fg</span>, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">&#34; }</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">&#34; Syntax colors {</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">call</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;Whitespace&#34;</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">non_text</span>, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">call</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;NonText&#34;</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">non_text</span>, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">call</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;Comment&#34;</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">comment_fg</span>, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">call</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;Constant&#34;</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">cyan</span>, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">call</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;String&#34;</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">green</span>, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">call</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;Character&#34;</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">green</span>, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">call</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;Number&#34;</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">yellow</span>, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">call</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;Boolean&#34;</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">yellow</span>, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">call</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;Float&#34;</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">yellow</span>, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">call</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;Identifier&#34;</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">red</span>, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">call</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;Function&#34;</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">blue</span>, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">call</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;Statement&#34;</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">purple</span>, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">call</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;Conditional&#34;</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">purple</span>, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">call</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;Repeat&#34;</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">purple</span>, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">call</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;Label&#34;</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">purple</span>, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">call</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;Operator&#34;</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">fg</span>, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">call</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;Keyword&#34;</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">red</span>, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">call</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;Exception&#34;</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">purple</span>, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">call</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;PreProc&#34;</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">yellow</span>, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">call</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;Include&#34;</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">purple</span>, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">call</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;Define&#34;</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">purple</span>, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">call</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;Macro&#34;</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">purple</span>, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">call</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;PreCondit&#34;</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">yellow</span>, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">call</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;Type&#34;</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">yellow</span>, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">call</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;StorageClass&#34;</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">yellow</span>, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">call</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;Structure&#34;</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">yellow</span>, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">call</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;Typedef&#34;</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">yellow</span>, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">call</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;Special&#34;</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">blue</span>, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">call</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;SpecialChar&#34;</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">fg</span>, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">call</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;Tag&#34;</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">fg</span>, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">call</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;Delimiter&#34;</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">fg</span>, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">call</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;SpecialComment&#34;</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">fg</span>, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">call</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;Debug&#34;</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">fg</span>, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">call</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;Underlined&#34;</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">fg</span>, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">call</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;Ignore&#34;</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">fg</span>, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">call</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;Error&#34;</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">red</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">gutter_bg</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">call</span> <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;Todo&#34;</span>, <span style="color:#a6e22e">s</span>:<span style="color:#a6e22e">purple</span>, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">&#34; }</span>
+</span></span></code></pre></div><p>Ouais&hellip; Le fichier est assez costaud, mais cela permet de ne pas être dépendant de fichiers supplémentaires.</p>
+<p>A noter que sur certaines distributions, Vim n&rsquo;est pas nécessairement installé. Pour les distributions basées sur Debian :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt install vim
+</span></span></code></pre></div><h2 id="un-vim-efficace-avec-plugins">
+  Un Vim efficace avec plugins
+  <a href="#un-vim-efficace-avec-plugins" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p>La configuration ci-dessous est celle que j&rsquo;ai présenté dans l&rsquo;article sur <a href="/posts/neovim-un-fork-de-vim-moderne/">NeoVim</a>, mais adaptée à Vim. Là encore, collez ce contenu dans un fichier nommé <code>.vimrc</code> dans votre dossier personnel :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Vim" data-lang="Vim"><span style="display:flex;"><span><span style="color:#75715e">&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">&#34; Configuration de Vim</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">&#34; Paramétrage de base</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">syntax</span> <span style="color:#a6e22e">on</span>                       <span style="color:#75715e">&#34; Active la colorisation syntaxique</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">set</span> <span style="color:#a6e22e">hlsearch</span>                    <span style="color:#75715e">&#34; Affiche en surbrillance les recherches</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">set</span> <span style="color:#a6e22e">background</span>=dark             <span style="color:#75715e">&#34; Optimise l&#39;affiche pour un terminal sombre</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">set</span> <span style="color:#a6e22e">laststatus</span>=<span style="color:#ae81ff">2</span>                <span style="color:#75715e">&#34; Affiche en permanence la barre de statut</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">set</span> <span style="color:#a6e22e">smartindent</span>                 <span style="color:#75715e">&#34; Indentation intelligente</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">set</span> <span style="color:#a6e22e">smarttab</span>                    <span style="color:#75715e">&#34; Gestion des espaces en début de ligne</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">set</span> <span style="color:#a6e22e">autoindent</span>                  <span style="color:#75715e">&#34; Conserve l&#39;indentation sur une nouvelle ligne</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">set</span> <span style="color:#a6e22e">ruler</span>                       <span style="color:#75715e">&#34; Affiche la position du curseur</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">set</span> <span style="color:#a6e22e">tabstop</span>=<span style="color:#ae81ff">2</span>                   <span style="color:#75715e">&#34; La largeur d&#39;une tabulation est définie sur 2</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">set</span> <span style="color:#a6e22e">shiftwidth</span>=<span style="color:#ae81ff">2</span>                <span style="color:#75715e">&#34; Les retraits auront une largeur de 2</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">set</span> <span style="color:#a6e22e">softtabstop</span>=<span style="color:#ae81ff">2</span>               <span style="color:#75715e">&#34; Nombre de colonnes pour une tabulation</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">set</span> <span style="color:#a6e22e">expandtab</span>                   <span style="color:#75715e">&#34; Remplace les tab par des espaces</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">set</span> <span style="color:#a6e22e">linebreak</span>                   <span style="color:#75715e">&#34; Revient à la ligne sans couper les mots</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">set</span> <span style="color:#a6e22e">showcmd</span>                     <span style="color:#75715e">&#34; Afficher la commande dans la ligne d&#39;état</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">set</span> <span style="color:#a6e22e">showmatch</span>                   <span style="color:#75715e">&#34; Afficher les parenthèses correspondantes</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">set</span> <span style="color:#a6e22e">ignorecase</span>                  <span style="color:#75715e">&#34; Ignorer la casse</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">set</span> <span style="color:#a6e22e">smartcase</span>                   <span style="color:#75715e">&#34; Faire un appariement intelligent</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">set</span> <span style="color:#a6e22e">incsearch</span>                   <span style="color:#75715e">&#34; Recherche incrémentielle</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">set</span> <span style="color:#a6e22e">hidden</span>                      <span style="color:#75715e">&#34; Cacher les tampons lorsqu&#39;ils sont abandonnés</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">set</span> <span style="color:#a6e22e">mouse</span>=                      <span style="color:#75715e">&#34; Désactive la souris par défaut</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">set</span> <span style="color:#a6e22e">nobackup</span>                    <span style="color:#75715e">&#34; Désactive les sauvegardes automatiques</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">set</span> <span style="color:#a6e22e">spelllang</span>=<span style="color:#a6e22e">fr</span>,<span style="color:#a6e22e">en</span>             <span style="color:#75715e">&#34; Spécifie les langues du dictionnaire</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">&#34; Permet l&#39;indentation automatique : gg=G</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">filetype</span> <span style="color:#a6e22e">plugin</span> <span style="color:#a6e22e">indent</span> <span style="color:#a6e22e">on</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">&#34; Définition des caractères invisibles</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> &amp;<span style="color:#a6e22e">listchars</span> = <span style="color:#e6db74">&#34;eol:$,space:\u00B7&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">&#34; Changement automatique du curseur en fonction du mode</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> &amp;<span style="color:#a6e22e">t_SI</span> = <span style="color:#e6db74">&#34;\e[6 q&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> &amp;<span style="color:#a6e22e">t_EI</span> = <span style="color:#e6db74">&#34;\e[2 q&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">&#34; Fermeture automatique des brackets</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">inoremap</span> { {}&lt;<span style="color:#a6e22e">Esc</span>&gt;<span style="color:#a6e22e">ha</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">inoremap</span> [ []&lt;<span style="color:#a6e22e">Esc</span>&gt;<span style="color:#a6e22e">ha</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">&#34; Mémoriser la dernière position du curseur</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">autocmd</span> <span style="color:#a6e22e">BufReadPost</span> * <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">line</span>(<span style="color:#e6db74">&#34;&#39;\&#34;&#34;</span>) &gt; <span style="color:#ae81ff">1</span>) &amp;&amp; (<span style="color:#a6e22e">line</span>(<span style="color:#e6db74">&#34;&#39;\&#34;&#34;</span>) &lt;= <span style="color:#a6e22e">line</span>(<span style="color:#e6db74">&#34;$&#34;</span>)) | <span style="color:#a6e22e">silent</span> <span style="color:#a6e22e">exe</span> <span style="color:#e6db74">&#34;silent! normal g&#39;\&#34;zO&#34;</span> | <span style="color:#66d9ef">endif</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">&#34; Modification de certaines syntaxes</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">autocmd</span> <span style="color:#a6e22e">BufNewFile</span>,<span style="color:#a6e22e">BufRead</span> *.<span style="color:#a6e22e">lpl</span> <span style="color:#66d9ef">set</span> <span style="color:#66d9ef">syntax</span>=<span style="color:#a6e22e">json</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">&#34; Configuration pour tmux</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> $<span style="color:#a6e22e">TERM</span> == <span style="color:#e6db74">&#39;tmux-256color&#39;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">set</span> <span style="color:#a6e22e">clipboard</span>=<span style="color:#a6e22e">unnamedplus</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">set</span> <span style="color:#a6e22e">mouse</span>=<span style="color:#a6e22e">a</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">endif</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">&#34; Mapping</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">&#34; Nerdtree</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">nnoremap</span> &lt;<span style="color:#a6e22e">F1</span>&gt; :<span style="color:#a6e22e">NERDTreeToggle</span> &lt;<span style="color:#a6e22e">CR</span>&gt;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">&#34; Mode IDE</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">nnoremap</span> &lt;<span style="color:#a6e22e">F2</span>&gt; :<span style="color:#a6e22e">call</span> <span style="color:#a6e22e">ModeIDE</span>() &lt;<span style="color:#a6e22e">CR</span>&gt;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span>! <span style="color:#a6e22e">ModeIDE</span>()
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">set</span> <span style="color:#a6e22e">number</span>!
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">IndentLinesToggle</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">GitGutterToggle</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">endfunction</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">&#34; Correction orthographique (z= pour afficher les propositions)</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">map</span> &lt;<span style="color:#a6e22e">F3</span>&gt; :<span style="color:#66d9ef">set</span> <span style="color:#a6e22e">spell</span>!&lt;<span style="color:#a6e22e">CR</span>&gt;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">&#34; Coloration syntaxique</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">nnoremap</span> &lt;<span style="color:#a6e22e">F4</span>&gt; :<span style="color:#a6e22e">call</span> <span style="color:#a6e22e">ToggleSyntax</span>()&lt;<span style="color:#a6e22e">CR</span>&gt;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span>! <span style="color:#a6e22e">ToggleSyntax</span>()
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> &amp;<span style="color:#66d9ef">syntax</span> == <span style="color:#e6db74">&#39;&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">syntax</span> <span style="color:#a6e22e">on</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">echo</span> <span style="color:#e6db74">&#34;Coloration syntaxique activée&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">syntax</span> <span style="color:#a6e22e">off</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">set</span> <span style="color:#66d9ef">syntax</span>=
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">echo</span> <span style="color:#e6db74">&#34;Coloration syntaxique désactivée&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">endif</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">endfunction</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">&#34; Indentation automatique</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">nnoremap</span> &lt;<span style="color:#a6e22e">F5</span>&gt; <span style="color:#a6e22e">gg</span>=<span style="color:#a6e22e">G</span> &lt;<span style="color:#a6e22e">CR</span>&gt;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">&#34; Souris</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">nnoremap</span> &lt;<span style="color:#a6e22e">F6</span>&gt; :<span style="color:#a6e22e">call</span> <span style="color:#a6e22e">ToggleMouse</span>()&lt;<span style="color:#a6e22e">CR</span>&gt;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span>! <span style="color:#a6e22e">ToggleMouse</span>()
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> &amp;<span style="color:#a6e22e">mouse</span> == <span style="color:#e6db74">&#39;a&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">set</span> <span style="color:#a6e22e">mouse</span>=
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">echo</span> <span style="color:#e6db74">&#34;Souris désactivée&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">set</span> <span style="color:#a6e22e">mouse</span>=<span style="color:#a6e22e">a</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">echo</span> <span style="color:#e6db74">&#34;Souris activée&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">endif</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">endfunction</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">&#34; Affichage des caractères invisibles</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">nnoremap</span> &lt;<span style="color:#a6e22e">F7</span>&gt; :<span style="color:#66d9ef">set</span> <span style="color:#a6e22e">list</span>!&lt;<span style="color:#a6e22e">CR</span>&gt;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">&#34; Changement de document</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">nnoremap</span> &lt;<span style="color:#a6e22e">S</span>-<span style="color:#a6e22e">TAB</span>&gt; &lt;<span style="color:#a6e22e">C</span>-<span style="color:#a6e22e">W</span>&gt;<span style="color:#a6e22e">w</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">nnoremap</span> &lt;<span style="color:#a6e22e">TAB</span>&gt; :<span style="color:#a6e22e">tabnext</span>&lt;<span style="color:#a6e22e">CR</span>&gt;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">&#34; Plugins</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">&#34; Téléchargement de vim-plug si introuvable</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#a6e22e">empty</span>(<span style="color:#a6e22e">glob</span>(<span style="color:#e6db74">&#39;~/.vim/autoload/plug.vim&#39;</span>))
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">silent</span> !<span style="color:#a6e22e">curl</span> -<span style="color:#a6e22e">fLo</span> ~<span style="color:#e6db74">/.vim/</span><span style="color:#a6e22e">autoload</span>/<span style="color:#a6e22e">plug</span>.<span style="color:#a6e22e">vim</span> --<span style="color:#a6e22e">create</span>-<span style="color:#a6e22e">dirs</span>
+</span></span><span style="display:flex;"><span>        \ <span style="color:#a6e22e">https</span>:<span style="color:#e6db74">//</span><span style="color:#a6e22e">raw</span>.<span style="color:#a6e22e">githubusercontent</span>.<span style="color:#a6e22e">com</span><span style="color:#e6db74">/junegunn/</span><span style="color:#a6e22e">vim</span>-<span style="color:#a6e22e">plug</span><span style="color:#e6db74">/master/</span><span style="color:#a6e22e">plug</span>.<span style="color:#a6e22e">vim</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">endif</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">&#34; Lance automatiquement PlugInstall</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">autocmd</span> <span style="color:#a6e22e">VimEnter</span> * <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">len</span>(<span style="color:#a6e22e">filter</span>(<span style="color:#a6e22e">values</span>(<span style="color:#a6e22e">g</span>:<span style="color:#a6e22e">plugs</span>), <span style="color:#e6db74">&#39;!isdirectory(v:val.dir)&#39;</span>))
+</span></span><span style="display:flex;"><span>      \| <span style="color:#a6e22e">PlugInstall</span> --<span style="color:#a6e22e">sync</span> | <span style="color:#a6e22e">source</span> $<span style="color:#a6e22e">MYVIMRC</span>
+</span></span><span style="display:flex;"><span>      \| <span style="color:#66d9ef">endif</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">&#34; Liste des plugins</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">call</span> <span style="color:#a6e22e">plug</span>#<span style="color:#a6e22e">begin</span>()
+</span></span><span style="display:flex;"><span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">&#34; Theme</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Plug</span> <span style="color:#e6db74">&#39;joshdick/onedark.vim&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">&#34; Interface</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Plug</span> <span style="color:#e6db74">&#39;tpope/vim-sensible&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Plug</span> <span style="color:#e6db74">&#39;itchyny/lightline.vim&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Plug</span> <span style="color:#e6db74">&#39;preservim/nerdtree&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">&#34; Code</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Plug</span> <span style="color:#e6db74">&#39;Yggdroot/indentLine&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Plug</span> <span style="color:#e6db74">&#39;sheerun/vim-polyglot&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">&#34; Completion</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Plug</span> <span style="color:#e6db74">&#39;ervandew/supertab&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Plug</span> <span style="color:#e6db74">&#39;vim-scripts/VimCompletesMe&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">&#34; Git</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Plug</span> <span style="color:#e6db74">&#39;airblade/vim-gitgutter&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Plug</span> <span style="color:#e6db74">&#39;tpope/vim-fugitive&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">call</span> <span style="color:#a6e22e">plug</span>#<span style="color:#a6e22e">end</span>()
+</span></span><span style="display:flex;"><span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">&#34; Configuration du thème OneDark</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#a6e22e">filereadable</span>(<span style="color:#a6e22e">expand</span>(<span style="color:#e6db74">&#34;~/.vim/plugged/onedark.vim/colors/onedark.vim&#34;</span>))
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">g</span>:<span style="color:#a6e22e">onedark_hide_endofbuffer</span> = <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">g</span>:<span style="color:#a6e22e">onedark_terminal_italics</span> = <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">colorscheme</span> <span style="color:#a6e22e">onedark</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">set</span> <span style="color:#a6e22e">cursorline</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">set</span> <span style="color:#a6e22e">termguicolors</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">endif</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">&#34; Configuration de LightLine</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#a6e22e">filereadable</span>(<span style="color:#a6e22e">expand</span>(<span style="color:#e6db74">&#34;~/.vim/plugged/lightline.vim/autoload/lightline.vim&#34;</span>))
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">set</span> <span style="color:#a6e22e">statusline</span>+=%{<span style="color:#a6e22e">exists</span>(<span style="color:#e6db74">&#39;g:loaded_fugitive&#39;</span>)?<span style="color:#a6e22e">fugitive</span>#<span style="color:#a6e22e">statusline</span>():<span style="color:#e6db74">&#39;&#39;</span>}
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">g</span>:<span style="color:#a6e22e">lightline</span> = { <span style="color:#e6db74">&#39;colorscheme&#39;</span>: <span style="color:#e6db74">&#39;onedark&#39;</span> , }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">set</span> <span style="color:#a6e22e">noshowmode</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">endif</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">&#34; Configuration de NERDTree</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#a6e22e">filereadable</span>(<span style="color:#a6e22e">expand</span>(<span style="color:#e6db74">&#34;~/.vim/plugged/nerdtree/autoload/nerdtree.vim&#34;</span>))
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">nnoremap</span> &lt;<span style="color:#a6e22e">C</span>-<span style="color:#a6e22e">o</span>&gt; :<span style="color:#a6e22e">NERDTreeToggle</span> &lt;<span style="color:#a6e22e">CR</span>&gt;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">NERDTreeMapOpenInTab</span>=<span style="color:#e6db74">&#39;&lt;TAB&gt;&#39;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">NERDTreeShowHidden</span>=<span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">NERDTreeQuitOnOpen</span>=<span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">endif</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">&#34; Configuration de IndentLine</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#a6e22e">filereadable</span>(<span style="color:#a6e22e">expand</span>(<span style="color:#e6db74">&#34;~/.vim/plugged/indentLine/after/plugin/indentLine.vim&#34;</span>))
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">g</span>:<span style="color:#a6e22e">indentLine_enabled</span> = <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">g</span>:<span style="color:#a6e22e">indentLine_char</span> = <span style="color:#e6db74">&#39;▏&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">endif</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">&#34; Configuration de VimCompletesMe</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#a6e22e">filereadable</span>(<span style="color:#a6e22e">expand</span>(<span style="color:#e6db74">&#34;~/.vim/plugged/VimCompletesMe/plugin/VimCompletesMe.vim&#34;</span>))
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">autocmd</span> <span style="color:#a6e22e">FileType</span> <span style="color:#a6e22e">text</span>,<span style="color:#a6e22e">markdown</span> <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">b</span>:<span style="color:#a6e22e">vcm_tab_complete</span> = <span style="color:#e6db74">&#39;dict&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">endif</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">&#34; Configuration de GitGutter</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#a6e22e">filereadable</span>(<span style="color:#a6e22e">expand</span>(<span style="color:#e6db74">&#34;~/.vim/plugged/vim-gitgutter/autoload/gitgutter.vim&#34;</span>))
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">nnoremap</span> &lt;<span style="color:#a6e22e">C</span>-<span style="color:#a6e22e">g</span>&gt; :<span style="color:#a6e22e">GitGutterToggle</span> &lt;<span style="color:#a6e22e">CR</span>&gt;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">gitgutter_enabled</span> = <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">endif</span>
+</span></span></code></pre></div><p>Via cette configuration, vous disposerez d&rsquo;une meilleure compréhension du code, un explorateur de fichiers avancé, une gestion de Git, de la complétion&hellip;</p>
+<p>A noter que pour que cela fonctionne, vous devez avoir curl et git installés :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt install vim curl git
+</span></span></code></pre></div><p>Cela permet de télécharger le gestionnaire de plugins et les plugins listés dans le fichier de configuration automatiquement au 1er démarrage. Donc pas besoin de fichiers suplémentaires.</p>
+<h2 id="neovim--vim-en-mode-ide">
+  NeoVim : Vim en mode IDE
+  <a href="#neovim--vim-en-mode-ide" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p>Afin de profiter de plugins modernes écrits en Lua, il est nécessaire de disposer de la dernière version de NeoVim. Elle n&rsquo;est malheureusement pas disponible dans les dépôts Debian, nous allons donc devoir l&rsquo;installer &ldquo;à l&rsquo;ancienne&rdquo;.</p>
+<h3 id="installation-de-neovim">
+  Installation de NeoVim
+  <a href="#installation-de-neovim" class="h-anchor" aria-hidden="true">#</a>
+</h3>
+<p>Pour l&rsquo;installer, je vous ai préparé un petit script bash. Ce dernier va télécharger le binaire dans sa dernière version (selon votre architecture), va ajouter le lien dans votre variable <code>PATH</code> afin de l&rsquo;appeler directement avec la commande <code>nvim</code>, et va également installer la distribution <a href="https://www.lazyvim.org/">LazyVim</a>.</p>
+<p>Vous trouverez le script d&rsquo;installation en suivant <a href="/files/vim-neovim-choisissez-votre-configuration/nviminstall.tar.gz">ce lien</a>.</p>
+<p>Décompressez le fichier via la commande suivante :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>tar xzf nviminstall.tar.gz
+</span></span></code></pre></div><p>Exécutez ensuite le script :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>./nviminstall.sh
+</span></span></code></pre></div><p>Votre mot de passe vous sera demandé pour exécuter <code>apt</code>, afin d&rsquo;installer les binaires nécessaires pour une meilleure expérience.</p>
+<h3 id="lazyvim-">
+  LazyVim ?
+  <a href="#lazyvim-" class="h-anchor" aria-hidden="true">#</a>
+</h3>
+<p><a href="https://www.lazyvim.org/">LazyVim</a> fait partie des nombreuses &ldquo;distributions&rdquo; existantes pour NeoVim. Voyez cela comme une préconfiguration de NeoVim, avec gestionnaire de plugins avancé et quelques éléments déjà paramétrés.</p>
+<p>La configuration initiale est déjà excellente, mais il est possibles d&rsquo;ajouter ses préférences de réglage, de mapping des touches, un thème différent etc&hellip;</p>
+<p>Les modifications que j&rsquo;ai effectué sont disponibles dans cette archive : <a href="/files/vim-neovim-choisissez-votre-configuration/nvim.tar.gz">nvim.tar.gz</a>.</p>
+<p>Faites une sauvegarde du répertoire existant et remplacez le par l&rsquo;archive ci-dessus :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mv ~/.config/nvim ~/.config/nvim.old
+</span></span><span style="display:flex;"><span>tar xzf nvim.tar.gz ~/.config
+</span></span></code></pre></div><p>Dans les modifications apportées, il y a le changement du thème par <a href="https://catppuccin.com/">Catppuccin</a> macchiato, l&rsquo;ajout de mon mapping des touches F2 à F7, et une désactivation de plugins que je ne trouve pas nécessaires. Libre à vous de partir de cette base pour faire vos changements.</p>
+<blockquote>
+<p>Le thème OneDark ne sera plus utilisé. Je ferai un article dédié au sujet du remplacement de mon thème par Catppuccin</p></blockquote>
+<h3 id="des-icônes-">
+  Des icônes ?
+  <a href="#des-ic%c3%b4nes-" class="h-anchor" aria-hidden="true">#</a>
+</h3>
+<p>Les plugins pour la barre de statut et pour l&rsquo;explorateur de fichiers utilisent des polices avancées, afin d&rsquo;afficher de belles icônes dans votre terminal.</p>
+<p>Rendez-vous sur le site <a href="https://www.nerdfonts.com/font-downloads">Nerd Font</a> pour y télécharger la police qui vous convient, puis appliquez la sur votre terminal. Perso, j&rsquo;ai opté pour la police <code>JetBrainsMono Nerd Font</code>.</p>
+<h3 id="résultat">
+  Résultat
+  <a href="#r%c3%a9sultat" class="h-anchor" aria-hidden="true">#</a>
+</h3>
+<p>Une fois tout en place, NeoVim peut de venir un véritable IDE performant. Outil de recherche, compréhension du code, complétion avancée, aperçu des modifications git en temps réel, terminal intégré&hellip;</p>
+<p>Un petit aperçu du résultat :</p>
+
+  <img src="/img/posts/vim-neovim-choisissez-votre-configuration/dashboard.webp"  class="center"  style="border-radius: 8px;"  />
+
+
+
+  <img src="/img/posts/vim-neovim-choisissez-votre-configuration/find.webp"  class="center"  style="border-radius: 8px;"  />
+
+
+
+  <img src="/img/posts/vim-neovim-choisissez-votre-configuration/completion.webp"  class="center"  style="border-radius: 8px;"  />
+
+
+<h2 id="conclusion">
+  Conclusion
+  <a href="#conclusion" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p>Ok, c&rsquo;était finalement assez dense comme article. Mais vous avez maintenant le choix :</p>
+<ul>
+<li>Un simple éditeur de texte avec un fichier unique</li>
+<li>Un éditeur de texte complet, sans se prendre la tête pour l&rsquo;installation et la configuration</li>
+<li>Un IDE ultra performant dans votre terminal</li>
+</ul>
+<p>Perso, j&rsquo;ai combiné les options 2 et 3 : un Vim simple mais avec quelques fonctionnaliés sympa pour l&rsquo;édition de fichiers système et un NeoVim hyper complet pour l&rsquo;écriture de scripts.</p>
+<p>Mais je garde l&rsquo;option 1 sous le coude : elle a le mérite d&rsquo;être simple à déposer sur certaines machines sans avoir besoin d&rsquo;y ajouter de dépendances.</p>
+<p>A vous de tester et de faire votre choix selon ce qui vous convient le mieux !</p>
+
+    </div>
+    
+      
+        <div class="pagination">
+          <div class="pagination__title">
+            <span class="pagination__title-h"
+              >Autres posts</span
+            >
+            <hr />
+          </div>
+          <div class="pagination__buttons">
+            
+            
+              <span class="button next">
+                <a href="https://www.jeremky.fr/posts/webtop-linux-via-navigateur-internet/">
+                  <span class="button__text">Webtop : Linux via son navigateur Internet</span>
+                  <span class="button__icon">→</span>
+                </a>
+              </span>
+            
+          </div>
+        </div>
+      
+    
+
+    
+      
+        
+
+      
+    
+  </article>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >JEREMKY.FR</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+      <div class="copyright">
+          <div class="copyright">
+        <span>© 2025 Propulsé par <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span>
+      </div>
+    
+  </div>
+</footer>
+
+
+
+
+
+<script type="text/javascript" src="/bundle.min.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>

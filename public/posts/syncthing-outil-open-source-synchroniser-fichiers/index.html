@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    
+      <title>
+        Syncthing : outil open source pour synchroniser vos fichiers ::
+        JeremKy.fr
+      </title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta
+  name="description"
+  content="Il y a quelques mois, je vous avais parlé de l’outil de synchronisation de fichiers basé sur la technologie Bittorrent, Resilio Sync. Aujourd’hui, c’est au tour de son concurrent Open Source : Syncthing.
+Syncthing est une application de synchronisation de fichiers pair à pair open source disponible pour Windows, Mac, Linux, Android, Solaris, Darwin et BSD3. Aucun compte ni enregistrement préalable à l’utilisation auprès d’un tiers (comme les géants du web, ou quelque autre entité) n’est nécessaire, ni même optionnelle. La sécurité et l’intégrité des données sont intégrées dans la conception du logiciel.
+"
+/>
+<meta
+  name="keywords"
+  content=""
+/>
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://www.jeremky.fr/posts/syncthing-outil-open-source-synchroniser-fichiers/" />
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/style.css" />
+
+<link rel="stylesheet" href="https://www.jeremky.fr/style.css" />
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://www.jeremky.fr/img/apple-touch-icon-144-precomposed.png" />
+<link rel="shortcut icon" href="https://www.jeremky.fr/img/favicon.png" />
+
+
+<link href="/fonts/Inter-Italic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/fonts/Inter-Regular.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/fonts/Inter-Medium.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/fonts/Inter-MediumItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/fonts/Inter-Bold.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/fonts/Inter-BoldItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Syncthing : outil open source pour synchroniser vos fichiers">
+  <meta name="twitter:description" content="Il y a quelques mois, je vous avais parlé de l’outil de synchronisation de fichiers basé sur la technologie Bittorrent, Resilio Sync. Aujourd’hui, c’est au tour de son concurrent Open Source : Syncthing.
+Syncthing est une application de synchronisation de fichiers pair à pair open source disponible pour Windows, Mac, Linux, Android, Solaris, Darwin et BSD3. Aucun compte ni enregistrement préalable à l’utilisation auprès d’un tiers (comme les géants du web, ou quelque autre entité) n’est nécessaire, ni même optionnelle. La sécurité et l’intégrité des données sont intégrées dans la conception du logiciel.">
+
+
+
+<meta property="og:url" content="https://www.jeremky.fr/posts/syncthing-outil-open-source-synchroniser-fichiers/">
+  <meta property="og:site_name" content="JeremKy.fr">
+  <meta property="og:title" content="Syncthing : outil open source pour synchroniser vos fichiers">
+  <meta property="og:description" content="Il y a quelques mois, je vous avais parlé de l’outil de synchronisation de fichiers basé sur la technologie Bittorrent, Resilio Sync. Aujourd’hui, c’est au tour de son concurrent Open Source : Syncthing.
+Syncthing est une application de synchronisation de fichiers pair à pair open source disponible pour Windows, Mac, Linux, Android, Solaris, Darwin et BSD3. Aucun compte ni enregistrement préalable à l’utilisation auprès d’un tiers (comme les géants du web, ou quelque autre entité) n’est nécessaire, ni même optionnelle. La sécurité et l’intégrité des données sont intégrées dans la conception du logiciel.">
+  <meta property="og:locale" content="fr">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-12-18T18:07:32+00:00">
+    <meta property="article:modified_time" content="2024-12-18T18:07:32+00:00">
+    <meta property="article:tag" content="Fichiers">
+    <meta property="article:tag" content="Docker">
+    <meta property="article:tag" content="Podman">
+
+
+
+
+
+
+  </head>
+  <body >
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >JEREMKY.FR</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/apropos">A propos</a></li>
+        
+      
+        
+          <li><a href="/archives">Archives</a></li>
+        
+      
+        
+          <li><a href="/categories/news">News</a></li>
+        
+      
+        
+          <li><a href="/categories/tutos">Tutos</a></li>
+        
+      
+      
+      
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/apropos">A propos</a></li>
+      
+    
+      
+        <li><a href="/archives">Archives</a></li>
+      
+    
+      
+        <li><a href="/categories/news">News</a></li>
+      
+    
+      
+        <li><a href="/categories/tutos">Tutos</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg
+  class="theme-toggler"
+  width="24"
+  height="24"
+  viewBox="0 0 48 48"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"
+  />
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  
+  
+
+  <article class="post">
+    <h1 class="post-title">Syncthing : outil open source pour synchroniser vos fichiers</h1>
+    <div class="post-meta">
+      
+        <time class="post-date">
+          18/12/2024
+        </time>
+
+        
+          
+        
+      
+
+      
+
+
+      
+        <span class="post-read-time"
+          >— 3 min de lecture</span
+        >
+      
+    </div>
+
+    
+      <span class="post-tags">
+        
+          <a href="https://www.jeremky.fr/tags/fichiers/">#fichiers</a>&nbsp;
+        
+          <a href="https://www.jeremky.fr/tags/docker/">#docker</a>&nbsp;
+        
+          <a href="https://www.jeremky.fr/tags/podman/">#podman</a>&nbsp;
+        
+      </span>
+    
+
+    
+      <figure class="post-cover">
+  
+    <img src="https://www.jeremky.fr/img/posts/syncthing-outil-open-source-synchroniser-fichiers/cover.webp" alt="Syncthing : outil open source pour synchroniser vos fichiers" width="700" />
+  
+
+  
+</figure>
+
+    
+
+    <div class="post-content">
+      
+        
+        <h2>Sommaire</h2>
+        <aside class="table-of-contents"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#installation">Installation</a>
+      <ul>
+        <li><a href="#reverse-proxy">Reverse proxy</a></li>
+      </ul>
+    </li>
+    <li><a href="#configuration">Configuration</a></li>
+    <li><a href="#ajouter-un-appareil">Ajouter un appareil</a></li>
+    <li><a href="#ajout-des-dossiers">Ajout des dossiers</a></li>
+    <li><a href="#exclusion">Exclusion</a></li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ul>
+</nav></aside>
+        
+      
+      <p>Il y a quelques mois, je vous avais parlé de l’outil de synchronisation de fichiers basé sur la technologie Bittorrent, <a href="/posts/synchroniser-ses-fichiers-avec-resilio-sync/">Resilio Sync</a>. Aujourd’hui, c’est au tour de son concurrent Open Source : <a href="https://syncthing.net/">Syncthing</a>.</p>
+<p>Syncthing est une application de synchronisation de fichiers pair à pair open source disponible pour Windows, Mac, Linux, Android, Solaris, Darwin et BSD3. Aucun compte ni enregistrement préalable à l’utilisation auprès d’un tiers (comme les géants du web, ou quelque autre entité) n’est nécessaire, ni même optionnelle. La sécurité et l’intégrité des données sont intégrées dans la conception du logiciel.</p>
+<p>Dans cet article, je vais surtout me concentrer sur l’installation de Syncthing via un conteneur, afin de le déployer facilement sur un serveur (les habitudes ont la vie dure).</p>
+<h2 id="installation">
+  Installation
+  <a href="#installation" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p>On commence par son fichier <code>docker-compose.yml</code> :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#f92672">services</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">syncthing</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">lscr.io/linuxserver/syncthing:latest</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">syncthing</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">hostname</span>: <span style="color:#ae81ff">syncthing</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">env_file</span>: <span style="color:#ae81ff">syncthing.env</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">networks</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">nginx_proxy</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">/opt/syncthing:/config</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">/home/user:/data</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">ports</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">22000</span>:<span style="color:#ae81ff">22000</span><span style="color:#ae81ff">/tcp</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">22000</span>:<span style="color:#ae81ff">22000</span><span style="color:#ae81ff">/udp</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">21027</span>:<span style="color:#ae81ff">21027</span><span style="color:#ae81ff">/udp</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">networks</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">nginx_proxy</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">external</span>: <span style="color:#66d9ef">true</span>
+</span></span></code></pre></div><p>Pensez à remplacer le volume <code>/home/user</code> par le dossier racine que vous souhaitez utiliser.</p>
+<p>Le fichier <code>syncthing.env</code> associé :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>PUID=1000
+</span></span><span style="display:flex;"><span>PGID=1000
+</span></span><span style="display:flex;"><span>TZ=Europe/Paris
+</span></span></code></pre></div><p>Là encore, vérifiez l’id de votre user user ayant les droits sur les fichiers à synchroniser.</p>
+<h3 id="reverse-proxy">
+  Reverse proxy
+  <a href="#reverse-proxy" class="h-anchor" aria-hidden="true">#</a>
+</h3>
+<p>Les fichiers de configuration ci-dessus sont prévus pour être utilisé avec un reverse proxy.</p>
+<blockquote>
+<p>Pour rappel, un article dédié est <a href="/posts/reverse-proxy-nginx/">disponible ici</a>.</p></blockquote>
+<p>L’image Docker de <a href="https://docs.linuxserver.io/general/swag/">Linuxserver.io</a> propose un fichier sample de configuration, il vous suffit juste de modifier votre nom de domaine en conséquence :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo cp /opt/nginx/nginx/proxy-confs/syncthing.subdomain.conf.sample /opt/nginx/nginx/proxy-confs/syncthing.subdomain.conf
+</span></span><span style="display:flex;"><span>sudo sed -i <span style="color:#e6db74">&#34;s,server_name syncthing,server_name &lt;votre_sous_domaine&gt;,g&#34;</span> /opt/nginx/nginx/proxy-confs/syncthing.subdomain.conf
+</span></span></code></pre></div><p>Et enfin, un petit redémarrage pour la prise en compte du nouveau fichier :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo docker restart nginx
+</span></span></code></pre></div><h2 id="configuration">
+  Configuration
+  <a href="#configuration" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p>Après avoir accepté ou non la collecte de données, vous aurez divers messages vous demandant de vous rendre dans la page de configuration pour y définir un utilisateur et un mot de passe.</p>
+
+  <img src="/img/posts/syncthing-outil-open-source-synchroniser-fichiers/dashboard.webp"  class="center"  style="border-radius: 8px;"  />
+
+
+<p>Une fois cela fait, vous allez pouvoir ajouter les autres appareils et les dossiers que vous voulez synchroniser.</p>
+<h2 id="ajouter-un-appareil">
+  Ajouter un appareil
+  <a href="#ajouter-un-appareil" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p>Cliquez sur <code>Ajouter un appareil</code> en bas à droite. Il vous sera demandé son ID. Pour récupérer l’ID de l’autre appareil à intégrer, il faut cliquer sur l’identifiant abrégé :</p>
+
+  <img src="/img/posts/syncthing-outil-open-source-synchroniser-fichiers/id.webp"  class="center"  style="border-radius: 8px;"  />
+
+
+<p>Une fois ajouté, un message apparaîtra sur l’autre appareil, afin de valider l’association. Il est temps maintenant de passer à l’ajout de vos dossiers.</p>
+<h2 id="ajout-des-dossiers">
+  Ajout des dossiers
+  <a href="#ajout-des-dossiers" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p>Commencez par supprimer le dossier créé par défaut, en vous rendant dans <code>gérer</code>, puis cliquez sur <code>supprimer</code>. Une fois cela fait, ajoutez un partage. Spécifiez un nom, puis le chemin racine du partage. Attention, dans le conteneur, votre volume monté se trouve dans <code>/data</code> (qui est en fait <code>/home/user</code> sur l’hôte).</p>
+
+  <img src="/img/posts/syncthing-outil-open-source-synchroniser-fichiers/dir.webp"  class="center"  style="border-radius: 8px;"  />
+
+
+<p>Rendez vous dans l’onglet <code>Partages</code> et choisissez l’appareil qui aura accès à ce dossier.</p>
+
+  <img src="/img/posts/syncthing-outil-open-source-synchroniser-fichiers/share.webp"  class="center"  style="border-radius: 8px;"  />
+
+
+<p>Un message apparaîtra alors sur le deuxième appareil afin d’accepter la synchronisation.</p>
+
+  <img src="/img/posts/syncthing-outil-open-source-synchroniser-fichiers/accept.webp"  class="center"  style="border-radius: 8px;"  />
+
+
+<p>Une fois le dossier ajouté, la synchronisation va démarrer.</p>
+
+  <img src="/img/posts/syncthing-outil-open-source-synchroniser-fichiers/sync.webp"  class="center"  style="border-radius: 8px;"  />
+
+
+<h2 id="exclusion">
+  Exclusion
+  <a href="#exclusion" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p>Si vous désirez exclure des fichiers ou des dossiers, il est possible de créer un fichier nommé <code>.stignore</code> dans chaque dossier racine et d’y indiquer les éléments à ignorer. Voici un exemple de la <a href="https://docs.syncthing.net/users/ignoring.html">documentation officielle</a> :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>.DS_Store
+</span></span><span style="display:flex;"><span>.stignore
+</span></span><span style="display:flex;"><span>foo
+</span></span><span style="display:flex;"><span>foofoo
+</span></span><span style="display:flex;"><span>bar/
+</span></span><span style="display:flex;"><span>    baz
+</span></span><span style="display:flex;"><span>    quux
+</span></span><span style="display:flex;"><span>    quuz
+</span></span><span style="display:flex;"><span>bar2/
+</span></span><span style="display:flex;"><span>    baz
+</span></span><span style="display:flex;"><span>    frobble
+</span></span><span style="display:flex;"><span>My Pictures/
+</span></span><span style="display:flex;"><span>    Img15.PNG
+</span></span></code></pre></div><h2 id="conclusion">
+  Conclusion
+  <a href="#conclusion" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p>Syncthing fonctionne dans l’ensemble plutôt bien, je n’ai pas rencontré de bug particulier (à part peut être une fois un fichier de log qui s’est retrouvé dupliqué, sûrement verrouillé par une autre application).</p>
+<p>Je remarque toutefois 2 défauts comparé à Resilio Sync. Il est nécessaire d’ajouter les appareils avant les dossiers (à faire qu’une fois cependant). Et il ne dispose malheureusement pas de version pour iOS.</p>
+<p>Mais il a cependant l’avantage d’être entièrement libre. Faites vous votre propre idée en testant les 2 solutions afin de déterminer celle qui vous convient le mieux &#x1f60a;</p>
+
+    </div>
+    
+      
+        <div class="pagination">
+          <div class="pagination__title">
+            <span class="pagination__title-h"
+              >Autres posts</span
+            >
+            <hr />
+          </div>
+          <div class="pagination__buttons">
+            
+              <span class="button previous">
+                <a href="https://www.jeremky.fr/posts/pairdrop-transferez-des-fichiers-facilement/">
+                  <span class="button__icon">←</span>
+                  <span class="button__text">Pairdrop : transférez des fichiers facilement</span>
+                </a>
+              </span>
+            
+            
+              <span class="button next">
+                <a href="https://www.jeremky.fr/posts/ariang-centralisez-vos-telechargements/">
+                  <span class="button__text">AriaNG : centralisez vos téléchargements</span>
+                  <span class="button__icon">→</span>
+                </a>
+              </span>
+            
+          </div>
+        </div>
+      
+    
+
+    
+      
+        
+
+      
+    
+  </article>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >JEREMKY.FR</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+      <div class="copyright">
+          <div class="copyright">
+        <span>© 2025 Propulsé par <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span>
+      </div>
+    
+  </div>
+</footer>
+
+
+
+
+
+<script type="text/javascript" src="/bundle.min.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>

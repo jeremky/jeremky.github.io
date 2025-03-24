@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    
+      <title>
+        Diun : être notifié des nouvelles images Docker ::
+        JeremKy.fr
+      </title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta
+  name="description"
+  content="D&rsquo;après leur site, Diun, pour Docker Image Update Notifier, est une application qui permet de recevoir des notifications lorsqu’une image Docker est mise à jour sur un registre.
+Contrairement à Watchtower, Diun ne permet pas d&rsquo;effectuer de mise à jour automatique, seulement de notifier. Cela a toutefois des avantages :
+Le montage avec Docker est en Read Only. Cela assure donc un meilleur niveau de sécurité Vous gardez le contrôle sur le moment où vous voulez mettre à jour, en faisant des tests au préalable si nécessaire Diun est compatible avec Podman, contrairement à Watchtower Installation # On commence par le fichier docker-compose.yml :
+"
+/>
+<meta
+  name="keywords"
+  content=""
+/>
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://www.jeremky.fr/posts/diun-etre-notifie-des-nouvelles-images-docker/" />
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/style.css" />
+
+<link rel="stylesheet" href="https://www.jeremky.fr/style.css" />
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://www.jeremky.fr/img/apple-touch-icon-144-precomposed.png" />
+<link rel="shortcut icon" href="https://www.jeremky.fr/img/favicon.png" />
+
+
+<link href="/fonts/Inter-Italic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/fonts/Inter-Regular.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/fonts/Inter-Medium.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/fonts/Inter-MediumItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/fonts/Inter-Bold.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/fonts/Inter-BoldItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Diun : être notifié des nouvelles images Docker">
+  <meta name="twitter:description" content="D’après leur site, Diun, pour Docker Image Update Notifier, est une application qui permet de recevoir des notifications lorsqu’une image Docker est mise à jour sur un registre.
+Contrairement à Watchtower, Diun ne permet pas d’effectuer de mise à jour automatique, seulement de notifier. Cela a toutefois des avantages :
+Le montage avec Docker est en Read Only. Cela assure donc un meilleur niveau de sécurité Vous gardez le contrôle sur le moment où vous voulez mettre à jour, en faisant des tests au préalable si nécessaire Diun est compatible avec Podman, contrairement à Watchtower Installation # On commence par le fichier docker-compose.yml :">
+
+
+
+<meta property="og:url" content="https://www.jeremky.fr/posts/diun-etre-notifie-des-nouvelles-images-docker/">
+  <meta property="og:site_name" content="JeremKy.fr">
+  <meta property="og:title" content="Diun : être notifié des nouvelles images Docker">
+  <meta property="og:description" content="D’après leur site, Diun, pour Docker Image Update Notifier, est une application qui permet de recevoir des notifications lorsqu’une image Docker est mise à jour sur un registre.
+Contrairement à Watchtower, Diun ne permet pas d’effectuer de mise à jour automatique, seulement de notifier. Cela a toutefois des avantages :
+Le montage avec Docker est en Read Only. Cela assure donc un meilleur niveau de sécurité Vous gardez le contrôle sur le moment où vous voulez mettre à jour, en faisant des tests au préalable si nécessaire Diun est compatible avec Podman, contrairement à Watchtower Installation # On commence par le fichier docker-compose.yml :">
+  <meta property="og:locale" content="fr">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-12-02T19:09:00+00:00">
+    <meta property="article:modified_time" content="2024-12-02T19:09:00+00:00">
+    <meta property="article:tag" content="Docker">
+    <meta property="article:tag" content="Podman">
+
+
+
+
+
+
+  </head>
+  <body >
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >JEREMKY.FR</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/apropos">A propos</a></li>
+        
+      
+        
+          <li><a href="/archives">Archives</a></li>
+        
+      
+        
+          <li><a href="/categories/news">News</a></li>
+        
+      
+        
+          <li><a href="/categories/tutos">Tutos</a></li>
+        
+      
+      
+      
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/apropos">A propos</a></li>
+      
+    
+      
+        <li><a href="/archives">Archives</a></li>
+      
+    
+      
+        <li><a href="/categories/news">News</a></li>
+      
+    
+      
+        <li><a href="/categories/tutos">Tutos</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg
+  class="theme-toggler"
+  width="24"
+  height="24"
+  viewBox="0 0 48 48"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"
+  />
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  
+  
+
+  <article class="post">
+    <h1 class="post-title">Diun : être notifié des nouvelles images Docker</h1>
+    <div class="post-meta">
+      
+        <time class="post-date">
+          02/12/2024
+        </time>
+
+        
+          
+        
+      
+
+      
+
+
+      
+        <span class="post-read-time"
+          >— 2 min de lecture</span
+        >
+      
+    </div>
+
+    
+      <span class="post-tags">
+        
+          <a href="https://www.jeremky.fr/tags/docker/">#docker</a>&nbsp;
+        
+          <a href="https://www.jeremky.fr/tags/podman/">#podman</a>&nbsp;
+        
+      </span>
+    
+
+    
+      <figure class="post-cover">
+  
+    <img src="https://www.jeremky.fr/img/posts/diun-etre-notifie-des-nouvelles-images-docker/cover.webp" alt="Diun : être notifié des nouvelles images Docker" width="700" />
+  
+
+  
+</figure>
+
+    
+
+    <div class="post-content">
+      
+        
+        <h2>Sommaire</h2>
+        <aside class="table-of-contents"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#installation">Installation</a></li>
+    <li><a href="#notification">Notification</a></li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ul>
+</nav></aside>
+        
+      
+      <p>D&rsquo;après leur site, <a href="https://crazymax.dev/diun/">Diun</a>, pour <em>Docker Image Update Notifier</em>, est une application qui permet de recevoir des notifications lorsqu’une image Docker est mise à jour sur un registre.</p>
+<p>Contrairement à <a href="/posts/watchtower-un-conteneur-pour-les-gouverner-tous/">Watchtower</a>, Diun ne permet pas d&rsquo;effectuer de mise à jour automatique, seulement de notifier. Cela a toutefois des avantages :</p>
+<ul>
+<li>Le montage avec Docker est en Read Only. Cela assure donc un meilleur niveau de sécurité</li>
+<li>Vous gardez le contrôle sur le moment où vous voulez mettre à jour, en faisant des tests au préalable si nécessaire</li>
+<li>Diun est compatible avec <a href="/posts/migration-de-docker-vers-podman/">Podman</a>, contrairement à Watchtower</li>
+</ul>
+<h2 id="installation">
+  Installation
+  <a href="#installation" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p>On commence par le fichier <code>docker-compose.yml</code> :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#f92672">services</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">diun</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">docker.io/crazymax/diun:latest</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">diun</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">hostname</span>: <span style="color:#ae81ff">diun</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">env_file</span>: <span style="color:#ae81ff">diun.env</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">data:/data</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">/var/run/docker.sock:/var/run/docker.sock:ro</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">healthcheck</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">test</span>: [<span style="color:#e6db74">&#34;CMD&#34;</span>, <span style="color:#e6db74">&#34;pgrep&#34;</span>, <span style="color:#e6db74">&#34;diun&#34;</span>]
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">interval</span>: <span style="color:#ae81ff">30s</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">timeout</span>: <span style="color:#ae81ff">10s</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">retries</span>: <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">start_period</span>: <span style="color:#ae81ff">10s</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">data</span>:
+</span></span></code></pre></div><blockquote>
+<p>Si vous utilisez Podman, il remplacez le volume par <code>/var/run/podman/podman.sock:/var/run/docker.sock:ro</code></p></blockquote>
+<p>Et son fichier <code>diun.env</code> :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>TZ=Europe/Paris
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>DIUN_WATCH_WORKERS=20
+</span></span><span style="display:flex;"><span>DIUN_WATCH_SCHEDULE=0 */2 * * *
+</span></span><span style="display:flex;"><span>DIUN_WATCH_JITTER=30s
+</span></span><span style="display:flex;"><span>DIUN_PROVIDERS_DOCKER=true
+</span></span><span style="display:flex;"><span>DIUN_PROVIDERS_DOCKER_WATCHBYDEFAULT=true
+</span></span></code></pre></div><p>Cette configuration permet d&rsquo;effectuer une vérification toutes les 2 heures.</p>
+<p>Par défaut, il est normalement nécessaire de spécifier pour chaque conteneur un label pour lui indiquer que l&rsquo;on souhaite l&rsquo;inclure aux vérifications. Il est possible d&rsquo;automatiquement les intégrer avec la variable <code>DIUN_PROVIDERS_DOCKER_WATCHBYDEFAULT</code>. A l&rsquo;inverse, pour exclure une conteneur, il est nécessaire d&rsquo;y placer le label suivant :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#f92672">labels</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">diun.enable=false</span>
+</span></span></code></pre></div><h2 id="notification">
+  Notification
+  <a href="#notification" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p>Dans le fichier <code>diun.env</code>, vous pouvez lui spécifier des éléments en fonction de la façon dont vous voulez être notifié. Un exemple avec une notification par e-mail :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>DIUN_NOTIF_MAIL_HOST=host
+</span></span><span style="display:flex;"><span>DIUN_NOTIF_MAIL_PORT=587
+</span></span><span style="display:flex;"><span>DIUN_NOTIF_MAIL_SSL=false
+</span></span><span style="display:flex;"><span>DIUN_NOTIF_MAIL_INSECURESKIPVERIFY=false
+</span></span><span style="display:flex;"><span>DIUN_NOTIF_MAIL_USERNAME=username
+</span></span><span style="display:flex;"><span>DIUN_NOTIF_MAIL_PASSWORD=password
+</span></span><span style="display:flex;"><span>DIUN_NOTIF_MAIL_FROM=emmeteur@mail.com
+</span></span><span style="display:flex;"><span>DIUN_NOTIF_MAIL_TO=destinataire1@mail.com,destinataire2@mail.com
+</span></span></code></pre></div><p>Lorsqu&rsquo;une nouvelle version d&rsquo;image sera détectée, vous recevrez un mail sous cette forme :</p>
+
+  <img src="/img/posts/diun-etre-notifie-des-nouvelles-images-docker/mail.webp"  class="center"  style="border-radius: 8px;"  />
+
+
+<p>Mais Diun permet de vous notifier via d&rsquo;autres canaux : Discord, Slack, Teams&hellip; Je vous laisse aller voir en exemple le cas de Discord sur <a href="https://crazymax.dev/diun/notif/discord/">cette page</a>.</p>
+<h2 id="conclusion">
+  Conclusion
+  <a href="#conclusion" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p>Dans le cas où vous utilisez Watchtower ou le gestionnaire de mise à jour intégré à Podman (via <a href="/posts/migration-de-docker-vers-podman/#jdockersh">mon script</a> par exemple), Diun n&rsquo;a pas vraiment d&rsquo;intérêt. Mais si vous utilisez <a href="/posts/portainer-administrer-vos-conteneurs-via-une-interface-web/">Portainer</a> ou <a href="https://github.com/louislam/dockge">Dockge</a> avec Podman, Diun est une excellente solution pour être informé des dernières versions d&rsquo;image afin de rester à jour.</p>
+<p>Si vous avez des questions sur ces sujets, vous pouvez me contacter par <a href="mailto:contact@jeremky.fr">e-mail</a>.</p>
+
+    </div>
+    
+      
+        <div class="pagination">
+          <div class="pagination__title">
+            <span class="pagination__title-h"
+              >Autres posts</span
+            >
+            <hr />
+          </div>
+          <div class="pagination__buttons">
+            
+              <span class="button previous">
+                <a href="https://www.jeremky.fr/posts/surveillez-vos-applications-avec-uptime-kuma/">
+                  <span class="button__icon">←</span>
+                  <span class="button__text">Surveillez vos applications avec Uptime Kuma</span>
+                </a>
+              </span>
+            
+            
+              <span class="button next">
+                <a href="https://www.jeremky.fr/posts/flame-un-dashboard-leger-et-efficace/">
+                  <span class="button__text">Flame : un Dashboard léger et efficace</span>
+                  <span class="button__icon">→</span>
+                </a>
+              </span>
+            
+          </div>
+        </div>
+      
+    
+
+    
+      
+        
+
+      
+    
+  </article>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >JEREMKY.FR</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+      <div class="copyright">
+          <div class="copyright">
+        <span>© 2025 Propulsé par <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span>
+      </div>
+    
+  </div>
+</footer>
+
+
+
+
+
+<script type="text/javascript" src="/bundle.min.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>

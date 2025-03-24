@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    
+      <title>
+        ddclient : synchroniser un domaine à son IP automatiquement ::
+        JeremKy.fr
+      </title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta
+  name="description"
+  content="Lorsque vous hébergez un serveur à votre domicile, il est possible que vous soyez confronté à un problème : votre fournisseur d&rsquo;accès ne vous attribue pas une IP publique fixe. L&rsquo;idée de cet article est donc de vous proposer une solution efficace pour obtenir gratuitement un nom de domaine, qui sera mis à jour automatiquement lorsque l&rsquo;IP de votre box changera.
+Création d&rsquo;un compte chez Dynu.com # Il existe plusieurs fournisseurs de nom de domaine dynamique. Toutefois, je recommande Dynu, qui propose une solution gratuite, et surtout qui ne nécessite pas de confirmer que l&rsquo;on existe toujours tous les mois&hellip; Vous créez votre compte, et vous allez dans DDNS Services. Vous cliquez ensuite sur le bouton Ajouter :
+"
+/>
+<meta
+  name="keywords"
+  content=""
+/>
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://www.jeremky.fr/posts/ddclient-synchroniser-un-domaine-a-son-ip-automatiquement/" />
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/style.css" />
+
+<link rel="stylesheet" href="https://www.jeremky.fr/style.css" />
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://www.jeremky.fr/img/apple-touch-icon-144-precomposed.png" />
+<link rel="shortcut icon" href="https://www.jeremky.fr/img/favicon.png" />
+
+
+<link href="/fonts/Inter-Italic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/fonts/Inter-Regular.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/fonts/Inter-Medium.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/fonts/Inter-MediumItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/fonts/Inter-Bold.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/fonts/Inter-BoldItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="ddclient : synchroniser un domaine à son IP automatiquement">
+  <meta name="twitter:description" content="Lorsque vous hébergez un serveur à votre domicile, il est possible que vous soyez confronté à un problème : votre fournisseur d’accès ne vous attribue pas une IP publique fixe. L’idée de cet article est donc de vous proposer une solution efficace pour obtenir gratuitement un nom de domaine, qui sera mis à jour automatiquement lorsque l’IP de votre box changera.
+Création d’un compte chez Dynu.com # Il existe plusieurs fournisseurs de nom de domaine dynamique. Toutefois, je recommande Dynu, qui propose une solution gratuite, et surtout qui ne nécessite pas de confirmer que l’on existe toujours tous les mois… Vous créez votre compte, et vous allez dans DDNS Services. Vous cliquez ensuite sur le bouton Ajouter :">
+
+
+
+<meta property="og:url" content="https://www.jeremky.fr/posts/ddclient-synchroniser-un-domaine-a-son-ip-automatiquement/">
+  <meta property="og:site_name" content="JeremKy.fr">
+  <meta property="og:title" content="ddclient : synchroniser un domaine à son IP automatiquement">
+  <meta property="og:description" content="Lorsque vous hébergez un serveur à votre domicile, il est possible que vous soyez confronté à un problème : votre fournisseur d’accès ne vous attribue pas une IP publique fixe. L’idée de cet article est donc de vous proposer une solution efficace pour obtenir gratuitement un nom de domaine, qui sera mis à jour automatiquement lorsque l’IP de votre box changera.
+Création d’un compte chez Dynu.com # Il existe plusieurs fournisseurs de nom de domaine dynamique. Toutefois, je recommande Dynu, qui propose une solution gratuite, et surtout qui ne nécessite pas de confirmer que l’on existe toujours tous les mois… Vous créez votre compte, et vous allez dans DDNS Services. Vous cliquez ensuite sur le bouton Ajouter :">
+  <meta property="og:locale" content="fr">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-06-22T17:25:42+00:00">
+    <meta property="article:modified_time" content="2024-06-22T17:25:42+00:00">
+    <meta property="article:tag" content="Reseau">
+    <meta property="article:tag" content="Docker">
+    <meta property="article:tag" content="Podman">
+
+
+
+
+
+
+  </head>
+  <body >
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >JEREMKY.FR</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/apropos">A propos</a></li>
+        
+      
+        
+          <li><a href="/archives">Archives</a></li>
+        
+      
+        
+          <li><a href="/categories/news">News</a></li>
+        
+      
+        
+          <li><a href="/categories/tutos">Tutos</a></li>
+        
+      
+      
+      
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/apropos">A propos</a></li>
+      
+    
+      
+        <li><a href="/archives">Archives</a></li>
+      
+    
+      
+        <li><a href="/categories/news">News</a></li>
+      
+    
+      
+        <li><a href="/categories/tutos">Tutos</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg
+  class="theme-toggler"
+  width="24"
+  height="24"
+  viewBox="0 0 48 48"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"
+  />
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  
+  
+
+  <article class="post">
+    <h1 class="post-title">ddclient : synchroniser un domaine à son IP automatiquement</h1>
+    <div class="post-meta">
+      
+        <time class="post-date">
+          22/06/2024
+        </time>
+
+        
+          
+        
+      
+
+      
+
+
+      
+        <span class="post-read-time"
+          >— 2 min de lecture</span
+        >
+      
+    </div>
+
+    
+      <span class="post-tags">
+        
+          <a href="https://www.jeremky.fr/tags/reseau/">#reseau</a>&nbsp;
+        
+          <a href="https://www.jeremky.fr/tags/docker/">#docker</a>&nbsp;
+        
+          <a href="https://www.jeremky.fr/tags/podman/">#podman</a>&nbsp;
+        
+      </span>
+    
+
+    
+      <figure class="post-cover">
+  
+    <img src="https://www.jeremky.fr/img/posts/ddclient-synchroniser-un-domaine-a-son-ip-automatiquement/cover.webp" alt="ddclient : synchroniser un domaine à son IP automatiquement" width="700" />
+  
+
+  
+</figure>
+
+    
+
+    <div class="post-content">
+      
+        
+        <h2>Sommaire</h2>
+        <aside class="table-of-contents"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#création-dun-compte-chez-dynucom">Création d&rsquo;un compte chez Dynu.com</a></li>
+    <li><a href="#installation-de-ddclient">Installation de ddclient</a></li>
+    <li><a href="#configuration">Configuration</a></li>
+  </ul>
+</nav></aside>
+        
+      
+      <p>Lorsque vous hébergez un serveur à votre domicile, il est possible que vous soyez confronté à un problème : votre fournisseur d&rsquo;accès ne vous attribue pas une IP publique fixe.
+L&rsquo;idée de cet article est donc de vous proposer une solution efficace pour obtenir gratuitement un nom de domaine, qui sera mis à jour automatiquement lorsque l&rsquo;IP de votre box changera.</p>
+<h2 id="création-dun-compte-chez-dynucom">
+  Création d&rsquo;un compte chez Dynu.com
+  <a href="#cr%c3%a9ation-dun-compte-chez-dynucom" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p>Il existe plusieurs fournisseurs de nom de domaine dynamique. Toutefois, je recommande <a href="https://www.dynu.com/fr-FR/">Dynu</a>, qui propose une solution gratuite, et surtout qui ne nécessite pas de confirmer que l&rsquo;on existe toujours tous les mois&hellip;
+Vous créez votre compte, et vous allez dans <em>DDNS Services</em>. Vous cliquez ensuite sur le bouton <em>Ajouter</em> :</p>
+
+  <img src="/img/posts/ddclient-synchroniser-un-domaine-a-son-ip-automatiquement/dynu1.webp"  class="center"  style="border-radius: 8px;"  />
+
+
+<p>Vous pouvez alors choisir le nom qui vous intéresse parmi la liste des domaines. Une fois votre domaine créé, vous arrivez ici :</p>
+
+  <img src="/img/posts/ddclient-synchroniser-un-domaine-a-son-ip-automatiquement/dynu2.webp"  class="center"  style="border-radius: 8px;"  />
+
+
+<p>Maintenant, nous allons pouvoir installer un petit agent sur votre serveur afin d&rsquo;envoyer les informations de façon régulière.</p>
+<h2 id="installation-de-ddclient">
+  Installation de ddclient
+  <a href="#installation-de-ddclient" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p><a href="https://ddclient.net/">ddclient</a> est un logiciel qui permet de mettre à jour son IP dynamiquement auprès de différents fournisseurs. Pour la suite de cet article, je vais considérer que vous avez créé un compte chez Dynu.</p>
+<p>Pour l&rsquo;installation, un fichier <code>docker-compose.yml</code> :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#f92672">services</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">ddclient</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">lscr.io/linuxserver/ddclient:latest</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">ddclient</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">hostname</span>: <span style="color:#ae81ff">ddclient</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">env_file</span>: <span style="color:#ae81ff">ddclient.env</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">./files:/config</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
+</span></span></code></pre></div><p>Et son fichier <code>ddclient.env</code> :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>PUID=1000
+</span></span><span style="display:flex;"><span>PGID=1000
+</span></span><span style="display:flex;"><span>TZ=Europe/Paris
+</span></span></code></pre></div><h2 id="configuration">
+  Configuration
+  <a href="#configuration" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p>Dans le dossier où se trouvent vos fichiers, créez un répertoire <code>files</code>, et ajoutez y le fichier de config suivant, sous le nom <code>ddclient.conf</code> :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>## ddclient configuration for Dynu
+</span></span><span style="display:flex;"><span>daemon=60                                                # Check every 60 seconds.
+</span></span><span style="display:flex;"><span>syslog=yes                                               # Log update msgs to syslog.
+</span></span><span style="display:flex;"><span>pid=/var/run/ddclient.pid                                # Record PID in file.
+</span></span><span style="display:flex;"><span>use=web, web=checkip.dynu.com/, web-skip=&#39;IP Address&#39;    # Get ip from server.
+</span></span><span style="display:flex;"><span>server=api.dynu.com                                      # IP update server.
+</span></span><span style="display:flex;"><span>protocol=dyndns2                                         # Protocol for ddclient
+</span></span><span style="display:flex;"><span>login=LOGIN                                              # Your username.
+</span></span><span style="display:flex;"><span>password=PASWWORD                                        # Password or MD5/SHA256 of password.
+</span></span><span style="display:flex;"><span>DOMAIN                                                   # List one or more hostnames one on each line.
+</span></span><span style="display:flex;"><span>Quelques éléments y sont à modifier :
+</span></span><span style="display:flex;"><span>LOGIN
+</span></span><span style="display:flex;"><span>PASSWORD
+</span></span></code></pre></div><p>Quelques éléments y sont à modifier :</p>
+<ul>
+<li><code>LOGIN</code></li>
+<li><code>PASSWORD</code></li>
+<li>et enfin, remplacez <code>DOMAIN</code> par votre nouveau domaine fraîchement créé</li>
+</ul>
+<p>Une fois démarré, on peut consulter les logs du conteneur :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo docker logs -f ddclient
+</span></span></code></pre></div><p>Et constater que la mise à jour est effective :</p>
+
+  <img src="/img/posts/ddclient-synchroniser-un-domaine-a-son-ip-automatiquement/dynu3.webp"  class="center"  style="border-radius: 8px;"  />
+
+
+
+  <img src="/img/posts/ddclient-synchroniser-un-domaine-a-son-ip-automatiquement/dynu4.webp"  class="center"  style="border-radius: 8px;"  />
+
+
+
+    </div>
+    
+      
+        <div class="pagination">
+          <div class="pagination__title">
+            <span class="pagination__title-h"
+              >Autres posts</span
+            >
+            <hr />
+          </div>
+          <div class="pagination__buttons">
+            
+              <span class="button previous">
+                <a href="https://www.jeremky.fr/posts/mise-en-place-dun-vpn-avec-wireguard/">
+                  <span class="button__icon">←</span>
+                  <span class="button__text">Mise en place d&#39;un VPN avec Wireguard</span>
+                </a>
+              </span>
+            
+            
+              <span class="button next">
+                <a href="https://www.jeremky.fr/posts/informations-au-sujet-du-site/">
+                  <span class="button__text">Informations au sujet du site</span>
+                  <span class="button__icon">→</span>
+                </a>
+              </span>
+            
+          </div>
+        </div>
+      
+    
+
+    
+      
+        
+
+      
+    
+  </article>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >JEREMKY.FR</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+      <div class="copyright">
+          <div class="copyright">
+        <span>© 2025 Propulsé par <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span>
+      </div>
+    
+  </div>
+</footer>
+
+
+
+
+
+<script type="text/javascript" src="/bundle.min.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>
