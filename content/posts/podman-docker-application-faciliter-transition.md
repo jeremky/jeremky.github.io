@@ -11,7 +11,7 @@ toc: true
 draft: false
 ---
 
-Comme évoqué dans un [précédent article](https://www.jeremky.fr/posts/migration-de-docker-vers-podman/), j'ai pris la décision de migrer de Docker vers Podman pour la gestion de mes conteneurs.
+Comme évoqué dans un [précédent article](/posts/migration-de-docker-vers-podman/), j'ai pris la décision de migrer de Docker vers Podman pour la gestion de mes conteneurs.
 
 Pour rappel, Podman a l'avantage de pouvoir fonctionner sans daemon central, ce qui améliore la sécurité du système. Cependant, même si un effort énorme est fourni pour faciliter la transition d'un service à l'autre, il subsiste [plusieurs inconvénients](/posts/reecriture-des-articles-docker/), notamment dans l’utilisation de `podman-compose` avec certains paramètres.
 

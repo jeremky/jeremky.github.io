@@ -10,7 +10,7 @@ toc: false
 draft: false
 ---
 
-Le site [jeremky.fr](https://www.jeremky.fr) est de nouveau généré par le framework [Hugo](https://gohugo.io) !
+Le site [jeremky.github.io](https://jeremky.github.io) est de nouveau généré par le framework [Hugo](https://gohugo.io) !
 
 ## Le CMS Ghost
 

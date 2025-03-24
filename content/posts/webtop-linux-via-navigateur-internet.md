@@ -87,7 +87,7 @@ Et enfin, un petit redémarrage pour la prise en compte du nouveau fichier :
 sudo docker restart nginx
 ```
 
-> Point important sur la sécurité : il est possible de protéger l'accès à Webtop par un simple mot de passe, mais je vous conseille fortement d'utiliser l'outil d'authentification [Authelia](https://www.jeremky.fr/posts/authelia-serveur-dauthentification-open-source/), qui propose de la double authentification
+> Point important sur la sécurité : il est possible de protéger l'accès à Webtop par un simple mot de passe, mais je vous conseille fortement d'utiliser l'outil d'authentification [Authelia](/posts/authelia-serveur-dauthentification-open-source/), qui propose de la double authentification
 
 ## Configuration
 

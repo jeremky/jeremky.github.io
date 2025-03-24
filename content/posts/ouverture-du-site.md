@@ -10,7 +10,7 @@ toc: false
 draft: false
 ---
 
-Bonjour à tous, et bienvenue sur [jeremky.fr](https://www.jeremky.fr) !!
+Bonjour à tous, et bienvenue sur [jeremky.github.io](https://jeremky.github.io) !!
 
 Cela fait un moment que j'en parlais, mais voilà, le site est enfin disponible. Je ne vais pas en faire quelque chose d'officiel ni même de public. Mais cela me permettra de partager quelques informations, sans qu'elles soient distillées via différents canaux (mail, SMS, discord...).
 
