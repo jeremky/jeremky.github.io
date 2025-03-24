@@ -91,5 +91,3 @@ Mais Diun permet de vous notifier via d'autres canaux : Discord, Slack, Teams...
 ## Conclusion
 
 Dans le cas où vous utilisez Watchtower ou le gestionnaire de mise à jour intégré à Podman (via [mon script](/posts/migration-de-docker-vers-podman/#jdockersh) par exemple), Diun n'a pas vraiment d'intérêt. Mais si vous utilisez [Portainer](/posts/portainer-administrer-vos-conteneurs-via-une-interface-web/) ou [Dockge](https://github.com/louislam/dockge) avec Podman, Diun est une excellente solution pour être informé des dernières versions d'image afin de rester à jour.
-
-Si vous avez des questions sur ces sujets, vous pouvez me contacter par [e-mail](mailto:contact@jeremky.fr).

@@ -55,4 +55,4 @@ Comme indiqué dans l'article au sujet de la migration, un tag [#podman](/tags/p
 
 ## Conclusion
 
-Vous pouvez désormais suivre les tutos de ce site, peu importe l'application de conteneurisation que vous décidez d'utiliser. Je n'ai toutefois pas testé toutes les applications depuis ma migration, mais je serais surpris si un problème survenait. Dans ce cas, n'hésitez pas à me le signaler par [e-mail](mailto:contact@jeremky.fr). 
+Vous pouvez désormais suivre les tutos de ce site, peu importe l'application de conteneurisation que vous décidez d'utiliser. Je n'ai toutefois pas testé toutes les applications depuis ma migration, mais je ferai les mises à jour nécessaires sur ce site en fonction si nécessaire.

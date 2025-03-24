@@ -89,5 +89,3 @@ SUBFOLDER=/backend/
 Pour le déploiement à l'aide de ces fichiers, vous devrez utiliser un reverse proxy. Vous aurez ce qu'il faut pour en mettre un en place sur [cette page](/posts/reverse-proxy-nginx/). Un fichier de configuration pour EmulatorJS est fourni dans l'image du proxy nginx.
 
 Si vous voulez des précisions sur le fonctionnement de l'image Docker d'EmulatorJS, je vous redirige vers la documentation de [LinuxServer](https://docs.linuxserver.io/images/docker-emulatorjs/#docker-cli-click-here-for-more-info).
-
-Et comme à chaque fois, vous pouvez bien évidemment [me contacter](mailto:contact@jeremky.fr) si vous avez besoin de plus d'infos !

@@ -66,5 +66,3 @@ Une fois votre application déployée, vous pourrez supprimer l'image d'origine,
 ## Conclusion
 
 J'ai pris pas mal de temps avant de parler de cet aspect de Docker. Et encore, j'ai vraiment survolé le sujet, et j'ai surtout orienté cet article selon mes propres besoins. J'ajouterai peut être certains éléments à l'avenir si je suis de nouveau confronté à des besoins similaires.
-
-Dans tous les cas, comme d'habitude, n'hésitez pas à [me contacter](mailto:contact@jeremky.fr) si besoin !

@@ -195,5 +195,3 @@ resolver  10.89.0.1 valid=30s;
 ## Conclusion
 
 L'utilisation de sous domaines via un reverse proxy rend l'utilisation de vos différentes applications plus confortables. Cela évite d'avoir des ports différents à saisir dans vos url. Et l'image de linuxserver facilite grandement la génération de certificats valides.
-
-N'hésitez pas à me demander par [e-mail](mailto:contact@jeremky/fr) des détails si nécessaire pour la configuration d'applications ne figurant pas dans les fichiers sample fournis.

@@ -76,5 +76,3 @@ Il arrivait souvent de rencontrer certains bugs avec l'utilisation de `podman-co
 `podman-docker` permet donc de profiter du meilleur des 2 applications : un gestionnaire de conteneurs plus sécurisé avec un gestionnaire de fichiers `compose` plus abouti. Ubuntu dispose toujours de ce paquet dans ses dépôts, cela assure donc qu'il sera toujours présent dans Debian 13. 
 
 A l'avenir, il est possible que je réadapte `jdocker.sh` si jamais les choses avancent chez Podman. Mais pour le moment, je pense que cette combinaison est la meilleure solution.
-
-Si vous avez des questions à ce sujet, vous pouvez toujours me contacter par [e-mail](mailto:contact@jeremky.fr).

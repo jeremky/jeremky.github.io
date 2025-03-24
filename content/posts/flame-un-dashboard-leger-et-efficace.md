@@ -258,5 +258,3 @@ Voici quelques rendus possibles une fois la configuration de Flame terminée :
 {{< image src="/img/posts/flame-un-dashboard-leger-et-efficace/exemple2.webp" style="border-radius: 8px;" >}}
 ***
 {{< image src="/img/posts/flame-un-dashboard-leger-et-efficace/exemple3.webp" style="border-radius: 8px;" >}}
-
-N'hésitez pas à me contacter par [e-mail](mailto:contact@jeremky.fr) si vous avez des questions.

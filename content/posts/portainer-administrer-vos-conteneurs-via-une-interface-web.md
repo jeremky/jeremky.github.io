@@ -135,5 +135,3 @@ Dernier point : les mises à jour automatiques. Impossible d'utiliser le systèm
 Portainer est une solution vraiment intéressante avec un fort potentiel. Toutefois, dans mon cas personnel, je ne pense pas basculer la gestion de mes conteneurs sur cette application, et préfère rester sur une utilisation en ligne de commande. A l'utilisation, je me retrouve à perdre du temps. Principalement lié au fait que j'ai construis une façon de procéder autour de cette contrainte initiale (script [jdocker.sh](https://github.com/jeremky/jdocker.sh)).
 
 Mais si je n'avais pas pris ces habitudes, c'est clairement vers cette solution que je m'orienterais. Mais dans ce cas, je resterais sous Docker, car l'absence de la possibilité de mettre à jour automatiquement les conteneurs est clairement un frein pour moi.
-
-Dans tous les cas, si vous désirez vous lancer et que vous avez des questions, n'hésitez pas à me demander de l'aide [par e-mail](mailto:contact@jeremky.fr) si besoin !

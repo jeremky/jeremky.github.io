@@ -101,4 +101,4 @@ sudo docker search <recherche>
 
 Vous l'aurez remarqué, certaines commandes peuvent être fastidieuses à utiliser... C'est pourquoi je me suis fait un petit script bash, qui me facilite grandement la gestion de Docker au quotidien. 
 
-Je mettrai à disposition ce script dans l'article sur docker-compose (les commandes d'installation et de suppression se basant sur celui-ci). En attendant l'arrivée de cet article, si vous voulez vous mettre à Docker et que vous avez des questions, [n'hésitez pas](mailto:contact@jeremky.fr) !
+Je mettrai à disposition ce script dans l'article sur docker-compose (les commandes d'installation et de suppression se basant sur celui-ci).
