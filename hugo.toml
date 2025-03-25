@@ -1,7 +1,7 @@
 baseurl = "https://jeremky.github.io"
 languageCode = "fr"
 defaultContentLanguage = "fr"
-pagination.pagerSize = 10
+pagination.pagerSize = 8
 enableEmoji = true
 
 # iFrame
