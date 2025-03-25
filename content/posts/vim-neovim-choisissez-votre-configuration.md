@@ -337,6 +337,7 @@ set hidden                      " Cacher les tampons lorsqu'ils sont abandonnés
 set mouse=                      " Désactive la souris par défaut
 set nobackup                    " Désactive les sauvegardes automatiques
 set spelllang=fr,en             " Spécifie les langues du dictionnaire
+set viminfofile=~/.vim/.viminfo " Change l'emplacement du fichier viminfo
 
 " Permet l'indentation automatique : gg=G
 filetype plugin indent on
