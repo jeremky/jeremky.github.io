@@ -24,9 +24,6 @@ Si vous voulez utiliser Vim en tant qu'éditeur simple, que vous voulez un fichi
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Configuration de Vim
 
-" Ne pas charger le fichier par défaut
-let g:skip_defaults_vim = 1
-
 " Paramétrage de base
 syntax on                       " Active la colorisation syntaxique
 set hlsearch                    " Affiche en surbrillance les recherches
