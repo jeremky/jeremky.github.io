@@ -23,6 +23,6 @@ Le renouvellement du nom de domaine arrivant pour Août, je me suis donc lancé 
 
 C'est donc officiel, le site sera désormais [JeremKy.github.io](https://jeremky.github.io) !
 
-Je pense laisser cette version active jusqu'à la fin de l'engagement pour le nom de domaine actuel, le temps aux (quelques) auditeurs d'avoir l'information.
+Je pense laisser l'ancienne version active jusqu'à la fin de l'engagement pour le nom de domaine actuel, le temps aux (quelques) auditeurs d'avoir l'information.
 
 Bisous !
