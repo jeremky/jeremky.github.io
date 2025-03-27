@@ -43,114 +43,185 @@ Mon fichier `.bash_aliases` se divise en plusieurs parties :
 - Des aliases supplémentaires pour des applications spécifiques, chargés uniquement si les applications sont installées
 - Quelques fonctions, dans le cas où un simple alias est trop limitant
 
-Vous pouvez le récupérer directement sur github en suivant [ce lien](https://github.com/jeremky/envbackup.sh/blob/main/dotfiles/.bash_aliases).
+Vous pouvez le récupérer directement sur github en suivant [ce lien](https://github.com/jeremky/envbackup/blob/main/dotfiles/.bash_aliases).
 
 Le contenu du fichier :
 
 ```bash
-###### Aliases ######
+##################################################################
+## Bash
 
-## Variables
+# Affichage
+if [[ $USER = root ]]; then
+  PS1='\[\033[01;31m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w \$\[\033[00m\] '
+else
+  PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w \$\[\033[00m\] '
+fi
+
+# Variables
 export LANG=fr_FR.UTF-8
 export LANGUAGE=$LANG
 export LC_ALL=$LANG
-export EDITOR=vi
+export EDITOR=vim
 export VISUAL=$EDITOR
+export TMOUT=1800
 
-## Tweaks
-bind 'set completion-ignore-case on'
+# Tweaks divers
+bind 'set colored-stats on'              # Affiche les couleurs lors de la complétion
+bind 'set completion-ignore-case on'     # Ignorer la casse lors de la complétion
+bind 'set mark-symlinked-directories on' # Meilleure gestion des liens symboliques
+bind 'set show-all-if-unmodified on'     # Affiche les correspondances possibles immédiatement
 
-## Sudo
-if [ -f /usr/bin/sudo ] && [ "$USER" != "root" ] ; then
-    alias su='sudo -s'
-    sudo=sudo
-else
-    alias su='su -'
+# Sudo : utiliser la commande root pour...passer root :)
+if [[ -f /usr/bin/sudo ]] && [[ $USER != root ]]; then
+  alias root='sudo -i'
+  alias su='sudo -s'
+  sudo=sudo
 fi
 
-## Aliases
-alias l='ls -lh'
-alias la='ls -lhA'
-alias lr='ls -lLhR'
-alias lra='ls -lRha'
-alias lrt='ls -lLhrt'
-alias lart='ls -lLhArt'
-alias grep='grep -i --color=auto'
-alias zgrep='zgrep -i --color=auto'
-alias vi='vi -nO'
-alias view='vi -nRO'
-alias df='df -h -x overlay -x tmpfs -x devtmpfs'
-alias psp='ps -eaf | grep -v grep | grep'
-alias iostat='iostat -m --human'
-alias ifconfig='ip -br -c addr | grep -v lo'
-alias netstat='ss -lpn'
-alias ss='ss -tunlH'
-alias ssp='ss -tunl | grep'
-alias md5='md5sum <<<'
-alias pubip='curl -s -4 ipecho.net/plain ; echo'
-alias upgrade='$sudo apt update && $sudo apt full-upgrade && $sudo apt -y autoremove'
-alias wget='wget --no-check-certificate'
-alias newuser='$sudo adduser --no-create-home -q --disabled-password --gecos ""'
-alias halt='$sudo halt -p'
+##################################################################
+## Commandes
 
-## Ssh
+# Prompt
+alias ls='ls --color=auto'                       # Ajoute la couleur
+alias l='ls -lh'                                 # Liste détaillée
+alias la='ls -lhA'                               # Liste avec les fichiers cachés
+alias lr='ls -lLhR'                              # Liste en récursif
+alias lra='ls -lhRA'                             # Liste en récursif avec les fichiers cachés
+alias lrt='ls -lLhrt'                            # Liste par date
+alias lrta='ls -lLhrtA'                          # Liste par date avec les fichiers cachés
+alias grep='grep -i --color=auto'                # Grep sans la sensibilité à la casse
+alias zgrep='zgrep -i --color=auto'              # Grep dans les fichiers compressés
+alias psp='ps -eaf | grep -v grep | grep'        # Chercher un process (psp <nom process>)
+alias iostat='iostat -m --human'                 # Commande iostat lisible
+alias ifconfig='ip -br -c addr | grep -v lo'     # Afficher les adresses IP (ifconfig n'existe plus)
+alias ss='ss -tunlH'                             # Afficher les ports d'écoute
+alias ssp='ss | grep'                            # Chercher un port (ssp <port>)
+alias netstat='ss'                               # Afficher les ports d'écoute (netstat n'existe plus)
+alias md5='md5sum <<<'                           # Facilite l'utilisation de la commande md5
+alias pubip='curl -s -4 ipecho.net/plain ; echo' # Pour obtenir l'adresse IP publique du serveur
+alias df='df -h -x tmpfs -x devtmpfs -x overlay' # Commande df en filtrant les montages inutiles
+alias halt='$sudo halt -p'                       # Arrête le système et le serveur
+alias reboot='$sudo reboot'                      # Commande reboot avec sudo
+
+# ssh
 alias genkey='ssh-keygen -t ed25519 -a 100'
 alias genkeyrsa='ssh-keygen -t rsa -b 4096 -a 100'
 alias copykey='ssh-copy-id'
 
-## Top
-if [ -f /usr/bin/htop ] ; then
-    alias top='htop'
+##################################################################
+## Applications
+
+# apt : gestionnaire de paquets
+if [[ -f /usr/bin/apt ]]; then
+  alias apt='$sudo apt'
+  alias upgrade='$sudo apt update && $sudo apt full-upgrade && $sudo apt -y autoremove'
 fi
 
-## Ncdu
-if [ -f /usr/bin/ncdu ] ; then
-    alias ncdu='ncdu --color dark'
+# colordiff : diff avec couleur
+if [[ -f /usr/bin/colordiff ]]; then
+  alias diff='colordiff'
 fi
 
-## Ufw
-if [ -f /usr/sbin/ufw ] ; then
-    alias ufw='$sudo ufw'
-    alias ufws='$sudo ufw status numbered'
+# duf : affiche les files systems
+if [[ -f /usr/bin/duf ]]; then
+  alias df='duf -hide special'
 fi
 
-## Diff
-if [ -f /usr/bin/colordiff ] ; then
-    alias diff='colordiff'
+# fd : find amélioré
+if [[ -f /usr/bin/fdfind ]]; then
+  alias fd='fdfind'
 fi
 
-## Df
-if [ -f /usr/bin/duf ] ; then
-    alias df='duf --hide special'
+# fzf : recherche avancée
+if [[ -f /usr/bin/fzf ]]; then
+  source /usr/share/doc/fzf/examples/key-bindings.bash
 fi
 
-## Ripgrep
-if [ -f /usr/bin/rg ] ; then
-    alias rg='rg -i'
+# htop : plus convivial que top
+if [[ -f /usr/bin/htop ]]; then
+  alias top='htop'
 fi
 
-## Docker
-if [ -f /usr/bin/docker ] ; then
-    alias docker='$sudo docker'
+# ncdu : équivalent à TreeSize
+if [[ -f /usr/bin/ncdu ]]; then
+  alias ncdu='ncdu --color dark'
 fi
 
-## Lazydocker
-if [ -f /usr/bin/lazydocker ] ; then
+# podman : remplaçant de docker
+if [[ -f /usr/bin/podman ]]; then
+  alias podman='$sudo podman'
+  alias docker='$sudo podman'
+  if [[ -f /usr/local/bin/lazydocker ]]; then
     alias lzd='$sudo lazydocker'
+  fi
 fi
 
+# rg : plus performant que grep
+if [[ -f /usr/bin/rg ]]; then
+  alias rg='rg -i'
+fi
+
+# tmux : émulateur de terminal
+if [[ -f /usr/bin/tmux ]]; then
+  alias tmux='tmux attach || tmux new'
+fi
+
+# ufw : ajoute sudo
+if [[ -f /usr/sbin/ufw ]]; then
+  alias ufw='$sudo ufw'
+  alias ufws='$sudo ufw status numbered'
+fi
+
+# vim : Vi amélioré
+if [[ -f ~/.local/nvim/bin/nvim ]]; then
+  alias vi='nvim -nO'
+elif [[ -f /usr/bin/vim ]]; then
+  alias vi='vim -nO'
+fi
+
+# zoxide : cd amélioré
+if [[ -f /usr/bin/zoxide ]]; then
+  eval "$(zoxide init bash)"
+  alias cd='z'
+fi
+
+##################################################################
 ## Fonctions
-cpsave() { cp -Rp $1 "$(echo $1 | cut -d '/' -f 1)".old ;}
-zip() { /usr/bin/zip -r "$(echo $1 | cut -d '/' -f 1 | cut -d '.' -f 1)".zip "$*" ;}
 
-tarc() { for file in $* ; do tar czvf "$(echo $file | cut -d '/' -f 1)".tar.gz $file ; done ;}
-tarx() { for file in $* ; do tar xzvf $file ; done ;}
+# cpsave : copie un fichier ou un dossier avec .old
+cpsave() { cp -Rp $1 "$(echo $1 | cut -d '/' -f 1)".old; }
 
-gpgc() { gpg -c "$1" ;}
-gpgd() { for file in $* ; do gpg -o "$(basename "$file" .gpg)" -d "$file" ; done ;}
+# jsed : commande sed plus conviviale
+jsed() { sed -i "s|$1|$2|g" $3; }
 
-gencert() { read -p "Adresse mail : " mail ; $sudo certbot certonly --standalone --preferred-challenges http --email $mail -d $1 ;}
-rencert() { $sudo certbot -q renew ;}
+# newuser : créé un compte de service
+newuser() {
+  $sudo adduser --no-create-home -q --disabled-password --comment "" $1
+  echo "Utilisateur $1 créé. ID : $(id -u $1)"
+}
+
+# tarc : créer une archive pour chaque fichier / dossier spécifié
+tarc() { for file in $*; do tar czvf "$(echo $file | cut -d '/' -f 1)".tar.gz $file; done; }
+
+# tarx : décompresse une archive spécifiée
+tarx() { for file in $*; do tar xzvf $file; done; }
+
+# zip : commande zip plus conviviale
+zip() { /usr/bin/zip -r "$(echo "$1" | cut -d '/' -f 1)".zip $*; }
+
+##################################################################
+## Scripts
+
+# Transforme en alias les scripts
+scripts=/home/$(id -un 1000)/scripts
+if [[ -d $scripts ]]; then
+  for i in $(ls $scripts); do
+    if [[ -f $scripts/$i/$i.sh ]]; then
+      alias $i=''$scripts'/'$i'/'$i'.sh'
+    fi
+  done
+fi
 ```
 
 Les aliases de base :
@@ -162,54 +233,54 @@ Les aliases de base :
 | lr       | Liste les fichiers et les répertoires en récursif |
 | lra      | Même choseque lr, dont les cachés |
 | lrt      | Liste les fichiers et les répertoires dans l'ordre chronologique |
-| lart     | Même chose que lrt, dont les cachés |
+| lrta     | Même chose que lrt, dont les cachés |
 | grep     | Ajoute la gestion de la couleur à grep |
 | zgrep    | Même chose pour zgrep (grep dans les fichiers compressés) |
-| vi       | Permet d'ouvrir plusieurs fichiers simulatanément |
-| view     | Même chose pour view |
-| df       | Commande df, mais sans les volumes temporaires |
 | psp      | Suivi d'une chaîne, permet de rechercher rapidement un process |
 | iostat   | Commande iostat, mais plus lisible |
-| ifconfig  | Utilise le programme ip (ifconfig n'existe plus sous Debian) |
-| netstat  | Utilise le programme ss (netstat n'existe plus sous Debian) |
+| ifconfig | Utilise le programme ip (ifconfig n'existe plus sous Debian) |
 | ss       | Remplaçant de netstat, mais épuré |
 | ssp      | Suivi d'une chaîne, permet de rechercher rapidement un port d'écoute |
+| netstat  | Utilise le programme ss (netstat n'existe plus sous Debian) |
 | md5      | Suivi d'une chaîne, pour connaître rapidement un md5 |
 | pubip    | Affiche rapidement l'IP publique de la machine |
-| upgrade  | Lance les opérations d'upgrade OS en une seule commande |
-| wget     | Modifie wget pour autoriser les url https sans certificat valide |
-| newuser  | Créer un compte de service (pas de $HOME ni de mot de passe) |
+| df       | Commande df, mais sans les volumes temporaires |
 | halt     | Permet l'arrêt de la machine et non seulement le système |
+| reboot   | Ajoute sudo devant la commande reboot |
 | genkey   | Génère une clé au format ed25519 (plus sécurisé que rsa) |
 | genkeyrsa| Génère une clé au format rsa en 4096 bits |
 | copykey  | Parce que je me rappelle jamais de la commande ssh-copy-id |
 
 Les aliases actifs uniquement dans le cas où les applications sont installées :
 
-| Commande | Description |
-| -------- | ------- |
-| top      | Remplace la commande top par htop |
-| ncdu     | L'équivalent de l'outil Treesize sous Windows |
-| ufw      | Un Firewall facile à utiliser, ajoute sudo devant |
-| ufws     | Affiche le status de ufw, avec les règles numérotées |
-| diff     | Remplace la commande par colordiff, pour une meilleure lisibilité |
-| df       | Remplace la commande par duf, bien plus agréable visuellement |
-| rg       | Un grep récursif, bien plus lisible que le grep de base |
-| docker   | Ajoute sudo devant, pour gagner du temps |
-| lzd      | Lance l'outil lazydocker (console d'administration pour Docker) |
+| Commande  | Description |
+| --------- | -------- |
+| apt       | Ajoute sudo et la commande `upgrade` |
+| diff      | Remplace la commande par colordiff, pour une meilleure lisibilité |
+| df        | Remplace la commande par duf, bien plus agréable visuellement |
+| fd        | Outil équivalent à find mais bien plus simple à utiliser |
+| fzf       | Outil de recherche avancé |
+| top       | Remplace la commande top par htop |
+| ncdu      | L'équivalent de l'outil Treesize sous Windows |
+| podman    | Ajoute sudo devant, pour gagner du temps |
+| docker    | Ajoute sudo devant, pour gagner du temps |
+| lzd       | Lance l'outil lazydocker (console d'administration pour Docker) |
+| rg        | Un grep récursif, bien plus lisible que le grep de base |
+| tmux      | Transforme la commande de base pour s'assurer de ne pas en lancer plusieurs |
+| ufw       | Un Firewall facile à utiliser, ajoute sudo devant |
+| ufws      | Affiche le status de ufw, avec les règles numérotées |
+| vi        | Adapte vi selon votre choix d'éditeur (Vim, NeoVim) |
+| cd        | Utilise zoxide, un cd avancé |
 
 Et enfin, les fonctions :
 
 | Commande | Description |
 | -------- | ------- |
 | cpsave   | Créer une copie en .old d'un fichier ou d'un dossier spécifié |
-| zip      | Facilite l'utilisation de la commande zip (zip \<fichier>) |
+| jsed     | Facilite l'utilisation de sed pour remplacer du texte |
 | tarc     | Créer un tar.gz d'un ou plusieurs fichiers ou dossiers passés en paramètre |
 | tarx     | Pour extraire un ou plusieurs tar.gz passés en paramètre |
-| gpgc     | Chiffre un fichier en .pgp avec protection par mot de passe |
-| gpgd     | Déchiffre un ou plusieurs fichiers pgp protégés par mot de passe |
-| gencert  | Permet de créer un certificat. Une adresse mail sera demandée |
-| rencert  | Pour renouveler les certificats créés via gencert |
+| zip      | Facilite l'utilisation de la commande zip (zip \<fichier>) |
 
 ## Petit bonus : les aliases de scripts
 
