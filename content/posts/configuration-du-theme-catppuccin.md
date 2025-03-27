@@ -20,7 +20,14 @@ Je vais donc dans cet article vous partager mes configurations sur les applicati
 - Macchiato
 - Mocha
 
-J'ai fait le choix du thème Macchiato. A vous d'adapter les configurations ci dessous selon vos préférences.
+J'ai fait le choix de la variante Macchiato. A vous d'adapter les configurations ci dessous selon vos préférences.
 
-## Prompt Linux
+## Terminal
 
+## Bash
+
+## Tmux
+
+## Vim
+
+## NeoVim
