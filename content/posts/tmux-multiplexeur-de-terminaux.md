@@ -86,7 +86,7 @@ set -g renumber-windows on
 
 # Changement du prefix
 unbind C-b
-set-option -g prefix C-z
+set-option -g prefix C-b
 set-option -g prefix2 C-Space
 
 # Changement du raccourci pour coller
@@ -193,18 +193,18 @@ Voici les quelques raccourcis que j'utilise principalement :
 
 | Raccourcis | Fonction |
 | -------- | ------- |
-| Ctrl + x       | Split verticalement l'écran |
-| Ctrl + w       | Split horizontalement l'écran |
-| Ctrl + z       | Active le mode Préfixe de tmux |
-| Ctrl + z, c    | Créé un nouvel onglet |
-| Ctrl + n       | Onglet suivant |
-| Ctrl + p       | Onglet précédent |
-| Ctrl + z, S    | Synchronise la saisie dans tous les panneaux |
-| Ctrl + z, s    | Désactive la synchronisation de la saisie |
-| Ctrl + v       | Coller la selection |
-| Ctrl + z, t    | Affiche une horloge |
-| Ctrl + Flèches | naviguer entre les panneaux |
-| Alt + Flèches  | Ajuster la taille des panneaux |
+| Ctrl + x         | Split verticalement l'écran |
+| Ctrl + w         | Split horizontalement l'écran |
+| Ctrl + espace    | Active le mode Préfixe de tmux |
+| Ctrl + espace, c | Créé un nouvel onglet |
+| Ctrl + n         | Onglet suivant |
+| Ctrl + p         | Onglet précédent |
+| Ctrl + espace, S | Synchronise la saisie dans tous les panneaux |
+| Ctrl + espace, s | Désactive la synchronisation de la saisie |
+| Ctrl + v         | Coller la selection |
+| Ctrl + espace, t | Affiche une horloge |
+| Ctrl + Flèches   | naviguer entre les panneaux |
+| Alt + Flèches    | Ajuster la taille des panneaux |
 
 Vous pouvez également utiliser le clic droit de la souris pour créer des panneaux, ou changer d'onglet.
 
