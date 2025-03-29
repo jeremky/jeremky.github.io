@@ -32,11 +32,19 @@ Je vous propose donc d'installer le thème pour le terminal que vous utilisez. L
 
 ## Bash
 
-Certaines applications cli peuvent être personnalisées au niveau des couleurs utilisées. Dans mon cas, cela concerne 2 applications : [fzf](https://github.com/junegunn/fzf), et [tmux](https://github.com/tmux/tmux/wiki).
+Maintenant que votre terminal dispose des couleurs de Catppuccin, nous allons adapter certaines applications cli pour être en phase avec le thème. Dans mon cas, cela concerne 2 applications : [fzf](https://github.com/junegunn/fzf), et [tmux](https://github.com/tmux/tmux/wiki).
 
 ### fzf
 
-Pour configurer les couleurs de fzf, ajoutez les lignes suivantes dans votre fichier `.bashrc` ou `.bash_aliases` :
+Si vous n'avez pas encore installé fzf, je vous le recommande. Fzf permet entre autre d'améliorer la recherche dans l'historique via le raccourci `ctrl + r`.
+
+Pour l'installer : 
+
+```bash
+sudo apt install fzf
+```
+
+Pour configurer ses couleurs, ajoutez les lignes suivantes dans votre fichier `.bashrc` ou `.bash_aliases` :
 
 ```bash
 if [[ -f /usr/bin/fzf ]]; then
@@ -49,11 +57,13 @@ if [[ -f /usr/bin/fzf ]]; then
 fi
 ```
 
-> fzf permet entre autre d'améliorer la recherche dans l'historique via le raccourci `ctrl + r`
-
 ### tmux
 
-Pour tmux, n'utilisant pas toutes les fonctionnalités proposées, je vous mets à dispo [cette archive](/files/configuration-du-theme-catppuccin/tmux.tar.gz) contenant le nécessaire à déposer dans `~/.config/tmux`. Le résultat : 
+Là encore, si vous ne connaissez pas tmux, je vous recommande d'aller consulter [l'article qui lui est dédié](/posts/tmux-multiplexeur-de-terminaux/).
+
+Pour tmux, n'utilisant pas toutes les fonctionnalités proposées, je vous mets à dispo [cette archive](/files/configuration-du-theme-catppuccin/tmux.tar.gz) contenant le nécessaire à déposer dans `~/.config/tmux`. Cette version se contente des couleurs, et de l'affichage du load dans la barre de statut.
+
+Le résultat : 
 
 {{< image src="/img/posts/configuration-du-theme-catppuccin/tmux.webp" style="border-radius: 8px;" >}}
 
@@ -94,17 +104,34 @@ Si vous préférez utiliser Vim sans plugin, récupérez le fichier [suivant](ht
 Chargez ensuite le thème dans votre fichier `.vimrc` :
 
 ```vim
-colorscheme catppuccin
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Theme Catppuccin
+
+if filereadable(expand("~/.vim/colors/catppuccin.vim"))
+  set cursorline
+  set t_Co=256
+  set termguicolors
+  set noshowmode
+  highlight clear
+  syntax reset
+  colorscheme catppuccin
+endif
 ```
+
+Le rendu est le même qu'avec la version plugin, sauf la barre de statut (puisque Lightline n'est pas installé) : 
+
+{{< image src="/img/posts/configuration-du-theme-catppuccin/vim2.webp" style="border-radius: 8px;" >}}
 
 ## NeoVim
 
 Si vous avez suivi [cet article](https://jeremky.github.io/posts/vim-neovim-choisissez-votre-configuration/#neovim--vim-en-mode-ide), vous n'avez rien à faire. Catppuccin Macchiato est déjà configuré dans les fichiers que je vous ai mis à disposition.
 
+Si toutefois vous utilisez une autre variante, modifiez le fichier `~/.config/nvim/lua/plugins/colorscheme.lua` en fonction.
+
 {{< image src="/img/posts/configuration-du-theme-catppuccin/neovim.webp" style="border-radius: 8px;" >}}
 
 ## Conclusion
 
-Catppuccin fait partie de ces packs de thèmes vraiment complets si vous voulez uniformiser le style de vos applications. Les autres logiciels que j'utilise avec ce thème intègrent même ce thème directement, ou alors via une simple extension à installer (comme Visual Studio Code ou Firefox).
+Catppuccin fait partie de ces packs de thèmes vraiment complets si vous voulez uniformiser le style de vos applications. Les autres logiciels que j'utilise avec ce thème intègrent parfois ce thème directement, ou alors via une simple extension à installer (comme Visual Studio Code ou Firefox).
 
 D'autres thèmes de cette envergure existent. Je peux vous citer par exemple [Dracula](https://draculatheme.com/) et [Nord](https://www.nordtheme.com/). Mais Catppuccin utilise une palette vraiment plaisante, notamment pour la lecture de code.
