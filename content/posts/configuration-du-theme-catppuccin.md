@@ -61,7 +61,7 @@ fi
 
 Là encore, si vous ne connaissez pas tmux, je vous recommande d'aller consulter [l'article qui lui est dédié](/posts/tmux-multiplexeur-de-terminaux/).
 
-Pour tmux, n'utilisant pas toutes les fonctionnalités proposées, je vous mets à dispo [cette archive](/files/configuration-du-theme-catppuccin/tmux.tar.gz) contenant le nécessaire à déposer dans `~/.config/tmux`. Cette version se contente des couleurs, et de l'affichage du load dans la barre de statut.
+Pour tmux, n'utilisant pas toutes les fonctionnalités proposées, je vous mets à dispo [cette archive](/files/configuration-du-theme-catppuccin/tmux.tar.gz) contenant le nécessaire à extraire dans `~/.config/tmux`. Cette version se contente des couleurs, et de l'affichage du load average dans la barre de statut.
 
 Le résultat : 
 
@@ -132,6 +132,6 @@ Si toutefois vous utilisez une autre variante, modifiez le fichier `~/.config/nv
 
 ## Conclusion
 
-Catppuccin fait partie de ces packs de thèmes vraiment complets si vous voulez uniformiser le style de vos applications. Les autres logiciels que j'utilise avec ce thème intègrent parfois ce thème directement, ou alors via une simple extension à installer (comme Visual Studio Code ou Firefox).
+Catppuccin fait partie de ces packs de thèmes vraiment complets si vous voulez uniformiser le style de vos applications. Les autres logiciels que j'utilise avec ce thème l'intègrent parfois directement, ou alors via une simple extension à installer, comme Visual Studio Code ou Firefox (Pour Visual Studio Code, pensez à installer aussi le pack d'icônes).
 
-D'autres thèmes de cette envergure existent. Je peux vous citer par exemple [Dracula](https://draculatheme.com/) et [Nord](https://www.nordtheme.com/). Mais Catppuccin utilise une palette vraiment plaisante, notamment pour la lecture de code.
+D'autres thèmes de cette envergure existent. Je peux vous citer par exemple [Dracula](https://draculatheme.com/) et [Nord](https://www.nordtheme.com/). Mais Catppuccin utilise une palette vraiment plaisante, permettant une lecture du code efficace.
