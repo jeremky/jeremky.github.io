@@ -91,6 +91,13 @@ if filereadable(expand("~/.vim/plugged/catppuccin/colors/catppuccin_macchiato.vi
   set cursorline
   set termguicolors
 endif
+
+" Configuration de LightLine
+if filereadable(expand("~/.vim/plugged/lightline.vim/autoload/lightline.vim"))
+  set statusline+=%{exists('g:loaded_fugitive')?fugitive#statusline():''}
+  let g:lightline = {'colorscheme': 'catppuccin_macchiato'}
+  set noshowmode
+endif
 ```
 
 Pensez à retirer le thème OneDark si vous êtes parti [de cet article](https://jeremky.github.io/posts/vim-neovim-choisissez-votre-configuration/#un-vim-efficace-avec-plugins), ou bien récupérez le fichier à jour directement [ici](https://github.com/jeremky/envbackup/blob/main/dotfiles/.vimrc).
