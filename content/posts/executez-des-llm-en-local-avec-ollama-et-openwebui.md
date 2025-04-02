@@ -13,13 +13,11 @@ draft: true
 
 [Ollama](https://ollama.com/) est un framework open source conçu pour faciliter le déploiement de grands modèles de langage dans des environnements locaux. Disponible sur Windows, MacOS et Linux, il permet de récupérer directement des modèles via un système de dépôt.
 
-Ollama peut être combiné à [Open WebUI](https://github.com/open-webui/open-webui), une interface web permettant d'interagir avec des modèles d'IA, tels que les grands modèles de langage (LLM). Cela simplifie l'utilisation de Ollama, en proposant une interface utilisateur graphique complète.
-
-Dans cet article, nous allons donc voir comment déployer facilement ce duo avec Docker / Podman.
+Ollama peut être combiné à [Open WebUI](https://github.com/open-webui/open-webui), une interface web permettant d'interagir avec des modèles d'IA, tels que les grands modèles de langage (LLM). Cela simplifie l'utilisation de Ollama, en proposant une interface utilisateur graphique complète, accessible de n'importe où et multi utilisateur.
 
 ## Installation
 
-Tout d'abord, un fichier `compose.yml` pour déployer les 2 applications :
+Comme à chaque fois, nous allons utiliser Docker / Podman pour le déploiement de ces applications. Tout d'abord, un fichier `compose.yml` :
 
 ```yml
 services:
@@ -52,7 +50,7 @@ networks:
     external: true
 ```
 
-Le fichier `ollama.env` associé : 
+Et un fichier `ollama.env` associé : 
 
 ```txt
 OLLAMA_BASE_URL=http://ollama:11434
@@ -62,7 +60,7 @@ DEFAULT_LOCALE=fr
 
 Pensez à définir la clé secrète dans ce fichier.
 
-> Pour rappel, vous pouvez utiliser le script [jdocker.sh](https://github.com/jeremky/jdocker) pour simplifier le déploiement de vos applications
+> Vous pouvez utiliser le script [jdocker](https://github.com/jeremky/jdocker) pour simplifier le déploiement de vos conteneurs
 
 ### Reverse proxy
 
@@ -139,5 +137,3 @@ Une fois connecté, vous allez pouvoir demander à Ollama de télécharger le mo
 
 
 Retournez sur Open WebUI, et en haut à gauche, cliquez sur "Sélectionnez un modèle" Pour coller votre commande dans la zone de recherche. Il vous sera proposé de télécharger le modèle correspondant.
-
-
