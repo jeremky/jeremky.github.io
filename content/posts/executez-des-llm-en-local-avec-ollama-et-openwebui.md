@@ -19,7 +19,50 @@ Dans cet article, nous allons donc voir comment déployer facilement ce duo avec
 
 ## Installation
 
+Tout d'abord, un fichier `compose.yml` pour déployer les 2 applications :
 
+```yml
+services:
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama
+    hostname: ollama
+    tty: true
+    networks:
+      - nginx_proxy
+    volumes:
+      - /opt/ollama/ollama:/root/.ollama
+    restart: always
+
+  ollama-webui:
+    image: ghcr.io/open-webui/open-webui:main
+    container_name: ollama-webui
+    hostname: ollama-webui
+    env_file: ollama.env
+    depends_on:
+      - ollama
+    networks:
+      - nginx_proxy
+    volumes:
+      - /opt/ollama/webui:/app/backend/data
+    restart: always
+
+networks:
+  nginx_proxy:
+    external: true
+```
+
+Le fichier `ollama.env` associé : 
+
+```txt
+OLLAMA_BASE_URL=http://ollama:11434
+WEBUI_SECRET_KEY=CLE_SECRETE_A_MODIFIER
+DEFAULT_LOCALE=fr
+```
+
+Pensez à définir la clé secrète dans ce fichier.
+
+> Pour rappel, vous pouvez utiliser le script [jdocker.sh](https://github.com/jeremky/jdocker) pour simplifier le déploiement de vos applications
 
 ### Reverse proxy
 
@@ -83,3 +126,18 @@ Et enfin, un petit redémarrage pour la prise en compte du nouveau fichier :
 ```bash
 sudo docker restart nginx
 ```
+
+## Initialisation
+
+Une fois le déploiement effectué, rendez vous sur l'url que vous avez défini dans votre reverse proxy. Il vous sera demandé de créer le compte principal : 
+
+{{< image src="/img/posts/executez-des-llm-en-local-avec-ollama-et-openwebui/cover.webp" style="border-radius: 8px;" >}}
+
+Une fois connecté, vous allez pouvoir demander à Ollama de télécharger le modèle de votre choix directement depuis l'interface de Open WebUI. Tout d'abord, rendez vous sur [cette page](https://ollama.com/search) pour consulter la liste des modèles disponibles. Choisissez le modèle que vous voulez, et copiez la commande sur la droite. Par exemple avec gemma3 : `ollama run gemma3`.
+
+{{< image src="/img/posts/executez-des-llm-en-local-avec-ollama-et-openwebui/cover.webp" style="border-radius: 8px;" >}}
+
+
+Retournez sur Open WebUI, et en haut à gauche, cliquez sur "Sélectionnez un modèle" Pour coller votre commande dans la zone de recherche. Il vous sera proposé de télécharger le modèle correspondant.
+
+
