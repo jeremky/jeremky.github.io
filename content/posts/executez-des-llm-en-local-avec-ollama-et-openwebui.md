@@ -1,14 +1,14 @@
 ---
-title: "Executez des LLM en local avec Ollama et OpenWebUI"
+title: Executez des LLM en local avec Ollama et OpenWebUI
 date: 2025-03-30T18:15:25+02:00
-cover: "/img/posts/executez-des-llm-en-local-avec-ollama-et-openwebui/cover.webp"
+cover: /img/posts/executez-des-llm-en-local-avec-ollama-et-openwebui/cover.webp
 tags:
   - docker
   - podman
 categories:
   - Tutos
 toc: true
-draft: true
+draft: false
 ---
 
 [Ollama](https://ollama.com/) est un framework open source conçu pour faciliter le déploiement de grands modèles de langage dans des environnements locaux. Disponible sur Windows, MacOS et Linux, il permet de récupérer directement des modèles via un système de dépôt. Si vous avez les ressources suffisantes, vous pourrez exécuter des modèles comme DeepSeek, Mistral, Gemini...
@@ -55,10 +55,11 @@ Le fichier `ollama.env` associé :
 ```txt
 OLLAMA_BASE_URL=http://ollama:11434
 WEBUI_SECRET_KEY=CLE_SECRETE_A_MODIFIER
-DEFAULT_LOCALE=fr
+DEFAULT_LOCALE=fr-FR
+WEBUI_AUTH=True
 ```
 
-Pensez à définir la clé secrète dans ce fichier.
+Pensez à définir la clé secrète dans ce fichier, et à modifier la variable `WEBUI_AUTH` de `True` à `False` si vous n'avez pas besoin de l'authentification.
 
 > Vous pouvez utiliser le script [jdocker](https://github.com/jeremky/jdocker) pour simplifier le déploiement de vos conteneurs
 
@@ -131,7 +132,7 @@ Une fois le déploiement effectué, rendez vous sur l'url que vous avez défini 
 
 {{< image src="/img/posts/executez-des-llm-en-local-avec-ollama-et-openwebui/account.webp" style="border-radius: 8px;" >}}
 
-Une fois connecté, vous allez pouvoir demander à Ollama de télécharger le modèle de votre choix directement depuis l'interface de Open WebUI. Tout d'abord, rendez vous sur [cette page](https://ollama.com/search) pour consulter la liste des modèles disponibles. Choisissez le modèle que vous voulez, et copiez la commande sur la droite. Par exemple avec gemma3 : `ollama run gemma3`.
+Une fois connecté, vous allez pouvoir demander à Ollama de télécharger le(s) modèle(s) de votre choix directement depuis l'interface de Open WebUI. Tout d'abord, rendez vous sur [cette page](https://ollama.com/search) pour consulter la liste des modèles disponibles. Choisissez le modèle que vous voulez, et copiez la commande sur la droite. Par exemple avec gemma3 : `ollama run gemma3`.
 
 {{< image src="/img/posts/executez-des-llm-en-local-avec-ollama-et-openwebui/gemma3.webp" style="border-radius: 8px;" >}}
 
@@ -149,8 +150,8 @@ Vous pourrez ensuite sélectionner le modèle téléchargé et commencer à l'ut
 
 ## Conclusion
 
-Je ne vais pas m'avancer pour la suite des possibilités de l'application, ne pouvant pas explorer les choses davantage sans faire exploser le serveur :smile:
+Je ne vais pas m'avancer pour la suite des possibilités de l'application, ne pouvant pas explorer les choses davantage sans faire exploser mon serveur :smile:
 
-Mais j'ai quand même exploré quelques éléments comme la recherche sur le web, la reconnaissance de code... Le modèle 1b de gemma3 est vraiment pas incroyable pour cela, mais la version 4b s'en sort bien mieux.
+Mais j'ai quand même exploré quelques éléments comme la recherche sur le web, la reconnaissance de code... Le modèle 1b de gemma3 est vraiment pas incroyable pour cela, mais la version 4b que j'ai pu tester sur une bonne machine s'en sort bien mieux.
 
-Honnêtement, la mise en place de ce service pour ma part est plus par curiosité que pour une utilisation au quotidien. Et la différence de performance avec un ChatGPT est bien visible... Mais si vous tenez à utiliser des services d'IA en local, le test vaut le détour. A plus !
+Honnêtement, la mise en place de ce service était surtout par curiosité et non pour une utilisation au quotidien. Et la différence de performance avec un ChatGPT est bien visible... Mais si vous tenez à utiliser des services d'IA en local, le test vaut le détour. A plus !
