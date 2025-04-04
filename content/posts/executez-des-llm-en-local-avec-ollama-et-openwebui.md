@@ -11,7 +11,7 @@ toc: true
 draft: true
 ---
 
-[Ollama](https://ollama.com/) est un framework open source conçu pour faciliter le déploiement de grands modèles de langage dans des environnements locaux. Disponible sur Windows, MacOS et Linux, il permet de récupérer directement des modèles via un système de dépôt.
+[Ollama](https://ollama.com/) est un framework open source conçu pour faciliter le déploiement de grands modèles de langage dans des environnements locaux. Disponible sur Windows, MacOS et Linux, il permet de récupérer directement des modèles via un système de dépôt. Si vous avez les ressources suffisantes, vous pourrez exécuter des modèles comme DeepSeek, Mistral, Gemini...
 
 Ollama peut être combiné à [Open WebUI](https://github.com/open-webui/open-webui), une interface web permettant d'interagir avec des modèles d'IA, tels que les grands modèles de langage (LLM). Cela simplifie l'utilisation de Ollama, en proposant une interface utilisateur graphique complète, accessible de n'importe où et multi utilisateur.
 
@@ -50,7 +50,7 @@ networks:
     external: true
 ```
 
-Et un fichier `ollama.env` associé : 
+Le fichier `ollama.env` associé : 
 
 ```txt
 OLLAMA_BASE_URL=http://ollama:11434
@@ -127,13 +127,30 @@ sudo docker restart nginx
 
 ## Initialisation
 
-Une fois le déploiement effectué, rendez vous sur l'url que vous avez défini dans votre reverse proxy. Il vous sera demandé de créer le compte principal : 
+Une fois le déploiement effectué, rendez vous sur l'url que vous avez défini dans votre reverse proxy. Cliquez sur "Get Started". Il vous sera ensuite demandé de créer le compte principal : 
 
-{{< image src="/img/posts/executez-des-llm-en-local-avec-ollama-et-openwebui/cover.webp" style="border-radius: 8px;" >}}
+{{< image src="/img/posts/executez-des-llm-en-local-avec-ollama-et-openwebui/account.webp" style="border-radius: 8px;" >}}
 
 Une fois connecté, vous allez pouvoir demander à Ollama de télécharger le modèle de votre choix directement depuis l'interface de Open WebUI. Tout d'abord, rendez vous sur [cette page](https://ollama.com/search) pour consulter la liste des modèles disponibles. Choisissez le modèle que vous voulez, et copiez la commande sur la droite. Par exemple avec gemma3 : `ollama run gemma3`.
 
-{{< image src="/img/posts/executez-des-llm-en-local-avec-ollama-et-openwebui/cover.webp" style="border-radius: 8px;" >}}
+{{< image src="/img/posts/executez-des-llm-en-local-avec-ollama-et-openwebui/gemma3.webp" style="border-radius: 8px;" >}}
 
+Le modèle Gemma, créé pour Gemini, permet d'obtenir de bons résultats avec une consommation de ressources raisonnable.
+
+> Etant limité par les ressources de mon serveur, j'ai opté pour la version avec un milliard de paramètres, la version gemma3:1b
 
 Retournez sur Open WebUI, et en haut à gauche, cliquez sur "Sélectionnez un modèle" Pour coller votre commande dans la zone de recherche. Il vous sera proposé de télécharger le modèle correspondant.
+
+{{< image src="/img/posts/executez-des-llm-en-local-avec-ollama-et-openwebui/download.webp" style="border-radius: 8px;" >}}
+
+Vous pourrez ensuite sélectionner le modèle téléchargé et commencer à l'utiliser ! A noter qu'il est possible de charger plusieurs modèles, et de basculer de l'un à l'autre sans changer de prompt.
+
+{{< image src="/img/posts/executez-des-llm-en-local-avec-ollama-et-openwebui/demo.webp" style="border-radius: 8px;" >}}
+
+## Conclusion
+
+Je ne vais pas m'avancer pour la suite des possibilités de l'application, ne pouvant pas explorer les choses davantage sans faire exploser le serveur :smile:
+
+Mais j'ai quand même exploré quelques éléments comme la recherche sur le web, la reconnaissance de code... Le modèle 1b de gemma3 est vraiment pas incroyable pour cela, mais la version 4b s'en sort bien mieux.
+
+Honnêtement, la mise en place de ce service pour ma part est plus par curiosité que pour une utilisation au quotidien. Et la différence de performance avec un ChatGPT est bien visible... Mais si vous tenez à utiliser des services d'IA en local, le test vaut le détour. A plus !
