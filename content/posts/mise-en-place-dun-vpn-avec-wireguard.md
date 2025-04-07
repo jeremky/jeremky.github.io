@@ -1,7 +1,7 @@
 ---
-title: "Mise en place d'un VPN avec Wireguard"
+title: Mise en place d'un VPN avec Wireguard
 date: 2024-06-23T17:26:52Z
-cover: "/img/posts/mise-en-place-dun-vpn-avec-wireguard/cover.webp"
+cover: /img/posts/mise-en-place-dun-vpn-avec-wireguard/cover.webp
 tags:
   - reseau
   - docker

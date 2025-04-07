@@ -1,7 +1,7 @@
 ---
 title: "Watchtower : un conteneur pour les gouverner tous"
 date: 2024-06-25T17:28:32Z
-cover: "/img/posts/watchtower-un-conteneur-pour-les-gouverner-tous/cover.webp"
+cover: /img/posts/watchtower-un-conteneur-pour-les-gouverner-tous/cover.webp
 tags:
   - admin
   - docker

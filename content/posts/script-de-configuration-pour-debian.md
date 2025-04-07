@@ -1,7 +1,7 @@
 ---
-title: "Script de configuration pour Debian"
+title: Script de configuration pour Debian
 date: 2024-05-12T17:15:46Z
-cover: "/img/posts/script-de-configuration-pour-debian/cover.webp"
+cover: /img/posts/script-de-configuration-pour-debian/cover.webp
 tags:
     - linux
 categories:

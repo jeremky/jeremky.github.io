@@ -1,7 +1,7 @@
 ---
-title: "Sécurisation de vos connexions SSH"
+title: Sécurisation de vos connexions SSH
 date: 2024-05-19T17:16:47Z
-cover: "/img/posts/securisation-de-vos-connexions-ssh/cover.webp"
+cover: /img/posts/securisation-de-vos-connexions-ssh/cover.webp
 tags:
     - linux
 categories:

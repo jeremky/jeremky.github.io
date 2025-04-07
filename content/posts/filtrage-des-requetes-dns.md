@@ -1,7 +1,7 @@
 ---
-title: "Filtrage des requêtes DNS"
+title: Filtrage des requêtes DNS
 date: 2023-12-30T17:10:13Z
-cover: "/img/posts/filtrage-des-requetes-dns/cover.webp"
+cover: /img/posts/filtrage-des-requetes-dns/cover.webp
 tags:
   - reseau
 categories:

@@ -1,7 +1,7 @@
 ---
-title: "Mise en place d'un service de test de débit"
+title: Mise en place d'un service de test de débit
 date: 2024-05-29T17:18:37Z
-cover: "/img/posts/mise-en-place-dun-service-de-test-de-debit/cover.webp"
+cover: /img/posts/mise-en-place-dun-service-de-test-de-debit/cover.webp
 tags:
   - reseau
   - docker

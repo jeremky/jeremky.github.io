@@ -1,7 +1,7 @@
 ---
-title: "Reverse Proxy NGINX"
+title: Reverse Proxy NGINX
 date: 2023-09-04T17:06:51Z
-cover: "/img/posts/reverse-proxy-nginx/cover.webp"
+cover: /img/posts/reverse-proxy-nginx/cover.webp
 tags:
   - reseau
   - docker

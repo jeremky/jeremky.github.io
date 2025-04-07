@@ -1,7 +1,7 @@
 ---
-title: "Personnalisation du prompt Linux"
+title: Personnalisation du prompt Linux
 date: 2024-05-02T17:13:12Z
-cover: "/img/posts/personnalisation-du-prompt-linux/cover.webp"
+cover: /img/posts/personnalisation-du-prompt-linux/cover.webp
 tags:
     - linux
 categories:

@@ -1,7 +1,7 @@
 ---
-title: "Héberger un serveur Minecraft"
+title: Héberger un serveur Minecraft
 date: 2023-12-31T17:11:04Z
-cover: "/img/posts/heberger-un-serveur-minecraft/cover.webp"
+cover: /img/posts/heberger-un-serveur-minecraft/cover.webp
 tags:
   - jeux
   - docker

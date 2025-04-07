@@ -1,7 +1,7 @@
 ---
-title: "Monter un serveur Teeworlds"
+title: Monter un serveur Teeworlds
 date: 2023-08-30T17:03:15Z
-cover: "/img/posts/monter-un-serveur-teeworlds/cover.webp"
+cover: /img/posts/monter-un-serveur-teeworlds/cover.webp
 tags:
   - jeux
   - docker

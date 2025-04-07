@@ -1,7 +1,7 @@
 ---
 title: "FreshRSS : un agrégateur de flux RSS"
 date: 2024-10-14T18:03:58+02:00
-cover: "/img/posts/freshrss-un-agregateur-de-flux-rss/cover.webp"
+cover: /img/posts/freshrss-un-agregateur-de-flux-rss/cover.webp
 tags:
   - docker
   - podman

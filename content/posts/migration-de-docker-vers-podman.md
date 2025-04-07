@@ -1,7 +1,7 @@
 ---
-title: "Migration de Docker vers Podman"
+title: Migration de Docker vers Podman
 date: 2024-09-26T17:43:20+02:00
-cover: "/img/posts/migration-de-docker-vers-podman/cover.webp"
+cover: /img/posts/migration-de-docker-vers-podman/cover.webp
 tags:
   - podman
 categories:

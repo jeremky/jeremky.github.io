@@ -1,7 +1,7 @@
 ---
 title: "File Browser : un explorateur de fichiers léger en web"
 date: 2024-06-06T17:21:58Z
-cover: "/img/posts/file-browser-un-explorateur-de-fichiers-leger-en-web/cover.webp"
+cover: /img/posts/file-browser-un-explorateur-de-fichiers-leger-en-web/cover.webp
 tags:
   - fichiers
   - docker

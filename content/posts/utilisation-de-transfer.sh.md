@@ -1,7 +1,7 @@
 ---
-title: "Utilisation de transfer.sh"
+title: Utilisation de transfer.sh
 date: 2023-10-12T17:07:52Z
-cover: "/img/posts/utilisation-de-transfer.sh/cover.webp"
+cover: /img/posts/utilisation-de-transfer.sh/cover.webp
 tags:
   - docker
   - podman

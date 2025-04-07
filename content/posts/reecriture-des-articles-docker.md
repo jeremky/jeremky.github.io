@@ -1,7 +1,7 @@
 ---
-title: "Réécriture des articles au sujet de Docker"
+title: Réécriture des articles au sujet de Docker
 date: 2024-10-07T10:38:36+02:00
-cover: "/img/posts/reecriture-des-articles-docker/cover.webp"
+cover: /img/posts/reecriture-des-articles-docker/cover.webp
 tags:
   - infos
   - docker

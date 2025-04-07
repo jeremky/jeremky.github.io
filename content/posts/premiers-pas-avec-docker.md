@@ -1,7 +1,7 @@
 ---
-title: "Premiers pas avec Docker"
+title: Premiers pas avec Docker
 date: 2023-08-24T16:03:12Z
-cover: "/img/posts/premiers-pas-avec-docker/cover.webp"
+cover: /img/posts/premiers-pas-avec-docker/cover.webp
 tags:
     - docker
 categories:

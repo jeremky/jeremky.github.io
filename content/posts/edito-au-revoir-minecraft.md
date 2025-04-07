@@ -1,7 +1,7 @@
 ---
 title: "Édito : Au revoir Minecraft"
 date: 2024-12-28T23:53:44.000Z
-cover: img/posts/edito-au-revoir-minecraft/cover.webp
+cover: /img/posts/edito-au-revoir-minecraft/cover.webp
 tags:
   - editos
   - jeux

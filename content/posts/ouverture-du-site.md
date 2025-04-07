@@ -1,11 +1,11 @@
 ---
-title: "Ouverture du site"
+title: Ouverture du site
 date: 2023-08-21T15:34:46Z
-cover: "/img/posts/ouverture-du-site/cover.webp"
+cover: /img/posts/ouverture-du-site/cover.webp
 tags:
-    - infos
+  - infos
 categories:
-    - News
+  - News
 toc: false
 draft: false
 ---

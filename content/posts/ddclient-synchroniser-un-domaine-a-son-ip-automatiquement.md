@@ -1,7 +1,7 @@
 ---
 title: "ddclient : synchroniser un domaine à son IP automatiquement"
 date: 2024-06-22T17:25:42Z
-cover: "/img/posts/ddclient-synchroniser-un-domaine-a-son-ip-automatiquement/cover.webp"
+cover: /img/posts/ddclient-synchroniser-un-domaine-a-son-ip-automatiquement/cover.webp
 tags:
   - reseau
   - docker

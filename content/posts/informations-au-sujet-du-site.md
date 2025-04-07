@@ -1,7 +1,7 @@
 ---
-title: "Informations au sujet du site"
+title: Informations au sujet du site
 date: 2024-06-21T17:24:26Z
-cover: "/img/posts/informations-au-sujet-du-site/cover.webp"
+cover: /img/posts/informations-au-sujet-du-site/cover.webp
 tags:
     - infos
 categories:

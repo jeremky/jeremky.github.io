@@ -1,7 +1,7 @@
 ---
-title: "Installation et configuration d'un Raspberry Pi"
+title: Installation et configuration d'un Raspberry Pi
 date: 2024-05-10T17:14:39Z
-cover: "/img/posts/installation-et-configuration-dun-raspberry-pi/cover.webp"
+cover: /img/posts/installation-et-configuration-dun-raspberry-pi/cover.webp
 tags:
     - linux
 categories:

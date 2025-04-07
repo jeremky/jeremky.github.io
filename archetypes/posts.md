@@ -1,7 +1,7 @@
 ---
-title: "{{ replace .Name "-" " " | title }}"
+title: {{ replace .Name "-" " " | title }}
 date: {{ .Date }}
-cover: "/img/posts/{{ .File.ContentBaseName }}/cover.webp"
+cover: /img/posts/{{ .File.ContentBaseName }}/cover.webp
 tags:
   - docker
   - podman
@@ -10,3 +10,4 @@ categories:
 toc: true
 draft: true
 ---
+
