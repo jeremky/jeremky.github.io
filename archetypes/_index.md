@@ -4,5 +4,3 @@ framed: false
 ---
 
 # Information
-
-
