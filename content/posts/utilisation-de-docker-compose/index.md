@@ -1,5 +1,6 @@
 ---
 title: Utilisation de Docker Compose
+slug: utilisation-de-docker-compose
 date: 2023-08-24T18:20:29Z
 useRelativeCover: true
 cover: cover.webp

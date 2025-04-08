@@ -1,5 +1,6 @@
 ---
 title: "AriaNG : centralisez vos téléchargements"
+slug: ariang-centralisez-vos-telechargements
 date: 2024-12-13T18:07:03.000Z
 useRelativeCover: true
 cover: cover.webp

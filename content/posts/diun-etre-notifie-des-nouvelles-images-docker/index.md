@@ -1,5 +1,6 @@
 ---
 title: "Diun : être notifié des nouvelles images Docker"
+slug: diun-etre-notifie-des-nouvelles-images-docker
 date: 2024-12-02T19:09:00.558Z
 useRelativeCover: true
 cover: cover.webp

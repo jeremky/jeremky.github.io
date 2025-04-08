@@ -1,5 +1,6 @@
 ---
 title: "podman-docker : une application pour faciliter la transition"
+slug: podman-docker-application-faciliter-transition
 date: 2025-01-19T18:24:37.670Z
 useRelativeCover: true
 cover: cover.webp

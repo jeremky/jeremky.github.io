@@ -1,5 +1,6 @@
 ---
 title: Mise en place d'un service de test de débit
+slug: mise-en-place-dun-service-de-test-de-debit
 date: 2024-05-29T17:18:37Z
 useRelativeCover: true
 cover: cover.webp

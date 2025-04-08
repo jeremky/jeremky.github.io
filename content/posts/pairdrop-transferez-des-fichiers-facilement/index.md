@@ -1,5 +1,6 @@
 ---
 title: "Pairdrop : transférez des fichiers facilement"
+slug: pairdrop-transferez-des-fichiers-facilement
 date: 2024-12-21T18:07:50.000Z
 useRelativeCover: true
 cover: cover.webp

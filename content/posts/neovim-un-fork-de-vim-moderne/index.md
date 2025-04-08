@@ -1,5 +1,6 @@
 ---
 title: "NeoVim : un fork de Vim moderne"
+slug: neovim-un-fork-de-vim-moderne
 date: 2025-01-25T19:41:07.554Z
 useRelativeCover: true
 cover: cover.webp

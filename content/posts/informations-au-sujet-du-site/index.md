@@ -1,5 +1,6 @@
 ---
 title: Informations au sujet du site
+slug: informations-au-sujet-du-site
 date: 2024-06-21T17:24:26Z
 useRelativeCover: true
 cover: cover.webp

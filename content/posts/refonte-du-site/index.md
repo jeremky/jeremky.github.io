@@ -1,5 +1,6 @@
 ---
 title: Refonte du site
+slug: refonte-du-site
 date: 2023-12-25T17:09:08Z
 useRelativeCover: true
 cover: cover.webp

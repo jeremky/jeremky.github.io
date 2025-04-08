@@ -1,5 +1,6 @@
 ---
 title: "Transmission : un client torrent en Web"
+slug: transmission-un-client-torrent-web
 date: 2024-11-23T01:22:38.060Z
 useRelativeCover: true
 cover: cover.webp

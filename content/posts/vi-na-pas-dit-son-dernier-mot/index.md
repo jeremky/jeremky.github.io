@@ -1,5 +1,6 @@
 ---
 title: "Vi n'a pas dit son dernier mot"
+slug: vi-na-pas-dit-son-dernier-mot
 date: 2024-05-01T17:12:08Z
 useRelativeCover: true
 cover: cover.webp

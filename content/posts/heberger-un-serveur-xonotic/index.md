@@ -1,5 +1,6 @@
 ---
 title: Héberger un serveur Xonotic
+slug: heberger-un-serveur-xonotic
 date: 2024-05-31T17:21:09Z
 useRelativeCover: true
 cover: cover.webp

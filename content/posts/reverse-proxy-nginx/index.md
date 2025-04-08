@@ -1,5 +1,6 @@
 ---
 title: Reverse Proxy NGINX
+slug: reverse-proxy-nginx
 date: 2023-09-04T17:06:51Z
 useRelativeCover: true
 cover: cover.webp

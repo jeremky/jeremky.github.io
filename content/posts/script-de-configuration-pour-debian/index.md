@@ -1,5 +1,6 @@
 ---
 title: Script de configuration pour Debian
+slug: script-de-configuration-pour-debian
 date: 2024-05-12T17:15:46Z
 useRelativeCover: true
 cover: cover.webp

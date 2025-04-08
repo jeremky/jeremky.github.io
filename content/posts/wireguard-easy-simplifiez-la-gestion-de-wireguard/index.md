@@ -1,5 +1,6 @@
 ---
 title: "Wireguard Easy : Simplifiez la gestion de Wireguard"
+slug: wireguard-easy-simplifiez-la-gestion-de-wireguard
 date: 2024-11-17T15:32:00.326Z
 useRelativeCover: true
 cover: cover.webp

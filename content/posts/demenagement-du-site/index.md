@@ -1,5 +1,6 @@
 ---
 title: Déménagement du site
+slug: demenagement-du-site
 date: 2025-03-24T18:27:50+01:00
 useRelativeCover: true
 cover: cover.webp

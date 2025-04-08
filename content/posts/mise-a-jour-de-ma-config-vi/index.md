@@ -1,5 +1,6 @@
 ---
 title: Mise à jour de ma configuration Vi
+slug: mise-a-jour-de-ma-config-vi
 date: 2024-09-18T16:33:53+02:00
 useRelativeCover: true
 cover: cover.webp

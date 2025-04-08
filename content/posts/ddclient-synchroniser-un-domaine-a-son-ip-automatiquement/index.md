@@ -1,5 +1,6 @@
 ---
 title: "ddclient : synchroniser un domaine à son IP automatiquement"
+slug: ddclient-synchroniser-un-domaine-a-son-ip-automatiquement
 date: 2024-06-22T17:25:42Z
 useRelativeCover: true
 cover: cover.webp

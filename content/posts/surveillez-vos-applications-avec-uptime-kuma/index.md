@@ -1,5 +1,6 @@
 ---
 title: Surveillez vos applications avec Uptime Kuma
+slug: surveillez-vos-applications-avec-uptime-kuma
 date: 2024-12-04T09:09:15.050Z
 useRelativeCover: true
 cover: cover.webp

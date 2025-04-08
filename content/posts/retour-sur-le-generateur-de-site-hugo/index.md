@@ -1,5 +1,6 @@
 ---
 title: Retour sur le générateur de site Hugo
+slug: retour-sur-le-generateur-de-site-hugo
 date: 2024-07-17T15:25:38Z
 useRelativeCover: true
 cover: cover.webp

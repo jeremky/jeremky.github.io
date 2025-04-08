@@ -1,5 +1,6 @@
 ---
 title: "Webtop : Linux via son navigateur Internet"
+slug: webtop-linux-via-navigateur-internet
 date: 2025-03-06T16:21:02.059Z
 useRelativeCover: true
 cover: cover.webp

@@ -1,5 +1,6 @@
 ---
 title: Monter un serveur Teeworlds
+slug: monter-un-serveur-teeworlds
 date: 2023-08-30T17:03:15Z
 useRelativeCover: true
 cover: cover.webp

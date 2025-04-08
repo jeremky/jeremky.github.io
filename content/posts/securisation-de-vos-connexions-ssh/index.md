@@ -1,5 +1,6 @@
 ---
 title: Sécurisation de vos connexions SSH
+slug: securisation-de-vos-connexions-ssh
 date: 2024-05-19T17:16:47Z
 useRelativeCover: true
 cover: cover.webp

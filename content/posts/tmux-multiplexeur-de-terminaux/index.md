@@ -1,5 +1,6 @@
 ---
 title: "tmux : multiplexeur de terminaux"
+slug: tmux-multiplexeur-de-terminaux
 date: 2025-01-22T22:06:43.470Z
 useRelativeCover: true
 cover: cover.webp

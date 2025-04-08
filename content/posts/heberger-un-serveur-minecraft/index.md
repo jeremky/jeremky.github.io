@@ -1,5 +1,6 @@
 ---
 title: Héberger un serveur Minecraft
+slug: heberger-un-serveur-minecraft
 date: 2023-12-31T17:11:04Z
 useRelativeCover: true
 cover: cover.webp

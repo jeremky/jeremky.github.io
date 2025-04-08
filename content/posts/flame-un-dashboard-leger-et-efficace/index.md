@@ -1,5 +1,6 @@
 ---
 title: "Flame : un Dashboard léger et efficace"
+slug: flame-un-dashboard-leger-et-efficace
 date: 2024-11-23T20:42:50.155Z
 useRelativeCover: true
 cover: cover.webp

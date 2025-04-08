@@ -1,5 +1,6 @@
 ---
 title: Filtrage des requêtes DNS
+slug: filtrage-des-requetes-dns
 date: 2023-12-30T17:10:13Z
 useRelativeCover: true
 cover: cover.webp
