@@ -84,7 +84,10 @@ PUID=1000
 PGID=1000
 TZ=Europe/Paris
 SUBFOLDER=/backend/
+DISABLE_IPFS=false
 ```
+
+> Si vous n'avez pas l'intention d'ajouter des jeux par la suite, passez la variable `DISABLE_IPFS` à `true` pour économiser de la ressource
 
 Pour le déploiement à l'aide de ces fichiers, vous devrez utiliser un reverse proxy. Vous aurez ce qu'il faut pour en mettre un en place sur [cette page](/posts/reverse-proxy-nginx/). Un fichier de configuration pour EmulatorJS est fourni dans l'image du proxy nginx.
 
