@@ -1,7 +1,8 @@
 ---
 title: Déménagement du site
 date: 2025-03-24T18:27:50+01:00
-cover: /posts/demenagement-du-site/cover.webp
+useRelativeCover: true
+cover: cover.webp
 tags:
   - infos
 categories:

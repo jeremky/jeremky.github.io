@@ -1,7 +1,8 @@
 ---
 title: "Portainer : Administrer vos conteneurs via une interface web"
 date: 2024-10-19T12:50:53+02:00
-cover: /posts/portainer-administrer-vos-conteneurs-via-une-interface-web/cover.webp
+useRelativeCover: true
+cover: cover.webp
 tags:
   - admin
   - docker

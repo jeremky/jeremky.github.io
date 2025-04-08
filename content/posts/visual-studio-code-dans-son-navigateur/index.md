@@ -1,7 +1,8 @@
 ---
 title: Visual Studio Code dans son navigateur
 date: 2024-10-26T13:22:59.705Z
-cover: /posts/visual-studio-code-dans-son-navigateur/cover.webp
+useRelativeCover: true
+cover: cover.webp
 tags:
   - docker
   - podman

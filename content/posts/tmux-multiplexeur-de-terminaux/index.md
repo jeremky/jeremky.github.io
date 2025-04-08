@@ -1,7 +1,8 @@
 ---
 title: "tmux : multiplexeur de terminaux"
 date: 2025-01-22T22:06:43.470Z
-cover: /posts/tmux-multiplexeur-de-terminaux/cover.webp
+useRelativeCover: true
+cover: cover.webp
 tags:
   - linux
 categories:

@@ -1,7 +1,8 @@
 ---
 title: Utilisation de transfer.sh
 date: 2023-10-12T17:07:52Z
-cover: /posts/utilisation-de-transfer.sh/cover.webp
+useRelativeCover: true
+cover: cover.webp
 tags:
   - docker
   - podman

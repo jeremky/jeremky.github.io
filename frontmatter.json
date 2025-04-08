@@ -42,6 +42,11 @@
           "type": "datetime"
         },
         {
+          "title": "useRelativeCover",
+          "name": "useRelativeCover",
+          "type": "boolean"
+        },
+        {
           "title": "cover",
           "name": "cover",
           "type": "image",

@@ -1,7 +1,8 @@
 ---
 title: Héberger un serveur Xonotic
 date: 2024-05-31T17:21:09Z
-cover: /posts/heberger-un-serveur-xonotic/cover.webp
+useRelativeCover: true
+cover: cover.webp
 tags:
   - jeux
   - docker

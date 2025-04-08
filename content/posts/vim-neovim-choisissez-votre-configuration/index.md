@@ -1,7 +1,8 @@
 ---
 title: "Vim / Neovim : choisissez votre configuration"
 date: 2025-03-14T16:29:39.000Z
-cover: /posts/vim-neovim-choisissez-votre-configuration/cover.webp
+useRelativeCover: true
+cover: cover.webp
 tags:
   - linux
 categories:
@@ -20,7 +21,7 @@ Dans cet article, nous allons voir différentes configurations pour Vim et NeoVi
 
 Si vous voulez utiliser Vim en tant qu'éditeur simple, que vous voulez un fichier unique, sans plugins, mais avec tout de même quelques fonctionnalités, ainsi que le thème OneHalfDark, voici le fichier `.vimrc`, à créer dans votre dossier personnel :
 
-```vim
+{{< code language="vim" title="Fichier .vimrc" id="1" expand="Afficher" collapse="Cacher" isCollapsed="true" >}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Configuration de Vim
 
@@ -293,7 +294,7 @@ call s:h("Ignore", s:fg, "", "")
 call s:h("Error", s:red, s:gutter_bg, "")
 call s:h("Todo", s:purple, "", "")
 " }
-```
+{{< /code >}}
 
 Ouais... Le fichier est assez costaud, mais cela permet de ne pas être dépendant de fichiers supplémentaires.
 
@@ -307,7 +308,7 @@ sudo apt install vim
 
 La configuration ci-dessous est celle que j'ai présenté dans l'article sur [NeoVim](/posts/neovim-un-fork-de-vim-moderne/), mais adaptée à Vim. Là encore, collez ce contenu dans un fichier nommé `.vimrc` dans votre dossier personnel :
 
-```Vim
+{{< code language="vim" title="Fichier .vimrc avec plugins" id="2" expand="Afficher" collapse="Cacher" isCollapsed="true" >}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Configuration de Vim
 
@@ -496,7 +497,7 @@ if filereadable(expand("~/.vim/plugged/vim-gitgutter/autoload/gitgutter.vim"))
   nnoremap <C-g> :GitGutterToggle <CR>
   let gitgutter_enabled = 0
 endif
-```
+{{< /code >}}
 
 Via cette configuration, vous disposerez d'une meilleure compréhension du code, un explorateur de fichiers avancé, une gestion de Git, de la complétion...
 

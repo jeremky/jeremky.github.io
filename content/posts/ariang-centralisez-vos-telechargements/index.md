@@ -1,7 +1,8 @@
 ---
 title: "AriaNG : centralisez vos téléchargements"
 date: 2024-12-13T18:07:03.000Z
-cover: /posts/ariang-centralisez-vos-telechargements/cover.webp
+useRelativeCover: true
+cover: cover.webp
 tags:
   - fichiers
   - docker

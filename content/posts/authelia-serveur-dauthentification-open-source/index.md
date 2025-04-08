@@ -1,7 +1,8 @@
 ---
 title: "Authelia : serveur d'authentification Open Source"
 date: 2024-11-11T23:34:44.392Z
-cover: /posts/authelia-serveur-dauthentification-open-source/cover.webp
+useRelativeCover: true
+cover: cover.webp
 tags:
   - admin
   - docker

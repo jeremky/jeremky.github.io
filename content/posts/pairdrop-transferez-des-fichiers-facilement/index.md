@@ -1,7 +1,8 @@
 ---
 title: "Pairdrop : transférez des fichiers facilement"
 date: 2024-12-21T18:07:50.000Z
-cover: /posts/pairdrop-transferez-des-fichiers-facilement/cover.webp
+useRelativeCover: true
+cover: cover.webp
 tags:
   - fichiers
   - docker

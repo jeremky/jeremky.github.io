@@ -1,7 +1,8 @@
 ---
 title: Configuration du thème Catppuccin
 date: 2025-03-27T21:18:43+01:00
-cover: /posts/configuration-du-theme-catppuccin/cover.webp
+useRelativeCover: true
+cover: cover.webp
 tags:
   - linux
 categories:

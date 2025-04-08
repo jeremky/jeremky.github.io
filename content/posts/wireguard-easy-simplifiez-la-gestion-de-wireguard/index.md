@@ -1,7 +1,8 @@
 ---
 title: "Wireguard Easy : Simplifiez la gestion de Wireguard"
 date: 2024-11-17T15:32:00.326Z
-cover: /posts/wireguard-easy-simplifiez-la-gestion-de-wireguard/cover.webp
+useRelativeCover: true
+cover: cover.webp
 tags:
   - reseau
   - docker

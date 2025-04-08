@@ -1,7 +1,8 @@
 ---
 title: "Transmission : un client torrent en Web"
 date: 2024-11-23T01:22:38.060Z
-cover: /posts/transmission-un-client-torrent-web/cover.webp
+useRelativeCover: true
+cover: cover.webp
 tags:
   - fichiers
   - docker

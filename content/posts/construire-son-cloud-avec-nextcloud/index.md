@@ -1,7 +1,8 @@
 ---
 title: Construire son cloud avec Nextcloud
 date: 2024-08-03T15:34:10+02:00
-cover: /posts/construire-son-cloud-avec-nextcloud/cover.webp
+useRelativeCover: true
+cover: cover.webp
 tags:
   - fichiers
   - docker

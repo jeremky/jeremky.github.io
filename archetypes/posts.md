@@ -1,7 +1,8 @@
 ---
 title: {{ replace .Name "-" " " | title }}
 date: {{ .Date }}
-cover: /posts/{{ .File.ContentBaseName }}/cover.webp
+useRelativeCover: true
+cover: cover.webp
 tags:
   - docker
   - podman

@@ -1,7 +1,8 @@
 ---
 title: "NeoVim : un fork de Vim moderne"
 date: 2025-01-25T19:41:07.554Z
-cover: /posts/neovim-un-fork-de-vim-moderne/cover.webp
+useRelativeCover: true
+cover: cover.webp
 tags:
   - linux
 categories:

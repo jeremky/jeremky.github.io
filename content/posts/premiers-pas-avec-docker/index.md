@@ -1,7 +1,8 @@
 ---
 title: Premiers pas avec Docker
 date: 2023-08-24T16:03:12Z
-cover: /posts/premiers-pas-avec-docker/cover.webp
+useRelativeCover: true
+cover: cover.webp
 tags:
     - docker
 categories:

@@ -1,7 +1,8 @@
 ---
 title: Utilisation de Docker Compose
 date: 2023-08-24T18:20:29Z
-cover: /posts/utilisation-de-docker-compose/cover.webp
+useRelativeCover: true
+cover: cover.webp
 tags:
   - docker
 categories:

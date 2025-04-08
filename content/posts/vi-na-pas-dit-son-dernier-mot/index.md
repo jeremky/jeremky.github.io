@@ -1,7 +1,8 @@
 ---
 title: "Vi n'a pas dit son dernier mot"
 date: 2024-05-01T17:12:08Z
-cover: /posts/vi-na-pas-dit-son-dernier-mot/cover.webp
+useRelativeCover: true
+cover: cover.webp
 tags:
     - linux
 categories:

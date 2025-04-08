@@ -1,7 +1,8 @@
 ---
 title: Informations au sujet du site
 date: 2024-06-21T17:24:26Z
-cover: /posts/informations-au-sujet-du-site/cover.webp
+useRelativeCover: true
+cover: cover.webp
 tags:
     - infos
 categories:

@@ -1,7 +1,8 @@
 ---
 title: Serveur Minecraft Infinity Dungeon
 date: 2024-08-05T20:56:18+02:00
-cover: /posts/serveur-minecraft-infinity-dungeon/cover.webp
+useRelativeCover: true
+cover: cover.webp
 tags:
   - jeux
   - docker

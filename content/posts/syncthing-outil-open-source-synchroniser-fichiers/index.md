@@ -1,7 +1,8 @@
 ---
 title: "Syncthing : outil open source pour synchroniser vos fichiers"
 date: 2024-12-18T18:07:32.000Z
-cover: /posts/syncthing-outil-open-source-synchroniser-fichiers/cover.webp
+useRelativeCover: true
+cover: cover.webp
 tags:
   - fichiers
   - docker

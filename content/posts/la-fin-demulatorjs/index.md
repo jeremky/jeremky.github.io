@@ -1,7 +1,8 @@
 ---
 title: La fin d'EmulatorJS
 date: 2024-05-26T17:17:57Z
-cover: /posts/la-fin-demulatorjs/cover.webp
+useRelativeCover: true
+cover: cover.webp
 tags:
   - infos
   - jeux

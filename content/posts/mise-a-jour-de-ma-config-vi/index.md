@@ -1,7 +1,8 @@
 ---
 title: Mise à jour de ma configuration Vi
 date: 2024-09-18T16:33:53+02:00
-cover: /posts/mise-a-jour-de-ma-config-vi/cover.webp
+useRelativeCover: true
+cover: cover.webp
 tags:
   - linux
 categories:

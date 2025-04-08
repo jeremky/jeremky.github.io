@@ -1,7 +1,8 @@
 ---
 title: Créer son dashboard avec Heimdall
 date: 2024-07-25T20:40:43+02:00
-cover: /posts/creer-son-dashboard-avec-heimdall/cover.webp
+useRelativeCover: true
+cover: cover.webp
 tags:
   - docker
   - podman

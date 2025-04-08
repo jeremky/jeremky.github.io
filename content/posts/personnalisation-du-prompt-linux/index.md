@@ -1,7 +1,8 @@
 ---
 title: Personnalisation du prompt Linux
 date: 2024-05-02T17:13:12Z
-cover: /posts/personnalisation-du-prompt-linux/cover.webp
+useRelativeCover: true
+cover: cover.webp
 tags:
   - linux
 categories:

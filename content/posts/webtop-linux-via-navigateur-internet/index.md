@@ -1,7 +1,8 @@
 ---
 title: "Webtop : Linux via son navigateur Internet"
 date: 2025-03-06T16:21:02.059Z
-cover: /posts/webtop-linux-via-navigateur-internet/cover.webp
+useRelativeCover: true
+cover: cover.webp
 tags:
   - docker
   - podman

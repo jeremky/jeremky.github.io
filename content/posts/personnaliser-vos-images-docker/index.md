@@ -1,7 +1,8 @@
 ---
 title: Personnaliser vos images Docker
 date: 2024-11-02T00:22:28.896Z
-cover: /posts/personnaliser-vos-images-docker/cover.webp
+useRelativeCover: true
+cover: cover.webp
 tags:
   - docker
   - podman

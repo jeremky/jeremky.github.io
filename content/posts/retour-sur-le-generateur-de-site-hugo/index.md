@@ -1,7 +1,8 @@
 ---
 title: Retour sur le générateur de site Hugo
 date: 2024-07-17T15:25:38Z
-cover: /posts/retour-sur-le-generateur-de-site-hugo/cover.webp
+useRelativeCover: true
+cover: cover.webp
 tags:
     - infos
 categories:

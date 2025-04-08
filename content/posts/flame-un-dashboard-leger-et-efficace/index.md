@@ -1,7 +1,8 @@
 ---
 title: "Flame : un Dashboard léger et efficace"
 date: 2024-11-23T20:42:50.155Z
-cover: /posts/flame-un-dashboard-leger-et-efficace/cover.webp
+useRelativeCover: true
+cover: cover.webp
 tags:
   - docker
   - podman

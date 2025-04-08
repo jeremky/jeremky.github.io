@@ -1,7 +1,8 @@
 ---
 title: "Diun : être notifié des nouvelles images Docker"
 date: 2024-12-02T19:09:00.558Z
-cover: /posts/diun-etre-notifie-des-nouvelles-images-docker/cover.webp
+useRelativeCover: true
+cover: cover.webp
 tags:
   - docker
   - podman

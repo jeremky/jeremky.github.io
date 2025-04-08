@@ -1,7 +1,8 @@
 ---
 title: Déploiement du CMS Ghost avec Docker
 date: 2024-07-23T20:00:26+02:00
-cover: /posts/deploiement-du-cms-ghost-avec-docker/cover.webp
+useRelativeCover: true
+cover: cover.webp
 tags:
   - docker
   - podman

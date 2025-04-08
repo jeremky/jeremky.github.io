@@ -1,7 +1,8 @@
 ---
 title: Refonte du site
 date: 2023-12-25T17:09:08Z
-cover: /posts/refonte-du-site/cover.webp
+useRelativeCover: true
+cover: cover.webp
 tags:
     - infos
 categories:

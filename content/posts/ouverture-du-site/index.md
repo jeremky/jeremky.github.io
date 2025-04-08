@@ -1,7 +1,8 @@
 ---
 title: Ouverture du site
 date: 2023-08-21T15:34:46Z
-cover: /posts/ouverture-du-site/cover.webp
+useRelativeCover: true
+cover: cover.webp
 tags:
   - infos
 categories:
