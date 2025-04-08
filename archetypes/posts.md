@@ -1,5 +1,6 @@
 ---
 title: {{ replace .Name "-" " " | title }}
+slug: {{ .Name }}
 date: {{ .Date }}
 useRelativeCover: true
 cover: cover.webp

@@ -19,4 +19,4 @@ L'idée de ce site web est de partager mes différentes expériences autour de l
 
 ## Flux RSS
 
-Vous pouvez resté informé des nouveaux articles directement par son flux RSS : [https://jeremky.github.io/posts/index.xml](https://jeremky.github.io/posts/index.xml).
+Vous pouvez rester informé des nouveaux articles directement par son flux RSS : [https://jeremky.github.io/posts/index.xml](https://jeremky.github.io/posts/index.xml).
