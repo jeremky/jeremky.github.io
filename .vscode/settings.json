@@ -1,0 +1,15 @@
+{
+  "[markdown]": {
+  },
+  "files.autoSave": "afterDelay",
+  "editor.fontSize": 14,
+  "editor.tabSize": 2,
+  "files.exclude": {
+    "**/.frontmatter": true,
+    "**/.github": true,
+    "**/.gitignore": true,
+    "**/.hugo_build.lock": true,
+    "**/.vscode": true,
+    "**/frontmatter.json": true
+  }
+}

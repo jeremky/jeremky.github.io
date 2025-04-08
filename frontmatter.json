@@ -1,0 +1,73 @@
+{
+  "$schema": "https://frontmatter.codes/frontmatter.schema.json",
+  "frontMatter.framework.id": "hugo",
+  "frontMatter.preview.host": "http://localhost:1313",
+  "frontMatter.content.publicFolder": "[[workspace]]/content",
+  "frontMatter.content.pageFolders": [
+    {
+      "title": "posts",
+      "path": "[[workspace]]/content/posts",
+      "filePrefix": ""
+    }
+  ],
+  "frontMatter.website.host": "https://jeremky.github.io",
+  "frontMatter.framework.startCommand": "hugo server -D",
+  "frontMatter.custom.scripts": [
+    {
+      "title": "Générer le site",
+      "id": "hugoscript",
+      "script": "[[workspace]]/hugo.sh",
+      "command": "/bin/bash"
+    }
+  ],
+  "frontMatter.panel.actions.disabled": [
+    "createContent",
+    "optimizeSlug",
+    "openOnWebsite"
+  ],
+  "frontMatter.taxonomy.contentTypes": [
+    {
+      "name": "default",
+      "pageBundle": false,
+      "previewPath": "posts",
+      "fields": [
+        {
+          "title": "title",
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "title": "date",
+          "name": "date",
+          "type": "datetime"
+        },
+        {
+          "title": "cover",
+          "name": "cover",
+          "type": "image",
+          "isPreviewImage": true
+        },
+        {
+          "title": "tags",
+          "name": "tags",
+          "type": "tags"
+        },
+        {
+          "title": "categories",
+          "name": "categories",
+          "type": "categories"
+        },
+        {
+          "title": "toc",
+          "name": "toc",
+          "type": "boolean"
+        },
+        {
+          "title": "draft",
+          "name": "draft",
+          "type": "draft"
+        }
+      ]
+    }
+  ]
+}
