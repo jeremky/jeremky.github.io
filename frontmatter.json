@@ -74,5 +74,49 @@
         }
       ]
     }
-  ]
+  ],
+  "frontMatter.snippets.wrapper.enabled": false,
+  "frontMatter.content.snippets": {
+    "Image": {
+      "description": "Ajouter une image",
+      "body": "{{< image src=\"[[image]]\" style=\"border-radius: 8px;\" >}}",
+      "fields": [
+        {
+          "name": "image",
+          "title": "Image",
+          "type": "string",
+          "single": true,
+          "default": ""
+        }
+      ]
+    },
+    "Code": {
+      "description": "Ajouter du code",
+      "body": [
+        "{{< code language=\"[[code]]\" title=\"[[titre]]\" id=\"1\" expand=\"Afficher\" collapse=\"Cacher\" isCollapsed=\"true\" >}}",
+        "",
+        "{{< /code >}}"
+      ],
+      "fields": [
+        {
+          "name": "code",
+          "title": "Langage",
+          "type": "choice",
+          "choices": [
+            "bash",
+            "vim",
+            "yml"
+          ],
+          "default": "bash"
+        },
+        {
+          "name": "titre",
+          "title": "Titre",
+          "type": "string",
+          "single": true,
+          "default": ""
+        }
+      ]
+    }
+  }
 }
