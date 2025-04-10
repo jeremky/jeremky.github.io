@@ -48,7 +48,7 @@ Dans les volumes, se trouve le lien avec le fichier `docker.sock`. Cela permet �
 
 ### Reverse proxy
 
-Les fichiers de configuration ci-dessus sont prévus pour être utilisé avec un reverse proxy.
+Le fichier de configuration ci-dessus est prévu pour être utilisé avec un reverse proxy.
 
 > Pour rappel, un article dédié est [disponible ici](/posts/reverse-proxy-nginx/).
 

@@ -68,7 +68,7 @@ A noter que les DNS que j'utilise sont ceux de Cloudflare, ceux bloquant les mal
 
 ### Reverse proxy
 
-Les fichiers de configuration ci-dessus sont prévus pour être utilisé avec un reverse proxy.
+Les fichiers de configuration ci-dessus sont prévus pour être utilisés avec un reverse proxy.
 
 > Pour rappel, un article dédié est [disponible ici](/posts/reverse-proxy-nginx/).
 
