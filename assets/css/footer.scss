@@ -48,4 +48,17 @@
       margin-top: 10px;
     }
   }
+
+  .rss-icon {
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+    vertical-align: middle;
+    opacity: 0.6;
+    transition: opacity 0.2s ease;
+  }
+
+  .rss-icon-link:hover .rss-icon {
+    opacity: 1;
+  }
 }
