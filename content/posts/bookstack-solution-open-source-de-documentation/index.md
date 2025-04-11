@@ -88,7 +88,6 @@ APP_KEY=
 #MAIL_PORT=25
 #MAIL_FROM=
 #MAIL_FROM_NAME=
-#DRAWIO=https://draw.mondomaine.fr/?embed=1&proto=json&spin=1&configure=1
 ```
 
 Avant de lancer le déploiement de votre fichier `compose.yml`, vous devez générer une clé pour la variable `APP_KEY`. Pour cela, dans votre terminal : 
@@ -130,12 +129,42 @@ Par défaut, les informations de connexion sont les suivantes :
 
 ## Configuration
 
-bla bla bla
+Une fois connecté, Vous allez pouvoir vous rendre dans les préférences en haut à droite de l'interface. L'interface est suffisamment claire, va vous permettre d'effectuer les réglages suivantes : 
+
+- Personnalisation de l'interface, en changeant le logo, les couleurs...
+- Création / Modification des utilisateurs, et des différents roles
+- Maintenance de l'application
+
+Commencez par modifier les informations de l'utilisateur admin de base pour y changer l'adresse email et le mot de passe :
+
+
 
 ## Rédaction
 
-bla bla
+Bookstack dispose d'une logique particulière pour le tri de la documentation. Au lieu de fonctionner par thème, catégorie, Il repose sur une logique "physique" : étagères, livres, chapitres, et pages. Commencez donc par créer votre 1ère étagère :
+
+{{< image src="etagere.webp" style="border-radius: 8px;" >}}
+
+Répétez l'opération pour créer votre 1er livre. Vous aurez ensuite le choix de créer directement une page, ou de subdiviser via des chapitres. Pour la démo, nous allons passer directement à la partie rédaction d'une page :
+
+{{< image src="edition.webp" style="border-radius: 8px;" >}}
+
+L'éditeur par défaut est WYSIWYG (pour What You See Is What You Get). Très facile à prendre en main, mais si vous préférez rédiger en Markdown, c'est possible !
+
+Une fois votre page rédigée, sachez qu'il est possible de l'exporter sous différents formats, de consulter les révisions, ou de placer des commentaires ::
+
+{{< image src="export.webp" style="border-radius: 8px;" >}}
+
+## Diagrammes
+
+Petite précision au sujet des diagrammes. Bookstack se base sur l'excellent [Draw.io](https://www.drawio.com/) en version web. Lorsque vous voulez ajouter un diagramme, vous allez être directement redirigé vers [app.diagrams.net](https://app.diagrams.net) pour construire votre diagramme. Une fois que vous aurez cliqué sur `Enregister`, il sera placé sur votre page :
+
+{{< image src="diagram.webp" style="border-radius: 8px;" >}}
+
+Attention, il n'est à ma connaissance pas possible de modifier le diagramme à posteriori.
+
+A noter qu'il est possible d'héberger une instance Draw.io et de la faire communiquer avec Bookstack. Ce sera le sujet du prochain article.
 
 ## Conclusion
 
-bla bla
+De part sa philosophie d'organisation et sa simplicité d'utilisation, Bookstack est une excellente solution à envisager si vous avez besoin d'un lieu où stocker de la documentation. De plus, il est libre, et facile à déployer. Je le recommande !

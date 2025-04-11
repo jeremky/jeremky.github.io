@@ -79,7 +79,7 @@
   "frontMatter.content.snippets": {
     "Image": {
       "description": "Ajouter une image",
-      "body": "{{< image src=\"[[image]]\" style=\"border-radius: 8px;\" >}}",
+      "body": "{{< image src=\"[[image]].webp\" style=\"border-radius: 8px;\" >}}",
       "fields": [
         {
           "name": "image",
