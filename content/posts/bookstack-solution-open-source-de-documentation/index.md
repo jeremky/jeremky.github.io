@@ -1,7 +1,7 @@
 ---
 title: "Bookstack : solution open source de documentation"
 slug: bookstack-solution-open-source-de-documentation
-date: 2025-04-09T18:32:22+02:00
+date: 2025-04-12T23:39:33.556Z
 useRelativeCover: true
 cover: cover.webp
 tags:
@@ -10,7 +10,7 @@ tags:
 categories:
   - Tutos
 toc: true
-draft: true
+draft: false
 ---
 
 [Bookstack](https://www.bookstackapp.com/) est une plateforme open source, auto-hébergée et facile à utiliser pour organiser et stocker des informations. Développée en PHP avec le framework Laravel, elle est publiée sous licence MIT. BookStack structure le contenu en utilisant des étagères, des livres, des chapitres et des pages, offrant ainsi une organisation claire et intuitive.  ￼ ￼ ￼
@@ -55,7 +55,7 @@ networks:
     external: false
 ```
 
-Les variables se répartissent dans 2 fichiers `.env`. 1 pour le conteneur mariadb et un pour l'application elle-même.
+Les variables se répartissent dans 2 fichiers `.env` : un pour le conteneur mariadb et un pour l'application elle-même.
 
 Le fichier `bookstack-db.env` :
 
@@ -83,11 +83,11 @@ DB_USERNAME=bookstack
 DB_PASSWORD=PASSWORD
 DB_DATABASE=bookstackapp
 APP_KEY=
-#MAIL_DRIVER=smtp
-#MAIL_HOST=
-#MAIL_PORT=25
-#MAIL_FROM=
-#MAIL_FROM_NAME=
+MAIL_DRIVER=smtp
+MAIL_HOST=
+MAIL_PORT=25
+MAIL_FROM=
+MAIL_FROM_NAME=
 ```
 
 Avant de lancer le déploiement de votre fichier `compose.yml`, vous devez générer une clé pour la variable `APP_KEY`. Pour cela, dans votre terminal : 
@@ -129,15 +129,15 @@ Par défaut, les informations de connexion sont les suivantes :
 
 ## Configuration
 
-Une fois connecté, Vous allez pouvoir vous rendre dans les préférences en haut à droite de l'interface. L'interface est suffisamment claire, va vous permettre d'effectuer les réglages suivantes : 
+Une fois connecté, Vous allez pouvoir vous rendre dans les préférences en haut à droite de l'interface. L'interface, suffisamment claire, va vous permettre d'effectuer les réglages suivantes : 
 
-- Personnalisation de l'interface, en changeant le logo, les couleurs...
+- Personnalisation du design, en changeant le logo, les couleurs...
 - Création / Modification des utilisateurs, et des différents roles
 - Maintenance de l'application
 
 Commencez par modifier les informations de l'utilisateur admin de base pour y changer l'adresse email et le mot de passe :
 
-
+{{< image src="profil.webp" style="border-radius: 8px;" >}}
 
 ## Rédaction
 
