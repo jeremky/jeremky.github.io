@@ -114,7 +114,7 @@ Une fois votre application déployée, vous avez besoin de modifier la configura
 Pour cela, ajoutez cette variable d'environnement dans votre fichier `boostack.env` :
 
 ```txt
-DRAWIO=https://draw.mondomaine.fr/?embed=1&proto=json&spin=1&configure=1
+DRAWIO=https://drawio.mondomaine.fr/?embed=1&proto=json&spin=1&configure=1
 ```
 
 Redéployez ensuite votre Bookstack (un simple arrêt / relance ne suffira pas).
