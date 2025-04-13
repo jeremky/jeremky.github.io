@@ -1,7 +1,7 @@
 ---
 title: "Draw.io : créez gratuitement des diagrammes"
 slug: draw.io-creez-gratuitement-des-diagrammes
-date: 2025-04-10T16:53:12+02:00
+date: 2025-04-13T18:54:08.546Z
 useRelativeCover: true
 cover: cover.webp
 tags:
@@ -10,7 +10,7 @@ tags:
 categories:
   - Tutos
 toc: true
-draft: true
+draft: false
 ---
 
 Draw.io ([diagrams.net](https://app.diagrams.net/)) est un outil gratuit de création de diagrammes en ligne, utilisé pour concevoir facilement des schémas variés tels que des organigrammes, des diagrammes de flux, des cartes mentales, des maquettes de réseau ou encore des diagrammes UML. 
@@ -103,5 +103,18 @@ Et enfin, un petit redémarrage pour la prise en compte du nouveau fichier :
 sudo docker restart nginx
 ```
 
-## Vérification de l'installation
+## Stockage ?
 
+Contrairement à la version officielle ([diagrams.net](https://app.diagrams.net/)), cette configuration ne permet d'utiliser que le stockage local. Je n'ai pas vérifié s'il était possible d'ajouter différentes configurations, l'objectif de ce déploiement étant surtout une utilisation couplée avec [Bookstack](/posts/bookstack-solution-open-source-de-documentation).
+
+## Bookstack
+
+Une fois votre application déployée, vous avez besoin de modifier la configuration de votre instance Bookstack afin d'appeler l'url de votre Draw.io tout neuf.
+
+Pour cela, ajoutez cette variable d'environnement dans votre fichier `boostack.env` :
+
+```txt
+DRAWIO=https://draw.mondomaine.fr/?embed=1&proto=json&spin=1&configure=1
+```
+
+Redéployez ensuite votre Bookstack (un simple arrêt / relance ne suffira pas).
