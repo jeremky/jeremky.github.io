@@ -9,21 +9,23 @@ enableEmoji = true
   unsafe = false
 
 [params]
-  # OgImage
-  #images = ["https://www.jeremky.fr/img/apple-touch-icon-144-precomposed.png"]
-  # dir name of your blog content
+
+  # Image OpenGrapher
+  #images = ["https://jeremky.github.io/img/apple-touch-icon-144-precomposed.png"]
+
+  # Chemin du dossier du blog
   contentTypeName = "posts"
 
-  # OS theme is default when not provided, but you can force it to "light" or "dark"
+  # Couleur du thème : "light" ou "dark"
   # defaultTheme = "dark"
 
-  # if you set this to 0, only submenu trigger will be visible
+  # Nombre d'éléments du menu
   showMenuItems = 4 
 
-  # Show reading time in minutes for posts
+  # Afficher le temps de lecteur
   showReadingTime = true
 
-  # Show full page content in RSS feed items
+  # Gestion du RSS
   rssFullText = false
   rssImage = "https://jeremky.github.io/img/favicon.png"
 
