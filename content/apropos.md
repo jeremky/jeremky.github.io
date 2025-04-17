@@ -17,6 +17,10 @@ L'idée de ce site web est de partager mes différentes expériences autour de l
 - Outils pratiques : Neovim, tmux, et d’autres trucs bien utiles pour bosser plus efficacement
 - Partage et synchronisation : Quelques solutions sympas pour gérer ses fichiers sans galère
 
-## Flux RSS
+### Tags
+
+Si vous désirez consulter les différents tags, ils sont accessible à [ce lien](https://jeremky.github.io/tags).
+
+### Flux RSS
 
 Vous pouvez rester informé des nouveaux articles directement par son flux RSS : [https://jeremky.github.io/posts/index.xml](https://jeremky.github.io/posts/index.xml).
