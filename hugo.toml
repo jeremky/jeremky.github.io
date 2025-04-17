@@ -12,7 +12,7 @@ enableEmoji = true
 
   # OpenGraph
   images = ["https://jeremky.github.io/img/apple-touch-icon-144-precomposed.png"]
-  description = "News et tutos autour du déploiement d'applications orientées serveur facile à déployer chez soi"
+  description = "News et tutos autour du déploiement d'applications orientées serveur faciles à déployer chez soi"
 
   # Chemin du dossier du blog
   contentTypeName = "posts"
