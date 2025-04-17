@@ -20,7 +20,7 @@ enableEmoji = true
   # defaultTheme = "dark"
 
   # Nombre d'éléments du menu
-  showMenuItems = 5
+  showMenuItems = 4
 
   # Afficher le temps de lecteur
   showReadingTime = true
@@ -74,7 +74,3 @@ enableEmoji = true
         identifier = "news"
         name = "News"
         url = "/categories/news"
-      [[languages.fr.menu.main]]
-        identifier = "tags"
-        name = "Tags"
-        url = "/categories/tags"
