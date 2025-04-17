@@ -40,7 +40,7 @@ enableEmoji = true
 [languages]
   [languages.fr.params]
     title = "JeremKy.github.io"
-    #subtitle = "Services en auto-hébergement"
+    subtitle = "Services en auto-hébergement"
     keywords = ""
     copyright = ""
     menuMore = "Menu"
