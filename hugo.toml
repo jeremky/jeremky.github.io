@@ -11,7 +11,7 @@ enableEmoji = true
 [params]
 
   # Image OpenGrapher
-  #images = ["https://jeremky.github.io/img/apple-touch-icon-144-precomposed.png"]
+  images = ["https://jeremky.github.io/img/apple-touch-icon-144-precomposed.png"]
 
   # Chemin du dossier du blog
   contentTypeName = "posts"
@@ -20,7 +20,7 @@ enableEmoji = true
   # defaultTheme = "dark"
 
   # Nombre d'éléments du menu
-  showMenuItems = 4 
+  showMenuItems = 5
 
   # Afficher le temps de lecteur
   showReadingTime = true
@@ -74,3 +74,7 @@ enableEmoji = true
         identifier = "news"
         name = "News"
         url = "/categories/news"
+      [[languages.fr.menu.main]]
+        identifier = "tags"
+        name = "Tags"
+        url = "/categories/tags"
