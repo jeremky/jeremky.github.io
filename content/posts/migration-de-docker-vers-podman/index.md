@@ -84,7 +84,7 @@ sudo ufw allow in on podman1
 
 Ce script avait été créé pour faciliter l'utilisation de Docker. Ce dernier a été transformé pour fonctionner maintenant avec Docker et Podman. La plupart des commandes sont identiques. Vous y trouverez également des exemples de fichiers `compose.yml` adaptés à Podman.
 
-Pour récupérer la nouvelle version, [c'est ici](/files/jdocker.sh).
+Pour récupérer la nouvelle version, [c'est ici](/files/jdocker.tar.gz).
 
 ## Conclusion
 
