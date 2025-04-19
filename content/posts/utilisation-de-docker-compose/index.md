@@ -115,4 +115,4 @@ Il intègre également un système de backup, et l'installation d'un outil pour 
 
 {{< image src="lazydocker.webp" style="border-radius: 8px;" >}}
 
-Le script `jdocker.sh` est téléchargeable [ici](/https://github.com/jeremky/jdocker.sh).
+Le script `jdocker.sh` est téléchargeable [ici](/files/jdocker.sh).
