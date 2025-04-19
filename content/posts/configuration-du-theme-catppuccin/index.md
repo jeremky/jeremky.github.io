@@ -63,7 +63,7 @@ fi
 
 Là encore, si vous ne connaissez pas tmux, je vous recommande d'aller consulter [l'article qui lui est dédié](/posts/tmux-multiplexeur-de-terminaux/).
 
-Pour tmux, n'utilisant pas toutes les fonctionnalités proposées, je vous mets à dispo [cette archive](/files/configuration-du-theme-catppuccin/tmux.tar.gz) contenant le nécessaire à extraire dans `~/.config/tmux`. Cette version se contente des couleurs, et de l'affichage du load average dans la barre de statut.
+Pour tmux, n'utilisant pas toutes les fonctionnalités proposées, je vous mets à dispo [cette archive](/files/tmux.tar.gz) contenant le nécessaire à extraire dans `~/.config/tmux`. Cette version se contente des couleurs, et de l'affichage du load average dans la barre de statut.
 
 Le résultat : 
 

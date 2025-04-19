@@ -518,7 +518,7 @@ Afin de profiter de plugins modernes écrits en Lua, il est nécessaire de dispo
 
 Pour l'installer, je vous ai préparé un petit script bash. Ce dernier va télécharger le binaire dans sa dernière version (selon votre architecture), va ajouter le lien dans votre variable `PATH` afin de l'appeler directement avec la commande `nvim`, et va également installer la distribution [LazyVim](https://www.lazyvim.org/).
 
-Vous trouverez le script d'installation en suivant [ce lien](/files/vim-neovim-choisissez-votre-configuration/nviminstall.tar.gz).
+Vous trouverez le script d'installation en suivant [ce lien](/files/nviminstall.tar.gz).
 
 Décompressez le fichier via la commande suivante : 
 

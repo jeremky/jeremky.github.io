@@ -70,7 +70,7 @@ A ceci :
 
 La personnalisation de Vi se fait dans un fichier que l'on nommera `vimrc` à placer ici : `/home/<user>/.vim/vimrc`). Il est possible d'indiquer des configurations propres à Vi, mais aussi de mapper des touches du clavier à certaines fonctions personnalisées. A noter aussi que Vi a son propre langage de scripting, afin par exemple de lui indiquer des conditions.
 
-Le plus simple, c'est que vous récupériez mon fichier `vimrc`, disponible [ici](/files/vi-na-pas-dit-son-dernier-mot/vimrc). Il est suffisamment commenté pour comprendre chaque paramètre.
+Le plus simple, c'est que vous récupériez mon fichier `vimrc`, disponible [ici](/files/vimrc). Il est suffisamment commenté pour comprendre chaque paramètre.
 
 Pour le mapping des touches, voici ce qui est en place grâce à ce fichier :
 
@@ -91,7 +91,7 @@ Il est disponible sur la plupart des outils d'édition, et sur les terminaux les
 
 Pour ajouter vos thèmes, il suffit de les déposer ici : `/home/votre_user/.vim/colors` (`mkdir -p $HOME/.vim/colors` si le dossier n'existe pas).
 
-Ayant apporté quelques modifications dessus, je vous partage ma version modifiée directement [ici](/files/vi-na-pas-dit-son-dernier-mot/onehalfdark.vim).
+Ayant apporté quelques modifications dessus, je vous partage ma version modifiée directement [ici](/files/onehalfdark.vim).
 
 Le fichier `vimrc` que j'ai mis à disposition plus haut chargera automatiquement ce thème si le fichier `onehalfdark.vim` est présent et que votre terminal est compatible.
 

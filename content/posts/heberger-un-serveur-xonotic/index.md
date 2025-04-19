@@ -54,7 +54,7 @@ services:
     restart: always
 ```
 
-Une fois le serveur démarré, ce dernier va créer l'arborescence des fichiers nécessaires dans le sous dossier `./files`. Vous devrez y déposer un fichier de configuration nommé `server.cfg` dans le sous dossier `data`. Vous trouverez un fichier de configuration en [exemple ici](/files/heberger-un-serveur-xonotic/server.cfg.sample). A modifier aux besoins !
+Une fois le serveur démarré, ce dernier va créer l'arborescence des fichiers nécessaires dans le sous dossier `./files`. Vous devrez y déposer un fichier de configuration nommé `server.cfg` dans le sous dossier `data`. Vous trouverez un fichier de configuration en [exemple ici](/files/xonotic.cfg). A modifier aux besoins !
 
 Une fois le fichier déposé, on redémarre le conteneur pour prise en compte :
 
