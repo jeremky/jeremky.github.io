@@ -540,7 +540,7 @@ Votre mot de passe vous sera demandé pour exécuter `apt`, afin d'installer les
 
 La configuration initiale est déjà excellente, mais il est possibles d'ajouter ses préférences de réglage, de mapping des touches, un thème différent etc...
 
-Les modifications que j'ai effectué sont disponibles et seront installées directement via le script [nviminstall.sh](/files/vim-neovim-choisissez-votre-configuration/nviminstall.tar.gz).
+Les modifications que j'ai effectué sont disponibles et seront installées directement via le script [nviminstall.sh](/files/nviminstall.tar.gz).
 
 Dans les modifications apportées, il y a le changement du thème par [Catppuccin](https://catppuccin.com/) macchiato, l'ajout de mon mapping des touches F2 à F7, et une désactivation de plugins que je ne trouve pas nécessaires. Libre à vous de partir de cette base pour faire vos changements.
 
