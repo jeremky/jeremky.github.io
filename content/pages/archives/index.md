@@ -1,6 +1,6 @@
 ---
 title: Archives
 layout: list
-url: /archives
+url: /pages/archives
 type: archive
 ---

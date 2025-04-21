@@ -62,11 +62,11 @@ enableEmoji = true
       [[languages.fr.menu.main]]
         identifier = "apropos"
         name = "A propos"
-        url = "/apropos"
+        url = "/pages/apropos"
       [[languages.fr.menu.main]]
         identifier = "archives"
         name = "Archives"
-        url = "/archives"
+        url = "/pages/archives"
       [[languages.fr.menu.main]]
         identifier = "tutos"
         name = "Tutos"
