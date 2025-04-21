@@ -78,7 +78,7 @@ sudo mkdir /opt/authelia
 
 Ensuite, créez un fichier nommé `configuration.yml` avec le contenu suivant :
 
-```txt
+```yml
 ## Theme : light, dark, grey, auto.
 theme: dark
 
@@ -161,7 +161,7 @@ Les éléments à modifier :
 
 Si vous voulez autoriser le changement de mot de passe, sachez qu'un "mail" sera généré dans le fichier `/opt/authelia/mails.txt`. Si vous voulez mettre en place une gestion d'envoi de mails, il faut modifier la section `notifier` de la façon suivante : 
 
-```txt
+```yml
 notifier:
   smtp:
     address: <serveur smtp>
@@ -178,7 +178,7 @@ notifier:
 
 Vos utilisateurs sont à renseigner dans un fichier nommé `/opt/authelia/users.yml` :
 
-```txt
+```yml
 users:
   user1:
     displayname: "user1"
