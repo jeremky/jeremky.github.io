@@ -69,7 +69,7 @@ Toujours pour notre exemple avec Nextcloud, voici le contenu :
 
 Fichier `nextcloud-db.env` :
 
-```env
+```bash
 POSTGRES_PASSWORD=Password
 POSTGRES_USER=nextcloud
 POSTGRES_DB=nextcloud
@@ -77,7 +77,7 @@ POSTGRES_DB=nextcloud
 
 Fichier `nextcloud.env` :
 
-```env
+```bash
 PUID=1002
 PGID=1002
 TZ=Europe/Paris

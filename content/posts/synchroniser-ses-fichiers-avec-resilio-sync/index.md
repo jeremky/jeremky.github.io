@@ -55,7 +55,7 @@ networks:
 
 Et le fichier `resilio-sync.env` associé :
 
-```env
+```bash
 PUID=1000
 PGID=1000
 TZ=Europe/Paris

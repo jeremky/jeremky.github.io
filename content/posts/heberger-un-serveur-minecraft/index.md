@@ -42,7 +42,7 @@ services:
 
 Ensuite, le fichier de configuration `mcserver.env` :
 
-```env
+```bash
 UID=1000
 GID=1000
 TZ=Europe/Paris

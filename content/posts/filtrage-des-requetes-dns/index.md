@@ -48,7 +48,7 @@ services:
 
 Et son fichier de configuration `adguard.env` :
 
-```env
+```bash
 TZ=Europe/Paris
 ```
 

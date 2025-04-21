@@ -50,7 +50,7 @@ services:
 
 Et son fichier `ddclient.env` :
 
-```env
+```bash
 PUID=1000
 PGID=1000
 TZ=Europe/Paris

@@ -26,7 +26,7 @@ Pour se rendre au panneau de gauche, vous pouvez utiliser le raccourci `Ctrl + w
 
 Pour que cela soit possible, voici les éléments qui ont été ajoutés dans le fichier `vimrc` :
 
-```txt
+```vim
 "" Explorateur de fichiers
 let g:netrw_liststyle = 3       " Active le mode Treeview
 let g:netrw_sizestyle = "H"     " Active le mode human-readable

@@ -53,7 +53,7 @@ secrets:
 
 Et son fichier `flame.env` :
 
-```txt
+```bash
 PASSWORD_FILE=./.password
 ```
 

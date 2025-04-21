@@ -56,7 +56,7 @@ networks:
 
 Et son fichier `Dockerfile` associé, à placer dans le même dossier :
 
-```txt
+```docker
 FROM lscr.io/linuxserver/code-server:latest
 RUN apt-get update && apt-get install -y hugo
 ```

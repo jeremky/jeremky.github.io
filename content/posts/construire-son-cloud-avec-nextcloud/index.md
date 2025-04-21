@@ -61,7 +61,7 @@ networks:
 
 Le fichier `nextcloud.env` :
 
-```env
+```bash
 PUID=1000
 PGID=1000
 TZ=Europe/Paris
@@ -69,7 +69,7 @@ TZ=Europe/Paris
 
 Et le fichier `nextcloud-db.env` :
 
-```env
+```bash
 POSTGRES_PASSWORD=Password
 POSTGRES_USER=nextcloud
 POSTGRES_DB=nextcloud
@@ -92,7 +92,7 @@ sudo sed -i "s,server_name nextcloud,server_name <votre_sous_domaine>,g" /opt/ng
 
 Autre point important, Nextcloud a besoin de certains éléments côté ssl. il faut donc modifier le fichier `/opt/nginx/nginx/ssl.conf` pour y décommenter les lignes suivantes :
 
-```txt
+```nginx
 add_header Strict-Transport-Security "max-age=63072000" always;
 add_header Referrer-Policy "same-origin" always;
 add_header X-Content-Type-Options "nosniff" always;

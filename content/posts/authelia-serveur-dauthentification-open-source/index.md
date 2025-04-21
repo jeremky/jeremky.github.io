@@ -43,7 +43,7 @@ networks:
 
 Et son fichier `authelia.env` :
 
-```env
+```bash
 TZ=Europe/Paris
 ```
 
@@ -214,13 +214,13 @@ Vous devez maintenant activer Authelia dans vos fichiers de configuration prése
 
 Dans le bloc `server` :
 
-```txt
+```nginx
 include /config/nginx/authelia-server.conf;
 ```
 
 Et dans le bloc `location` :
 
-```txt
+```nginx
 include /config/nginx/authelia-location.conf;
 ```
 

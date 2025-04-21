@@ -50,7 +50,7 @@ volumes:
 
 Et son fichier `diun.env` :
 
-```env
+```bash
 TZ=Europe/Paris
 
 DIUN_WATCH_WORKERS=20
@@ -73,7 +73,7 @@ labels:
 
 Dans le fichier `diun.env`, vous pouvez lui spécifier des éléments en fonction de la façon dont vous voulez être notifié. Un exemple avec une notification par e-mail :
 
-```env
+```bash
 DIUN_NOTIF_MAIL_HOST=host
 DIUN_NOTIF_MAIL_PORT=587
 DIUN_NOTIF_MAIL_SSL=false

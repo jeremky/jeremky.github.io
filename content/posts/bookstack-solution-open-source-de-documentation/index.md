@@ -59,7 +59,7 @@ Les variables se répartissent dans 2 fichiers `.env` : un pour le conteneur mar
 
 Le fichier `bookstack-db.env` :
 
-```env
+```bash
 PUID=1000
 PGID=1000
 TZ=Europe/Paris
@@ -71,7 +71,7 @@ MYSQL_PASSWORD=PASSWORD
 
 Et le fichier `bookstack.env` :
 
-```env
+```bash
 PUID=1000
 PGID=1000
 TZ=Europe/Paris

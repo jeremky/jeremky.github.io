@@ -44,7 +44,7 @@ networks:
 
 Et le fichier `code-server.env` associé :
 
-```env
+```bash
 PUID=1000
 PGID=1000
 TZ=Europe/Paris
@@ -93,7 +93,7 @@ sudo chown 1000:1000: /opt/nginx/nginx/.htpasswd
 
 Une fois votre fichier `.htpasswd` créé, vous devez l'activer sur votre proxy. Pour cela, modifiez le fichier `/opt/nginx/nginx/proxy-confs/code-server.subdomain.conf` et décommentez les lignes suivantes :
 
-```txt
+```nginx
 auth_basic "Restricted";
 auth_basic_user_file /config/nginx/.htpasswd;
 ```

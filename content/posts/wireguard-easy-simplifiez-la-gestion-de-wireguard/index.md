@@ -53,7 +53,7 @@ networks:
 
 Le fichier `wireguard.env` associé :
 
-```env
+```bash
 LANG=fr
 WG_HOST=vpn.domaine.fr
 WG_DEFAULT_DNS=1.1.1.2,1.0.0.2

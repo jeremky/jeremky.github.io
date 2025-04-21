@@ -47,7 +47,7 @@ networks:
 
 Et son fichier `transmission.env` :
 
-```env
+```bash
 PUID=1000
 PGID=1000
 TZ=Europe/Paris

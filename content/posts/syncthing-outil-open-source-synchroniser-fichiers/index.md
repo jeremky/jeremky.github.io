@@ -51,7 +51,7 @@ Pensez à remplacer le volume `/home/user` par le dossier racine que vous souhai
 
 Le fichier `syncthing.env` associé :
 
-```txt
+```bash
 PUID=1000
 PGID=1000
 TZ=Europe/Paris
