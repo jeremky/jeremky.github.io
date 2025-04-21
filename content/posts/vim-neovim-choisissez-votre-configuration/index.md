@@ -121,18 +121,8 @@ nnoremap <F2> :set number!<CR>
 " Correction orthographique (z= pour afficher les propositions)
 map <F3> :set spell!<CR>
 
-" Coloration syntaxique
-nnoremap <F4> :call ToggleSyntax()<CR>
-function! ToggleSyntax()
-  if &syntax == ''
-    syntax on
-    echo "Coloration syntaxique activée"
-  else
-    syntax off
-    set syntax=
-    echo "Coloration syntaxique désactivée"
-  endif
-endfunction
+" Affichage des caractères invisibles
+nnoremap <F4> :set list!<CR>
 
 " Indentation automatique
 nnoremap <F5> gg=G <CR>
@@ -149,8 +139,18 @@ function! ToggleMouse()
   endif
 endfunction
 
-" Affichage des caractères invisibles
-nnoremap <F7> :set list!<CR>
+" Coloration syntaxique
+nnoremap <F7> :call ToggleSyntax()<CR>
+function! ToggleSyntax()
+  if &syntax == ''
+    syntax on
+    echo "Coloration syntaxique activée"
+  else
+    syntax off
+    set syntax=
+    echo "Coloration syntaxique désactivée"
+  endif
+endfunction
 
 " Changement de document
 nnoremap <TAB> :tabnext<CR>
@@ -382,18 +382,8 @@ endfunction
 " Correction orthographique (z= pour afficher les propositions)
 map <F3> :set spell!<CR>
 
-" Coloration syntaxique
-nnoremap <F4> :call ToggleSyntax()<CR>
-function! ToggleSyntax()
-  if &syntax == ''
-    syntax on
-    echo "Coloration syntaxique activée"
-  else
-    syntax off
-    set syntax=
-    echo "Coloration syntaxique désactivée"
-  endif
-endfunction
+" Affichage des caractères invisibles
+nnoremap <F4> :set list!<CR>
 
 " Indentation automatique
 nnoremap <F5> gg=G <CR>
@@ -410,8 +400,18 @@ function! ToggleMouse()
   endif
 endfunction
 
-" Affichage des caractères invisibles
-nnoremap <F7> :set list!<CR>
+" Coloration syntaxique
+nnoremap <F7> :call ToggleSyntax()<CR>
+function! ToggleSyntax()
+  if &syntax == ''
+    syntax on
+    echo "Coloration syntaxique activée"
+  else
+    syntax off
+    set syntax=
+    echo "Coloration syntaxique désactivée"
+  endif
+endfunction
 
 " Changement de document
 nnoremap <S-TAB> <C-W>w
