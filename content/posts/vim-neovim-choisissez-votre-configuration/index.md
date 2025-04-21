@@ -97,7 +97,7 @@ aug END
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Barre de statut
 
-" Eléments à afficher
+" Éléments à afficher
 set statusline+=%F
 set statusline+=\ %m
 set statusline+=%=

@@ -163,7 +163,7 @@ set-option -wg copy-mode-current-match-style "bg=#5da5e1,fg=#2c323c"
 
 
 ##################################################################
-## Eléments de la barre de statut
+## Éléments de la barre de statut
 
 # Etat de tmux
 set-option -g status-left "#{?client_prefix,#[bg=#5da5e1],#[bg=#5d677a]}#[fg=#2c323c] # "
