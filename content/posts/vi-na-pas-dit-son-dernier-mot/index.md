@@ -94,7 +94,7 @@ set showcmd                     " Afficher la commande dans la ligne d’état
 set showmatch                   " Afficher les parentheses correspondantes
 set ignorecase                  " Ignorer la casse
 set smartcase                   " Faire un appariement intelligent
-set incsearch                   " Recherche incrementielle
+set incsearch                   " Recherche incrémentielle
 set hidden                      " Cacher les tampons lorsqu'ils sont abandonnes
 set mouse=                      " Désactive la souris par défaut
 set nobackup                    " Désactive les sauvegardes automatiques
@@ -114,7 +114,7 @@ let &t_EI = "\e[2 q"
 inoremap { {}<Esc>ha
 inoremap [ []<Esc>ha
 
-" Memoriser la derniere position du curseur
+" Mémoriser la dernière position du curseur
 autocmd BufReadPost * if (line("'\"") > 1) && (line("'\"") <= line("$")) | silent exe "silent! normal g'\"zO" | endif
 
 " Modification de certaines syntaxes
@@ -133,7 +133,7 @@ endif
 " Configuration
 let g:netrw_liststyle = 3         " Active le mode Treeview
 let g:netrw_sizestyle = "H"       " Active le mode human-readable
-let g:netrw_banner = 0            " Désactive la banniere
+let g:netrw_banner = 0            " Désactive la bannière
 let g:netrw_browse_split = 4      " Ouvre le fichier choisi dans un panel
 let g:netrw_winsize = 15          " Définit la taille de l'explorateur
 
@@ -192,7 +192,7 @@ nnoremap <F6> :call ToggleMouse()<CR>
 function! ToggleMouse()
   if &mouse == 'a'
     set mouse=
-    echo "Souris desactivée"
+    echo "Souris désactivée"
   else
     set mouse=a
     echo "Souris activée"
