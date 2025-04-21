@@ -129,7 +129,7 @@ Par exemple, pour installer FileZilla :
 proot-apps install filezilla
 ```
 
-La liste des applications est disponible à [ce lien](https://github.com/linuxserver/proot-apps?tab=readme-ov-file#supported-apps) ("Click to expand"). Dans le lot, j'ai surtout utilisé un temps VSCodium pour modifier mes scripts (avant de repasser à NeoVim...).
+La liste des applications est disponible à [ce lien](https://github.com/linuxserver/proot-apps?tab=readme-ov-file#supported-apps) ("Click to expand"). Dans le lot, j'ai surtout utilisé un temps VSCodium pour modifier mes scripts (avant de repasser à Neovim...).
 
 Vous pouvez également installer leur "store" d'applications. Il fonctionne, mais peut se montrer assez instable. A utiliser si vraiment les lignes de commande vous font peur :
 

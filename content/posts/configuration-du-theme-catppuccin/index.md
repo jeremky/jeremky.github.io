@@ -131,7 +131,7 @@ Le rendu est le même qu'avec la version plugin, sauf la barre de statut (puisqu
 
 {{< image src="vim2.webp" style="border-radius: 8px;" >}}
 
-## NeoVim
+## Neovim
 
 Si vous avez suivi [cet article](/posts/vim-neovim-choisissez-votre-configuration/#neovim--vim-en-mode-ide), vous n'avez rien à faire. Catppuccin Macchiato est déjà configuré dans les fichiers que je vous ai mis à disposition.
 

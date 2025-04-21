@@ -271,7 +271,7 @@ Les aliases actifs uniquement dans le cas où les applications sont installées 
 | tmux      | Transforme la commande de base pour s'assurer de ne pas en lancer plusieurs |
 | ufw       | Un Firewall facile à utiliser, ajoute sudo devant |
 | ufws      | Affiche le status de ufw, avec les règles numérotées |
-| vi        | Adapte vi selon votre choix d'éditeur (Vim, NeoVim) |
+| vi        | Adapte vi selon votre choix d'éditeur (Vim, Neovim) |
 | cd        | Utilise zoxide, un cd avancé |
 
 Et enfin, les fonctions :

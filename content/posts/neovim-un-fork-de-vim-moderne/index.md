@@ -1,5 +1,5 @@
 ---
-title: "NeoVim : un fork de Vim moderne"
+title: "Neovim : un fork de Vim moderne"
 slug: neovim-un-fork-de-vim-moderne
 date: 2025-01-25T19:41:07.554Z
 useRelativeCover: true
@@ -12,21 +12,21 @@ toc: true
 draft: false
 ---
 
-Je vous avais présenté mon éditeur en mode terminal favoris, Vim. Dans [cet article](/posts/vi-na-pas-dit-son-dernier-mot/), j'indiquais que je ne voulais pas dépendre de plugins additionnels... Mais mon regard à changé depuis. Et quitte à refaire une configuration complète, je me suis dit qu'il était temps de passer à NeoVim.
+Je vous avais présenté mon éditeur en mode terminal favoris, Vim. Dans [cet article](/posts/vi-na-pas-dit-son-dernier-mot/), j'indiquais que je ne voulais pas dépendre de plugins additionnels... Mais mon regard à changé depuis. Et quitte à refaire une configuration complète, je me suis dit qu'il était temps de passer à Neovim.
 
 [Neovim](https://neovim.io/) est un fork qui vise à améliorer l'extensibilité et la maintenabilité de Vim. Neovim partage la même syntaxe de configuration avec Vim ; par conséquent, le même fichier de configuration peut être utilisé avec les deux éditeurs (à quelques différences près). À partir de la version 0.1, sortie en décembre 2015, Neovim est compatible avec la quasi-totalité des fonctionnalités de Vim.
 
-## Pourquoi passer à NeoVim ?
+## Pourquoi passer à Neovim ?
 
-Le principal argument mis en avant par la communauté, c'est la compatibilité avec le langage [Lua](https://fr.wikipedia.org/wiki/Lua) pour le développement de scripts. Mais ce que je vais vous présenter dans la suite de cet article va se contenter d'utiliser des plugins développés à l'origine pour Vim. Alors pourquoi utiliser NeoVim plutôt que Vim ?
+Le principal argument mis en avant par la communauté, c'est la compatibilité avec le langage [Lua](https://fr.wikipedia.org/wiki/Lua) pour le développement de scripts. Mais ce que je vais vous présenter dans la suite de cet article va se contenter d'utiliser des plugins développés à l'origine pour Vim. Alors pourquoi utiliser Neovim plutôt que Vim ?
 
 - Il est mieux optimisé, et cela se ressent au démarrage et à l'utilisation de l'éditeur
 - Contrairement à Vim, il respecte les derniers standards Linux pour les emplacements de fichiers de configuration (centralisation des fichiers de configuration dans `.config`, `.local`, etc...)
-- Certains plugins suivent les dernières versions de NeoVim, ce qui les rendent incompatibles avec la version présente dans certaines distributions, comme Debian
+- Certains plugins suivent les dernières versions de Neovim, ce qui les rendent incompatibles avec la version présente dans certaines distributions, comme Debian
 
 ## Installation
 
-NeoVim est généralement présent dans les dépôts officiels de votre distribution préférée. Dans le cas de Debian/Ubuntu :
+Neovim est généralement présent dans les dépôts officiels de votre distribution préférée. Dans le cas de Debian/Ubuntu :
 
 ```bash
 sudo apt install neovim
@@ -49,7 +49,7 @@ Comme pour Vim, je vous partage ici une configuration dans un fichier unique. Ce
 
 ```vim
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Configuration de NeoVim
+" Configuration de Neovim
 
 " Paramétrage de base
 syntax on                       " Active la colorisation syntaxique
@@ -254,13 +254,13 @@ endif
 
 Le fichier est divisé en plusieurs sections : 
 
-- Les paramétrages de base de NeoVim
+- Les paramétrages de base de Neovim
 - Les raccourcis clavier
 - La gestion des plugins
 
 Pour les 2 premières sections, vous pouvez vous référer à l'article sur [Vi](/posts/vi-na-pas-dit-son-dernier-mot/), les configurations sont sensiblement les mêmes.
 
-> Un dernier point tout de même au sujet de Vim. Les articles présents à son sujet sur ce site ont été adaptés pour vous laisser une version disponible de mon fichier de configuration d'origine si jamais vous ne voulez pas utililser NeoVim.
+> Un dernier point tout de même au sujet de Vim. Les articles présents à son sujet sur ce site ont été adaptés pour vous laisser une version disponible de mon fichier de configuration d'origine si jamais vous ne voulez pas utililser Neovim.
 
 ## Plugins
 
@@ -287,4 +287,4 @@ Voici un petit aperçu du résultat :
 
 {{< image src="nvim.webp" style="border-radius: 8px;" >}}
 
-Petite info pour finir, il est à noter que mon utilisation des plugins Vim dans NeoVim n'est que temporaire. Debian 13 proposera une version plus récente de NeoVim, je referai donc un article à ce moment là pour vous proposer des plugins écris spécifiquement pour NeoVim.
+Petite info pour finir, il est à noter que mon utilisation des plugins Vim dans Neovim n'est que temporaire. Debian 13 proposera une version plus récente de Neovim, je referai donc un article à ce moment là pour vous proposer des plugins écris spécifiquement pour Neovim.
