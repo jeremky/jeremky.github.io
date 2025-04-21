@@ -96,7 +96,7 @@ sv_vote_call 1
 //g_powerups -1
 
 /////////////////////////////////////////////////////////////////////
-// Settings you MIGHT want to change for PRIVACY reasons.
+// PRIVACY
 
 sv_weaponstats_file http://www.xonotic.org/weaponbalance/
 {{< /code >}}
