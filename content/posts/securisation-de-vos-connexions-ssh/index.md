@@ -85,7 +85,7 @@ Désormais, au lieu de devoir saisir ssh `<user>@<machine>`, vous pouvez mainten
 
 Les utilisateurs de Windows doivent activer le service `ssh-agent` pour permettre le stockage des passphrases :
 
-```bash
+```powershell
 Get-Service ssh-agent | Set-Service -StartupType Automatic -PassThru | Start-Service
 ```
 
