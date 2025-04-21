@@ -30,7 +30,7 @@ C'est juste un zip à décompresser, aucune installation n'est requise. Pour les
 
 Comme à chaque fois, j'ajoute la configuration utilisée.
 
-Le fichier `docker-compose.yml` :
+Le fichier `compose.yml` :
 
 ```yml
 services:
@@ -54,9 +54,56 @@ services:
     restart: always
 ```
 
-Une fois le serveur démarré, ce dernier va créer l'arborescence des fichiers nécessaires dans le sous dossier `./files`. Vous devrez y déposer un fichier de configuration nommé `server.cfg` dans le sous dossier `data`. Vous trouverez un fichier de configuration en [exemple ici](/files/xonotic.cfg). A modifier aux besoins !
+Une fois le serveur démarré, ce dernier va créer l'arborescence des fichiers nécessaires dans le sous dossier `./files`. Vous devrez y créer un fichier de configuration nommé `server.cfg` dans le sous dossier `data`. Voici un exemple que vous pouvez utiliser comme point de départ : 
 
-Une fois le fichier déposé, on redémarre le conteneur pour prise en compte :
+{{< code language="cfg" title="Fichier server.cfg" id="1" expand="Afficher" collapse="Cacher" isCollapsed="true" >}}
+/////////////////////////////////////////////////////////////////////
+// SERVER
+
+sv_public 1
+sv_status_privacy 1
+hostname "Xonotic $g_xonoticversion Server"
+maxplayers 8
+port 26000
+log_file "server.log"
+
+//rcon_password ""
+//rcon_restricted_password ""
+
+
+/////////////////////////////////////////////////////////////////////
+// GAME
+
+gametype dm
+
+g_maplist_shuffle 1
+g_maplist_mostrecent_count 3
+g_maplist_check_waypoints 1
+g_spawnshieldtime 3
+
+fraglimit_override 30
+timelimit_override -1
+
+skill 4
+minplayers 4
+bot_prefix [BOT]
+
+g_maplist_votable 6
+sv_vote_call 1
+
+//g_instagib 1
+//g_weapon_stay 1
+//g_powerups -1
+
+/////////////////////////////////////////////////////////////////////
+// Settings you MIGHT want to change for PRIVACY reasons.
+
+sv_weaponstats_file http://www.xonotic.org/weaponbalance/
+{{< /code >}}
+
+Si vous voulez une version complète du fichier, il est [disponible ici](https://github.com/xonotic/xonotic/blob/master/server/server.cfg).
+
+Une fois le fichier créé, on redémarre le conteneur pour prise en compte :
 
 ```bash
 sudo docker restart xonotic
