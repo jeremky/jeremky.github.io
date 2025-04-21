@@ -95,7 +95,7 @@ set showmatch                   " Afficher les parentheses correspondantes
 set ignorecase                  " Ignorer la casse
 set smartcase                   " Faire un appariement intelligent
 set incsearch                   " Recherche incrémentielle
-set hidden                      " Cacher les tampons lorsqu'ils sont abandonnes
+set hidden                      " Cacher les tampons lorsqu'ils sont abandonnés
 set mouse=                      " Désactive la souris par défaut
 set nobackup                    " Désactive les sauvegardes automatiques
 set spelllang=fr,en             " Spécifie les langues du dictionnaire
