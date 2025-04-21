@@ -23,7 +23,7 @@ L'image permet d'installer automatiquement des logiciels sans avoir à modifier 
 
 ## Installation
 
-Voici les fichiers nécessaires pour installer Webtop. Le fichier `docker-compose.yml` :
+Voici les fichiers nécessaires pour installer Webtop. Le fichier `compose.yml` :
 
 ```yml
 services:

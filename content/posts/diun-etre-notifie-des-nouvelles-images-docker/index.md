@@ -22,7 +22,7 @@ Contrairement à [Watchtower](/posts/watchtower-un-conteneur-pour-les-gouverner-
 
 ## Installation
 
-On commence par le fichier `docker-compose.yml` :
+On commence par le fichier `compose.yml` :
 
 ```yml
 services:

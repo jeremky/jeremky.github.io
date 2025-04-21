@@ -17,14 +17,14 @@ Il y a quelques mois, j'avais fait la présentation de l'application [Heimdall](
 
 [Flame](https://github.com/pawelmalak/flame) est un dashboard ultra minimaliste, se concentrant sur son efficacité. Ses points forts : 
 - Il permet de regrouper ses applications web et ses favoris au même endroit
-- Les applications Docker peuvent automatiquement être ajoutées et retirées du dashboard, via des labels à ajouter à vos fichiers `docker-compose.yml`
+- Les applications Docker peuvent automatiquement être ajoutées et retirées du dashboard, via des labels à ajouter à vos fichiers `compose.yml`
 - Il dispose d'une barre de recherche unifiée, permettant de trouver rapidement un élément, et dans le cas contraire, vous renvoi sur le moteur de recherche de votre choix
 
 ## Installation
 
 Cela devient redondant maintenant, mais vous vous en doutez :
 
-Un fichier `docker-compose.yml` :
+Un fichier `compose.yml` :
 
 ```yml
 services:
@@ -167,7 +167,7 @@ Pour la localisation, utilisez le système de localisation en cliquant sur `Clic
 
 Dans cette section, vous pouvez comme vu plus haut ajouter/retirer automatiquement vos applications Docker. Activez `Use Docker API` et `Unpin stopped containers / other apps`.
 
-Pour que Flame sache comment ajouter les applications, il est nécessaire de modifier vos fichier `docker-compose.yml`, et y ajouter une section `labels`. Exemple avec Portainer : 
+Pour que Flame sache comment ajouter les applications, il est nécessaire de modifier vos fichier `compose.yml`, et y ajouter une section `labels`. Exemple avec Portainer : 
 
 ```yml
 services:

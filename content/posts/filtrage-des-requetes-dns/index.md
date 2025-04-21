@@ -30,7 +30,7 @@ Ce logiciel vous permettra de mettre en place chez vous une solution de blocage 
 
 Cette solution peut s'installer facilement, un raspberry pi fait très bien le taff. Ils proposent un script d'installation, et... Vous vous en doutez peut être : une image Docker :smile:
 
-Le fichier `docker-compose.yml` :
+Le fichier `compose.yml` :
 
 ```yml
 services:

@@ -39,7 +39,7 @@ Beaucoup de fonctionnalités sont présentes :
 
 Cela devient redondant, mais encore une fois, c'est via Docker que nous installerons cet outil.
 
-Le fichier `docker-compose.yml` :
+Le fichier `compose.yml` :
 
 ```yml
 services:
@@ -63,7 +63,7 @@ networks:
 
 Quelques éléments à préciser :
 
-- La partie `user` dans le fichier `docker-compose.yml` est à adapter selon l'ID de votre utilisateur
+- La partie `user` dans le fichier `compose.yml` est à adapter selon l'ID de votre utilisateur
 - Il est nécessaire de créer un dossier `files` là où se trouve votre fichier compose
 - Dans ce dossier, vous devrez créer un fichier vide nommé `database.db` (qui comme son nom l'indique, servira de base de données)
 - Optionnel, mais vous pouvez créer également un dossier `img`, avec un fichier `logo.svg` et un sous dossier *icons* avec vos icônes au format.webp (plus d'explications [ici](https://filebrowser.org/configuration/custom-branding))

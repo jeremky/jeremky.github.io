@@ -18,7 +18,7 @@ draft: false
 
 ## Installation
 
-Encore et toujours, un fichier `docker-compose.yml` :
+Encore et toujours, un fichier `compose.yml` :
 
 ```yml
 services:
@@ -113,7 +113,7 @@ N'ayant pas d'application non redirigée sur mon reverse proxy, un bonne façon 
 
 Les surveillances précédentes ne fonctionnent que si vos conteneurs se trouvent dans le même réseau. Dans le cas contraire, la seule solution est de contrôler l'état de votre conteneur directement. 
 
-Pour cela, votre conteneur doit disposer du statut `Healthy`. Si l'image utilisée n'a pas cette fonctionnalité en place, il est possible de le configurer dans le fichier `docker-compose.yml`. Pour cela, rajoutez la section suivante : 
+Pour cela, votre conteneur doit disposer du statut `Healthy`. Si l'image utilisée n'a pas cette fonctionnalité en place, il est possible de le configurer dans le fichier `compose.yml`. Pour cela, rajoutez la section suivante : 
 
 ```yml
 healthcheck:

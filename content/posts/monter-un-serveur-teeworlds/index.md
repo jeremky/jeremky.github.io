@@ -20,7 +20,7 @@ D'après [Wikipedia](https://fr.wikipedia.org/wiki/Teeworlds), *Teeworlds, ancie
 
 ## Installation via Docker/Podman
 
-Pour héberger un serveur Teeworlds, voici les fichiers de configuration Docker à utiliser. Le fichier `docker-compose.yml` :
+Pour héberger un serveur Teeworlds, voici les fichiers de configuration Docker à utiliser. Le fichier `compose.yml` :
 
 ```yml
 services:

@@ -29,7 +29,7 @@ Plus d'informations [sur leur site web](https://heimdall.site/).
 
 Les fichiers nécessaires au déploiement de Heimdall sont les suivants :
 
-Le fichier `docker-compose.yml` :
+Le fichier `compose.yml` :
 
 ```yml
 services:

@@ -20,7 +20,7 @@ Comme vu dans [cet article](/posts/mise-en-place-dun-vpn-avec-wireguard/), [Wire
 
 ## Installation
 
-Comme d'habitude, on commence par un fichier `docker-compose.yml` :
+Comme d'habitude, on commence par un fichier `compose.yml` :
 
 ```yml
 services:

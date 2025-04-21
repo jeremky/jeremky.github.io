@@ -29,7 +29,7 @@ Une fois le test effectué, il est possible de copier l'url du résultat si néc
 
 Si vous voulez l'héberger chez vous, c'est comme à chaque fois :grin:
 
-Un fichier de configuration `docker-compose.yml` :
+Un fichier de configuration `compose.yml` :
 
 ```yml
 services:

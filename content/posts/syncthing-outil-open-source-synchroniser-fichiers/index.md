@@ -22,7 +22,7 @@ Dans cet article, je vais surtout me concentrer sur l’installation de Syncthin
 
 ## Installation
 
-On commence par son fichier `docker-compose.yml` :
+On commence par son fichier `compose.yml` :
 
 ```yml
 services:

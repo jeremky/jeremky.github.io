@@ -30,7 +30,7 @@ Depuis la dernière version, Portainer est capable de contrôler également des 
 
 Pour installer Portainer, je considère que vous avez déjà suivi les tutos pour l'installation de Docker ou de Podman. Ensuite, et bien... C'est comme d'habitude :smile:
 
-Le fichier `docker-compose.yml` si vous utilisez Docker : 
+Le fichier `compose.yml` si vous utilisez Docker : 
 
 ```yml
 services:
@@ -47,7 +47,7 @@ services:
     restart: always
 ```
 
-Le fichier `docker-compose.yml` si vous utilisez Podman :
+Le fichier `compose.yml` si vous utilisez Podman :
 
 ```yml
 services:
