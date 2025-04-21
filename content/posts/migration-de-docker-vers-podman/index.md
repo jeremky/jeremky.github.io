@@ -78,7 +78,7 @@ Ensuite, si vos conteneurs communiquent entre eux par leur nom (utilisé avec le
 sudo ufw allow in on podman1
 ```
 
-> Le script [aptinstall.sh](https://github.com/jeremky/aptinstall.sh) a été mis à jour en conséquence.
+> Le script [aptinstall.sh](https://github.com/jeremky/aptinstall) a été mis à jour en conséquence.
 
 ## jdocker.sh
 
