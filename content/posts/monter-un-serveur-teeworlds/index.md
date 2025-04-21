@@ -43,7 +43,7 @@ volumes:
 
 Et son fichier de configuration `teeworlds.env` :
 
-```txt
+```env
 TW_sv_name=Deathmatch Server
 TW_sv_max_clients=8
 TW_sv_register=1

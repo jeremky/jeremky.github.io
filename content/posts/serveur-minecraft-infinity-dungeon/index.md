@@ -57,7 +57,7 @@ services:
 ```
 Et son fichier de configuration `mcserver.env` :
 
-```txt
+```env
 UID=1000
 GID=1000
 TZ=Europe/Paris

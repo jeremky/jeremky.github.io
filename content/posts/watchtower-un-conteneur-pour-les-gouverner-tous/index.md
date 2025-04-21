@@ -44,7 +44,7 @@ services:
 
 Et son fichier `watchtower.env` :
 
-```txt
+```env
 TZ=Europe/Paris
 
 WATCHTOWER_SCHEDULE=0 0 6 * * *

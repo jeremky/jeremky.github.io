@@ -69,7 +69,7 @@ Quelques éléments à préciser :
 - Optionnel, mais vous pouvez créer également un dossier `img`, avec un fichier `logo.svg` et un sous dossier *icons* avec vos icônes au format.webp (plus d'explications [ici](https://filebrowser.org/configuration/custom-branding))
 - Enfin, il vous faut créer dans ce même dossier `files` un fichier nommé `settings.json` avec le contenu suivant : 
 
-```txt
+```env
 {
   "port": 8080,
   "baseURL": "",

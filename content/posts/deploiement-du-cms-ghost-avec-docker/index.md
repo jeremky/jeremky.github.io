@@ -67,13 +67,13 @@ networks:
 
 Le fichier `ghost-db.env`: 
 
-```txt
+```env
 MYSQL_ROOT_PASSWORD=PASSWORD
 ```
 
 Et son fichier `ghost.env` :
 
-```txt
+```env
 database__client=mysql
 database__connection__host=ghost-db
 database__connection__user=root

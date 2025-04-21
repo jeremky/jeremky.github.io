@@ -51,7 +51,7 @@ networks:
 
 Et son fichier `heimdall.env` :
 
-```txt
+```env
 PUID=1000
 PGID=1000
 TZ=Europe/Paris

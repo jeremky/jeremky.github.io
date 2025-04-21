@@ -55,7 +55,7 @@ networks:
 
 Le fichier `webtop.env` :
 
-```txt
+```env
 PUID=1000
 PGID=1000
 TZ=Europe/Paris

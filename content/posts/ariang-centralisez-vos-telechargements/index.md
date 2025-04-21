@@ -45,7 +45,7 @@ networks:
 
 Le fichier `ariang.env` associé :
 
-```txt
+```env
 PUID=1000
 PGID=1000
 ARIA2RPCPORT=443

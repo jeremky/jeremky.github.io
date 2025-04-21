@@ -61,7 +61,7 @@ networks:
 
 Le fichier `nextcloud.env` :
 
-```txt
+```env
 PUID=1000
 PGID=1000
 TZ=Europe/Paris
@@ -69,7 +69,7 @@ TZ=Europe/Paris
 
 Et le fichier `nextcloud-db.env` :
 
-```txt
+```env
 POSTGRES_PASSWORD=Password
 POSTGRES_USER=nextcloud
 POSTGRES_DB=nextcloud

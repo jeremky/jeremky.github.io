@@ -54,7 +54,7 @@ networks:
 
 Le fichier `ollama.env` associé : 
 
-```txt
+```env
 OLLAMA_BASE_URL=http://ollama:11434
 WEBUI_SECRET_KEY=CLE_SECRETE_A_MODIFIER
 DEFAULT_LOCALE=fr-FR

@@ -43,7 +43,7 @@ networks:
 
 Et son fichier `authelia.env` :
 
-```txt
+```env
 TZ=Europe/Paris
 ```
 

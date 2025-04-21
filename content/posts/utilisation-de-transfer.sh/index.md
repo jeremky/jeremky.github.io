@@ -53,7 +53,7 @@ networks:
 Et son fichier `transfer.env` :
 
 
-```txt
+```env
 BASEDIR=/tmp
 PURGE_DAYS=1
 PURGE_INTERVAL=24

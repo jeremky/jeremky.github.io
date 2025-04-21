@@ -54,7 +54,7 @@ volumes:
 
 Et son fichier `librespeed.env` :
 
-```txt
+```env
 PUID=1000
 PGID=1000
 TZ=Europe/Paris

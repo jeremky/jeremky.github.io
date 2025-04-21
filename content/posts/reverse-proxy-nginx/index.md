@@ -58,7 +58,7 @@ networks:
 
 Et le fichier `nginx.env` pour les variables :
 
-```txt
+```env
 PUID=1000
 PGID=1000
 TZ=Europe/Paris
