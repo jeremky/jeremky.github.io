@@ -126,7 +126,7 @@ Maintenant que vous avez redéployé votre application dans le bon réseau (ngin
 Dans ce dossier, vous pouvez vous rendre dans `nginx/proxy-confs`. Ici se trouve tout un tas de fichier "sample" proposés par Linuxserver, certaines applications ayant des spécificités de configuration.
 Vous y trouverez un fichier `nextcloud.subdomain.conf.sample`. Copiez-le en `nextcloud.subdomain.conf`. Le contenu de ce fichier :
 
-```txt
+```nginx
 ## Version 2023/06/24
 # make sure that your nextcloud container is named nextcloud
 # make sure that your dns has a cname set for nextcloud

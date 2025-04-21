@@ -70,7 +70,7 @@ Les fichiers de configuration ci-dessus sont prévus pour être utilisés avec u
 
 L'image Docker de [Linuxserver.io](https://docs.linuxserver.io/general/swag/) ne propose pas de fichier sample de configuration pour Flame. Vous devez donc créer un fichier nommé `/opt/nginx/nginx/proxy-confs/flame.subdomain.conf`, et y coller le contenu suivant : 
 
-```txt
+```nginx
 ## Version 2024/07/16
 # make sure that your wireguard container is named flame
 # make sure that your dns has a cname set for flame

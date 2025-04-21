@@ -74,7 +74,7 @@ Les fichiers de configuration ci-dessus sont prévus pour être utilisés avec u
 
 L'image Docker de [Linuxserver.io](https://docs.linuxserver.io/general/swag/) ne propose pas de fichier sample de configuration pour WG-Easy. Vous devez donc créer un fichier nommé `/opt/nginx/nginx/proxy-confs/wgeasy.subdomain.conf`, et y coller le contenu suivant : 
 
-```txt
+```nginx
 ## Version 2024/07/16
 # make sure that your wireguard container is named wireguard
 # make sure that your dns has a cname set for wireguard

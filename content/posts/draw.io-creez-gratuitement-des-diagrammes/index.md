@@ -48,7 +48,7 @@ Le fichier de configuration ci-dessus est prévu pour être utilisé avec un rev
 
 L'image Docker de [Linuxserver.io](https://docs.linuxserver.io/general/swag/) ne propose pas de fichier sample de configuration pour Open WebUI. Vous devez donc créer un fichier nommé `/opt/nginx/nginx/proxy-confs/ollama.subdomain.conf`, et y coller le contenu suivant :
 
-```txt
+```nginx
 ## Version 2024/07/16
 
 server {
@@ -113,7 +113,7 @@ Une fois votre application déployée, vous avez besoin de modifier la configura
 
 Pour cela, ajoutez cette variable d'environnement dans votre fichier `boostack.env` :
 
-```env
+```txt
 DRAWIO=https://drawio.mondomaine.fr/?embed=1&proto=json&spin=1&configure=1
 ```
 
