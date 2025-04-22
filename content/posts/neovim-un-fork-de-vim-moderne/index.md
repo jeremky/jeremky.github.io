@@ -47,7 +47,7 @@ fi
 
 Comme pour Vim, je vous partage ici une configuration dans un fichier unique. Ce fichier sera à placer ici : `~./.config/nvim/init.vim`.
 
-```vim
+{< code language="vim" title="Fichier init.vim" id="1" expand="Afficher" collapse="Cacher" isCollapsed="true" >}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Configuration de Neovim
 
@@ -250,7 +250,7 @@ if filereadable(expand("~/.local/share/nvim/plugged/vim-gitgutter/autoload/gitgu
   nnoremap <C-g> :GitGutterToggle <CR>
   let gitgutter_enabled = 0
 endif
-```
+{{< /code >}}
 
 Le fichier est divisé en plusieurs sections : 
 
