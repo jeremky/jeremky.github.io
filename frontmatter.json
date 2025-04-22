@@ -13,14 +13,13 @@
   "frontMatter.website.host": "https://jeremky.github.io",
   "frontMatter.framework.startCommand": "hugo server -D",
   "frontMatter.panel.actions.disabled": [
-    "createContent",
     "optimizeSlug",
     "openOnWebsite"
   ],
   "frontMatter.taxonomy.contentTypes": [
     {
       "name": "default",
-      "pageBundle": false,
+      "pageBundle": true,
       "previewPath": "posts",
       "fields": [
         {
@@ -29,20 +28,28 @@
           "type": "string"
         },
         {
+          "title": "slug",
+          "name": "slug",
+          "type": "slug"
+        },
+        {
           "title": "date",
           "name": "date",
-          "type": "datetime"
+          "type": "datetime",
+          "default": "{{now}}"
         },
         {
           "title": "useRelativeCover",
           "name": "useRelativeCover",
           "type": "boolean"
+          "default": true
         },
         {
           "title": "cover",
           "name": "cover",
           "type": "image",
           "isPreviewImage": true
+          "default": "cover.webp",
         },
         {
           "title": "tags",
@@ -57,12 +64,14 @@
         {
           "title": "toc",
           "name": "toc",
-          "type": "boolean"
+          "type": "boolean",
+          "default": true
         },
         {
           "title": "draft",
           "name": "draft",
-          "type": "draft"
+          "type": "draft",
+          "default": true
         }
       ]
     }
