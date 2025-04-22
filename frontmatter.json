@@ -12,14 +12,6 @@
   ],
   "frontMatter.website.host": "https://jeremky.github.io",
   "frontMatter.framework.startCommand": "hugo server -D",
-  "frontMatter.custom.scripts": [
-    {
-      "title": "Générer le site",
-      "id": "hugoscript",
-      "script": "[[workspace]]/hugo.sh",
-      "command": "/bin/bash"
-    }
-  ],
   "frontMatter.panel.actions.disabled": [
     "createContent",
     "optimizeSlug",
@@ -93,7 +85,7 @@
     "Code": {
       "description": "Ajouter du code",
       "body": [
-        "{{< code language=\"[[code]]\" title=\"[[titre]]\" id=\"1\" expand=\"Afficher\" collapse=\"Cacher\" isCollapsed=\"true\" >}}",
+        "{{< code language=\"[[code]]\" title=\"[[titre]]\" id=\"[[id]]\" expand=\"Afficher\" collapse=\"Cacher\" isCollapsed=\"true\" >}}",
         "",
         "{{< /code >}}"
       ],
@@ -104,6 +96,8 @@
           "type": "choice",
           "choices": [
             "bash",
+            "txt",
+            "nginx",
             "vim",
             "yml"
           ],
@@ -115,6 +109,13 @@
           "type": "string",
           "single": true,
           "default": ""
+        },
+        {
+          "name": "id",
+          "title": "ID",
+          "type": "string",
+          "single": true,
+          "default": "1"
         }
       ]
     }
