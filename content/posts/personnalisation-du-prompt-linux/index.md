@@ -292,11 +292,11 @@ Si vous avez quelques scripts, et que vous voulez y acc√©der depuis n'importe o√
 ## Scripts
 scripts=/chemin/vers/vos/scripts
 if [ -d $scripts ] ; then
-for i in $(ls $scripts) ; do
-if [ -f $scripts/$i/$i.sh ] ; then
-alias $i=''$scripts'/'$i'/'$i'.sh'
-fi
-done
+  for i in $(ls $scripts) ; do
+    if [ -f $scripts/$i/$i.sh ] ; then
+      alias $i=''$scripts'/'$i'/'$i'.sh'
+    fi
+  done
 fi
 ```
 

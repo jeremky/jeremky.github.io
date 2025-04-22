@@ -71,9 +71,6 @@ protocol=dyndns2                                         # Protocol for ddclient
 login=LOGIN                                              # Your username.
 password=PASWWORD                                        # Password or MD5/SHA256 of password.
 DOMAIN                                                   # List one or more hostnames one on each line.
-Quelques éléments y sont à modifier :
-LOGIN
-PASSWORD
 ```
 
 Quelques éléments y sont à modifier :

@@ -86,7 +86,7 @@ server {
     #include /config/nginx/authentik-server.conf;
 
     location / {
-        include /config/nginx/authelia-location.conf;
+        #include /config/nginx/authelia-location.conf;
         include /config/nginx/proxy.conf;
         include /config/nginx/resolver.conf;
         set $upstream_app ariang;

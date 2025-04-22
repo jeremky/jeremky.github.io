@@ -56,7 +56,7 @@ services:
 
 Une fois le serveur démarré, ce dernier va créer l'arborescence des fichiers nécessaires dans le sous dossier `./files`. Vous devrez y créer un fichier de configuration nommé `server.cfg` dans le sous dossier `data`. Voici un exemple que vous pouvez utiliser comme point de départ : 
 
-{{< code language="cfg" title="Fichier server.cfg" id="1" expand="Afficher" collapse="Cacher" isCollapsed="true" >}}
+{{< code language="txt" title="Fichier server.cfg" id="1" expand="Afficher" collapse="Cacher" isCollapsed="true" >}}
 /////////////////////////////////////////////////////////////////////
 // SERVER
 

@@ -56,5 +56,3 @@ aug END
 Il est possible d'utiliser la souris pour passer de l'explorateur au fichier ouvert. Pour cela, ma configuration permet d'activer la souris via la touche `F6`. Vous pourrez alors naviguer dans un fichier directement en utilisant la roulette, et cliquer là où vous désirez placer notre curseur. Cela fonctionne également pour se rendre dans l'explorateur de fichiers.
 
 Attention cependant : lorsque vous sélectionnez du texte, l'éditeur passe maintenant en mode "insertion (visuel)" automatiquement. A noter que pour copier du texte sélectionné, il faut faire `y` pour copier, et `d` pour couper. Enfin, `p` pour coller. Il faut savoir également que coller du texte externe à Vi nécessite d'avoir un terminal compatible avec le raccourci `Ctrl+v`, le clique droit n'étant plus possible.
-
-Au cas où, je vous remet à disposition le lien vers le fichier `vimrc`. Il est [téléchargeable ici](/files/vi-na-pas-dit-son-dernier-mot/vimrc).

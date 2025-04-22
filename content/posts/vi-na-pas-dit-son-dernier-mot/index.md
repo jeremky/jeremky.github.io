@@ -241,7 +241,7 @@ Pour ajouter vos thèmes, il suffit de les déposer ici : `/home/votre_user/.vim
 
 Ayant apporté quelques modifications dessus, je vous partage ma version modifiée directement ici :
 
-{{< code language="vim" title="Fichier onehalfdark.vim" id="1" expand="Afficher" collapse="Cacher" isCollapsed="true" >}}
+{{< code language="vim" title="Fichier onehalfdark.vim" id="2" expand="Afficher" collapse="Cacher" isCollapsed="true" >}}
 set background=dark
 highlight clear
 syntax reset
