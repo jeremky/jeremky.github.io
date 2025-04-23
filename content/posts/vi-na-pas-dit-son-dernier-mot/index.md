@@ -222,8 +222,9 @@ endif
 
 Pour le mapping des touches, voici ce qui est en place grâce à ce fichier :
 
-- F2 : Permet de mettre en couleurs les mots mal orthographiés. La première fois, Vi vous proposera de télécharger les fichiers de langue nécessaires
-- F3 : Affiche ou non les numéros de ligne
+- F1 : Affiche l'explorateur de fichiers intégré
+- F2 : Affiche ou non les numéros de ligne
+- F3 : Permet de mettre en couleurs les mots mal orthographiés. La première fois, Vi vous proposera de télécharger les fichiers de langue nécessaires
 - F4 : Affiche les caractères de fin de ligne. Pratique si un espace invisible s'est glissé quelque part dans un script
 - F5 : Permet d'effectuer une indentation automatique sur l'intégralité du fichier
 - F6 : Active / désactive la gestion de la souris. Je ne l'active pas par défaut car la gestion du copier / coller est assez particulière
