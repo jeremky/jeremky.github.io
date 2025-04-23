@@ -12,7 +12,6 @@
     "**/.vscode": true,
     "**/frontmatter.json": true
   },
-  "workbench.preferredLightColorTheme": "Catppuccin Latte",
-  "window.autoDetectColorScheme": true,
-  "workbench.preferredDarkColorTheme": "Catppuccin Macchiato"
+  "workbench.iconTheme": "catppuccin-macchiato",
+  "workbench.colorTheme": "Catppuccin Macchiato"
 }
