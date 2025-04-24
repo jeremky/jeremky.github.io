@@ -54,6 +54,7 @@ secrets:
 Et son fichier `flame.env` :
 
 ```bash
+TZ=Europe/Paris
 PASSWORD_FILE=./.password
 ```
 
