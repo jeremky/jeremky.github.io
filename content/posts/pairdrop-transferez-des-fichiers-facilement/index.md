@@ -50,7 +50,6 @@ Et son fichier `pairdrop.env` :
 PUID=1000
 PGID=1000
 TZ=Europe/Paris
-RATE_LIMIT=true
 WS_FALLBACK=true
 ```
 
