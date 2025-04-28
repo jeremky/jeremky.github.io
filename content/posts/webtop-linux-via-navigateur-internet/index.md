@@ -99,7 +99,7 @@ Une fois votre conteneur déployé, vous allez vous retrouver avec un environnem
 
 N'étant pas le plus sexy de base, je vous propose d'utiliser une configuration que je vous mets à disposition. Pour l'installer :
 
-- Téléchargez le fichier suivant : [webtop.zip](/files/webtop.zip)
+- Téléchargez le fichier suivant : [webtop.tar.gz](/files/webtop.tar.gz)
 - Arrêtez votre conteneur, supprimez le répertoire `/opt/webtop` (volume par défaut), et décompressez cette archive en remplacement de ce répertoire (utilisez `sudo`)
 - Relancez votre conteneur, et profitez du changement :blush:
 
