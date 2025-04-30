@@ -7,7 +7,6 @@ cover: cover.webp
 tags:
   - reseau
   - docker
-  - podman
 categories:
   - Tutos
 toc: true
@@ -189,7 +188,7 @@ Si vous utilisez Podman à la place de Docker, une modification est à effectuer
 Après avoir déployé votre conteneur nginx, rendez-vous dans `/opt/nginx/nginx` et modifiez le fichier `resolver.conf`, pour y supprimer la 2ème adresse IP au niveau de la ligne `resolver`. Le fichier doit ressembler à ceci :
 
 ```txt
-# This file is auto-generated only on first start, based on the container's /etc/resolv.conf file.   Feel free to modify it as you wish.
+# This file is auto-generated only on first start, based on the container's /etc/resolv.conf file. Feel free to modify it as you wish.
 
 resolver  10.89.0.1 valid=30s;
 ```

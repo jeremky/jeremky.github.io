@@ -6,7 +6,6 @@ useRelativeCover: true
 cover: cover.webp
 tags:
   - docker
-  - podman
 categories:
   - Tutos
 toc: true

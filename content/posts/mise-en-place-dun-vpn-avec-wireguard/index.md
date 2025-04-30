@@ -7,7 +7,6 @@ cover: cover.webp
 tags:
   - reseau
   - docker
-  - podman
 categories:
   - Tutos
 toc: true

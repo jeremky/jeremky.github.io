@@ -5,9 +5,7 @@ date: 2024-12-04T09:09:15.050Z
 useRelativeCover: true
 cover: cover.webp
 tags:
-  - admin
   - docker
-  - podman
 categories:
   - Tutos
 toc: true

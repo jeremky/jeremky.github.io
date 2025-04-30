@@ -7,7 +7,6 @@ cover: cover.webp
 tags:
   - admin
   - docker
-  - podman
 categories:
   - Tutos
 toc: true

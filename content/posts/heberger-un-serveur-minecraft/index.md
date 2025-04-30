@@ -7,7 +7,6 @@ cover: cover.webp
 tags:
   - jeux
   - docker
-  - podman
 categories:
   - Tutos
 toc: false

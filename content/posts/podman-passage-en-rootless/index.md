@@ -140,7 +140,7 @@ git clone https://github.com/jeremky/jdocker
 
 ## Modification des articles
 
-Les articles sur ce site autour de l'installation d'applications conteneurisées avaient comme tags [#docker](/tags/docker/) et [#podman](/tags/podman/), la compatibilité ayant été assurée. N'ayant pas pu retester toutes les applications mentionnées en rootless, j'ai préféré retirer le tag [#podman](/tags/podman/) des différents articles. Ce tag ne servira donc uniquement pour les spécificités de Podman. Cela ne signifie pas que les applications ne sont pas compatibles (je n'ai eu pour le moment aucun problème avec les applications que j'utilise encore), mais je préfère rester prudent. A vous de tester en fonction de vos besoins.
+Les articles sur ce site autour de l'installation d'applications conteneurisées avaient comme tags [#docker](/tags/docker/) et [#podman](/tags/podman/), la compatibilité ayant été assurée. N'ayant pas pu retester toutes les applications mentionnées en rootless, j'ai préféré retirer le tag [#podman](/tags/podman/) des différents articles. Ce tag ne servira donc uniquement que pour les spécificités de Podman. Cela ne signifie pas que les applications ne sont pas compatibles (je n'ai eu pour le moment aucun problème avec les applications que j'utilise encore), mais je préfère rester prudent. A vous de tester en fonction de vos besoins.
 
 ## Conclusion
 

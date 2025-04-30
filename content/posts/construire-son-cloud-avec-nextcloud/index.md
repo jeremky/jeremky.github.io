@@ -7,7 +7,6 @@ cover: cover.webp
 tags:
   - fichiers
   - docker
-  - podman
 categories:
   - Tutos
 toc: true
