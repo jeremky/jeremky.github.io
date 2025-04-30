@@ -55,6 +55,8 @@ A noter également que si vous voulez profiter de la mise à jour automatique, i
 
 Comme indiqué dans l'article au sujet de la migration, un tag [#podman](/tags/podman/) a été ajouté au site pour différencier les tutos à jour. Une première passe a déjà été faite, mais je vérifierai de nouveau au cas où une coquille se serait glissée quelque part.
 
+> Le tag a finalement été utilisé autrement (en lien avec Podman rootless)
+
 ## Conclusion
 
 Vous pouvez désormais suivre les tutos de ce site, peu importe l'application de conteneurisation que vous décidez d'utiliser. Je n'ai toutefois pas testé toutes les applications depuis ma migration, mais je ferai les mises à jour nécessaires sur ce site en fonction.
