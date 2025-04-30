@@ -5,6 +5,7 @@ date: 2024-12-02T19:09:00.558Z
 useRelativeCover: true
 cover: cover.webp
 tags:
+  - admin
   - docker
 categories:
   - Tutos
