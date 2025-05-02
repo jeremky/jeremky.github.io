@@ -60,15 +60,15 @@ sudo reboot
 
 ## Configuration
 
-Il y a une partie que j'ai volontairement mise de côté : la configuration réseau. Il est par défaut configuré pour fonctionner avec votre DHCP, mais je vous conseille de le désactiver et de passer en IP fixe. C'est donc le bon moment pour vous proposer d’utiliser ce petit script qui vous permettra de configurer tout ça bien plus facilement : [raspinit.sh](https://github.com/jeremky/raspinit/archive/refs/heads/main.zip).
+Il y a une partie que j'ai volontairement mise de côté : la configuration réseau. Il est par défaut configuré pour fonctionner avec votre DHCP, mais je vous conseille de le désactiver et de passer en IP fixe. C'est donc le bon moment pour vous proposer d’utiliser ce petit script qui vous permettra de configurer tout ça bien plus facilement : [raspinit.sh](https://github.com/jeremky/raspinit).
 
 Ce script vous permet, à l’aide de son fichier de configuration, d'effectuer les opérations suivantes :
 
 - Désactiver ou non le swap, une horreur pour les cartes SD
-- Désactiver ou non le Wifi et le bluetooth
+- Désactiver ou non le Wifi et le Bluetooth
 - Configurer le réseau du raspberry en IP fixe
 - Installer log2ram, pour réduire encore les écritures sur la carte (les logs seront stockées en RAM et écrites en une seule fois à l'arrêt du système)
-- Petit bonus : l'ajout de l'alias "temp" pour connaitre rapidement la température du pi
+- Petit bonus : l'ajout de l'alias "temp" pour connaître rapidement la température du pi
 
 Une fois le script exécuté, un redémarrage vous sera demandé pour le bon fonctionnement de Log2ram.
 
