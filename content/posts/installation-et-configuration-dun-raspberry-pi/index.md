@@ -60,7 +60,7 @@ sudo reboot
 
 ## Configuration
 
-Il y a une partie que j'ai volontairement mise de côté : la configuration réseau. Il est par défaut configuré pour fonctionner avec votre DHCP, mais je vous conseille de le désactiver et de passer en IP fixe. C'est donc le bon moment pour vous proposer d’utiliser ce petit script qui vous permettra de configurer tout ça bien plus facilement : [raspinit.sh](https://github.com/jeremky/raspinit.sh/archive/refs/heads/main.zip).
+Il y a une partie que j'ai volontairement mise de côté : la configuration réseau. Il est par défaut configuré pour fonctionner avec votre DHCP, mais je vous conseille de le désactiver et de passer en IP fixe. C'est donc le bon moment pour vous proposer d’utiliser ce petit script qui vous permettra de configurer tout ça bien plus facilement : [raspinit.sh](https://github.com/jeremky/raspinit/archive/refs/heads/main.zip).
 
 Ce script vous permet, à l’aide de son fichier de configuration, d'effectuer les opérations suivantes :
 
