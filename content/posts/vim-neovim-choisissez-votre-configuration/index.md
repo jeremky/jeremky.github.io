@@ -32,7 +32,7 @@ set hlsearch                    " Affiche en surbrillance les recherches
 set background=dark             " Optimise l'affiche pour un terminal sombre
 set laststatus=2                " Affiche en permanence la barre de statut
 set smartindent                 " Indentation intelligente
-set smarttab                    " Gestion des espaces en début de ligne
+set smarttab                    " Gestion des espaces en debut de ligne
 set autoindent                  " Conserve l'indentation sur une nouvelle ligne
 set ruler                       " Affiche la position du curseur
 set tabstop=2                   " La largeur d'une tabulation est définie sur 2
@@ -40,20 +40,20 @@ set shiftwidth=2                " Les retraits auront une largeur de 2
 set softtabstop=2               " Nombre de colonnes pour une tabulation
 set expandtab                   " Remplace les tab par des espaces
 set linebreak                   " Revient à la ligne sans couper les mots
-set showcmd                     " Afficher la commande dans la ligne d'état
-set showmatch                   " Afficher les parenthèses correspondantes
+set showcmd                     " Afficher la commande dans la ligne d'etat
+set showmatch                   " Afficher les parentheses correspondantes
 set ignorecase                  " Ignorer la casse
 set smartcase                   " Faire un appariement intelligent
 set incsearch                   " Recherche incrémentielle
-set hidden                      " Cacher les tampons lorsqu'ils sont abandonnés
-set mouse=                      " Désactive la souris par dÃ©faut
+set hidden                      " Cacher les tampons lorsqu'ils sont abandonnes
+set mouse=                      " Désactive la souris par défaut
 set nobackup                    " Désactive les sauvegardes automatiques
 set spelllang=fr,en             " Spécifie les langues du dictionnaire
 
 " Permet l'indentation automatique : gg=G
 filetype plugin indent on
 
-" Définition des caractères invisibles
+" Definition des caractères invisibles
 let &listchars = "eol:$,space:\u00B7"
 
 " Changement automatique du curseur en fonction du mode
@@ -64,7 +64,7 @@ let &t_EI = "\e[2 q"
 inoremap { {}<Esc>ha
 inoremap [ []<Esc>ha
 
-" Mémoriser la dernière position du curseur
+" Memoriser la dernière position du curseur
 autocmd BufReadPost * if (line("'\"") > 1) && (line("'\"") <= line("$")) | silent exe "silent! normal g'\"zO" | endif
 
 " Modification de certaines syntaxes
@@ -75,6 +75,53 @@ if $TERM == 'tmux-256color'
   set clipboard=unnamedplus
   set mouse=a
 endif
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Mapping
+
+" Nerdtree
+nnoremap <F1> :NERDTreeToggle <CR>
+
+" Activation de la numérotation
+nnoremap <F2> :set number!<CR>
+
+" Correction orthographique (z= pour afficher les propositions)
+map <F3> :set spell!<CR>
+
+" Affichage des caractères invisibles
+nnoremap <F4> :set list!<CR>
+
+" Indentation automatique
+nnoremap <F5> gg=G <CR>
+
+" Souris
+nnoremap <F6> :call ToggleMouse()<CR>
+function! ToggleMouse()
+  if &mouse == 'a'
+    set mouse=
+    echo "Souris desactivée"
+  else
+    set mouse=a
+    echo "Souris activée"
+  endif
+endfunction
+
+" Coloration syntaxique
+nnoremap <F7> :call ToggleSyntax()<CR>
+function! ToggleSyntax()
+  if &syntax == ''
+    syntax on
+    echo "Coloration syntaxique activée"
+  else
+    syntax off
+    set syntax=
+    echo "Coloration syntaxique desactivée"
+  endif
+endfunction
+
+" Changement de document
+nnoremap <S-TAB> <C-W>w
+nnoremap <TAB> :tabnext<CR>
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -97,7 +144,7 @@ aug END
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Barre de statut
 
-" Éléments à afficher
+" Eléments à afficher
 set statusline+=%F
 set statusline+=\ %m
 set statusline+=%=
@@ -107,54 +154,6 @@ set statusline+=\ %P
 set statusline+=\ \|
 set statusline+=\ %l
 set statusline+=\:%c
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Mapping
-
-" Explorateur de fichiers
-nnoremap <F1> :Vexplore<CR>
-
-" Activation de la numérotation
-nnoremap <F2> :set number!<CR>
-
-" Correction orthographique (z= pour afficher les propositions)
-map <F3> :set spell!<CR>
-
-" Affichage des caractères invisibles
-nnoremap <F4> :set list!<CR>
-
-" Indentation automatique
-nnoremap <F5> gg=G <CR>
-
-" Souris
-nnoremap <F6> :call ToggleMouse()<CR>
-function! ToggleMouse()
-  if &mouse == 'a'
-    set mouse=
-    echo "Souris désactivée"
-  else
-    set mouse=a
-    echo "Souris activée"
-  endif
-endfunction
-
-" Coloration syntaxique
-nnoremap <F7> :call ToggleSyntax()<CR>
-function! ToggleSyntax()
-  if &syntax == ''
-    syntax on
-    echo "Coloration syntaxique activée"
-  else
-    syntax off
-    set syntax=
-    echo "Coloration syntaxique désactivée"
-  endif
-endfunction
-
-" Changement de document
-nnoremap <TAB> :tabnext<CR>
-nnoremap <S-TAB> <C-W>w
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
