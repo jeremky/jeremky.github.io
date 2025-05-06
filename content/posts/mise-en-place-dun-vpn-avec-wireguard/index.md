@@ -19,7 +19,7 @@ Je ne vous présente pas ce qu'est un VPN, [Wikipedia](https://fr.wikipedia.org/
 
 Encore et toujours, je vous mets à disposition les fichiers compose que j'utilise. L'image utilisée est fournie par [Linuxserver.io](https://www.linuxserver.io/).
 
-Le fichier `compose.yml` :
+Le fichier `docker-compose.yml` :
 
 ```yml
 services:

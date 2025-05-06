@@ -19,7 +19,7 @@ Transmission est une application de téléchargement BitTorrent légère et open
 
 Voici les fichiers de configuration Docker nécessaires pour l'installation de Transmission :
 
-Le fichier `compose.yml` :
+Le fichier `docker-compose.yml` :
 
 ```yml
 services:
@@ -56,7 +56,7 @@ PASS=
 
 > Si aucun user/password n'est défini, l'interface sera directement accessible sans authentification. Je vous suggère de vous référer à l'article au sujet d'[Authelia](/posts/authelia-serveur-dauthentification-open-source/) pour centraliser vos authentifications.
 
-Pensez à adapter les chemins des volumes dans le fichier `compose.yml` vers les dossiers où vous voulez stocker vos fichiers.
+Pensez à adapter les chemins des volumes dans le fichier `docker-compose.yml` vers les dossiers où vous voulez stocker vos fichiers.
 
 ### Reverse proxy
 

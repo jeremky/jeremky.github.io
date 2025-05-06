@@ -35,7 +35,7 @@ Si une partie a déjà été jouée, il est nécessaire de réinitialiser la zon
 
 Voici les configurations nécessaires pour héberger cette map.
 
-Le fichier `compose.yml` :
+Le fichier `docker-compose.yml` :
 
 ```yml
 services:

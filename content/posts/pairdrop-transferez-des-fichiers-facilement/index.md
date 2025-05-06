@@ -25,7 +25,7 @@ Si toutefois vous avez envie de profiter de ce service sans subir la limitation 
 
 ## Installation
 
-On commence par le fichier `compose.yml` :
+On commence par le fichier `docker-compose.yml` :
 
 ```yml
 services:

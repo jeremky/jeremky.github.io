@@ -18,7 +18,7 @@ L’interface de BookStack est conçue pour être simple et conviviale, avec un 
 
 ## Installation
 
-Pour l'installation, comme à chaque fois, nous avons un fichier `compose.yml` :
+Pour l'installation, comme à chaque fois, nous avons un fichier `docker-compose.yml` :
 
 ```yml
 services:
@@ -89,7 +89,7 @@ MAIL_FROM=
 MAIL_FROM_NAME=
 ```
 
-Avant de lancer le déploiement de votre fichier `compose.yml`, vous devez générer une clé pour la variable `APP_KEY`. Pour cela, dans votre terminal : 
+Avant de lancer le déploiement de votre fichier `docker-compose.yml`, vous devez générer une clé pour la variable `APP_KEY`. Pour cela, dans votre terminal : 
 
 ```bash
 sudo docker run -it --rm --entrypoint /bin/bash lscr.io/linuxserver/bookstack:latest appkey

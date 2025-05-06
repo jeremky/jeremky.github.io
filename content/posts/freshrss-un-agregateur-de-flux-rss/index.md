@@ -34,7 +34,7 @@ Pour vérifier quelles applications sont compatibles avec FreshRSS, je vous lais
 
 Pour installer FreshRSS, voici les fichiers Docker/Podman nécessaires : 
 
-Le fichier `compose.yml` :
+Le fichier `docker-compose.yml` :
 
 ```yml
 services:

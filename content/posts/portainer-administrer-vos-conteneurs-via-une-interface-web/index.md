@@ -29,7 +29,7 @@ Depuis la dernière version, Portainer est capable de contrôler également des 
 
 Pour installer Portainer, je considère que vous avez déjà suivi les tutos pour l'installation de Docker ou de Podman. Ensuite, et bien... C'est comme d'habitude :smile:
 
-Le fichier `compose.yml` si vous utilisez Docker : 
+Le fichier `docker-compose.yml` si vous utilisez Docker : 
 
 ```yml
 services:
@@ -46,7 +46,7 @@ services:
     restart: always
 ```
 
-Le fichier `compose.yml` si vous utilisez Podman :
+Le fichier `docker-compose.yml` si vous utilisez Podman :
 
 ```yml
 services:
@@ -95,7 +95,7 @@ Profitez en pour personnaliser le nom de votre environnement, et y ajouter des t
 
 ## Ajout de vos conteneurs
 
-Je ne vais pas m'attarder sur la création des réseaux, des volumes, et des conteneurs. Ce site se basant principalement sur les fichiers `compose.yml`, nous allons intégrer les configurations tel quel dans Portainer. Cela se situe dans la partie `Stacks`.
+Je ne vais pas m'attarder sur la création des réseaux, des volumes, et des conteneurs. Ce site se basant principalement sur les fichiers `docker-compose.yml`, nous allons intégrer les configurations tel quel dans Portainer. Cela se situe dans la partie `Stacks`.
 
 Cliquez sur `Add Stack` en haut à droite. Nommez votre stack et choisissez entre uploader votre fichier, ou insérer dans l'éditeur web le contenu de ce dernier :
 

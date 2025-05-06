@@ -18,7 +18,7 @@ Ollama peut être combiné à [Open WebUI](https://github.com/open-webui/open-we
 
 ## Installation
 
-Comme à chaque fois, nous allons utiliser Docker / Podman pour le déploiement de ces applications. Tout d'abord, un fichier `compose.yml` :
+Comme à chaque fois, nous allons utiliser Docker / Podman pour le déploiement de ces applications. Tout d'abord, un fichier `docker-compose.yml` :
 
 ```yml
 services:

@@ -33,7 +33,7 @@ Maintenant, nous allons pouvoir installer un petit agent sur votre serveur afin 
 
 [ddclient](https://ddclient.net/) est un logiciel qui permet de mettre à jour son IP dynamiquement auprès de différents fournisseurs. Pour la suite de cet article, je vais considérer que vous avez créé un compte chez Dynu.
 
-Pour l'installation, un fichier `compose.yml` :
+Pour l'installation, un fichier `docker-compose.yml` :
 
 ```yml
 services:

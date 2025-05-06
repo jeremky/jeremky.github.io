@@ -20,7 +20,7 @@ Dans cet article, nous allons voir comment le déployer sur un serveur personnel
 
 ## Installation
 
-Même outil, même musique. Voici le fichier `compose.yml` à utiliser :
+Même outil, même musique. Voici le fichier `docker-compose.yml` à utiliser :
 
 ```yml
 services:

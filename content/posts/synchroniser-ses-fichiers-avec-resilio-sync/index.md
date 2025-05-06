@@ -29,7 +29,7 @@ Vous pouvez télécharger l'application correspondant à votre système directem
 
 Pour un serveur Linux, il est plus flexible d'utiliser une image Docker. L'emplacement du dossier par défaut et les droits utilisés sont paramétrables. Encore une fois, je vous propose une image créée par l'équipe [Linuxserver.io](https://docs.linuxserver.io/images/docker-resilio-sync/).
 
-Le fichier `compose.yml` :
+Le fichier `docker-compose.yml` :
 
 ```yml
 services:

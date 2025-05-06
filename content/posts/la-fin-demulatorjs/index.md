@@ -57,7 +57,7 @@ Pour la récupération des ROMs, ne vous embêtez pas... Le site [archive.org](h
 
 Si toutefois vous désirez vous installer une instance d’EmulatorJS, je vous laisse ici la configuration Docker que j'ai utilisé.
 
-Le fichier `compose.yml` :
+Le fichier `docker-compose.yml` :
 
 ```yml
 services:

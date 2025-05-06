@@ -51,7 +51,7 @@ sudo touch /etc/containers/nodocker
 
 A l'utilisation de `docker-compose`, tout est transparent. Il est quand même préférable de redéployer vos conteneurs après avoir changé d'application afin de redéfinir les bons labels. Mais je n'ai constaté aucun problème de communication entre `docker-compose` et `podman`.
 
-Les fichiers `compose.yml` présentés sur ce site sont donc 100% compatibles avec les 2 solutions sans la moindre modification à effectuer (même au niveau du socket).
+Les fichiers `docker-compose.yml` présentés sur ce site sont donc 100% compatibles avec les 2 solutions sans la moindre modification à effectuer (même au niveau du socket).
 
 ### jdocker.sh
 

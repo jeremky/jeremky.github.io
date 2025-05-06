@@ -21,7 +21,7 @@ D'après [Wikipédia](https://fr.wikipedia.org/wiki/Nextcloud), *Nextcloud est u
 
 Nextcloud a besoin d'une base de données. Je propose une installation avec postgres, plus performant que mariaDB pour ce genre d'applications.
 
-Le fichier `compose.yml` :
+Le fichier `docker-compose.yml` :
 
 ```yml
 services:

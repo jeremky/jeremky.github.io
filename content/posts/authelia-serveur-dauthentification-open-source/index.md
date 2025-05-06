@@ -19,7 +19,7 @@ Dans cet article, il sera présenté comment installer Authelia, et comment le c
 
 ## Installation
 
-Pour l'installation, un fichier `compose.yml` :
+Pour l'installation, un fichier `docker-compose.yml` :
 
 ```yml
 services:
@@ -67,7 +67,7 @@ sudo docker restart nginx
 
 ## Configuration
 
-Avant de démarrer le conteneur, il est nécessaire de préparer le fichier de configuration de l'application. Les étapes présentées ici seront à adapter selon vos modifications du fichier `compose.yml`.
+Avant de démarrer le conteneur, il est nécessaire de préparer le fichier de configuration de l'application. Les étapes présentées ici seront à adapter selon vos modifications du fichier `docker-compose.yml`.
 
 Tout d'abord, créez le dossier `/opt/authelia` :
 

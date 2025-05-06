@@ -19,7 +19,7 @@ Je vous suggère de passer voir les articles concernant Docker pour son installa
 
 ## Les fichiers de déploiement
 
-Tout d'abord, le fichier `compose.yml` :
+Tout d'abord, le fichier `docker-compose.yml` :
 
 ```yml
 services:
@@ -79,7 +79,7 @@ ONLINE_MODE=true
 ENFORCE_SECURE_PROFILE=true
 ```
 
-Certains paramètres dépendent du type de serveur déployé (Vanilla ou autre). En les laissant à vide, ils ne seront pas utilisés. Si vous désirez ajouter des paramètres de la documentation, ils sont à ajouter dans la zone environment du `compose.yml` et dans le fichier `mcserver.env`, sinon ils ne seront pas vu par Docker.
+Certains paramètres dépendent du type de serveur déployé (Vanilla ou autre). En les laissant à vide, ils ne seront pas utilisés. Si vous désirez ajouter des paramètres de la documentation, ils sont à ajouter dans la zone environment du `docker-compose.yml` et dans le fichier `mcserver.env`, sinon ils ne seront pas vu par Docker.
 
 Point important également : dans cet exemple, Docker est configuré pour limiter le nombre de CPUs utilisés, ainsi que la quantité de RAM allouée. Si vous désirez changer la quantité de RAM, la modification est à effectuer à la fois au niveau du conteneur lui-même, mais également dans la configuration de Minecraft (variables `RAM` et `MEMORY` dans le fichier `.env`)
 

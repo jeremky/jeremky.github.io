@@ -27,7 +27,7 @@ C'est cette seconde méthode que je vais vous proposer de mettre en place, afin 
 
 ## Installation
 
-Pour installer Watchtower, comme d'habitude, on commence par un fichier `compose.yml` :
+Pour installer Watchtower, comme d'habitude, on commence par un fichier `docker-compose.yml` :
 
 ```yml
 services:
@@ -57,7 +57,7 @@ WATCHTOWER_REMOVE_VOLUMES=true
 Petit tour des variables que j’utilise :
 
 - `WATCHTOWER_SCHEDULE` : permet de définir le moment du check à la manière de cron. Tous les jours à 6h dans notre exemple
-- `WATCHTOWER_LABEL_ENABLE` : il est par défaut nécessaire d'indiquer dans chaque fichier `compose.yml` si le conteneur doit être vérifié. Désactivé dans notre cas pour plus de simplicité
+- `WATCHTOWER_LABEL_ENABLE` : il est par défaut nécessaire d'indiquer dans chaque fichier `docker-compose.yml` si le conteneur doit être vérifié. Désactivé dans notre cas pour plus de simplicité
 - `WATCHTOWER_CLEANUP` : nettoie ou non les anciennes images une fois la mise à jour effectuée
 - `WATCHTOWER_REMOVE_VOLUMES` : supprime les volumes qui ne sont pas nommés
 - `WATCHTOWER_DISABLE_CONTAINERS` : permet lister les conteneurs à exclure de la vérification (séparé par des espaces)

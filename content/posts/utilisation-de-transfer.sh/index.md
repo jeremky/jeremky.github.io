@@ -28,7 +28,7 @@ transfer(){ if [ $# -eq 0 ];then echo "No arguments specified.\nUsage:\n transfe
 
 Vous pouvez héberger transfer.sh sur votre serveur. Vous vous en douterez, grâce... à une image Docker :smirk:
 
-Le fichier `compose.yml` :
+Le fichier `docker-compose.yml` :
 
 ```yml
 services:

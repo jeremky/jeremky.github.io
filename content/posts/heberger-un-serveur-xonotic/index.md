@@ -29,7 +29,7 @@ C'est juste un zip à décompresser, aucune installation n'est requise. Pour les
 
 Comme à chaque fois, j'ajoute la configuration utilisée.
 
-Le fichier `compose.yml` :
+Le fichier `docker-compose.yml` :
 
 ```yml
 services:

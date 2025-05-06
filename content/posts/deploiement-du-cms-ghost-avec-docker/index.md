@@ -28,7 +28,7 @@ Le pari est réussi : Ghost va clairement à l'essentiel et replace l'édition d
 
 Les fichiers nécessaires au déploiement de Ghost sont les suivants :
 
-Le fichier `compose.yml` :
+Le fichier `docker-compose.yml` :
 
 ```yml
 services:

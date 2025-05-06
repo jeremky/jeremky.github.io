@@ -20,7 +20,7 @@ Appelé code-server, cette version est utilisable directement depuis un navigate
 
 Pour installer VS Code, voici les fichiers Docker/Podman nécessaires :
 
-Le fichier `compose.yml` :
+Le fichier `docker-compose.yml` :
 
 ```yml
 services:
@@ -52,7 +52,7 @@ PROXY_DOMAIN=
 DEFAULT_WORKSPACE=/config/workspace
 ```
 
-> Pensez à adapter les volumes partagés dans le fichier `compose.yml` et les variables du fichier `code-server.env` selon votre convenance
+> Pensez à adapter les volumes partagés dans le fichier `docker-compose.yml` et les variables du fichier `code-server.env` selon votre convenance
 
 ### Reverse proxy
 

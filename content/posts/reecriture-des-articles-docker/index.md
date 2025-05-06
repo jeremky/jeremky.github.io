@@ -14,17 +14,17 @@ toc: true
 draft: false
 ---
 
-J'ai récemment écrit [un article](/posts/migration-de-docker-vers-podman/) au sujet de ma migration de Docker vers Podman. Les différences entre ces 2 solutions sont minimes, mais elles nécessitent 2 ou 3 ajustements au niveau des fichiers `compose.yml` pour être 100% compatibles. C'est donc l'occasion de refaire un tour sur les différents articles de ce site qui concernent la mise en place d'applications via un système de conteneurs.
+J'ai récemment écrit [un article](/posts/migration-de-docker-vers-podman/) au sujet de ma migration de Docker vers Podman. Les différences entre ces 2 solutions sont minimes, mais elles nécessitent 2 ou 3 ajustements au niveau des fichiers `docker-compose.yml` pour être 100% compatibles. C'est donc l'occasion de refaire un tour sur les différents articles de ce site qui concernent la mise en place d'applications via un système de conteneurs.
 
 ## Variables
 
-J'avais pris pour habitude d'utiliser un maximum de variables pour les définitions de certains éléments dans le fichier `compose.yml`. Cela pouvait concerner les ports d'écoute, les chemins des volumes persistant... Mais à l'usage, cela n'a pas vraiment d'intérêt, sachant qu'en plaçant ces variables dans le fichier `.env` associé, elles se retrouvaient chargées dans le conteneur, ce qui ne fait pas vraiment sens. L'idée était de pouvoir déployer plusieurs conteneurs ayant un fichier `compose.yml` unique. Mais il suffit de dupliquer le dossier et c'est réglé.
+J'avais pris pour habitude d'utiliser un maximum de variables pour les définitions de certains éléments dans le fichier `docker-compose.yml`. Cela pouvait concerner les ports d'écoute, les chemins des volumes persistant... Mais à l'usage, cela n'a pas vraiment d'intérêt, sachant qu'en plaçant ces variables dans le fichier `.env` associé, elles se retrouvaient chargées dans le conteneur, ce qui ne fait pas vraiment sens. L'idée était de pouvoir déployer plusieurs conteneurs ayant un fichier `docker-compose.yml` unique. Mais il suffit de dupliquer le dossier et c'est réglé.
 
 ## Fichiers .env
 
-L'autre changement important, est dans l'appel des variables d'environnement utilisées par le conteneur lui même. Dans le cas où plusieurs conteneurs sont définis dans un seul fichier `compose.yml`, ces variables étaient donc chargées dans tous les conteneurs. Et... En terme de sécurité, ce n'est pas génial (un mot de passe de base de donnée pouvait être chargé dans le front web par exemple). 
+L'autre changement important, est dans l'appel des variables d'environnement utilisées par le conteneur lui même. Dans le cas où plusieurs conteneurs sont définis dans un seul fichier `docker-compose.yml`, ces variables étaient donc chargées dans tous les conteneurs. Et... En terme de sécurité, ce n'est pas génial (un mot de passe de base de donnée pouvait être chargé dans le front web par exemple). 
 
-Désormais, lorsqu'il y a plusieurs conteneurs dans un fichier `compose.yml`, il y aura donc un fichier `.env` par conteneur. L'appel de ce fichier se fait différemment, ce qui ne nécessite plus de lister les variables dans le fichier `compose.yml`. Docker et Podman gèrent la liste des variables directement en lisant les fichiers `.env` comme des grands. 
+Désormais, lorsqu'il y a plusieurs conteneurs dans un fichier `docker-compose.yml`, il y aura donc un fichier `.env` par conteneur. L'appel de ce fichier se fait différemment, ce qui ne nécessite plus de lister les variables dans le fichier `docker-compose.yml`. Docker et Podman gèrent la liste des variables directement en lisant les fichiers `.env` comme des grands. 
 
 Cela se présente de la façon suivante (ajout de l'entrée `env_file`) : 
 

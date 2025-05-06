@@ -30,7 +30,7 @@ La team [Linuxserver](https://docs.linuxserver.io/general/swag) fournit une imag
 - Activation de l'outil Fail2ban (pour bannir temporairement les IP abusant des requêtes http)
 - Mise à disposition de fichiers sample pour tout un tas d'applications
 
-Voici le contenu de mon fichier `compose.yml` :
+Voici le contenu de mon fichier `docker-compose.yml` :
 
 ```yml
 services:
@@ -76,7 +76,7 @@ Vous pouvez maintenant tester votre serveur web. En contactant l'IP ou votre dom
 
 ## Configuration de vos conteneurs
 
-Votre proxy étant en place, vous devez maintenant modifier vos conteneurs pour qu'ils se trouvent dans le même réseau virtuel. Nous allons reprendre l'exemple de Nextcloud présent dans l'article au sujet de [Docker Compose](/posts/utilisation-de-docker-compose/). Le fichier `compose.yml` est désormais le suivant :
+Votre proxy étant en place, vous devez maintenant modifier vos conteneurs pour qu'ils se trouvent dans le même réseau virtuel. Nous allons reprendre l'exemple de Nextcloud présent dans l'article au sujet de [Docker Compose](/posts/utilisation-de-docker-compose/). Le fichier `docker-compose.yml` est désormais le suivant :
 
 ```yml
 services:

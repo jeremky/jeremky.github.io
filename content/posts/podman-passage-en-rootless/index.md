@@ -61,7 +61,7 @@ Afin que Podman démarre vos conteneurs au démarrage de votre serveur, vous dev
 ```bash
 systemctl enable --user --now podman-restart.service
 ```
-> À noter que `restart: always` doit être spécifié dans votre fichier `compose.yml`
+> À noter que `restart: always` doit être spécifié dans votre fichier `docker-compose.yml`
 
 Autre service très utile, si vous avez besoin de Podman en mode socket, par exemple si certains de vos conteneurs doivent consulter ou contrôler d'autres conteneurs (comme [Portainer](/posts/portainer-administrer-vos-conteneurs-via-une-interface-web/) ou [Flame](/posts/flame-un-dashboard-leger-et-efficace/)) :
 
