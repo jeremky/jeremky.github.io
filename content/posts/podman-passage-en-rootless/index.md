@@ -1,7 +1,7 @@
 ---
 title: "Podman : passage en rootless"
 slug: podman-passage-en-rootless
-date: 2025-05-15T21:25:29.241Z
+date: 2025-05-16T12:46:28.143Z
 useRelativeCover: true
 cover: cover.webp
 tags:
@@ -10,10 +10,10 @@ categories:
   - Tutos
   - News
 toc: true
-draft: true
+draft: false
 ---
 
-Il y a quelques mois, j'évoquais dans [cet article](/posts/migration-de-docker-vers-podman/) que j'avais décidé de migrer de Docker vers Podman. Et même si la force de Podman est de fonctionner sans les droits root (même si Docker a plus ou moins fait le nécessaire depuis), j'étais resté en mode rootful, pour que la transition soit la plus douce possible. J’ai finalement franchi le pas, et je vais exposer ici toutes les implications d'un passage au mode rootless.
+Il y a quelques mois, j'évoquais dans [cet article](/posts/migration-de-docker-vers-podman/) ma décision de migrer de Docker vers Podman. Et même si la force de Podman est de fonctionner sans les droits root (même si Docker a plus ou moins fait le nécessaire depuis), j'étais resté en mode rootful, pour que la transition soit la plus douce possible. J’ai finalement franchi le pas, et je vais exposer ici toutes les implications d'un passage au mode rootless.
 
 ## Avantages
 
@@ -140,7 +140,7 @@ git clone https://github.com/jeremky/jdocker
 
 ## Modification des articles
 
-Les articles sur ce site autour de l'installation d'applications conteneurisées avaient comme tags [#docker](/tags/docker/) et [#podman](/tags/podman/), la compatibilité ayant été assurée. N'ayant pas pu retester toutes les applications mentionnées en rootless, j'ai préféré retirer le tag [#podman](/tags/podman/) des différents articles. Ce tag ne servira donc uniquement que pour les spécificités de Podman. Cela ne signifie pas que les applications ne sont pas compatibles (je n'ai eu pour le moment aucun problème avec les applications que j'utilise encore), mais je préfère rester prudent. A vous de tester en fonction de vos besoins.
+Les articles sur ce site autour de l'installation d'applications conteneurisées avaient comme tags [#docker](/tags/docker/) et [#podman](/tags/podman/), la compatibilité ayant été assurée. N'ayant pas pu retester toutes les applications mentionnées en rootless, j'ai préféré retirer le tag [#podman](/tags/podman/) des différents articles. Ce tag ne servira donc uniquement que pour les spécificités de Podman. Cela ne signifie pas que les applications ne sont pas compatibles (je n'ai eu pour le moment aucun problème avec les applications que j'utilise encore), mais je préfère rester prudent. A vous de tester et d'adapter en fonction de vos besoins.
 
 ## Conclusion
 
