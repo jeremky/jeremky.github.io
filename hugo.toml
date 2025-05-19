@@ -12,7 +12,7 @@ enableEmoji = true
 
   # OpenGraph
   images = ["https://jeremky.github.io/img/apple-touch-icon-144-precomposed.png"]
-  description = "News et tutos autour du déploiement d'applications orientées serveur faciles à déployer chez soi"
+  description = "News et tutos autour du déploiement d'applications orientées serveur faciles à installer chez soi"
 
   # Chemin du dossier du blog
   contentTypeName = "posts"
@@ -41,7 +41,7 @@ enableEmoji = true
 [languages]
   [languages.fr.params]
     title = "JeremKy.github.io"
-    subtitle = "Services en auto-hébergement"
+#subtitle = "Services en auto-hébergement"
     keywords = ""
     copyright = ""
     menuMore = "Menu"
