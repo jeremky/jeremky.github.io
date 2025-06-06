@@ -20,7 +20,7 @@ Utiliser un Adblock directement dans son navigateur rend la navigation plus agr�
 
 La première, Adguard DNS, est la plus simple à mettre en place, puisque l'on peut utiliser des serveurs DNS que Adguard nous met à disposition. Vous trouverez sur [cette page](https://adguard-dns.io/fr/public-dns.html), les IP v4 et v6 de leurs serveurs. Ils proposent plusieurs possibilités de filtrage : classique, non filtrant, et avec une protection dite familiale.
 
-{{< image src="/adguard.webp" style="border-radius: 8px;" >}}
+{{< image src="adguard.webp" style="border-radius: 8px;" >}}
 
 Le blocage fonctionne plutôt bien dans leur configuration. J'ai toutefois constaté quelques baisses de performance comparé à d'autre fournisseurs DNS, et cette configuration est limitée sur les appareils où vous pouvez manuellement changer les adresses IP DNS.
 
