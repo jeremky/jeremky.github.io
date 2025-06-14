@@ -102,7 +102,7 @@ if filereadable(expand("~/.vim/plugged/lightline.vim/autoload/lightline.vim"))
 endif
 ```
 
-Pensez à retirer le thème OneDark si vous êtes parti [de cet article](/posts/vim-neovim-choisissez-votre-configuration/#un-vim-efficace-avec-plugins), ou bien récupérez le fichier à jour directement [ici](https://github.com/jeremky/envbackup/blob/main/dotfiles/.vimrc).
+Pensez à retirer le thème OneDark si vous êtes parti [de cet article](/posts/vim-neovim-choisissez-votre-configuration/#un-vim-efficace-avec-plugins), ou bien récupérez le fichier à jour directement [ici](https://github.com/jeremky/envbackup/blob/main/dotfiles/debian/.vimrc).
 
 {{< image src="vim.webp" style="border-radius: 8px;" >}}
 
