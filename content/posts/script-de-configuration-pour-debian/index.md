@@ -60,3 +60,5 @@ Une fois les packages installés, le script se chargera ensuite d'effectuer quel
 - Activer le firewall UFW (si installé). Veillez donc à bien laisser le protocole ssh dans le fichier de configuration afin de ne pas perdre votre connexion...
 
 Un dernier point au sujet de SSH : j'ai volontairement laissé l'autorisation de connexion par mot de passe. Toutefois, il est préférable d'utiliser des connexions par échange de clés ssh. Ce sera le sujet du prochain article.
+
+> Cet article a été mis à jour suite à la modification du script, qui prend également en charge la distribution fedora
