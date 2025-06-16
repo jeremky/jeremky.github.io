@@ -144,4 +144,4 @@ Les articles sur ce site autour de l'installation d'applications conteneurisées
 
 ## Conclusion
 
-Passer Podman en rootless n’est pas si compliqué, mais demande quelques ajustements. La sécurité accrue et la flexibilité obtenues valent largement ces efforts, malgré une légère augmentation de l’espace disque utilisé.
+Passer Podman en rootless n’est pas si compliqué, mais demande quelques ajustements. La sécurité accrue et la flexibilité obtenue valent largement ces efforts, malgré une légère augmentation de l’espace disque utilisé.
