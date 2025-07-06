@@ -1,7 +1,7 @@
 ---
 title: "RustDesk : alternative open source à TeamViewer"
 slug: rustdesk-alternative-open-source-a-teamviewer
-date: 2025-07-06T10:54:25.404Z
+date: 2025-07-06T16:12:32.707Z
 useRelativeCover: true
 cover: cover.webp
 tags:
@@ -10,17 +10,17 @@ tags:
 categories:
   - Tutos
 toc: true
-draft: true
+draft: false
 ---
 
-Si comme moi, vous cherchez une alternative libre à TeamViewer, je vous propose [**RustDesk**](https://rustdesk.com/fr/) !
+Si comme moi, vous étiez à la recherche d'une alternative libre à TeamViewer, je vous propose [**RustDesk**](https://rustdesk.com/fr/) !
 
 RustDesk est une application de prise en main à distance, chiffrée de bout en bout, avec un serveur qu'il est possible d'héberger. Elle fonctionne aussi bien en LAN qu’en accès externe via Internet.
 
 Ses points forts :
 - Open source et gratuit
 - Fonctionne sans configuration réseau complexe (NAT, etc.)
-- Serveur d’identification et de relais auto-hébergeable
+- Serveur d’identification et de relais en auto hébergement
 - Application disponible sur Windows, Linux, macOS, Android, iOS
 
 ## Pourquoi l’auto-héberger ?
@@ -76,7 +76,7 @@ Si cela est possible, RustDesk effectuera une connexion peer to peer entre les 2
 
 Dans le cas où vous utilisez un firewall, pensez à ouvrir les ports en conséquence. Certains ne nécessitent que du TCP, et un nécessite à la fois du TCP et de l'UDP. Regardez directement le fichier `docker-compose.yml` pour avoir les informations.
 
-Si comme moi vous utilisez **ufw**, voici les commandes à passer pour l'ajout des ports :
+Si comme moi vous utilisez [ufw](https://fr.wikipedia.org/wiki/Uncomplicated_Firewall), voici les commandes à passer pour l'ajout des ports :
 
 ```bash
 sudo ufw allow 21115/tcp
