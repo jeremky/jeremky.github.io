@@ -50,8 +50,8 @@ services:
     networks:
       - nginx_proxy
     volumes:
-      - ./files/database.db:/database/filebrowser.db
-      - ./files/settings.json:/.filebrowser.json
+      - ./files/database:/database
+      - ./files/config:/config
       - /home:/srv
     restart: always
 
@@ -62,11 +62,10 @@ networks:
 
 Quelques éléments à préciser :
 
-- La partie `user` dans le fichier `docker-compose.yml` est à adapter selon l'ID de votre utilisateur
+- La partie `user` dans le fichier `docker-compose.yml` est à adapter selon l'ID de votre utilisateur. Mettez `0:0` si vous utilisez Podman
 - Il est nécessaire de créer un dossier `files` là où se trouve votre fichier compose
-- Dans ce dossier, vous devrez créer un fichier vide nommé `database.db` (qui comme son nom l'indique, servira de base de données)
-- Optionnel, mais vous pouvez créer également un dossier `img`, avec un fichier `logo.svg` et un sous dossier *icons* avec vos icônes au format.webp (plus d'explications [ici](https://filebrowser.org/configuration/custom-branding))
-- Enfin, il vous faut créer dans ce même dossier `files` un fichier nommé `settings.json` avec le contenu suivant : 
+- Dans ce dossier, vous devrez créer un sous dossier `database`, avec à l'intérieur un fichier vide nommé `filebrowser.db` (qui comme son nom l'indique, servira de base de données)
+- Enfin, il vous faut créer dans ce même dossier `files` un sous dossier `config`, avec à l'intérieur un fichier nommé `settings.json` pour y insérer le contenu suivant : 
 
 ```bash
 {
