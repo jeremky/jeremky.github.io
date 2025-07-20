@@ -62,7 +62,7 @@ TITLE=Webtop
 LC_ALL=fr_FR.UTF-8
 START_DOCKER=false
 DOCKER_MODS=linuxserver/mods:universal-package-install
-INSTALL_PACKAGES=aspell|aspell-fr|colordiff|font-space-mono-nerd|git|htop|ncdu|neovim|onboard|papirus-icon-theme|parole|ripgrep|thunar-archive-plugin|tmux|xarchiver|zip
+INSTALL_PACKAGES=aspell|aspell-fr|colordiff|fd|font-jetbrains-mono-nerd|fzf|git|htop|ncdu|papirus-icon-theme|ripgrep|thunar-archive-plugin|tmux|vim|xarchiver|zip|zoxide
 ```
 
 - la variable `START_DOCKER` permet de contrôler Docker via ce container. Il est désactivé dans cet exemple, car je n'en ai pas l'utilité : il est possible d'utiliser un terminal de ce conteneur comme rebond SSH vers votre serveur
@@ -108,7 +108,7 @@ Les changements sont les suivants :
 - Désactivation des icônes du bureau : le menu des applications est disponible de n'importe où via un clic droit, et la roulette permet de basculer entre les bureaux
 - Masquage de certaines applications totalement inutiles
 - Possibilité de lancer un terminal en plein écran via le raccourci `Ctrl + Entrée`
-- Ajout de configurations pour htop, neovim, tmux, ainsi que différents alias, dont `upgrade` adapté pour la distribution Alpine
+- Ajout de configurations pour htop, vim, tmux, ainsi que différents alias, dont `upgrade` adapté pour la distribution Alpine
 
 ### Chromium
 
@@ -141,4 +141,3 @@ proot-apps install gui
 Disposer d'un Linux accessible de n'importe où peut vraiment être pratique. Je m'en sers surtout pour me connecter à mon serveur OVH, que j'ai protégé en forçant une connexion par clé RSA. Combiné à Authelia, je peux donc y accéder via une double authentification, la clé étant sur ce Linux.
 
 Mais vu les applications qui sont proposées par l'équipe, vous trouverez sûrement un autre truc sympa à faire avec ! :blush:
-
