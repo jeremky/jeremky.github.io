@@ -61,6 +61,7 @@ TZ=Europe/Paris
 TITLE=Webtop
 LC_ALL=fr_FR.UTF-8
 START_DOCKER=false
+DISABLE_IPV6=true
 DOCKER_MODS=linuxserver/mods:universal-package-install
 INSTALL_PACKAGES=aspell|aspell-fr|colordiff|fd|font-jetbrains-mono-nerd|fzf|git|htop|ncdu|papirus-icon-theme|ripgrep|thunar-archive-plugin|tmux|vim|xarchiver|zip|zoxide
 ```
