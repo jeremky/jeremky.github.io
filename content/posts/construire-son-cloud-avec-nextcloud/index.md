@@ -33,7 +33,7 @@ services:
     networks:
       - default
     volumes:
-      - /opt/nextcloud/postgres:/var/lib/postgresql/data
+      - /opt/containers/containers/nextcloud/postgres:/var/lib/postgresql/data
     restart: always
 
   nextcloud:
@@ -45,8 +45,8 @@ services:
       - default
       - nginx_proxy
     volumes:
-      - /opt/nextcloud/config:/config
-      - /opt/nextcloud/data:/data
+      - /opt/containers/containers/nextcloud/config:/config
+      - /opt/containers/containers/nextcloud/data:/data
     depends_on:
       - nextcloud-db
     restart: always
@@ -85,11 +85,11 @@ Les fichiers de configuration ci-dessus sont prévus pour être utilisés avec u
 L'image Docker de [Linuxserver.io](https://docs.linuxserver.io/general/swag/) propose un fichier sample de configuration, il vous suffit juste de modifier votre sous domaine en conséquence :
 
 ```bash
-sudo cp /opt/nginx/nginx/proxy-confs/nextcloud.subdomain.conf.sample /opt/nginx/nginx/proxy-confs/nextcloud.subdomain.conf
-sudo sed -i "s,server_name nextcloud,server_name <votre_sous_domaine>,g" /opt/nginx/nginx/proxy-confs/nextcloud.subdomain.conf
+sudo cp /opt/containers/containers/nginx/nginx/proxy-confs/nextcloud.subdomain.conf.sample /opt/containers/nginx/nginx/proxy-confs/nextcloud.subdomain.conf
+sudo sed -i "s,server_name nextcloud,server_name <votre_sous_domaine>,g" /opt/containers/containers/nginx/nginx/proxy-confs/nextcloud.subdomain.conf
 ```
 
-Autre point important, Nextcloud a besoin de certains éléments côté ssl. il faut donc modifier le fichier `/opt/nginx/nginx/ssl.conf` pour y décommenter les lignes suivantes :
+Autre point important, Nextcloud a besoin de certains éléments côté ssl. il faut donc modifier le fichier `/opt/containers/containers/nginx/nginx/ssl.conf` pour y décommenter les lignes suivantes :
 
 ```nginx
 add_header Strict-Transport-Security "max-age=63072000" always;

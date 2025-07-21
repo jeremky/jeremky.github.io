@@ -30,7 +30,7 @@ services:
     networks:
       - default
     volumes:
-      - /opt/bookstack/mysql:/config
+      - /opt/containers/bookstack/mysql:/config
     restart: always
 
   bookstack:
@@ -42,7 +42,7 @@ services:
       - default
       - nginx_proxy
     volumes:
-      - /opt/bookstack/app:/config
+      - /opt/containers/bookstack/app:/config
     depends_on:
       - bookstack-db
     restart: always
@@ -104,8 +104,8 @@ Les fichiers de configuration ci-dessus sont prévus pour être utilisés avec u
 L'image Docker de [Linuxserver.io](https://docs.linuxserver.io/general/swag/) propose un fichier sample de configuration, il vous suffit juste de modifier votre nom de domaine en conséquence :
 
 ```bash
-sudo cp /opt/nginx/nginx/proxy-confs/bookstack.subdomain.conf.sample /opt/nginx/nginx/proxy-confs/bookstack.subdomain.conf
-sudo sed -i "s,server_name bookstack,server_name <votre_sous_domaine>,g" /opt/nginx/nginx/proxy-confs/bookstack.subdomain.conf
+sudo cp /opt/containers/nginx/nginx/proxy-confs/bookstack.subdomain.conf.sample /opt/containers/nginx/nginx/proxy-confs/bookstack.subdomain.conf
+sudo sed -i "s,server_name bookstack,server_name <votre_sous_domaine>,g" /opt/containers/nginx/nginx/proxy-confs/bookstack.subdomain.conf
 ```
 
 Et enfin, un petit redémarrage pour la prise en compte du nouveau fichier :

@@ -31,9 +31,9 @@ services:
     networks:
       - nginx_proxy
     volumes:
-      - /opt/transmission/data:/config
-      - /opt/transmission/downloads:/downloads
-      - /opt/transmission/folder:/watch
+      - /opt/containers/transmission/data:/config
+      - /opt/containers/transmission/downloads:/downloads
+      - /opt/containers/transmission/folder:/watch
     ports:
       - 51413:51413
       - 51413:51413/udp
@@ -67,8 +67,8 @@ Les fichiers de configuration ci-dessus sont prévus pour être utilisés avec u
 L'image Docker de [Linuxserver.io](https://docs.linuxserver.io/general/swag/) propose un fichier sample de configuration, il vous suffit juste de modifier votre nom de domaine en conséquence :
 
 ```bash
-sudo cp /opt/nginx/nginx/proxy-confs/transmission.subdomain.conf.sample /opt/nginx/nginx/proxy-confs/transmission.subdomain.conf
-sudo sed -i "s,server_name transmission,server_name <votre_sous_domaine>,g" /opt/nginx/nginx/proxy-confs/transmission.subdomain.conf
+sudo cp /opt/containers/nginx/nginx/proxy-confs/transmission.subdomain.conf.sample /opt/containers/nginx/nginx/proxy-confs/transmission.subdomain.conf
+sudo sed -i "s,server_name transmission,server_name <votre_sous_domaine>,g" /opt/containers/nginx/nginx/proxy-confs/transmission.subdomain.conf
 ```
 
 Et enfin, un petit redémarrage pour la prise en compte du nouveau fichier :

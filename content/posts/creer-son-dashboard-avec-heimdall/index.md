@@ -40,7 +40,7 @@ services:
     networks:
       - nginx_proxy
     volumes:
-      - /opt/heimdall:/config
+      - /opt/containers/heimdall:/config
     restart: always
 
 networks:
@@ -65,8 +65,8 @@ Les fichiers de configuration ci-dessus sont prévus pour être utilisés avec u
 L'image Docker de [Linuxserver.io](https://docs.linuxserver.io/general/swag/) propose un fichier sample de configuration, il vous suffit juste de modifier votre nom de domaine en conséquence :
 
 ```bash
-sudo cp /opt/nginx/nginx/proxy-confs/heimdall.subdomain.conf.sample /opt/nginx/nginx/proxy-confs/heimdall.subdomain.conf
-sudo sed -i "s,server_name heimdall,server_name <votre_sous_domaine>,g" /opt/nginx/nginx/proxy-confs/heimdall.subdomain.conf
+sudo cp /opt/containers/nginx/nginx/proxy-confs/heimdall.subdomain.conf.sample /opt/containers/nginx/nginx/proxy-confs/heimdall.subdomain.conf
+sudo sed -i "s,server_name heimdall,server_name <votre_sous_domaine>,g" /opt/containers/nginx/nginx/proxy-confs/heimdall.subdomain.conf
 ```
 
 Et enfin, un petit redémarrage pour la prise en compte du nouveau fichier :
@@ -104,7 +104,7 @@ Vous pouvez lui spécifier quelle application parmi la liste, ou pointer directe
 
 ### Applications améliorées
 
-Vous trouverez la liste des applications disponibles [sur cette page](https://apps.heimdall.site/applications/enhanced). Téléchargez y l'application de votre choix et déposez le fichier zip dans le dossier `/opt/heimdall/config/www/SupportedApps`.
+Vous trouverez la liste des applications disponibles [sur cette page](https://apps.heimdall.site/applications/enhanced). Téléchargez y l'application de votre choix et déposez le fichier zip dans le dossier `/opt/containers/heimdall/config/www/SupportedApps`.
 
 {{< image src="addapp.webp" style="border-radius: 8px;" >}}
 

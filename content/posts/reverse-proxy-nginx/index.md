@@ -44,7 +44,7 @@ services:
     networks:
       - proxy
     volumes:
-      - /opt/nginx:/config
+      - /opt/containers/nginx:/config
     ports:
       - 80:80
       - 443:443
@@ -88,7 +88,7 @@ services:
       - default
     env_file: nextcloud-db.env
     volumes:
-      - /opt/nextcloud/postgres:/var/lib/postgresql/data
+      - /opt/containers/nextcloud/postgres:/var/lib/postgresql/data
     restart: always
 
   nextcloud:
@@ -100,8 +100,8 @@ services:
       - nginx_proxy
     env_file: nextcloud.env
     volumes:
-      - /opt/nextcloud/config:/config
-      - /opt/nextcloud/data:/data
+      - /opt/containers/nextcloud/config:/config
+      - /opt/containers/nextcloud/data:/data
     depends_on:
       - nextcloud-db
     restart: always
@@ -120,7 +120,7 @@ Ensuite, pour chaque service, on lui spécifie quel(s) réseau(x) utiliser. La b
 
 ## Ajout d'une configuration NGINX
 
-Maintenant que vous avez redéployé votre application dans le bon réseau (nginx_proxy), il ne reste plus qu'à définir une configuration dans NGINX pour pointer vers celle-ci. Si vous avez laissé le dossier de déploiement par défaut, tout doit se trouver dans `/opt/nginx`.
+Maintenant que vous avez redéployé votre application dans le bon réseau (nginx_proxy), il ne reste plus qu'à définir une configuration dans NGINX pour pointer vers celle-ci. Si vous avez laissé le dossier de déploiement par défaut, tout doit se trouver dans `/opt/containers/nginx`.
 
 Dans ce dossier, vous pouvez vous rendre dans `nginx/proxy-confs`. Ici se trouve tout un tas de fichier "sample" proposés par Linuxserver, certaines applications ayant des spécificités de configuration.
 Vous y trouverez un fichier `nextcloud.subdomain.conf.sample`. Copiez-le en `nextcloud.subdomain.conf`. Le contenu de ce fichier :
@@ -185,7 +185,7 @@ Votre application devrait maintenant être accessible !
 
 Si vous utilisez Podman à la place de Docker, une modification est à effectuer dans la configuration de l'image pour éviter d'avoir aléatoirement des erreurs 502.
 
-Après avoir déployé votre conteneur nginx, rendez-vous dans `/opt/nginx/nginx` et modifiez le fichier `resolver.conf`, pour y supprimer la 2ème adresse IP au niveau de la ligne `resolver`. Le fichier doit ressembler à ceci :
+Après avoir déployé votre conteneur nginx, rendez-vous dans `/opt/containers/nginx/nginx` et modifiez le fichier `resolver.conf`, pour y supprimer la 2ème adresse IP au niveau de la ligne `resolver`. Le fichier doit ressembler à ceci :
 
 ```txt
 # This file is auto-generated only on first start, based on the container's /etc/resolv.conf file. Feel free to modify it as you wish.

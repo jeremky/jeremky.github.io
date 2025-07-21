@@ -40,8 +40,8 @@ services:
     hostname: adguard
     env_file: adguard.env
     volumes:
-      - /opt/adguard/work:/opt/adguardhome/work
-      - /opt/adguard/conf:/opt/adguardhome/conf
+      - /opt/containers/adguard/work:/opt/adguardhome/work
+      - /opt/containers/adguard/conf:/opt/adguardhome/conf
     network_mode: host
     restart: always
 ```

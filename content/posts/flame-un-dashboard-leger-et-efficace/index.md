@@ -68,7 +68,7 @@ Les fichiers de configuration ci-dessus sont prévus pour être utilisés avec u
 
 > Pour rappel, un article dédié est [disponible ici](/posts/reverse-proxy-nginx/).
 
-L'image Docker de [Linuxserver.io](https://docs.linuxserver.io/general/swag/) ne propose pas de fichier sample de configuration pour Flame. Vous devez donc créer un fichier nommé `/opt/nginx/nginx/proxy-confs/flame.subdomain.conf`, et y coller le contenu suivant : 
+L'image Docker de [Linuxserver.io](https://docs.linuxserver.io/general/swag/) ne propose pas de fichier sample de configuration pour Flame. Vous devez donc créer un fichier nommé `/opt/containers/nginx/nginx/proxy-confs/flame.subdomain.conf`, et y coller le contenu suivant : 
 
 ```nginx
 ## Version 2024/07/16

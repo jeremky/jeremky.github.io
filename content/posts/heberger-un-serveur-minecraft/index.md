@@ -31,7 +31,7 @@ services:
     cpus: 2
     mem_limit: 3G
     volumes:
-      - /opt/mcserver:/data
+      - /opt/containers/mcserver:/data
     ports:
       - 25565:25565
     tty: true

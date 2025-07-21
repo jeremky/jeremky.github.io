@@ -41,8 +41,8 @@ services:
     networks:
       - nginx_proxy
     volumes:
-      - /opt/resilio-sync/config:/config
-      - /opt/resilio-sync/downloads:/downloads
+      - /opt/containers/resilio-sync/config:/config
+      - /opt/containers/resilio-sync/downloads:/downloads
       - /home:/sync
     ports:
       - 55555:55555
@@ -72,8 +72,8 @@ Les fichiers de configuration ci-dessus sont prévus pour être utilisés avec u
 L'image Docker de [Linuxserver.io](https://docs.linuxserver.io/general/swag/) propose un fichier sample de configuration, il vous suffit juste de modifier votre nom de domaine en conséquence :
 
 ```bash
-sudo cp /opt/nginx/nginx/proxy-confs/resilio-sync.subdomain.conf.sample /opt/nginx/nginx/proxy-confs/resilio-sync.subdomain.conf
-sudo sed -i "s,server_name resilio-sync,server_name <votre_sous_domaine>,g" /opt/nginx/nginx/proxy-confs/resilio-sync.subdomain.conf
+sudo cp /opt/containers/nginx/nginx/proxy-confs/resilio-sync.subdomain.conf.sample /opt/containers/nginx/nginx/proxy-confs/resilio-sync.subdomain.conf
+sudo sed -i "s,server_name resilio-sync,server_name <votre_sous_domaine>,g" /opt/containers/nginx/nginx/proxy-confs/resilio-sync.subdomain.conf
 ```
 
 Et enfin, un petit redémarrage pour la prise en compte du nouveau fichier :

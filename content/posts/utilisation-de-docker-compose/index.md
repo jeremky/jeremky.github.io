@@ -32,7 +32,7 @@ services:
       - default
     env_file: nextcloud-db.env
     volumes:
-      - /opt/nextcloud/postgres:/var/lib/postgresql/data
+      - /opt/containers/nextcloud/postgres:/var/lib/postgresql/data
     restart: always
 
   nextcloud-web:
@@ -103,7 +103,7 @@ Si vous voulez supprimer vos conteneurs :
 sudo docker-compose down
 ```
 
-A noter que cela ne supprime ni les images, ni les répertoires partagés (dans notre cas, `/opt/nextcloud`).
+A noter que cela ne supprime ni les images, ni les répertoires partagés (dans notre cas, `/opt/containers/nextcloud`).
 
 ## Script jdocker.sh
 

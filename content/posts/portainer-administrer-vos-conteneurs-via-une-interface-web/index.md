@@ -39,14 +39,14 @@ services:
     hostname: portainer
     privileged: true
     volumes:
-      - /opt/portainer:/data
+      - /opt/containers/portainer:/data
       - /var/run/docker.sock:/var/run/docker.sock
     ports:
       - 9443:9443
     restart: always
 ```
 
-Le fichier `docker-compose.yml` si vous utilisez Podman :
+Le fichier `compose.yml` si vous utilisez Podman :
 
 ```yml
 services:
@@ -56,7 +56,7 @@ services:
     hostname: portainer
     privileged: true
     volumes:
-      - /opt/portainer:/data
+      - /opt/containers/portainer:/data
       - /var/run/podman/podman.sock:/var/run/docker.sock
     ports:
       - 9443:9443

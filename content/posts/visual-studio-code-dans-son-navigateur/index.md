@@ -32,8 +32,8 @@ services:
     networks:
       - nginx_proxy
     volumes:
-      - /opt/code-server:/config
-      - /opt/code-server/workspace:/config/workspace
+      - /opt/containers/code-server:/config
+      - /opt/containers/code-server/workspace:/config/workspace
     restart: always
 
 networks:
@@ -63,8 +63,8 @@ Les fichiers de configuration ci-dessus sont prévus pour être utilisés avec u
 L'image Docker de [Linuxserver.io](https://docs.linuxserver.io/general/swag/) propose un fichier sample de configuration, il vous suffit juste de modifier votre nom de domaine en conséquence :
 
 ```bash
-sudo cp /opt/nginx/nginx/proxy-confs/code-server.subdomain.conf.sample /opt/nginx/nginx/proxy-confs/code-server.subdomain.conf
-sudo sed -i "s,server_name code-server,server_name <votre_sous_domaine>,g" /opt/nginx/nginx/proxy-confs/code-server.subdomain.conf
+sudo cp /opt/containers/nginx/nginx/proxy-confs/code-server.subdomain.conf.sample /opt/containers/nginx/nginx/proxy-confs/code-server.subdomain.conf
+sudo sed -i "s,server_name code-server,server_name <votre_sous_domaine>,g" /opt/containers/nginx/nginx/proxy-confs/code-server.subdomain.conf
 ```
 
 Et enfin, un petit redémarrage pour la prise en compte du nouveau fichier :
@@ -84,13 +84,13 @@ L'image de [linuxserver.io](https://docs.linuxserver.io/images/docker-code-serve
 Pour créer votre fichier `.htpasswd`, utilisez les commandes suivantes :
 
 ```bash
-sudo htpasswd -c /opt/nginx/nginx/.htpasswd <votre user>
-sudo chown 1000:1000: /opt/nginx/nginx/.htpasswd
+sudo htpasswd -c /opt/containers/nginx/nginx/.htpasswd <votre user>
+sudo chown 1000:1000: /opt/containers/nginx/nginx/.htpasswd
 ```
 
 > Je considère que vous avez suivi le tuto pour la mise en place du reverse proxy, le chemin et le user peuvent être différents selon votre configuration.
 
-Une fois votre fichier `.htpasswd` créé, vous devez l'activer sur votre proxy. Pour cela, modifiez le fichier `/opt/nginx/nginx/proxy-confs/code-server.subdomain.conf` et décommentez les lignes suivantes :
+Une fois votre fichier `.htpasswd` créé, vous devez l'activer sur votre proxy. Pour cela, modifiez le fichier `/opt/containers/nginx/nginx/proxy-confs/code-server.subdomain.conf` et décommentez les lignes suivantes :
 
 ```nginx
 auth_basic "Restricted";
@@ -113,7 +113,7 @@ Profitez-en pour installer l'extension `French - Code Spell Checker` afin d'avoi
 
 ## Utilisation de git
 
-Si vous avez besoin d'utiliser git dans votre instance VS Code, une configuration est à effectuer dans les répertoires du conteneur. Si vous avez conservé le chemin `/opt/code-server`, créez y un fichier `.gitconfig` avec vos informations d'utilisateur :
+Si vous avez besoin d'utiliser git dans votre instance VS Code, une configuration est à effectuer dans les répertoires du conteneur. Si vous avez conservé le chemin `/opt/containers/code-server`, créez y un fichier `.gitconfig` avec vos informations d'utilisateur :
 
 ```txt
 [user]
@@ -137,7 +137,7 @@ Il vous reste à créer votre clé RSA, via la commande suivante :
 ssh-keygen -t rsa -b 4096 -a 100
 ```
 
-Lorsque c'est demandé, spécifiez le nom `id_github` et déplacez le dans `/opt/code-server/.ssh`. Il faut maintenant vous connecter sur github, et ajouter votre clé publique dans `settings>SSH and GPG keys`, en cliquant sur `New SSH key`.
+Lorsque c'est demandé, spécifiez le nom `id_github` et déplacez le dans `/opt/containers/code-server/.ssh`. Il faut maintenant vous connecter sur github, et ajouter votre clé publique dans `settings>SSH and GPG keys`, en cliquant sur `New SSH key`.
 
 Dernière étape, lancez un terminal dans votre VS Code et lancer la commande `ssh github.com` pour initialiser votre 1ère connexion SSH. Vous pourrez maintenant synchroniser vos projets Github directement dans l'application :sunglasses:
 

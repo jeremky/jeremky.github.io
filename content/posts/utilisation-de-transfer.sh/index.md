@@ -40,7 +40,7 @@ services:
       - nginx_proxy
     env_file: transfer.env
     volumes:
-      - /opt/transfer:/tmp
+      - /opt/containers/transfer:/tmp
     command: --provider local
     restart: always
 

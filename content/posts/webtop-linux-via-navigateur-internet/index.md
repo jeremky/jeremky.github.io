@@ -36,7 +36,7 @@ services:
     networks:
       - nginx_proxy
     volumes:
-      - /opt/webtop:/config
+      - /opt/containers/containers/webtop:/config
     shm_size: "1gb"
     restart: always
 
@@ -79,8 +79,8 @@ Les fichiers de configuration ci-dessus sont prévus pour être utilisés avec u
 L'image Docker de [Linuxserver.io](https://docs.linuxserver.io/general/swag/) propose un fichier sample de configuration, il vous suffit juste de modifier votre nom de domaine en conséquence :
 
 ```bash
-sudo cp /opt/nginx/nginx/proxy-confs/webtop.subdomain.conf.sample /opt/nginx/nginx/proxy-confs/webtop.subdomain.conf
-sudo sed -i "s,server_name webtop,server_name <votre_sous_domaine>,g" /opt/nginx/nginx/proxy-confs/webtop.subdomain.conf
+sudo cp /opt/containers/nginx/nginx/proxy-confs/webtop.subdomain.conf.sample /opt/containers/nginx/nginx/proxy-confs/webtop.subdomain.conf
+sudo sed -i "s,server_name webtop,server_name <votre_sous_domaine>,g" /opt/containers/nginx/nginx/proxy-confs/webtop.subdomain.conf
 ```
 
 Et enfin, un petit redémarrage pour la prise en compte du nouveau fichier :
@@ -100,7 +100,7 @@ Une fois votre conteneur déployé, vous allez vous retrouver avec un environnem
 N'étant pas le plus sexy de base, je vous propose d'utiliser une configuration que je vous mets à disposition. Pour l'installer :
 
 - Téléchargez le fichier suivant : [webtop.tar.gz](/files/webtop.tar.gz)
-- Arrêtez votre conteneur, supprimez le répertoire `/opt/webtop` (volume par défaut), et décompressez cette archive en remplacement de ce répertoire (utilisez `sudo`)
+- Arrêtez votre conteneur, supprimez le répertoire `/opt/containers/webtop` (volume par défaut), et décompressez cette archive en remplacement de ce répertoire (utilisez `sudo`)
 - Relancez votre conteneur, et profitez du changement :blush:
 
 Les changements sont les suivants : 

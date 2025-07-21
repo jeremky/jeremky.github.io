@@ -45,7 +45,7 @@ Le fichier de configuration ci-dessus est prévu pour être utilisé avec un rev
 
 > Pour rappel, un article dédié est [disponible ici](/posts/reverse-proxy-nginx/).
 
-L'image Docker de [Linuxserver.io](https://docs.linuxserver.io/general/swag/) ne propose pas de fichier sample de configuration pour Open WebUI. Vous devez donc créer un fichier nommé `/opt/nginx/nginx/proxy-confs/ollama.subdomain.conf`, et y coller le contenu suivant :
+L'image Docker de [Linuxserver.io](https://docs.linuxserver.io/general/swag/) ne propose pas de fichier sample de configuration pour Open WebUI. Vous devez donc créer un fichier nommé `/opt/containers/nginx/nginx/proxy-confs/ollama.subdomain.conf`, et y coller le contenu suivant :
 
 ```nginx
 ## Version 2024/07/16

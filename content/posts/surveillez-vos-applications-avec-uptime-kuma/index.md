@@ -28,7 +28,7 @@ services:
     networks:
       - nginx_proxy
     volumes:
-      - /opt/uptime-kuma:/app/data
+      - /opt/containers/uptime-kuma:/app/data
       - /var/run/docker.sock:/var/run/docker.sock:ro
     restart: always
 
@@ -41,7 +41,7 @@ Dans les volumes, se trouve le lien avec le fichier `docker.sock`. Cela permet �
 
 ```yml
     volumes:
-      - /opt/uptime-kuma:/app/data
+      - /opt/containers/uptime-kuma:/app/data
       - /var/run/podman/podman.sock:/var/run/docker.sock:ro
 ```
 
@@ -54,8 +54,8 @@ Le fichier de configuration ci-dessus est prévu pour être utilisé avec un rev
 L'image Docker de [Linuxserver.io](https://docs.linuxserver.io/general/swag/) propose un fichier sample de configuration, il vous suffit juste de modifier votre nom de domaine en conséquence :
 
 ```bash
-sudo cp /opt/nginx/nginx/proxy-confs/uptime-kuma.subdomain.conf.sample /opt/nginx/nginx/proxy-confs/uptime-kuma.subdomain.conf
-sudo sed -i "s,server_name uptime-kuma,server_name <votre_sous_domaine>,g" /opt/nginx/nginx/proxy-confs/uptime-kuma.subdomain.conf
+sudo cp /opt/containers/nginx/nginx/proxy-confs/uptime-kuma.subdomain.conf.sample /opt/containers/nginx/nginx/proxy-confs/uptime-kuma.subdomain.conf
+sudo sed -i "s,server_name uptime-kuma,server_name <votre_sous_domaine>,g" /opt/containers/nginx/nginx/proxy-confs/uptime-kuma.subdomain.conf
 ```
 
 Et enfin, un petit redémarrage pour la prise en compte du nouveau fichier :

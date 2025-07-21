@@ -32,7 +32,7 @@ services:
     networks:
       - nginx_proxy
     volumes:
-      - /opt/authelia:/config
+      - /opt/containers/containers/authelia:/config
     restart: always
 
 networks:
@@ -55,8 +55,8 @@ Les fichiers de configuration ci-dessus sont prévus pour être utilisés avec u
 L'image Docker de [Linuxserver.io](https://docs.linuxserver.io/general/swag/) propose un fichier sample de configuration, il vous suffit juste de modifier votre nom de domaine en conséquence :
 
 ```bash
-sudo cp /opt/nginx/nginx/proxy-confs/authelia.subdomain.conf.sample /opt/nginx/nginx/proxy-confs/authelia.subdomain.conf
-sudo sed -i "s,server_name authelia,server_name <votre_sous_domaine>,g" /opt/nginx/nginx/proxy-confs/authelia.subdomain.conf
+sudo cp /opt/containers/nginx/nginx/proxy-confs/authelia.subdomain.conf.sample /opt/containers/nginx/nginx/proxy-confs/authelia.subdomain.conf
+sudo sed -i "s,server_name authelia,server_name <votre_sous_domaine>,g" /opt/containers/nginx/nginx/proxy-confs/authelia.subdomain.conf
 ```
 
 Et enfin, un petit redémarrage pour la prise en compte du nouveau fichier :
@@ -69,10 +69,10 @@ sudo docker restart nginx
 
 Avant de démarrer le conteneur, il est nécessaire de préparer le fichier de configuration de l'application. Les étapes présentées ici seront à adapter selon vos modifications du fichier `docker-compose.yml`.
 
-Tout d'abord, créez le dossier `/opt/authelia` :
+Tout d'abord, créez le dossier `/opt/containers/authelia` :
 
 ```bash
-sudo mkdir /opt/authelia
+sudo mkdir /opt/containers/authelia
 ```
 
 Ensuite, créez un fichier nommé `configuration.yml` avec le contenu suivant :
@@ -158,7 +158,7 @@ Les éléments à modifier :
 - Selon vos préférences, vous pouvez changer le temps d'expiration et d'inactivité dans la section `session`
 - Si vous souhaitez utilisez de la double authentification, il suffit de remplacer la policy `one_factor` par `two_factor` dans la section `access_control`
 
-Si vous voulez autoriser le changement de mot de passe, sachez qu'un "mail" sera généré dans le fichier `/opt/authelia/mails.txt`. Si vous voulez mettre en place une gestion d'envoi de mails, il faut modifier la section `notifier` de la façon suivante : 
+Si vous voulez autoriser le changement de mot de passe, sachez qu'un "mail" sera généré dans le fichier `/opt/containers/authelia/mails.txt`. Si vous voulez mettre en place une gestion d'envoi de mails, il faut modifier la section `notifier` de la façon suivante : 
 
 ```yml
 notifier:
@@ -175,7 +175,7 @@ notifier:
 
 ### Utilisateurs
 
-Vos utilisateurs sont à renseigner dans un fichier nommé `/opt/authelia/users.yml` :
+Vos utilisateurs sont à renseigner dans un fichier nommé `/opt/containers/authelia/users.yml` :
 
 ```yml
 users:
@@ -209,7 +209,7 @@ Insérez le résultat à la ligne correspondante.
 
 ### Configuration de nginx
 
-Vous devez maintenant activer Authelia dans vos fichiers de configuration présents dans `/opt/nginx/nginx/proxy-confs` pour protéger les services souhaités. 2 lignes sont à décommenter.
+Vous devez maintenant activer Authelia dans vos fichiers de configuration présents dans `/opt/containers/nginx/nginx/proxy-confs` pour protéger les services souhaités. 2 lignes sont à décommenter.
 
 Dans le bloc `server` :
 

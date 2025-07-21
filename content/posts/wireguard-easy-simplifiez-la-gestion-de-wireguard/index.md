@@ -31,7 +31,7 @@ services:
     networks:
       - nginx_proxy
     volumes:
-      - /opt/wireguard:/etc/wireguard
+      - /opt/containers/wireguard:/etc/wireguard
     ports:
       - 51820:51820/udp
     cap_add:
@@ -71,7 +71,7 @@ Les fichiers de configuration ci-dessus sont prévus pour être utilisés avec u
 
 > Pour rappel, un article dédié est [disponible ici](/posts/reverse-proxy-nginx/).
 
-L'image Docker de [Linuxserver.io](https://docs.linuxserver.io/general/swag/) ne propose pas de fichier sample de configuration pour WG-Easy. Vous devez donc créer un fichier nommé `/opt/nginx/nginx/proxy-confs/wgeasy.subdomain.conf`, et y coller le contenu suivant : 
+L'image Docker de [Linuxserver.io](https://docs.linuxserver.io/general/swag/) ne propose pas de fichier sample de configuration pour WG-Easy. Vous devez donc créer un fichier nommé `/opt/containers/nginx/nginx/proxy-confs/wgeasy.subdomain.conf`, et y coller le contenu suivant : 
 
 ```nginx
 ## Version 2024/07/16

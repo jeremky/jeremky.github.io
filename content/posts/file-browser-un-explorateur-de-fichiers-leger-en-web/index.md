@@ -87,7 +87,7 @@ Afin d'accéder à votre application fraîchement installée, je vous conseille 
 L'image Docker de [Linuxserver.io](https://docs.linuxserver.io/general/swag/) propose un fichier sample de configuration. Si votre reverse proxy est en place, utilisez la commande suivante pour activer sa configuration : 
 
 ```bash
-sudo cp /opt/nginx/nginx/proxy-confs/filebrowser.subdomain.conf.sample /opt/nginx/nginx/proxy-confs/filebrowser.subdomain.conf
+sudo cp /opt/containers/nginx/nginx/proxy-confs/filebrowser.subdomain.conf.sample /opt/containers/nginx/nginx/proxy-confs/filebrowser.subdomain.conf
 ```
 
 Et enfin, un petit redémarrage pour la prise en compte du nouveau fichier :

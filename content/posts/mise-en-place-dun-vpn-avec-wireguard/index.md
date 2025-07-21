@@ -31,7 +31,7 @@ services:
     cap_add:
       - NET_ADMIN
     volumes:
-      - /opt/wireguard:/config
+      - /opt/containers/wireguard:/config
       - /lib/modules:/lib/modules
     ports:
       - 51820:51820/udp
@@ -76,7 +76,7 @@ Je vous conseille d'ajouter un alias dans votre fichier `.bash_aliases` pour plu
 alias peer='docker exec -it wireguard /app/show-peer $1'
 ```
 
-Si toutefois vous devez ajouter les infos manuellement, le fichier de configuration se trouve sur votre hôte dans un sous dossier de `/opt/wireguard`. Dans notre exemple : `/opt/wireguard/peer_client1/peer_client1.conf`
+Si toutefois vous devez ajouter les infos manuellement, le fichier de configuration se trouve sur votre hôte dans un sous dossier de `/opt/containers/wireguard`. Dans notre exemple : `/opt/containers/wireguard/peer_client1/peer_client1.conf`
 Une fois la configuration importée, vous pouvez activer votre VPN !
 
 ## Firewall UFW

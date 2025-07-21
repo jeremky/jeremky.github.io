@@ -44,8 +44,8 @@ services:
     networks:
       - nginx_proxy
     volumes:
-      - /opt/vscode:/config
-      - /opt/code-server/workspace:/config/workspace
+      - /opt/containers/vscode:/config
+      - /opt/containers/code-server/workspace:/config/workspace
     restart: always
 
 networks:

@@ -31,7 +31,7 @@ services:
     networks:
       - nginx_proxy
     volumes:
-      - /opt/ariang:/aria2/data
+      - /opt/containers/ariang:/aria2/data
       - ./files:/aria2/conf
     restart: always
 
@@ -40,7 +40,7 @@ networks:
     external: true
 ```
 
-> Dans l’exemple, le volume du dossier des téléchargements est `/opt/ariang`, mais vous pouvez très bien le placer dans votre dossier utilisateur.
+> Dans l’exemple, le volume du dossier des téléchargements est `/opt/containers/ariang`, mais vous pouvez très bien le placer dans votre dossier utilisateur.
 
 Le fichier `ariang.env` associé :
 
@@ -58,7 +58,7 @@ Les fichiers de configuration ci-dessus sont prévus pour être utilisés avec u
 
 > Pour rappel, un article dédié est [disponible ici](/posts/reverse-proxy-nginx/).
 
-L’image Docker de [Linuxserver.io](https://docs.linuxserver.io/general/swag/) ne propose pas de fichier sample de configuration pour cette version de AriaNG. Vous devez donc créer un fichier nommé `/opt/nginx/nginx/proxy-confs/ariang.subdomain.conf`, et y coller le contenu suivant :
+L’image Docker de [Linuxserver.io](https://docs.linuxserver.io/general/swag/) ne propose pas de fichier sample de configuration pour cette version de AriaNG. Vous devez donc créer un fichier nommé `/opt/containers/nginx/nginx/proxy-confs/ariang.subdomain.conf`, et y coller le contenu suivant :
 
 ```nginx
 ## Version 2024/07/16

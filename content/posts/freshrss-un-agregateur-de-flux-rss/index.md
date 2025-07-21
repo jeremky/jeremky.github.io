@@ -46,7 +46,7 @@ services:
     networks:
       - nginx_proxy
     volumes:
-      - /opt/freshrss/config:/config
+      - /opt/containers/freshrss/config:/config
     restart: always
 
 networks:
@@ -75,8 +75,8 @@ Les fichiers de configuration ci-dessus sont prévus pour être utilisés avec u
 L'image Docker de [Linuxserver.io](https://docs.linuxserver.io/general/swag/) propose un fichier sample de configuration, il vous suffit juste de modifier votre nom de domaine en conséquence :
 
 ```bash
-sudo cp /opt/nginx/nginx/proxy-confs/freshrss.subdomain.conf.sample /opt/nginx/nginx/proxy-confs/freshrss.subdomain.conf
-sudo sed -i "s,server_name freshrss,server_name <votre_sous_domaine>,g" /opt/nginx/nginx/proxy-confs/freshrss.subdomain.conf
+sudo cp /opt/containers/nginx/nginx/proxy-confs/freshrss.subdomain.conf.sample /opt/containers/nginx/nginx/proxy-confs/freshrss.subdomain.conf
+sudo sed -i "s,server_name freshrss,server_name <votre_sous_domaine>,g" /opt/containers/nginx/nginx/proxy-confs/freshrss.subdomain.conf
 ```
 
 Et enfin, un petit redémarrage pour la prise en compte du nouveau fichier :
