@@ -313,7 +313,6 @@ La configuration ci-dessous est celle que j'ai présenté dans l'article sur [Ne
 " Configuration de Vim
 
 " Paramétrage de base
-syntax on                       " Active la colorisation syntaxique
 set hlsearch                    " Affiche en surbrillance les recherches
 set background=dark             " Optimise l'affiche pour un terminal sombre
 set laststatus=2                " Affiche en permanence la barre de statut
