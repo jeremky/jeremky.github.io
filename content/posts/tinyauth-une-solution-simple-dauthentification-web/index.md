@@ -156,13 +156,13 @@ Après un redéploiement :
 
 ### Github OAuth
 
-Si vous ne voulez pas avoir à gérer les mots de passe utilisateur, Tinyauth permet d'utiliser un service externe pour permettre la connexion. Il est compatible avec les services suivants : 
+Si vous ne voulez pas avoir à gérer les mots de passe utilisateur, Tinyauth permet d'utiliser un service externe. Il est compatible avec les services suivants : 
 
 - [OAuth Github](https://tinyauth.app/docs/guides/github-oauth)
 - [OAuth Google](https://tinyauth.app/docs/guides/google-oauth)
 - [Service LDAP](https://tinyauth.app/docs/guides/ldap)
 
-Dans cet exemple, nous allons utiliser Github OAuth pour effectuer la connexion. La documentation de Tinyauth est vraiment bien faite, je vous laisse aller voir sur [le site](https://tinyauth.app/docs/guides/github-oauth) pour la création de l'application côté Github.
+Dans cet exemple, nous allons utiliser Github OAuth. La documentation de Tinyauth est vraiment bien faite, je vous laisse aller voir sur [le site](https://tinyauth.app/docs/guides/github-oauth) pour la création de l'application côté Github.
 
 Une fois votre configuration en place, vous devez modifier votre fichier `tinyauth.env` pour y ajouter les variables suivantes : 
 
