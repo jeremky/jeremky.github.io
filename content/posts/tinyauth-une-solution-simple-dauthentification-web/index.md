@@ -54,6 +54,7 @@ SECRET=<clé_secrète>
 APP_URL=https://tinyauth.mondomaine.fr
 DISABLE_CONTINUE=true
 APP_TITLE=JeremKy Auth
+BACKGROUND_IMAGE=<url optionnelle>
 USERS=<à remplir plus tard>
 ```
 
