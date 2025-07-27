@@ -1,7 +1,7 @@
 ---
 title: "Tinyauth : une solution simple d'authentification web"
 slug: tinyauth-une-solution-simple-authentification-web
-date: 2025-07-26T08:41:09.872Z
+date: 2025-07-27T21:57:20.987Z
 useRelativeCover: true
 cover: cover.webp
 tags:
@@ -9,7 +9,7 @@ tags:
 categories:
   - Tutos
 toc: true
-draft: true
+draft: false
 ---
 
 Quand on auto-héberge des services, il est souvent nécessaire de restreindre l’accès à certaines interfaces, panneaux d’administration, dashboards, API internes, etc.
@@ -100,7 +100,7 @@ docker restart nginx
 
 ## Configuration
 
-### Utilisateurs
+### Création des utilisateurs locaux
 
 Maintenant que Tinyauth est installé, nous allons créer nos utilisateurs. On aurait pu les créer en amont, mais il dispose d'un outil intégré permettant de générer facilement la ligne à insérer dans le fichier `tinyauth.env`.
 
@@ -120,7 +120,7 @@ Renseignez les éléments demandés (tabulation pour suivant) :
 
 {{< image src="user.webp" style="border-radius: 8px;" >}}
 
-Spécifiez que vous voulez un format pour docker, pour que le hash du mot de passe soit compatible. Vous allez avoir dans le retour une ligne de ce type :
+Spécifiez que vous voulez un format pour Docker, pour que le hash du mot de passe soit compatible (les symboles `$` sont doublés). Vous allez avoir dans le retour une ligne de ce type :
 
 ```bash
 testuser:$$2a$$10$$0fsXGdP6yfivZixOlpE.VOzjrheliau3x6f1Q1PyOJwtiTfnzGogG
@@ -128,7 +128,7 @@ testuser:$$2a$$10$$0fsXGdP6yfivZixOlpE.VOzjrheliau3x6f1Q1PyOJwtiTfnzGogG
 
 Modifiez le fichier `tinyauth.env` pour ajouter ce user à la variable USERS. Vous pouvez en ajouter plusieurs en les séparant par des virgules
 
-Redéployez votre Tinyauth pour prendre en compte la nouvelle variable. Cela devrait être tout bon ! Vous devriez pouvoir profitez de votre nouveau service !
+Redéployez votre Tinyauth pour prendre en compte la nouvelle variable. Cela devrait être tout bon ! Vous devriez pouvoir profiter de votre nouveau service !
 
 {{< image src="login.webp" style="border-radius: 8px;" >}}
 
@@ -148,13 +148,13 @@ Mais c'est surtout la ligne en dessous qui va nous intéresser :
 testuser:$$2a$$10$$0fsXGdP6yfivZixOlpE.VOzjrheliau3x6f1Q1PyOJwtiTfnzGogG:54JVQL5HDB7T2F7NO27JHLT2S2ITKHJN
 ```
 
-La ligne contient désormais la clé en plus du mot de passe. Remplacez la ligne dans le fichier `tinyauth.env` et le tour est joué.
+La ligne contient désormais la clé TOTP en plus du mot de passe. Remplacez la ligne dans le fichier `tinyauth.env` et le tour est joué. 
 
-Après un redéploiement :
+Il ne vous reste plus qu'à redéployer l'application pour prise en compte :
 
 {{< image src="totp.webp" style="border-radius: 8px;" >}}
 
-### Github OAuth
+### Authentification via GitHub OAuth
 
 Si vous ne voulez pas avoir à gérer les mots de passe utilisateur, Tinyauth permet d'utiliser un service externe. Il est compatible avec les services suivants : 
 
@@ -162,12 +162,12 @@ Si vous ne voulez pas avoir à gérer les mots de passe utilisateur, Tinyauth pe
 - [OAuth Google](https://tinyauth.app/docs/guides/google-oauth)
 - [Service LDAP](https://tinyauth.app/docs/guides/ldap)
 
-Dans cet exemple, nous allons utiliser Github OAuth. La documentation de Tinyauth est vraiment bien faite, je vous laisse aller voir sur [le site](https://tinyauth.app/docs/guides/github-oauth) pour la création de l'application côté Github.
+Dans cet exemple, nous allons utiliser GitHub OAuth. La documentation de Tinyauth est vraiment bien faite, je vous laisse aller voir sur [le site](https://tinyauth.app/docs/guides/github-oauth) pour la création de l'application côté Github.
 
 Une fois votre configuration en place, vous devez modifier votre fichier `tinyauth.env` pour y ajouter les variables suivantes : 
 
 ```bash
-OAUTH_WHITELIST=adresse@mail.com
+OAUTH_WHITELIST=user1@mail.com,user2@mail.com
 GITHUB_CLIENT_ID=<id_app>
 GITHUB_CLIENT_SECRET=<secret_key>
 ```
@@ -182,8 +182,48 @@ Après un redéploiement de Tinyauth, il devrait désormais vous proposer la con
 
 {{< image src="github.webp" style="border-radius: 8px;" >}}
 
+> Je vous laisse consulter la [documentation](https://tinyauth.app/docs/about) si vous désirez utiliser un autre service tiers.
+
+### Contrôle d'accès par labels
+
+Même si Tinyauth est assez simpliste dans la gestion des droits, il reste possible de limiter les accès à vos applications. Tinyauth peut lire des labels de vos fichiers de déploiement Docker et agir en conséquence. 
+
+Pour cela, vous devez d'abord permettre à Tinyauth de pouvoir lire les labels. Dans votre fichier `compose.yml`, ajoutez l'entrée `volumes` suivante :
+
+- Pour Docker :
+
+```yml
+volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+```
+
+- Pour Podman : 
+
+```yml
+volumes:
+      - /var/run/user/1000/podman/podman.sock:/var/run/docker.sock:ro
+```
+
+Ensuite, pour chaque application, ajoutez les labels suivants à votre fichier `compose.yml` :
+
+```yml
+labels:
+      tinyauth.domain: mondomaine.fr
+      tinyauth.oauth.whitelist: user1@mail.com
+```
+
+Si vous utilisez des comptes locaux : 
+
+```yml
+labels:
+      tinyauth.domain: mondomaine.fr
+      tinyauth.users: testuser
+```
+
+Pensez à redéployer vos applications pour prise en compte. Si l'utilisateur ne figure pas dans la liste des utilisateurs autorisés, il sera alors renvoyé sur la page de Tinyauth.
+
 ## Conclusion
 
-Grâce à Tinyauth, vous pouvez très facilement sécuriser l'accès à vos services. La mise en place est rapide et simple. Combiné à l'authentification via un service tiers, vous profitez d'une sécurité élevée.
+Grâce à Tinyauth, vous pouvez très facilement sécuriser l'accès à vos services. La mise en place est rapide et simple. Combiné à l’authentification via un service tiers, cela vous permet d’assurer une sécurité élevée.
 
-Toutefois, cette simplicité n'est pas sans inconvénients. Impossible de gérer localement de l'authentification OAuth, ou de gérer finement les droits de vos utilisateurs. Si ces besoins sont indispensable pour vous, je vous conseille plutôt de vous orienter vers [Authelia](https://jeremky.github.io/posts/authelia-serveur-dauthentification-open-source/).
+Toutefois, cette simplicité n'est pas sans inconvénients. Impossible de gérer localement de l'authentification OAuth, ou de gérer finement les droits de vos utilisateurs, via des groupes par exemple. Si ces besoins sont indispensables pour vous, je vous conseille plutôt de vous orienter vers [Authelia](https://jeremky.github.io/posts/authelia-serveur-dauthentification-open-source/).
