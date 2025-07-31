@@ -1,5 +1,5 @@
 ---
-title: Activer HTTP/3 sur un reverse proxy Docker
+title: Activer HTTP/3 sur un reverse proxy sous Docker
 slug: activer-http3-sur-un-reverse-proxy-docker
 date: 2025-07-30T14:56:09+02:00
 useRelativeCover: true
@@ -10,10 +10,10 @@ tags:
 categories:
   - Tutos
 toc: true
-draft: true
+draft: false
 ---
 
-D'après Cloudfalre, HTTP/3 améliore nettement les performances, la fiabilité et la sécurité des sites web, sans aucun changement de code côté applicatif. Il repose sur QUIC, un protocole de transport basé sur UDP, pensé pour les connexions mobiles ou instables.
+D'après Cloudflare, HTTP/3 améliore nettement les performances, la fiabilité et la sécurité des sites web, sans aucun changement de code côté applicatif. Il repose sur QUIC, un protocole de transport basé sur UDP, pensé pour les connexions mobiles ou instables.
 
 Dans cet article, nous allons donc voir comment modifier la configuration du reverse proxy NGINX proposé par [Linuxserver.io](https://docs.linuxserver.io/general/swag/). Si besoin, vous pouvez consulter [cet article](/posts/reverse-proxy-nginx/) pour connaitre son fonctionnement.
 
@@ -86,7 +86,7 @@ Passons maintenant à la configuration du site principal. Rien de compliqué, vo
 listen 443 quic reuseport default_server;
 ```
 
-Et ensuite, pour chaque sous domaine, modifiez votre fichier de configuration en conséquence (fichiers présents sous `/opt/containers/nginx/nginx/proxy-confs`). Par exemple pour Tinyauth : 
+Et ensuite, pour chaque sous domaine, modifiez votre fichier de configuration en conséquence (fichiers présents sous `/opt/containers/nginx/nginx/proxy-confs`). Par exemple dans un fichier de configuration pour Tinyauth : 
 
 ```txt
 listen 443 quic;
@@ -108,7 +108,7 @@ Si vous utilisez un firewall, pensez à autoriser le port 443 en UDP. Par exempl
 sudo ufw allow 443/udp
 ```
 
-Si vous êtes sûr de garder cette configuration, vous pouvez également supprimer la ligne concernant le 443/tcp et créer seulement une ligne avec 443. Pour cela, commencez par lister les règles actives :
+Si vous êtes sûr de garder cette configuration, vous pouvez remplacer la règle spécifique à 443/tcp par une règle unique pour 443 (TCP et UDP). Pour cela, commencez par lister les règles actives :
 
 ```bash
 sudo ufw status numbered
@@ -130,7 +130,7 @@ sudo ufw allow 443
 
 Vous pouvez tester votre nouvelle configuration sur un site spécialement conçu à cet effet : [http3check](https://http3check.net/). Vous devriez obtenir un retour de ce genre : 
 
-<image>
+{{< image src="check.webp" style="border-radius: 8px;" >}}
 
 ## Conclusion
 
