@@ -15,7 +15,9 @@ draft: false
 
 D'après Cloudflare, HTTP/3 améliore nettement les performances, la fiabilité et la sécurité des sites web, sans aucun changement de code côté applicatif. Il repose sur QUIC, un protocole de transport basé sur UDP, pensé pour les connexions mobiles ou instables.
 
-Dans cet article, nous allons donc voir comment modifier la configuration du reverse proxy NGINX proposé par [Linuxserver.io](https://docs.linuxserver.io/general/swag/). Si besoin, vous pouvez consulter [cet article](/posts/reverse-proxy-nginx/) pour connaitre son fonctionnement.
+Dans cet article, nous allons donc voir comment modifier la configuration du reverse proxy NGINX proposé par [Linuxserver.io](https://docs.linuxserver.io/general/swag/). Si besoin, vous pouvez consulter [cet article](/posts/reverse-proxy-nginx/) pour connaître son fonctionnement.
+
+> EDIT : Malheureusement, avec Podman en mode rootless, les performances de téléchargement sont grandement impactées...
 
 ## Installation
 
