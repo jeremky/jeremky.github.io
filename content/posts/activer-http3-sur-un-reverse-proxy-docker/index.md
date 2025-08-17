@@ -17,7 +17,7 @@ D'après Cloudflare, HTTP/3 améliore nettement les performances, la fiabilité 
 
 Dans cet article, nous allons donc voir comment modifier la configuration du reverse proxy NGINX proposé par [Linuxserver.io](https://docs.linuxserver.io/general/swag/). Si besoin, vous pouvez consulter [cet article](/posts/reverse-proxy-nginx/) pour connaître son fonctionnement.
 
-> EDIT : Malheureusement, avec Podman 4 en mode rootless, les performances de téléchargement sont grandement impactées. A ne mettre en place qu'avec Podman 5 sous Debian 13 (Trixie)
+> EDIT : Malheureusement, avec Podman en mode rootless, les performances de téléchargement sont grandement impactées
 
 ## Installation
 
