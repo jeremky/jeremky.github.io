@@ -6,7 +6,6 @@
   "editor.tabSize": 2,
   "files.exclude": {
     "**/.frontmatter": true,
-    "**/.github": true,
     "**/.gitignore": true,
     "**/.hugo_build.lock": true,
     "**/.vscode": true,
