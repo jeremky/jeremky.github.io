@@ -16,7 +16,7 @@
     <title>{{ if eq  .Title  .Site.Params.Title }}{{ .Site.Params.Title }}{{ else }}{{ with .Title }}{{.}} on {{ end }}{{ .Site.Params.Title }}{{ end }}</title>
     
     {{ if .Site.Params.RssImage }}<image>
-      <url>{{ printf "%s%s" .Permalink .Site.Params.RssImage }}</url>
+      <url>{{ .Site.Params.RssImage }}</url>
       <title>{{ if eq  .Title  .Site.Params.Title }}{{ .Site.Params.Title }}{{ else }}{{ with .Title }}{{.}} on {{ end }}{{ .Site.Params.Title }}{{ end }}</title>
       <link>{{ .Permalink }}</link>
     </image>

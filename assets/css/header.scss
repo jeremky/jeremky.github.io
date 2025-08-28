@@ -10,6 +10,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    gap: 2px;
 
     @media ($phone) {
       flex-direction: row-reverse;
@@ -26,7 +27,9 @@
   }
 }
 
-.theme-toggle {
+.theme-toggle, .rss-icon {
+  width: 24px;
+  height: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
