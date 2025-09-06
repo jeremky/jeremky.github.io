@@ -65,9 +65,13 @@ Là encore, si vous ne connaissez pas tmux, je vous recommande d'aller consulter
 
 Pour tmux, n'utilisant pas toutes les fonctionnalités proposées, je vous mets à dispo [cette archive](/files/tmux.tar.gz) contenant le nécessaire à extraire dans `~/.config/tmux`. Cette version se contente des couleurs, et de l'affichage du load average dans la barre de statut.
 
-Le résultat : 
-
 {{< image src="tmux.webp" style="border-radius: 8px;" >}}
+
+## Btop
+
+[Btop](https://github.com/aristocratos/btop) est un moniteur de ressources système. Par habitude, j'ai toujours une préférence pour htop. Mais puisque le thème Catppuccin existe aussi pour lui, je vous le partage [ici](/files/btop.tar.gz). 
+
+{{< image src="btop.webp" style="border-radius: 8px;" >}}
 
 ## Vim
 
