@@ -2,5 +2,3 @@
 title: ""
 framed: false
 ---
-
-# Information

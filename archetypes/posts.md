@@ -5,7 +5,7 @@ date: {{ .Date }}
 useRelativeCover: true
 cover: cover.webp
 tags:
-  - docker
+  - linux
 categories:
   - Tutos
 toc: true
