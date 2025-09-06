@@ -1,7 +1,7 @@
 ---
 title: "Édito : Mise en pause de l'auto-hébergement"
 slug: edito-mise-en-pause-de-auto-hebergement
-date: 2025-09-05T20:19:51.541Z
+date: 2025-09-06T18:16:29.204Z
 useRelativeCover: true
 cover: cover.webp
 tags:
@@ -9,7 +9,7 @@ tags:
 categories:
   - News
 toc: false
-draft: true
+draft: false
 ---
 
 Après des années à bricoler des serveurs, jongler avec des conteneurs et tester tous les services possibles, il est temps de mettre mes expérimentations en pause. Mon abonnement OVH arrive bientôt à échéance, et le nombre de services réellement en ligne ne justifie plus ni la dépense ni le temps investi. Mettre mes serveurs en pause, c’est aussi prendre un moment pour réfléchir à l’impact écologique de ces expériences et à la manière de mieux gérer mon énergie numérique.
@@ -44,4 +44,4 @@ La fréquence de publication de nouveaux articles sera forcément impactée. Mai
 
 Et puis cela reste une pause. Rien ne dit que je n'aurai pas plus tard un réel besoin qui m'orientera vers la mise en place d'un nouveau serveur dédié. Mais je tenterai autant que possible de trouver des alternatives, que je partagerai ici si cela me semble pertinent.
 
-On se retrouve bientôt pour de nouveaux sujets.
+On se retrouve bientôt ici pour de nouveaux sujets.
