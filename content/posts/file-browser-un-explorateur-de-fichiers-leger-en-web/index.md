@@ -52,6 +52,7 @@ services:
     volumes:
       - ./files/database:/database
       - ./files/config:/config
+      - ./files/branding:/branding
       - /home:/srv
     restart: always
 
