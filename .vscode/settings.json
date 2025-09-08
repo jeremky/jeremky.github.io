@@ -17,11 +17,5 @@
   "terminal.integrated.defaultProfile.linux": "bash",
   "terminal.integrated.defaultProfile.osx": "zsh",
   
-  "cSpell.language": "en,fr",
-  
-  "frontMatter.dashboard.openOnStart": true,
-  "frontMatter.content.defaultSorting": {
-    "field": "date",
-    "order": "desc"
-  }
+  "cSpell.language": "en,fr"
 }

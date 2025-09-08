@@ -2,6 +2,11 @@
   "$schema": "https://frontmatter.codes/frontmatter.schema.json",
   "frontMatter.framework.id": "hugo",
   "frontMatter.preview.host": "http://localhost:1313",
+  "frontMatter.dashboard.openOnStart": true,
+  "frontMatter.content.defaultSorting": {
+    "field": "date",
+    "order": "desc"
+  }
   "frontMatter.content.publicFolder": "[[workspace]]/content",
   "frontMatter.content.pageFolders": [
     {
@@ -41,15 +46,15 @@
         {
           "title": "useRelativeCover",
           "name": "useRelativeCover",
-          "type": "boolean"
+          "type": "boolean",
           "default": true
         },
         {
           "title": "cover",
           "name": "cover",
           "type": "image",
-          "isPreviewImage": true
-          "default": "cover.webp",
+          "isPreviewImage": true,
+          "default": "cover.webp"
         },
         {
           "title": "tags",
@@ -128,5 +133,6 @@
         }
       ]
     }
-  }
+  },
+  "frontMatter.git.enabled": true
 }
