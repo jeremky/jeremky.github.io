@@ -3,12 +3,6 @@
   "frontMatter.framework.id": "hugo",
   "frontMatter.preview.host": "http://localhost:1313",
   "frontMatter.dashboard.openOnStart": true,
-  "frontMatter.content.defaultSorting": [
-    {
-    "field": "date",
-    "order": "desc"
-    }
-  ],
   "frontMatter.content.publicFolder": "[[workspace]]/content",
   "frontMatter.content.pageFolders": [
     {
