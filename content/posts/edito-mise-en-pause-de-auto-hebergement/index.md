@@ -44,4 +44,4 @@ La fréquence de publication de nouveaux articles sera forcément impactée. Mai
 
 Et puis cela reste une pause. Rien ne dit que je n'aurai pas plus tard un réel besoin qui m'orientera vers la mise en place d'un nouveau serveur dédié. Mais je tenterai autant que possible de trouver des alternatives, que je partagerai ici si cela me semble pertinent.
 
-On se retrouve bientôt ici pour de nouveaux sujets.
+On se retrouve bientôt pour de nouveaux sujets.
