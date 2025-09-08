@@ -19,5 +19,9 @@
   
   "cSpell.language": "en,fr",
   
-  "frontMatter.dashboard.openOnStart": true
+  "frontMatter.dashboard.openOnStart": true,
+  "frontMatter.content.defaultSorting": {
+    "field": "date",
+    "order": "desc"
+  }
 }
