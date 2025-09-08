@@ -2,6 +2,7 @@
   "[markdown]": {
   },
   "files.autoSave": "afterDelay",
+  "editor.wordWrap": "on",
   "editor.fontSize": 14,
   "editor.tabSize": 2,
   "files.exclude": {
