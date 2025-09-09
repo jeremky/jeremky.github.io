@@ -140,5 +140,6 @@
       "type": "date"
     }
   ],
-  "frontMatter.content.defaultSorting": "Published"
+  "frontMatter.content.defaultSorting": "Published",
+  "frontMatter.content.defaultView": "list"
 }
