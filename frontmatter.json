@@ -130,5 +130,15 @@
       ]
     }
   },
-  "frontMatter.git.enabled": true
+  "frontMatter.git.enabled": true,
+  "frontMatter.content.sorting": [
+    {
+      "id": "Published",
+      "title": "Publication",
+      "name": "date",
+      "order": "desc",
+      "type": "date"
+    }
+  ],
+  "frontMatter.content.defaultSorting": "Published"
 }
