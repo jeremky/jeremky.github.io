@@ -19,5 +19,6 @@
   "terminal.integrated.defaultProfile.linux": "bash",
   "terminal.integrated.defaultProfile.osx": "zsh",
   
-  "cSpell.language": "en,fr"
+  "cSpell.language": "en,fr",
+  "files.defaultLanguage": "fr"
 }
