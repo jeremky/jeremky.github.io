@@ -56,6 +56,9 @@ filetype plugin indent on
 " Definition des caractères invisibles
 let &listchars = "eol:$,space:\u00B7"
 
+" Desactivation des # au retour chariot
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
 " Changement automatique du curseur en fonction du mode
 let &t_SI = "\e[6 q"
 let &t_EI = "\e[2 q"
