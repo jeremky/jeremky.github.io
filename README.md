@@ -8,7 +8,7 @@ L'idée de ce site web est de partager mes différentes expériences autour de l
 
 ### On y trouve quoi ?
 
-- Conteneurisation : Docker, Podman… tout ce qu’il faut pour faire tourner des applis en toute simplicité
+- Conteneurisation : Docker, Podman… tout ce qu’il faut pour faire tourner des applications en toute simplicité
 - Outils pratiques : neovim, tmux, et d’autres trucs bien utiles pour bosser plus efficacement
 - Partage et synchronisation : Quelques solutions sympa pour gérer ses fichiers sans galère
 
