@@ -1,7 +1,7 @@
 ---
 title: "WebRcade : le retrogaming dans votre navigateur"
 slug: webrcade-retrogaming-dans-votre-navigateur
-date: 2025-09-20T11:46:46.777Z
+date: 2025-09-20T21:16:31.851Z
 useRelativeCover: true
 cover: cover.webp
 tags:
@@ -14,7 +14,7 @@ draft: true
 
 Il y a quelque temps, le projet EmulatorJS a été abandonné par [Linuxserver.io](https://www.linuxserver.io/). Pour tous ceux qui aimaient tester des consoles rétro depuis leur navigateur, c’était une petite déception. Mais il existe une alternative beaucoup plus simple, accessible à tout le monde : WebRcade.
 
-> IMPORTANT : à noter que je ne suis en aucun cas responsable de la mise à disposition ou du partage de jeux protégés par copyright
+> **IMPORTANT** : à noter que je ne suis en aucun cas responsable de la mise à disposition ou du partage de jeux protégés par copyright
 
 ## Qu’est-ce que WebRcade ?
 
