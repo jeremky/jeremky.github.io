@@ -178,8 +178,6 @@ set-option -wg window-status-current-format "#{?window_zoomed_flag,#[fg=default 
 set-option -wg window-status-format "#{?window_zoomed_flag,#[fg=default bold],#[fg=default]} #{window_index} #{window_name} "
 ```
 
-> Pour rappel, je mets à disposition mes fichiers de configuration sur [GitHub](https://github.com/jeremky/envbackup). Vous pouvez récupérer le fichier `tmux.conf` [directement ici](https://github.com/jeremky/envbackup/blob/main/dotfiles/debian/.config/tmux/tmux.conf).
-
 Ce fichier de configuration ajoute les fonctionnalités suivantes : 
 
 - Prise en charge de la souris
