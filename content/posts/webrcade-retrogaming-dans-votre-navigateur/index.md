@@ -1,7 +1,7 @@
 ---
 title: "WebRcade : du retrogaming dans votre navigateur"
 slug: webrcade-retrogaming-dans-votre-navigateur
-date: 2025-09-20T21:16:31.851Z
+date: 2025-09-21T12:55:27.055Z
 useRelativeCover: true
 cover: cover.webp
 tags:
@@ -9,7 +9,7 @@ tags:
 categories:
   - Tutos
 toc: true
-draft: true
+draft: false
 ---
 
 Il y a quelque temps, le projet EmulatorJS a été abandonné par [Linuxserver.io](https://www.linuxserver.io/). Pour tous ceux qui aimaient tester des consoles rétro depuis leur navigateur, c’était une petite déception. Mais il existe une alternative beaucoup plus simple, accessible à tout le monde : WebRcade.
@@ -24,23 +24,23 @@ L’application prend en charge un grand nombre de consoles emblématiques : NES
 
 ### Quels sont ses avantages ?
 
-- Ultra simple : accessible directement en ligne, sans installation côté client ou serveur
+- Ultra simple : jouable directement en ligne, sans installation côté client ou serveur
 
 - Sauvegardes automatiques : vous pouvez synchroniser vos sauvegardes à l'aide d'un compte Dropbox pour les partager entre différents appareils
 
 - Interface claire : pensée pour être utilisée aussi bien au clavier qu’à la manette, et sur tout type d'écran
 
-- Bibliothèque personnalisable : il est possible d'ajouter vos propres ROMs via un éditeur en ligne pour créer une collection de vos jeux préférés
+- Bibliothèque personnalisable : il est possible d'ajouter des ROMs via un éditeur en ligne pour créer une collection de vos jeux préférés (pour rappel, le téléchargement ou le partage de jeux protégés par copyright sans en posséder l’original est illégal)
 
 ### Ses limites
 
 Bien sûr, il y a quelques points à garder en tête :
 
-- WebRcade ne fournit aucun jeu : vous devez utiliser vos propres ROMs, créées à partir de vos copies personnelles (pour rappel, le téléchargement ou le partage de jeux protégés par copyright sans en posséder l’original est illégal)
-
 - Ce n’est pas aussi complet ou paramétrable qu’un système comme RetroArch ou Recalbox. Mais pour jouer rapidement à vos classiques, c’est largement suffisant
 
 - La compatibilité avec tous les navigateurs n'est pas parfaite, notamment avec Edge sur Xbox, où j'ai constaté une très légère latence
+
+- Si vous voulez utiliser vos ROMs, il est nécessaire qu'elles soient accessibles via un partage public
 
 ## L'interface
 
@@ -76,7 +76,7 @@ Quelques points importants :
 
 ### Feed perso
 
-Voici un feed d'exemple pointant vers des ROMs hébergées directement sur [Internet Archive](https://archive.org). Pour le tester, il vous suffit d'importer le lien suivant : 
+Voici un feed d'exemple pointant vers des ROMs hébergées publiquement sur [Internet Archive](https://archive.org) (je ne suis pas responsable de l'hébergement des ROMs). Pour le tester, il vous suffit d'importer le lien suivant : 
 
 [https://jeremky.github.io/files/webrcade.zip](https://jeremky.github.io/files/webrcade.zip)
 
