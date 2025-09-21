@@ -1,5 +1,5 @@
 ---
-title: "WebRcade : le retrogaming dans votre navigateur"
+title: "WebRcade : du retrogaming dans votre navigateur"
 slug: webrcade-retrogaming-dans-votre-navigateur
 date: 2025-09-20T21:16:31.851Z
 useRelativeCover: true
@@ -36,7 +36,7 @@ L’application prend en charge un grand nombre de consoles emblématiques : NES
 
 Bien sûr, il y a quelques points à garder en tête :
 
-- WebRcade ne fournit aucun jeu : vous devez utiliser vos propres ROMs, créées à partir de vos copies personnelles. Le téléchargement ou le partage de jeux protégés par copyright sans en posséder l’original est illégal
+- WebRcade ne fournit aucun jeu : vous devez utiliser vos propres ROMs, créées à partir de vos copies personnelles (pour rappel, le téléchargement ou le partage de jeux protégés par copyright sans en posséder l’original est illégal)
 
 - Ce n’est pas aussi complet ou paramétrable qu’un système comme RetroArch ou Recalbox. Mais pour jouer rapidement à vos classiques, c’est largement suffisant
 
@@ -47,8 +47,6 @@ Bien sûr, il y a quelques points à garder en tête :
 L'interface est directement disponible au lien suivant : [play.webrcade.com](https://play.webrcade.com). 
 
 Elle est pensée pour être simple et claire. Voici les principaux éléments :
-
-- La navigation se fait facilement au clavier, à la souris ou avec une manette
 
 - Le bas de l'interface vous permet de choisir votre console ou vos jeux
 
