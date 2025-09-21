@@ -141,5 +141,6 @@
     }
   ],
   "frontMatter.content.defaultSorting": "Published",
-  "frontMatter.content.defaultView": "list"
+  "frontMatter.content.defaultView": "list",
+  "frontMatter.git.commitMessage": "Synchronisé via Front Matter"
 }
