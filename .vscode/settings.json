@@ -20,5 +20,9 @@
   "terminal.integrated.defaultProfile.osx": "zsh",
   
   "cSpell.language": "en,fr",
-  "files.defaultLanguage": "fr"
+  "files.defaultLanguage": "fr",
+  
+  "chat.disableAIFeatures": true,
+  "telemetry.feedback.enabled": false,
+  "chat.commandCenter.enabled": false
 }
