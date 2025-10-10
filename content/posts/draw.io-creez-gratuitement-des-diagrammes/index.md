@@ -12,11 +12,19 @@ toc: true
 draft: false
 ---
 
-Draw.io ([diagrams.net](https://app.diagrams.net/)) est un outil gratuit de création de diagrammes en ligne, utilisé pour concevoir facilement des schémas variés tels que des organigrammes, des diagrammes de flux, des cartes mentales, des maquettes de réseau ou encore des diagrammes UML. 
+Draw.io ([diagrams.net](https://app.diagrams.net/)) est un outil gratuit de création
+de diagrammes en ligne, utilisé pour concevoir facilement des schémas variés tels
+que des organigrammes, des diagrammes de flux, des cartes mentales, des maquettes
+de réseau ou encore des diagrammes UML.
 
-Accessible directement depuis un navigateur ou en version installable sur ordinateur, Draw.io se distingue par son interface intuitive et sa compatibilité avec des services cloud comme Google Drive, OneDrive ou GitHub. Il permet de collaborer efficacement, de sauvegarder les projets en formats standards (XML, PNG, SVG, etc.), et convient aussi bien aux professionnels qu’aux étudiants ou aux particuliers.
+Accessible directement depuis un navigateur ou en version installable sur ordinateur,
+Draw.io se distingue par son interface intuitive et sa compatibilité avec des services
+cloud comme Google Drive, OneDrive ou GitHub. Il permet de collaborer efficacement,
+de sauvegarder les projets en formats standards (XML, PNG, SVG, etc.), et convient
+aussi bien aux professionnels qu’aux étudiants ou aux particuliers.
 
-Dans cet article, nous allons voir comment le déployer sur un serveur personnel via Docker / Podman, et comment le coupler à l'outil [Bookstack](/posts/bookstack-solution-open-source-de-documentation).
+Dans cet article, nous allons voir comment le déployer sur un serveur personnel
+via Docker / Podman, et comment le coupler à l'outil [Bookstack](/posts/bookstack-solution-open-source-de-documentation).
 
 ## Installation
 
@@ -41,11 +49,15 @@ Pas de fichier `.env` cette fois.
 
 ### Reverse proxy
 
-Le fichier de configuration ci-dessus est prévu pour être utilisé avec un reverse proxy.
+Le fichier de configuration ci-dessus est prévu pour être utilisé avec un
+reverse proxy.
 
 > Pour rappel, un article dédié est [disponible ici](/posts/reverse-proxy-nginx/).
 
-L'image Docker de [Linuxserver.io](https://docs.linuxserver.io/general/swag/) ne propose pas de fichier sample de configuration pour Open WebUI. Vous devez donc créer un fichier nommé `/opt/containers/nginx/nginx/proxy-confs/ollama.subdomain.conf`, et y coller le contenu suivant :
+L'image Docker de [Linuxserver.io](https://docs.linuxserver.io/general/swag/) ne
+propose pas de fichier sample de configuration pour Open WebUI. Vous devez donc
+créer un fichier nommé `/opt/containers/nginx/nginx/proxy-confs/ollama.subdomain.conf`,
+et y coller le contenu suivant :
 
 ```nginx
 ## Version 2024/07/16
@@ -104,16 +116,22 @@ sudo docker restart nginx
 
 ## Stockage ?
 
-Contrairement à la version officielle ([diagrams.net](https://app.diagrams.net/)), cette configuration ne permet d'utiliser que le stockage local. Je n'ai pas vérifié s'il était possible d'ajouter différentes configurations, l'objectif de ce déploiement étant surtout une utilisation couplée avec [Bookstack](/posts/bookstack-solution-open-source-de-documentation).
+Contrairement à la version officielle ([diagrams.net](https://app.diagrams.net/)),
+cette configuration ne permet d'utiliser que le stockage local. Je n'ai pas vérifié
+s'il était possible d'ajouter différentes configurations, l'objectif de ce déploiement
+étant surtout une utilisation couplée avec [Bookstack](/posts/bookstack-solution-open-source-de-documentation).
 
 ## Bookstack
 
-Une fois votre application déployée, vous avez besoin de modifier la configuration de votre instance Bookstack afin d'appeler l'url de votre Draw.io tout neuf.
+Une fois votre application déployée, vous avez besoin de modifier la configuration
+de votre instance Bookstack afin d'appeler l'url de votre Draw.io tout neuf.
 
-Pour cela, ajoutez cette variable d'environnement dans votre fichier `boostack.env` :
+Pour cela, ajoutez cette variable d'environnement dans votre fichier
+`boostack.env` :
 
 ```txt
 DRAWIO=https://drawio.mondomaine.fr/?embed=1&proto=json&spin=1&configure=1
 ```
 
-Redéployez ensuite votre instance Bookstack (un simple arrêt / relance ne suffira pas).
+Redéployez ensuite votre instance Bookstack (un simple arrêt / relance ne
+suffira pas).
