@@ -13,25 +13,36 @@ toc: true
 draft: false
 ---
 
-Lorsque vous hébergez un serveur à votre domicile, il est possible que vous soyez confronté à un problème : votre fournisseur d'accès ne vous attribue pas une IP publique fixe.
-L'idée de cet article est donc de vous proposer une solution efficace pour obtenir gratuitement un nom de domaine, qui sera mis à jour automatiquement lorsque l'IP de votre box changera.
+Lorsque vous hébergez un serveur à votre domicile, il est possible que vous soyez
+confronté à un problème : votre fournisseur d'accès ne vous attribue pas une IP
+publique fixe.
+L'idée de cet article est donc de vous proposer une solution efficace pour obtenir
+gratuitement un nom de domaine, qui sera mis à jour automatiquement lorsque l'IP
+de votre box changera.
 
 ## Création d'un compte chez Dynu.com
 
-Il existe plusieurs fournisseurs de nom de domaine dynamique. Toutefois, je recommande [Dynu](https://www.dynu.com/fr-FR/), qui propose une solution gratuite, et surtout qui ne nécessite pas de confirmer que l'on existe toujours tous les mois...
-Vous créez votre compte, et vous allez dans *DDNS Services*. Vous cliquez ensuite sur le bouton *Ajouter* :
+Il existe plusieurs fournisseurs de nom de domaine dynamique. Toutefois, je recommande
+[Dynu](https://www.dynu.com/fr-FR/), qui propose une solution gratuite, et surtout
+qui ne nécessite pas de confirmer que l'on existe toujours tous les mois...
+Vous créez votre compte, et vous allez dans *DDNS Services*.
+Vous cliquez ensuite sur le bouton *Ajouter* :
 
 {{< image src="dynu1.webp" style="border-radius: 8px;" >}}
 
-Vous pouvez alors choisir le nom qui vous intéresse parmi la liste des domaines. Une fois votre domaine créé, vous arrivez ici :
+Vous pouvez alors choisir le nom qui vous intéresse parmi la liste des domaines.
+Une fois votre domaine créé, vous arrivez ici :
 
 {{< image src="dynu2.webp" style="border-radius: 8px;" >}}
 
-Maintenant, nous allons pouvoir installer un petit agent sur votre serveur afin d'envoyer les informations de façon régulière.
+Maintenant, nous allons pouvoir installer un petit agent sur votre serveur afin
+d'envoyer les informations de façon régulière.
 
 ## Installation de ddclient
 
-[ddclient](https://ddclient.net/) est un logiciel qui permet de mettre à jour son IP dynamiquement auprès de différents fournisseurs. Pour la suite de cet article, je vais considérer que vous avez créé un compte chez Dynu.
+[ddclient](https://ddclient.net/) est un logiciel qui permet de mettre à jour son
+IP dynamiquement auprès de différents fournisseurs. Pour la suite de cet article,
+je vais considérer que vous avez créé un compte chez Dynu.
 
 Pour l'installation, un fichier `docker-compose.yml` :
 
@@ -57,7 +68,8 @@ TZ=Europe/Paris
 
 ## Configuration
 
-Dans le dossier où se trouvent vos fichiers, créez un répertoire `files`, et ajoutez y le fichier de config suivant, sous le nom `ddclient.conf` :
+Dans le dossier où se trouvent vos fichiers, créez un répertoire `files`, et
+ajoutez y le fichier de config suivant, sous le nom `ddclient.conf` :
 
 ```txt
 ## ddclient configuration for Dynu
