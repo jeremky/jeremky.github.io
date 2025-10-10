@@ -134,6 +134,7 @@ avez défini. Vous allez tomber sur la page de connexion :
 {{< image src="init.webp" style="border-radius: 8px;" >}}
 
 Par défaut, les informations de connexion sont les suivantes :
+
 - admin@admin.com
 - password
 
