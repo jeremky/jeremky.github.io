@@ -12,13 +12,18 @@ toc: true
 draft: false
 ---
 
-[Heimdall](https://heimdall.site/) est une application web vous permettant d'y configurer votre dashboard personnalisé.
+[Heimdall](https://heimdall.site/) est une application web vous permettant d'y
+configurer votre dashboard personnalisé.
 
-*"Heimdall⁠ est un moyen d'organiser de manière simple les liens vers vos sites Web et applications Web les plus utilisés.*
+*"Heimdall⁠ est un moyen d'organiser de manière simple les liens vers vos sites
+Web et applications Web les plus utilisés.*
 *La simplicité est la clé de Heimdall.*
-*Pourquoi ne pas l'utiliser comme page de démarrage de votre navigateur ? Il a même la possibilité d'inclure une barre de recherche utilisant Google, Bing ou DuckDuckGo."*
+*Pourquoi ne pas l'utiliser comme page de démarrage de votre navigateur ? Il a
+même la possibilité d'inclure une barre de recherche utilisant Google, Bing ou DuckDuckGo."*
 
-Vous pouvez y créer vos propres applications sous forme de lien web, mais il est parfois possible d'avoir davantage d'interactions, afin d'y afficher des informations supplémentaires sous forme de widget.
+Vous pouvez y créer vos propres applications sous forme de lien web, mais il est
+parfois possible d'avoir davantage d'interactions, afin d'y afficher des informations
+supplémentaires sous forme de widget.
 
 Plus d'informations [sur leur site web](https://heimdall.site/).
 
@@ -58,11 +63,14 @@ TZ=Europe/Paris
 
 ### Reverse proxy
 
-Les fichiers de configuration ci-dessus sont prévus pour être utilisés avec un reverse proxy.
+Les fichiers de configuration ci-dessus sont prévus pour être utilisés avec un
+reverse proxy.
 
 > Pour rappel, un article dédié est [disponible ici](/posts/reverse-proxy-nginx/).
 
-L'image Docker de [Linuxserver.io](https://docs.linuxserver.io/general/swag/) propose un fichier sample de configuration, il vous suffit juste de modifier votre nom de domaine en conséquence :
+L'image Docker de [Linuxserver.io](https://docs.linuxserver.io/general/swag/)
+propose un fichier sample de configuration, il vous suffit juste de modifier votre
+nom de domaine en conséquence :
 
 ```bash
 sudo cp /opt/containers/nginx/nginx/proxy-confs/heimdall.subdomain.conf.sample /opt/containers/nginx/nginx/proxy-confs/heimdall.subdomain.conf
@@ -77,17 +85,21 @@ sudo docker restart nginx
 
 ## Configuration
 
-Une fois le déploiement terminé, vérifiez le bon fonctionnement de l'app dans votre navigateur :
+Une fois le déploiement terminé, vérifiez le bon fonctionnement de l'app dans
+votre navigateur :
 
 {{< image src="default.webp" style="border-radius: 8px;" >}}
 
-Commencez par vous rendre dans la partie `user` pour modifier l'utilisateur par défaut. Lui assigner un mot de passe désactivera l'accès public.
+Commencez par vous rendre dans la partie `user` pour modifier l'utilisateur par défaut.
+Lui assigner un mot de passe désactivera l'accès public.
 
-Vous pouvez ensuite vous rendre dans `settings` pour changer les paramètres de langue, le fond d'écran...
+Vous pouvez ensuite vous rendre dans `settings` pour changer les paramètres de langue,
+le fond d'écran...
 
 {{< image src="settings.webp" style="border-radius: 8px;" >}}
 
-Une fois cela effectué, relancez votre navigateur, et votre conteneur via la commande :
+Une fois cela effectué, relancez votre navigateur, et votre conteneur via
+la commande :
 
 ```bash
 sudo docker restart heimdall
@@ -97,14 +109,18 @@ sudo docker restart heimdall
 
 ### Applications Web
 
-Il est temps d'y ajouter vos applications. Après avoir cliqué sur le bouton `Liste des applications`, un bouton `ADD` se trouve en haut à droite. 
-Vous pouvez lui spécifier quelle application parmi la liste, ou pointer directement sur un site web.
+Il est temps d'y ajouter vos applications. Après avoir cliqué sur le bouton
+`Liste des applications`, un bouton `ADD` se trouve en haut à droite.
+Vous pouvez lui spécifier quelle application parmi la liste, ou pointer directement
+sur un site web.
 
 {{< image src="webapp.webp" style="border-radius: 8px;" >}}
 
 ### Applications améliorées
 
-Vous trouverez la liste des applications disponibles [sur cette page](https://apps.heimdall.site/applications/enhanced). Téléchargez y l'application de votre choix et déposez le fichier zip dans le dossier `/opt/containers/heimdall/config/www/SupportedApps`.
+Vous trouverez la liste des applications disponibles [sur cette page](https://apps.heimdall.site/applications/enhanced).
+Téléchargez y l'application de votre choix et déposez le fichier zip dans le dossier
+`/opt/containers/heimdall/config/www/SupportedApps`.
 
 {{< image src="addapp.webp" style="border-radius: 8px;" >}}
 
@@ -118,9 +134,10 @@ Vous pouvez maintenant ajouter votre application. Dans mon cas File Browser :
 
 {{< image src="appconfig.webp" style="border-radius: 8px;" >}}
 
-Une fois les paramètres de connexion renseignés, l'application affiche des informations extraites. 
+Une fois les paramètres de connexion renseignés, l'application affiche des
+informations extraites.
 
-## Conclusion 
+## Conclusion
 
 Pas vraiment de conclusion pour cet article, mais un exemple de rendu :
 
