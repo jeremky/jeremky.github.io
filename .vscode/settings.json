@@ -1,6 +1,5 @@
 {
-  "[markdown]": {
-  },
+  "[markdown]": {},
   "files.autoSave": "afterDelay",
   "editor.wordWrap": "on",
   "editor.minimap.enabled": false,
@@ -18,9 +17,9 @@
 
   "terminal.integrated.defaultProfile.linux": "bash",
   "terminal.integrated.defaultProfile.osx": "zsh",
-  
+
   "cSpell.language": "en,fr",
   "files.defaultLanguage": "fr",
-  
+
   "chatgpt.commentCodeLensEnabled": false
 }
