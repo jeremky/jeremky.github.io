@@ -18,7 +18,5 @@
   "terminal.integrated.defaultProfile.osx": "zsh",
 
   "cSpell.language": "en,fr",
-  "files.defaultLanguage": "fr",
-
-  "chatgpt.commentCodeLensEnabled": false
+  "files.defaultLanguage": "fr"
 }
