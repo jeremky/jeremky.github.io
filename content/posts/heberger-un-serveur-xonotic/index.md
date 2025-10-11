@@ -13,9 +13,13 @@ toc: true
 draft: false
 ---
 
-Selon [Wikipedia](https://fr.wikipedia.org/wiki/Xonotic), *Xonotic est un jeu de tir à la première personne développé par Team Xonotic. C'est un jeu libre et ses données (sons, etc) sont des œuvres libres1. Il est distribué sous licence GPL2.*
+Selon [Wikipedia](https://fr.wikipedia.org/wiki/Xonotic), *Xonotic est un jeu de
+tir à la première personne développé par Team Xonotic. C'est un jeu libre et ses
+données (sons, etc) sont des œuvres libres1. Il est distribué sous licence GPL2.*
 
-Ce Fast FPS est dans la veine de Quake III arena et d'Unreal Tournament. C'est donc du shoot bien speed, avec des mécaniques de saut particulières, le tout dans des arènes labyrinthiques avec quelques zones plus ouvertes.
+Ce Fast FPS est dans la veine de Quake III arena et d'Unreal Tournament.
+C'est donc du shoot bien speed, avec des mécaniques de saut particulières, le tout
+dans des arènes labyrinthiques avec quelques zones plus ouvertes.
 
 {{< youtube DKvh_IwG7o4 >}}
 
@@ -23,7 +27,8 @@ Ce Fast FPS est dans la veine de Quake III arena et d'Unreal Tournament. C'est d
 
 Le jeu est disponible sur Windows, Linux et MacOS, sur [cette page](https://xonotic.org/download/).
 
-C'est juste un zip à décompresser, aucune installation n'est requise. Pour les utilisateurs MacOS, il est disponible dans les dépôts de brew.
+C'est juste un zip à décompresser, aucune installation n'est requise. Pour les
+utilisateurs MacOS, il est disponible dans les dépôts de brew.
 
 ## La config Docker/Podman
 
@@ -53,7 +58,10 @@ services:
     restart: always
 ```
 
-Une fois le serveur démarré, ce dernier va créer l'arborescence des fichiers nécessaires dans le sous dossier `./files`. Vous devrez y créer un fichier de configuration nommé `server.cfg` dans le sous dossier `data`. Voici un exemple que vous pouvez utiliser comme point de départ : 
+Une fois le serveur démarré, ce dernier va créer l'arborescence des fichiers
+nécessaires dans le sous dossier `./files`. Vous devrez y créer un fichier de
+configuration nommé `server.cfg` dans le sous dossier `data`. Voici un exemple
+que vous pouvez utiliser comme point de départ :
 
 {{< code language="txt" title="Fichier server.cfg" id="1" expand="Afficher" collapse="Cacher" isCollapsed="true" >}}
 /////////////////////////////////////////////////////////////////////
@@ -100,7 +108,8 @@ sv_vote_call 1
 sv_weaponstats_file http://www.xonotic.org/weaponbalance/
 {{< /code >}}
 
-Si vous voulez une version complète du fichier, il est [disponible ici](https://github.com/xonotic/xonotic/blob/master/server/server.cfg).
+Si vous voulez une version complète du fichier, il est
+[disponible ici](https://github.com/xonotic/xonotic/blob/master/server/server.cfg).
 
 Une fois le fichier créé, on redémarre le conteneur pour prise en compte :
 

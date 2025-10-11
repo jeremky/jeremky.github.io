@@ -13,13 +13,19 @@ toc: false
 draft: false
 ---
 
-Il arrive régulièrement d'être amené à devoir tester son débit Internet. Malheureusement, on passe généralement par une application ou un site web, bourré de pubs et de télémétrie dans tous les sens. L'idée est donc de vous proposer ce simple service pour tester votre débit. Pas de fioriture, on va à l'essentiel. Son nom : [Librespeed](https://github.com/librespeed/speedtest?tab=readme-ov-file).
+Il arrive régulièrement d'être amené à devoir tester son débit Internet.
+Malheureusement, on passe généralement par une application ou un site web,
+bourré de pubs et de télémétrie dans tous les sens. L'idée est donc de vous
+proposer ce simple service pour tester votre débit. Pas de fioriture, on va à
+l'essentiel. Son nom : [Librespeed](https://github.com/librespeed/speedtest?tab=readme-ov-file).
 
-Le service n'est plus accessible sur ce serveur. L'adresse officielle : https://librespeed.org/
+Le service n'est plus accessible sur ce serveur. L'adresse officielle :
+[https://librespeed.org/](https://librespeed.org/)
 
 ## Son fonctionnement
 
-Comme la plupart des services de test de débit, Librespeed va choisir pour vous le meilleur serveur distant en fonction de votre opérateur et de votre position géographique.
+Comme la plupart des services de test de débit, Librespeed va choisir pour vous
+le meilleur serveur distant en fonction de votre opérateur et de votre position géographique.
 
 {{< image src="result.webp" style="border-radius: 8px;" >}}
 
@@ -47,7 +53,7 @@ services:
 networks:
   nginx_proxy:
     external: true
-    
+
 volumes:
   data:
 ```

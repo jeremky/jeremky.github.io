@@ -12,22 +12,38 @@ toc: true
 draft: false
 ---
 
-Après avoir partagé mes configurations de Vi, c'est au tour de ma personnalisation des prompts Linux, le shell. Il sert d'interface entre l'utilisateur et le système d'exploitation. Différents shells existent, comme bash, zsh, fish... Mais bash étant par défaut sur la plupart des distributions Linux, c'est sur ce dernier que je vais me focaliser.
+Après avoir partagé mes configurations de Vi, c'est au tour de ma personnalisation
+des prompts Linux, le shell. Il sert d'interface entre l'utilisateur et le système
+d'exploitation. Différents shells existent, comme bash, zsh, fish... Mais bash étant
+par défaut sur la plupart des distributions Linux, c'est sur ce dernier que je vais
+me focaliser.
 
 ## Explication
 
-Au démarrage d'une session shell, différents fichiers se chargent automatiquement. Cela permet de charger les configurations nécessaires au fonctionnement du prompt, comme son apparence, les variables d'environnement...
+Au démarrage d'une session shell, différents fichiers se chargent automatiquement.
+Cela permet de charger les configurations nécessaires au fonctionnement du prompt,
+comme son apparence, les variables d'environnement...
 
-Dans le home directory, se trouvent des fichiers cachés contenant ces informations :
+Dans le home directory, se trouvent des fichiers cachés contenant
+ces informations :
 
-- le fichier `.profile`, pour déterminer l'emplacement des binaires/commandes que l'on utilise, et le shell qui est utilisé (dans notre cas, bash)
-- le fichier `.bashrc`, pour configurer bash (l'apparence du prompt, la longueur de l'historique des commandes, le chargement des complétions de commandes...)
+- le fichier `.profile`, pour déterminer l'emplacement des binaires/commandes que
+l'on utilise, et le shell qui est utilisé (dans notre cas, bash)
+- le fichier `.bashrc`, pour configurer bash (l'apparence du prompt, la longueur
+de l'historique des commandes, le chargement des complétions de commandes...)
 
 ## Fichier .bash_aliases
 
-Le fichier `.bashrc` est préconfiguré pour charger un fichier personnalisé, appelé `.bash_aliases`. C'est ce dernier que nous allons créer et y ajouter nos personnalisations, notamment les aliases, qui permettent de se créer des "raccourcis" de commande, ou des fonctions. Le fichier est lu comme un script, il est donc possible d'y placer des conditions, ou des boucles.
+Le fichier `.bashrc` est préconfiguré pour charger un fichier personnalisé,
+appelé `.bash_aliases`. C'est ce dernier que nous allons créer et y ajouter nos
+personnalisations, notamment les aliases, qui permettent de se créer des "raccourcis"
+de commande, ou des fonctions. Le fichier est lu comme un script, il est donc possible
+d'y placer des conditions, ou des boucles.
 
-Là encore, le plus simple, c'est que je vous partage le fichier que j'utilise. Il est utilisable aussi bien pour votre user que pour root. Attention dans ce cas, le fichier ne se charge pas par défaut. Il faut ajouter dans le fichier `.bashrc` de root les lignes suivantes :
+Là encore, le plus simple, c'est que je vous partage le fichier que j'utilise.
+Il est utilisable aussi bien pour votre user que pour root. Attention dans ce cas,
+le fichier ne se charge pas par défaut. Il faut ajouter dans le fichier `.bashrc`
+de root les lignes suivantes :
 
 ```bash
 # Alias definitions.
@@ -39,10 +55,13 @@ fi
 Mon fichier `.bash_aliases` se divise en plusieurs parties :
 
 - La définition de certaines variables d'environnement (langue, éditeur par défaut)
-- Un paramètre pour ignorer la casse lors de la saisie (remplace automatiquement les caractères concernés lors d'une tabulation)
-- La gestion de sudo (pour la suite du fichier, et pour faire `su` au lieu de `sudo -s` pour passer root)
+- Un paramètre pour ignorer la casse lors de la saisie (remplace automatiquement
+les caractères concernés lors d'une tabulation)
+- La gestion de sudo (pour la suite du fichier, et pour faire `su` au lieu de
+`sudo -s` pour passer root)
 - La liste des aliases de base que j'utilise
-- Des aliases supplémentaires pour des applications spécifiques, chargés uniquement si les applications sont installées
+- Des aliases supplémentaires pour des applications spécifiques, chargés uniquement
+si les applications sont installées
 - Quelques fonctions, dans le cas où un simple alias est trop limitant
 
 Vous pouvez le récupérer directement sur github en suivant [ce lien](https://github.com/jeremky/envbackup/blob/main/dotfiles/debian/.bash_aliases).
@@ -286,7 +305,8 @@ Et enfin, les fonctions :
 
 ## Petit bonus : les aliases de scripts
 
-Si vous avez quelques scripts, et que vous voulez y accéder depuis n'importe où facilement, vous pouvez ajouter ceci à la fin de votre fichier `.bash_aliases` :
+Si vous avez quelques scripts, et que vous voulez y accéder depuis n'importe où
+facilement, vous pouvez ajouter ceci à la fin de votre fichier `.bash_aliases` :
 
 ```bash
 ## Scripts
@@ -300,5 +320,7 @@ if [ -d $scripts ] ; then
 fi
 ```
 
-Via ce petit bloc, un alias sera automatiquement créé pour chaque script qu'il trouvera dans un sous dossier qui porte le même nom. Par exemple, si un script nommé `test.sh` se trouve dans `/chemin/vers/vos/scripts/test`, un alias test sera créé.
+Via ce petit bloc, un alias sera automatiquement créé pour chaque script qu'il
+trouvera dans un sous dossier qui porte le même nom. Par exemple, si un script nommé
+`test.sh` se trouve dans `/chemin/vers/vos/scripts/test`, un alias test sera créé.
 Comme d'habitude, en cas de questions, n’hésitez pas :wink:
