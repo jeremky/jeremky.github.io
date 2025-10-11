@@ -9,8 +9,8 @@ date: 2025-04-08T21:25:50.235Z
 
 ## Pourquoi ce site ?
 
-L'idée de ce site web est de partager mes différentes expériences
-autour de l'hébergement de solutions logicielles.
+L'idée de ce site web est de partager mes différentes expériences autour de
+l'hébergement de solutions logicielles.
 Ces articles ont pour objectif de permettre à toute personne un peu curieuse en informatique
 de se familiariser avec la conteneurisation.
 L'idée est de pouvoir déployer facilement chez soi des applications orientées serveur.
