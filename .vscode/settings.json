@@ -1,8 +1,13 @@
 {
-  "telemetry": {
-    "enableTelemetry": false,
-    "enableCrashReporter": false
-  },
+  "telemetry.telemetryLevel": "off",
+  "telemetry.enableTelemetry": false,
+  "telemetry.enableCrashReporter": false,
+  "extensions.telemetry.enabled": false,
+  "github.copilot.telemetry.enable": false,
+  "redhat.telemetry.enabled": false,
+  "workbench.enableExperiments": false,
+  "workbench.settings.enableNaturalLanguageSearch": false,
+  "update.showReleaseNotes": false,
 
   "files.autoSave": "afterDelay",
   "editor.wordWrap": "on",
