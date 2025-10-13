@@ -1,15 +1,6 @@
 {
-  "telemetry.telemetryLevel": "off",
-  "telemetry.enableTelemetry": false,
-  "telemetry.enableCrashReporter": false,
-  "extensions.telemetry.enabled": false,
-  "github.copilot.telemetry.enable": false,
-  "redhat.telemetry.enabled": false,
-  "workbench.enableExperiments": false,
-  "workbench.settings.enableNaturalLanguageSearch": false,
-  "update.showReleaseNotes": false,
-
   "files.autoSave": "afterDelay",
+  "files.defaultLanguage": "fr",
   "editor.wordWrap": "on",
   "editor.minimap.enabled": false,
   "editor.fontSize": 14,
@@ -27,14 +18,12 @@
   "terminal.integrated.defaultProfile.linux": "bash",
   "terminal.integrated.defaultProfile.osx": "zsh",
 
-  "files.defaultLanguage": "fr",
+  "cSpell.language": "en,fr",
+  "cSpell.words": ["jeremky"],
 
   "markdownlint.config": {
     "MD013": {
       "line_length": 80
     }
-  },
-
-  "cSpell.language": "en,fr",
-  "cSpell.words": ["jeremky"]
+  }
 }
