@@ -1,10 +1,11 @@
 {
-  "files.autoSave": "afterDelay",
-  "files.defaultLanguage": "fr",
   "editor.wordWrap": "on",
   "editor.minimap.enabled": false,
   "editor.fontSize": 14,
   "editor.tabSize": 2,
+
+  "files.autoSave": "afterDelay",
+  "files.defaultLanguage": "fr",
   "files.exclude": {
     "**/.frontmatter": true,
     "**/.gitignore": true,
@@ -12,6 +13,8 @@
     "**/.vscode": true,
     "**/frontmatter.json": true
   },
+
+  "chat.disableAIFeatures": true,
 
   "workbench.iconTheme": "catppuccin-macchiato",
   "workbench.colorTheme": "Catppuccin Macchiato",
