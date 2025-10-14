@@ -13,10 +13,7 @@
   ],
   "frontMatter.website.host": "https://jeremky.github.io",
   "frontMatter.framework.startCommand": "hugo server -D",
-  "frontMatter.panel.actions.disabled": [
-    "optimizeSlug",
-    "openOnWebsite"
-  ],
+  "frontMatter.panel.actions.disabled": ["optimizeSlug", "openOnWebsite"],
   "frontMatter.taxonomy.contentTypes": [
     {
       "name": "default",
@@ -104,13 +101,7 @@
           "name": "code",
           "title": "Langage",
           "type": "choice",
-          "choices": [
-            "bash",
-            "txt",
-            "nginx",
-            "vim",
-            "yml"
-          ],
+          "choices": ["bash", "txt", "nginx", "vim", "yml"],
           "default": "bash"
         },
         {
@@ -142,5 +133,6 @@
   ],
   "frontMatter.content.defaultSorting": "Published",
   "frontMatter.content.defaultView": "list",
-  "frontMatter.git.commitMessage": "Synchronisé via Front Matter"
+  "frontMatter.git.commitMessage": "Synchronisé via Front Matter",
+  "frontMatter.sponsors.ai.enabled": false
 }
