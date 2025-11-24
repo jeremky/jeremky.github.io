@@ -24,7 +24,7 @@ Encore et toujours, un fichier `docker-compose.yml` :
 ```yml
 services:
   uptime-kuma:
-    image: docker.io/louislam/uptime-kuma:1
+    image: docker.io/louislam/uptime-kuma:2
     container_name: uptime-kuma
     hostname: uptime-kuma
     networks:
