@@ -13,7 +13,7 @@ draft: false
 ---
 
 Il y a quelque temps, le projet EmulatorJS a été abandonné par [Linuxserver.io](https://www.linuxserver.io/).
-Pour tous ceux qui aimaient tester des consoles rétro depuis leur navigateur,
+Pour celles et ceux qui aimaient tester des consoles rétro depuis leur navigateur,
 c’était une petite déception. Mais il existe une alternative beaucoup plus simple,
 accessible à tout le monde : WebRcade.
 
