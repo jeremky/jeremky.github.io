@@ -26,8 +26,6 @@
   "cSpell.words": ["jeremky"],
 
   "markdownlint.config": {
-    "MD013": {
-      "line_length": 80
-    }
+    "MD013": false
   }
 }

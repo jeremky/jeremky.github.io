@@ -1,6 +1,7 @@
 ---
 title: A propos
-date: 2025-04-08T21:25:50.235Z
+date: 2026-02-11T22:16:43.579Z
+draft: true
 ---
 
 ## Hello ! Moi c'est Jerem
@@ -16,18 +17,15 @@ L'idée est de pouvoir déployer facilement chez soi des applications orientées
 
 ## On y trouve quoi ?
 
-- Conteneurisation : Docker, Podman… toutes les informations pour héberger des
-  applications facilement
-- Outils pratiques : neovim, tmux,
-  et d’autres trucs bien utiles pour bosser plus efficacement
-- Partage et synchronisation :
-  Quelques solutions sympa pour gérer ses fichiers sans galère
+- **Conteneurisation** : Docker, Podman… tout pour héberger vos applications orientées serveur facilement
+- **Outils pratiques** : Vim/Neovim, tmux, et d’autres outils pour travailler efficacement
+- **Partage et synchronisation** : Solutions simples pour gérer vos fichiers sans galère
 
 ## Tags
 
-Si vous désirez consulter les différents tags, ils sont accessible via [ce lien](/tags).
+Pour explorer les articles par thématiques, consultez la page des [tags](/tags).
 
 ## Flux RSS
 
-Vous pouvez rester informé des nouveaux articles directement par son flux RSS :
-[https://jeremky.github.io/posts/index.xml](https://jeremky.github.io/posts/index.xml).
+Restez informé des nouveaux articles grâce au flux RSS :
+[https://jeremky.github.io/posts/index.xml](https://jeremky.github.io/posts/index.xml)

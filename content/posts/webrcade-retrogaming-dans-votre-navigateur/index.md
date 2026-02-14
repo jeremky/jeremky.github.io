@@ -28,11 +28,13 @@ quoi que ce soit : il suffit de configurer une liste de jeux pour y jouer de
 n'importe où.
 
 L’application prend en charge un grand nombre de consoles emblématiques : NES,
-Super Nintendo, Mega Drive, PlayStation, Game Boy Advance, Nintendo 64, et bien d’autres.
+Super Nintendo, Mega Drive, PlayStation, Game Boy Advance, Nintendo 64, et bien
+d’autres.
 
 ### Quels sont ses avantages ?
 
-- Ultra simple : jouable directement en ligne, sans installation côté client ou serveur
+- Ultra simple : jouable directement en ligne, sans installation côté client ou
+serveur
 
 - Sauvegardes automatiques : vous pouvez synchroniser vos sauvegardes à l'aide
 d'un compte Dropbox pour les partager entre différents appareils

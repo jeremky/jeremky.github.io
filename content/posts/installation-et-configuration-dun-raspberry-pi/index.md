@@ -47,6 +47,7 @@ Pour cela, lancez la commande suivante :
 ```bash
 sudo raspi-config
 ```
+
 Vous arriverez sur cette interface :
 
 {{< image src="rpiconfig.webp" style="border-radius: 8px;" >}}
