@@ -13,18 +13,13 @@ toc: false
 draft: false
 ---
 
-D'après [Wikipedia](https://fr.wikipedia.org/wiki/Teeworlds), *Teeworlds,
-anciennement Teewars, est un jeu de tir TPS (third person shooter) multijoueur
-en 2D. Le joueur y incarne une petite créature ronde, le tee. A l'aide de plusieurs
-armes différentes, le joueur doit parcourir différentes cartes à la recherche de
-ses adversaires.*
+D'après [Wikipedia](https://fr.wikipedia.org/wiki/Teeworlds), *Teeworlds, anciennement Teewars, est un jeu de tir TPS (third person shooter) multijoueur en 2D. Le joueur y incarne une petite créature ronde, le tee. A l'aide de plusieurs armes différentes, le joueur doit parcourir différentes cartes à la recherche de ses adversaires.*
 
 {{< image src="screen.webp" style="border-radius: 8px;" >}}
 
 ## Installation via Docker/Podman
 
-Pour héberger un serveur Teeworlds, voici les fichiers de configuration Docker à
-utiliser. Le fichier `docker-compose.yml` :
+Pour héberger un serveur Teeworlds, voici les fichiers de configuration Docker à utiliser. Le fichier `docker-compose.yml` :
 
 ```yml
 services:

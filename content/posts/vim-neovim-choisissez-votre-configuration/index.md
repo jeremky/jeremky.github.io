@@ -12,25 +12,15 @@ toc: true
 draft: false
 ---
 
-Dans [l'article présentant Neovim](/posts/neovim-un-fork-de-vim-moderne/), je
-terminais en vous disant que j'attendais une version plus récente dans les dépôts
-Debian pour avoir une compatibilité avec les derniers plugins optimisés pour la
-dernière version.
+Dans [l'article présentant Neovim](/posts/neovim-un-fork-de-vim-moderne/), je terminais en vous disant que j'attendais une version plus récente dans les dépôts Debian pour avoir une compatibilité avec les derniers plugins optimisés pour la dernière version.
 
-Finalement mon impatience légendaire a eu raison de moi, et j'ai décidé de me créer
-un script afin d'installer la dernière version de Neovim à partir des releases
-officielles sur [Github](https://github.com/neovim/neovim/releases).
+Finalement mon impatience légendaire a eu raison de moi, et j'ai décidé de me créer un script afin d'installer la dernière version de Neovim à partir des releases officielles sur [Github](https://github.com/neovim/neovim/releases).
 
-Dans cet article, nous allons voir différentes configurations pour Vim et Neovim,
-de la plus simple à la plus complexe selon vos besoins, chacune ayant ses avantages
-et inconvénients.
+Dans cet article, nous allons voir différentes configurations pour Vim et Neovim, de la plus simple à la plus complexe selon vos besoins, chacune ayant ses avantages et inconvénients.
 
 ## L'essentiel : Vim sans plugins
 
-Si vous voulez utiliser Vim en tant qu'éditeur simple, que vous voulez un fichier
-unique, sans plugins, mais avec tout de même quelques fonctionnalités, ainsi que
-le thème OneHalfDark, voici le fichier `.vimrc`, à créer dans votre dossier
-personnel :
+Si vous voulez utiliser Vim en tant qu'éditeur simple, que vous voulez un fichier unique, sans plugins, mais avec tout de même quelques fonctionnalités, ainsi que le thème OneHalfDark, voici le fichier `.vimrc`, à créer dans votre dossier personnel :
 
 {{< code language="vim" title="Fichier .vimrc" id="1" expand="Afficher" collapse="Cacher" isCollapsed="true" >}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -309,11 +299,9 @@ call s:h("Todo", s:purple, "", "")
 " }
 {{< /code >}}
 
-Ouais... Le fichier est assez costaud, mais cela permet de ne pas être dépendant
-de fichiers supplémentaires.
+Ouais... Le fichier est assez costaud, mais cela permet de ne pas être dépendant de fichiers supplémentaires.
 
-A noter que sur certaines distributions, Vim n'est pas nécessairement installé.
-Pour les distributions basées sur Debian :
+A noter que sur certaines distributions, Vim n'est pas nécessairement installé. Pour les distributions basées sur Debian :
 
 ```bash
 sudo apt install vim
@@ -321,9 +309,7 @@ sudo apt install vim
 
 ## Un Vim efficace avec plugins
 
-La configuration ci-dessous est celle que j'ai présenté dans l'article sur
-[Neovim](/posts/neovim-un-fork-de-vim-moderne/), mais adaptée à Vim. Là encore,
-collez ce contenu dans un fichier nommé `.vimrc` dans votre dossier personnel :
+La configuration ci-dessous est celle que j'ai présenté dans l'article sur [Neovim](/posts/neovim-un-fork-de-vim-moderne/), mais adaptée à Vim. Là encore, collez ce contenu dans un fichier nommé `.vimrc` dans votre dossier personnel :
 
 {{< code language="vim" title="Fichier .vimrc avec plugins" id="2" expand="Afficher" collapse="Cacher" isCollapsed="true" >}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -515,8 +501,7 @@ if filereadable(expand("~/.vim/plugged/vim-gitgutter/autoload/gitgutter.vim"))
 endif
 {{< /code >}}
 
-Via cette configuration, vous disposerez d'une meilleure compréhension du code,
-un explorateur de fichiers avancé, une gestion de Git, de la complétion...
+Via cette configuration, vous disposerez d'une meilleure compréhension du code, un explorateur de fichiers avancé, une gestion de Git, de la complétion...
 
 A noter que pour que cela fonctionne, vous devez avoir curl et git installés :
 
@@ -524,22 +509,15 @@ A noter que pour que cela fonctionne, vous devez avoir curl et git installés :
 sudo apt install vim curl git
 ```
 
-Cela permet de télécharger le gestionnaire de plugins et les plugins listés dans
-le fichier de configuration automatiquement au 1er démarrage. Donc pas besoin de
-fichiers suplémentaires.
+Cela permet de télécharger le gestionnaire de plugins et les plugins listés dans le fichier de configuration automatiquement au 1er démarrage. Donc pas besoin de fichiers suplémentaires.
 
 ## Neovim : Vim en mode IDE
 
-Afin de profiter de plugins modernes écrits en Lua, il est nécessaire de disposer
-de la dernière version de Neovim. Elle n'est malheureusement pas disponible dans
-les dépôts Debian, nous allons donc devoir l'installer "à l'ancienne".
+Afin de profiter de plugins modernes écrits en Lua, il est nécessaire de disposer de la dernière version de Neovim. Elle n'est malheureusement pas disponible dans les dépôts Debian, nous allons donc devoir l'installer "à l'ancienne".
 
 ### Installation de Neovim
 
-Pour l'installer, je vous ai préparé un petit script bash. Ce dernier va télécharger
-le binaire dans sa dernière version (selon votre architecture), va ajouter le lien
-dans votre variable `PATH` afin de l'appeler directement avec la commande `nvim`,
-et va également installer la distribution [LazyVim](https://www.lazyvim.org/).
+Pour l'installer, je vous ai préparé un petit script bash. Ce dernier va télécharger le binaire dans sa dernière version (selon votre architecture), va ajouter le lien dans votre variable `PATH` afin de l'appeler directement avec la commande `nvim`, et va également installer la distribution [LazyVim](https://www.lazyvim.org/).
 
 Vous trouverez le script d'installation en suivant [ce lien](/files/nviminstall.tar.gz).
 
@@ -555,43 +533,29 @@ Exécutez ensuite le script :
 ./nviminstall.sh
 ```
 
-Votre mot de passe vous sera demandé pour exécuter `apt`, afin d'installer les
-binaires nécessaires pour une meilleure expérience.
+Votre mot de passe vous sera demandé pour exécuter `apt`, afin d'installer les binaires nécessaires pour une meilleure expérience.
 
 ### LazyVim ?
 
-[LazyVim](https://www.lazyvim.org/) fait partie des nombreuses "distributions"
-existantes pour Neovim. Voyez cela comme une préconfiguration de Neovim, avec
-gestionnaire de plugins avancé et quelques éléments déjà paramétrés.
+[LazyVim](https://www.lazyvim.org/) fait partie des nombreuses "distributions" existantes pour Neovim. Voyez cela comme une préconfiguration de Neovim, avec gestionnaire de plugins avancé et quelques éléments déjà paramétrés.
 
-La configuration initiale est déjà excellente, mais il est possibles d'ajouter
-ses préférences de réglage, de mapping des touches, un thème différent etc...
+La configuration initiale est déjà excellente, mais il est possibles d'ajouter ses préférences de réglage, de mapping des touches, un thème différent etc...
 
-Les modifications que j'ai effectué sont disponibles et seront installées directement
-via le script [nviminstall.sh](/files/nviminstall.tar.gz).
+Les modifications que j'ai effectué sont disponibles et seront installées directement via le script [nviminstall.sh](/files/nviminstall.tar.gz).
 
-Dans les modifications apportées, il y a le changement du thème par
-[Catppuccin](https://catppuccin.com/) macchiato, l'ajout de mon mapping des touches
-F2 à F7, et une désactivation de plugins que je ne trouve pas nécessaires. Libre
-à vous de partir de cette base pour faire vos changements.
+Dans les modifications apportées, il y a le changement du thème par [Catppuccin](https://catppuccin.com/) macchiato, l'ajout de mon mapping des touches F2 à F7, et une désactivation de plugins que je ne trouve pas nécessaires. Libre à vous de partir de cette base pour faire vos changements.
 
-> Le thème OneDark ne sera plus utilisé. Je ferai un article dédié au sujet du
-remplacement de mon thème par Catppuccin
+> Le thème OneDark ne sera plus utilisé. Je ferai un article dédié au sujet du remplacement de mon thème par Catppuccin
 
 ### Des icônes ?
 
-Les plugins pour la barre de statut et pour l'explorateur de fichiers utilisent
-des polices avancées, afin d'afficher de belles icônes dans votre terminal.
+Les plugins pour la barre de statut et pour l'explorateur de fichiers utilisent des polices avancées, afin d'afficher de belles icônes dans votre terminal.
 
-Rendez-vous sur le site [Nerd Font](https://www.nerdfonts.com/font-downloads)
-pour y télécharger la police qui vous convient, puis appliquez la sur votre terminal.
-Perso, j'ai opté pour la police `JetBrainsMono Nerd Font`.
+Rendez-vous sur le site [Nerd Font](https://www.nerdfonts.com/font-downloads) pour y télécharger la police qui vous convient, puis appliquez la sur votre terminal. Perso, j'ai opté pour la police `JetBrainsMono Nerd Font`.
 
 ### Résultat
 
-Une fois tout en place, Neovim peut de venir un véritable IDE performant. Outil
-de recherche, compréhension du code, complétion avancée, aperçu des modifications
-git en temps réel, terminal intégré...
+Une fois tout en place, Neovim peut de venir un véritable IDE performant. Outil de recherche, compréhension du code, complétion avancée, aperçu des modifications git en temps réel, terminal intégré...
 
 Un petit aperçu du résultat :
 
@@ -603,19 +567,14 @@ Un petit aperçu du résultat :
 
 ## Conclusion
 
-Ok, c'était finalement assez dense comme article. Mais vous avez maintenant le
-choix :
+Ok, c'était finalement assez dense comme article. Mais vous avez maintenant le choix :
 
 - Un simple éditeur de texte avec un fichier unique
-- Un éditeur de texte complet, sans se prendre la tête pour l'installation et
-la configuration
+- Un éditeur de texte complet, sans se prendre la tête pour l'installation et la configuration
 - Un IDE ultra performant dans votre terminal
 
-Perso, j'ai combiné les options 2 et 3 : un Vim simple mais avec quelques fonctionnaliés
-sympa pour l'édition de fichiers système et un Neovim hyper complet pour l'écriture
-de scripts.
+Perso, j'ai combiné les options 2 et 3 : un Vim simple mais avec quelques fonctionnaliés sympa pour l'édition de fichiers système et un Neovim hyper complet pour l'écriture de scripts.
 
-Mais je garde l'option 1 sous le coude : elle a le mérite d'être simple à déposer
-sur certaines machines sans avoir besoin d'y ajouter de dépendances.
+Mais je garde l'option 1 sous le coude : elle a le mérite d'être simple à déposer sur certaines machines sans avoir besoin d'y ajouter de dépendances.
 
 A vous de tester et de faire votre choix selon ce qui vous convient le mieux !

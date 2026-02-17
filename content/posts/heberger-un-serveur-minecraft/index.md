@@ -13,15 +13,10 @@ toc: false
 draft: false
 ---
 
-Pas la peine de présenter ce jeu, je fais seulement ce petit article pour expliquer
-comment déployer rapidement et simplement un serveur Minecraft sous Docker.
+Pas la peine de présenter ce jeu, je fais seulement ce petit article pour expliquer comment déployer rapidement et simplement un serveur Minecraft sous Docker.
 
-Je vous suggère de passer voir les articles concernant Docker pour son installation,
-et l'utilisation de Docker Compose si jamais ce n'est pas déjà fait.
-L'image que nous allons utiliser est celle de [itzg](https://docker-minecraft-server.readthedocs.io/en/latest/),
-qui propose tout un tas de paramètres afin de personnaliser au mieux le déploiement
-du serveur. Que ce soit le type de serveur (Vanilla, Spigot, Paper), la version,
-le mode de jeu... Plus de détails sur la page de son [projet GitHub](https://github.com/itzg/docker-minecraft-server).
+Je vous suggère de passer voir les articles concernant Docker pour son installation, et l'utilisation de Docker Compose si jamais ce n'est pas déjà fait.
+L'image que nous allons utiliser est celle de [itzg](https://docker-minecraft-server.readthedocs.io/en/latest/), qui propose tout un tas de paramètres afin de personnaliser au mieux le déploiement du serveur. Que ce soit le type de serveur (Vanilla, Spigot, Paper), la version, le mode de jeu... Plus de détails sur la page de son [projet GitHub](https://github.com/itzg/docker-minecraft-server).
 
 ## Les fichiers de déploiement
 
@@ -85,17 +80,8 @@ ONLINE_MODE=true
 ENFORCE_SECURE_PROFILE=true
 ```
 
-Certains paramètres dépendent du type de serveur déployé (Vanilla ou autre).
-En les laissant à vide, ils ne seront pas utilisés. Si vous désirez ajouter des
-paramètres de la documentation, ils sont à ajouter dans la zone environment du
-`docker-compose.yml` et dans le fichier `mcserver.env`, sinon ils ne seront pas
-vu par Docker.
+Certains paramètres dépendent du type de serveur déployé (Vanilla ou autre). En les laissant à vide, ils ne seront pas utilisés. Si vous désirez ajouter des paramètres de la documentation, ils sont à ajouter dans la zone environment du `docker-compose.yml` et dans le fichier `mcserver.env`, sinon ils ne seront pas vu par Docker.
 
-Point important également : dans cet exemple, Docker est configuré pour limiter
-le nombre de CPUs utilisés, ainsi que la quantité de RAM allouée. Si vous désirez
-changer la quantité de RAM, la modification est à effectuer à la fois au niveau
-du conteneur lui-même, mais également dans la configuration de Minecraft
-(variables `RAM` et `MEMORY` dans le fichier `.env`)
+Point important également : dans cet exemple, Docker est configuré pour limiter le nombre de CPUs utilisés, ainsi que la quantité de RAM allouée. Si vous désirez changer la quantité de RAM, la modification est à effectuer à la fois au niveau du conteneur lui-même, mais également dans la configuration de Minecraft (variables `RAM` et `MEMORY` dans le fichier `.env`)
 
-Comme toujours, si vous avez besoin de précisions sur le déploiement et la
-configuration, n'hésitez pas !
+Comme toujours, si vous avez besoin de précisions sur le déploiement et la configuration, n'hésitez pas !

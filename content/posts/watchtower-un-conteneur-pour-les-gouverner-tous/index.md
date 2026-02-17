@@ -13,34 +13,21 @@ toc: false
 draft: false
 ---
 
-Docker est un outil incroyable qui permet de déployer facilement tout un tas de
-solutions logicielles. Grâce à lui, pas besoin de vous soucier de l'OS, de sa version,
-et des risques d'une mauvaise installation à cause des différentes opérations manuelles
-à effectuer, le tout étant déjà préparé dans les images que vous déployez.
+Docker est un outil incroyable qui permet de déployer facilement tout un tas de solutions logicielles. Grâce à lui, pas besoin de vous soucier de l'OS, de sa version, et des risques d'une mauvaise installation à cause des différentes opérations manuelles à effectuer, le tout étant déjà préparé dans les images que vous déployez.
 
-De plus, lorsque vous êtes amené à mettre vos applications à jour, vous pouviez
-être confronté à effectuer des opérations fastidieuses. Grâce à Docker, il suffit
-de récupérer la dernière version d’une image et le tour est joué.
+De plus, lorsque vous êtes amené à mettre vos applications à jour, vous pouviez être confronté à effectuer des opérations fastidieuses. Grâce à Docker, il suffit de récupérer la dernière version d’une image et le tour est joué.
 
-Mais... Imaginez qu'il soit possible de ne plus avoir à vous préoccuper même de
-ces opérations de mise à jour d’image, afin d’avoir automatiquement vos conteneurs
-à jour. C’est là que Watchtower intervient.
+Mais... Imaginez qu'il soit possible de ne plus avoir à vous préoccuper même de ces opérations de mise à jour d’image, afin d’avoir automatiquement vos conteneurs à jour. C’est là que Watchtower intervient.
 
 ## Fonctionnalités
 
-[Watchtower](https://containrrr.dev/watchtower/) est un outil capable de vérifier
-les images actuellement utilisées sur votre instance Docker. En fonction de la
-façon dont vous le configurez, il peut soit vous notifier que des nouvelles versions
-d'image sont disponibles, soit les mettre à jour automatiquement, en choisissant
-une fréquence de vérification, ou une date et heure précise.
+[Watchtower](https://containrrr.dev/watchtower/) est un outil capable de vérifier les images actuellement utilisées sur votre instance Docker. En fonction de la façon dont vous le configurez, il peut soit vous notifier que des nouvelles versions d'image sont disponibles, soit les mettre à jour automatiquement, en choisissant une fréquence de vérification, ou une date et heure précise.
 
-C'est cette seconde méthode que je vais vous proposer de mettre en place, afin de
-redémarrer automatiquement sur la dernière version vos conteneurs à une heure désirée.
+C'est cette seconde méthode que je vais vous proposer de mettre en place, afin de redémarrer automatiquement sur la dernière version vos conteneurs à une heure désirée.
 
 ## Installation
 
-Pour installer Watchtower, comme d'habitude, on commence par un fichier
-`docker-compose.yml` :
+Pour installer Watchtower, comme d'habitude, on commence par un fichier `docker-compose.yml` :
 
 ```yml
 services:
@@ -69,21 +56,14 @@ WATCHTOWER_REMOVE_VOLUMES=true
 
 Petit tour des variables que j’utilise :
 
-- `WATCHTOWER_SCHEDULE` : permet de définir le moment du check à la manière de cron.
-Tous les jours à 6h dans notre exemple
-- `WATCHTOWER_LABEL_ENABLE` : il est par défaut nécessaire d'indiquer dans chaque
-fichier `docker-compose.yml` si le conteneur doit être vérifié. Désactivé dans
-notre cas pour plus de simplicité
-- `WATCHTOWER_CLEANUP` : nettoie ou non les anciennes images une fois la mise à
-jour effectuée
+- `WATCHTOWER_SCHEDULE` : permet de définir le moment du check à la manière de cron. Tous les jours à 6h dans notre exemple
+- `WATCHTOWER_LABEL_ENABLE` : il est par défaut nécessaire d'indiquer dans chaque fichier `docker-compose.yml` si le conteneur doit être vérifié. Désactivé dans notre cas pour plus de simplicité
+- `WATCHTOWER_CLEANUP` : nettoie ou non les anciennes images une fois la mise à jour effectuée
 - `WATCHTOWER_REMOVE_VOLUMES` : supprime les volumes qui ne sont pas nommés
-- `WATCHTOWER_DISABLE_CONTAINERS` : permet lister les conteneurs à exclure de la
-vérification (séparé par des espaces)
+- `WATCHTOWER_DISABLE_CONTAINERS` : permet lister les conteneurs à exclure de la vérification (séparé par des espaces)
 
-Si vous avez besoin de précisions sur ces paramètres, les infos se trouvent principalement
-[ici](https://containrrr.dev/watchtower/arguments/).
+Si vous avez besoin de précisions sur ces paramètres, les infos se trouvent principalement [ici](https://containrrr.dev/watchtower/arguments/).
 
-Petite capture des logs d'une instance en place, avec deux exemples d'images
-mises à jour :
+Petite capture des logs d'une instance en place, avec deux exemples d'images mises à jour :
 
 {{< image src="logs.webp" style="border-radius: 8px;" >}}

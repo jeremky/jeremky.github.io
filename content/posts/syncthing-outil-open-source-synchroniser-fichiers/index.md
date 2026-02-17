@@ -13,19 +13,11 @@ toc: true
 draft: false
 ---
 
-Il y a quelques mois, je vous avais parlé de l’outil de synchronisation de fichiers
-basé sur la technologie Bittorrent, [Resilio Sync](/posts/synchroniser-ses-fichiers-avec-resilio-sync/).
-Aujourd’hui, c’est au tour de son concurrent Open Source : [Syncthing](https://syncthing.net/).
+Il y a quelques mois, je vous avais parlé de l’outil de synchronisation de fichiers basé sur la technologie Bittorrent, [Resilio Sync](/posts/synchroniser-ses-fichiers-avec-resilio-sync/). Aujourd’hui, c’est au tour de son concurrent Open Source : [Syncthing](https://syncthing.net/).
 
-Syncthing est une application de synchronisation de fichiers pair à pair open source
-disponible pour Windows, Mac, Linux, Android, Solaris, Darwin et BSD3. Aucun compte
-ni enregistrement préalable à l’utilisation auprès d’un tiers (comme les géants
-du web, ou quelque autre entité) n’est nécessaire, ni même optionnelle. La sécurité
-et l’intégrité des données sont intégrées dans la conception du logiciel.
+Syncthing est une application de synchronisation de fichiers pair à pair open source disponible pour Windows, Mac, Linux, Android, Solaris, Darwin et BSD3. Aucun compte ni enregistrement préalable à l’utilisation auprès d’un tiers (comme les géants du web, ou quelque autre entité) n’est nécessaire, ni même optionnelle. La sécurité et l’intégrité des données sont intégrées dans la conception du logiciel.
 
-Dans cet article, je vais surtout me concentrer sur l’installation de Syncthing
-via un conteneur, afin de le déployer facilement sur un serveur (les habitudes
-ont la vie dure).
+Dans cet article, je vais surtout me concentrer sur l’installation de Syncthing via un conteneur, afin de le déployer facilement sur un serveur (les habitudes ont la vie dure).
 
 ## Installation
 
@@ -54,8 +46,7 @@ networks:
     external: true
 ```
 
-Pensez à remplacer le volume `/home/user` par le dossier racine que vous souhaitez
-utiliser.
+Pensez à remplacer le volume `/home/user` par le dossier racine que vous souhaitez utiliser.
 
 Le fichier `syncthing.env` associé :
 
@@ -69,14 +60,11 @@ Là encore, vérifiez l’id de votre user user ayant les droits sur les fichier
 
 ### Reverse proxy
 
-Les fichiers de configuration ci-dessus sont prévus pour être utilisés avec un
-reverse proxy.
+Les fichiers de configuration ci-dessus sont prévus pour être utilisés avec un reverse proxy.
 
 > Pour rappel, un article dédié est [disponible ici](/posts/reverse-proxy-nginx/).
 
-L’image Docker de [Linuxserver.io](https://docs.linuxserver.io/general/swag/)
-propose un fichier sample de configuration, il vous suffit juste de modifier votre
-nom de domaine en conséquence :
+L’image Docker de [Linuxserver.io](https://docs.linuxserver.io/general/swag/) propose un fichier sample de configuration, il vous suffit juste de modifier votre nom de domaine en conséquence :
 
 ```bash
 sudo cp /opt/containers/nginx/nginx/proxy-confs/syncthing.subdomain.conf.sample /opt/containers/nginx/nginx/proxy-confs/syncthing.subdomain.conf
@@ -91,20 +79,16 @@ sudo docker restart nginx
 
 ## Configuration
 
-Après avoir accepté ou non la collecte de données, vous aurez divers messages vous
-demandant de vous rendre dans la page de configuration pour y définir un utilisateur
-et un mot de passe.
+Après avoir accepté ou non la collecte de données, vous aurez divers messages vous demandant de vous rendre dans la page de configuration pour y définir un utilisateur et un mot de passe.
 
 {{< image src="dashboard.webp" style="border-radius: 8px;" >}}
 
-Une fois cela fait, vous allez pouvoir ajouter les autres appareils et les dossiers
-que vous voulez synchroniser.
+Une fois cela fait, vous allez pouvoir ajouter les autres appareils et les dossiers que vous voulez synchroniser.
 
 ## Ajouter un appareil
 
 Cliquez sur `Ajouter un appareil` en bas à droite. Il vous sera demandé son ID.
-Pour récupérer l’ID de l’autre appareil à intégrer, il faut cliquer sur
-l’identifiant abrégé :
+Pour récupérer l’ID de l’autre appareil à intégrer, il faut cliquer sur l’identifiant abrégé :
 
 {{< image src="id.webp" style="border-radius: 8px;" >}}
 
@@ -113,15 +97,11 @@ Il est temps maintenant de passer à l’ajout de vos dossiers.
 
 ## Ajout des dossiers
 
-Commencez par supprimer le dossier créé par défaut, en vous rendant dans `gérer`,
-puis cliquez sur `supprimer`. Une fois cela fait, ajoutez un partage. Spécifiez
-un nom, puis le chemin racine du partage. Attention, dans le conteneur, votre volume
-monté se trouve dans `/data` (qui est en fait `/home/user` sur l’hôte).
+Commencez par supprimer le dossier créé par défaut, en vous rendant dans `gérer`, puis cliquez sur `supprimer`. Une fois cela fait, ajoutez un partage. Spécifiez un nom, puis le chemin racine du partage. Attention, dans le conteneur, votre volume monté se trouve dans `/data` (qui est en fait `/home/user` sur l’hôte).
 
 {{< image src="dir.webp" style="border-radius: 8px;" >}}
 
-Rendez vous dans l’onglet `Partages` et choisissez l’appareil qui aura accès à
-ce dossier.
+Rendez vous dans l’onglet `Partages` et choisissez l’appareil qui aura accès à ce dossier.
 
 {{< image src="share.webp" style="border-radius: 8px;" >}}
 
@@ -135,10 +115,7 @@ Une fois le dossier ajouté, la synchronisation va démarrer.
 
 ## Exclusion
 
-Si vous désirez exclure des fichiers ou des dossiers, il est possible de créer un
-fichier nommé `.stignore` dans chaque dossier racine et d’y indiquer les éléments
-à ignorer. Voici un exemple de la
-[documentation officielle](https://docs.syncthing.net/users/ignoring.html) :
+Si vous désirez exclure des fichiers ou des dossiers, il est possible de créer un fichier nommé `.stignore` dans chaque dossier racine et d’y indiquer les éléments à ignorer. Voici un exemple de la [documentation officielle](https://docs.syncthing.net/users/ignoring.html) :
 
 ```txt
 .DS_Store
@@ -158,14 +135,8 @@ My Pictures/
 
 ## Conclusion
 
-Syncthing fonctionne dans l’ensemble plutôt bien, je n’ai pas rencontré de bug
-particulier (à part peut être une fois un fichier de log qui s’est retrouvé dupliqué,
-sûrement verrouillé par une autre application).
+Syncthing fonctionne dans l’ensemble plutôt bien, je n’ai pas rencontré de bug particulier (à part peut être une fois un fichier de log qui s’est retrouvé dupliqué, sûrement verrouillé par une autre application).
 
-Je remarque toutefois 2 défauts comparé à Resilio Sync. Il est nécessaire d’ajouter
-les appareils avant les dossiers (à faire qu’une fois cependant). Et il ne dispose
-malheureusement pas de version pour iOS.
+Je remarque toutefois 2 défauts comparé à Resilio Sync. Il est nécessaire d’ajouter les appareils avant les dossiers (à faire qu’une fois cependant). Et il ne dispose malheureusement pas de version pour iOS.
 
-Mais il a cependant l’avantage d’être entièrement libre. Faites vous votre propre
-idée en testant les 2 solutions afin de déterminer celle qui vous convient le
-mieux :blush:
+Mais il a cependant l’avantage d’être entièrement libre. Faites vous votre propre idée en testant les 2 solutions afin de déterminer celle qui vous convient le mieux :blush:

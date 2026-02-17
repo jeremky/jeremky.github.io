@@ -12,29 +12,19 @@ toc: true
 draft: false
 ---
 
-[tmux](https://fr.wikipedia.org/wiki/Tmux) est un multiplexeur de terminaux libre
-en mode texte. Il permet d'utiliser plusieurs terminaux virtuels dans une seule
-fenêtre de terminal ou une session sur un terminal distant. tmux peut être détaché
-d'une session et continuer de fonctionner en arrière-plan, on peut également s'y
-rattacher plus tard. Il permet aussi de lancer, de gérer et de garder le visuel
-sur plusieurs processus en même temps.
+[tmux](https://fr.wikipedia.org/wiki/Tmux) est un multiplexeur de terminaux libre en mode texte. Il permet d'utiliser plusieurs terminaux virtuels dans une seule fenêtre de terminal ou une session sur un terminal distant. tmux peut être détaché d'une session et continuer de fonctionner en arrière-plan, on peut également s'y rattacher plus tard. Il permet aussi de lancer, de gérer et de garder le visuel sur plusieurs processus en même temps.
 
-Même si les émulateurs de terminaux modernes permettent diviser les fenêtres, il
-faut réapprendre les raccourcis clavier de ces applications. tmux permet d'unifier
-ses méthodes de travail, et de récupérer ses sessions en cas de coupure réseau
-par exemple.
+Même si les émulateurs de terminaux modernes permettent diviser les fenêtres, il faut réapprendre les raccourcis clavier de ces applications. tmux permet d'unifier ses méthodes de travail, et de récupérer ses sessions en cas de coupure réseau par exemple.
 
 ## Installation
 
-tmux est généralement présent dans les dépôts officiels de votre distribution préférée.
-Dans le cas de Debian/Ubuntu :
+tmux est généralement présent dans les dépôts officiels de votre distribution préférée. Dans le cas de Debian/Ubuntu :
 
 ```bash
 sudo apt install tmux
 ```
 
-Je vous conseille d'ajouter à votre fichier `.bash_aliases` un alias, afin de ne
-pas vous retrouver avec une multitude de processus tmux :
+Je vous conseille d'ajouter à votre fichier `.bash_aliases` un alias, afin de ne pas vous retrouver avec une multitude de processus tmux :
 
 ```bash
 # tmux : émulateur de terminal
@@ -43,18 +33,15 @@ if [ -f /usr/bin/tmux ] ; then
 fi
 ```
 
-De cette manière, il vous suffit de taper `tmux` pour se rattacher au dernier tmux
-ouvert, ou de créer une nouvelle sessions si aucun tmux n'est trouvé.
+De cette manière, il vous suffit de taper `tmux` pour se rattacher au dernier tmux ouvert, ou de créer une nouvelle sessions si aucun tmux n'est trouvé.
 
 ## Fichier de configuration
 
-Au lancement de tmux, ce dernier va charger un fichier de configuration si présent
-à l'un de ces emplacements :
+Au lancement de tmux, ce dernier va charger un fichier de configuration si présent à l'un de ces emplacements :
 - soit dans `~/.tmux.conf`
 - soit dans `~./.config/tmux/tmux.conf`
 
-Je vous partage ici mon fichier de configuration, afin d'avoir une base des possibilités
-que je vous laisse adapter selon vos préférences :
+Je vous partage ici mon fichier de configuration, afin d'avoir une base des possibilités que je vous laisse adapter selon vos préférences :
 
 ```txt
 ##################################################################
@@ -200,8 +187,7 @@ Ce fichier de configuration ajoute les fonctionnalités suivantes :
 
 ## Utilisation
 
-> Cette section est rédigée en considérant que vous avez suivi les étapes
-d'installation de cet article.
+> Cette section est rédigée en considérant que vous avez suivi les étapes d'installation de cet article.
 
 Voici les quelques raccourcis que j'utilise principalement :
 
@@ -220,8 +206,7 @@ Voici les quelques raccourcis que j'utilise principalement :
 | Ctrl + Flèches   | naviguer entre les panneaux |
 | Alt + Flèches    | Ajuster la taille des panneaux |
 
-Vous pouvez également utiliser le clic droit de la souris pour créer des panneaux,
-ou changer d'onglet.
+Vous pouvez également utiliser le clic droit de la souris pour créer des panneaux, ou changer d'onglet.
 
 Pour finir cet article, voici un petit exemple de rendu :
 

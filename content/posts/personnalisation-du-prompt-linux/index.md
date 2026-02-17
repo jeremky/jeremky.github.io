@@ -12,38 +12,23 @@ toc: true
 draft: false
 ---
 
-Après avoir partagé mes configurations de Vi, c'est au tour de ma personnalisation
-des prompts Linux, le shell. Il sert d'interface entre l'utilisateur et le système
-d'exploitation. Différents shells existent, comme bash, zsh, fish... Mais bash étant
-par défaut sur la plupart des distributions Linux, c'est sur ce dernier que je vais
-me focaliser.
+Après avoir partagé mes configurations de Vi, c'est au tour de ma personnalisation des prompts Linux, le shell. Il sert d'interface entre l'utilisateur et le système d'exploitation. Différents shells existent, comme bash, zsh, fish... Mais bash étant par défaut sur la plupart des distributions Linux, c'est sur ce dernier que je vais me focaliser.
 
 ## Explication
 
-Au démarrage d'une session shell, différents fichiers se chargent automatiquement.
-Cela permet de charger les configurations nécessaires au fonctionnement du prompt,
-comme son apparence, les variables d'environnement...
+Au démarrage d'une session shell, différents fichiers se chargent automatiquement. Cela permet de charger les configurations nécessaires au fonctionnement du prompt, comme son apparence, les variables d'environnement...
 
-Dans le home directory, se trouvent des fichiers cachés contenant
-ces informations :
+Dans le home directory, se trouvent des fichiers cachés contenant ces informations :
 
-- le fichier `.profile`, pour déterminer l'emplacement des binaires/commandes que
-l'on utilise, et le shell qui est utilisé (dans notre cas, bash)
-- le fichier `.bashrc`, pour configurer bash (l'apparence du prompt, la longueur
-de l'historique des commandes, le chargement des complétions de commandes...)
+- le fichier `.profile`, pour déterminer l'emplacement des binaires/commandes que l'on utilise, et le shell qui est utilisé (dans notre cas, bash)
+- le fichier `.bashrc`, pour configurer bash (l'apparence du prompt, la longueur de l'historique des commandes, le chargement des complétions de commandes...)
 
 ## Fichier .bash_aliases
 
-Le fichier `.bashrc` est préconfiguré pour charger un fichier personnalisé,
-appelé `.bash_aliases`. C'est ce dernier que nous allons créer et y ajouter nos
-personnalisations, notamment les aliases, qui permettent de se créer des "raccourcis"
-de commande, ou des fonctions. Le fichier est lu comme un script, il est donc possible
-d'y placer des conditions, ou des boucles.
+Le fichier `.bashrc` est préconfiguré pour charger un fichier personnalisé, appelé `.bash_aliases`. C'est ce dernier que nous allons créer et y ajouter nos personnalisations, notamment les aliases, qui permettent de se créer des "raccourcis" de commande, ou des fonctions. Le fichier est lu comme un script, il est donc possible d'y placer des conditions, ou des boucles.
 
 Là encore, le plus simple, c'est que je vous partage le fichier que j'utilise.
-Il est utilisable aussi bien pour votre user que pour root. Attention dans ce cas,
-le fichier ne se charge pas par défaut. Il faut ajouter dans le fichier `.bashrc`
-de root les lignes suivantes :
+Il est utilisable aussi bien pour votre user que pour root. Attention dans ce cas, le fichier ne se charge pas par défaut. Il faut ajouter dans le fichier `.bashrc` de root les lignes suivantes :
 
 ```bash
 # Alias definitions.
@@ -55,13 +40,10 @@ fi
 Mon fichier `.bash_aliases` se divise en plusieurs parties :
 
 - La définition de certaines variables d'environnement (langue, éditeur par défaut)
-- Un paramètre pour ignorer la casse lors de la saisie (remplace automatiquement
-les caractères concernés lors d'une tabulation)
-- La gestion de sudo (pour la suite du fichier, et pour faire `su` au lieu de
-`sudo -s` pour passer root)
+- Un paramètre pour ignorer la casse lors de la saisie (remplace automatiquement les caractères concernés lors d'une tabulation)
+- La gestion de sudo (pour la suite du fichier, et pour faire `su` au lieu de `sudo -s` pour passer root)
 - La liste des aliases de base que j'utilise
-- Des aliases supplémentaires pour des applications spécifiques, chargés uniquement
-si les applications sont installées
+- Des aliases supplémentaires pour des applications spécifiques, chargés uniquement si les applications sont installées
 - Quelques fonctions, dans le cas où un simple alias est trop limitant
 
 Vous pouvez le récupérer directement sur github en suivant [ce lien](https://github.com/jeremky/envbackup/blob/main/dotfiles/debian/.bash_aliases).
@@ -95,9 +77,7 @@ bind 'set show-all-if-unmodified on'     # Affiche les correspondances possibles
 
 # Sudo : utiliser la commande root pour...passer root :)
 if [[ -f /usr/bin/sudo ]] && [[ $USER != root ]]; then
-alias root='sudo -i'
-alias su='sudo -s'
-sudo=sudo
+    alias root='sudo -s'
 fi
 
 ##################################################################
@@ -204,32 +184,22 @@ fi
 # zoxide : cd amélioré
 if [[ -f /usr/bin/zoxide ]]; then
 eval "$(zoxide init bash)"
-alias cd='z'
 fi
 
 ##################################################################
 ## Fonctions
 
 # cpsave : copie un fichier ou un dossier avec .old
-cpsave() { cp -Rp $1 "$(echo $1 | cut -d '/' -f 1)".old; }
-
-# jsed : commande sed plus conviviale
-jsed() { sed -i "s|$1|$2|g" $3; }
-
-# newuser : créé un compte de service
-newuser() {
-$sudo adduser --no-create-home -q --disabled-password --comment "" $1
-echo "Utilisateur $1 créé. ID : $(id -u $1)"
-}
+cpsave() { cp -Rp "$1" "${1%/}.$(date +%Y%m%d).old" ;}
 
 # tarc : créer une archive pour chaque fichier / dossier spécifié
-tarc() { for file in $*; do tar czvf "$(echo $file | cut -d '/' -f 1)".tar.gz $file; done; }
+tarc() { for file in "$@"; do tar czvf "${file%/}.tar.gz" -- "$file"; done ;}
 
 # tarx : décompresse une archive spécifiée
-tarx() { for file in $*; do tar xzvf $file; done; }
+tarx() { for file in "$@"; do tar xzvf -- "$file"; done ;}
 
 # zip : commande zip plus conviviale
-zip() { /usr/bin/zip -r "$(echo "$1" | cut -d '/' -f 1)".zip $*; }
+zip() { for file in "$@"; do /usr/bin/zip -r "${file%/}.zip" "$file" ; done ;}
 
 ##################################################################
 ## Scripts
@@ -297,16 +267,14 @@ Et enfin, les fonctions :
 
 | Commande | Description |
 | -------- | ------- |
-| cpsave   | Créer une copie en .old d'un fichier ou d'un dossier spécifié |
-| jsed     | Facilite l'utilisation de sed pour remplacer du texte |
+| cpsave   | Créer une copie en date.old d'un fichier ou d'un dossier spécifié |
 | tarc     | Créer un tar.gz d'un ou plusieurs fichiers ou dossiers passés en paramètre |
 | tarx     | Pour extraire un ou plusieurs tar.gz passés en paramètre |
 | zip      | Facilite l'utilisation de la commande zip (zip \<fichier>) |
 
 ## Petit bonus : les aliases de scripts
 
-Si vous avez quelques scripts, et que vous voulez y accéder depuis n'importe où
-facilement, vous pouvez ajouter ceci à la fin de votre fichier `.bash_aliases` :
+Si vous avez quelques scripts, et que vous voulez y accéder depuis n'importe où facilement, vous pouvez ajouter ceci à la fin de votre fichier `.bash_aliases` :
 
 ```bash
 ## Scripts
@@ -320,7 +288,4 @@ if [ -d $scripts ] ; then
 fi
 ```
 
-Via ce petit bloc, un alias sera automatiquement créé pour chaque script qu'il
-trouvera dans un sous dossier qui porte le même nom. Par exemple, si un script nommé
-`test.sh` se trouve dans `/chemin/vers/vos/scripts/test`, un alias test sera créé.
-Comme d'habitude, en cas de questions, n’hésitez pas :wink:
+Via ce petit bloc, un alias sera automatiquement créé pour chaque script qu'il trouvera dans un sous dossier qui porte le même nom. Par exemple, si un script nommé `test.sh` se trouve dans `/chemin/vers/vos/scripts/test`, un alias test sera créé. Comme d'habitude, en cas de questions, n’hésitez pas :wink:

@@ -12,20 +12,13 @@ toc: true
 draft: false
 ---
 
-[Bookstack](https://www.bookstackapp.com/) est une plateforme open source, auto-hébergée
-et facile à utiliser pour organiser et stocker des informations. Développée en PHP
-avec le framework Laravel, elle est publiée sous licence MIT. BookStack structure
-le contenu en utilisant des étagères, des livres, des chapitres et des pages,
-offrant ainsi une organisation claire et intuitive.
+[Bookstack](https://www.bookstackapp.com/) est une plateforme open source, auto-hébergée et facile à utiliser pour organiser et stocker des informations. Développée en PHP avec le framework Laravel, elle est publiée sous licence MIT. BookStack structure le contenu en utilisant des étagères, des livres, des chapitres et des pages, offrant ainsi une organisation claire et intuitive.
 
-L’interface de BookStack est conçue pour être simple et conviviale, avec un éditeur
-WYSIWYG qui facilite la création et la gestion du contenu. De plus, la plateforme
-est multilingue et disponible en plus de 30 langues.
+L’interface de BookStack est conçue pour être simple et conviviale, avec un éditeur WYSIWYG qui facilite la création et la gestion du contenu. De plus, la plateforme est multilingue et disponible en plus de 30 langues.
 
 ## Installation
 
-Pour l'installation, comme à chaque fois, nous avons un fichier
-`docker-compose.yml` :
+Pour l'installation, comme à chaque fois, nous avons un fichier `docker-compose.yml` :
 
 ```yml
 services:
@@ -61,8 +54,7 @@ networks:
     external: false
 ```
 
-Les variables se répartissent dans 2 fichiers `.env` : un pour le conteneur mariadb
-et un pour l'application elle-même.
+Les variables se répartissent dans 2 fichiers `.env` : un pour le conteneur mariadb et un pour l'application elle-même.
 
 Le fichier `bookstack-db.env` :
 
@@ -97,8 +89,7 @@ MAIL_FROM=
 MAIL_FROM_NAME=
 ```
 
-Avant de lancer le déploiement de votre fichier `docker-compose.yml`, vous devez
-générer une clé pour la variable `APP_KEY`. Pour cela, dans votre terminal :
+Avant de lancer le déploiement de votre fichier `docker-compose.yml`, vous devez générer une clé pour la variable `APP_KEY`. Pour cela, dans votre terminal :
 
 ```bash
 sudo docker run -it --rm --entrypoint /bin/bash lscr.io/linuxserver/bookstack:latest appkey
@@ -106,14 +97,11 @@ sudo docker run -it --rm --entrypoint /bin/bash lscr.io/linuxserver/bookstack:la
 
 ### Reverse proxy
 
-Les fichiers de configuration ci-dessus sont prévus pour être utilisés avec un
-reverse proxy.
+Les fichiers de configuration ci-dessus sont prévus pour être utilisés avec un reverse proxy.
 
 > Pour rappel, un article dédié est [disponible ici](/posts/reverse-proxy-nginx/).
 
-L'image Docker de [Linuxserver.io](https://docs.linuxserver.io/general/swag/)
-propose un fichier sample de configuration, il vous suffit juste de modifier votre
-nom de domaine en conséquence :
+L'image Docker de [Linuxserver.io](https://docs.linuxserver.io/general/swag/) propose un fichier sample de configuration, il vous suffit juste de modifier votre nom de domaine en conséquence :
 
 ```bash
 sudo cp /opt/containers/nginx/nginx/proxy-confs/bookstack.subdomain.conf.sample /opt/containers/nginx/nginx/proxy-confs/bookstack.subdomain.conf
@@ -128,8 +116,7 @@ sudo docker restart nginx
 
 ## Connexion
 
-Une fois vos conteneurs déployés, vous pouvez vous rendre à l'adresse que vous
-avez défini. Vous allez tomber sur la page de connexion :
+Une fois vos conteneurs déployés, vous pouvez vous rendre à l'adresse que vous avez défini. Vous allez tomber sur la page de connexion :
 
 {{< image src="init.webp" style="border-radius: 8px;" >}}
 
@@ -142,59 +129,41 @@ Par défaut, les informations de connexion sont les suivantes :
 
 ## Configuration
 
-Une fois connecté, Vous allez pouvoir vous rendre dans les préférences en haut à
-droite de l'interface. L'interface, suffisamment claire, va vous permettre d'effectuer
-les réglages suivantes :
+Une fois connecté, Vous allez pouvoir vous rendre dans les préférences en haut à droite de l'interface. L'interface, suffisamment claire, va vous permettre d'effectuer les réglages suivantes :
 
 - Personnalisation du design, en changeant le logo, les couleurs...
 - Création / Modification des utilisateurs, et des différents roles
 - Maintenance de l'application
 
-Commencez par modifier les informations de l'utilisateur admin de base pour y
-changer l'adresse email et le mot de passe :
+Commencez par modifier les informations de l'utilisateur admin de base pour y changer l'adresse email et le mot de passe :
 
 {{< image src="profil.webp" style="border-radius: 8px;" >}}
 
 ## Rédaction
 
-Bookstack dispose d'une logique particulière pour le tri de la documentation.
-Au lieu de fonctionner par thème, catégorie, Il repose sur une logique
-"physique" : étagères, livres, chapitres, et pages.
-Commencez donc par créer votre 1ère étagère :
+Bookstack dispose d'une logique particulière pour le tri de la documentation. Au lieu de fonctionner par thème, catégorie, Il repose sur une logique "physique" : étagères, livres, chapitres, et pages. Commencez donc par créer votre 1ère étagère :
 
 {{< image src="etagere.webp" style="border-radius: 8px;" >}}
 
-Répétez l'opération pour créer votre 1er livre. Vous aurez ensuite le choix de créer
-directement une page, ou de subdiviser via des chapitres. Pour la démo, nous allons
-passer directement à la partie rédaction d'une page :
+Répétez l'opération pour créer votre 1er livre. Vous aurez ensuite le choix de créer directement une page, ou de subdiviser via des chapitres. Pour la démo, nous allons passer directement à la partie rédaction d'une page :
 
 {{< image src="edition.webp" style="border-radius: 8px;" >}}
 
-L'éditeur par défaut est WYSIWYG (pour What You See Is What You Get). Très facile
-à prendre en main, mais si vous préférez rédiger en Markdown, c'est possible !
+L'éditeur par défaut est WYSIWYG (pour What You See Is What You Get). Très facile à prendre en main, mais si vous préférez rédiger en Markdown, c'est possible !
 
-Une fois votre page rédigée, sachez qu'il est possible de l'exporter sous différents
-formats, de consulter les révisions, ou de placer des commentaires :
+Une fois votre page rédigée, sachez qu'il est possible de l'exporter sous différents formats, de consulter les révisions, ou de placer des commentaires :
 
 {{< image src="export.webp" style="border-radius: 8px;" >}}
 
 ## Diagrammes
 
-Petite précision au sujet des diagrammes. Bookstack se base sur l'excellent [Draw.io](https://www.drawio.com/)
-en version web. Lorsque vous voulez ajouter un diagramme, vous allez être directement
-redirigé vers [app.diagrams.net](https://app.diagrams.net) pour construire votre
-diagramme.
+Petite précision au sujet des diagrammes. Bookstack se base sur l'excellent [Draw.io](https://www.drawio.com/) en version web. Lorsque vous voulez ajouter un diagramme, vous allez être directement redirigé vers [app.diagrams.net](https://app.diagrams.net) pour construire votre diagramme.
 Une fois que vous aurez cliqué sur `Enregister`, il sera placé sur votre page :
 
 {{< image src="diagram.webp" style="border-radius: 8px;" >}}
 
 Attention, il n'est à ma connaissance pas possible de modifier le diagramme à posteriori.
 
-A noter qu'il est possible d'héberger une instance Draw.io et de la faire communiquer
-avec Bookstack. Ce sera le sujet du prochain article.
-
 ## Conclusion
 
-De part sa philosophie d'organisation et sa simplicité d'utilisation, Bookstack est
-une excellente solution à envisager si vous avez besoin d'un lieu où stocker de
-la documentation. De plus, il est libre, et facile à déployer. Je le recommande !
+De part sa philosophie d'organisation et sa simplicité d'utilisation, Bookstack est une excellente solution à envisager si vous avez besoin d'un lieu où stocker de la documentation. De plus, il est libre, et facile à déployer. Je le recommande !

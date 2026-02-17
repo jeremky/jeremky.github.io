@@ -13,16 +13,9 @@ toc: true
 draft: false
 ---
 
-Comme vu dans [cet article](/posts/mise-en-place-dun-vpn-avec-wireguard/),
-[Wireguard](https://www.wireguard.com/) est un VPN très performant et facile à
-mettre en place, mais son administration via des fichiers de configuration peut
-paraître assez compliquée. C'est là qu'intervient Wiregard Easy.
+Comme vu dans [cet article](/posts/mise-en-place-dun-vpn-avec-wireguard/), [Wireguard](https://www.wireguard.com/) est un VPN très performant et facile à mettre en place, mais son administration via des fichiers de configuration peut paraître assez compliquée. C'est là qu'intervient Wiregard Easy.
 
-[Wireguard Easy](https://github.com/wg-easy/wg-easy) est une interface graphique
-légère et open source conçue pour simplifier la gestion de WireGuard. Elle permet
-de gérer facilement les pairs (clients), de visualiser l'état des connexions, ainsi
-que la volumétrie de données transitant en temps réel. Il est également possible
-d'exporter facilement la configuration en cas de réinstallation ultérieure.
+[Wireguard Easy](https://github.com/wg-easy/wg-easy) est une interface graphique légère et open source conçue pour simplifier la gestion de WireGuard. Elle permet de gérer facilement les pairs (clients), de visualiser l'état des connexions, ainsi que la volumétrie de données transitant en temps réel. Il est également possible d'exporter facilement la configuration en cas de réinstallation ultérieure.
 
 ## Installation
 
@@ -55,8 +48,7 @@ networks:
     external: true
 ```
 
-> Le paramètre `NET-RAW` dans la partie `cap_add` n'est a utiliser que si vous
-utilisez Podman à la place de Docker.
+> Le paramètre `NET-RAW` dans la partie `cap_add` n'est a utiliser que si vous utilisez Podman à la place de Docker.
 
 Le fichier `wireguard.env` associé :
 
@@ -67,26 +59,19 @@ WG_DEFAULT_DNS=1.1.1.2,1.0.0.2
 UI_TRAFFIC_STATS=true
 ```
 
-D'autres options de paramétrage sont disponibles. Vous pouvez vous rendre sur
-[cette page](https://github.com/wg-easy/wg-easy) pour les consulter.
+D'autres options de paramétrage sont disponibles. Vous pouvez vous rendre sur [cette page](https://github.com/wg-easy/wg-easy) pour les consulter.
 
 A noter que les DNS que j'utilise sont ceux de Cloudflare, ceux bloquant les malwares.
 
-> IMPORTANT : L'accès à l'application n'est pas protégé par mot de passe dans
-cette configuration. Je vous propose de vous référer à la mise en place d'un
-serveur d'authentification [Authelia](/authelia-serveur-dauthentification-open-source/)
+> IMPORTANT : L'accès à l'application n'est pas protégé par mot de passe dans cette configuration. Je vous propose de vous référer à la mise en place d'un serveur d'authentification [Authelia](/authelia-serveur-dauthentification-open-source/)
 
 ### Reverse proxy
 
-Les fichiers de configuration ci-dessus sont prévus pour être utilisés avec un
-reverse proxy.
+Les fichiers de configuration ci-dessus sont prévus pour être utilisés avec un reverse proxy.
 
 > Pour rappel, un article dédié est [disponible ici](/posts/reverse-proxy-nginx/).
 
-L'image Docker de [Linuxserver.io](https://docs.linuxserver.io/general/swag/) ne
-propose pas de fichier sample de configuration pour WG-Easy. Vous devez donc créer
-un fichier nommé `/opt/containers/nginx/nginx/proxy-confs/wgeasy.subdomain.conf`,
-et y coller le contenu suivant :
+L'image Docker de [Linuxserver.io](https://docs.linuxserver.io/general/swag/) ne propose pas de fichier sample de configuration pour WG-Easy. Vous devez donc créer un fichier nommé `/opt/containers/nginx/nginx/proxy-confs/wgeasy.subdomain.conf`, et y coller le contenu suivant :
 
 ```nginx
 ## Version 2024/07/16
@@ -145,17 +130,11 @@ sudo docker restart nginx
 
 ## Utilisation
 
-Une fois votre service accessible, il est très simple d'ajouter des clients.
-Cliquez sur `Nouveau`, spécifiez un nom, et la configuration sera terminée...
-Vous pouvez télécharger la configuration générée pour l'ajouter à votre client.
-Et si c'est un mobile, il vous suffit d'afficher le QR Code afin de le faire scanner
-par l'application Wireguard de votre mobile.
+Une fois votre service accessible, il est très simple d'ajouter des clients. Cliquez sur `Nouveau`, spécifiez un nom, et la configuration sera terminée...
+Vous pouvez télécharger la configuration générée pour l'ajouter à votre client. Et si c'est un mobile, il vous suffit d'afficher le QR Code afin de le faire scanner par l'application Wireguard de votre mobile.
 
 {{< image src="qrcode.webp" style="border-radius: 8px;" >}}
 
 ## Conclusion
 
-Wireguard Easy est l’outil parfait pour administrer WireGuard. Avec son interface
-web conviviale et ses fonctionnalités bien pensées, il vous facilitera la gestion
-de vos clients VPN. Si vous avez besoin de davantage de modifications, je vous
-renvoie sur [la page du projet](https://github.com/wg-easy/wg-easy).
+Wireguard Easy est l’outil parfait pour administrer WireGuard. Avec son interface web conviviale et ses fonctionnalités bien pensées, il vous facilitera la gestion de vos clients VPN. Si vous avez besoin de davantage de modifications, je vous renvoie sur [la page du projet](https://github.com/wg-easy/wg-easy).

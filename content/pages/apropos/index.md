@@ -10,10 +10,7 @@ draft: true
 
 ## Pourquoi ce site ?
 
-L'objectif de ce site web est de partager mes différentes expériences autour de
-l'hébergement de solutions logicielles. Ces articles devraient permettre à toute
-personne un peu curieuse en informatique de se familiariser avec la conteneurisation.
-L'idée est de pouvoir déployer facilement chez soi des applications orientées serveur.
+L'objectif de ce site web est de partager mes différentes expériences autour de l'hébergement de solutions logicielles. Ces articles devraient permettre à toute personne un peu curieuse en informatique de se familiariser avec la conteneurisation. L'idée est de pouvoir déployer facilement chez soi des applications orientées serveur.
 
 ## On y trouve quoi ?
 

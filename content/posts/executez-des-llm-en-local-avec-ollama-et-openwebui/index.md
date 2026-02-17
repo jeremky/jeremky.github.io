@@ -12,21 +12,13 @@ toc: true
 draft: false
 ---
 
-[Ollama](https://ollama.com/) est un framework open source conçu pour faciliter
-le déploiement de grands modèles de langage dans des environnements locaux.
-Disponible sur Windows, MacOS et Linux, il permet de récupérer directement des
-modèles via un système de dépôt. Si vous avez les ressources suffisantes, vous
-pourrez exécuter des modèles comme DeepSeek, Mistral, Gemini...
+[Ollama](https://ollama.com/) est un framework open source conçu pour faciliter le déploiement de grands modèles de langage dans des environnements locaux. Disponible sur Windows, MacOS et Linux, il permet de récupérer directement des modèles via un système de dépôt. Si vous avez les ressources suffisantes, vous pourrez exécuter des modèles comme DeepSeek, Mistral, Gemini...
 
-Ollama peut être combiné à [Open WebUI](https://github.com/open-webui/open-webui),
-une interface web permettant d'interagir avec des modèles d'IA, tels que les grands
-modèles de langage (LLM). Cela simplifie l'utilisation de Ollama, en proposant une
-interface utilisateur graphique complète, accessible de n'importe où et multi utilisateur.
+Ollama peut être combiné à [Open WebUI](https://github.com/open-webui/open-webui), une interface web permettant d'interagir avec des modèles d'IA, tels que les grands modèles de langage (LLM). Cela simplifie l'utilisation de Ollama, en proposant une interface utilisateur graphique complète, accessible de n'importe où et multi utilisateur.
 
 ## Installation
 
-Comme à chaque fois, nous allons utiliser Docker / Podman pour le déploiement de
-ces applications. Tout d'abord, un fichier `docker-compose.yml` :
+Comme à chaque fois, nous allons utiliser Docker / Podman pour le déploiement de ces applications. Tout d'abord, un fichier `docker-compose.yml` :
 
 ```yml
 services:
@@ -68,23 +60,17 @@ DEFAULT_LOCALE=fr-FR
 WEBUI_AUTH=True
 ```
 
-Pensez à définir la clé secrète dans ce fichier, et à modifier la variable `WEBUI_AUTH`
-si vous n'avez pas besoin de l'authentification.
+Pensez à définir la clé secrète dans ce fichier, et à modifier la variable `WEBUI_AUTH` si vous n'avez pas besoin de l'authentification.
 
-> Vous pouvez utiliser le script [jdocker](https://github.com/jeremky/jdocker)
-pour simplifier le déploiement de vos conteneurs
+> Vous pouvez utiliser le script [jdocker](https://github.com/jeremky/jdocker) pour simplifier le déploiement de vos conteneurs
 
 ### Reverse proxy
 
-Les fichiers de configuration ci-dessus sont prévus pour être utilisés avec un
-reverse proxy.
+Les fichiers de configuration ci-dessus sont prévus pour être utilisés avec un reverse proxy.
 
 > Pour rappel, un article dédié est [disponible ici](/posts/reverse-proxy-nginx/).
 
-L'image Docker de [Linuxserver.io](https://docs.linuxserver.io/general/swag/) ne
-propose pas de fichier sample de configuration pour Open WebUI. Vous devez donc
-créer un fichier nommé `/opt/containers/nginx/nginx/proxy-confs/ollama.subdomain.conf`,
-et y coller le contenu suivant :
+L'image Docker de [Linuxserver.io](https://docs.linuxserver.io/general/swag/) ne propose pas de fichier sample de configuration pour Open WebUI. Vous devez donc créer un fichier nommé `/opt/containers/nginx/nginx/proxy-confs/ollama.subdomain.conf`, et y coller le contenu suivant :
 
 ```nginx
 ## Version 2024/07/16
@@ -143,49 +129,30 @@ sudo docker restart nginx
 
 ## Initialisation
 
-Une fois le déploiement effectué, rendez vous sur l'url que vous avez défini dans
-votre reverse proxy. Cliquez sur "Get Started". Il vous sera ensuite demandé de
-créer le compte principal :
+Une fois le déploiement effectué, rendez vous sur l'url que vous avez défini dans votre reverse proxy. Cliquez sur "Get Started". Il vous sera ensuite demandé de créer le compte principal :
 
 {{< image src="account.webp" style="border-radius: 8px;" >}}
 
-Une fois connecté, vous allez pouvoir demander à Ollama de télécharger le(s)
-modèle(s) de votre choix directement depuis l'interface de Open WebUI. Tout d'abord,
-rendez vous sur [cette page](https://ollama.com/search) pour consulter la liste
-des modèles disponibles. Choisissez le modèle que vous voulez, et copiez la commande
-sur la droite. Par exemple avec gemma3 : `ollama run gemma3`.
+Une fois connecté, vous allez pouvoir demander à Ollama de télécharger le(s) modèle(s) de votre choix directement depuis l'interface de Open WebUI. Tout d'abord, rendez vous sur [cette page](https://ollama.com/search) pour consulter la liste des modèles disponibles. Choisissez le modèle que vous voulez, et copiez la commande sur la droite. Par exemple avec gemma3 : `ollama run gemma3`.
 
 {{< image src="gemma3.webp" style="border-radius: 8px;" >}}
 
-Le modèle Gemma, créé pour Gemini, permet d'obtenir de bons résultats avec une
-consommation de ressources raisonnable.
+Le modèle Gemma, créé pour Gemini, permet d'obtenir de bons résultats avec une consommation de ressources raisonnable.
 
-> Etant limité par les ressources de mon serveur, j'ai opté pour la version avec
-un milliard de paramètres, la version gemma3:1b
+> Etant limité par les ressources de mon serveur, j'ai opté pour la version avec un milliard de paramètres, la version gemma3:1b
 
-Retournez sur Open WebUI, et en haut à gauche, cliquez sur "Sélectionnez un modèle"
-pour coller votre commande dans la zone de recherche. Il vous sera proposé de
-télécharger le modèle correspondant.
+Retournez sur Open WebUI, et en haut à gauche, cliquez sur "Sélectionnez un modèle" pour coller votre commande dans la zone de recherche. Il vous sera proposé de télécharger le modèle correspondant.
 
 {{< image src="download.webp" style="border-radius: 8px;" >}}
 
-Vous pourrez ensuite sélectionner le modèle téléchargé et commencer à
-l'utiliser ! A noter qu'il est possible de charger plusieurs modèles, et de
-basculer de l'un à l'autre sans changer de prompt.
+Vous pourrez ensuite sélectionner le modèle téléchargé et commencer à l'utiliser ! A noter qu'il est possible de charger plusieurs modèles, et de basculer de l'un à l'autre sans changer de prompt.
 
 {{< image src="demo.webp" style="border-radius: 8px;" >}}
 
 ## Conclusion
 
-Je ne vais pas m'avancer pour la suite des possibilités de l'application, ne pouvant
-pas explorer les choses davantage sans faire exploser mon serveur :smile:
+Je ne vais pas m'avancer pour la suite des possibilités de l'application, ne pouvant pas explorer les choses davantage sans faire exploser mon serveur :smile:
 
-Mais j'ai quand même exploré quelques éléments comme la recherche sur le web,
-la reconnaissance de code... Le modèle 1b de gemma3 est vraiment pas incroyable
-pour cela, mais la version 4b que j'ai pu tester sur une bonne machine s'en sort
-bien mieux.
+Mais j'ai quand même exploré quelques éléments comme la recherche sur le web, la reconnaissance de code... Le modèle 1b de gemma3 est vraiment pas incroyable pour cela, mais la version 4b que j'ai pu tester sur une bonne machine s'en sort bien mieux.
 
-Honnêtement, la mise en place de ce service était surtout par curiosité et non
-pour une utilisation au quotidien. Et la différence de performance avec un ChatGPT
-est bien visible... Mais si vous tenez à utiliser des services d'IA en local,
-le test vaut le détour. A plus !
+Honnêtement, la mise en place de ce service était surtout par curiosité et non pour une utilisation au quotidien. Et la différence de performance avec un ChatGPT est bien visible... Mais si vous tenez à utiliser des services d'IA en local, le test vaut le détour. A plus !

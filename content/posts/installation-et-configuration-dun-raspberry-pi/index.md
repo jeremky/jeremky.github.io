@@ -12,37 +12,25 @@ toc: false
 draft: false
 ---
 
-Bonjour les gens ! Aujourd'hui, j'ai ressorti mon raspberry, principalement car
-j'avais besoin de remettre un serveur VPN à la maison. C'est donc l'occasion de
-vous faire un petit article sur ma manière d'installer Raspberry Pi OS, et de vous
-partager un petit script pour automatiser la configuration du bébé.
+Bonjour les gens ! Aujourd'hui, j'ai ressorti mon raspberry, principalement car j'avais besoin de remettre un serveur VPN à la maison. C'est donc l'occasion de vous faire un petit article sur ma manière d'installer Raspberry Pi OS, et de vous partager un petit script pour automatiser la configuration du bébé.
 
 ## Installation
 
-Rien de particulier pour cette étape. Tout d'abord, on choisi son OS sur le
-[site officiel](https://www.raspberrypi.com/software/operating-systems).
-Pour ma part, c'est Raspberry Pi OS (Lite) en 64 bits, compatible à partir de la
-version 3B (Certaines images Docker ne fonctionnant pas sur la 32 bits).
+Rien de particulier pour cette étape. Tout d'abord, on choisi son OS sur le [site officiel](https://www.raspberrypi.com/software/operating-systems). Pour ma part, c'est Raspberry Pi OS (Lite) en 64 bits, compatible à partir de la version 3B (Certaines images Docker ne fonctionnant pas sur la 32 bits).
 
 {{< image src="download.webp" style="border-radius: 8px;" >}}
 
-Une fois l'image téléchargée, il vous faut un outil pour l'injecter dans votre
-carte MicroSD. Personnellement, j'utilise [Etcher](https://etcher.balena.io),
-mais tout autre outil fera l'affaire (dont celui fourni par la fondation raspberry).
+Une fois l'image téléchargée, il vous faut un outil pour l'injecter dans votre carte MicroSD. Personnellement, j'utilise [Etcher](https://etcher.balena.io), mais tout autre outil fera l'affaire (dont celui fourni par la fondation raspberry).
 
 {{< image src="etcher.webp" style="border-radius: 8px;" >}}
 
-On choisi son image, sa carte SD, et on envoie le flash ! Une fois l'image injectée,
-on peut passer au démarrage.
+On choisi son image, sa carte SD, et on envoie le flash ! Une fois l'image injectée, on peut passer au démarrage.
 
 ## Démarrage
 
-Au 1er démarrage, il vous sera demandé de saisir un nom d'utilisateur et un
-mot de passe. Attention, pour le moment, c'est en qwerty...
+Au 1er démarrage, il vous sera demandé de saisir un nom d'utilisateur et un mot de passe. Attention, pour le moment, c'est en qwerty...
 
-Une fois cela fait, vous arrivez au prompt. Nous allons tout d'abord utiliser
-l'outil fourni par raspberry pour configurer la bête.
-Pour cela, lancez la commande suivante :
+Une fois cela fait, vous arrivez au prompt. Nous allons tout d'abord utiliser l'outil fourni par raspberry pour configurer la bête. Pour cela, lancez la commande suivante :
 
 ```bash
 sudo raspi-config
@@ -73,27 +61,18 @@ sudo reboot
 
 ## Configuration
 
-Il y a une partie que j'ai volontairement mise de côté : la configuration réseau.
-Il est par défaut configuré pour fonctionner avec votre DHCP, mais je vous conseille
-de le désactiver et de passer en IP fixe. C'est donc le bon moment pour vous
-proposer d’utiliser ce petit script qui vous permettra de configurer tout ça bien
-plus facilement : [raspinit.sh](https://github.com/jeremky/raspinit).
+Il y a une partie que j'ai volontairement mise de côté : la configuration réseau. Il est par défaut configuré pour fonctionner avec votre DHCP, mais je vous conseille de le désactiver et de passer en IP fixe. C'est donc le bon moment pour vous proposer d’utiliser ce petit script qui vous permettra de configurer tout ça bien plus facilement : [raspinit.sh](https://github.com/jeremky/raspinit).
 
-Ce script vous permet, à l’aide de son fichier de configuration, d'effectuer
-les opérations suivantes :
+Ce script vous permet, à l’aide de son fichier de configuration, d'effectuer les opérations suivantes :
 
 - Désactiver ou non le swap, une horreur pour les cartes SD
 - Désactiver ou non le Wifi et le Bluetooth
 - Configurer le réseau du raspberry en IP fixe
-- Installer log2ram, pour réduire encore les écritures sur la carte
-(les logs seront stockées en RAM et écrites en une seule fois à l'arrêt du système)
-- Petit bonus : l'ajout de l'alias "temp" pour connaître rapidement
-la température du pi
+- Installer log2ram, pour réduire encore les écritures sur la carte (les logs seront stockées en RAM et écrites en une seule fois à l'arrêt du système)
+- Petit bonus : l'ajout de l'alias "temp" pour connaître rapidement la température du pi
 
-Une fois le script exécuté, un redémarrage vous sera demandé pour le bon
-fonctionnement de Log2ram.
+Une fois le script exécuté, un redémarrage vous sera demandé pour le bon fonctionnement de Log2ram.
 
-Dans un autre article, je vous partagerai un script pour installer des packages
-Debian à partir d'une liste et pour configurer encore 2-3 petites choses :wink:
+Dans un autre article, je vous partagerai un script pour installer des packages Debian à partir d'une liste et pour configurer encore 2-3 petites choses :wink:
 
 Amusez vous bien !

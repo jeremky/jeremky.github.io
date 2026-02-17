@@ -13,29 +13,21 @@ toc: true
 draft: false
 ---
 
-Euh... Minecraft ? Pas tout à fait. [Minecraft Infinity Dungeon](https://www.planetminecraft.com/project/infinity-dungeons/)
-est une map aventure de type [Roguelike](https://fr.wikipedia.org/wiki/Roguelike).
+Euh... Minecraft ? Pas tout à fait. [Minecraft Infinity Dungeon](https://www.planetminecraft.com/project/infinity-dungeons/) est une map aventure de type [Roguelike](https://fr.wikipedia.org/wiki/Roguelike).
 
-Tous les codes de ce genre de jeu s'y trouvent : des zones générées de façon procédurale,
-des récompenses, des salles de boss...
+Tous les codes de ce genre de jeu s'y trouvent : des zones générées de façon procédurale, des récompenses, des salles de boss...
 
 {{< image src="boss.webp" style="border-radius: 8px;" >}}
 
 ## Lobby
 
-La map dispose d'un Lobby. Dans ce dernier, il est possible de consulter un livre
-contenant toutes les tentatives des joueurs avec diverses informations : le nombre
-de mobs tués, le nombre de salles ouvertes, le nombre de boss vaincus. Vous pouvez
-également vous entraîner à faire un peu de parkour, ou en bonus, tester le piano
-:smile:
+La map dispose d'un Lobby. Dans ce dernier, il est possible de consulter un livre contenant toutes les tentatives des joueurs avec diverses informations : le nombre de mobs tués, le nombre de salles ouvertes, le nombre de boss vaincus. Vous pouvez également vous entraîner à faire un peu de parkour, ou en bonus, tester le piano :smile:
 
 {{< image src="lobby.webp" style="border-radius: 8px;" >}}
 
 ## Relancer une partie
 
-Si une partie a déjà été jouée, il est nécessaire de réinitialiser la zone. Il
-suffit de cliquer sur le message dans le chat lorsque vous tentez d'entrer dans
-la zone principale.
+Si une partie a déjà été jouée, il est nécessaire de réinitialiser la zone. Il suffit de cliquer sur le message dans le chat lorsque vous tentez d'entrer dans la zone principale.
 
 {{< image src="reset.webp" style="border-radius: 8px;" >}}
 
@@ -104,13 +96,8 @@ ENFORCE_SECURE_PROFILE=true
 
 Quelques points importants :
 
-- le mode de jeu est en `adventure`. De ce fait, la protection par whitelist n'est
-pas nécessaire, rien ne peut être détruit par les joueurs.
-- Le serveur est en vanilla, forcé en 1.21, pour être 100% compatible avec version
-de la map, mise à jour très récemment.
-- Les réglages préconisés par la map sont en place : difficulté en `easy`,
-nether désactivé, command-block activés...
-- La map téléchargée sur [ce lien](https://www.planetminecraft.com/project/infinity-dungeons/)
-sera à décompresser sous `/opt/containers/mcserver` avec comme nom de dossier `world`.
-- La distance d'affichage est réglée sur 8. La map n'ayant pas de très grandes zones,
-il n'est pas utile de solliciter la charge serveur pour rien.
+- le mode de jeu est en `adventure`. De ce fait, la protection par whitelist n'est pas nécessaire, rien ne peut être détruit par les joueurs.
+- Le serveur est en vanilla, forcé en 1.21, pour être 100% compatible avec version de la map, mise à jour très récemment.
+- Les réglages préconisés par la map sont en place : difficulté en `easy`, nether désactivé, command-block activés...
+- La map téléchargée sur [ce lien](https://www.planetminecraft.com/project/infinity-dungeons/) sera à décompresser sous `/opt/containers/mcserver` avec comme nom de dossier `world`.
+- La distance d'affichage est réglée sur 8. La map n'ayant pas de très grandes zones, il n'est pas utile de solliciter la charge serveur pour rien.

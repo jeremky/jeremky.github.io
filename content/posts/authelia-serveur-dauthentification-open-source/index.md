@@ -13,17 +13,9 @@ toc: true
 draft: false
 ---
 
-D'après le [site officiel](https://www.authelia.com/), *"Authelia est un serveur
-et un portail d'authentification open source remplissant le rôle de gestion des
-identités et des accès (IAM) en fournissant une authentification multifacteur et
-une authentification unique (SSO) pour vos applications via un portail Web.
-Il agit comme un compagnon pour les proxys inverses courants."*
+D'après le [site officiel](https://www.authelia.com/), *"Authelia est un serveur et un portail d'authentification open source remplissant le rôle de gestion des identités et des accès (IAM) en fournissant une authentification multifacteur et une authentification unique (SSO) pour vos applications via un portail Web. Il agit comme un compagnon pour les proxys inverses courants."*
 
-Dans cet article, il sera présenté comment installer Authelia, et comment le connecter
-au reverse proxy nginx (voir [cet article](/posts/reverse-proxy-nginx/) pour
-l'installation de nginx). A noter que cet article se concentre uniquement sur une
-configuration simple permettant de remplacer l'authentification par fichier `.htpasswd`
-interne à nginx.
+Dans cet article, il sera présenté comment installer Authelia, et comment le connecter au reverse proxy nginx (voir [cet article](/posts/reverse-proxy-nginx/) pour l'installation de nginx). A noter que cet article se concentre uniquement sur une configuration simple permettant de remplacer l'authentification par fichier `.htpasswd` interne à nginx.
 
 ## Installation
 
@@ -56,14 +48,11 @@ TZ=Europe/Paris
 
 ### Reverse proxy
 
-Les fichiers de configuration ci-dessus sont prévus pour être utilisés avec un
-reverse proxy.
+Les fichiers de configuration ci-dessus sont prévus pour être utilisés avec un reverse proxy.
 
 > Pour rappel, un article dédié est [disponible ici](/posts/reverse-proxy-nginx/).
 
-L'image Docker de [Linuxserver.io](https://docs.linuxserver.io/general/swag/)
-propose un fichier sample de configuration, il vous suffit juste de modifier
-votre nom de domaine en conséquence :
+L'image Docker de [Linuxserver.io](https://docs.linuxserver.io/general/swag/) propose un fichier sample de configuration, il vous suffit juste de modifier votre nom de domaine en conséquence :
 
 ```bash
 sudo cp /opt/containers/nginx/nginx/proxy-confs/authelia.subdomain.conf.sample /opt/containers/nginx/nginx/proxy-confs/authelia.subdomain.conf
@@ -78,9 +67,7 @@ sudo docker restart nginx
 
 ## Configuration
 
-Avant de démarrer le conteneur, il est nécessaire de préparer le fichier de configuration
-de l'application. Les étapes présentées ici seront à adapter selon vos modifications
-du fichier `docker-compose.yml`.
+Avant de démarrer le conteneur, il est nécessaire de préparer le fichier de configuration de l'application. Les étapes présentées ici seront à adapter selon vos modifications du fichier `docker-compose.yml`.
 
 Tout d'abord, créez le dossier `/opt/containers/authelia` :
 
@@ -166,19 +153,12 @@ notifier:
 
 Les éléments à modifier :
 
-- Remplacez `domaine.fr` par votre domaine, ainsi que le sous domaine configuré
-pour Authelia (`auth.domaine.fr`)
-- Remplacez chaque clé secrète par des passphrases générées aléatoirement
-(vous pouvez vous rendre sur [ce site](https://passwordsgenerator.net/) pour cela)
-- Selon vos préférences, vous pouvez changer le temps d'expiration et d'inactivité
-dans la section `session`
-- Si vous souhaitez utilisez de la double authentification, il suffit de remplacer
-la policy `one_factor` par `two_factor` dans la section `access_control`
+- Remplacez `domaine.fr` par votre domaine, ainsi que le sous domaine configuré pour Authelia (`auth.domaine.fr`)
+- Remplacez chaque clé secrète par des passphrases générées aléatoirement (vous pouvez vous rendre sur [ce site](https://passwordsgenerator.net/) pour cela)
+- Selon vos préférences, vous pouvez changer le temps d'expiration et d'inactivité dans la section `session`
+- Si vous souhaitez utilisez de la double authentification, il suffit de remplacer la policy `one_factor` par `two_factor` dans la section `access_control`
 
-Si vous voulez autoriser le changement de mot de passe, sachez qu'un "mail" sera
-généré dans le fichier `/opt/containers/authelia/mails.txt`. Si vous voulez mettre
-en place une gestion d'envoi de mails, il faut modifier la section `notifier`
-de la façon suivante :
+Si vous voulez autoriser le changement de mot de passe, sachez qu'un "mail" sera généré dans le fichier `/opt/containers/authelia/mails.txt`. Si vous voulez mettre en place une gestion d'envoi de mails, il faut modifier la section `notifier` de la façon suivante :
 
 ```yml
 notifier:
@@ -195,8 +175,7 @@ notifier:
 
 ### Utilisateurs
 
-Vos utilisateurs sont à renseigner dans un fichier nommé
-`/opt/containers/authelia/users.yml` :
+Vos utilisateurs sont à renseigner dans un fichier nommé `/opt/containers/authelia/users.yml` :
 
 ```yml
 users:
@@ -216,13 +195,11 @@ users:
       - admin
 ```
 
-Dans cet exemple, `user1` n'a accès qu'à dom1.domaine.fr, et `user2` a accès à
-`dom1.domaine.fr`, `dom2.domaine.fr`, et `dom3.domaine.fr`.
+Dans cet exemple, `user1` n'a accès qu'à dom1.domaine.fr, et `user2` a accès à `dom1.domaine.fr`, `dom2.domaine.fr`, et `dom3.domaine.fr`.
 
 #### Génération des mots de passe
 
-Pour générer une version chiffrée du mot de passe, utilisez la commande
-suivante :
+Pour générer une version chiffrée du mot de passe, utilisez la commande suivante :
 
 ```bash
 sudo docker run --rm docker.io/authelia/authelia:latest authelia crypto hash generate argon2 --password 'votre_password'
@@ -232,9 +209,7 @@ Insérez le résultat à la ligne correspondante.
 
 ### Configuration de nginx
 
-Vous devez maintenant activer Authelia dans vos fichiers de configuration présents
-dans `/opt/containers/nginx/nginx/proxy-confs` pour protéger les services souhaités.
-2 lignes sont à décommenter.
+Vous devez maintenant activer Authelia dans vos fichiers de configuration présents dans `/opt/containers/nginx/nginx/proxy-confs` pour protéger les services souhaités. 2 lignes sont à décommenter.
 
 Dans le bloc `server` :
 
@@ -254,22 +229,14 @@ Redémarrez ensuite nginx pour prise en compte :
 sudo docker restart nginx
 ```
 
-En vous rendant sur l'application où cette modification a été effectuée, vous devriez
-tomber désormais sur la page de connexion d'Authelia :
+En vous rendant sur l'application où cette modification a été effectuée, vous devriez tomber désormais sur la page de connexion d'Authelia :
 
 {{< image src="login.webp" style="border-radius: 8px;" >}}
 
 ## Conclusion
 
-Comparé à des alternatives comme [Keycloak](https://www.keycloak.org/) ou [Authentik](https://goauthentik.io/),
-Authelia propose une solution vraiment légère pour une installation personnelle,
-malgré une configuration bien plus austère.
+Comparé à des alternatives comme [Keycloak](https://www.keycloak.org/) ou [Authentik](https://goauthentik.io/), Authelia propose une solution vraiment légère pour une installation personnelle, malgré une configuration bien plus austère.
 
-Cependant, cette solution telle que décrite dans cet article ne propose pas de configuration
-de type OpenID/Oauth. Authelia a subit pas mal de changements dans ses dernières
-versions, et les articles permettant ce genre de configuration ne sont pas légion...
-Cela pourrait être un sujet d'article à l'avenir, mais je préfère pour le moment
-utiliser la gestion par mot de passe interne aux applications qui le permettent.
+Cependant, cette solution telle que décrite dans cet article ne propose pas de configuration de type OpenID/Oauth. Authelia a subit pas mal de changements dans ses dernières versions, et les articles permettant ce genre de configuration ne sont pas légion... Cela pourrait être un sujet d'article à l'avenir, mais je préfère pour le moment utiliser la gestion par mot de passe interne aux applications qui le permettent.
 
-En attendant, vous avez maintenant une protection centralisée de vos services auto
-hébergés qui ne disposent pas de protection par mot de passe.
+En attendant, vous avez maintenant une protection centralisée de vos services auto hébergés qui ne disposent pas de protection par mot de passe.
