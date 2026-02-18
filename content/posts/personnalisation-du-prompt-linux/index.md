@@ -1,5 +1,5 @@
 ---
-title: Personnalisation du prompt Linux
+title: "Personnalisation du prompt Linux"
 slug: personnalisation-du-prompt-linux
 date: 2024-05-02T17:13:12Z
 useRelativeCover: true

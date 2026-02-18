@@ -1,5 +1,5 @@
 ---
-title: Ouverture du site
+title: "Ouverture du site"
 slug: ouverture-du-site
 date: 2023-08-21T15:34:46Z
 useRelativeCover: true

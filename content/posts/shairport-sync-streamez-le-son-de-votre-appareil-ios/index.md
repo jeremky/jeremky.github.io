@@ -12,14 +12,13 @@ toc: true
 draft: true
 ---
 
-Shairport Sync permet de transformer n’importe quelle machine Linux en récepteur AirPlay.
-Concrètement : vous envoyez le son de votre iPhone, iPad ou Mac directement vers votre PC branché à des enceintes.
-
-Je l’utilise surtout pour recycler une machine Linux branchée sur un ampli. Pas besoin d’Apple TV.
+Shairport Sync permet de transformer n’importe quelle machine Linux en récepteur AirPlay. Concrètement : vous envoyez le son de votre iPhone, iPad ou Mac directement vers votre PC branché à des enceintes.
 
 ## Installation
 
-### Sur Fedora
+Shairport-sync est désormais disponible directement dans les dépôts des distributions majeures. Pour l'installer :
+
+- Sur Fedora :
 
 ```bash
 sudo dnf install shairport-sync
@@ -32,7 +31,7 @@ sudo dnf install epel-release
 sudo dnf install shairport-sync
 ```
 
-### Sur Debian / Ubuntu
+- Sur Debian / Ubuntu :
 
 ```bash
 sudo apt install shairport-sync
@@ -84,19 +83,19 @@ sudo systemctl restart shairport-sync
 
 ## Intégration systemd
 
-Activer au démarrage :
+- Activer au démarrage :
 
 ```bash
 sudo systemctl enable shairport-sync
 ```
 
-Démarrer :
+- Démarrer :
 
 ```bash
 sudo systemctl start shairport-sync
 ```
 
-Vérifier l’état :
+- Vérifier l’état :
 
 ```bash
 systemctl status shairport-sync

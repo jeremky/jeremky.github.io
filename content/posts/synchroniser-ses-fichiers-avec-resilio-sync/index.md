@@ -1,5 +1,5 @@
 ---
-title: Synchroniser ses fichiers avec Resilio Sync
+title: "Synchroniser ses fichiers avec Resilio Sync"
 slug: synchroniser-ses-fichiers-avec-resilio-sync
 date: 2024-08-22T21:00:33+02:00
 useRelativeCover: true

@@ -1,5 +1,5 @@
 ---
-title: Exécutez des LLM en local avec Ollama et Open WebUI
+title: "Exécutez des LLM en local avec Ollama et Open WebUI"
 slug: executez-des-llm-en-local-avec-ollama-et-openwebui
 date: 2025-04-04T16:15:25.000Z
 useRelativeCover: true

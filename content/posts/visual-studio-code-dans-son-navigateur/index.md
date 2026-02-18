@@ -1,5 +1,5 @@
 ---
-title: Visual Studio Code dans son navigateur
+title: "Visual Studio Code dans son navigateur"
 slug: visual-studio-code-dans-son-navigateur
 date: 2024-10-26T13:22:59.705Z
 useRelativeCover: true

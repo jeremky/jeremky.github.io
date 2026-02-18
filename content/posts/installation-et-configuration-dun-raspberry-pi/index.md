@@ -1,5 +1,5 @@
 ---
-title: Installation et configuration d'un Raspberry Pi
+title: "Installation et configuration d'un Raspberry Pi"
 slug: installation-et-configuration-dun-raspberry-pi
 date: 2024-05-10T17:14:39Z
 useRelativeCover: true

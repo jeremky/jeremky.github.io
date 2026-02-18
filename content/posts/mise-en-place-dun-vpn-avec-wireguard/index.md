@@ -1,5 +1,5 @@
 ---
-title: Mise en place d'un VPN avec Wireguard
+title: "Mise en place d'un VPN avec Wireguard"
 slug: mise-en-place-dun-vpn-avec-wireguard
 date: 2024-06-23T17:26:52Z
 useRelativeCover: true

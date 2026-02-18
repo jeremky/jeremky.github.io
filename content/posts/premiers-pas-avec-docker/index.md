@@ -1,5 +1,5 @@
 ---
-title: Premiers pas avec Docker
+title: "Premiers pas avec Docker"
 slug: premiers-pas-avec-docker
 date: 2023-08-24T16:03:12Z
 useRelativeCover: true

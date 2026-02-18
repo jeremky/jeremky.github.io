@@ -1,5 +1,5 @@
 ---
-title: La fin d'EmulatorJS
+title: "La fin d'EmulatorJS"
 slug: la-fin-demulatorjs
 date: 2024-05-26T17:17:57Z
 useRelativeCover: true

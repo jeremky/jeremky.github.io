@@ -1,5 +1,5 @@
 ---
-title: Serveur Minecraft Infinity Dungeon
+title: "Serveur Minecraft Infinity Dungeon"
 slug: serveur-minecraft-infinity-dungeon
 date: 2024-08-05T20:56:18+02:00
 useRelativeCover: true
