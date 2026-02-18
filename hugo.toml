@@ -8,6 +8,10 @@ enableEmoji = true
 [markup.goldmark.renderer]
   unsafe = false
 
+[params.author]
+  name = "JeremKy"
+  email = "contact@jeremky.fr"
+
 [params]
 
   # OpenGraph
@@ -40,7 +44,7 @@ enableEmoji = true
 
 [languages]
   [languages.fr.params]
-    title = "JeremKy.github.io"
+    title = "jeremky.github.io"
     #subtitle = ""
     keywords = ""
     copyright = ""
