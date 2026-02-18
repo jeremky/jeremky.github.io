@@ -1,5 +1,5 @@
 ---
-title: "Archives"
+title: Archives
 layout: list
 url: /pages/archives
 type: archive
