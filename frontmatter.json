@@ -122,16 +122,6 @@
     }
   },
   "frontMatter.git.enabled": true,
-  "frontMatter.content.sorting": [
-    {
-      "id": "Published",
-      "title": "Publication",
-      "name": "date",
-      "order": "desc",
-      "type": "date"
-    }
-  ],
-  "frontMatter.content.defaultSorting": "Published",
   "frontMatter.content.defaultView": "list",
   "frontMatter.git.commitMessage": "Synchronisé via Front Matter",
   "frontMatter.sponsors.ai.enabled": false
