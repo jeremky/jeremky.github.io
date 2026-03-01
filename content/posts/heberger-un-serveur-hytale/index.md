@@ -36,7 +36,7 @@ services:
     stdin_open: true
     tty: true
     volumes:
-      - /home/bangerous/containers/hytale:/server
+      - /opt/containers/hytale:/server
     ports:
       - 5520:5520/udp
     restart: always
