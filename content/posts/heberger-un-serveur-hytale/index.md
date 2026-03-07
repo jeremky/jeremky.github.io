@@ -41,7 +41,7 @@ services:
     restart: always
 ```
 
-> Si vous utilisez Podman en rootless, ajoutez `user: 0:0` afin d'avoir les droits d'écriture 
+> Si vous utilisez Podman en rootless, ajoutez `user: 0:0` afin d'avoir les droits d'écriture
 
 Son fichier `hytale.env` associé :
 
@@ -59,13 +59,13 @@ FORCE_UPDATE=false
 
 Le serveur Hytale a besoin d'un compte valide pour démarrer. Au 1er lancement, une URL vous sera indiquée ainsi qu'un code à saisir une fois connecté à votre compte depuis votre poste.
 
-Consultez les logs de votre conteneur : 
+Consultez les logs de votre conteneur :
 
 ```bash
 docker logs -f hytale
 ```
 
-Ou si vous utilisez Podman : 
+Ou si vous utilisez Podman :
 
 ```bash
 podman logs -f hytale
@@ -73,7 +73,7 @@ podman logs -f hytale
 
 ## Firewall
 
-Hytale utilise le port 5520 en UDP pour fonctionner. Si vous utilisez UFW : 
+Hytale utilise le port 5520 en UDP pour fonctionner. Si vous utilisez UFW :
 
 ```bash
 sudo ufw allow 5520/udp
