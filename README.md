@@ -5,25 +5,19 @@ Ce repository GitHub permet de générer et publier le site
 
 ## Pourquoi ce site ?
 
-L'objectif de ce site web est de partager mes différentes expériences autour de
-l'hébergement de solutions logicielles. Ces articles devraient permettre à toute
-personne un peu curieuse en informatique de se familiariser avec la conteneurisation.
-L'idée est de pouvoir déployer facilement chez soi des applications orientées serveur.
+L'objectif de ce site web est de partager mes différentes expériences autour de l'hébergement de solutions logicielles. Ces articles devraient permettre à toute personne un peu curieuse en informatique de se familiariser avec la conteneurisation. L'idée est de pouvoir déployer facilement chez soi des applications orientées serveur.
 
 ## On y trouve quoi ?
 
-- Conteneurisation : Docker, Podman… toutes les informations pour héberger des
-  applications facilement
-- Outils pratiques : neovim, tmux,
-  et d’autres trucs bien utiles pour bosser plus efficacement
-- Partage et synchronisation :
-  Quelques solutions sympa pour gérer ses fichiers sans galère
+- **Conteneurisation** : Docker, Podman… tout pour héberger vos applications orientées serveur facilement
+- **Outils pratiques** : Vim/Neovim, tmux, et d’autres outils pour travailler efficacement
+- **Partage et synchronisation** : Solutions simples pour gérer vos fichiers sans galère
 
 ## Tags
 
-Si vous désirez consulter les différents tags, ils sont accessible via [ce lien](https://jeremky.github.io//tags).
+Pour explorer les articles par thématiques, consultez la page des [tags](/tags).
 
 ## Flux RSS
 
-Vous pouvez rester informé des nouveaux articles directement par son flux RSS :
-[https://jeremky.github.io/posts/index.xml](https://jeremky.github.io/posts/index.xml).
+Restez informé des nouveaux articles grâce au flux RSS :
+[https://jeremky.github.io/posts/index.xml](https://jeremky.github.io/posts/index.xml)
