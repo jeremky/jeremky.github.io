@@ -1,7 +1,7 @@
 ---
 title: A propos
 date: 2026-02-11T22:16:43.579Z
-draft: true
+draft: false
 ---
 
 ## Hello ! Moi c'est Jerem
