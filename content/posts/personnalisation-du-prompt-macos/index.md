@@ -220,15 +220,12 @@ Les aliases actifs uniquement dans le cas où les applications sont installées 
 
 | Commande  | Description |
 | --------- | -------- |
-| apt       | Ajoute sudo et la commande `upgrade` |
 | diff      | Remplace la commande par colordiff, pour une meilleure lisibilité |
 | df        | Remplace la commande par duf, bien plus agréable visuellement |
 | fd        | Outil équivalent à find mais bien plus simple à utiliser |
 | fzf       | Outil de recherche avancé |
 | top       | Remplace la commande top par htop |
 | ncdu      | L'équivalent de l'outil Treesize sous Windows |
-| podman    | Ajoute sudo devant, pour gagner du temps |
-| docker    | Ajoute sudo devant, pour gagner du temps |
 | lzd       | Lance l'outil lazydocker (console d'administration pour Docker) |
 | rg        | Un grep récursif, bien plus lisible que le grep de base |
 | tmux      | Transforme la commande de base pour s'assurer de ne pas en lancer plusieurs |
