@@ -1,7 +1,7 @@
 ---
-title: "Personnalisation du prompt MacOS"
+title: Personnalisation du prompt MacOS
 slug: personnalisation-du-prompt-macos
-date: 2026-03-09T17:13:12Z
+date: 2026-03-10T22:09:04.006Z
 useRelativeCover: true
 cover: cover.webp
 tags:
@@ -12,7 +12,7 @@ toc: true
 draft: true
 ---
 
-J'avais écrit [un article]() afin de personnaliser votre prompt Linux fonctionnant avec bash. Cette fois-ci, nous allons nous attaquer à MacOS, qui fonctionne avec Zsh.
+J'avais écrit [un article]() afin de personnaliser votre prompt Linux fonctionnant avec bash. Cette fois-ci, nous allons nous attaquer à MacOS, qui fonctionne non pas avec bash, mais avec Zsh.
 
 ## Explication
 
