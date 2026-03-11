@@ -1,7 +1,7 @@
 ---
 title: Personnalisation du prompt MacOS
 slug: personnalisation-du-prompt-macos
-date: 2026-03-10T22:15:16.024Z
+date: 2026-03-11T19:08:33.787Z
 useRelativeCover: true
 cover: cover.webp
 tags:
@@ -14,18 +14,19 @@ draft: true
 
 J'avais écrit [un article](/posts/personnalisation-du-prompt-linux/) afin de personnaliser votre prompt Linux fonctionnant avec bash. Cette fois-ci, nous allons nous attaquer à MacOS, qui fonctionne non pas avec bash, mais avec Zsh.
 
+Zsh (Z Shell) est un shell Unix moderne qui améliore considérablement bash. Créé en 1990, il offre une meilleure interactivité avec son auto-complétion avancée, ses thèmes élaborés et sa flexibilité de configuration. Contrairement à bash, Zsh permet une personnalisation plus intuitive du prompt et intègre nativement des fonctionnalités comme l'historique partagé entre sessions ou la navigation améliorée. Depuis macOS Catalina (2019), Zsh est le shell par défaut d'Apple, remplaçant bash qui n'est plus maintenu activement sur la plateforme.
+
+> Il existe des solutions clé en main, comme [Oh My ZSH](https://ohmyz.sh/), mais l'idée est d'avoir une configuration la plus légère et optimisée possible
+
 ## Explication
 
 Au démarrage d'une session shell, différents fichiers se chargent automatiquement. Cela permet de charger les configurations nécessaires au fonctionnement du prompt, comme son apparence, les variables d'environnement...
 
-Dans le home directory, se trouvent des fichiers cachés contenant ces informations :
-
-- le fichier `.profile`, pour déterminer l'emplacement des binaires/commandes que l'on utilise, et le shell qui est utilisé (dans notre cas, zsh)
-- le fichier `.zshrc`, pour configurer zsh (l'apparence du prompt, la longueur de l'historique des commandes, le chargement des complétions de commandes...)
+Contrairement à bash, le fichier chargé automatiquement est nommé `.zshrc`.
 
 ## Fichier .zshrc
 
-Le fichier `.zshrc` fourni par défaut par MacOS ne contient pas de configuration par défaut. Voici donc mon fichier de configuration avec une explication rapide : 
+Le fichier `.zshrc` n'existe pas par défaut. Zsh est chargé sans aucune personnalisation. Il va donc falloir le construire de 0. Comme base de départ, je vous partage le mien :
 
 ```bash
 ###############################################################
@@ -86,11 +87,13 @@ fi
 # Bind de touches
 bindkey -e                        # Activation des bindings
 bindkey "\e[H" beginning-of-line  # Binding pour la touche "Home"
-bindkey "\e[F" end-of-line        # Binding pour la touche "End
+bindkey "\e[F" end-of-line        # Binding pour la touche "End"
 
-# Source le fichier .zsh_aliases, si présents
+# Charge le fichier .zsh_aliases, si présent
 [[ -f ~/.zsh_aliases ]] && source ~/.zsh_aliases
 ```
+
+> Chaque partie est suffisamment commentée pour vous permettre de comprendre les effets de chaque bloc
 
 ## Fichier .zsh_aliases
 
@@ -99,7 +102,7 @@ Afin de garder une cohérence avec le système Linux, nous allons créer un fich
 Mon fichier `.zsh_aliases` se divise en plusieurs parties :
 
 - La définition de certaines variables d'environnement (langue, éditeur par défaut)
-- Un paramètre pour ignorer la casse lors de la saisie (remplace automatiquement les caractères concernés lors d'une tabulation)
+- Des paramètres spécifiques à brew si vous l'avez installé
 - La liste des aliases de base que j'utilise
 - Des aliases supplémentaires pour des applications spécifiques, chargés uniquement si les applications sont installées
 - Quelques fonctions, dans le cas où un simple alias est trop limitant
@@ -134,6 +137,7 @@ alias zgrep='zgrep -i --color=auto'                   # Grep dans les fichiers c
 alias psp='ps -eaf | grep -v grep | grep'             # Chercher un process (psp <nom process>)
 alias genkey='ssh-keygen -t ed25519 -a 100'           # Générer une clé ed25519
 alias ifconfig='ifconfig en0 && ifconfig en1'         # Afficher les adresses IP
+alias md5='md5sum <<<'                                # Facilite l'utilisation de la commande md5
 alias pubip='curl -s -4 ipecho.net/plain ; echo'      # Afficher l'adresse IP publique
 alias df='df -PlH'                                    # Commande df en filtrant les montages inutiles
 alias rmds='find . -name '.DS_Store' -type f -delete' # Suppression recursive des fichiers ".DS_Store"
@@ -202,19 +206,15 @@ Les aliases de base :
 | grep     | Ajoute la gestion de la couleur à grep |
 | zgrep    | Même chose pour zgrep (grep dans les fichiers compressés) |
 | psp      | Suivi d'une chaîne, permet de rechercher rapidement un process |
-| iostat   | Commande iostat, mais plus lisible |
+| genkey   | Génère une clé au format ed25519 (plus sécurisé que rsa) |
 | ifconfig | Utilise le programme ip (ifconfig n'existe plus sous Debian) |
-| ss       | Remplaçant de netstat, mais épuré |
-| ssp      | Suivi d'une chaîne, permet de rechercher rapidement un port d'écoute |
-| netstat  | Utilise le programme ss (netstat n'existe plus sous Debian) |
 | md5      | Suivi d'une chaîne, pour connaître rapidement un md5 |
 | pubip    | Affiche rapidement l'IP publique de la machine |
 | df       | Commande df, mais sans les volumes temporaires |
-| halt     | Permet l'arrêt de la machine et non seulement le système |
-| reboot   | Ajoute sudo devant la commande reboot |
-| genkey   | Génère une clé au format ed25519 (plus sécurisé que rsa) |
-| genkeyrsa| Génère une clé au format rsa en 4096 bits |
-| copykey  | Parce que je me rappelle jamais de la commande ssh-copy-id |
+| rmds     | Suppression recursive des fichiers ".DS_Store" |
+| rmdot    | Suppression recursive des fichiers "._" |
+| top      | Commande top filtrée pour le user |
+| vi       | vim : vi amélioré avec ouverture multiple |
 
 Les aliases actifs uniquement dans le cas où les applications sont installées :
 
@@ -222,17 +222,9 @@ Les aliases actifs uniquement dans le cas où les applications sont installées 
 | --------- | -------- |
 | diff      | Remplace la commande par colordiff, pour une meilleure lisibilité |
 | df        | Remplace la commande par duf, bien plus agréable visuellement |
-| fd        | Outil équivalent à find mais bien plus simple à utiliser |
 | fzf       | Outil de recherche avancé |
-| top       | Remplace la commande top par htop |
 | ncdu      | L'équivalent de l'outil Treesize sous Windows |
-| lzd       | Lance l'outil lazydocker (console d'administration pour Docker) |
 | rg        | Un grep récursif, bien plus lisible que le grep de base |
-| tmux      | Transforme la commande de base pour s'assurer de ne pas en lancer plusieurs |
-| ufw       | Un Firewall facile à utiliser, ajoute sudo devant |
-| ufws      | Affiche le status de ufw, avec les règles numérotées |
-| vi        | Adapte vi selon votre choix d'éditeur (Vim, Neovim) |
-| cd        | Utilise zoxide, un cd avancé |
 
 Et enfin, les fonctions :
 
@@ -242,6 +234,7 @@ Et enfin, les fonctions :
 | tarc     | Créer un tar.gz d'un ou plusieurs fichiers ou dossiers passés en paramètre |
 | tarx     | Pour extraire un ou plusieurs tar.gz passés en paramètre |
 | zip      | Facilite l'utilisation de la commande zip (zip \<fichier>) |
+| convweb  | Transforme une image passée en paramètre au format webp |
 
 ## Petit bonus : les aliases de scripts
 
@@ -259,4 +252,8 @@ if [[ -d $scripts ]]; then
 fi
 ```
 
-Via ce petit bloc, un alias sera automatiquement créé pour chaque script qu'il trouvera dans un sous dossier qui porte le même nom. Par exemple, si un script nommé `test.sh` se trouve dans `/chemin/vers/vos/scripts/test`, un alias test sera créé. Comme d'habitude, en cas de questions, n’hésitez pas :wink:
+Via ce petit bloc, un alias sera automatiquement créé pour chaque script qu'il trouvera dans un sous dossier qui porte le même nom. Par exemple, si un script nommé `test.sh` se trouve dans `/chemin/vers/vos/scripts/test`, un alias test sera créé.
+
+## Conclusion
+
+Avec ces 2 fichiers, vous avez déjà un base solide pour considérablement améliorer l'usage du terminal sous MacOS. Dans un prochain article, je vous présenterai comment utiliser Brew, un gestionnaire de paquets similaire à apt.

@@ -51,14 +51,14 @@ Vous pouvez le récupérer directement sur github en suivant [ce lien](https://g
 Le contenu du fichier :
 
 ```bash
-##################################################################
+###############################################################
 ## Bash
 
 # Affichage
 if [[ $USER = root ]]; then
-PS1='\[\033[01;31m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w \$\[\033[00m\] '
+  PS1='\[\033[01;31m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w \$\[\033[00m\] '
 else
-PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w \$\[\033[00m\] '
+  PS1='\[\033[01;35m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w \$\[\033[00m\] '
 fi
 
 # Variables
@@ -67,130 +67,114 @@ export LANGUAGE=$LANG
 export LC_ALL=$LANG
 export EDITOR=vim
 export VISUAL=$EDITOR
+export HISTTIMEFORMAT="%F %T "
 export TMOUT=1800
 
 # Tweaks divers
-bind 'set colored-stats on'              # Affiche les couleurs lors de la complétion
-bind 'set completion-ignore-case on'     # Ignorer la casse lors de la complétion
-bind 'set mark-symlinked-directories on' # Meilleure gestion des liens symboliques
-bind 'set show-all-if-unmodified on'     # Affiche les correspondances possibles immédiatement
-
-# Sudo : utiliser la commande root pour...passer root :)
-if [[ -f /usr/bin/sudo ]] && [[ $USER != root ]]; then
-    alias root='sudo -s'
+if [[ $- == *i* ]]; then
+  bind 'set colored-stats on'              # Affiche les couleurs lors de la complétion
+  bind 'set completion-ignore-case on'     # Ignorer la casse lors de la complétion
+  bind 'set show-all-if-unmodified on'     # Affiche les correspondances possibles immédiatement
 fi
 
-##################################################################
+###############################################################
 ## Commandes
 
 # Prompt
-alias ls='ls --color=auto'                       # Ajoute la couleur
-alias l='ls -lh'                                 # Liste détaillée
-alias la='ls -lhA'                               # Liste avec les fichiers cachés
-alias lr='ls -lLhR'                              # Liste en récursif
-alias lra='ls -lhRA'                             # Liste en récursif avec les fichiers cachés
-alias lrt='ls -lLhrt'                            # Liste par date
-alias lrta='ls -lLhrtA'                          # Liste par date avec les fichiers cachés
-alias grep='grep -i --color=auto'                # Grep sans la sensibilité à la casse
-alias zgrep='zgrep -i --color=auto'              # Grep dans les fichiers compressés
-alias psp='ps -eaf | grep -v grep | grep'        # Chercher un process (psp <nom process>)
-alias iostat='iostat -m --human'                 # Commande iostat lisible
-alias ifconfig='ip -br -c addr | grep -v lo'     # Afficher les adresses IP (ifconfig n'existe plus)
-alias ss='ss -tunlH'                             # Afficher les ports d'écoute
-alias ssp='ss | grep'                            # Chercher un port (ssp <port>)
-alias netstat='ss'                               # Afficher les ports d'écoute (netstat n'existe plus)
-alias md5='md5sum <<<'                           # Facilite l'utilisation de la commande md5
-alias pubip='curl -s -4 ipecho.net/plain ; echo' # Pour obtenir l'adresse IP publique du serveur
-alias df='df -h -x tmpfs -x devtmpfs -x overlay' # Commande df en filtrant les montages inutiles
-alias halt='$sudo halt -p'                       # Arrête le système et le serveur
-alias reboot='$sudo reboot'                      # Commande reboot avec sudo
+alias ls='ls --color=auto'                         # Ajoute la couleur
+alias l='ls -lh'                                   # Liste détaillée
+alias la='ls -lhA'                                 # Liste avec les fichiers cachés
+alias lr='ls -lLhR'                                # Liste en récursif
+alias lra='ls -lhRA'                               # Liste en récursif avec les fichiers cachés
+alias lrt='ls -lLhrt'                              # Liste par date
+alias lrta='ls -lLhrtA'                            # Liste par date avec les fichiers cachés
+alias dus='du -sh * | sort -hr'                    # Tri de fichiers et dossiers par taille
+alias grep='grep -i --color=auto'                  # Grep sans la sensibilité à la casse
+alias zgrep='zgrep -i --color=auto'                # Grep dans les fichiers compressés
+alias psp='ps -eaf | grep -v grep | grep'          # Chercher un process (psp <nom process>)
+alias iostat='iostat -m --human'                   # Commande iostat lisible
+alias ifconfig='ip -br -c addr | grep -v lo'       # Afficher les adresses IP (ifconfig n'existe plus)
+alias ss='ss -tunlH'                               # Afficher les ports d'écoute
+alias ssp='ss | grep'                              # Chercher un port (ssp <port>)
+alias md5='md5sum <<<'                             # Facilite l'utilisation de la commande md5
+alias pubip='curl -s -4 ipecho.net/plain ; echo'   # Pour obtenir l'adresse IP publique du serveur
+alias df='df -h -x tmpfs -x devtmpfs -x overlay'   # Commande df en filtrant les montages inutiles
+alias halt='sudo halt -p'                          # Arrête le système et le serveur
+alias reboot='sudo reboot'                         # Commande reboot avec sudo
+
+# sudo : utiliser la commande root pour...passer root :)
+[[ $USER != root ]] && alias root='sudo -s'
 
 # ssh
-alias genkey='ssh-keygen -t ed25519 -a 100'
-alias genkeyrsa='ssh-keygen -t rsa -b 4096 -a 100'
-alias copykey='ssh-copy-id'
+alias genkey='ssh-keygen -t ed25519 -a 100'        # Générer une clé ed25519
+alias genkeyrsa='ssh-keygen -t rsa -b 4096 -a 100' # Générer une clé RSA
+alias copykey='ssh-copy-id'                        # Copier la clé ssh vers un serveur
 
-##################################################################
-## Applications
+###############################################################
+## Applications facultatives
 
-# apt : gestionnaire de paquets
+# apt : gestionnaire de paquets debian
 if [[ -f /usr/bin/apt ]]; then
-alias apt='$sudo apt'
-alias upgrade='$sudo apt update && $sudo apt full-upgrade && $sudo apt -y autoremove'
+  alias apt='sudo apt'
+  alias upgrade='sudo apt update && sudo apt full-upgrade && sudo apt -y autoremove'
 fi
 
 # colordiff : diff avec couleur
-if [[ -f /usr/bin/colordiff ]]; then
-alias diff='colordiff'
-fi
+[[ -f /usr/bin/colordiff ]] && alias diff='colordiff'
 
-# duf : affiche les files systems
-if [[ -f /usr/bin/duf ]]; then
-alias df='duf -hide special'
-fi
+# duf : df amélioré
+[[ -f /usr/bin/duf ]] && alias df='duf -hide special'
 
 # fd : find amélioré
-if [[ -f /usr/bin/fdfind ]]; then
-alias fd='fdfind'
-fi
+[[ -f /usr/bin/fdfind ]] && alias fd='fdfind -HI'
 
 # fzf : recherche avancée
 if [[ -f /usr/bin/fzf ]]; then
-source /usr/share/doc/fzf/examples/key-bindings.bash
+  eval "$(fzf --bash)"
+  export FZF_DEFAULT_OPTS="--color=bw"
 fi
 
 # htop : plus convivial que top
-if [[ -f /usr/bin/htop ]]; then
-alias top='htop'
-fi
+[[ -f /usr/bin/htop ]] && alias top='htop'
 
 # ncdu : équivalent à TreeSize
-if [[ -f /usr/bin/ncdu ]]; then
-alias ncdu='ncdu --color dark'
-fi
-
-# podman : remplaçant de docker
-if [[ -f /usr/bin/podman ]]; then
-alias podman='$sudo podman'
-alias docker='$sudo podman'
-if [[ -f /usr/local/bin/lazydocker ]]; then
-alias lzd='$sudo lazydocker'
-fi
-fi
+[[ -f /usr/bin/ncdu ]] && alias ncdu='ncdu --color dark'
 
 # rg : plus performant que grep
-if [[ -f /usr/bin/rg ]]; then
-alias rg='rg -i'
-fi
+[[ -f /usr/bin/rg ]] && alias rg='rg -i --no-ignore'
 
-# tmux : émulateur de terminal
-if [[ -f /usr/bin/tmux ]]; then
-alias tmux='tmux attach || tmux new'
-fi
+# tty-clock : horloge en cli
+[[ -f /usr/bin/tty-clock ]] && alias clock='tty-clock -c -f %d/%m/%Y'
 
-# ufw : ajoute sudo
+# ufw : firewall simplifié
 if [[ -f /usr/sbin/ufw ]]; then
-alias ufw='$sudo ufw'
-alias ufws='$sudo ufw status numbered'
+  alias ufw='sudo ufw'
+  alias ufws='sudo ufw status numbered'
 fi
 
-# vim : Vi amélioré
-if [[ -f ~/.local/nvim/bin/nvim ]]; then
-alias vi='nvim -nO'
-elif [[ -f /usr/bin/vim ]]; then
-alias vi='vim -nO'
-fi
+# vim : vi amélioré
+[[ -f /usr/bin/vim ]] && alias vi='vim -nO'
 
-# zoxide : cd amélioré
-if [[ -f /usr/bin/zoxide ]]; then
-eval "$(zoxide init bash)"
-fi
+# zoxide : cd amélioré (utiliser la commande z)
+[[ -f /usr/bin/zoxide ]] && eval "$(zoxide init bash)"
 
-##################################################################
+###############################################################
 ## Fonctions
+
+# cleanlog : ménage des logs de systemd
+cleanlog() { [[ -n "$1" ]] && sudo journalctl --vacuum-time=${1}d ;}
 
 # cpsave : copie un fichier ou un dossier avec .old
 cpsave() { cp -Rp "$1" "${1%/}.$(date +%Y%m%d).old" ;}
+
+# gencert : générer un certificat avec certbot
+gencert () { sudo certbot certonly --standalone -d "$1" ;}
+
+# newuser : créé un compte de service
+newuser() {
+  sudo adduser --no-create-home -q --disabled-password --comment "" $1
+  echo "Utilisateur $1 créé. ID : $(id -u $1)"
+}
 
 # tarc : créer une archive pour chaque fichier / dossier spécifié
 tarc() { for file in "$@"; do tar czvf "${file%/}.tar.gz" -- "$file"; done ;}
@@ -198,36 +182,39 @@ tarc() { for file in "$@"; do tar czvf "${file%/}.tar.gz" -- "$file"; done ;}
 # tarx : décompresse une archive spécifiée
 tarx() { for file in "$@"; do tar xzvf -- "$file"; done ;}
 
+# testdisk
+testdisk() { dd if=/dev/zero of=testfile bs=64M count=16 oflag=direct status=progress ; rm testfile ;}
+
 # zip : commande zip plus conviviale
 zip() { for file in "$@"; do /usr/bin/zip -r "${file%/}.zip" "$file" ; done ;}
 ```
 
 Les aliases de base :
 
-| Commande | Description |
-| -------- | ------- |
-| l        | Liste les fichiers et les répertoires |
-| la       | Même chose que l, dont les cachés |
-| lr       | Liste les fichiers et les répertoires en récursif |
-| lra      | Même choseque lr, dont les cachés |
-| lrt      | Liste les fichiers et les répertoires dans l'ordre chronologique |
-| lrta     | Même chose que lrt, dont les cachés |
-| grep     | Ajoute la gestion de la couleur à grep |
-| zgrep    | Même chose pour zgrep (grep dans les fichiers compressés) |
-| psp      | Suivi d'une chaîne, permet de rechercher rapidement un process |
-| iostat   | Commande iostat, mais plus lisible |
-| ifconfig | Utilise le programme ip (ifconfig n'existe plus sous Debian) |
-| ss       | Remplaçant de netstat, mais épuré |
-| ssp      | Suivi d'une chaîne, permet de rechercher rapidement un port d'écoute |
-| netstat  | Utilise le programme ss (netstat n'existe plus sous Debian) |
-| md5      | Suivi d'une chaîne, pour connaître rapidement un md5 |
-| pubip    | Affiche rapidement l'IP publique de la machine |
-| df       | Commande df, mais sans les volumes temporaires |
-| halt     | Permet l'arrêt de la machine et non seulement le système |
-| reboot   | Ajoute sudo devant la commande reboot |
-| genkey   | Génère une clé au format ed25519 (plus sécurisé que rsa) |
-| genkeyrsa| Génère une clé au format rsa en 4096 bits |
-| copykey  | Parce que je me rappelle jamais de la commande ssh-copy-id |
+| Commande  | Description |
+| --------- | --------- |
+| l         | Liste les fichiers et les répertoires |
+| la        | Même chose que l, dont les cachés |
+| lr        | Liste les fichiers et les répertoires en récursif |
+| lra       | Même choseque lr, dont les cachés |
+| lrt       | Liste les fichiers et les répertoires dans l'ordre chronologique |
+| lrta      | Même chose que lrt, dont les cachés |
+| grep      | Ajoute la gestion de la couleur à grep |
+| zgrep     | Même chose pour zgrep (grep dans les fichiers compressés) |
+| psp       | Suivi d'une chaîne, permet de rechercher rapidement un process |
+| iostat    | Commande iostat, mais plus lisible |
+| ifconfig  | Utilise le programme ip (ifconfig n'existe plus sous Debian) |
+| ss        | Remplaçant de netstat, mais épuré |
+| ssp       | Suivi d'une chaîne, permet de rechercher rapidement un port d'écoute |
+| netstat   | Utilise le programme ss (netstat n'existe plus sous Debian) |
+| md5       | Suivi d'une chaîne, pour connaître rapidement un md5 |
+| pubip     | Affiche rapidement l'IP publique de la machine |
+| df        | Commande df, mais sans les volumes temporaires |
+| halt      | Permet l'arrêt de la machine et non seulement le système |
+| reboot    | Ajoute sudo devant la commande reboot |
+| genkey    | Génère une clé au format ed25519 (plus sécurisé que rsa) |
+| genkeyrsa | Génère une clé au format rsa en 4096 bits |
+| copykey   | Parce que je me rappelle jamais de la commande ssh-copy-id |
 
 Les aliases actifs uniquement dans le cas où les applications sont installées :
 
@@ -240,11 +227,8 @@ Les aliases actifs uniquement dans le cas où les applications sont installées 
 | fzf       | Outil de recherche avancé |
 | top       | Remplace la commande top par htop |
 | ncdu      | L'équivalent de l'outil Treesize sous Windows |
-| podman    | Ajoute sudo devant, pour gagner du temps |
-| docker    | Ajoute sudo devant, pour gagner du temps |
-| lzd       | Lance l'outil lazydocker (console d'administration pour Docker) |
 | rg        | Un grep récursif, bien plus lisible que le grep de base |
-| tmux      | Transforme la commande de base pour s'assurer de ne pas en lancer plusieurs |
+| clock     | Lance tty-clock, un petit outil pour afficher l'heure |
 | ufw       | Un Firewall facile à utiliser, ajoute sudo devant |
 | ufws      | Affiche le status de ufw, avec les règles numérotées |
 | vi        | Adapte vi selon votre choix d'éditeur (Vim, Neovim) |
@@ -254,9 +238,13 @@ Et enfin, les fonctions :
 
 | Commande | Description |
 | -------- | ------- |
+| cleanlog | Supprimer les logs systemd en spécifiant le nombre de jours |
 | cpsave   | Créer une copie en date.old d'un fichier ou d'un dossier spécifié |
+| gencert  | Générer un certificat en précisant le nom de domaine en paramètre |
+| newuser  | Créer un compte de service (pas de home ni de mot de passe) |
 | tarc     | Créer un tar.gz d'un ou plusieurs fichiers ou dossiers passés en paramètre |
 | tarx     | Pour extraire un ou plusieurs tar.gz passés en paramètre |
+| testdisk | Tester la vitesse du disque courant en créant un fichier |
 | zip      | Facilite l'utilisation de la commande zip (zip \<fichier>) |
 
 ## Petit bonus : les aliases de scripts
@@ -266,9 +254,9 @@ Si vous avez quelques scripts, et que vous voulez y accéder depuis n'importe o�
 ```bash
 ## Scripts
 scripts=/chemin/vers/vos/scripts
-if [ -d $scripts ] ; then
+if [[ -d $scripts ]]; then
   for i in $(ls $scripts) ; do
-    if [ -f $scripts/$i/$i.sh ] ; then
+    if [[ -f $scripts/$i/$i.sh ]]; then
       alias $i=''$scripts'/'$i'/'$i'.sh'
     fi
   done
