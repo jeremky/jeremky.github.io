@@ -1,7 +1,7 @@
 ---
 title: Personnalisation du prompt MacOS
 slug: personnalisation-du-prompt-macos
-date: 2026-03-11T19:08:33.787Z
+date: 2026-03-11T19:33:30.240Z
 useRelativeCover: true
 cover: cover.webp
 tags:
@@ -9,7 +9,7 @@ tags:
 categories:
   - Tutos
 toc: true
-draft: true
+draft: false
 ---
 
 J'avais écrit [un article](/posts/personnalisation-du-prompt-linux/) afin de personnaliser votre prompt Linux fonctionnant avec bash. Cette fois-ci, nous allons nous attaquer à MacOS, qui fonctionne non pas avec bash, mais avec Zsh.
@@ -200,7 +200,7 @@ Les aliases de base :
 | l        | Liste les fichiers et les répertoires |
 | la       | Même chose que l, dont les cachés |
 | lr       | Liste les fichiers et les répertoires en récursif |
-| lra      | Même choseque lr, dont les cachés |
+| lra      | Même chose que lr, dont les cachés |
 | lrt      | Liste les fichiers et les répertoires dans l'ordre chronologique |
 | lrta     | Même chose que lrt, dont les cachés |
 | grep     | Ajoute la gestion de la couleur à grep |

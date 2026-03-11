@@ -161,16 +161,16 @@ fi
 ###############################################################
 ## Fonctions
 
-# cleanlog : ménage des logs de systemd
+# cleanlog : nettoyer les logs de systemd
 cleanlog() { [[ -n "$1" ]] && sudo journalctl --vacuum-time=${1}d ;}
 
-# cpsave : copie un fichier ou un dossier avec .old
+# cpsave : copier un fichier ou un dossier avec .old
 cpsave() { cp -Rp "$1" "${1%/}.$(date +%Y%m%d).old" ;}
 
 # gencert : générer un certificat avec certbot
 gencert () { sudo certbot certonly --standalone -d "$1" ;}
 
-# newuser : créé un compte de service
+# newuser : créer un compte de service
 newuser() {
   sudo adduser --no-create-home -q --disabled-password --comment "" $1
   echo "Utilisateur $1 créé. ID : $(id -u $1)"
@@ -179,10 +179,10 @@ newuser() {
 # tarc : créer une archive pour chaque fichier / dossier spécifié
 tarc() { for file in "$@"; do tar czvf "${file%/}.tar.gz" -- "$file"; done ;}
 
-# tarx : décompresse une archive spécifiée
+# tarx : décompresser une archive spécifiée
 tarx() { for file in "$@"; do tar xzvf -- "$file"; done ;}
 
-# testdisk
+# testdisk : tester la vitesse d'écriture du disque
 testdisk() { dd if=/dev/zero of=testfile bs=64M count=16 oflag=direct status=progress ; rm testfile ;}
 
 # zip : commande zip plus conviviale
@@ -196,7 +196,7 @@ Les aliases de base :
 | l         | Liste les fichiers et les répertoires |
 | la        | Même chose que l, dont les cachés |
 | lr        | Liste les fichiers et les répertoires en récursif |
-| lra       | Même choseque lr, dont les cachés |
+| lra       | Même chose que lr, dont les cachés |
 | lrt       | Liste les fichiers et les répertoires dans l'ordre chronologique |
 | lrta      | Même chose que lrt, dont les cachés |
 | grep      | Ajoute la gestion de la couleur à grep |
@@ -206,7 +206,6 @@ Les aliases de base :
 | ifconfig  | Utilise le programme ip (ifconfig n'existe plus sous Debian) |
 | ss        | Remplaçant de netstat, mais épuré |
 | ssp       | Suivi d'une chaîne, permet de rechercher rapidement un port d'écoute |
-| netstat   | Utilise le programme ss (netstat n'existe plus sous Debian) |
 | md5       | Suivi d'une chaîne, pour connaître rapidement un md5 |
 | pubip     | Affiche rapidement l'IP publique de la machine |
 | df        | Commande df, mais sans les volumes temporaires |
