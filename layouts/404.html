@@ -1,0 +1,43 @@
+{{ define "main" }}
+  <div class="post">
+    <h1 class="post-title">
+      <a href="{{ .Permalink }}">{{ .Title | markdownify }}</a>
+    </h1>
+    <div class="post-content">
+      <p>
+        {{ "Heu... Désolé, mais cette page est introuvable..." | markdownify }}
+      </p>
+      <p>
+        {{ "Peut être que ces informations vous aiderons à trouver ce que vous cherchez :" | markdownify }}
+      </p>
+
+      {{ if .Site.Taxonomies.categories }}
+        <h2>Categories</h2>
+        <div class="terms">
+          <ul class="terms__list">
+            {{ range .Site.Taxonomies.categories }}
+              <li class="terms__term">
+                <a href="{{ .Page.Permalink }}">#{{ .Page.Title }}</a
+                ><span class="terms__term-count">{{ .Count }}</span>
+              </li>
+            {{ end }}
+          </ul>
+        </div>
+      {{ end }}
+
+      {{ if .Site.Taxonomies.tags }}
+        <h2>Tags</h2>
+        <div class="terms">
+          <ul class="terms__list">
+            {{ range .Site.Taxonomies.tags }}
+              <li class="terms__term">
+                <a href="{{ .Page.Permalink }}">#{{ .Page.Title }}</a
+                ><span class="terms__term-count">{{ .Count }}</span>
+              </li>
+            {{ end }}
+          </ul>
+        </div>
+      {{ end }}
+    </div>
+  </div>
+{{ end }}
