@@ -1,0 +1,74 @@
+baseurl = "https://jeremky.github.io"
+languageCode = "fr"
+defaultContentLanguage = "fr"
+pagination.pagerSize = 8
+enableEmoji = true
+
+# iFrame
+[markup.goldmark.renderer]
+  unsafe = false
+
+[params.author]
+  name = "JeremKy"
+
+[params]
+  # OpenGraph
+  images = ["https://jeremky.github.io/img/apple-touch-icon-144-precomposed.png"]
+  description = "News et tutos autour du déploiement d'applications orientées serveur faciles à installer chez soi"
+
+  # Chemin du dossier du blog
+  contentTypeName = "posts"
+
+  # Couleur du thème : "light" ou "dark"
+  # defaultTheme = "dark"
+
+  # Nombre d'éléments du menu
+  showMenuItems = 4
+
+  # Afficher le temps de lecteur
+  showReadingTime = true
+
+  # Gestion du RSS
+  rssFullText = false
+  rssImage = "https://jeremky.github.io/img/favicon.png"
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+
+[languages]
+  [languages.fr.params]
+    title = "JeremKy.github.io"
+    keywords = ""
+    copyright = ""
+    menuMore = "Menu"
+    writtenBy = "Ecrit par"
+    readMore = "Lire le post"
+    readOtherPosts = "Autres posts"
+    newerPosts = "Posts récents"
+    olderPosts = "Anciens posts"
+    minuteReadingTime = "min de lecture"
+    dateFormatSingle = "02/01/2006"
+    dateFormatList = "02/01/2006"
+
+    [languages.fr.params.logo]
+      logoText = "JEREMKY.GITHUB.IO"
+      logoHomeLink = "/"
+
+    [languages.fr.menu]
+      [[languages.fr.menu.main]]
+        identifier = "apropos"
+        name = "A propos"
+        url = "/pages/apropos"
+      [[languages.fr.menu.main]]
+        identifier = "archives"
+        name = "Archives"
+        url = "/pages/archives"
+      [[languages.fr.menu.main]]
+        identifier = "tutos"
+        name = "Tutos"
+        url = "/categories/tutos"
+      [[languages.fr.menu.main]]
+        identifier = "news"
+        name = "News"
+        url = "/categories/news"
