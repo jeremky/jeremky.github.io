@@ -3,7 +3,7 @@
 dir=$(dirname "$(realpath "$0")")
 
 # Vérification de la présence de Hugo
-if ! command -v hugo &> /dev/null; then
+if ! command -v hugo &>/dev/null; then
   echo "Hugo n'est pas installé"
   exit 1
 fi
@@ -16,12 +16,12 @@ case "$1" in
       exit 0
     fi
     date=$(date +%Y-%m-%d)
-    ( cd "$dir" && hugo new "posts/${date}-${2}/index.md" )
+    (cd "$dir" && hugo new "posts/${date}-${2}/index.md")
     ;;
   version)
-    ( hugo version )
+    (hugo version)
     ;;
   *)
-    ( cd "$dir" && hugo server -D )
+    (cd "$dir" && hugo server -D)
     ;;
 esac
