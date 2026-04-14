@@ -1,7 +1,7 @@
 ---
 title: "Webtop : Linux via son navigateur Internet"
 slug: webtop-linux-via-navigateur-internet
-date: 2025-03-06T16:21:02.059Z
+date: 2025-03-06
 useRelativeCover: true
 cover: cover.webp
 tags:
@@ -54,7 +54,7 @@ networks:
 
 Le fichier `webtop.env` :
 
-```bash
+```txt
 PUID=1000
 PGID=1000
 TZ=Europe/Paris

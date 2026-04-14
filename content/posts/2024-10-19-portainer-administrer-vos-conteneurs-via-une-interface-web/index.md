@@ -1,7 +1,7 @@
 ---
 title: "Portainer : Administrer vos conteneurs via une interface web"
 slug: portainer-administrer-vos-conteneurs-via-une-interface-web
-date: 2024-10-19T12:50:53+02:00
+date: 2024-10-19
 useRelativeCover: true
 cover: cover.webp
 tags:
@@ -19,9 +19,9 @@ Pour l'administration de conteneurs, il existe différentes applications web afi
 
 D'après [Hostinger](https://www.hostinger.fr/vps/hebergement-portainer) :
 
-> *Optimisez votre expérience Docker en la rendant plus plaisante grâce à un serveur Portainer, l'outil ultime pour déployer, gérer et dimensionner aisément vos applications conteneurisées.*
+> _Optimisez votre expérience Docker en la rendant plus plaisante grâce à un serveur Portainer, l'outil ultime pour déployer, gérer et dimensionner aisément vos applications conteneurisées._
 >
-> *Que vous soyez un développeur chevronné ou un débutant complet, son tableau de bord convivial vous permet de simplifier la gestion de Docker sans avoir recours à une interface en ligne de commande.*
+> _Que vous soyez un développeur chevronné ou un débutant complet, son tableau de bord convivial vous permet de simplifier la gestion de Docker sans avoir recours à une interface en ligne de commande._
 
 Depuis la dernière version, Portainer est capable de contrôler également des environnements utilisant [Podman](/posts/migration-de-docker-vers-podman/). Et même s'il est officiellement compatible qu'à partir de la version 5 de Podman, la version 4 inclue dans les packages de Debian 12 est d'après mes tests correctement prise en charge.
 

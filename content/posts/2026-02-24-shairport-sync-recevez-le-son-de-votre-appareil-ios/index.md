@@ -1,7 +1,7 @@
 ---
 title: "Shairport Sync : recevez le son de votre appareil iOS"
 slug: shairport-sync-recevez-le-son-de-votre-appareil-ios
-date: 2026-02-24T20:47:51.613Z
+date: 2026-02-24
 useRelativeCover: true
 cover: cover.webp
 tags:
@@ -29,7 +29,7 @@ La suite se passe dans le fichier de configuration.
 
 ## Configuration
 
-Par défaut, Shairport Sync devrait fonctionner tel quel. Mais dans mon cas, je devais forcer l'utilisation d'une carte son USB dédiée. Pour cela, il faut éditer le fichier  :
+Par défaut, Shairport Sync devrait fonctionner tel quel. Mais dans mon cas, je devais forcer l'utilisation d'une carte son USB dédiée. Pour cela, il faut éditer le fichier :
 
 ```bash
 sudo vi /etc/shairport-sync.conf

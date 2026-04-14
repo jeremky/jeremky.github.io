@@ -1,7 +1,7 @@
 ---
 title: "Draw.io : créez gratuitement des diagrammes"
 slug: draw.io-creez-gratuitement-des-diagrammes
-date: 2025-04-13T18:54:08.546Z
+date: 2025-04-13
 useRelativeCover: true
 cover: cover.webp
 tags:

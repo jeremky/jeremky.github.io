@@ -1,13 +1,13 @@
 ---
 title: "Retour sur le générateur de site Hugo"
 slug: retour-sur-le-generateur-de-site-hugo
-date: 2024-07-17T15:25:38Z
+date: 2024-07-17
 useRelativeCover: true
 cover: cover.webp
 tags:
-    - infos
+  - infos
 categories:
-    - News
+  - News
 toc: false
 draft: false
 ---
@@ -19,6 +19,7 @@ Le site [jeremky.github.io](https://jeremky.github.io) est de nouveau généré 
 Depuis quelques mois, ce site web fonctionnait sur le CMS [Ghost](https://ghost.org). OpenSource, Ghost a été créé par des anciens développeurs de Wordpress qui voulaient produire une solution plus légère, et plus orientée blog. C'est à mes yeux une promesse réussie, car même si les possibilités sont réduites, ce CMS est plutôt pertinent dans son approche. Son interface d'administration est claire, la rédaction des articles se fait efficacement.
 
 Cependant, il n'est pas sans défaut :
+
 - Ghost repose sur le moteur NodeJS. C'est performant, mais cela réduit le nombre d'hébergeurs (qui proposent le plus souvent PHP)
 - Il dépend d'une base de données MySQL. En soi, rien de problématique, mais la consommation de la mémoire vive du serveur est, je trouve, assez élevée
 

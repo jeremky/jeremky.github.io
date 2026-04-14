@@ -1,7 +1,7 @@
 ---
 title: "Migration de Docker vers Podman"
 slug: migration-de-docker-vers-podman
-date: 2024-09-26T17:43:20+02:00
+date: 2024-09-26
 useRelativeCover: true
 cover: cover.webp
 tags:
@@ -16,7 +16,7 @@ draft: false
 
 D'après Wikipedia :
 
-> *Podman est un logiciel libre permettant de lancer des applications dans des conteneurs logiciels. Il s’agit d’une alternative à Docker, qui permet de lancer les commandes sans les permissions root. À l’inverse de Docker, Podman n’intègre pas de daemon nécessaire à son fonctionnement.*
+> _Podman est un logiciel libre permettant de lancer des applications dans des conteneurs logiciels. Il s’agit d’une alternative à Docker, qui permet de lancer les commandes sans les permissions root. À l’inverse de Docker, Podman n’intègre pas de daemon nécessaire à son fonctionnement._
 
 ## Ca change quoi ?
 
@@ -56,6 +56,7 @@ Pour cela, modifiez la ligne suivante dans le fichier `/etc/containers/registrie
 ```txt
 # unqualified-search-registries = ["exemple.com"]
 ```
+
 Et remplacez là par :
 
 ```txt

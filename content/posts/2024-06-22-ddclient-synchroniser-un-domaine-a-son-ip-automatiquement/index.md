@@ -1,7 +1,7 @@
 ---
 title: "ddclient : synchroniser un domaine à son IP automatiquement"
 slug: ddclient-synchroniser-un-domaine-a-son-ip-automatiquement
-date: 2024-06-22T17:25:42Z
+date: 2024-06-22
 useRelativeCover: true
 cover: cover.webp
 tags:
@@ -18,7 +18,7 @@ Lorsque vous hébergez un serveur à votre domicile, il est possible que vous so
 ## Création d'un compte chez Dynu.com
 
 Il existe plusieurs fournisseurs de nom de domaine dynamique. Toutefois, je recommande [Dynu](https://www.dynu.com/fr-FR/), qui propose une solution gratuite, et surtou
-qui ne nécessite pas de confirmer que l'on existe toujours tous les mois... Vous créez votre compte, et vous allez dans *DDNS Services*. Vous cliquez ensuite sur le bouton *Ajouter* :
+qui ne nécessite pas de confirmer que l'on existe toujours tous les mois... Vous créez votre compte, et vous allez dans _DDNS Services_. Vous cliquez ensuite sur le bouton _Ajouter_ :
 
 {{< image src="dynu1.webp" style="border-radius: 8px;" >}}
 
@@ -48,7 +48,7 @@ services:
 
 Et son fichier `ddclient.env` :
 
-```bash
+```txt
 PUID=1000
 PGID=1000
 TZ=Europe/Paris
@@ -72,6 +72,7 @@ DOMAIN                                                   # List one or more host
 ```
 
 Quelques éléments y sont à modifier :
+
 - `LOGIN`
 - `PASSWORD`
 - et enfin, remplacez `DOMAIN` par votre nouveau domaine fraîchement créé

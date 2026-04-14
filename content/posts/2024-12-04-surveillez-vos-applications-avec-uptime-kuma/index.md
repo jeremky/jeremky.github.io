@@ -1,7 +1,7 @@
 ---
 title: "Surveillez vos applications avec Uptime Kuma"
 slug: surveillez-vos-applications-avec-uptime-kuma
-date: 2024-12-04T09:09:15.050Z
+date: 2024-12-04
 useRelativeCover: true
 cover: cover.webp
 tags:
@@ -40,9 +40,9 @@ networks:
 Dans les volumes, se trouve le lien avec le fichier `docker.sock`. Cela permet à Uptime Kuma de monitorer des conteneurs prenant en charge le status (Healthy). Si vous utilisez Podman, remplacez le bloc volumes par le suivant :
 
 ```yml
-    volumes:
-      - /opt/containers/uptime-kuma:/app/data
-      - /var/run/podman/podman.sock:/var/run/docker.sock:ro
+volumes:
+  - /opt/containers/uptime-kuma:/app/data
+  - /var/run/podman/podman.sock:/var/run/docker.sock:ro
 ```
 
 ### Reverse proxy
@@ -108,7 +108,7 @@ N'ayant pas d'application non redirigée sur mon reverse proxy, un bonne façon 
 
 {{< image src="tcp.webp" style="border-radius: 8px;" >}}
 
-### Docker
+### Healthy Docker
 
 Les surveillances précédentes ne fonctionnent que si vos conteneurs se trouvent dans le même réseau. Dans le cas contraire, la seule solution est de contrôler l'état de votre conteneur directement.
 
@@ -116,11 +116,11 @@ Pour cela, votre conteneur doit disposer du statut `Healthy`. Si l'image utilis�
 
 ```yml
 healthcheck:
-      test: ["CMD", "pgrep", "<votre_process>"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-      start_period: 10s
+  test: ["CMD", "pgrep", "<votre_process>"]
+  interval: 30s
+  timeout: 10s
+  retries: 3
+  start_period: 10s
 ```
 
 Il est possible de faire d'autres types de test, via `curl` ou `wget` par exemple. Mais autant utiliser la fonctionnalité de test http à la place.

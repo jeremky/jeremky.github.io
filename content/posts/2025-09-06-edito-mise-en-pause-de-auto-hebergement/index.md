@@ -1,7 +1,7 @@
 ---
 title: "Édito : Mise en pause de l'auto-hébergement"
 slug: edito-mise-en-pause-de-auto-hebergement
-date: 2025-09-06T18:16:29.204Z
+date: 2025-09-06
 useRelativeCover: true
 cover: cover.webp
 tags:

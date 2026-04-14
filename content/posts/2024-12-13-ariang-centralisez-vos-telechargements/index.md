@@ -1,7 +1,7 @@
 ---
 title: "AriaNG : centralisez vos téléchargements"
 slug: ariang-centralisez-vos-telechargements
-date: 2024-12-13T18:07:03.000Z
+date: 2024-12-13
 useRelativeCover: true
 cover: cover.webp
 tags:
@@ -44,7 +44,7 @@ networks:
 
 Le fichier `ariang.env` associé :
 
-```bash
+```txt
 PUID=1000
 PGID=1000
 ARIA2RPCPORT=443

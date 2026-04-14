@@ -1,7 +1,7 @@
 ---
 title: "Vim : configuration finale"
 slug: vim-configuration-finale
-date: 2026-03-29T14:47:11.501Z
+date: 2026-03-29
 useRelativeCover: true
 cover: cover.webp
 tags:
@@ -40,7 +40,7 @@ Je vous mets donc à disposition ma configuration actuelle, qui, je pense, n'év
 
 > Avant de lancer Vim une fois le fichier créé, assurez-vous que git est installé. Il est nécessaire pour le téléchargement des plugins
 
-{{< code language="vim" title=".vimrc" id="1" expand="Afficher" collapse="Cacher" isCollapsed="true" >}}
+```vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Configuration de vim
 
@@ -183,7 +183,7 @@ if isdirectory(expand("~/.vim/plugged"))
   let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'"}
 
 endif
-{{< /code >}}
+```
 
 Par rapport aux versions précédentes, voici les changements :
 

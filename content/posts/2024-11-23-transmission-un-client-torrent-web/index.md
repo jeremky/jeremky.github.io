@@ -1,7 +1,7 @@
 ---
 title: "Transmission : un client torrent en Web"
 slug: transmission-un-client-torrent-web
-date: 2024-11-23T01:22:38.060Z
+date: 2024-11-23
 useRelativeCover: true
 cover: cover.webp
 tags:
@@ -46,7 +46,7 @@ networks:
 
 Et son fichier `transmission.env` :
 
-```bash
+```txt
 PUID=1000
 PGID=1000
 TZ=Europe/Paris

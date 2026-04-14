@@ -1,7 +1,7 @@
 ---
 title: "Reverse Proxy NGINX"
 slug: reverse-proxy-nginx
-date: 2023-09-04T17:06:51Z
+date: 2023-09-04
 useRelativeCover: true
 cover: cover.webp
 tags:
@@ -13,7 +13,7 @@ toc: true
 draft: false
 ---
 
-Sur [Wikipedia](https://fr.wikipedia.org/wiki/Proxy_inverse), il est dit qu'*un proxy inverse (reverse proxy) ou serveur mandataire inverse est un type de serveur, habituellement placé en frontal de serveurs web. Contrairement au serveur proxy qui permet à un utilisateur d'accéder au réseau Internet, le proxy inverse permet à un utilisateur d'Internet d'accéder à des serveurs internes.*
+Sur [Wikipedia](https://fr.wikipedia.org/wiki/Proxy_inverse), il est dit qu'_un proxy inverse (reverse proxy) ou serveur mandataire inverse est un type de serveur, habituellement placé en frontal de serveurs web. Contrairement au serveur proxy qui permet à un utilisateur d'accéder au réseau Internet, le proxy inverse permet à un utilisateur d'Internet d'accéder à des serveurs internes._
 
 L'intérêt dans notre cas, est de pouvoir disposer de différentes applications Web conteneurisées, et de n'avoir qu'un seul accès Web en front. De plus, la mise en place d'un reverse proxy offre également ces avantages :
 
@@ -23,7 +23,7 @@ L'intérêt dans notre cas, est de pouvoir disposer de différentes applications
 
 ## Déploiement du reverse proxy NGINX
 
-La team [Linuxserver](https://docs.linuxserver.io/general/swag) fournit une image appelée SWAG (pour *Secure Web Application Gateway*). Par rapport à une image NGINX classique, les avantages sont les suivants :
+La team [Linuxserver](https://docs.linuxserver.io/general/swag) fournit une image appelée SWAG (pour _Secure Web Application Gateway_). Par rapport à une image NGINX classique, les avantages sont les suivants :
 
 - Création automatisée des certificats SSL via Let's Encrypt
 - Intégration de PHP
@@ -57,7 +57,7 @@ networks:
 
 Et le fichier `nginx.env` pour les variables :
 
-```bash
+```txt
 PUID=1000
 PGID=1000
 TZ=Europe/Paris
@@ -113,7 +113,7 @@ networks:
     external: true
 ```
 
-A la fin du fichier, on lui spécifie quels réseaux seront à créer. Dans notre cas, il ne doit créer que "default" (qui s'appellera en réalité `nextcloud_default`), mais doit avoir accès au réseau `nginx_proxy` (external à *true*).
+A la fin du fichier, on lui spécifie quels réseaux seront à créer. Dans notre cas, il ne doit créer que "default" (qui s'appellera en réalité `nextcloud_default`), mais doit avoir accès au réseau `nginx_proxy` (external à _true_).
 Ensuite, pour chaque service, on lui spécifie quel(s) réseau(x) utiliser. La base de donnée n'est que dans le réseau network, et la partie web dans les 2. Le reverse proxy aura donc accès à l'application Web mais pas à la base.
 
 > Vous remarquerez que les ports ne sont plus spécifiés pour le service nextcloud. Il n'est en effet plus nécessaire d'ouvrir l'accès : celui-ci se fera uniquement par le proxy.

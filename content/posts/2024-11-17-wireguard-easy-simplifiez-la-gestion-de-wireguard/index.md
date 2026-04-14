@@ -1,7 +1,7 @@
 ---
 title: "Wireguard Easy : Simplifiez la gestion de Wireguard"
 slug: wireguard-easy-simplifiez-la-gestion-de-wireguard
-date: 2024-11-17T15:32:00.326Z
+date: 2024-11-17
 useRelativeCover: true
 cover: cover.webp
 tags:
@@ -52,7 +52,7 @@ networks:
 
 Le fichier `wireguard.env` associé :
 
-```bash
+```txt
 LANG=fr
 WG_HOST=vpn.domaine.fr
 WG_DEFAULT_DNS=1.1.1.2,1.0.0.2
