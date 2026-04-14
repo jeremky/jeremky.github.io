@@ -1,7 +1,7 @@
 ---
 title: "Héberger un serveur Minecraft"
 slug: heberger-un-serveur-minecraft
-date: 2023-12-31T17:11:04Z
+date: 2023-12-31
 useRelativeCover: true
 cover: cover.webp
 tags:
@@ -42,7 +42,7 @@ services:
 
 Ensuite, le fichier de configuration `mcserver.env` :
 
-```bash
+```txt
 UID=1000
 GID=1000
 TZ=Europe/Paris

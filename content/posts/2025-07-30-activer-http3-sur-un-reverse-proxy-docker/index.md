@@ -1,7 +1,7 @@
 ---
 title: "Activer HTTP/3 sur un reverse proxy sous Docker"
 slug: activer-http3-sur-un-reverse-proxy-docker
-date: 2025-07-30T14:56:09+02:00
+date: 2025-07-30
 useRelativeCover: true
 cover: cover.webp
 tags:
@@ -50,7 +50,7 @@ networks:
 
 J'en profite pour vous rappeler le contenu du fichier `nginx.env` associé :
 
-```bash
+```txt
 PUID=1000
 PGID=1000
 TZ=Europe/Paris
@@ -71,7 +71,7 @@ La ligne qui nous intéresse principalement, c'est la ligne suivante :
 add_header Alt-Svc 'h3=":443"' always;
 ```
 
-Je vous conseille de décommenter également les lignes suivantes, pour augmenter la sécurité de votre reverse proxy :
+Je vous conseille de dé-commenter également les lignes suivantes, pour augmenter la sécurité de votre reverse proxy :
 
 ```txt
 add_header Strict-Transport-Security "max-age=63072000" always;
@@ -95,7 +95,7 @@ Et ensuite, pour chaque sous domaine, modifiez votre fichier de configuration en
 listen 443 quic;
 ```
 
-> A noter que si vous utilisez IPV6, vous devez bien sûr décommenter aussi les lignes le concernant
+> A noter que si vous utilisez IPV6, vous devez bien sûr dé-commenter aussi les lignes le concernant
 
 Redémarrez enfin votre conteneur pour appliquer les modifications :
 

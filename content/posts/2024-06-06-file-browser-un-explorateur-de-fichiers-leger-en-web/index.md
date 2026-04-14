@@ -1,7 +1,7 @@
 ---
 title: "File Browser : un explorateur de fichiers léger en web"
 slug: file-browser-un-explorateur-de-fichiers-leger-en-web
-date: 2024-06-06T17:21:58Z
+date: 2024-06-06
 useRelativeCover: true
 cover: cover.webp
 tags:
@@ -28,11 +28,17 @@ Beaucoup de fonctionnalités sont présentes :
 - La possibilité de partager simplement du contenu, avec durée, et protection par mot de passe
 
 {{< image src="filebrowser1.webp" style="border-radius: 8px;" >}}
-***
+
+---
+
 {{< image src="filebrowser2.webp" style="border-radius: 8px;" >}}
-***
+
+---
+
 {{< image src="filebrowser3.webp" style="border-radius: 8px;" >}}
-***
+
+---
+
 {{< image src="filebrowser4.webp" style="border-radius: 8px;" >}}
 
 ## Installation
@@ -69,7 +75,7 @@ Quelques éléments à préciser :
 - Dans ce dossier, vous devrez créer un sous dossier `database`, avec à l'intérieur un fichier vide nommé `filebrowser.db` (qui comme son nom l'indique, servira de base de données)
 - Enfin, il vous faut créer dans ce même dossier `files` un sous dossier `config`, avec à l'intérieur un fichier nommé `settings.json` pour y insérer le contenu suivant :
 
-```bash
+```txt
 {
   "port": 8080,
   "baseURL": "",
@@ -100,7 +106,7 @@ sudo docker restart nginx
 
 ## Configuration
 
-Dans la partie *Paramètres*, vous avez dans l'onglet *Paramètres généraux*, des éléments à modifier, notamment le dossier par défaut qui sera utilisé lors de la création d'un nouvel utilisateur, ses droits, mais également la possibilité de créer un sous dossier directement par utilisateur.
+Dans la partie _Paramètres_, vous avez dans l'onglet _Paramètres généraux_, des éléments à modifier, notamment le dossier par défaut qui sera utilisé lors de la création d'un nouvel utilisateur, ses droits, mais également la possibilité de créer un sous dossier directement par utilisateur.
 
 {{< image src="filebrowser5.webp" style="border-radius: 8px;" >}}
 

@@ -1,7 +1,7 @@
 ---
 title: "Héberger un serveur Xonotic"
 slug: heberger-un-serveur-xonotic
-date: 2024-05-31T17:21:09Z
+date: 2024-05-31
 useRelativeCover: true
 cover: cover.webp
 tags:
@@ -13,7 +13,7 @@ toc: true
 draft: false
 ---
 
-Selon [Wikipedia](https://fr.wikipedia.org/wiki/Xonotic), *Xonotic est un jeu de tir à la première personne développé par Team Xonotic. C'est un jeu libre et ses données (sons, etc) sont des œuvres libres1. Il est distribué sous licence GPL2.*
+Selon [Wikipedia](https://fr.wikipedia.org/wiki/Xonotic), _Xonotic est un jeu de tir à la première personne développé par Team Xonotic. C'est un jeu libre et ses données (sons, etc) sont des œuvres libres1. Il est distribué sous licence GPL2._
 
 Ce Fast FPS est dans la veine de Quake III arena et d'Unreal Tournament. C'est donc du shoot bien speed, avec des mécaniques de saut particulières, le tout dans des arènes labyrinthiques avec quelques zones plus ouvertes.
 
@@ -55,7 +55,7 @@ services:
 
 Une fois le serveur démarré, ce dernier va créer l'arborescence des fichiers nécessaires dans le sous dossier `./files`. Vous devrez y créer un fichier de configuration nommé `server.cfg` dans le sous dossier `data`. Voici un exemple que vous pouvez utiliser comme point de départ :
 
-{{< code language="txt" title="Fichier server.cfg" id="1" expand="Afficher" collapse="Cacher" isCollapsed="true" >}}
+```txt
 /////////////////////////////////////////////////////////////////////
 // SERVER
 
@@ -68,7 +68,6 @@ log_file "server.log"
 
 //rcon_password ""
 //rcon_restricted_password ""
-
 
 /////////////////////////////////////////////////////////////////////
 // GAME
@@ -98,7 +97,7 @@ sv_vote_call 1
 // PRIVACY
 
 sv_weaponstats_file http://www.xonotic.org/weaponbalance/
-{{< /code >}}
+```
 
 Si vous voulez une version complète du fichier, il est [disponible ici](https://github.com/xonotic/xonotic/blob/master/server/server.cfg).
 

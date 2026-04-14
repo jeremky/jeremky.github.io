@@ -1,7 +1,7 @@
 ---
 title: "Bookstack : solution open source de documentation"
 slug: bookstack-solution-open-source-de-documentation
-date: 2025-04-12T23:39:33.556Z
+date: 2025-04-12
 useRelativeCover: true
 cover: cover.webp
 tags:
@@ -58,7 +58,7 @@ Les variables se répartissent dans 2 fichiers `.env` : un pour le conteneur mar
 
 Le fichier `bookstack-db.env` :
 
-```bash
+```txt
 PUID=1000
 PGID=1000
 TZ=Europe/Paris
@@ -70,7 +70,7 @@ MYSQL_PASSWORD=PASSWORD
 
 Et le fichier `bookstack.env` :
 
-```bash
+```txt
 PUID=1000
 PGID=1000
 TZ=Europe/Paris
@@ -122,8 +122,8 @@ Une fois vos conteneurs déployés, vous pouvez vous rendre à l'adresse que vou
 
 Par défaut, les informations de connexion sont les suivantes :
 
-- admin@admin.com
-- password
+- `admin@admin.com`
+- `password`
 
 {{< image src="home.webp" style="border-radius: 8px;" >}}
 
@@ -158,7 +158,7 @@ Une fois votre page rédigée, sachez qu'il est possible de l'exporter sous diff
 ## Diagrammes
 
 Petite précision au sujet des diagrammes. Bookstack se base sur l'excellent [Draw.io](https://www.drawio.com/) en version web. Lorsque vous voulez ajouter un diagramme, vous allez être directement redirigé vers [app.diagrams.net](https://app.diagrams.net) pour construire votre diagramme.
-Une fois que vous aurez cliqué sur `Enregister`, il sera placé sur votre page :
+Une fois que vous aurez cliqué sur `Enregistrer`, il sera placé sur votre page :
 
 {{< image src="diagram.webp" style="border-radius: 8px;" >}}
 

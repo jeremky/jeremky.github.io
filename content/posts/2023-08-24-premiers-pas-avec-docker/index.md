@@ -1,19 +1,19 @@
 ---
 title: "Premiers pas avec Docker"
 slug: premiers-pas-avec-docker
-date: 2023-08-24T16:03:12Z
+date: 2023-08-24
 useRelativeCover: true
 cover: cover.webp
 tags:
-    - docker
+  - docker
 categories:
-    - Tutos
+  - Tutos
 toc: true
 draft: false
 ---
 
-*[Docker](https://fr.wikipedia.org/wiki/Docker_(logiciel)) est une plateforme permettant de lancer certaines applications dans des conteneurs logiciels lancée en 2013.*
-*Docker est un outil qui peut empaqueter une application et ses dépendances dans un conteneur isolé, qui pourra être exécuté sur n'importe quel serveur. Il ne s'agit pas de virtualisation, mais de conteneurisation, une forme plus légère qui s'appuie sur certaines parties de la machine hôte pour son fonctionnement. Cette approche permet d'accroître la flexibilité et la portabilité d'exécution d'une application, laquelle va pouvoir tourner de façon fiable et prévisible sur une grande variété de machines hôtes, que ce soit sur la machine locale, un cloud privé ou public, une machine nue, etc.*
+_[Docker](<https://fr.wikipedia.org/wiki/Docker_(logiciel)>) est une plateforme permettant de lancer certaines applications dans des conteneurs logiciels lancée en 2013._
+_Docker est un outil qui peut empaqueter une application et ses dépendances dans un conteneur isolé, qui pourra être exécuté sur n'importe quel serveur. Il ne s'agit pas de virtualisation, mais de conteneurisation, une forme plus légère qui s'appuie sur certaines parties de la machine hôte pour son fonctionnement. Cette approche permet d'accroître la flexibilité et la portabilité d'exécution d'une application, laquelle va pouvoir tourner de façon fiable et prévisible sur une grande variété de machines hôtes, que ce soit sur la machine locale, un cloud privé ou public, une machine nue, etc._
 
 Docker offre donc les avantages de la virtualisation, mais sans les inconvénients (définition des ressources, installation de l'OS...). Vos applications s'exécuteront indépendamment du système de l'hôte, à partir du moment que Docker est installé.
 Côté sécurité, vous pouvez définir quels sont les ports autorisés à sortir du conteneur, quels sont les fichiers partagés avec l'hôte...

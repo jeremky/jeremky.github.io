@@ -1,7 +1,7 @@
 ---
 title: "Authelia : serveur d'authentification Open Source"
 slug: authelia-serveur-dauthentification-open-source
-date: 2024-11-11T23:34:44.392Z
+date: 2024-11-11
 useRelativeCover: true
 cover: cover.webp
 tags:
@@ -13,7 +13,7 @@ toc: true
 draft: false
 ---
 
-D'après le [site officiel](https://www.authelia.com/), *"Authelia est un serveur et un portail d'authentification open source remplissant le rôle de gestion des identités et des accès (IAM) en fournissant une authentification multifacteur et une authentification unique (SSO) pour vos applications via un portail Web. Il agit comme un compagnon pour les proxys inverses courants."*
+D'après le [site officiel](https://www.authelia.com/), _"Authelia est un serveur et un portail d'authentification open source remplissant le rôle de gestion des identités et des accès (IAM) en fournissant une authentification multifacteur et une authentification unique (SSO) pour vos applications via un portail Web. Il agit comme un compagnon pour les proxys inverses courants."_
 
 Dans cet article, il sera présenté comment installer Authelia, et comment le connecter au reverse proxy nginx (voir [cet article](/posts/reverse-proxy-nginx/) pour l'installation de nginx). A noter que cet article se concentre uniquement sur une configuration simple permettant de remplacer l'authentification par fichier `.htpasswd` interne à nginx.
 
@@ -42,7 +42,7 @@ networks:
 
 Et son fichier `authelia.env` :
 
-```bash
+```txt
 TZ=Europe/Paris
 ```
 
@@ -112,16 +112,16 @@ access_control:
   default_policy: deny
   rules:
     - domain:
-      - "dom1.domaine.fr"
+        - "dom1.domaine.fr"
       policy: one_factor
       subject:
-        - ['group:user']
+        - ["group:user"]
     - domain:
-      - "dom2.domaine.fr"
-      - "dom3.domaine.fr"
+        - "dom2.domaine.fr"
+        - "dom3.domaine.fr"
       policy: one_factor
       subject:
-        - ['group:admin']
+        - ["group:admin"]
 
 totp:
   disable: false
@@ -169,7 +169,7 @@ notifier:
     password: <password>
     sender: <mail>
     tls.skip_verify: false
-    subject: '[Authelia] {title}'
+    subject: "[Authelia] {title}"
     startup_check_address: <mail>
 ```
 

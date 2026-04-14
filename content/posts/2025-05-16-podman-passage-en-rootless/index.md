@@ -1,7 +1,7 @@
 ---
 title: "Podman : passage en rootless"
 slug: podman-passage-en-rootless
-date: 2025-05-16T12:46:28.143Z
+date: 2025-05-16
 useRelativeCover: true
 cover: cover.webp
 tags:
@@ -39,16 +39,16 @@ Mais évidemment, cela n'est pas sans conséquence :
 
 ## Comparatif rootful vs rootless
 
-| Critère                         | Mode rootful                                       | Mode rootless                                      |
-|---------------------------------|----------------------------------------------------|----------------------------------------------------|
-| Droits nécessaires              | Root requis                                        | Aucun droit root requis                            |
-| Sécurité                        | Risque en cas d’évasion de conteneur               | Isolation renforcée par user namespaces            |
-| Démarrage automatique           | Via systemd en root                                | Via `systemctl --user` et `loginctl enable-linger` |
-| Réseau (ports < 1024)           | Autorisés par défaut                               | Nécessite une configuration système (`sysctl`)     |
-| Isolation multi-utilisateur     | Non séparée par défaut                             | Chaque utilisateur a ses propres conteneurs/images |
-| Gestion des volumes             | Simplicité d'accès                                 | Restrictions selon le FS (`unprivileged overlay`)  |
-| Compatibilité applications      | Maximale                                           | Parfois limitée (ex : images attendent d’être root)|
-| Accès au socket Docker/Podman   | Accessible en root                                 | Accessible via `podman.socket` en mode utilisateur |
+| Critère                       | Mode rootful                         | Mode rootless                                       |
+| ----------------------------- | ------------------------------------ | --------------------------------------------------- |
+| Droits nécessaires            | Root requis                          | Aucun droit root requis                             |
+| Sécurité                      | Risque en cas d’évasion de conteneur | Isolation renforcée par user namespaces             |
+| Démarrage automatique         | Via systemd en root                  | Via `systemctl --user` et `loginctl enable-linger`  |
+| Réseau (ports < 1024)         | Autorisés par défaut                 | Nécessite une configuration système (`sysctl`)      |
+| Isolation multi-utilisateur   | Non séparée par défaut               | Chaque utilisateur a ses propres conteneurs/images  |
+| Gestion des volumes           | Simplicité d'accès                   | Restrictions selon le FS (`unprivileged overlay`)   |
+| Compatibilité applications    | Maximale                             | Parfois limitée (ex : images attendent d’être root) |
+| Accès au socket Docker/Podman | Accessible en root                   | Accessible via `podman.socket` en mode utilisateur  |
 
 ## Préparation
 
@@ -61,6 +61,7 @@ Afin que Podman démarre vos conteneurs au démarrage de votre serveur, vous dev
 ```bash
 systemctl enable --user --now podman-restart.service
 ```
+
 > À noter que `restart: always` doit être spécifié dans votre fichier `docker-compose.yml`
 
 Autre service très utile, si vous avez besoin de Podman en mode socket, par exemple si certains de vos conteneurs doivent consulter ou contrôler d'autres conteneurs (comme [Portainer](/posts/portainer-administrer-vos-conteneurs-via-une-interface-web/) ou [Flame](/posts/flame-un-dashboard-leger-et-efficace/)) :

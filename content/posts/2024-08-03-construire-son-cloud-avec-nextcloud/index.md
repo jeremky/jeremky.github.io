@@ -1,7 +1,7 @@
 ---
 title: "Construire son cloud avec Nextcloud"
 slug: construire-son-cloud-avec-nextcloud
-date: 2024-08-03T15:34:10+02:00
+date: 2024-08-03
 useRelativeCover: true
 cover: cover.webp
 tags:
@@ -13,7 +13,7 @@ toc: true
 draft: false
 ---
 
-D'après [Wikipédia](https://fr.wikipedia.org/wiki/Nextcloud), *Nextcloud est un logiciel libre de site d'hébergement de fichiers et une plateforme de collaboration. À l'origine accessible via WebDAV, n'importe quel navigateur web, ou des clients spécialisés, son architecture ouverte a permis de voir ses fonctionnalités s'étendre depuis ses origines. En 2020, il propose de nombreux services.*
+D'après [Wikipédia](https://fr.wikipedia.org/wiki/Nextcloud), _Nextcloud est un logiciel libre de site d'hébergement de fichiers et une plateforme de collaboration. À l'origine accessible via WebDAV, n'importe quel navigateur web, ou des clients spécialisés, son architecture ouverte a permis de voir ses fonctionnalités s'étendre depuis ses origines. En 2020, il propose de nombreux services._
 
 [Nextcloud](https://nextcloud.com/fr/) est une plateforme de type "cloud" personnel, où vous allez pouvoir y stocker vos fichiers, mais aussi vos agendas, vos contacts, vos notes, vos photos... Il propose également une série d'applications facultatives (travail collaboratif, visio...).
 
@@ -60,7 +60,7 @@ networks:
 
 Le fichier `nextcloud.env` :
 
-```bash
+```txt
 PUID=1000
 PGID=1000
 TZ=Europe/Paris
@@ -68,7 +68,7 @@ TZ=Europe/Paris
 
 Et le fichier `nextcloud-db.env` :
 
-```bash
+```txt
 POSTGRES_PASSWORD=Password
 POSTGRES_USER=nextcloud
 POSTGRES_DB=nextcloud
@@ -128,7 +128,9 @@ Une fois l’initialisation terminée, il vous sera demandé si vous voulez le p
 Vous devriez enfin vous retrouver sur la page d’accueil :
 
 {{< image src="wizard.webp" style="border-radius: 8px;" >}}
-***
+
+---
+
 {{< image src="dashboard.webp" style="border-radius: 8px;" >}}
 
 ## Conclusion

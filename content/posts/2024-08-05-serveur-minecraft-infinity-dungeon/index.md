@@ -1,7 +1,7 @@
 ---
 title: "Serveur Minecraft Infinity Dungeon"
 slug: serveur-minecraft-infinity-dungeon
-date: 2024-08-05T20:56:18+02:00
+date: 2024-08-05
 useRelativeCover: true
 cover: cover.webp
 tags:
@@ -54,9 +54,10 @@ services:
     stdin_open: true
     restart: always
 ```
+
 Et son fichier de configuration `mcserver.env` :
 
-```bash
+```txt
 UID=1000
 GID=1000
 TZ=Europe/Paris

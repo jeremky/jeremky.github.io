@@ -1,13 +1,13 @@
 ---
 title: "Sécurisation de vos connexions SSH"
 slug: securisation-de-vos-connexions-ssh
-date: 2024-05-19T17:16:47Z
+date: 2024-05-19
 useRelativeCover: true
 cover: cover.webp
 tags:
-    - linux
+  - linux
 categories:
-    - Tutos
+  - Tutos
 toc: true
 draft: false
 ---
@@ -16,15 +16,14 @@ Dans cet article, nous allons voir comment sécuriser vos connexion SSH, en vous
 
 ## SSH c'est quoi ?
 
-*SSH, ou Secure Socket Shell, est un protocole réseau qui permet aux administrateurs d'accéder à distance à un ordinateur, en toute sécurité. SSH désigne également l'ensemble des utilitaires qui mettent en oeuvre le protocole. Le protocole Secure Shell assure une authentification forte et des communications de données chiffrées sécurisées entre deux ordinateurs connectés sur un réseau peu sûr, tel qu'Internet. SSH est largement utilisé par les administrateurs réseau pour gérer à distance les systèmes et les applications, car il leur permet de se connecter à un autre ordinateur sur un réseau, d'exécuter des commandes et de déplacer des fichiers d'un ordinateur à un autre.*
+_SSH, ou Secure Socket Shell, est un protocole réseau qui permet aux administrateurs d'accéder à distance à un ordinateur, en toute sécurité. SSH désigne également l'ensemble des utilitaires qui mettent en oeuvre le protocole. Le protocole Secure Shell assure une authentification forte et des communications de données chiffrées sécurisées entre deux ordinateurs connectés sur un réseau peu sûr, tel qu'Internet. SSH est largement utilisé par les administrateurs réseau pour gérer à distance les systèmes et les applications, car il leur permet de se connecter à un autre ordinateur sur un réseau, d'exécuter des commandes et de déplacer des fichiers d'un ordinateur à un autre._
 
 ## Création d'une clé
 
 A noter que ce que je vais indiquer ici est valable aussi bien pour un client sous Linux, Mac, ou Windows (10 et 11).
 
 Il existe différents algorithmes pour créer des clés. Le plus connu, le RSA. Toutefois, je vais vous proposer un algorithme plus récent, et surtout offrant un meilleur niveau de sécurité, le ed25519.
-
-*"Ed25519 a pour but de fournir une résistance aux attaques comparable à celle des chiffrements de 128-bits de qualité. Les clés publiques sont encodées sur 256 bits (32 octets) de long et les signatures sont deux fois plus longues."*
+_"Ed25519 a pour but de fournir une résistance aux attaques comparable à celle des chiffrements de 128-bits de qualité. Les clés publiques sont encodées sur 256 bits (32 octets) de long et les signatures sont deux fois plus longues."_
 
 Pour créer votre paire de clé de type ed25519, voici la commande à utiliser :
 
@@ -75,6 +74,7 @@ La 1ère partie s'applique à tous les hosts. Les éléments sont les suivants :
 - `IdentitiesOnly` : spécifie à ssh de n'utiliser que les clés présentes dans ce fichier de config
 
 Ensuite, vous pouvez créer un bloc par serveur distant, et y indiquer les éléments suivants :
+
 - Le host : qui sera un alias pour vos connexions (la commande ssh recalbox suffira)
 - Le hostname, qui peut être une IP
 - Le user

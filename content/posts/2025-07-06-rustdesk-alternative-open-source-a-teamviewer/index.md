@@ -1,7 +1,7 @@
 ---
 title: "RustDesk : alternative open source à TeamViewer"
 slug: rustdesk-alternative-open-source-a-teamviewer
-date: 2025-07-06T16:12:32.707Z
+date: 2025-07-06
 useRelativeCover: true
 cover: cover.webp
 tags:
