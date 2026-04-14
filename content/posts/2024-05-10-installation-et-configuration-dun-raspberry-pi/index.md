@@ -1,13 +1,13 @@
 ---
 title: "Installation et configuration d'un Raspberry Pi"
 slug: installation-et-configuration-dun-raspberry-pi
-date: 2024-05-10T17:14:39Z
+date: 2024-05-10
 useRelativeCover: true
 cover: cover.webp
 tags:
-    - linux
+  - linux
 categories:
-    - Tutos
+  - Tutos
 toc: false
 draft: false
 ---
@@ -42,10 +42,10 @@ Vous arriverez sur cette interface :
 
 Voici quelques trucs que je vous propose de configurer / activer :
 
-- le hostname, dans *System Options*
-- SSH, dans *Interface Options*
+- le hostname, dans _System Options_
+- SSH, dans _Interface Options_
 - les infos de localisation (langue, timezone, clavier...)
-- étendre la taille de la partition, dans *Advanced Options*
+- étendre la taille de la partition, dans _Advanced Options_
 
 Une fois tout cela fait, on lance une mise à jour :
 

@@ -1,7 +1,7 @@
 ---
 title: "FreshRSS : un agrégateur de flux RSS"
 slug: freshrss-un-agregateur-de-flux-rss
-date: 2024-10-14T18:03:58+02:00
+date: 2024-10-14
 useRelativeCover: true
 cover: cover.webp
 tags:
@@ -12,11 +12,11 @@ toc: true
 draft: false
 ---
 
-FreshRSS est présenté sur [Wikipedia](https://fr.wikipedia.org/wiki/FreshRSS) comme *un agrégateur de flux RSS, Atom Syndication Format et WebSub en ligne, sous licence libre GNU AGPL v32.*
+FreshRSS est présenté sur [Wikipedia](https://fr.wikipedia.org/wiki/FreshRSS) comme _un agrégateur de flux RSS, Atom Syndication Format et WebSub en ligne, sous licence libre GNU AGPL v32._
 
-Pour celles et ceux qui seraient passés à côté, le *RSS (sigle venant de l'anglais Really Simple Syndication, litt. « syndication vraiment simple ») est une famille de Flux web, c'est-à-dire un type de formats de données utilisé pour la syndication de contenu Web.*
+Pour celles et ceux qui seraient passés à côté, le _RSS (sigle venant de l'anglais Really Simple Syndication, litt. « syndication vraiment simple ») est une famille de Flux web, c'est-à-dire un type de formats de données utilisé pour la syndication de contenu Web._
 
-> *Un produit RSS est une ressource du World Wide Web dont le contenu est produit automatiquement (sauf cas exceptionnels) en fonction des mises à jour d’un site Web. Les flux RSS sont des fichiers XML qui sont souvent utilisés par les sites d'actualité et les blogs pour présenter les titres des dernières informations consultables.*
+> _Un produit RSS est une ressource du World Wide Web dont le contenu est produit automatiquement (sauf cas exceptionnels) en fonction des mises à jour d’un site Web. Les flux RSS sont des fichiers XML qui sont souvent utilisés par les sites d'actualité et les blogs pour présenter les titres des dernières informations consultables._
 
 Petite capture de l'application présente sur le [site officiel](https://www.freshrss.org/) :
 
@@ -56,7 +56,7 @@ networks:
 
 Et le fichier `freshrss.env` associé :
 
-```bash
+```txt
 PUID=1000
 PGID=1000
 TZ=Europe/Paris

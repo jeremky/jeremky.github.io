@@ -1,7 +1,7 @@
 ---
 title: "Diun : être notifié des nouvelles images Docker"
 slug: diun-etre-notifie-des-nouvelles-images-docker
-date: 2024-12-02T19:09:00.558Z
+date: 2024-12-02
 useRelativeCover: true
 cover: cover.webp
 tags:
@@ -13,7 +13,7 @@ toc: true
 draft: false
 ---
 
-D'après leur site, [Diun](https://crazymax.dev/diun/), pour *Docker Image Update Notifier*, est une application qui permet de recevoir des notifications lorsqu’une image Docker est mise à jour sur un registre.
+D'après leur site, [Diun](https://crazymax.dev/diun/), pour _Docker Image Update Notifier_, est une application qui permet de recevoir des notifications lorsqu’une image Docker est mise à jour sur un registre.
 
 Contrairement à [Watchtower](/posts/watchtower-un-conteneur-pour-les-gouverner-tous/), Diun ne permet pas d'effectuer de mise à jour automatique, seulement de notifier. Cela a toutefois des avantages :
 
@@ -51,7 +51,7 @@ volumes:
 
 Et son fichier `diun.env` :
 
-```bash
+```txt
 TZ=Europe/Paris
 
 DIUN_WATCH_WORKERS=20
@@ -67,14 +67,14 @@ Par défaut, il est normalement nécessaire de spécifier pour chaque conteneur 
 
 ```yml
 labels:
-      - diun.enable=false
+  - diun.enable=false
 ```
 
 ## Notification
 
 Dans le fichier `diun.env`, vous pouvez lui spécifier des éléments en fonction de la façon dont vous voulez être notifié. Un exemple avec une notification par e-mail :
 
-```bash
+```txt
 DIUN_NOTIF_MAIL_HOST=host
 DIUN_NOTIF_MAIL_PORT=587
 DIUN_NOTIF_MAIL_SSL=false

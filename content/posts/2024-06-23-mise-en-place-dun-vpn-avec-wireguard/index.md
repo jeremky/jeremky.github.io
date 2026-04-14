@@ -1,7 +1,7 @@
 ---
 title: "Mise en place d'un VPN avec Wireguard"
 slug: mise-en-place-dun-vpn-avec-wireguard
-date: 2024-06-23T17:26:52Z
+date: 2024-06-23
 useRelativeCover: true
 cover: cover.webp
 tags:
@@ -42,7 +42,7 @@ services:
 
 Son fichier `wireguard.env` :
 
-```bash
+```txt
 PUID=1000
 PGID=1000
 TZ=Europe/Paris

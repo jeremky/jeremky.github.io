@@ -1,7 +1,7 @@
 ---
 title: "Utilisation de transfer.sh"
 slug: utilisation-de-transfer.sh
-date: 2023-10-12T17:07:52Z
+date: 2023-10-12
 useRelativeCover: true
 cover: cover.webp
 tags:
@@ -51,8 +51,7 @@ networks:
 
 Et son fichier `transfer.env` :
 
-
-```bash
+```txt
 BASEDIR=/tmp
 PURGE_DAYS=1
 PURGE_INTERVAL=24

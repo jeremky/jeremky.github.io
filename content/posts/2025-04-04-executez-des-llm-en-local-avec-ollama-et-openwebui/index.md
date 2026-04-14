@@ -1,7 +1,7 @@
 ---
 title: "Exécutez des LLM en local avec Ollama et Open WebUI"
 slug: executez-des-llm-en-local-avec-ollama-et-openwebui
-date: 2025-04-04T16:15:25.000Z
+date: 2025-04-04
 useRelativeCover: true
 cover: cover.webp
 tags:
@@ -53,7 +53,7 @@ networks:
 
 Le fichier `ollama.env` associé :
 
-```bash
+```txt
 OLLAMA_BASE_URL=http://ollama:11434
 WEBUI_SECRET_KEY=CLE_SECRETE_A_MODIFIER
 DEFAULT_LOCALE=fr-FR

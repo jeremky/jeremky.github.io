@@ -1,7 +1,7 @@
 ---
 title: "Personnaliser vos images Docker"
 slug: personnaliser-vos-images-docker
-date: 2024-11-02T00:22:28.896Z
+date: 2024-11-02
 useRelativeCover: true
 cover: cover.webp
 tags:

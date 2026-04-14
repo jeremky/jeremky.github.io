@@ -1,7 +1,7 @@
 ---
 title: "Visual Studio Code dans son navigateur"
 slug: visual-studio-code-dans-son-navigateur
-date: 2024-10-26T13:22:59.705Z
+date: 2024-10-26
 useRelativeCover: true
 cover: cover.webp
 tags:
@@ -12,7 +12,7 @@ toc: true
 draft: false
 ---
 
-D'après [Wikipedia](https://fr.wikipedia.org/wiki/Visual_Studio_Code), *Visual Studio Code est un éditeur de code extensible développé par Microsoft pour Windows, Linux et macOS.Les fonctionnalités incluent la prise en charge du débogage, la mise en évidence de la syntaxe, la complétion intelligente du code (IntelliSense.), les snippets, la refactorisation du code et Git intégré. Les utilisateurs peuvent modifier le thème, les raccourcis clavier, les préférences et installer des extensions qui ajoutent des fonctionnalités supplémentaires.*
+D'après [Wikipedia](https://fr.wikipedia.org/wiki/Visual_Studio_Code), _Visual Studio Code est un éditeur de code extensible développé par Microsoft pour Windows, Linux et macOS.Les fonctionnalités incluent la prise en charge du débogage, la mise en évidence de la syntaxe, la complétion intelligente du code (IntelliSense.), les snippets, la refactorisation du code et Git intégré. Les utilisateurs peuvent modifier le thème, les raccourcis clavier, les préférences et installer des extensions qui ajoutent des fonctionnalités supplémentaires._
 
 Appelé code-server, cette version est utilisable directement depuis un navigateur. L'intérêt ici est d'avoir une instance VS Code déportée de sa machine principale, afin de pouvoir y accéder de n'importe où. A noter que cette solution n'est pas multi utilisateur.
 
@@ -43,7 +43,7 @@ networks:
 
 Et le fichier `code-server.env` associé :
 
-```bash
+```txt
 PUID=1000
 PGID=1000
 TZ=Europe/Paris
@@ -75,7 +75,7 @@ sudo docker restart nginx
 
 La configuration proposée par le proxy apporte une fonctionnalité vraiment chouette : si vous démarrez un serveur web via votre instance VS Code, et que vous avez configuré la variable `PROXY_DOMAIN`, VS Code va automatiquement réacheminer vos ports d'écoute vers un sous domaine.
 
- Pour mon utilisation avec le CMS Hugo, j'ai maintenant une url en `https://1313.mondomaine.com` (notez que le ssl s'active malgré un serveur de développement en http).
+Pour mon utilisation avec le CMS Hugo, j'ai maintenant une url en `https://1313.mondomaine.com` (notez que le ssl s'active malgré un serveur de développement en http).
 
 ## Sécurisation par fichier htpasswd
 
@@ -107,7 +107,7 @@ sudo docker container restart nginx
 ## Passer l'application en français
 
 La langue française n'est pas installée par défaut sur cette instance VS Code. Pour régler cela, Il suffit d'installer l'extension `French Language Pack for Visual Studio Code`.
-Vous pourrez appliquer directement l'extension  et relancer l'application pour appliquer le pack de langue.
+Vous pourrez appliquer directement l'extension et relancer l'application pour appliquer le pack de langue.
 
 Profitez-en pour installer l'extension `French - Code Spell Checker` afin d'avoir la vérification syntaxique.
 

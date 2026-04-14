@@ -1,7 +1,7 @@
 ---
 title: "Watchtower : un conteneur pour les gouverner tous"
 slug: watchtower-un-conteneur-pour-les-gouverner-tous
-date: 2024-06-25T17:28:32Z
+date: 2024-06-25
 useRelativeCover: true
 cover: cover.webp
 tags:
@@ -44,7 +44,7 @@ services:
 
 Et son fichier `watchtower.env` :
 
-```bash
+```txt
 TZ=Europe/Paris
 
 WATCHTOWER_SCHEDULE=0 0 6 * * *

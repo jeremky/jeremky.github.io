@@ -1,7 +1,7 @@
 ---
 title: "Flame : un Dashboard léger et efficace"
 slug: flame-un-dashboard-leger-et-efficace
-date: 2024-11-23T20:42:50.155Z
+date: 2024-11-23
 useRelativeCover: true
 cover: cover.webp
 tags:
@@ -53,7 +53,7 @@ secrets:
 
 Et son fichier `flame.env` :
 
-```bash
+```txt
 TZ=Europe/Paris
 PASSWORD_FILE=./.password
 ```
@@ -145,16 +145,13 @@ Dans l'onglet `General`, il est possible de spécifier comment trier les différ
 Cet onglet permet de modifier les éléments d'affichage principaux. C'est assez austère et particulier sur ce point. Je vous partage donc les éléments à remplacer pour une traduction en français.
 
 - `Custom greetings` :
-
-*Bonsoir !;Bonjour !;Bonjour !;Bonsoir !*
+  _Bonsoir !;Bonjour !;Bonjour !;Bonsoir !_
 
 - `Custom weekday names` :
-
-*Dimanche;Lundi;Mardi;Mercredi;Jeudi;Vendredi;Samedi*
+  _Dimanche;Lundi;Mardi;Mercredi;Jeudi;Vendredi;Samedi_
 
 - `Custom month names` :
-
-*Janvier;Février;Mars;Avril;Mai;Juin;Juillet;Août;Septembre;Octobre;Novembre;Décembre*
+  _Janvier;Février;Mars;Avril;Mai;Juin;Juillet;Août;Septembre;Octobre;Novembre;Décembre_
 
 Enfin, vous pouvez choisir d'afficher ou non les sections `Applications` et `Bookmarks`.
 
@@ -192,34 +189,34 @@ Enfin, l'onglet CSS vous permet de modifier en détail des éléments d'interfac
 ```css
 /* Taille de police */
 body {
-    font-size: 16px !important;
+  font-size: 16px !important;
 }
 
 /* Taille du message */
 .Header_Header__GCJdR h1 {
-    font-size: 3em !important;
+  font-size: 3em !important;
 }
 
 /* Largeur du contenu */
 .Layout_Container__HIHX7 {
-        width: 95% !important;
+  width: 95% !important;
 }
 
 /* Supprimer l'URL des apps */
 .AppCard_AppCardDetails__HgNoY span {
-    display: none !important;
+  display: none !important;
 }
 
 /* Comportement des tuiles */
 .AppCard_AppCard__NPTM5 {
-    padding: 16px !important;
-    margin-bottom: 0 !important;
-    border-radius: 0.5rem !important;
+  padding: 16px !important;
+  margin-bottom: 0 !important;
+  border-radius: 0.5rem !important;
 }
 
 /* Style du bouton settings */
 .Home_SettingsButton__DrUPz {
-    border-radius: 0.5rem !important;
+  border-radius: 0.5rem !important;
 }
 ```
 
@@ -228,15 +225,15 @@ Petit bonus si vous désirez un fond d'écran :
 ```css
 /* Fond d'écran */
 body:before {
-    content: "";
-    position: fixed;
-    overflow: hidden;
-    background-image: url("<url>");
-    background-size: cover;
-    z-index: -999;
-    height: 100%;
-    width: 100%;
-    transform: scale(1.1);
+  content: "";
+  position: fixed;
+  overflow: hidden;
+  background-image: url("<url>");
+  background-size: cover;
+  z-index: -999;
+  height: 100%;
+  width: 100%;
+  transform: scale(1.1);
 }
 ```
 
@@ -257,7 +254,11 @@ Cliquez sur `Bookmarks`, et créez les catégories et les favoris que vous dési
 Voici quelques rendus possibles une fois la configuration de Flame terminée :
 
 {{< image src="exemple1.webp" style="border-radius: 8px;" >}}
-***
+
+---
+
 {{< image src="exemple2.webp" style="border-radius: 8px;" >}}
-***
+
+---
+
 {{< image src="exemple3.webp" style="border-radius: 8px;" >}}

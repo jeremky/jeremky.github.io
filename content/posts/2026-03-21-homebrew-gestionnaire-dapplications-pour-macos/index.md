@@ -1,7 +1,7 @@
 ---
 title: "Homebrew : gestionnaire d'applications pour macOS"
 slug: homebrew-gestionnaire-applications-pour-macos
-date: 2026-03-21T11:52:23.845Z
+date: 2026-03-21
 useRelativeCover: true
 cover: cover.webp
 tags:
@@ -28,8 +28,8 @@ Et c'est tout. Homebrew gère les dépendances, les mises à jour, et le nettoya
 
 Homebrew propose deux types de paquets :
 
-* **Formulas** : des outils en ligne de commande (git, vim, wget, etc.)
-* **Casks** : des applications graphiques (Firefox, Discord, etc.)
+- **Formulas** : des outils en ligne de commande (git, vim, wget, etc.)
+- **Casks** : des applications graphiques (Firefox, Discord, etc.)
 
 ## Installation
 
@@ -77,8 +77,8 @@ fi
 
 **Explications** :
 
-* `HOMEBREW_NO_ENV_HINTS=1` : désactive les messages d'avertissement concernant le `PATH`
-* `HOMEBREW_NO_ANALYTICS=1` : désactive l'envoi de données anonymes à Homebrew (pour ceux qui sont sensibles à la vie privée)
+- `HOMEBREW_NO_ENV_HINTS=1` : désactive les messages d'avertissement concernant le `PATH`
+- `HOMEBREW_NO_ANALYTICS=1` : désactive l'envoi de données anonymes à Homebrew (pour ceux qui sont sensibles à la vie privée)
 
 ### Alias de mise à jour pratique
 
@@ -100,18 +100,18 @@ Dès lors, un simple `upgrade` mettra à jour tout votre système Homebrew en un
 
 Je vous fais un tableau des commandes essentielles :
 
-| Commande | Utilité |
-| --- | --- |
-| `brew install nom` | Installer une formula |
-| `brew install --cask nom` | Installer un cask |
-| `brew search motclé` | Chercher un paquet |
-| `brew list` | Lister les installations |
-| `brew upgrade` | Mettre à jour tous les paquets |
-| `brew uninstall nom` | Désinstaller un paquet |
-| `brew cleanup` | Nettoyer les fichiers temporaires |
-| `brew doctor` | Diagnostiquer les problèmes |
-| `brew autoremove` | Supprimer les dépendances inutiles |
-| `upgrade` (alias) | Mettre à jour + nettoyer en une commande |
+| Commande                  | Utilité                                  |
+| ------------------------- | ---------------------------------------- |
+| `brew install nom`        | Installer une formula                    |
+| `brew install --cask nom` | Installer un cask                        |
+| `brew search motclé`      | Chercher un paquet                       |
+| `brew list`               | Lister les installations                 |
+| `brew upgrade`            | Mettre à jour tous les paquets           |
+| `brew uninstall nom`      | Désinstaller un paquet                   |
+| `brew cleanup`            | Nettoyer les fichiers temporaires        |
+| `brew doctor`             | Diagnostiquer les problèmes              |
+| `brew autoremove`         | Supprimer les dépendances inutiles       |
+| `upgrade` (alias)         | Mettre à jour + nettoyer en une commande |
 
 ### Taps et formules personnalisées
 

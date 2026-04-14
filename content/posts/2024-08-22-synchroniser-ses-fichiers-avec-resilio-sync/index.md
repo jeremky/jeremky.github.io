@@ -1,7 +1,7 @@
 ---
 title: "Synchroniser ses fichiers avec Resilio Sync"
 slug: synchroniser-ses-fichiers-avec-resilio-sync
-date: 2024-08-22T21:00:33+02:00
+date: 2024-08-22
 useRelativeCover: true
 cover: cover.webp
 tags:
@@ -13,7 +13,7 @@ toc: true
 draft: false
 ---
 
-D'après [Wikipedia](https://en.wikipedia.org/wiki/Resilio_Sync), *Resilio Sync (anciennement BitTorrent Sync) de Resilio, Inc. est un outil propriétaire de synchronisation de fichiers peer-to-peer disponible pour Windows, Mac, Linux, Android, iOS, Windows Phone, Amazon Kindle Fire et BSD. Il peut synchroniser des fichiers entre appareils sur un réseau local ou entre appareils distants sur Internet via une version modifiée du protocole BitTorrent. Bien qu'il ne soit pas présenté par les développeurs comme un remplacement direct ni un concurrent des services de synchronisation de fichiers basés sur le cloud, il a acquis une grande partie de sa publicité dans ce rôle potentiel.*
+D'après [Wikipedia](https://en.wikipedia.org/wiki/Resilio_Sync), _Resilio Sync (anciennement BitTorrent Sync) de Resilio, Inc. est un outil propriétaire de synchronisation de fichiers peer-to-peer disponible pour Windows, Mac, Linux, Android, iOS, Windows Phone, Amazon Kindle Fire et BSD. Il peut synchroniser des fichiers entre appareils sur un réseau local ou entre appareils distants sur Internet via une version modifiée du protocole BitTorrent. Bien qu'il ne soit pas présenté par les développeurs comme un remplacement direct ni un concurrent des services de synchronisation de fichiers basés sur le cloud, il a acquis une grande partie de sa publicité dans ce rôle potentiel._
 
 Resilio Sync propose une synchronisation par dossier. Chaque nouveau partage génère une clé, que vous pouvez communiquer à un autre client Resilio Sync, pour effectuer une synchronisation. Chaque modification d'un dossier associé à un partage sera automatiquement répliqué sur chaque dossier connecté.
 
@@ -55,7 +55,7 @@ networks:
 
 Et le fichier `resilio-sync.env` associé :
 
-```bash
+```txt
 PUID=1000
 PGID=1000
 TZ=Europe/Paris

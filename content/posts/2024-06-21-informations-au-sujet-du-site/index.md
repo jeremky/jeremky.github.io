@@ -1,13 +1,13 @@
 ---
 title: "Informations au sujet du site"
 slug: informations-au-sujet-du-site
-date: 2024-06-21T17:24:26Z
+date: 2024-06-21
 useRelativeCover: true
 cover: cover.webp
 tags:
-    - infos
+  - infos
 categories:
-    - News
+  - News
 toc: false
 draft: false
 ---

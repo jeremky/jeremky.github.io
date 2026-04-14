@@ -1,7 +1,7 @@
 ---
 title: "Tinyauth : une solution simple d'authentification web"
 slug: tinyauth-une-solution-simple-authentification-web
-date: 2025-07-27T21:57:20.987Z
+date: 2025-07-27
 useRelativeCover: true
 cover: cover.webp
 tags:
@@ -49,7 +49,7 @@ networks:
 
 Le fichier `tinyauth.env` associé :
 
-```bash
+```txt
 SECRET=<clé_secrète>
 APP_URL=https://tinyauth.mondomaine.fr
 DISABLE_CONTINUE=true
@@ -166,7 +166,7 @@ Dans cet exemple, nous allons utiliser GitHub OAuth. La documentation de Tinyaut
 
 Une fois votre configuration en place, vous devez modifier votre fichier `tinyauth.env` pour y ajouter les variables suivantes :
 
-```bash
+```txt
 OAUTH_WHITELIST=user1@mail.com,user2@mail.com
 GITHUB_CLIENT_ID=<id_app>
 GITHUB_CLIENT_SECRET=<secret_key>
@@ -194,30 +194,30 @@ Pour cela, vous devez d'abord permettre à Tinyauth de pouvoir lire les labels. 
 
 ```yml
 volumes:
-      - /var/run/docker.sock:/var/run/docker.sock:ro
+  - /var/run/docker.sock:/var/run/docker.sock:ro
 ```
 
 - Pour Podman :
 
 ```yml
 volumes:
-      - /var/run/user/1000/podman/podman.sock:/var/run/docker.sock:ro
+  - /var/run/user/1000/podman/podman.sock:/var/run/docker.sock:ro
 ```
 
 Ensuite, pour chaque application, ajoutez les labels suivants à votre fichier `compose.yml` :
 
 ```yml
 labels:
-      tinyauth.domain: mondomaine.fr
-      tinyauth.oauth.whitelist: user1@mail.com
+  tinyauth.domain: mondomaine.fr
+  tinyauth.oauth.whitelist: user1@mail.com
 ```
 
 Si vous utilisez des comptes locaux :
 
 ```yml
 labels:
-      tinyauth.domain: mondomaine.fr
-      tinyauth.users: testuser
+  tinyauth.domain: mondomaine.fr
+  tinyauth.users: testuser
 ```
 
 Pensez à redéployer vos applications pour prise en compte. Si l'utilisateur ne figure pas dans la liste des utilisateurs autorisés, il sera alors renvoyé sur la page de Tinyauth.

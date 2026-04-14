@@ -1,7 +1,7 @@
 ---
 title: "Utilisation de Docker Compose"
 slug: utilisation-de-docker-compose
-date: 2023-08-24T18:20:29Z
+date: 2023-08-24
 useRelativeCover: true
 cover: cover.webp
 tags:
@@ -14,7 +14,7 @@ draft: false
 
 Après avoir succinctement présenté Docker, on passe à son acolyte, Docker compose.
 
-*[Docker Compose](https://fr.wikipedia.org/wiki/Docker_(logiciel)) est un logiciel pour définir et exécuter des applications à partir de multiples conteneurs. Il est basé sur un fichier YAML qui permet de définir les services et les paramètres de leurs créations et ainsi de les démarrer par une commande unique. La V1 avait son propre exécutable (docker-compose) alors que la V2 est un plugin de Docker, exécutable par la commande docker compose*
+_[Docker Compose](<https://fr.wikipedia.org/wiki/Docker_(logiciel)>) est un logiciel pour définir et exécuter des applications à partir de multiples conteneurs. Il est basé sur un fichier YAML qui permet de définir les services et les paramètres de leurs créations et ainsi de les démarrer par une commande unique. La V1 avait son propre exécutable (docker-compose) alors que la V2 est un plugin de Docker, exécutable par la commande docker compose_
 
 Si vous avez suivi l'installation de l'article précédent, c'est la V1 qui a été installée. La V2 offre surtout le support intégré des solutions Amazon ECS et Microsoft ACI. Les déploiements que j'effectue se font en local, la V1 est donc suffisante pour mon utilisation.
 
@@ -70,7 +70,7 @@ Toujours pour notre exemple avec Nextcloud, voici le contenu :
 
 Fichier `nextcloud-db.env` :
 
-```bash
+```txt
 POSTGRES_PASSWORD=Password
 POSTGRES_USER=nextcloud
 POSTGRES_DB=nextcloud
@@ -78,7 +78,7 @@ POSTGRES_DB=nextcloud
 
 Fichier `nextcloud.env` :
 
-```bash
+```txt
 PUID=1002
 PGID=1002
 TZ=Europe/Paris

@@ -1,13 +1,13 @@
 ---
 title: "Vi n'a pas dit son dernier mot"
 slug: vi-na-pas-dit-son-dernier-mot
-date: 2024-05-01T17:12:08Z
+date: 2024-05-01
 useRelativeCover: true
 cover: cover.webp
 tags:
-    - linux
+  - linux
 categories:
-    - Tutos
+  - Tutos
 toc: true
 draft: false
 ---
@@ -29,33 +29,33 @@ Une fois Vim installé, la commande vi devient un alias qui pointe vers ce derni
 
 Voici un tableau contenant les commandes principales de Vi :
 
-| Commande | Description |
-| -------- | ------- |
-| Esc | Quitter le mode édition et repasser en mode commande |
-| i   | Entrer en mode insertion |
-| a   | Entrer en mode insertion après le curseur |
-| A   | Entrer en mode insertion à la fin de la ligne |
-| D   | Effacer le reste de la ligne à partir du curseur |
-| C   | Effacer le reste de la ligne et entrer en mode édition |
-| cw  | Effacer le mot et entrer en mode édition |
-| u   | Annuler la dernière action |
-| :w  | Enregistrer le fichier |
-| :wq | Enregistrer le fichier et quitter |
-| :q! | Quitter sans enregistrer les modifications |
-| dd  | Supprimer/couper la ligne courante |
-| yy  | Copier la ligne courante |
-| p   | Coller sous la ligne courante |
-| P   | Coller avant la ligne courante |
-| w   | Aller au mot suivant |
-| b   | Aller au mot précédent |
-| $   | Aller à la fin de la ligne |
-| 0   | Aller au début de la ligne |
-| gg  | Aller au début du fichier |
-| G   | Aller à la fin du fichier |
-| /   | Suivi d'une saisie d'une chaîne à rechercher |
-| n   | Rechercher l’occurrence suivante |
-| N   | Rechercher l’occurrence précédente |
-| *   | Rechercher les occurrences d'une chaîne à la position du curseur. * pour suivant |
+| Commande | Description                                                                       |
+| -------- | --------------------------------------------------------------------------------- |
+| Esc      | Quitter le mode édition et repasser en mode commande                              |
+| i        | Entrer en mode insertion                                                          |
+| a        | Entrer en mode insertion après le curseur                                         |
+| A        | Entrer en mode insertion à la fin de la ligne                                     |
+| D        | Effacer le reste de la ligne à partir du curseur                                  |
+| C        | Effacer le reste de la ligne et entrer en mode édition                            |
+| cw       | Effacer le mot et entrer en mode édition                                          |
+| u        | Annuler la dernière action                                                        |
+| :w       | Enregistrer le fichier                                                            |
+| :wq      | Enregistrer le fichier et quitter                                                 |
+| :q!      | Quitter sans enregistrer les modifications                                        |
+| dd       | Supprimer/couper la ligne courante                                                |
+| yy       | Copier la ligne courante                                                          |
+| p        | Coller sous la ligne courante                                                     |
+| P        | Coller avant la ligne courante                                                    |
+| w        | Aller au mot suivant                                                              |
+| b        | Aller au mot précédent                                                            |
+| $        | Aller à la fin de la ligne                                                        |
+| 0        | Aller au début de la ligne                                                        |
+| gg       | Aller au début du fichier                                                         |
+| G        | Aller à la fin du fichier                                                         |
+| /        | Suivi d'une saisie d'une chaîne à rechercher                                      |
+| n        | Rechercher l'occurrence suivante                                                  |
+| N        | Rechercher l'occurrence précédente                                                |
+| \*       | Rechercher les occurrences d'une chaîne à la position du curseur. \* pour suivant |
 
 La liste est loin d'être exhaustive, mais vous avez déjà une bonne base pour éditer efficacement.
 
@@ -73,7 +73,7 @@ La personnalisation de Vi se fait dans un fichier que l'on nommera `vimrc` à pl
 
 Le plus simple, c'est que vous récupériez mon fichier `vimrc` :
 
-{{< code language="vim" title="Fichier vimrc" id="1" expand="Afficher" collapse="Cacher" isCollapsed="true" >}}
+```vim
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Configuration de Vim
 
@@ -127,7 +127,6 @@ if $TERM == 'tmux-256color'
   set mouse=a
 endif
 
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Explorateur de fichiers
 
@@ -144,7 +143,6 @@ aug netrw_close
   au WinEnter * if winnr('$') == 1 && getbufvar(winbufnr(winnr()), "&filetype") == "netrw"|q|endif
 aug END
 
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Barre de statut
 
@@ -158,7 +156,6 @@ set statusline+=\ %P
 set statusline+=\ \|
 set statusline+=\ %l
 set statusline+=\:%c
-
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Mapping
@@ -207,7 +204,6 @@ endfunction
 nnoremap <S-TAB> <C-W>w
 nnoremap <TAB> :tabnext<CR>
 
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Theme
 
@@ -219,7 +215,7 @@ if filereadable("/etc/vim/colors/onehalfdark.vim")
   set termguicolors
   set noshowmode
 endif
-{{< /code >}}
+```
 
 Pour le mapping des touches, voici ce qui est en place grâce à ce fichier :
 
@@ -243,7 +239,7 @@ Pour ajouter vos thèmes, il suffit de les déposer ici : `/home/votre_user/.vim
 
 Ayant apporté quelques modifications dessus, je vous partage ma version modifiée directement ici :
 
-{{< code language="vim" title="Fichier onehalfdark.vim" id="2" expand="Afficher" collapse="Cacher" isCollapsed="true" >}}
+```vim
 set background=dark
 highlight clear
 syntax reset
@@ -399,7 +395,7 @@ call s:h("Ignore", s:fg, "", "")
 call s:h("Error", s:red, s:gutter_bg, "")
 call s:h("Todo", s:purple, "", "")
 " }
-{{< /code >}}
+```
 
 Le fichier `vimrc` que j'ai mis à disposition plus haut chargera automatiquement ce thème si le fichier `onehalfdark.vim` est présent et que votre terminal est compatible.
 
