@@ -1,7 +1,7 @@
 ---
 title: "Personnalisation du prompt Linux"
 slug: personnalisation-du-prompt-linux
-date: 2024-05-02T17:13:12Z
+date: 2024-05-02
 useRelativeCover: true
 cover: cover.webp
 tags:
@@ -191,60 +191,60 @@ zip() { for file in "$@"; do /usr/bin/zip -r "${file%/}.zip" "$file" ; done ;}
 
 Les aliases de base :
 
-| Commande  | Description |
-| --------- | --------- |
-| l         | Liste les fichiers et les répertoires |
-| la        | Même chose que l, dont les cachés |
-| lr        | Liste les fichiers et les répertoires en récursif |
-| lra       | Même chose que lr, dont les cachés |
-| lrt       | Liste les fichiers et les répertoires dans l'ordre chronologique |
-| lrta      | Même chose que lrt, dont les cachés |
-| grep      | Ajoute la gestion de la couleur à grep |
-| zgrep     | Même chose pour zgrep (grep dans les fichiers compressés) |
-| psp       | Suivi d'une chaîne, permet de rechercher rapidement un process |
-| iostat    | Commande iostat, mais plus lisible |
-| ifconfig  | Utilise le programme ip (ifconfig n'existe plus sous Debian) |
-| ss        | Remplaçant de netstat, mais épuré |
+| Commande  | Description                                                          |
+| --------- | -------------------------------------------------------------------- |
+| l         | Liste les fichiers et les répertoires                                |
+| la        | Même chose que l, dont les cachés                                    |
+| lr        | Liste les fichiers et les répertoires en récursif                    |
+| lra       | Même chose que lr, dont les cachés                                   |
+| lrt       | Liste les fichiers et les répertoires dans l'ordre chronologique     |
+| lrta      | Même chose que lrt, dont les cachés                                  |
+| grep      | Ajoute la gestion de la couleur à grep                               |
+| zgrep     | Même chose pour zgrep (grep dans les fichiers compressés)            |
+| psp       | Suivi d'une chaîne, permet de rechercher rapidement un process       |
+| iostat    | Commande iostat, mais plus lisible                                   |
+| ifconfig  | Utilise le programme ip (ifconfig n'existe plus sous Debian)         |
+| ss        | Remplaçant de netstat, mais épuré                                    |
 | ssp       | Suivi d'une chaîne, permet de rechercher rapidement un port d'écoute |
-| md5       | Suivi d'une chaîne, pour connaître rapidement un md5 |
-| pubip     | Affiche rapidement l'IP publique de la machine |
-| df        | Commande df, mais sans les volumes temporaires |
-| halt      | Permet l'arrêt de la machine et non seulement le système |
-| reboot    | Ajoute sudo devant la commande reboot |
-| genkey    | Génère une clé au format ed25519 (plus sécurisé que rsa) |
-| genkeyrsa | Génère une clé au format rsa en 4096 bits |
-| copykey   | Parce que je me rappelle jamais de la commande ssh-copy-id |
+| md5       | Suivi d'une chaîne, pour connaître rapidement un md5                 |
+| pubip     | Affiche rapidement l'IP publique de la machine                       |
+| df        | Commande df, mais sans les volumes temporaires                       |
+| halt      | Permet l'arrêt de la machine et non seulement le système             |
+| reboot    | Ajoute sudo devant la commande reboot                                |
+| genkey    | Génère une clé au format ed25519 (plus sécurisé que rsa)             |
+| genkeyrsa | Génère une clé au format rsa en 4096 bits                            |
+| copykey   | Parce que je me rappelle jamais de la commande ssh-copy-id           |
 
 Les aliases actifs uniquement dans le cas où les applications sont installées :
 
-| Commande  | Description |
-| --------- | -------- |
-| apt       | Ajoute sudo et la commande `upgrade` |
-| diff      | Remplace la commande par colordiff, pour une meilleure lisibilité |
-| df        | Remplace la commande par duf, bien plus agréable visuellement |
-| fd        | Outil équivalent à find mais bien plus simple à utiliser |
-| fzf       | Outil de recherche avancé |
-| top       | Remplace la commande top par htop |
-| ncdu      | L'équivalent de l'outil Treesize sous Windows |
-| rg        | Un grep récursif, bien plus lisible que le grep de base |
-| clock     | Lance tty-clock, un petit outil pour afficher l'heure |
-| ufw       | Un Firewall facile à utiliser, ajoute sudo devant |
-| ufws      | Affiche le status de ufw, avec les règles numérotées |
-| vi        | Adapte vi selon votre choix d'éditeur (Vim, Neovim) |
-| cd        | Utilise zoxide, un cd avancé |
+| Commande | Description                                                       |
+| -------- | ----------------------------------------------------------------- |
+| apt      | Ajoute sudo et la commande `upgrade`                              |
+| diff     | Remplace la commande par colordiff, pour une meilleure lisibilité |
+| df       | Remplace la commande par duf, bien plus agréable visuellement     |
+| fd       | Outil équivalent à find mais bien plus simple à utiliser          |
+| fzf      | Outil de recherche avancé                                         |
+| top      | Remplace la commande top par htop                                 |
+| ncdu     | L'équivalent de l'outil Treesize sous Windows                     |
+| rg       | Un grep récursif, bien plus lisible que le grep de base           |
+| clock    | Lance tty-clock, un petit outil pour afficher l'heure             |
+| ufw      | Un Firewall facile à utiliser, ajoute sudo devant                 |
+| ufws     | Affiche le status de ufw, avec les règles numérotées              |
+| vi       | Adapte vi selon votre choix d'éditeur (Vim, Neovim)               |
+| cd       | Utilise zoxide, un cd avancé                                      |
 
 Et enfin, les fonctions :
 
-| Commande | Description |
-| -------- | ------- |
-| cleanlog | Supprimer les logs systemd en spécifiant le nombre de jours |
-| cpsave   | Créer une copie en date.old d'un fichier ou d'un dossier spécifié |
-| gencert  | Générer un certificat en précisant le nom de domaine en paramètre |
-| newuser  | Créer un compte de service (pas de home ni de mot de passe) |
+| Commande | Description                                                                |
+| -------- | -------------------------------------------------------------------------- |
+| cleanlog | Supprimer les logs systemd en spécifiant le nombre de jours                |
+| cpsave   | Créer une copie en date.old d'un fichier ou d'un dossier spécifié          |
+| gencert  | Générer un certificat en précisant le nom de domaine en paramètre          |
+| newuser  | Créer un compte de service (pas de home ni de mot de passe)                |
 | tarc     | Créer un tar.gz d'un ou plusieurs fichiers ou dossiers passés en paramètre |
-| tarx     | Pour extraire un ou plusieurs tar.gz passés en paramètre |
-| testdisk | Tester la vitesse du disque courant en créant un fichier |
-| zip      | Facilite l'utilisation de la commande zip (zip \<fichier>) |
+| tarx     | Pour extraire un ou plusieurs tar.gz passés en paramètre                   |
+| testdisk | Tester la vitesse du disque courant en créant un fichier                   |
+| zip      | Facilite l'utilisation de la commande zip (zip \<fichier>)                 |
 
 ## Petit bonus : les aliases de scripts
 

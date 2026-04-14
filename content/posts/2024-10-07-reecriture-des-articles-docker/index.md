@@ -1,7 +1,7 @@
 ---
 title: "Réécriture des articles au sujet de Docker"
 slug: reecriture-des-articles-docker
-date: 2024-10-07T10:38:36+02:00
+date: 2024-10-07
 useRelativeCover: true
 cover: cover.webp
 tags:

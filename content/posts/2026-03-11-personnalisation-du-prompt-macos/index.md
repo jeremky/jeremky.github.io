@@ -1,7 +1,7 @@
 ---
 title: "Personnalisation du prompt MacOS"
 slug: personnalisation-du-prompt-macos
-date: 2026-03-11T19:33:30.240Z
+date: 2026-03-11
 useRelativeCover: true
 cover: cover.webp
 tags:
@@ -195,46 +195,46 @@ convweb() { for file in "$@" ; do cwebp -q 100 "$file" -o "${file%.*}.webp" && r
 
 Les aliases de base :
 
-| Commande | Description |
-| -------- | ------- |
-| l        | Liste les fichiers et les répertoires |
-| la       | Même chose que l, dont les cachés |
-| lr       | Liste les fichiers et les répertoires en récursif |
-| lra      | Même chose que lr, dont les cachés |
+| Commande | Description                                                      |
+| -------- | ---------------------------------------------------------------- |
+| l        | Liste les fichiers et les répertoires                            |
+| la       | Même chose que l, dont les cachés                                |
+| lr       | Liste les fichiers et les répertoires en récursif                |
+| lra      | Même chose que lr, dont les cachés                               |
 | lrt      | Liste les fichiers et les répertoires dans l'ordre chronologique |
-| lrta     | Même chose que lrt, dont les cachés |
-| grep     | Ajoute la gestion de la couleur à grep |
-| zgrep    | Même chose pour zgrep (grep dans les fichiers compressés) |
-| psp      | Suivi d'une chaîne, permet de rechercher rapidement un process |
-| genkey   | Génère une clé au format ed25519 (plus sécurisé que rsa) |
-| ifconfig | Utilise le programme ip (ifconfig n'existe plus sous Debian) |
-| md5      | Suivi d'une chaîne, pour connaître rapidement un md5 |
-| pubip    | Affiche rapidement l'IP publique de la machine |
-| df       | Commande df, mais sans les volumes temporaires |
-| rmds     | Suppression recursive des fichiers ".DS_Store" |
-| rmdot    | Suppression recursive des fichiers "._" |
-| top      | Commande top filtrée pour le user |
-| vi       | vim : vi amélioré avec ouverture multiple |
+| lrta     | Même chose que lrt, dont les cachés                              |
+| grep     | Ajoute la gestion de la couleur à grep                           |
+| zgrep    | Même chose pour zgrep (grep dans les fichiers compressés)        |
+| psp      | Suivi d'une chaîne, permet de rechercher rapidement un process   |
+| genkey   | Génère une clé au format ed25519 (plus sécurisé que rsa)         |
+| ifconfig | Utilise le programme ip (ifconfig n'existe plus sous Debian)     |
+| md5      | Suivi d'une chaîne, pour connaître rapidement un md5             |
+| pubip    | Affiche rapidement l'IP publique de la machine                   |
+| df       | Commande df, mais sans les volumes temporaires                   |
+| rmds     | Suppression recursive des fichiers ".DS_Store"                   |
+| rmdot    | Suppression recursive des fichiers ".\_"                         |
+| top      | Commande top filtrée pour le user                                |
+| vi       | vim : vi amélioré avec ouverture multiple                        |
 
 Les aliases actifs uniquement dans le cas où les applications sont installées :
 
-| Commande  | Description |
-| --------- | -------- |
-| diff      | Remplace la commande par colordiff, pour une meilleure lisibilité |
-| df        | Remplace la commande par duf, bien plus agréable visuellement |
-| fzf       | Outil de recherche avancé |
-| ncdu      | L'équivalent de l'outil Treesize sous Windows |
-| rg        | Un grep récursif, bien plus lisible que le grep de base |
+| Commande | Description                                                       |
+| -------- | ----------------------------------------------------------------- |
+| diff     | Remplace la commande par colordiff, pour une meilleure lisibilité |
+| df       | Remplace la commande par duf, bien plus agréable visuellement     |
+| fzf      | Outil de recherche avancé                                         |
+| ncdu     | L'équivalent de l'outil Treesize sous Windows                     |
+| rg       | Un grep récursif, bien plus lisible que le grep de base           |
 
 Et enfin, les fonctions :
 
-| Commande | Description |
-| -------- | ------- |
-| cpsave   | Créer une copie en date.old d'un fichier ou d'un dossier spécifié |
+| Commande | Description                                                                |
+| -------- | -------------------------------------------------------------------------- |
+| cpsave   | Créer une copie en date.old d'un fichier ou d'un dossier spécifié          |
 | tarc     | Créer un tar.gz d'un ou plusieurs fichiers ou dossiers passés en paramètre |
-| tarx     | Pour extraire un ou plusieurs tar.gz passés en paramètre |
-| zip      | Facilite l'utilisation de la commande zip (zip \<fichier>) |
-| convweb  | Transforme une image passée en paramètre au format webp |
+| tarx     | Pour extraire un ou plusieurs tar.gz passés en paramètre                   |
+| zip      | Facilite l'utilisation de la commande zip (zip \<fichier>)                 |
+| convweb  | Transforme une image passée en paramètre au format webp                    |
 
 ## Petit bonus : les aliases de scripts
 
@@ -256,4 +256,4 @@ Via ce petit bloc, un alias sera automatiquement créé pour chaque script qu'il
 
 ## Conclusion
 
-Avec ces 2 fichiers, vous avez déjà un base solide pour considérablement améliorer l'usage du terminal sous MacOS. Dans un prochain article, je vous présenterai comment utiliser Brew, un gestionnaire de paquets similaire à apt.
+Avec ces 2 fichiers, vous avez déjà une base solide pour considérablement améliorer l'usage du terminal sous MacOS. Dans un prochain article, je vous présenterai comment utiliser Brew, un gestionnaire de paquets similaire à apt sous Debian.

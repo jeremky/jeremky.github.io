@@ -1,7 +1,7 @@
 ---
 title: "Monter un serveur Teeworlds"
 slug: monter-un-serveur-teeworlds
-date: 2023-08-30T17:03:15Z
+date: 2023-08-30
 useRelativeCover: true
 cover: cover.webp
 tags:
@@ -13,7 +13,7 @@ toc: false
 draft: false
 ---
 
-D'après [Wikipedia](https://fr.wikipedia.org/wiki/Teeworlds), *Teeworlds, anciennement Teewars, est un jeu de tir TPS (third person shooter) multijoueur en 2D. Le joueur y incarne une petite créature ronde, le tee. A l'aide de plusieurs armes différentes, le joueur doit parcourir différentes cartes à la recherche de ses adversaires.*
+D'après [Wikipedia](https://fr.wikipedia.org/wiki/Teeworlds), _Teeworlds, anciennement Teewars, est un jeu de tir TPS (third person shooter) multijoueur en 2D. Le joueur y incarne une petite créature ronde, le tee. A l'aide de plusieurs armes différentes, le joueur doit parcourir différentes cartes à la recherche de ses adversaires._
 
 {{< image src="screen.webp" style="border-radius: 8px;" >}}
 
@@ -42,7 +42,7 @@ volumes:
 
 Et son fichier de configuration `teeworlds.env` :
 
-```bash
+```txt
 TW_sv_name=Deathmatch Server
 TW_sv_max_clients=8
 TW_sv_register=1

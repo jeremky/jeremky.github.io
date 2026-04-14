@@ -1,7 +1,7 @@
 ---
 title: "Ouverture du site"
 slug: ouverture-du-site
-date: 2023-08-21T15:34:46Z
+date: 2023-08-21
 useRelativeCover: true
 cover: cover.webp
 tags:

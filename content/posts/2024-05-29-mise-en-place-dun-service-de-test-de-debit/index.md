@@ -1,7 +1,7 @@
 ---
 title: "Mise en place d'un service de test de débit"
 slug: mise-en-place-dun-service-de-test-de-debit
-date: 2024-05-29T17:18:37Z
+date: 2024-05-29
 useRelativeCover: true
 cover: cover.webp
 tags:
@@ -54,7 +54,7 @@ volumes:
 
 Et son fichier `librespeed.env` :
 
-```bash
+```txt
 PUID=1000
 PGID=1000
 TZ=Europe/Paris

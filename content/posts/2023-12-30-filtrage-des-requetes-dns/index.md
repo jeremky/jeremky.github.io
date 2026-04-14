@@ -1,7 +1,7 @@
 ---
 title: "Filtrage des requêtes DNS"
 slug: filtrage-des-requetes-dns
-date: 2023-12-30T17:10:13Z
+date: 2023-12-30
 useRelativeCover: true
 cover: cover.webp
 tags:
@@ -48,11 +48,11 @@ services:
 
 Et son fichier de configuration `adguard.env` :
 
-```bash
+```txt
 TZ=Europe/Paris
 ```
 
-Petite particularité par rapport à cette configuration : le mode réseau utilisé par Docker est en mode *host*. Cela signifie que l'intégralité des ports sera ouverte sur l'hôte, préférable pour s'assurer du bon fonctionnement du serveur DHCP.
+Petite particularité par rapport à cette configuration : le mode réseau utilisé par Docker est en mode _host_. Cela signifie que l'intégralité des ports sera ouverte sur l'hôte, préférable pour s'assurer du bon fonctionnement du serveur DHCP.
 
 Une fois votre image Docker déployée, vous pouvez accéder à l'interface d'administration directement à l'adresse `http://<IP>:3000`. La configuration étant intuitive, je vous laisse vous balader dans l'application, dont l'interface est très propre et complète.
 
@@ -71,9 +71,13 @@ NextDNS est à mon sens le meilleur compromis entre la personnalisation et la si
 Avant de créer un compte chez eux, il est possible de tester leur service une semaine. Un petit tour de leur interface :
 
 {{< image src="confidentialite.webp" style="border-radius: 8px;" >}}
-***
+
+---
+
 {{< image src="securite.webp" style="border-radius: 8px;" >}}
-***
+
+---
+
 {{< image src="statistiques.webp" style="border-radius: 8px;" >}}
 
 A noter que vous pouvez conserver l'historique ou non des url appelées, choisir la rétention, et surtout, le lieu où sont conservées les logs (US, Europe, ou la Suisse)

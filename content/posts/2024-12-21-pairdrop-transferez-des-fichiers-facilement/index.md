@@ -1,7 +1,7 @@
 ---
 title: "Pairdrop : transférez des fichiers facilement"
 slug: pairdrop-transferez-des-fichiers-facilement
-date: 2024-12-21T18:07:50.000Z
+date: 2024-12-21
 useRelativeCover: true
 cover: cover.webp
 tags:
@@ -45,7 +45,7 @@ networks:
 
 Et son fichier `pairdrop.env` :
 
-```bash
+```txt
 PUID=1000
 PGID=1000
 TZ=Europe/Paris

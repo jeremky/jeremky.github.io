@@ -1,7 +1,7 @@
 ---
 title: "Neovim : un fork de Vim moderne"
 slug: neovim-un-fork-de-vim-moderne
-date: 2025-01-25T19:41:07.554Z
+date: 2025-01-25
 useRelativeCover: true
 cover: cover.webp
 tags:
@@ -14,7 +14,7 @@ draft: false
 
 Je vous avais présenté mon éditeur en mode terminal favoris, Vim. Dans [cet article](/posts/vi-na-pas-dit-son-dernier-mot/), j'indiquais que je ne voulais pas dépendre de plugins additionnels... Mais mon regard à changé depuis. Et quitte à refaire une configuration complète, je me suis dit qu'il était temps de passer à Neovim.
 
-*[Neovim](https://neovim.io/) est un fork qui vise à améliorer l'extensibilité et la maintenabilité de Vim. Neovim partage la même syntaxe de configuration avec Vim ; par conséquent, le même fichier de configuration peut être utilisé avec les deux éditeurs (à quelques différences près). À partir de la version 0.1, sortie en décembre 2015, Neovim est compatible avec la quasi-totalité des fonctionnalités de Vim.*
+_[Neovim](https://neovim.io/) est un fork qui vise à améliorer l'extensibilité et la maintenabilité de Vim. Neovim partage la même syntaxe de configuration avec Vim ; par conséquent, le même fichier de configuration peut être utilisé avec les deux éditeurs (à quelques différences près). À partir de la version 0.1, sortie en décembre 2015, Neovim est compatible avec la quasi-totalité des fonctionnalités de Vim._
 
 ## Pourquoi passer à Neovim ?
 
@@ -48,7 +48,7 @@ fi
 
 Comme pour Vim, je vous partage ici une configuration dans un fichier unique. Ce fichier sera à placer ici : `~./.config/nvim/init.vim`.
 
-{{< code language="vim" title="Fichier init.vim" id="1" expand="Afficher" collapse="Cacher" isCollapsed="true" >}}
+```vim
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Configuration de Neovim
 
@@ -104,7 +104,6 @@ if $TERM == 'tmux-256color'
   set clipboard=unnamedplus
   set mouse=a
 endif
-
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Mapping
@@ -172,7 +171,6 @@ endfunction
 " Changement de document
 nnoremap <TAB> :tabnext<CR>
 nnoremap <S-TAB> <C-W>w
-
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins
@@ -254,7 +252,7 @@ if filereadable(expand("~/.local/share/nvim/plugged/vim-gitgutter/autoload/gitgu
   nnoremap <C-g> :GitGutterToggle <CR>
   let gitgutter_enabled = 0
 endif
-{{< /code >}}
+```
 
 Le fichier est divisé en plusieurs sections :
 

@@ -1,7 +1,7 @@
 ---
 title: "Vim / Neovim : choisissez votre configuration"
 slug: vim-neovim-choisissez-votre-configuration
-date: 2025-03-14T16:29:39.000Z
+date: 2025-03-14
 useRelativeCover: true
 cover: cover.webp
 tags:
@@ -22,7 +22,7 @@ Dans cet article, nous allons voir différentes configurations pour Vim et Neovi
 
 Si vous voulez utiliser Vim en tant qu'éditeur simple, que vous voulez un fichier unique, sans plugins, mais avec tout de même quelques fonctionnalités, ainsi que le thème OneHalfDark, voici le fichier `.vimrc`, à créer dans votre dossier personnel :
 
-{{< code language="vim" title="Fichier .vimrc" id="1" expand="Afficher" collapse="Cacher" isCollapsed="true" >}}
+```vim
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Configuration de Vim
 
@@ -126,7 +126,6 @@ endfunction
 nnoremap <S-TAB> <C-W>w
 nnoremap <TAB> :tabnext<CR>
 
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Explorateur de fichiers
 
@@ -143,7 +142,6 @@ aug netrw_close
   au WinEnter * if winnr('$') == 1 && getbufvar(winbufnr(winnr()), "&filetype") == "netrw"|q|endif
 aug END
 
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Barre de statut
 
@@ -157,7 +155,6 @@ set statusline+=\ %P
 set statusline+=\ \|
 set statusline+=\ %l
 set statusline+=\:%c
-
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Theme OneHalfDark
@@ -297,7 +294,7 @@ call s:h("Ignore", s:fg, "", "")
 call s:h("Error", s:red, s:gutter_bg, "")
 call s:h("Todo", s:purple, "", "")
 " }
-{{< /code >}}
+```
 
 Ouais... Le fichier est assez costaud, mais cela permet de ne pas être dépendant de fichiers supplémentaires.
 
@@ -311,7 +308,7 @@ sudo apt install vim
 
 La configuration ci-dessous est celle que j'ai présenté dans l'article sur [Neovim](/posts/neovim-un-fork-de-vim-moderne/), mais adaptée à Vim. Là encore, collez ce contenu dans un fichier nommé `.vimrc` dans votre dossier personnel :
 
-{{< code language="vim" title="Fichier .vimrc avec plugins" id="2" expand="Afficher" collapse="Cacher" isCollapsed="true" >}}
+```vim
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Configuration de Vim
 
@@ -365,7 +362,6 @@ if $TERM == 'tmux-256color'
   set mouse=a
 endif
 
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Mapping
 
@@ -417,7 +413,6 @@ endfunction
 " Changement de document
 nnoremap <S-TAB> <C-W>w
 nnoremap <TAB> :tabnext<CR>
-
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins
@@ -499,7 +494,7 @@ if filereadable(expand("~/.vim/plugged/vim-gitgutter/autoload/gitgutter.vim"))
   nnoremap <C-g> :GitGutterToggle <CR>
   let gitgutter_enabled = 0
 endif
-{{< /code >}}
+```
 
 Via cette configuration, vous disposerez d'une meilleure compréhension du code, un explorateur de fichiers avancé, une gestion de Git, de la complétion...
 
@@ -573,7 +568,7 @@ Ok, c'était finalement assez dense comme article. Mais vous avez maintenant le 
 - Un éditeur de texte complet, sans se prendre la tête pour l'installation et la configuration
 - Un IDE ultra performant dans votre terminal
 
-Perso, j'ai combiné les options 2 et 3 : un Vim simple mais avec quelques fonctionnaliés sympa pour l'édition de fichiers système et un Neovim hyper complet pour l'écriture de scripts.
+Perso, j'ai combiné les options 2 et 3 : un Vim simple mais avec quelques fonctionnalités sympa pour l'édition de fichiers système et un Neovim hyper complet pour l'écriture de scripts.
 
 Mais je garde l'option 1 sous le coude : elle a le mérite d'être simple à déposer sur certaines machines sans avoir besoin d'y ajouter de dépendances.
 

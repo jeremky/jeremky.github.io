@@ -1,7 +1,7 @@
 ---
 title: "tmux : multiplexeur de terminaux"
 slug: tmux-multiplexeur-de-terminaux
-date: 2025-01-22T22:06:43.470Z
+date: 2025-01-22
 useRelativeCover: true
 cover: cover.webp
 tags:
@@ -38,6 +38,7 @@ De cette manière, il vous suffit de taper `tmux` pour se rattacher au dernier t
 ## Fichier de configuration
 
 Au lancement de tmux, ce dernier va charger un fichier de configuration si présent à l'un de ces emplacements :
+
 - soit dans `~/.tmux.conf`
 - soit dans `~./.config/tmux/tmux.conf`
 
@@ -191,20 +192,20 @@ Ce fichier de configuration ajoute les fonctionnalités suivantes :
 
 Voici les quelques raccourcis que j'utilise principalement :
 
-| Raccourcis | Fonction |
-| -------- | ------- |
-| Ctrl + x         | Split verticalement l'écran |
-| Ctrl + w         | Split horizontalement l'écran |
-| Ctrl + espace    | Active le mode Préfixe de tmux |
-| Ctrl + espace, c | Créé un nouvel onglet |
-| Ctrl + n         | Onglet suivant |
-| Ctrl + p         | Onglet précédent |
+| Raccourcis       | Fonction                                     |
+| ---------------- | -------------------------------------------- |
+| Ctrl + x         | Split verticalement l'écran                  |
+| Ctrl + w         | Split horizontalement l'écran                |
+| Ctrl + espace    | Active le mode Préfixe de tmux               |
+| Ctrl + espace, c | Créé un nouvel onglet                        |
+| Ctrl + n         | Onglet suivant                               |
+| Ctrl + p         | Onglet précédent                             |
 | Ctrl + espace, S | Synchronise la saisie dans tous les panneaux |
-| Ctrl + espace, s | Désactive la synchronisation de la saisie |
-| Ctrl + v         | Coller la selection |
-| Ctrl + espace, t | Affiche une horloge |
-| Ctrl + Flèches   | naviguer entre les panneaux |
-| Alt + Flèches    | Ajuster la taille des panneaux |
+| Ctrl + espace, s | Désactive la synchronisation de la saisie    |
+| Ctrl + v         | Coller la selection                          |
+| Ctrl + espace, t | Affiche une horloge                          |
+| Ctrl + Flèches   | naviguer entre les panneaux                  |
+| Alt + Flèches    | Ajuster la taille des panneaux               |
 
 Vous pouvez également utiliser le clic droit de la souris pour créer des panneaux, ou changer d'onglet.
 
