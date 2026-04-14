@@ -211,8 +211,8 @@ Les aliases de base :
 | md5      | Suivi d'une chaîne, pour connaître rapidement un md5             |
 | pubip    | Affiche rapidement l'IP publique de la machine                   |
 | df       | Commande df, mais sans les volumes temporaires                   |
-| rmds     | Suppression recursive des fichiers ".DS_Store"                   |
-| rmdot    | Suppression recursive des fichiers ".\_"                         |
+| rmds     | Suppression recursive des fichiers `.DS_Store`                   |
+| rmdot    | Suppression recursive des fichiers `._`                          |
 | top      | Commande top filtrée pour le user                                |
 | vi       | vim : vi amélioré avec ouverture multiple                        |
 
@@ -233,7 +233,7 @@ Et enfin, les fonctions :
 | cpsave   | Créer une copie en date.old d'un fichier ou d'un dossier spécifié          |
 | tarc     | Créer un tar.gz d'un ou plusieurs fichiers ou dossiers passés en paramètre |
 | tarx     | Pour extraire un ou plusieurs tar.gz passés en paramètre                   |
-| zip      | Facilite l'utilisation de la commande zip (zip \<fichier>)                 |
+| zip      | Facilite l'utilisation de la commande zip (`zip <fichier>`)                |
 | convweb  | Transforme une image passée en paramètre au format webp                    |
 
 ## Petit bonus : les aliases de scripts
