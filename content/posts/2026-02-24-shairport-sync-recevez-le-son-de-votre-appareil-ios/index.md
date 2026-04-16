@@ -1,7 +1,7 @@
 ---
 title: "Shairport Sync : recevez le son de votre appareil iOS"
 slug: shairport-sync-recevez-le-son-de-votre-appareil-ios
-date: 2026-02-24
+date: 2026-02-24T21:47:51+01:00
 useRelativeCover: true
 cover: cover.webp
 tags:

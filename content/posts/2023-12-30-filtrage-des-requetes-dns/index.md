@@ -1,7 +1,7 @@
 ---
 title: "Filtrage des requêtes DNS"
 slug: filtrage-des-requetes-dns
-date: 2023-12-30
+date: 2023-12-30T18:10:13+01:00
 useRelativeCover: true
 cover: cover.webp
 tags:

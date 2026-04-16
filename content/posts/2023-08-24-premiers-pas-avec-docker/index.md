@@ -1,7 +1,7 @@
 ---
 title: "Premiers pas avec Docker"
 slug: premiers-pas-avec-docker
-date: 2023-08-24
+date: 2023-08-24T18:03:12+02:00
 useRelativeCover: true
 cover: cover.webp
 tags:

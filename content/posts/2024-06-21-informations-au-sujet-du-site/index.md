@@ -1,7 +1,7 @@
 ---
 title: "Informations au sujet du site"
 slug: informations-au-sujet-du-site
-date: 2024-06-21
+date: 2024-06-21T19:24:26+02:00
 useRelativeCover: true
 cover: cover.webp
 tags:

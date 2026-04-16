@@ -1,7 +1,7 @@
 ---
 title: "WebRcade : du retrogaming dans votre navigateur"
 slug: webrcade-retrogaming-dans-votre-navigateur
-date: 2025-09-21
+date: 2025-09-21T14:55:27+02:00
 useRelativeCover: true
 cover: cover.webp
 tags:
