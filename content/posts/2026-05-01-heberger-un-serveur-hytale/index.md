@@ -1,7 +1,7 @@
 ---
 title: "Héberger un serveur Hytale"
 slug: heberger-serveur-hytale
-date: 2026-05-01
+date: 2026-05-01T12:34:37+02:00
 useRelativeCover: true
 cover: cover.webp
 tags:

@@ -1,7 +1,7 @@
 ---
 title: "La fin d'EmulatorJS"
 slug: la-fin-demulatorjs
-date: 2024-05-26
+date: 2024-05-26T19:17:57+02:00
 useRelativeCover: true
 cover: cover.webp
 tags:

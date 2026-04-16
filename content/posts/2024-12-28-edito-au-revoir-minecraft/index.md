@@ -1,7 +1,7 @@
 ---
 title: "Édito : Au revoir Minecraft"
 slug: edito-au-revoir-minecraft
-date: 2024-12-28
+date: 2024-12-28T00:53:44+01:00
 useRelativeCover: true
 cover: cover.webp
 tags:

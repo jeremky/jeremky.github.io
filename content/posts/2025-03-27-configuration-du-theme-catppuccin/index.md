@@ -1,7 +1,7 @@
 ---
 title: "Configuration du thème Catppuccin"
 slug: configuration-du-theme-catppuccin
-date: 2025-03-27
+date: 2025-03-27T21:18:43+01:00
 useRelativeCover: true
 cover: cover.webp
 tags:

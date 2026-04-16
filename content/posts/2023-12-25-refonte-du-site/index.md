@@ -1,7 +1,7 @@
 ---
 title: "Refonte du site"
 slug: refonte-du-site
-date: 2023-12-25
+date: 2023-12-25T18:09:08+01:00
 useRelativeCover: true
 cover: cover.webp
 tags:

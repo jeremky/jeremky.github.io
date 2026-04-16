@@ -1,7 +1,7 @@
 ---
 title: "Vim / Neovim : choisissez votre configuration"
 slug: vim-neovim-choisissez-votre-configuration
-date: 2025-03-14
+date: 2025-03-14T17:29:39+01:00
 useRelativeCover: true
 cover: cover.webp
 tags:

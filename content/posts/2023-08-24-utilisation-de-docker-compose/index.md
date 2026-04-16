@@ -1,7 +1,7 @@
 ---
 title: "Utilisation de Docker Compose"
 slug: utilisation-de-docker-compose
-date: 2023-08-24
+date: 2023-08-24T20:20:29+02:00
 useRelativeCover: true
 cover: cover.webp
 tags:

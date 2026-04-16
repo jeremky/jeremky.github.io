@@ -1,7 +1,7 @@
 ---
 title: "Watchtower : un conteneur pour les gouverner tous"
 slug: watchtower-un-conteneur-pour-les-gouverner-tous
-date: 2024-06-25
+date: 2024-06-25T19:28:32+02:00
 useRelativeCover: true
 cover: cover.webp
 tags:

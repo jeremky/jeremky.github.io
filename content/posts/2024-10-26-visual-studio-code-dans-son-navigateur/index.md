@@ -1,7 +1,7 @@
 ---
 title: "Visual Studio Code dans son navigateur"
 slug: visual-studio-code-dans-son-navigateur
-date: 2024-10-26
+date: 2024-10-26T15:22:59+02:00
 useRelativeCover: true
 cover: cover.webp
 tags:
