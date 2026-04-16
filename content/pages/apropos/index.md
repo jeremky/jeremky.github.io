@@ -1,6 +1,6 @@
 ---
 title: A propos
-date: 2026-02-11T22:16:43.579Z
+date: 2026-02-11T23:16:43+01:00
 draft: false
 ---
 
