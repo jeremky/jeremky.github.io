@@ -1,7 +1,7 @@
 ---
 title: "Retour sur le générateur de site Hugo"
 slug: retour-sur-le-generateur-de-site-hugo
-date: 2024-07-17
+date: 2024-07-17T17:25:38+02:00
 useRelativeCover: true
 cover: cover.webp
 tags:

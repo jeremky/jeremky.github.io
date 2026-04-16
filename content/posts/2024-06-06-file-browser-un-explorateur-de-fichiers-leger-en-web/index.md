@@ -1,7 +1,7 @@
 ---
 title: "File Browser : un explorateur de fichiers léger en web"
 slug: file-browser-un-explorateur-de-fichiers-leger-en-web
-date: 2024-06-06
+date: 2024-06-06T19:21:58+02:00
 useRelativeCover: true
 cover: cover.webp
 tags:

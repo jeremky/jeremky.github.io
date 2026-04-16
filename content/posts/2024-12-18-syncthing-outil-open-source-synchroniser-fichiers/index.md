@@ -1,7 +1,7 @@
 ---
 title: "Syncthing : outil open source pour synchroniser vos fichiers"
 slug: syncthing-outil-open-source-synchroniser-fichiers
-date: 2024-12-18
+date: 2024-12-18T19:07:32+01:00
 useRelativeCover: true
 cover: cover.webp
 tags:
