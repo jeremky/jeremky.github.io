@@ -1,7 +1,7 @@
 ---
 title: "Script de configuration pour Debian"
 slug: script-de-configuration-pour-debian
-date: 2024-05-12
+date: 2024-05-12T19:15:46+02:00
 useRelativeCover: true
 cover: cover.webp
 tags:

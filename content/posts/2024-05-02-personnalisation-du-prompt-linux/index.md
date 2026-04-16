@@ -1,7 +1,7 @@
 ---
 title: "Personnalisation du prompt Linux"
 slug: personnalisation-du-prompt-linux
-date: 2024-05-02
+date: 2024-05-02T19:13:12+02:00
 useRelativeCover: true
 cover: cover.webp
 tags:

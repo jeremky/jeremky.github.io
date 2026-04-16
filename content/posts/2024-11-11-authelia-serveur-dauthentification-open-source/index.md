@@ -1,7 +1,7 @@
 ---
 title: "Authelia : serveur d'authentification Open Source"
 slug: authelia-serveur-dauthentification-open-source
-date: 2024-11-11
+date: 2024-11-11T00:34:44+01:00
 useRelativeCover: true
 cover: cover.webp
 tags:

@@ -1,7 +1,7 @@
 ---
 title: "Monter un serveur Teeworlds"
 slug: monter-un-serveur-teeworlds
-date: 2023-08-30
+date: 2023-08-30T19:03:15+02:00
 useRelativeCover: true
 cover: cover.webp
 tags:
