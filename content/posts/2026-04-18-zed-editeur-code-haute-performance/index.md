@@ -223,15 +223,6 @@ curl -f https://zed.dev/install.sh | sh
     "prefix": "url",
     "body": ["[${1:text}](${2:})", ""],
     "description": "Insérer une URL"
-  },
-
-  "Hugo image shortcode": {
-    "prefix": "blogimg",
-    "body": [
-      "{{< image src=\"${1:filename}.webp\" style=\"border-radius: 8px;\" >}}",
-      ""
-    ],
-    "description": "Shortcode Hugo pour les images"
   }
 }
 ```

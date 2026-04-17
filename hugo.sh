@@ -20,6 +20,6 @@ case "$1" in
     hugo version
     ;;
   *)
-    (cd "$dir" && hugo server -D)
+    (cd "$dir" && hugo server --buildDrafts --buildFuture --navigateToChanged --openBrowser)
     ;;
 esac
