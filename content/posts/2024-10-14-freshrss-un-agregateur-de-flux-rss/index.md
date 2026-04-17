@@ -4,6 +4,7 @@ slug: freshrss-un-agregateur-de-flux-rss
 date: 2024-10-14T18:03:58+02:00
 useRelativeCover: true
 cover: cover.webp
+author: JeremKy
 tags:
   - docker
 categories:

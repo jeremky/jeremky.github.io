@@ -4,6 +4,7 @@ slug: homebrew-gestionnaire-applications-pour-macos
 date: 2026-03-21T12:52:23+01:00
 useRelativeCover: true
 cover: cover.webp
+author: JeremKy
 tags:
   - macos
 categories:

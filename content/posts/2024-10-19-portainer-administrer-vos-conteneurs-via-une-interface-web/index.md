@@ -4,6 +4,7 @@ slug: portainer-administrer-vos-conteneurs-via-une-interface-web
 date: 2024-10-19T12:50:53+02:00
 useRelativeCover: true
 cover: cover.webp
+author: JeremKy
 tags:
   - admin
   - docker

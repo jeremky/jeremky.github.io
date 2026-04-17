@@ -4,6 +4,7 @@ slug: edito-au-revoir-minecraft
 date: 2024-12-28T00:53:44+01:00
 useRelativeCover: true
 cover: cover.webp
+author: JeremKy
 tags:
   - editos
   - jeux

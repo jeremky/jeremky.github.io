@@ -4,6 +4,7 @@ slug: migration-de-docker-vers-podman
 date: 2024-09-26T17:43:20+02:00
 useRelativeCover: true
 cover: cover.webp
+author: JeremKy
 tags:
   - podman
 categories:

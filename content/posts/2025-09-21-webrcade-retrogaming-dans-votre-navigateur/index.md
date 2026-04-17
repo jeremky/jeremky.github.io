@@ -4,6 +4,7 @@ slug: webrcade-retrogaming-dans-votre-navigateur
 date: 2025-09-21T14:55:27+02:00
 useRelativeCover: true
 cover: cover.webp
+author: JeremKy
 tags:
   - jeux
 categories:
