@@ -4,7 +4,6 @@ slug: zed-editeur-code-haute-performance
 date: 2026-04-15T19:00:06+02:00
 useRelativeCover: true
 cover: cover.webp
-author: JeremKy
 tags:
   - linux
   - macos

@@ -4,7 +4,6 @@ slug: visual-studio-code-dans-son-navigateur
 date: 2024-10-26T15:22:59+02:00
 useRelativeCover: true
 cover: cover.webp
-author: JeremKy
 tags:
   - docker
 categories:

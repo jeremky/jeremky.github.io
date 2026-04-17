@@ -4,7 +4,6 @@ slug: serveur-minecraft-infinity-dungeon
 date: 2024-08-05T20:56:18+02:00
 useRelativeCover: true
 cover: cover.webp
-author: JeremKy
 tags:
   - jeux
   - docker

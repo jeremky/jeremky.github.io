@@ -4,7 +4,6 @@ slug: vim-neovim-choisissez-votre-configuration
 date: 2025-03-14T17:29:39+01:00
 useRelativeCover: true
 cover: cover.webp
-author: JeremKy
 tags:
   - linux
 categories:

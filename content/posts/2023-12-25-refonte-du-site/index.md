@@ -4,7 +4,6 @@ slug: refonte-du-site
 date: 2023-12-25T18:09:08+01:00
 useRelativeCover: true
 cover: cover.webp
-author: JeremKy
 tags:
   - infos
 categories:

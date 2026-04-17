@@ -4,7 +4,6 @@ slug: tinyauth-une-solution-simple-authentification-web
 date: 2025-07-27T23:57:20+02:00
 useRelativeCover: true
 cover: cover.webp
-author: JeremKy
 tags:
   - docker
 categories:

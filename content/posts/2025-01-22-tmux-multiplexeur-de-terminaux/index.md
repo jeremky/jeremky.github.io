@@ -4,7 +4,6 @@ slug: tmux-multiplexeur-de-terminaux
 date: 2025-01-22T23:06:43+01:00
 useRelativeCover: true
 cover: cover.webp
-author: JeremKy
 tags:
   - linux
 categories:

@@ -4,7 +4,6 @@ slug: creer-son-dashboard-avec-heimdall
 date: 2024-07-25T20:40:43+02:00
 useRelativeCover: true
 cover: cover.webp
-author: JeremKy
 tags:
   - docker
 categories:
