@@ -4,6 +4,7 @@ slug: vim-configuration-finale
 date: 2026-03-29T15:47:11+01:00
 useRelativeCover: true
 cover: cover.webp
+author: JeremKy
 tags:
   - linux
 categories:

@@ -4,6 +4,7 @@ slug: podman-passage-en-rootless
 date: 2025-05-16T14:46:28+02:00
 useRelativeCover: true
 cover: cover.webp
+author: JeremKy
 tags:
   - podman
 categories:

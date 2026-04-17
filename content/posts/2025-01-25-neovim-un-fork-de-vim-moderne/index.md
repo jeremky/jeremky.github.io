@@ -4,6 +4,7 @@ slug: neovim-un-fork-de-vim-moderne
 date: 2025-01-25T20:41:07+01:00
 useRelativeCover: true
 cover: cover.webp
+author: JeremKy
 tags:
   - linux
 categories:

@@ -4,6 +4,7 @@ slug: heberger-un-serveur-xonotic
 date: 2024-05-31T19:21:09+02:00
 useRelativeCover: true
 cover: cover.webp
+author: JeremKy
 tags:
   - jeux
   - docker

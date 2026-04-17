@@ -4,6 +4,7 @@ slug: la-fin-demulatorjs
 date: 2024-05-26T19:17:57+02:00
 useRelativeCover: true
 cover: cover.webp
+author: JeremKy
 tags:
   - infos
   - jeux

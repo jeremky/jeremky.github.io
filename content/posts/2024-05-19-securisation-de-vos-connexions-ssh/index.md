@@ -4,6 +4,7 @@ slug: securisation-de-vos-connexions-ssh
 date: 2024-05-19T19:16:47+02:00
 useRelativeCover: true
 cover: cover.webp
+author: JeremKy
 tags:
   - linux
 categories:

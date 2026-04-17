@@ -4,6 +4,7 @@ slug: pairdrop-transferez-des-fichiers-facilement
 date: 2024-12-21T19:07:50+01:00
 useRelativeCover: true
 cover: cover.webp
+author: JeremKy
 tags:
   - fichiers
   - docker
