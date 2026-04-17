@@ -4,6 +4,7 @@ slug: deploiement-du-cms-ghost-avec-docker
 date: 2024-07-23T20:00:26+02:00
 useRelativeCover: true
 cover: cover.webp
+author: JeremKy
 tags:
   - docker
 categories:

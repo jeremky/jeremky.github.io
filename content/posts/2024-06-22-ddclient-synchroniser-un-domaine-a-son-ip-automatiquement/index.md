@@ -4,6 +4,7 @@ slug: ddclient-synchroniser-un-domaine-a-son-ip-automatiquement
 date: 2024-06-22T19:25:42+02:00
 useRelativeCover: true
 cover: cover.webp
+author: JeremKy
 tags:
   - reseau
   - docker

@@ -4,6 +4,7 @@ slug: bookstack-solution-open-source-de-documentation
 date: 2025-04-12T21:39:33+02:00
 useRelativeCover: true
 cover: cover.webp
+author: JeremKy
 tags:
   - docker
 categories:

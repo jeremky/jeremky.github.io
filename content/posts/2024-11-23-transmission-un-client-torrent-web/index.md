@@ -4,6 +4,7 @@ slug: transmission-un-client-torrent-web
 date: 2024-11-23T02:22:38+01:00
 useRelativeCover: true
 cover: cover.webp
+author: JeremKy
 tags:
   - fichiers
   - docker

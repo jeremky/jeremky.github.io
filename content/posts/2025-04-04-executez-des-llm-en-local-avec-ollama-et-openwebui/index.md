@@ -4,6 +4,7 @@ slug: executez-des-llm-en-local-avec-ollama-et-openwebui
 date: 2025-04-04T18:15:25+02:00
 useRelativeCover: true
 cover: cover.webp
+author: JeremKy
 tags:
   - docker
 categories:
