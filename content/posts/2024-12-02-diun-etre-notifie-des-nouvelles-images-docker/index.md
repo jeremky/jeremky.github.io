@@ -4,7 +4,6 @@ slug: diun-etre-notifie-des-nouvelles-images-docker
 date: 2024-12-02T20:09:00+01:00
 useRelativeCover: true
 cover: cover.webp
-author: JeremKy
 tags:
   - admin
   - docker

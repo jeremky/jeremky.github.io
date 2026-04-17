@@ -4,7 +4,6 @@ slug: podman-docker-application-faciliter-transition
 date: 2025-01-19T19:24:37+01:00
 useRelativeCover: true
 cover: cover.webp
-author: JeremKy
 tags:
   - docker
   - podman

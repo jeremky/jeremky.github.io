@@ -4,7 +4,6 @@ slug: shairport-sync-recevez-le-son-de-votre-appareil-ios
 date: 2026-02-24T21:47:51+01:00
 useRelativeCover: true
 cover: cover.webp
-author: JeremKy
 tags:
   - linux
 categories:

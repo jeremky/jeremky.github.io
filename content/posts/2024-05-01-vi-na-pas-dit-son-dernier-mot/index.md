@@ -4,7 +4,6 @@ slug: vi-na-pas-dit-son-dernier-mot
 date: 2024-05-01T19:12:08+02:00
 useRelativeCover: true
 cover: cover.webp
-author: JeremKy
 tags:
   - linux
 categories:
