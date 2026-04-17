@@ -4,6 +4,7 @@ slug: heberger-serveur-hytale
 date: 2026-05-01T12:34:37+02:00
 useRelativeCover: true
 cover: cover.webp
+author: JeremKy
 tags:
   - docker
   - linux

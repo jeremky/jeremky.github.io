@@ -4,6 +4,7 @@ slug: surveillez-vos-applications-avec-uptime-kuma
 date: 2024-12-04T10:09:15+01:00
 useRelativeCover: true
 cover: cover.webp
+author: JeremKy
 tags:
   - admin
   - docker

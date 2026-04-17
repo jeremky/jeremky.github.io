@@ -4,6 +4,7 @@ slug: utilisation-de-docker-compose
 date: 2023-08-24T20:20:29+02:00
 useRelativeCover: true
 cover: cover.webp
+author: JeremKy
 tags:
   - docker
 categories:

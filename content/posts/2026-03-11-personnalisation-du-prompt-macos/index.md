@@ -4,6 +4,7 @@ slug: personnalisation-du-prompt-macos
 date: 2026-03-11T20:33:30+01:00
 useRelativeCover: true
 cover: cover.webp
+author: JeremKy
 tags:
   - macos
 categories:

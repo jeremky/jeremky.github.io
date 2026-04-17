@@ -4,6 +4,7 @@ slug: wireguard-easy-simplifiez-la-gestion-de-wireguard
 date: 2024-11-17T16:32:00+01:00
 useRelativeCover: true
 cover: cover.webp
+author: JeremKy
 tags:
   - reseau
   - docker

@@ -4,6 +4,7 @@ slug: premiers-pas-avec-docker
 date: 2023-08-24T18:03:12+02:00
 useRelativeCover: true
 cover: cover.webp
+author: JeremKy
 tags:
   - docker
 categories:

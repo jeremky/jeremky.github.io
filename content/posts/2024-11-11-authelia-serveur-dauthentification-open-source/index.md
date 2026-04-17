@@ -4,6 +4,7 @@ slug: authelia-serveur-dauthentification-open-source
 date: 2024-11-11T00:34:44+01:00
 useRelativeCover: true
 cover: cover.webp
+author: JeremKy
 tags:
   - admin
   - docker
