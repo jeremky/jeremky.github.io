@@ -4,7 +4,6 @@ slug: webtop-linux-via-navigateur-internet
 date: 2025-03-06T17:21:02+01:00
 useRelativeCover: true
 cover: cover.webp
-author: JeremKy
 tags:
   - docker
 categories:

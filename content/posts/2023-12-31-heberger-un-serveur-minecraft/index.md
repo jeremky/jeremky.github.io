@@ -4,7 +4,6 @@ slug: heberger-un-serveur-minecraft
 date: 2023-12-31T18:11:04+01:00
 useRelativeCover: true
 cover: cover.webp
-author: JeremKy
 tags:
   - jeux
   - docker

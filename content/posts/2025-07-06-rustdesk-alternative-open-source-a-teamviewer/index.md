@@ -4,7 +4,6 @@ slug: rustdesk-alternative-open-source-a-teamviewer
 date: 2025-07-06T18:12:32+02:00
 useRelativeCover: true
 cover: cover.webp
-author: JeremKy
 tags:
   - admin
   - docker

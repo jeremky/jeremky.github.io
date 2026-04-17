@@ -4,7 +4,6 @@ slug: installation-et-configuration-dun-raspberry-pi
 date: 2024-05-10T19:14:39+02:00
 useRelativeCover: true
 cover: cover.webp
-author: JeremKy
 tags:
   - linux
 categories:
