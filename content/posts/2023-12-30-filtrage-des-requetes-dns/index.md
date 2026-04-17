@@ -4,7 +4,6 @@ slug: filtrage-des-requetes-dns
 date: 2023-12-30T18:10:13+01:00
 useRelativeCover: true
 cover: cover.webp
-author: JeremKy
 tags:
   - reseau
 categories:

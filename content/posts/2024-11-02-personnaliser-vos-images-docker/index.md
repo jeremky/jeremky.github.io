@@ -4,7 +4,6 @@ slug: personnaliser-vos-images-docker
 date: 2024-11-02T01:22:28+01:00
 useRelativeCover: true
 cover: cover.webp
-author: JeremKy
 tags:
   - docker
 categories:

@@ -4,7 +4,6 @@ slug: monter-un-serveur-teeworlds
 date: 2023-08-30T19:03:15+02:00
 useRelativeCover: true
 cover: cover.webp
-author: JeremKy
 tags:
   - jeux
   - docker

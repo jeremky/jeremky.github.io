@@ -4,7 +4,6 @@ slug: utilisation-de-transfer.sh
 date: 2023-10-12T19:07:52+02:00
 useRelativeCover: true
 cover: cover.webp
-author: JeremKy
 tags:
   - docker
 categories:

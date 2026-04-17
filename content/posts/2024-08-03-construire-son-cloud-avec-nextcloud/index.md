@@ -4,7 +4,6 @@ slug: construire-son-cloud-avec-nextcloud
 date: 2024-08-03T15:34:10+02:00
 useRelativeCover: true
 cover: cover.webp
-author: JeremKy
 tags:
   - fichiers
   - docker

@@ -4,7 +4,6 @@ slug: file-browser-un-explorateur-de-fichiers-leger-en-web
 date: 2024-06-06T19:21:58+02:00
 useRelativeCover: true
 cover: cover.webp
-author: JeremKy
 tags:
   - fichiers
   - docker
