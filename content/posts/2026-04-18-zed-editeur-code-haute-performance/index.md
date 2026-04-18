@@ -62,11 +62,9 @@ curl -f https://zed.dev/install.sh | sh
     "metrics": false,
     "diagnostics": false,
   },
-  "project_panel": {
-    "hide_hidden": false,
-    "hide_root": true,
-    "scrollbar": {
-      "horizontal_scroll": false,
+  "autosave": {
+    "after_delay": {
+      "milliseconds": 1000,
     },
   },
   "session": {
@@ -79,18 +77,10 @@ curl -f https://zed.dev/install.sh | sh
 
   // AI
   "disable_ai": false,
+  "agent": { "enabled": false },
   "edit_predictions": {
-    "mode": "eager",
+    "mode": "subtle",
     "provider": "zed",
-  },
-  "agent": {
-    "enable_feedback": false,
-    "enabled": true,
-    "default_model": {
-      "provider": "copilot_chat",
-      "model": "claude-haiku-4.5",
-      "enable_thinking": false,
-    },
   },
 
   // Themes
@@ -104,35 +94,36 @@ curl -f https://zed.dev/install.sh | sh
   // Interface
   "title_bar": { "show_sign_in": true },
   "ui_font_size": 16.0,
-  "ui_font_family": "JetBrainsMono Nerd Font Mono",
-  "tab_bar": { "show_nav_history_buttons": false },
-  "preview_tabs": { "enabled": true },
+  "ui_font_family": "JetBrains Mono NL",
+
+  // Panels
+  "project_panel": {
+    "hide_hidden": false,
+    "hide_root": true,
+    "scrollbar": {
+      "horizontal_scroll": false,
+    },
+  },
 
   // Status Bar
-  "collaboration_panel": { "button": false },
-  "notification_panel": { "button": false },
-  "outline_panel": { "button": false },
   "debugger": { "button": false },
+  "collaboration_panel": { "button": false },
+  "outline_panel": { "button": false },
 
   // Editor
   "base_keymap": "VSCode",
+  "buffer_font_family": "JetBrains Mono NL",
+  "buffer_font_size": 16,
+  "buffer_font_features": { "calt": false },
+  "extend_comment_on_newline": false,
+  "snippet_sort_order": "top",
+  "soft_wrap": "editor_width",
+  "tab_size": 2,
   "vim_mode": false,
   "vim": {
     "use_system_clipboard": "never",
     "use_smartcase_find": true,
   },
-  "autosave": {
-    "after_delay": {
-      "milliseconds": 1000,
-    },
-  },
-  "snippet_sort_order": "top",
-  "buffer_font_family": "JetBrainsMono Nerd Font Mono",
-  "buffer_font_size": 16,
-  "buffer_font_features": { "calt": false },
-  "soft_wrap": "editor_width",
-  "extend_comment_on_newline": false,
-  "tab_size": 2,
 
   // LSP
   "lsp": {
@@ -158,10 +149,23 @@ curl -f https://zed.dev/install.sh | sh
     },
   },
 
-    // Filetypes
+  // Filetypes
   "file_types": {
     "Shell Script": ["cfg"],
   },
+
+  // SSH
+  "ssh_connections": [
+    {
+      "host": "jpi",
+      "args": [],
+      "projects": [
+        {
+          "paths": ["/home/jeremky"],
+        },
+      ],
+    },
+  ],
 
   // Extensions
   "auto_install_extensions": {
