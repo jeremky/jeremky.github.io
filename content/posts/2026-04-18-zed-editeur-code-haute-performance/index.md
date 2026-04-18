@@ -112,6 +112,11 @@ curl -f https://zed.dev/install.sh | sh
 
   // Editor
   "base_keymap": "VSCode",
+  "vim_mode": false,
+  "vim": {
+    "use_system_clipboard": "never",
+    "use_smartcase_find": true,
+  },
   "buffer_font_family": "JetBrains Mono NL",
   "buffer_font_size": 16,
   "buffer_font_features": { "calt": false },
@@ -119,11 +124,6 @@ curl -f https://zed.dev/install.sh | sh
   "snippet_sort_order": "top",
   "soft_wrap": "editor_width",
   "tab_size": 2,
-  "vim_mode": false,
-  "vim": {
-    "use_system_clipboard": "never",
-    "use_smartcase_find": true,
-  },
 
   // LSP
   "lsp": {
@@ -151,7 +151,7 @@ curl -f https://zed.dev/install.sh | sh
 
   // Filetypes
   "file_types": {
-    "Shell Script": ["cfg"],
+    "TOML": ["cfg", "list"],
   },
 
   // SSH
