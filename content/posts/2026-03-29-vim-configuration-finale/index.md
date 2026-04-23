@@ -169,12 +169,12 @@ call plug#end()
 if isdirectory(expand("~/.vim/plugged"))
 
   " Catppuccin
-  colorscheme catppuccin_macchiato
+  colorscheme catppuccin_mocha
   set cursorline
   set termguicolors
 
   " LightLine
-  let g:lightline = {'colorscheme': 'catppuccin_macchiato'}
+  let g:lightline = {'colorscheme': 'catppuccin_mocha'}
   let g:lightline.separator = { 'left': '', 'right': '' }
   set laststatus=2
   set noshowmode
