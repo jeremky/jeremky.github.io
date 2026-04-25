@@ -36,9 +36,9 @@ Et plus récemment, j'ai découvert l'IDE [Zed](https://zed.dev/), un éditeur c
 
 ## Fichier .vimrc
 
-Je vous mets donc à disposition ma configuration actuelle, qui, je pense, n'évoluera plus. Ce fichier est à créer sous `~/.vimrc`, ou `~/.vim/vimrc` :
+Je vous mets donc à disposition ma configuration actuelle, qui, je pense, n'évoluera plus. Ce fichier est à créer sous `~/.vimrc`, ou `~/.vim/vimrc`.
 
-> Avant de lancer Vim une fois le fichier créé, assurez-vous que git est installé. Il est nécessaire pour le téléchargement des plugins
+> Avant de lancer Vim une fois le fichier créé, assurez-vous que git et curl sont installés. Il sont nécessaires pour le téléchargement de [vim-plug](https://github.com/junegunn/vim-plug) et des plugins
 
 ```vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
