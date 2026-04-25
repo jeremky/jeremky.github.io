@@ -65,7 +65,6 @@ set incsearch                   " Recherche incrémentielle
 set hidden                      " Cacher les tampons lorsqu'ils sont abandonnés
 set mouse=                      " Désactive la souris par défaut
 set nobackup                    " Désactive les sauvegardes automatiques
-set spelllang=fr,en             " Spécifie les langues du dictionnaire
 
 " Permet l'indentation automatique : gg=G
 filetype plugin indent on
@@ -119,9 +118,6 @@ xnoremap <F4> <Plug>Commentary
 
 " Indentation automatique
 nnoremap <F5> gg=G<CR>
-
-" Correction orthographique (z= pour afficher les propositions)
-nnoremap <F6> <Cmd>set spell!<CR>
 
 " Ménage des plugins
 nnoremap <F7> <Cmd>PlugClean<CR>
@@ -187,7 +183,7 @@ endif
 
 Par rapport aux versions précédentes, voici les changements :
 
-- Utilisation du thème Catppuccin Macchiato
+- Utilisation du thème Catppuccin Mocha
 - Configuration de la barre Lightline assortie
 - Le plugin vim-commentary pour commenter/décommenter rapidement
 - Le plugin auto-pairs pour fermer automatiquement certains brackets
