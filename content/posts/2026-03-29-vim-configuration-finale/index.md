@@ -65,6 +65,7 @@ set incsearch                   " Recherche incrémentielle
 set hidden                      " Cacher les tampons lorsqu'ils sont abandonnés
 set mouse=                      " Désactive la souris par défaut
 set nobackup                    " Désactive les sauvegardes automatiques
+set viminfo+=n~/.vim/.viminfo   " Place le fichier viminfo dans le dossier .vim
 
 " Permet l'indentation automatique : gg=G
 filetype plugin indent on
