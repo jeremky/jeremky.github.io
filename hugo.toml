@@ -1,5 +1,5 @@
 baseurl = "https://jeremky.github.io"
-languageCode = "fr"
+locale = "fr"
 defaultContentLanguage = "fr"
 pagination.pagerSize = 8
 enableEmoji = true
