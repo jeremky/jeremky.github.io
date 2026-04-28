@@ -14,17 +14,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>{{ if eq  .Title  .Site.Params.Title }}{{ .Site.Params.Title }}{{ else }}{{ with .Title }}{{.}} on {{ end }}{{ .Site.Params.Title }}{{ end }}</title>
-    
+
     {{ if .Site.Params.RssImage }}<image>
       <url>{{ .Site.Params.RssImage }}</url>
       <title>{{ if eq  .Title  .Site.Params.Title }}{{ .Site.Params.Title }}{{ else }}{{ with .Title }}{{.}} on {{ end }}{{ .Site.Params.Title }}{{ end }}</title>
       <link>{{ .Permalink }}</link>
     </image>
     {{ end }}
-    
+
     <link>{{ .Permalink }}</link>
     <description>Recent content {{ if ne  .Title  .Site.Params.Title }}{{ with .Title }}in {{.}} {{ end }}{{ end }}on {{ .Site.Params.Title }}</description>
-    <generator>Hugo -- gohugo.io</generator>{{ with .Site.LanguageCode }}
+    <generator>Hugo -- gohugo.io</generator>{{ with .Site.Language.Locale }}
     <language>{{.}}</language>{{end}}{{ with .Site.Params.author.email }}
     <managingEditor>{{.}}{{ with $.Site.Params.author.name }} ({{.}}){{end}}</managingEditor>{{end}}{{ with .Site.Params.author.email }}
     <webMaster>{{.}}{{ with $.Site.Params.author.name }} ({{.}}){{end}}</webMaster>{{end}}{{ with .Site.Copyright }}
@@ -50,7 +50,7 @@
           {{ $featured := $images.GetMatch "{*featured*,*cover*,*thumbnail*}" }}
           {{ with $featured }}{{ printf "<img src=\"%s\"/>" $featured.Permalink }}{{ end }}
         {{ end }}
-        
+
         {{ if .Site.Params.RssFullText }}{{ .Content | html }}
         {{ else }}
           {{ with .Description }}{{ . | html }}
