@@ -68,7 +68,7 @@ A noter que j'en ai profité pour apporter pas mal d'améliorations au script :
 Le script est récupérable [sur github](https://gthub.com/jeremky/jdocker). Si vous disposez de la commande `git`, vous pouvez le récupérer directement via la commande suivante :
 
 ```bash
-git clone https://github.com/jeremky/jdocker
+git clone https://codeberg.org/jeremky/jdocker
 ```
 
 ## Conclusion

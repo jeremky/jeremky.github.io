@@ -14,7 +14,7 @@ draft: false
 
 Afin de gagner un max de temps sur mes réinstallations de Debian, je me suis écrit un petit script qui installe les différents packages dont j'ai besoin et configure quelques éléments du système.
 
-Vous pouvez récupérer le script en cliquant sur [ce lien](https://github.com/jeremky/aptinstall/archive/refs/heads/main.zip).
+Vous pouvez récupérer le script en cliquant sur [ce lien](https://codeberg.org/jeremky/aptinstall/archive/main.zip).
 
 ## Prérequis
 
