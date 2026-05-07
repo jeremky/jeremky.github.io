@@ -16,10 +16,18 @@ case "$1" in
     date=$(date +%Y-%m-%d)
     (cd "$dir" && hugo new "posts/${date}-${2}/index.md")
     ;;
+  server)
+    (cd "$dir" && hugo server --buildDrafts --buildFuture --              navigateToChanged --openBrowser)
+    ;;
   version)
     hugo version
     ;;
   *)
-    (cd "$dir" && hugo server --buildDrafts --buildFuture --navigateToChanged --openBrowser)
+    echo "Commandes disponibles :"
+    cat <<'EOF'
+  new              Créer un nouvel article (indiquer le slug)
+  server           Démarrer le serveur Hugo
+  version          Affiche la version de Hugo 
+EOF
     ;;
 esac
