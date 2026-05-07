@@ -138,10 +138,10 @@ C'est là qu'intervient **brewinstall** : un script perso qui automatise l'insta
 
 ### Script
 
-Le script est disponible directement sur GitHub, en suivant **[ce lien](https://github.com/jeremky/brewinstall)**. Pour le récupérer :
+Le script est disponible directement sur GitHub, en suivant **[ce lien](https://codeberg.org/jeremky/brewinstall)**. Pour le récupérer :
 
 ```bash
-git clone https://github.com/jeremky/brewinstall
+git clone https://codeberg.org/jeremky/brewinstall
 ```
 
 ### Fichiers de configuration (.cfg)

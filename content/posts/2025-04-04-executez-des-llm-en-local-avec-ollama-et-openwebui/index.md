@@ -62,7 +62,7 @@ WEBUI_AUTH=True
 
 Pensez à définir la clé secrète dans ce fichier, et à modifier la variable `WEBUI_AUTH` si vous n'avez pas besoin de l'authentification.
 
-> Vous pouvez utiliser le script [jdocker](https://github.com/jeremky/jdocker) pour simplifier le déploiement de vos conteneurs
+> Vous pouvez utiliser le script [jdocker](https://codeberg.org/jeremky/jdocker) pour simplifier le déploiement de vos conteneurs
 
 ### Reverse proxy
 
