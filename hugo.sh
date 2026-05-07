@@ -16,9 +16,6 @@ case "$1" in
     date=$(date +%Y-%m-%d)
     (cd "$dir" && hugo new "posts/${date}-${2}/index.md")
     ;;
-  push)
-    (cd "$dir"/public && git add -A git commit -m "Update" && git push)
-    ;;
   server)
     (cd "$dir" && hugo server --buildDrafts --buildFuture -- navigateToChanged --openBrowser)
     ;;
