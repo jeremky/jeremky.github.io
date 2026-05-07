@@ -132,12 +132,12 @@ En parlant des données, vérifiez bien que si `/home` est une partition dédié
 
 ## jdocker.sh
 
-Le script [jdocker.sh](https://github.com/jeremky/jdocker) a été grandement modifié afin de pouvoir fonctionner en rootless. [La page Github](https://github.com/jeremky/jdocker) documente les éléments à modifier avant utilisation.
+Le script [jdocker.sh](https://codeberg.org/jeremky/jdocker) a été grandement modifié afin de pouvoir fonctionner en rootless. [La page Github](https://codeberg.org/jeremky/jdocker) documente les éléments à modifier avant utilisation.
 
 Pour récupérer la dernière version :
 
 ```bash
-git clone https://github.com/jeremky/jdocker
+git clone https://codeberg.org/jeremky/jdocker
 ```
 
 ## Modification des articles
