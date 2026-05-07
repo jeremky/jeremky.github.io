@@ -1,7 +1,6 @@
 # jeremky.github.io
 
-Ce repository GitHub permet de générer et publier le site
-[jeremky.github.io](https://jeremky.github.io) à l'aide du framework Hugo.
+Ce repository GitHub permet de générer et publier le site <https://jeremky.github.io> à l'aide du framework Hugo.
 
 ## Pourquoi ce site ?
 
@@ -20,4 +19,4 @@ Pour explorer les articles par thématiques, consultez la page des [tags](https:
 ## Flux RSS
 
 Restez informé des nouveaux articles grâce au flux RSS :
-[https://jeremky.github.io/posts/index.xml](https://jeremky.github.io/posts/index.xml)
+<https://jeremky.github.io/posts/index.xml>
