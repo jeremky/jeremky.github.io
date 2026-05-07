@@ -79,7 +79,7 @@ Ensuite, si vos conteneurs communiquent entre eux par leur nom (utilisé avec le
 sudo ufw allow in on podman1
 ```
 
-> Le script [jdocker.sh](https://github.com/jeremky/jdocker) a été mis à jour en conséquence.
+> Le script [jdocker.sh](https://codeberg.org/jeremky/jdocker) a été mis à jour en conséquence.
 
 ## jdocker.sh
 
