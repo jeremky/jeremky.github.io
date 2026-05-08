@@ -18,7 +18,7 @@ Depuis sa création, ce blog a pas mal été déplacé sur différentes platefor
 
 Un article devrait arriver dans les prochaines semaines à ce sujet, mais il s'avère que j'ai pris la décision de me séparer des services proposés par Microsoft. Depuis leur rachat de GitHub, pas mal de changements politiques ont eu lieu... Et les polémiques de ces dernières semaines ont enfoncé le clou.
 
-GitHub [se sert de vos données pour entraîner leurs modèles d'IA](https://www.numerama.com/cyberguerre/2220443-github-fait-machine-arriere-et-va-bien-entrainer-ses-ia-sur-vos-donnees.html), [insèrent de la publicité dans vos pull requests](https://www.programmez.com/actualites/github-des-pubs-dans-github-oui-mais-pour-nous-aider-39237) (même s'ils sont apparemment revenus en arrière à ce sujet). Je vous laisse également consulter [cet excellent article](https://www.cridutroll.fr/github-est-en-train-de-mourir-pourquoi-meme-les-legendes-du-dev-fuient-la-plateforme/) qui explique les déboires de ces dernières semaines.
+GitHub [se sert de vos données pour entraîner ses modèles d'IA](https://www.numerama.com/cyberguerre/2220443-github-fait-machine-arriere-et-va-bien-entrainer-ses-ia-sur-vos-donnees.html), [insère de la publicité dans vos pull requests](https://www.programmez.com/actualites/github-des-pubs-dans-github-oui-mais-pour-nous-aider-39237) (même si Microsoft est apparemment revenus en arrière à ce sujet). Je vous laisse également consulter [cet excellent article](https://www.cridutroll.fr/github-est-en-train-de-mourir-pourquoi-meme-les-legendes-du-dev-fuient-la-plateforme/) qui explique les déboires de ces dernières semaines.
 
 ## Pour aller où ?
 
