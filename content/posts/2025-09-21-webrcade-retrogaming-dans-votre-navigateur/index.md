@@ -79,7 +79,7 @@ Quelques points importants :
 
 Voici un feed d'exemple pointant vers des ROMs hébergées publiquement sur [Internet Archive](https://archive.org) (je ne suis pas responsable de l'hébergement des ROMs). Pour le tester, il vous suffit d'importer le lien suivant :
 
-[https://jeremky.github.io/files/webrcade.zip](https://jeremky.github.io/files/webrcade.zip)
+<https://jeremky.github.io/files/webrcade.zip>
 
 {{< image src="perso.webp" style="border-radius: 8px;" >}}
 
