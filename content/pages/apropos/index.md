@@ -1,6 +1,6 @@
 ---
 title: A propos
-date: 2026-02-11T23:16:43+01:00
+date: 2026-05-08T10:16:43+02:00
 draft: false
 ---
 
@@ -17,6 +17,7 @@ L'objectif de ce site web est de partager mes différentes expériences autour d
 - **Conteneurisation** : Docker, Podman… tout pour héberger vos applications orientées serveur facilement
 - **Outils pratiques** : Vim/Neovim, tmux, et d’autres outils pour travailler efficacement
 - **Partage et synchronisation** : Solutions simples pour gérer vos fichiers sans galère
+- **Retours d'expérience** : quelques éditos sur des choix techniques personnels
 
 ## Tags
 
@@ -24,5 +25,4 @@ Pour explorer les articles par thématiques, consultez la page des [tags](/tags)
 
 ## Flux RSS
 
-Restez informé des nouveaux articles grâce au flux RSS :
-[https://jeremky.github.io/posts/index.xml](https://jeremky.github.io/posts/index.xml)
+Restez informé des nouveaux articles grâce au [flux RSS](https://jeremky.github.io/posts/index.xml).

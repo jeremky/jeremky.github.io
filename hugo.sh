@@ -17,7 +17,7 @@ case "$1" in
     (cd "$dir" && hugo new "posts/${date}-${2}/index.md")
     ;;
   server)
-    (cd "$dir" && hugo server --buildDrafts --buildFuture -- navigateToChanged --openBrowser)
+    (cd "$dir" && hugo server --buildDrafts --buildFuture --navigateToChanged --openBrowser)
     ;;
   version)
     hugo version
