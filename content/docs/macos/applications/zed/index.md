@@ -65,9 +65,7 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
 
 {
   // General
-  "auto_update": true,
-  "disable_ai": true,
-  "agent": { "enabled": false },
+  "auto_update": false,
   "telemetry": {
     "metrics": false,
     "diagnostics": false,
@@ -78,6 +76,16 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
   "terminal": {
     "copy_on_select": true,
     "working_directory": "current_file_directory",
+  },
+
+  // IA
+  "disable_ai": false,
+  "agent": {
+    "enabled": false,
+  },
+  "edit_predictions": {
+    "mode": "eager",
+    "provider": "zed",
   },
 
   // Interface
@@ -194,7 +202,7 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
 Le fichier a été organisé pour regrouper les paramètres :
 
 - les paramètres généraux (désactivation de la télémétrie, configuration du terminal...)
-- désactivation des services IA
+- désactivation des services d'agent IA (sauf la complétion)
 - l'interface (La taille de police, le thème...)
 - les panneaux (position de l'explorateur de fichiers, désactivation des panneaux que je n'utilise pas...)
 - l'éditeur lui-même (sauvegarde automatique, taille des tabulations...)
@@ -204,7 +212,7 @@ Le fichier a été organisé pour regrouper les paramètres :
 
 #### Dépendances
 
-Pour utiliser la reconnaissance intelligente des scripts bash, il est nécessaire d'installer certains outils. Toujours avec Homebrew : 
+Pour utiliser la reconnaissance intelligente des scripts bash, il est nécessaire d'installer certains outils. Toujours avec Homebrew :
 
 ```bash
 brew install shfmt shellcheck
