@@ -1,7 +1,7 @@
 ---
 title: "Je quitte les services Microsoft"
 slug: je-quitte-les-services-microsoft
-date: 2026-05-15T12:14:00+02:00
+date: 2026-05-23T15:14:00+02:00
 tags:
   - editos
 toc: false
