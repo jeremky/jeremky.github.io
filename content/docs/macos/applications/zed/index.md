@@ -250,11 +250,19 @@ Passant régulièrement de Zed version Mac et version Windows, j'ai tenté d'ada
     "body": ["```${1:code}", "${2:}", "```", ""],
     "description": "Insérer un bloc de code"
   },
+  
   "Image bloc": {
     "prefix": "img",
     "body": ["![${1:alt}](${2:})", ""],
     "description": "Insérer une image"
   },
+
+  "Info bloc": {
+    "prefix": "info",
+    "body": ["> ![${1:IMPORTANT}]", "> ${2:}", ""],
+    "description": "Bloc infos"
+  },
+  
   "URL bloc": {
     "prefix": "url",
     "body": ["[${1:text}](${2:})", ""],
