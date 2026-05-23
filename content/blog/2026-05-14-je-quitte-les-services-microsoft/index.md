@@ -44,6 +44,6 @@ Voilà le dernier maillon des services Microsoft dont il est le plus difficile d
 
 ## Et c'est tout ?
 
-Il faut toutefois se rendre à l’évidence : même en ayant quitté la majorité des produits Microsoft dans ma vie personnelle, je reste utilisateur de leurs services au niveau professionnel. De plus, une grande majorité des projets OpenSource ont leurs sources hébergées chez GitHub, car elle reste la plateforme qui permet d'avoir un maximum de visibilité. Il est donc impossible de se défaire totalement de leurs services.
+Il faut toutefois se rendre à l’évidence : même en ayant quitté la majorité des produits Microsoft dans ma vie personnelle, je reste utilisateur de leurs services au niveau professionnel. De plus, une grande majorité des projets OpenSource ont leurs sources hébergées chez GitHub, car elle reste la plateforme qui permet d'avoir un maximum de visibilité. Il est donc impossible pour moi de se défaire totalement de leurs services.
 
 Chaque utilisateur qui fait ce choix envoie un signal, très modeste certes, mais concret. Et pour ma part, j'ai au moins la satisfaction d'avoir repris un peu plus le contrôle sur ce que font les services que j'utilise au quotidien.
