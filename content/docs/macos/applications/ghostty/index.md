@@ -46,21 +46,54 @@ Vous pourrez ensuite l'ouvrir directement depuis Ghossty, via le raccourci **`Cm
 ### Exemple de configuration de base
 
 ```ini
-# Police
-font-family = JetBrains Mono
-font-size = 14
+###############################################################
+## Ghostty
 
-# Apparence
-theme = catppuccin-mocha
-background-opacity = 0.92
-window-padding-x = 8
-window-padding-y = 8
+# general
+auto-update = off
+confirm-close-surface = false
+bell-features = no-attention,no-title,no-audio,no-system
+shell-integration-features = no-cursor,ssh-env
 
-# Comportement
-scrollback-limit = 10000
-clipboard-paste-protection = true
-window-save-state = always
-shell-integration = detect
+# macos
+macos-titlebar-proxy-icon = hidden
+macos-titlebar-style = tabs
+
+# window
+window-width = 124
+window-height = 30
+window-padding-x = 20
+window-padding-y = 10
+
+# appearance
+theme = dark:Catppuccin Mocha,light:Catppuccin Latte
+unfocused-split-opacity = 0.90
+adjust-cell-height = 10%
+
+# font
+font-family = JetBrains Mono NL
+font-thicken = false
+font-size = 17
+
+# mouse
+mouse-scroll-multiplier = discrete:1
+mouse-hide-while-typing = true
+
+# clipboard
+copy-on-select = clipboard
+right-click-action = copy-or-paste
+
+# quick terminal
+quick-terminal-position = center
+quick-terminal-size = 1280px,800px
+
+###############################################################
+## Keybinds
+
+# general
+keybind = global:super+shift+space=toggle_quick_terminal
+keybind = super+shift+#=toggle_window_float_on_top
+keybind = escape=unbind
 ```
 
 ### Options utiles
