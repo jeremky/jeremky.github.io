@@ -1,5 +1,6 @@
 ---
 layout: archives
-sidebar:
-  exclude: true
+params:
+  archives:
+    dateFormat: "02 Jan"
 ---
