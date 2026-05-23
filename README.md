@@ -1,22 +1,18 @@
-# jeremky.github.io
+# JeremKy Pages
 
-Ce repository GitHub permet de générer et publier le site <https://jeremky.github.io> à l'aide du framework Hugo.
+Ce dépôt permet de générer et publier le site
+<https://jeremky.github.io> à l'aide du framework [Hugo](https://gohugo.io/) couplé au thème [Hextra](https://imfing.github.io/hextra).
 
 ## Pourquoi ce site ?
 
-L'objectif de ce site web est de partager mes différentes expériences autour de l'hébergement de solutions logicielles. Ces articles devraient permettre à toute personne un peu curieuse en informatique de se familiariser avec la conteneurisation. L'idée est de pouvoir déployer facilement chez soi des applications orientées serveur.
+L'objectif initial de ce site web était de partager, sous forme de blog, des astuces d'hébergement de solutions logicielles.
+
+Par la suite, ce site s'est vu transformé en un site de documentation plus classique, permettant une meilleure lecture du contenu.
 
 ## On y trouve quoi ?
 
-- **Conteneurisation** : Docker, Podman… tout pour héberger vos applications orientées serveur facilement
-- **Outils pratiques** : Vim/Neovim, tmux, et d’autres outils pour travailler efficacement
-- **Partage et synchronisation** : Solutions simples pour gérer vos fichiers sans galère
-- **Retours d'expérience** : quelques éditos sur des choix techniques personnels
+- Installation et utilisation de Docker, Podman… Des procédures pour héberger une multitude d'applications en auto-hébergement
 
-## Tags
+- Bash, Vim, SSH… Des outils et des configurations pour améliorer votre productivité en ligne de commande
 
-Pour explorer les articles par thématiques, consultez la page des [tags](/tags).
-
-## Flux RSS
-
-Restez informé des nouveaux articles grâce au [flux RSS](https://jeremky.github.io/posts/index.xml).
+- Des articles concernant ce site web, ainsi que quelques réflexions sur des décisions techniques personnels

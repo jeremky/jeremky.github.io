@@ -1,0 +1,14 @@
+{{- /* layouts/shortcodes/docs.html */ -}} {{- $cols := .Get "cols" | default 2
+-}} {{- $currentPage := .Page -}}
+
+<div
+  class="hextra-cards hx:mt-4 hx:gap-4 hx:grid not-prose"
+  style="--hextra-cards-grid-cols: {{ $cols }};"
+>
+  {{- range $currentPage.Pages -}} {{- $icon := .Params.icon | default
+  "document" -}} {{- if and (not .Params.icon) .Pages -}}{{- $icon = "folder"
+  -}}{{- end -}} {{- partial "shortcodes/card" (dict "page" . "link"
+  .RelPermalink "title" .LinkTitle "icon" $icon "subtitle" (.Params.subtitle |
+  default "") "image" "" "alt" .LinkTitle "width" 0 "height" 0 "imageStyle" ""
+  "tag" "" "tagType" "" "tagBorder" true "tagIcon" "" ) -}} {{- end -}}
+</div>
