@@ -8,26 +8,24 @@ if ! command -v hugo &>/dev/null; then
 fi
 
 case "$1" in
-  new)
+  doc)
     if [[ -z "$2" ]]; then
-      echo "Usage : hugo new <nom-article>"
+      echo "Usage : hugo doc <repertoire>"
       exit 0
     fi
-    date=$(date +%Y-%m-%d)
-    (cd "$dir" && hugo new "posts/${date}-${2}/index.md")
+    (cd "$dir" && hugo new "docs/${2}/index.md")
     ;;
-  server)
-    (cd "$dir" && hugo server --buildDrafts --buildFuture --navigateToChanged --openBrowser)
+  blog)
+    if [[ -z "$2" ]]; then
+      echo "Usage : hugo blog <nom-article>"
+      exit 0
+    fi
+    (cd "$dir" && hugo new "blog/$(date +%Y-%m-%d)-${2}/index.md")
     ;;
   version)
     hugo version
     ;;
   *)
-    echo "Commandes disponibles :"
-    cat <<'EOF'
-  new              Créer un nouvel article (indiquer le slug)
-  server           Démarrer le serveur Hugo
-  version          Affiche la version de Hugo
-EOF
+    (cd "$dir" && hugo server --buildDrafts --buildFuture --navigateToChanged --openBrowser)
     ;;
 esac

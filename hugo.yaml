@@ -1,0 +1,108 @@
+baseURL: https://jeremky.github.io
+locale: fr
+defaultContentLanguage: fr
+title: JeremKy Pages
+
+module:
+  imports:
+    - path: github.com/imfing/hextra
+
+menu:
+  main:
+    - name: Docs
+      pageRef: /docs
+      weight: 1
+
+    - name: Blog
+      pageRef: /blog
+      weight: 2
+
+    - identifier: plus
+      name: Plus
+      weight: 3
+    - identifier: apropos
+      name: A propos
+      pageRef: /apropos
+      parent: plus
+    - identifier: archives
+      name: Archives
+      pageRef: /archives
+      parent: plus
+
+    - name: Search
+      weight: 4
+      params:
+        type: search
+
+    - name: Theme Toggle
+      params:
+        weight: 5
+        type: theme-toggle
+        label: false
+
+  sidebar:
+    - name: Plus
+      params:
+        type: separator
+      weight: 1
+    - name: "À propos"
+      pageRef: "/apropos"
+      weight: 2
+    - name: "Archives"
+      pageRef: "/archives"
+      weight: 3
+
+markup:
+  highlight:
+    noClasses: false
+  goldmark:
+    renderer:
+      unsafe: true
+
+taxonomies:
+  tag: tags
+
+params:
+  description: "Infos et documentation autour du déploiement d’applications auto-hébergées"
+  images:
+    - "images/opengraph.png"
+
+  externalLinkDecoration: false
+  displayUpdatedDate: true
+
+  theme:
+    default: system
+    displayToggle: false
+
+  navbar:
+    displayTitle: true
+    displayLogo: true
+    logo:
+      link: /
+      width: 40
+      height: 20
+
+  page:
+    width: wide
+    contextMenu:
+      enable: false
+
+  blog:
+    list:
+      displayTags: true
+
+  toc:
+    displayTags: true
+
+  imageZoom:
+    enable: true
+
+  footer:
+    enable: true
+    width: wide
+    displayCopyright: true
+    displayPoweredBy: true
+
+outputs:
+  page: [html, markdown]
+  section: [html, rss, markdown]
