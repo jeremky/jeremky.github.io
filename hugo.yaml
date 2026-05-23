@@ -103,6 +103,9 @@ params:
     displayCopyright: true
     displayPoweredBy: true
 
+  archives:
+    dateFormat: "02 Jan"
+
 outputs:
   page: [html, markdown]
   section: [html, rss, markdown]
