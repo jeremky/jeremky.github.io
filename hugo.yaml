@@ -86,6 +86,8 @@ params:
     width: wide
     contextMenu:
       enable: false
+    tabs:
+      sync: true
 
   blog:
     list:
