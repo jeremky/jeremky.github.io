@@ -11,7 +11,8 @@ draft: true
 lastmod: 2026-05-24
 ---
 
-[ChimeraOS](https://chimeraos.org/) est un système d'exploitation conçu transformer un PC en console de jeux, **clé en main**. Après l'installation, démarrez directement sur **Steam Big Picture**, connectez votre compte Steam et lancez vos jeux préférés.
+[ChimeraOS](https://chimeraos.org/) est un système d'exploitation conçu transformer un PC en console de jeux, **clé en main**.
+Après l'installation, démarrez directement sur **Steam Big Picture**, connectez votre compte Steam et lancez vos jeux préférés.
 
 ![chimeraos](https://chimeraos.org/logo.svg)
 
@@ -29,7 +30,8 @@ lastmod: 2026-05-24
 
 ## Compatibilité
 
-Avant de vous lancer dans son installation, il est important de noter que l’interface Linux de Valve n’est officiellement compatible qu’avec une carte graphique AMD. Pour les possesseurs d’une carte nVidia ou Intel, je vous conseille de vous rediriger vers une alternative, comme Bazzite ou Nobara.
+Avant de vous lancer dans son installation, il est important de noter que l’interface Linux de Valve n’est officiellement compatible qu’avec une carte graphique AMD.
+Pour les possesseurs d’une carte nVidia ou Intel, je vous conseille de vous rediriger vers une alternative, comme [Bazzite](https://bazzite.gg/) ou [Nobara](https://nobaraproject.org/).
 
 ## Configuration
 
