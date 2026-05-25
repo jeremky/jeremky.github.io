@@ -5,7 +5,7 @@ layout: "hextra-home"
 {{< hextra/hero-container >}}
   <div class="hx:mt-6 hx:mb-6">
   {{< hextra/hero-headline >}}
-  JeremKy Pages
+  JeremKy Docs
   {{< /hextra/hero-headline >}}
   </div>
 

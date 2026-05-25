@@ -1,7 +1,7 @@
 baseURL: https://jeremky.github.io
 locale: fr
 defaultContentLanguage: fr
-title: JeremKy Pages
+title: JeremKy Docs
 
 module:
   imports:
