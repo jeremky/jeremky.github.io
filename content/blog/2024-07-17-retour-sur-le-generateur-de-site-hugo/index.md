@@ -10,7 +10,7 @@ draft: false
 
 ![cover](cover.webp)
 
-Le site [JeremKy Pages](https://jeremky.github.io) est de nouveau généré par le framework [Hugo](https://gohugo.io) !
+Le site [JeremKy Docs](https://jeremky.github.io) est de nouveau généré par le framework [Hugo](https://gohugo.io) !
 
 ## Le CMS Ghost
 
