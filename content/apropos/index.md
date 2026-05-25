@@ -29,9 +29,9 @@ Par la suite, ce site s'est vu transformé en un site de documentation plus clas
 
 ## Où me retrouver ?
 
-### Codeberg
+### Github
 
-Vous pouvez suivre mes différents projets en suivant [ce lien](https://codeberg.org/jeremky).
+Vous pouvez suivre mes différents projets en suivant [ce lien](https://github.com/jeremky).
 
 ### Mastodon
 
