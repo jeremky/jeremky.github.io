@@ -1,4 +1,4 @@
-module codeberg.org/jeremky/website
+module github.com/jeremky/jeremky.github.io
 
 go 1.26.3
 
