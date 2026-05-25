@@ -10,7 +10,7 @@ draft: false
 lastmod: 2026-05-20
 ---
 
-Selon votre FAI, il est possible que votre IP publique change régulièrement. Afin de rendre vos applications accessibles par Internet, il est nécessaire de disposer d'un nom de domaine dynamique. Dans cette procédure, nous allons utiliser le service [Dynu](https://www.dynu.com/fr-FR/)
+Selon votre FAI, il est possible que votre IP publique change régulièrement. Afin de rendre vos applications accessibles par Internet, il est nécessaire de disposer d'un nom de domaine dynamique. Dans cette procédure, nous allons utiliser le service [Dynu](https://www.dynu.com/fr-FR/).
 
 ## Création d'un compte chez Dynu.com
 
