@@ -35,9 +35,15 @@ Pour les possesseurs d’une carte nVidia ou Intel, je vous conseille de vous re
 
 ## Configuration
 
+ChimeraOS dispose d'une interface web vous permettant d'effectuer certaines opérations. Vous pourrez y configurer vos connexions à Epic Games et Gog, afin d'installer facilement vos jeux et de les importer dans l'interface de Steam. Cette même interface vous permettra également d'ajouter directement vos ROMs. ChimeraOS utilise RetroArch pour l'exécution de vos jeux.
+
+Pour vous y connecter, rendez-vous à l'adresse suivante : <https://chimeraos.local:8844>.
+
+> Il vous sera demandé de définir un mot de passe à la 1ère connexion
+
 ### Connexion SSH
 
-Le système étant immuable, le mot de passe de l’utilisateur n’est pas modifiable. Pour se connecter en SSH, la seule méthode est par clé SSH. Pour cela :
+Le système étant immuable, le mot de passe de l’utilisateur n’est pas modifiable. Pour se connecter en SSH, la seule méthode est d'utiliser une clé SSH. Pour cela :
 
 {{% steps %}}
 
@@ -55,17 +61,27 @@ cat ~/.ssh/id_ed25519.pub
 
 #### Rendez-vous sur la page de ChimeraOS
 
-#### Définissez un mot de passe de connexion
+Rendez-vous depuis votre appareil à l'adresse suivante : <http://chimeraos.local:8844> (ou en utilisant l'adresse IP si l'utilisation du nom DNS local ne fonctionne pas).
 
-#### Allez dans `ssh` et ajoutez-y votre clé publique (fichier `id_ed25519.pub`)
+#### Ajoutez-y votre clé publique
+
+Rendez-vous dans la section `ssh` et copiez le contenu du fichier `id_ed25519.pub` que vous avez généré.
+
+#### Connexion
+
+Il ne vous reste plus qu'à tenter une connexion ssh avec l'outil de votre choix :
+
+```bash
+ssh gamer@chimeraos.local
+```
 
 {{% /steps %}}
 
-Pour plus d’informations au sujet des clés ssh, vous pouvez vous rendez à [cette page](https://jeremky.codeberg.page/docs/linux/securisation-de-ssh).
+> Pour plus d’informations au sujet des clés ssh, vous pouvez vous rendez à [cette page](https://jeremky.codeberg.page/docs/linux/securisation-de-ssh)
 
 ### Problème CPU
 
-J’ai constaté des problèmes de [throttling](https://fr.wikipedia.org/wiki/Ajustement_dynamique_de_la_fr%C3%A9quence) avec la machine de récupération me servant de console. Les réglages dans le bios étant extrêmement limités, je ne peux pas forcer le mode performance pour le CPU.
+J’ai constaté des problèmes de [throttling](https://fr.wikipedia.org/wiki/Ajustement_dynamique_de_la_fr%C3%A9quence) avec la machine de récupération me servant de console. Les réglages dans son bios étant extrêmement limités, je ne peux pas forcer le mode performance pour le CPU.
 
 Si vous êtes concerné par ce même problème, connectez vous en ssh et vérifiez que le changement de mode de cpupower règle le problème :
 
@@ -77,7 +93,7 @@ Si vous observez un nombre de FPS plus stable, il ne reste qu’à créer un ser
 
 #### Service systemd
 
-Le système étant immuable, il n’est pas possible de modifier la configuration directement dans les fichiers système. La solution trouvée est de faire exécuter un service par le user gamer :
+Le système étant immuable, il n’est pas possible de modifier la configuration directement dans les fichiers système. La solution trouvée est de faire exécuter un service systemd par le user gamer :
 
 {{% steps %}}
 
