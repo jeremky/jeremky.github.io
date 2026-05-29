@@ -8,6 +8,6 @@
   {{- range $pages -}} {{- partial "shortcodes/card" (dict "page" . "link"
   .RelPermalink "title" .Title "icon" "document" "subtitle" (.Lastmod |
   time.Format "2 Jan 2006") "image" "" "alt" .Title "width" 0 "height" 0
-  "imageStyle" "" "tag" "" "tagType" "" "tagBorder" true "tagIcon" "" ) -}} {{-
-  end -}}
+  "imageStyle" "" "tag" (index .Params.tags 0) "tagType" "" "tagBorder" true
+  "tagIcon" "" ) -}} {{- end -}}
 </div>
