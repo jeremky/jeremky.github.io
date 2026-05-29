@@ -2,7 +2,7 @@
 title: "Zed"
 slug: zed
 contextMenu: true
-weight: 30
+weight: 90
 toc: true
 tags:
   - macos
