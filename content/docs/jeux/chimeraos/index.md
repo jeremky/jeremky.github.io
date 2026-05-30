@@ -7,12 +7,11 @@ toc: true
 tags:
   - jeux
   - linux
-draft: true
-lastmod: 2026-05-24
+draft: false
+lastmod: 2026-05-30
 ---
 
-[ChimeraOS](https://chimeraos.org/) est un système d'exploitation conçu transformer un PC en console de jeux, **clé en main**.
-Après l'installation, démarrez directement sur **Steam Big Picture**, connectez votre compte Steam et lancez vos jeux préférés.
+[ChimeraOS](https://chimeraos.org/) est un système d'exploitation conçu pour transformer un PC en console de jeux, **clé en main**. Après l'installation, démarrez directement sur **Steam Big Picture**, connectez votre compte Steam et lancez vos jeux préférés.
 
 ![chimeraos](https://chimeraos.org/logo.svg)
 
@@ -33,13 +32,25 @@ Après l'installation, démarrez directement sur **Steam Big Picture**, connecte
 Avant de vous lancer dans son installation, il est important de noter que l’interface Linux de Valve n’est officiellement compatible qu’avec une carte graphique AMD.
 Pour les possesseurs d’une carte nVidia ou Intel, je vous conseille de vous rediriger vers une alternative, comme [Bazzite](https://bazzite.gg/) ou [Nobara](https://nobaraproject.org/).
 
+## Installation
+
+1. Récupérez l'iso à [cette page](https://chimeraos.org/download/)
+
+2. Chargez-la sur une clé USB en utilisant l'outil [Etcher](https://etcher.balena.io/)
+
+3. Suivez les instructions de l'installateur
+
+> La dernière version de l'OS sera téléchargée pendant le processus d'installation.
+
 ## Configuration
 
-ChimeraOS dispose d'une interface web vous permettant d'effectuer certaines opérations. Vous pourrez y configurer vos connexions à Epic Games et Gog, afin d'installer facilement vos jeux et de les importer dans l'interface de Steam. Cette même interface vous permettra également d'ajouter directement vos ROMs. ChimeraOS utilise RetroArch pour l'exécution de vos jeux.
+ChimeraOS dispose d'une interface web vous permettant d'effectuer certaines opérations. Vous pourrez y configurer vos connexions à Epic Games et Gog, afin d'installer facilement vos jeux et de les importer dans l'interface de Steam. Cette même interface vous permettra également d'ajouter directement vos ROMs. ChimeraOS utilise [RetroArch](https://retroarch.com/) pour l'exécution de vos jeux.
 
-Pour vous y connecter, rendez-vous à l'adresse suivante : <https://chimeraos.local:8844>.
+![library](library.webp)
 
-> Il vous sera demandé de définir un mot de passe à la 1ère connexion
+Pour vous y connecter, rendez-vous à l'adresse suivante : <https://chimeraos.local:8844>. Un mot de passe temporaire s'affichera à l'écran afin de vous y connecter. Pour définir un mot de passe, rendez-vous dans la section `system`.
+
+![password](password.webp)
 
 ### Connexion SSH
 
@@ -61,11 +72,13 @@ cat ~/.ssh/id_ed25519.pub
 
 #### Rendez-vous sur la page de ChimeraOS
 
-Rendez-vous depuis votre appareil à l'adresse suivante : <http://chimeraos.local:8844> (ou en utilisant l'adresse IP si l'utilisation du nom DNS local ne fonctionne pas).
+Rendez-vous depuis votre appareil à l'adresse suivante : <http://chimeraos.local:8844/system> (ou en utilisant l'adresse IP si l'utilisation du nom DNS local ne fonctionne pas).
 
 #### Ajoutez-y votre clé publique
 
 Rendez-vous dans la section `ssh` et copiez le contenu du fichier `id_ed25519.pub` que vous avez généré.
+
+![ssh](ssh.webp)
 
 #### Connexion
 
@@ -77,7 +90,7 @@ ssh gamer@chimeraos.local
 
 {{% /steps %}}
 
-> Pour plus d’informations au sujet des clés ssh, vous pouvez vous rendez à [cette page](https://jeremky.codeberg.page/docs/linux/securisation-de-ssh)
+> Pour plus d’informations au sujet des clés ssh, vous pouvez vous rendre à [cette page](/docs/linux/securisation-de-ssh)
 
 ### Problème CPU
 
@@ -106,7 +119,7 @@ nano cpupower.service
 
 ##### Insérez le contenu suivant
 
-```systemd {filename="cpupower.service"}
+```systemd {filename="~/.config/systemd/user/cpupower.service"}
 [Unit]
 Description=Force CPU performance
 
@@ -125,9 +138,6 @@ systemctl --user enable --now cpupower.service
 ```
 
 {{% /steps %}}
-
-> [!IMPORTANT]
-> Le mot de passe du user gamer est effectivement en clair dans le fichier. Mais il n’est de toutes manières non modifiable
 
 ## Suivre le projet
 
