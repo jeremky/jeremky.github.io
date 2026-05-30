@@ -107,7 +107,7 @@ podman logs -f hytale
 
 Image
 
-#### Connectez vous à votre compte
+#### Connectez-vous à votre compte
 
 Image
 
