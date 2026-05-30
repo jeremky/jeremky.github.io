@@ -18,7 +18,7 @@ Là où des terminaux comme Hyper ou Tabby s'appuient sur Electron (et donc un m
 
 La façon la plus simple d'installer Ghostty sur Mac est via Homebrew. S'il n'est pas encore installé sur votre machine, je vous recommande de vous rendre sur [cette page](/docs/macos/utilisation-de-homebrew).
 
-> si vous préférez télécharger le `.dmg`, il est [disponible ici](https://ghostty.org/download)
+> si vous préférez télécharger le `.dmg`, il est disponible [ici](https://ghostty.org/download)
 
 ## Configuration
 
@@ -35,7 +35,7 @@ Vous pourrez ensuite l'ouvrir directement depuis Ghostty, via le raccourci **`Cm
 
 Voici la configuration que j'utilise :
 
-```ini
+```ini {filename="~/.config/ghostty/config"}
 ###############################################################
 ## Ghostty
 
@@ -104,7 +104,6 @@ Pour voir toutes les options disponibles, consultez la [documentation officielle
 ### Quick Terminal (terminal déroulant)
 
 L'une des fonctionnalités les plus pratiques de Ghostty sur Mac : un terminal "dropdown" qui peut être appelé de n'importe où via le raccourci **`Cmd+Shift+Space`**.
-
 
 > [!IMPORTANT]
 > Le Quick Terminal nécessite une permission d'accessibilité. Il faut se rendre dans **Réglages Système > Confidentialité et sécurité > Accessibilité** et autoriser Ghostty
