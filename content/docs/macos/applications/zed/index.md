@@ -212,7 +212,7 @@ Le fichier a été organisé pour regrouper les paramètres :
 
 #### Dépendances
 
-Pour utiliser la reconnaissance intelligente des scripts bash, il est nécessaire d'installer certains outils. Toujours avec Homebrew :
+Pour utiliser la reconnaissance intelligente des scripts bash, il est nécessaire d'installer certains outils. Toujours avec [Homebrew](/docs/macos/utilisation-de-homebrew) :
 
 ```bash
 brew install shfmt shellcheck
