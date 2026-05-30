@@ -89,8 +89,9 @@ Quelques exemples de filtres disponibles :
 
 | Shader        | Description                                              |
 | ------------- | -------------------------------------------------------- |
-| `CRT`         | Simule un écran cathodique avec lignes de balayage       |
-| `Scanlines`   | Ajoute des lignes horizontales pour un effet rétro       |
+| CRT           | Simule un écran cathodique avec lignes de balayage       |
+| Scaling (HQX) | Double le nombre de pixels pour améliorer les contours   |
+| Scaling (FSR) | Utilise l'algorithme d'upscale FidelityFX d'AMD          |
 | `LCD`         | Reproduit le rendu des écrans LCD des consoles portables |
 
 ![resultshader](resultshader.webp)
