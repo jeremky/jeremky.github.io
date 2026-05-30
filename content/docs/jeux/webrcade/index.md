@@ -78,3 +78,21 @@ Voici un feed d'exemple pointant vers des ROMs hébergées publiquement sur [Int
 ![perso](perso.webp)
 
 Petite précision pour la Nintendo 64 : il est nécessaire d'activer les applications expérimentales pour qu'elle soit disponible. Je n'ai pas constaté de problème avec les titres testés, mais je ne peux pas garantir la stabilité.
+
+## Shaders
+
+Depuis la version 0.2.0, WebRcade propose des filtres vidéo appelés shaders, accessibles depuis le menu pause via **Settings > Shaders**. Ils permettent de modifier le rendu visuel des jeux pour se rapprocher de l'apparence d'origine sur un écran cathodique.
+
+![configshader](configshader.webp)
+
+Quelques exemples de filtres disponibles :
+
+| Shader        | Description                                              |
+| ------------- | -------------------------------------------------------- |
+| `CRT`         | Simule un écran cathodique avec lignes de balayage       |
+| `Scanlines`   | Ajoute des lignes horizontales pour un effet rétro       |
+| `LCD`         | Reproduit le rendu des écrans LCD des consoles portables |
+
+![resultshader](resultshader.webp)
+
+> Les shaders disponibles varient selon la console émulée
