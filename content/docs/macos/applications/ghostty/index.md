@@ -40,7 +40,7 @@ Voici la configuration que j'utilise :
 ## Ghostty
 
 # general
-auto-update = off
+auto-update = on
 confirm-close-surface = false
 bell-features = no-attention,no-title,no-audio,no-system
 shell-integration-features = no-cursor,ssh-env
@@ -56,7 +56,7 @@ window-padding-x = 20
 window-padding-y = 10
 
 # appearance
-theme = dark:Catppuccin Mocha,light:Catppuccin Latte
+theme = Catppuccin Mocha
 unfocused-split-opacity = 0.90
 adjust-cell-height = 10%
 
@@ -123,7 +123,7 @@ ghostty +list-themes
 Ghostty supporte les thèmes adaptatifs selon le mode système macOS :
 
 ```ini
-theme = light:catppuccin-latte,dark:catppuccin-mocha
+theme = dark:Catppuccin Mocha,light:Catppuccin Latte
 ```
 
 ## Raccourcis clavier essentiels
