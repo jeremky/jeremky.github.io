@@ -84,6 +84,12 @@ quick-terminal-size = 1280px,800px
 keybind = global:super+shift+space=toggle_quick_terminal
 keybind = super+shift+#=toggle_window_float_on_top
 keybind = escape=unbind
+
+# split	
+keybind = super+shift+left=goto_split:left
+keybind = super+shift+down=goto_split:bottom
+keybind = super+shift+up=goto_split:top
+keybind = super+shift+right=goto_split:right
 ```
 
 ### Options utiles
