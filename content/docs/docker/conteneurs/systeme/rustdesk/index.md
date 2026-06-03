@@ -95,8 +95,5 @@ Dans l’appli RustDesk (sur desktop ou mobile), il suffit d’indiquer les él�
 
 ![settings](settings.webp)
 
-Et c’est tout ! Les connexions ne passent plus par un serveur tiers. A noter que tous les appareils que vous voulez faire communiquer doivent passer par ce même serveur.
-
-## Conclusion
-
-RustDesk est une excellente alternative à TeamViewer, qui m'a posé quelques soucis dernièrement (une histoire de licence...). Le fonctionnement est sensiblement le même. Et vous n'êtes pas obligé d'héberger un serveur pour l'utiliser. Notez toutefois que vous passerez donc par leurs serveurs. Mais ce n'est finalement pas pire que d'utiliser TeamViewer... :blush:
+> [!IMPORTANT]
+> Tous les appareils que vous voulez faire communiquer doivent désormais passer par ce même serveur
