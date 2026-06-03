@@ -2,7 +2,7 @@
 title: "Shairport Sync"
 slug: shairport-sync
 contextMenu: true
-weight: 30
+weight: 40
 toc: true
 tags:
   - linux
