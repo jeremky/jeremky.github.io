@@ -47,6 +47,8 @@ source ~/.bashrc
 | `zi <fragment>`     | Mode interactif                                                   |
 | `z ~`               | Retourner au répertoire home                                      |
 
+![zoxide](zoxide.webp)
+
 > [!IMPORTANT]
 > Il est nécessaire que [fzf](/docs/linux/applications/fzf) soit installé pour bénéficier de l'interface interactive avec `zi`. Sans lui, zoxide se rabattra sur une sélection basique
 
