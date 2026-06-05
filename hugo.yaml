@@ -87,9 +87,9 @@ params:
     contextMenu:
       enable: false
       links:
-        - name: Ouvrir dans ChatGPT
-          icon: chatgpt
-          url: "https://chatgpt.com/?hints=search&q=peux+tu+me+donner+des+informations+sur+cette+documentation%3A+{url}%0+?"
+        - name: Open in Claude
+          icon: claude
+          url: "https://claude.ai/new?q=Je+consulte+cette+documentation%3A+{url}%0APeux-tu+m%27aider+à+comprendre+comment+l%27utiliser+?"
     tabs:
       sync: true
 
