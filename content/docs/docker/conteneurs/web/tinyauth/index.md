@@ -152,9 +152,9 @@ Mais c'est surtout la ligne en dessous qui va nous intéresser :
 testuser:$$2a$$10$$0fsXGdP6yfivZixOlpE.VOzjrheliau3x6f1Q1PyOJwtiTfnzGogG:54JVQL5HDB7T2F7NO27JHLT2S2ITKHJN
 ```
 
-La ligne contient désormais la clé TOTP en plus du mot de passe. Remplacez la ligne de la variable TINYAUTH_AUTH_USERS dans le fichier `tinyauth.env` par cette nouvelle valeur.
+La ligne contient désormais la clé TOTP en plus du mot de passe. Remplacez la ligne de la variable `TINYAUTH_AUTH_USERS` dans le fichier `tinyauth.env` par cette nouvelle valeur.
 
-Il ne vous reste plus qu'à redéployer l'application pour prise en compte :
+Il ne vous reste plus qu'à redéployer l'application pour prendre en compte la modification :
 
 ![totp](totp.webp)
 
