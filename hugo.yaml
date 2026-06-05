@@ -89,7 +89,7 @@ params:
       links:
         - name: Ouvrir dans Claude
           icon: claude
-          url: "https://claude.ai/new?q=Je+consulte+cette+documentation%3A+{url}%0APeux-tu+m%27aider+à+comprendre+comment+l%27utiliser+?"
+          url: "https://claude.ai/new?q=Je+consulte+cette+documentation+%3A+{url}%0APeux-tu+m%27aider+à+comprendre+comment+l%27utiliser+?"
     tabs:
       sync: true
 
