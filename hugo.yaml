@@ -86,6 +86,10 @@ params:
     width: wide
     contextMenu:
       enable: false
+      links:
+        - name: Ouvrir dans ChatGPT
+          icon: chatgpt
+          url: "https://chatgpt.com/?hints=search&q=peux+tu+me+donner+des+informations+sur+cette+documentation%3A+{url}%0+?"
     tabs:
       sync: true
 
