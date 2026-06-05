@@ -7,7 +7,7 @@ toc: true
 tags:
   - docker
 draft: false
-lastmod: 2026-05-17
+lastmod: 2026-06-05
 ---
 
 [Tinyauth](https://github.com/tinyauthapp/tinyauth) est un serveur d'authentification et d'autorisation particulièrement léger. Il est conçu pour fonctionner à la fois comme middleware d'authentification pour vos applications, avec support d'OAuth, LDAP et contrôles d'accès, et comme serveur d'authentification autonome. Il est compatible avec tous les proxies populaires tels que Traefik, Nginx et Caddy.
@@ -30,12 +30,14 @@ Le fichier `docker-compose.yml` :
 ```yml {filename="docker-compose.yml"}
 services:
   tinyauth:
-    image: ghcr.io/steveiliop56/tinyauth:latest
+    image: ghcr.io/tinyauthapp/tinyauth:latest
     container_name: tinyauth
     hostname: tinyauth
     env_file: tinyauth.env
     networks:
       - nginx_proxy
+    volumes:
+      - /opt/containers/tinyauth:/data
     restart: always
 
 networks:
@@ -46,18 +48,11 @@ networks:
 Le fichier `tinyauth.env` associé :
 
 ```ini {filename="tinyauth.env"}
-SECRET=<clé_secrète>
-APP_URL=https://tinyauth.mondomaine.fr
-DISABLE_CONTINUE=true
-APP_TITLE=JeremKy Auth
-BACKGROUND_IMAGE=<url optionnelle>
-USERS=<à remplir plus tard>
-```
-
-Pour générer une clé secrète aléatoire, utilisez la commande suivante :
-
-```bash
-openssl rand -base64 32 | tr -dc 'a-zA-Z0-9' | head -c 32 && echo
+TINYAUTH_APPURL=https://tinyauth.mondomaine.fr
+TINYAUTH_ANALYTICS_ENABLED=false
+TINYAUTH_UI_TITLE=Tinyauth
+# TINYAUTH_UI_BACKGROUNDIMAGE=
+# TINYAUTH_AUTH_USERS
 ```
 
 ### Reverse proxy
@@ -102,9 +97,22 @@ Maintenant que Tinyauth est installé, nous allons créer nos utilisateurs. On a
 
 Pour cela, connectez vous au conteneur fraîchement démarré :
 
+{{< tabs >}}
+{{< tab name="Docker" >}}
+
 ```bash
 docker exec -it tinyauth sh
 ```
+
+{{< /tab >}}
+{{< tab name="Podman" >}}
+
+```bash
+podman exec -it tinyauth sh
+```
+
+{{< /tab >}}
+{{< /tabs >}}
 
 Et lancez la commande suivante :
 
@@ -122,7 +130,7 @@ Spécifiez que vous voulez un format pour Docker, pour que le hash du mot de pas
 testuser:$$2a$$10$$0fsXGdP6yfivZixOlpE.VOzjrheliau3x6f1Q1PyOJwtiTfnzGogG
 ```
 
-Modifiez le fichier `tinyauth.env` pour ajouter ce user à la variable USERS. Vous pouvez en ajouter plusieurs en les séparant par des virgules.
+Modifiez le fichier `tinyauth.env` pour ajouter ce user à la variable `TINYAUTH_AUTH_USERS`. Vous pouvez en ajouter plusieurs en les séparant par des virgules.
 
 Redéployez votre Tinyauth pour prendre en compte la nouvelle variable. Cela devrait être tout bon ! Vous devriez pouvoir profiter de votre nouveau service !
 
@@ -136,7 +144,7 @@ Si vous voulez ajouter une double authentification TOTP, utilisez la commande su
 ./tinyauth totp generate -i
 ```
 
-Il vous sera demandé de saisir la ligne créée précédemment. Vous allez vous retrouver avec un ENORME QR Code dans votre terminal :smile:
+Il vous sera demandé de saisir la ligne créée précédemment. Vous allez vous retrouver avec un ÉNORME QR Code dans votre terminal.
 
 Mais c'est surtout la ligne en dessous qui va nous intéresser :
 
@@ -144,7 +152,7 @@ Mais c'est surtout la ligne en dessous qui va nous intéresser :
 testuser:$$2a$$10$$0fsXGdP6yfivZixOlpE.VOzjrheliau3x6f1Q1PyOJwtiTfnzGogG:54JVQL5HDB7T2F7NO27JHLT2S2ITKHJN
 ```
 
-La ligne contient désormais la clé TOTP en plus du mot de passe. Remplacez la ligne dans le fichier `tinyauth.env` et le tour est joué.
+La ligne contient désormais la clé TOTP en plus du mot de passe. Remplacez la ligne de la variable TINYAUTH_AUTH_USERS dans le fichier `tinyauth.env` par cette nouvelle valeur.
 
 Il ne vous reste plus qu'à redéployer l'application pour prise en compte :
 
@@ -158,21 +166,22 @@ Si vous ne voulez pas avoir à gérer les mots de passe utilisateur, Tinyauth pe
 - [OAuth Google](https://tinyauth.app/docs/guides/google-oauth)
 - [Service LDAP](https://tinyauth.app/docs/guides/ldap)
 
-Dans cet exemple, nous allons utiliser GitHub OAuth. La documentation de Tinyauth est vraiment bien faite, je vous laisse aller voir sur [le site](https://tinyauth.app/docs/guides/github-oauth) pour la création de l'application côté Github.
+
+Dans cet exemple, nous allons utiliser GitHub OAuth. Je vous suggère d'aller voir la documentation sur [le site](https://tinyauth.app/docs/guides/github-oauth) pour obtenir davantage d'informations sur la création de l'application côté GitHub.
 
 Une fois votre configuration en place, vous devez modifier votre fichier `tinyauth.env` pour y ajouter les variables suivantes :
 
 ```ini
-OAUTH_WHITELIST=user1@mail.com,user2@mail.com
-GITHUB_CLIENT_ID=<id_app>
-GITHUB_CLIENT_SECRET=<secret_key>
+TINYAUTH_OAUTH_WHITELIST=user1@mail.com,user2@mail.com
+TINYAUTH_OAUTH_PROVIDERS_GITHUB_CLIENTID=<id_app>
+TINYAUTH_OAUTH_PROVIDERS_GITHUB_CLIENTSECRET=<secret_key>
 ```
 
-- `OAUTH_WHITELIST` : Le(s) compte(s) autorisé(s) (A spécifier, car sinon, tous les utilisateurs ayant un compte pourront se connecter)
-- `GITHUB_CLIENT_ID` : L'ID de votre application créée sur Github
-- `GITHUB_CLIENT_SECRET` : La clé générée dans la configuration de votre app Github
+- `TINYAUTH_OAUTH_WHITELIST` : le(s) compte(s) autorisé(s) (A spécifier, car sinon, tous les utilisateurs ayant un compte pourront se connecter)
+- `TINYAUTH_OAUTH_PROVIDERS_GITHUB_CLIENTID` : l'ID de votre application créée sur Github
+- `TINYAUTH_OAUTH_PROVIDERS_GITHUB_CLIENTSECRET` : La clé générée dans la configuration de votre app Github
 
-> Vous pouvez maintenant supprimer la variable `USERS` du fichier `tinyauth.env` si vous ne voulez pas conserver la méthode d'authentification classique
+> Vous pouvez maintenant supprimer la variable `TINYAUTH_AUTH_USERS` du fichier `tinyauth.env` si vous ne voulez pas conserver la méthode d'authentification classique
 
 Après un redéploiement de Tinyauth, il devrait désormais vous proposer la connexion via Github :
 
@@ -186,34 +195,45 @@ Même si Tinyauth est assez simpliste dans la gestion des droits, il reste possi
 
 Pour cela, vous devez d'abord permettre à Tinyauth de pouvoir lire les labels. Dans votre fichier `compose.yml`, ajoutez l'entrée `volumes` suivante :
 
-- Pour Docker :
+{{< tabs >}}
+{{< tab name="Docker" >}}
 
 ```yml
 volumes:
   - /var/run/docker.sock:/var/run/docker.sock:ro
 ```
 
-- Pour Podman :
+{{< /tab >}}
+{{< tab name="Podman" >}}
 
 ```yml
 volumes:
   - /var/run/user/1000/podman/podman.sock:/var/run/docker.sock:ro
 ```
 
+{{< /tab >}}
+{{< /tabs >}}
+
 Ensuite, pour chaque application, ajoutez les labels suivants à votre fichier `compose.yml` :
 
 ```yml
 labels:
-  tinyauth.domain: mondomaine.fr
-  tinyauth.oauth.whitelist: user1@mail.com
+  - "tinyauth.apps.<app>.oauth.whitelist=mail@gmail.com,autremail@gmail.com"
 ```
 
 Si vous utilisez des comptes locaux :
 
 ```yml
 labels:
-  tinyauth.domain: mondomaine.fr
-  tinyauth.users: testuser
+  - "tinyauth.apps.<app>.users.allow=<user>"
 ```
 
 Pensez à redéployer vos applications pour prise en compte. Si l'utilisateur ne figure pas dans la liste des utilisateurs autorisés, il sera alors renvoyé sur la page de Tinyauth.
+
+Si le domaine de l'app ne correspond pas à son nom, ajoutez ce label
+en complément des précédents :
+
+```yml
+labels:
+  - "tinyauth.apps.<app>.config.domain=<domain>"
+```
