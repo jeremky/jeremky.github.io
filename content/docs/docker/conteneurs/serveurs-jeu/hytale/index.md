@@ -8,7 +8,7 @@ tags:
   - jeux
   - docker
 draft: true
-lastmod: 2026-05-24
+lastmod: 2026-06-06
 ---
 
 _[Hytale](https://fr.wikipedia.org/wiki/Hytale) est un jeu vidéo de type sandbox développé et édité par Hypixel Studios (équipe à l’origine du serveur Minecraft Hypixel), sorti en accès anticipé le 13 janvier 2026 sur Windows, Mac et Linux._
