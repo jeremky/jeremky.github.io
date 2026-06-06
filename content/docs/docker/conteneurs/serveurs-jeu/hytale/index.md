@@ -7,7 +7,7 @@ toc: true
 tags:
   - jeux
   - docker
-draft: true
+draft: false
 lastmod: 2026-06-06
 ---
 
@@ -115,7 +115,7 @@ podman logs -f hytale
 
 ![validation](validation.webp)
 
-#### Vérifiez de nouveau les logs du conteneur
+#### Vérifiez de nouveau les logs
 
 ![download](download.webp)
 
