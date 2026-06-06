@@ -2,6 +2,9 @@
 title: "Hytale"
 slug: hytale
 contextMenu: true
+params:
+  images:
+    - "hytale.webp"
 weight: 10
 toc: true
 tags:
@@ -16,7 +19,7 @@ _[Hytale](https://fr.wikipedia.org/wiki/Hytale) est un jeu vidéo de type sandbo
 _Le développement du jeu a débuté en 2015. Son annonce officielle a eu lieu fin 2018, accompagnée d'une bande-annonce sur YouTube qui a cumulé plus de 60 millions de vues. Initialement annoncé pour une sortie en 2021, le jeu a été racheté par Riot Games, repoussé plusieurs fois, abandonné en juin 2025, puis racheté en novembre 2025 par Simon Collins, co-créateur du studio et fondateur d'Hypixel._
 _Hytale est fondé sur un système de construction par blocs inspiré de Minecraft, tout en restant totalement indépendant._
 
-![logo](logo.webp)
+![hytale](hytale.webp)
 
 ## Installation
 
