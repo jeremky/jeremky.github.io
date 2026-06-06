@@ -2,9 +2,6 @@
 title: "Hytale"
 slug: hytale
 contextMenu: true
-params:
-  images:
-    - "hytale.webp"
 weight: 10
 toc: true
 tags:
