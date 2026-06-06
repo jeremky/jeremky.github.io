@@ -115,7 +115,7 @@ podman logs -f hytale
 
 ![validation](validation.webp)
 
-#### Vérifiez de nouveau les logs
+#### Vérifiez de nouveau les logs du conteneur
 
 ![download](download.webp)
 
