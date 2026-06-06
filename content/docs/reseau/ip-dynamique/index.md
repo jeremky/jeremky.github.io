@@ -28,9 +28,7 @@ Pour que la mise à jour soit automatique, plusieurs options :
 
 ### Votre box est compatible avec Dynu
 
-Les Livebox peuvent effectuer directement la mise à jour. Il suffit de se rendre dans la partie réseau, de sélectionner l'onglet `DynDNS`, et de choisir le service `GnuDIP` :
-
-![livebox](livebox.webp)
+Les Livebox peuvent effectuer directement la mise à jour. Il suffit de se rendre dans la partie réseau, de sélectionner l'onglet `DynDNS`, et de choisir le service `GnuDIP`.
 
 ### Votre box n'est pas compatible
 
@@ -80,9 +78,3 @@ sudo systemctl restart ddclient
 ```
 
 {{% /steps %}}
-
-### Vérification
-
-Sur la page de Dynu, votre IP s'est normalement mise à jour automatiquement :
-
-![update](update.webp)
