@@ -115,6 +115,7 @@ if [[ $- == *i* ]]; then
 fi
 
 # ─── aliases ──────────────────────────────────────────────────
+
 alias ls='ls --color=auto'                        # Ajoute la couleur
 alias l='ls -lh'                                  # Liste détaillée
 alias la='ls -lhA'                                # Liste avec les fichiers cachés
