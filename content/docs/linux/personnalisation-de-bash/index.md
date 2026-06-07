@@ -266,7 +266,7 @@ Les aliases actifs uniquement dans le cas où les applications sont installées 
 | clock    | Lance tty-clock, un petit outil pour afficher l'heure             |
 | ufw      | Un Firewall facile à utiliser, ajoute sudo devant                 |
 | ufws     | Affiche le status de ufw, avec les règles numérotées              |
-| vi       | Adapte vi selon votre choix d'éditeur (Vim, Neovim)               |
+| vi       | Permet d'ouvrir plusieurs fichiers en split vertical              |
 | z        | Utilise zoxide, un cd avancé                                      |
 
 Et enfin, les fonctions :
