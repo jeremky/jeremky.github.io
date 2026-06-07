@@ -23,57 +23,51 @@ Au démarrage d'une session shell, différents fichiers se chargent automatiquem
 Le fichier `.zshrc` n'existe pas par défaut. Zsh est chargé sans aucune personnalisation. Il va donc falloir le construire de 0. Comme base de départ, je vous partage le mien :
 
 ```bash {filename="~/.zshrc"}
-###############################################################
-## zshrc
+## ~/.zshrc
 
-# Définir des séquences de couleur
-RESET="%{%b%f%}"            # Réinitialiser
-BOLD="%{%B%}"               # Gras
-RED="%{%F{red}%}"           # Rouge
-GREEN="%{%F{green}%}"       # Vert
-YELLOW="%{%F{yellow}%}"     # Jaune
-BLUE="%{%F{blue}%}"         # Bleu
-MAGENTA="%{%F{magenta}%}"   # Magenta
-CYAN="%{%F{cyan}%}"         # Cyan
-WHITE="%{%F{white}%}"       # Blanc
+# options
+setopt AUTO_CD              # Naviguer sans 'cd'
+setopt HIST_IGNORE_DUPS     # Ignore les doublons dans l'historique
+setopt HIST_FIND_NO_DUPS    # Ignore les doublons lors de la recherche
+setopt SHARE_HISTORY        # Partage l'historique entre les sessions
+setopt INC_APPEND_HISTORY   # Ajoute immédiatement à l'historique
 
-# Définir un prompt similaire à celui de Bash
+# history
+HISTSIZE=10000
+SAVEHIST=10000
+HISTFILE="$HOME/.local/share/zsh/history"
+
+# prompt
+BOLD="%{%B%}"
+RESET="%{%b%f%}"
+CYAN="%{%F{cyan}%}"
+BLUE="%{%F{blue}%}"
 PROMPT="${BOLD}${CYAN}%n@%m${RESET}:${BLUE}%~${RESET}$ "
 
-# Options Zsh
-setopt AUTO_CD                # Permet de naviguer dans un dossier sans 'cd'
-setopt HIST_IGNORE_DUPS       # Ignore les doublons dans l'historique
-setopt HIST_FIND_NO_DUPS      # Ignore les doublons lors de la recherche
-setopt SHARE_HISTORY          # Partage l'historique entre les sessions
-setopt INC_APPEND_HISTORY     # Ajoute immédiatement à l'historique
+# homebrew
+if command -v brew &>/dev/null; then
+  BREW_PREFIX=$(brew --prefix)
+  FPATH=$BREW_PREFIX/share/zsh-completions:$FPATH
+fi
 
-# Activer l'auto-complétion et désactiver la sensibilité à la casse
+# completion
 mkdir -p "$HOME/.local/share/zsh"
 autoload -Uz compinit && compinit -u -d "$HOME/.local/share/zsh/zcompdump"
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 zstyle ':completion:*' menu select
-
-# Déplacer le dossier de cache
 zstyle ':completion:*' cache-path "$HOME/.local/share/zsh/zcompcache"
 
-# Historique
-HISTSIZE=10000                              # Nombre de commandes à garder en mémoire
-SAVEHIST=10000                              # Nombre de commandes à enregistrer dans le fichier
-HISTFILE="$HOME/.local/share/zsh/history"   # Emplacement du fichier d'historique
-
-# Configuration des couleurs pour 'ls'
+# ls colors
 export CLICOLOR=1
 export LSCOLORS=ExFxBxDxCxegedabagacad
 
-# Ajout de l'auto suggestion de zsh
-if [[ -f /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]]; then
-  source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-fi
+# zsh-autosuggestions
+source $BREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
 
-# Ajout du surlignement
-if [[ -f /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
-  source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-  (( ${+ZSH_HIGHLIGHT_STYLES} )) || typeset -A ZSH_HIGHLIGHT_STYLES
+# zsh-syntax-highlighting
+if source $BREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null; then
+  source ~/.config/zsh/catppuccin.zsh
+  typeset -A ZSH_HIGHLIGHT_STYLES
   ZSH_HIGHLIGHT_STYLES[path]=none
   ZSH_HIGHLIGHT_STYLES[path_pathseparator]=none
   ZSH_HIGHLIGHT_STYLES[path_prefix]=none
@@ -81,12 +75,12 @@ if [[ -f /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
   ZSH_HIGHLIGHT_STYLES[precommand]=none
 fi
 
-# Bind de touches
-bindkey -e                        # Activation des bindings
-bindkey "\e[H" beginning-of-line  # Binding pour la touche "Home"
-bindkey "\e[F" end-of-line        # Binding pour la touche "End"
+# keybindings
+bindkey -e
+bindkey "\e[H" beginning-of-line
+bindkey "\e[F" end-of-line
 
-# Charge le fichier .zsh_aliases, si présent
+# aliases
 [[ -f ~/.zsh_aliases ]] && source ~/.zsh_aliases
 ```
 
@@ -107,81 +101,87 @@ Mon fichier `.zsh_aliases` se divise en plusieurs parties :
 Le contenu du fichier :
 
 ```bash {filename="~/.zsh_aliases"}
-###############################################################
-## zsh_aliases
+## ~/.zsh_aliases
 
-# Variables
+# variables
+export PATH="$HOME/.local/bin:$PATH"
 export LANG=fr_FR.UTF-8
 export LC_ALL=fr_FR.UTF-8
-export LESSHISTFILE=/dev/null
 export EDITOR=vim
+export LESSHISTFILE=/dev/null
 
-# Variables Brew
-if [[ -f /opt/homebrew/bin/brew ]]; then
+# homebrew
+if [[ -f $BREW_PREFIX/bin/brew ]]; then
   export HOMEBREW_NO_ENV_HINTS=1
   export HOMEBREW_NO_ANALYTICS=1
   alias upgrade='brew update && brew upgrade -g && brew cleanup'
 fi
 
-# Commandes
-alias l='ls -lh'                                      # Liste détaillée
-alias la='ls -lhA'                                    # Liste avec les fichiers cachés
-alias lr='ls -lLhR'                                   # Liste en récursif
-alias lra='ls -lhRA'                                  # Liste en récursif avec les fichiers cachés
-alias lrt='ls -lLhrt'                                 # Liste par date
-alias lrta='ls -lLhrtA'                               # Liste par date avec les fichiers cachés
-alias grep='grep -i --color=auto'                     # Grep sans la sensibilité à la casse
-alias zgrep='zgrep -i --color=auto'                   # Grep dans les fichiers compressés
-alias psp='ps -eaf | grep -v grep | grep'             # Chercher un process (psp <nom process>)
-alias genkey='ssh-keygen -t ed25519 -a 100'           # Générer une clé ed25519
-alias ifconfig='ifconfig en0 && ifconfig en1'         # Afficher les adresses IP
-alias pubip='curl -s -4 ipecho.net/plain ; echo'      # Afficher l'adresse IP publique
-alias df='df -PlH'                                    # Commande df en filtrant les montages inutiles
-alias rmds='find . -name '.DS_Store' -type f -delete' # Suppression recursive des fichiers ".DS_Store"
-alias rmdot="find . -name '._*' -type f -delete"      # Suppression recursive des fichiers "._"
-alias top='top -o cpu -U $(whoami)'                   # Commande top filtrée pour le user
-alias vi='vim -nO'                                    # vim : vi amélioré avec ouverture multiple
+# ─── aliases ──────────────────────────────────────────────────
+alias l='ls -lh'                                       # Liste détaillée
+alias la='ls -lhA'                                     # Liste avec les fichiers cachés
+alias lr='ls -lLhR'                                    # Liste en récursif
+alias lra='ls -lhRA'                                   # Liste en récursif avec les fichiers cachés
+alias lrt='ls -lLhrt'                                  # Liste par date
+alias lrta='ls -lLhrtA'                                # Liste par date avec les fichiers cachés
+alias grep='grep -i --color=auto'                      # Grep sans sensibilité à la casse
+alias zgrep='zgrep -i --color=auto'                    # Grep dans les fichiers compressés
+alias psp='ps -eaf | grep -v grep | grep'              # Chercher un process (psp <nom>)
+alias genkey='ssh-keygen -t ed25519 -a 100'            # Générer une clé ed25519
+alias ifconfig='ifconfig en0 && ifconfig en1'          # Afficher les adresses IP
+alias pubip='curl -s -4 ipecho.net/plain ; echo'       # Afficher l'adresse IP publique
+alias df='df -PlH'                                     # df en filtrant les montages inutiles
+alias rmds='find . -name ".DS_Store" -type f -delete'  # Supprimer les .DS_Store récursivement
+alias rmdot="find . -name '._*' -type f -delete"       # Supprimer les ._ récursivement
+alias top='top -o cpu -U $(whoami)'                    # top filtré pour le user courant
+alias vi='vim -nO'                                     # vim avec ouverture multiple
+alias speedtest='networkQuality'                       # Speedtest Apple
+alias locate='mdfind -name'                            # Recherche via Spotlight
 
-###############################################################
-## Applications facultatives
+# ─── applications facultatives ────────────────────────────────
 
 # colordiff : diff avec couleur
-[[ -f /opt/homebrew/bin/colordiff ]] && alias diff='colordiff'
+[[ -f $BREW_PREFIX/bin/colordiff ]] && alias diff='colordiff'
 
-# duf : affiche les files systems
-[[ -f /opt/homebrew/bin/duf ]] && alias df='duf -hide special'
+# duf : affiche les filesystems
+[[ -f $BREW_PREFIX/bin/duf ]] && alias df='duf -hide special'
 
-# fzf : recherche avancée
-if [[ -f /opt/homebrew/bin/fzf ]]; then
+# fzf : recherche avancée avec thème Catppuccin Mocha
+if [[ -f $BREW_PREFIX/bin/fzf ]]; then
   source <(fzf --zsh)
+  export FZF_DEFAULT_OPTS=" \
+    --color=bg+:#313244,bg:#1E1E2E,spinner:#F5E0DC,hl:#F38BA8 \
+    --color=fg:#CDD6F4,header:#F38BA8,info:#CBA6F7,pointer:#F5E0DC \
+    --color=marker:#B4BEFE,fg+:#CDD6F4,prompt:#CBA6F7,hl+:#F38BA8 \
+    --color=selected-bg:#45475A \
+    --color=border:#6C7086,label:#CDD6F4"
 fi
 
 # ncdu : équivalent à TreeSize
-[[ -f /opt/homebrew/bin/ncdu ]] && alias ncdu='ncdu --color dark'
+[[ -f $BREW_PREFIX/bin/ncdu ]] && alias ncdu='ncdu --color dark'
 
 # rg : plus performant que grep
-[[ -f /opt/homebrew/bin/rg ]] && alias rg='rg -i'
+[[ -f $BREW_PREFIX/bin/rg ]] && alias rg='rg -i'
 
 # zoxide : cd amélioré
-[[ -f /opt/homebrew/bin/zoxide ]] && eval "$(zoxide init zsh)"
+[[ -f $BREW_PREFIX/bin/zoxide ]] && eval "$(zoxide init zsh)"
 
-###############################################################
-## Fonctions
+# ─── fonctions ────────────────────────────────────────────────
 
-# cpsave : copie un fichier ou un dossier avec .old
-cpsave() { cp -Rp "$1" "${1%/}.$(date +%Y%m%d).old" ;}
+# cpsave : copie un fichier ou dossier avec suffixe .old
+cpsave() { cp -Rp "$1" "${1%/}.$(date +%Y%m%d).old"; }
 
-# tarc : créer une archive pour chaque fichier / dossier spécifié
-tarc() { for file in "$@"; do tar czvf "${file%/}.tar.gz" -- "$file"; done ;}
+# tarc : créer une archive pour chaque fichier/dossier spécifié
+tarc() { for file in "$@"; do tar czvf "${file%/}.tar.gz" "$file"; done; }
 
-# tarx : décompresse une archive spécifiée
-tarx() { for file in "$@"; do tar xzvf -- "$file"; done ;}
+# tarx : décompresser une archive
+tarx() { for file in "$@"; do tar xzvf "$file"; done; }
 
 # zip : commande zip plus conviviale
-zip() { for file in "$@"; do /usr/bin/zip -r "${file%/}.zip" "$file" ; done ;}
+zip() { for file in "$@"; do /usr/bin/zip -r "${file%/}.zip" "$file"; done; }
 
-# convweb : convertir les fichiers png en webp
-convweb() { for file in "$@" ; do cwebp -q 100 "$file" -o "${file%.*}.webp" && rm -- "$file" ; done ;}
+# convweb : convertir des fichiers png en webp
+convweb() { for file in "$@"; do cwebp -q 100 "$file" -o "${file%.*}.webp" && rm -- "$file"; done; }
 ```
 
 Les aliases de base :
