@@ -24,33 +24,27 @@ Dans le home directory, se trouvent des fichiers cachés contenant ces informati
 ## Fichier .bashrc
 
 ```code {filename="~/.bashrc"}
-# ~/.bashrc
+## ~/.bashrc
 
-# If not running interactively, don't do anything
+# if not running interactively, don't do anything
 case $- in
   *i*) ;;
   *) return ;;
 esac
 
-# don't put duplicate lines
+# history
 HISTCONTROL=ignoreboth
-
-# append to the history file
-shopt -s histappend
-
-# for setting history length
 HISTSIZE=1000
 HISTFILESIZE=2000
+shopt -s histappend
 
-# check the window size after each command
+# options
 shopt -s checkwinsize
 
-# Alias definitions.
-if [ -f ~/.bash_aliases ]; then
-  . ~/.bash_aliases
-fi
+# aliases
+[[ -f ~/.bash_aliases ]] && . ~/.bash_aliases
 
-# If this is an xterm set the title to user@host:dir
+# prompt
 case "$TERM" in
   xterm* | rxvt*)
     PS1="\[\e]0;\u@\h: \w\a\]$PS1"
@@ -58,7 +52,7 @@ case "$TERM" in
   *) ;;
 esac
 
-# enable programmable completion features
+# completion
 if ! shopt -oq posix; then
   if [ -f /usr/share/bash-completion/bash_completion ]; then
     . /usr/share/bash-completion/bash_completion
@@ -76,10 +70,8 @@ Là encore, le plus simple, c'est que je vous partage le fichier que j'utilise.
 Il est utilisable aussi bien pour votre user que pour root. Attention dans ce cas, le fichier ne se charge pas par défaut. Il faut ajouter dans le fichier `.bashrc` de root les lignes suivantes :
 
 ```bash
-# Alias definitions.
-if [ -f ~/.bash_aliases ]; then
-. ~/.bash_aliases
-fi
+# aliases
+[[ -f ~/.bash_aliases ]] && . ~/.bash_aliases
 ```
 
 Mon fichier `.bash_aliases` se divise en plusieurs parties :
@@ -96,72 +88,66 @@ Vous pouvez le récupérer directement sur github en suivant [ce lien](https://g
 Le contenu du fichier :
 
 ```bash {filename="~/.bash_aliases"}
-###############################################################
-## Bash
+## ~/.bash_aliases
 
-# Affichage
-if [[ $USER = root ]]; then
+# prompt
+if [[ "$EUID" -eq 0 ]]; then
   PS1='\[\033[01;31m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w \$\[\033[00m\] '
 else
   PS1='\[\033[01;35m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w \$\[\033[00m\] '
 fi
 
-# Variables
+# variables
 export LANG=fr_FR.UTF-8
 export LANGUAGE=$LANG
 export LC_ALL=$LANG
 export EDITOR=vim
 export VISUAL=$EDITOR
 export HISTTIMEFORMAT="%F %T "
-export TMOUT=1800
+export LESSHISTFILE=/dev/null
+export TMOUT=3600
 
-# Tweaks divers
+# options
 if [[ $- == *i* ]]; then
-  bind 'set colored-stats on'              # Affiche les couleurs lors de la complétion
-  bind 'set completion-ignore-case on'     # Ignorer la casse lors de la complétion
-  bind 'set show-all-if-unmodified on'     # Affiche les correspondances possibles immédiatement
+  bind 'set colored-stats on'          # Couleurs lors de la complétion
+  bind 'set completion-ignore-case on' # Ignorer la casse lors de la complétion
+  bind 'set show-all-if-unmodified on' # Affiche les correspondances immédiatement
 fi
 
-###############################################################
-## Commandes
+# ─── aliases ──────────────────────────────────────────────────
+alias ls='ls --color=auto'                        # Ajoute la couleur
+alias l='ls -lh'                                  # Liste détaillée
+alias la='ls -lhA'                                # Liste avec les fichiers cachés
+alias lr='ls -lLhR'                               # Liste en récursif
+alias lra='ls -lhRA'                              # Liste en récursif avec les fichiers cachés
+alias lrt='ls -lLhrt'                             # Liste par date
+alias lrta='ls -lLhrtA'                           # Liste par date avec les fichiers cachés
+alias dus='du -sh * | sort -hr'                   # Tri par taille
+alias grep='grep -i --color=auto'                 # Grep sans sensibilité à la casse
+alias zgrep='zgrep -i --color=auto'               # Grep dans les fichiers compressés
+alias psp='ps -eaf | grep -v grep | grep'         # Chercher un process (psp <nom>)
+alias iostat='iostat -m --human'                  # iostat lisible
+alias ifconfig='ip -br -c addr | grep -v lo'      # Adresses IP (ifconfig obsolète)
+alias ss='ss -tunlH'                              # Ports d'écoute
+alias ssp='ss | grep'                             # Chercher un port (ssp <port>)
+alias netstat='ss'                                # Alias netstat obsolète → ss
+alias pubip='curl -s -4 ipecho.net/plain ; echo'  # IP publique
+alias df='df -h -x tmpfs -x devtmpfs -x overlay'  # df sans montages inutiles
+alias halt='sudo halt -p'                         # Arrêt système
+alias reboot='sudo reboot'                        # Redémarrage
 
-# Prompt
-alias ls='ls --color=auto'                         # Ajoute la couleur
-alias l='ls -lh'                                   # Liste détaillée
-alias la='ls -lhA'                                 # Liste avec les fichiers cachés
-alias lr='ls -lLhR'                                # Liste en récursif
-alias lra='ls -lhRA'                               # Liste en récursif avec les fichiers cachés
-alias lrt='ls -lLhrt'                              # Liste par date
-alias lrta='ls -lLhrtA'                            # Liste par date avec les fichiers cachés
-alias dus='du -sh * | sort -hr'                    # Tri de fichiers et dossiers par taille
-alias grep='grep -i --color=auto'                  # Grep sans la sensibilité à la casse
-alias zgrep='zgrep -i --color=auto'                # Grep dans les fichiers compressés
-alias psp='ps -eaf | grep -v grep | grep'          # Chercher un process (psp <nom process>)
-alias iostat='iostat -m --human'                   # Commande iostat lisible
-alias ifconfig='ip -br -c addr | grep -v lo'       # Afficher les adresses IP (ifconfig n'existe plus)
-alias ss='ss -tunlH'                               # Afficher les ports d'écoute
-alias ssp='ss | grep'                              # Chercher un port (ssp <port>)
-alias pubip='curl -s -4 ipecho.net/plain ; echo'   # Pour obtenir l'adresse IP publique du serveur
-alias df='df -h -x tmpfs -x devtmpfs -x overlay'   # Commande df en filtrant les montages inutiles
-alias halt='sudo halt -p'                          # Arrête le système et le serveur
-alias reboot='sudo reboot'                         # Commande reboot avec sudo
-
-# sudo : utiliser la commande root pour...passer root :)
-[[ $USER != root ]] && alias root='sudo -s'
+# sudo
+[[ "$EUID" -ne 0 ]] && alias root='sudo -s'
 
 # ssh
-alias genkey='ssh-keygen -t ed25519 -a 100'        # Générer une clé ed25519
-alias genkeyrsa='ssh-keygen -t rsa -b 4096 -a 100' # Générer une clé RSA
-alias copykey='ssh-copy-id'                        # Copier la clé ssh vers un serveur
+alias genkey='ssh-keygen -t ed25519 -a 100'         # Clé ed25519
+alias genkeyrsa='ssh-keygen -t rsa -b 4096 -a 100'  # Clé RSA
 
-###############################################################
-## Applications facultatives
+# apt
+alias apt='sudo apt'
+alias upgrade='sudo apt update && sudo apt full-upgrade && sudo apt -y autoremove'
 
-# apt : gestionnaire de paquets debian
-if [[ -f /usr/bin/apt ]]; then
-  alias apt='sudo apt'
-  alias upgrade='sudo apt update && sudo apt full-upgrade && sudo apt -y autoremove'
-fi
+# ─── applications facultatives ────────────────────────────────
 
 # colordiff : diff avec couleur
 [[ -f /usr/bin/colordiff ]] && alias diff='colordiff'
@@ -172,10 +158,15 @@ fi
 # fd : find amélioré
 [[ -f /usr/bin/fdfind ]] && alias fd='fdfind -HI'
 
-# fzf : recherche avancée
+# fzf : recherche avancée avec thème Catppuccin Mocha
 if [[ -f /usr/bin/fzf ]]; then
   eval "$(fzf --bash)"
-  export FZF_DEFAULT_OPTS="--color=bw"
+  export FZF_DEFAULT_OPTS=" \
+    --color=bg+:#313244,bg:#1E1E2E,spinner:#F5E0DC,hl:#F38BA8 \
+    --color=fg:#CDD6F4,header:#F38BA8,info:#CBA6F7,pointer:#F5E0DC \
+    --color=marker:#B4BEFE,fg+:#CDD6F4,prompt:#CBA6F7,hl+:#F38BA8 \
+    --color=selected-bg:#45475A \
+    --color=border:#6C7086,label:#CDD6F4"
 fi
 
 # htop : plus convivial que top
@@ -199,20 +190,19 @@ fi
 # vim : vi amélioré
 [[ -f /usr/bin/vim ]] && alias vi='vim -nO'
 
-# zoxide : cd amélioré (utiliser la commande z)
+# zoxide : cd amélioré
 [[ -f /usr/bin/zoxide ]] && eval "$(zoxide init bash)"
 
-###############################################################
-## Fonctions
+# ─── fonctions ────────────────────────────────────────────────
 
-# cleanlog : nettoyer les logs de systemd
-cleanlog() { [[ -n "$1" ]] && sudo journalctl --vacuum-time=${1}d ;}
+# cleanlog : nettoyer les logs systemd
+cleanlog() { [[ -n "$1" ]] && sudo journalctl --vacuum-time=${1}d; }
 
-# cpsave : copier un fichier ou un dossier avec .old
-cpsave() { cp -Rp "$1" "${1%/}.$(date +%Y%m%d).old" ;}
+# cpsave : copier un fichier ou dossier avec suffixe .old
+cpsave() { cp -Rp "$1" "${1%/}.$(date +%Y%m%d).old"; }
 
 # gencert : générer un certificat avec certbot
-gencert () { sudo certbot certonly --standalone -d "$1" ;}
+gencert() { sudo certbot certonly --standalone -d "$1"; }
 
 # newuser : créer un compte de service
 newuser() {
@@ -220,17 +210,20 @@ newuser() {
   echo "Utilisateur $1 créé. ID : $(id -u $1)"
 }
 
-# tarc : créer une archive pour chaque fichier / dossier spécifié
-tarc() { for file in "$@"; do tar czvf "${file%/}.tar.gz" -- "$file"; done ;}
+# tarc : créer une archive tar.gz
+tarc() { for file in "$@"; do tar czvf "${file%/}.tar.gz" "$file"; done; }
 
-# tarx : décompresser une archive spécifiée
-tarx() { for file in "$@"; do tar xzvf -- "$file"; done ;}
+# tarx : décompresser une archive tar
+tarx() { for file in "$@"; do tar xvf "$file"; done; }
 
-# testdisk : tester la vitesse d'écriture du disque
-testdisk() { dd if=/dev/zero of=testfile bs=64M count=16 oflag=direct status=progress ; rm testfile ;}
+# testdisk : tester la vitesse d'écriture disque
+testdisk() {
+  dd if=/dev/zero of=testfile bs=64M count=16 oflag=direct status=progress
+  rm testfile
+}
 
-# zip : commande zip plus conviviale
-zip() { for file in "$@"; do /usr/bin/zip -r "${file%/}.zip" "$file" ; done ;}
+# zip : créer une archive zip
+zip() { for file in "$@"; do /usr/bin/zip -r "${file%/}.zip" "$file"; done; }
 ```
 
 Les aliases de base :
