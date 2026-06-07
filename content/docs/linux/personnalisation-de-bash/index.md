@@ -247,15 +247,15 @@ Les aliases de base :
 | df        | Commande df, mais sans les volumes temporaires                       |
 | halt      | Permet l'arrêt de la machine et non seulement le système             |
 | reboot    | Ajoute sudo devant la commande reboot                                |
+| root      | Permet de se connecter en root via sudu                              |
+| apt       | Ajoute sudo et la commande `upgrade`                                 |
 | genkey    | Génère une clé au format ed25519 (plus sécurisé que rsa)             |
 | genkeyrsa | Génère une clé au format rsa en 4096 bits                            |
-| copykey   | Parce que je me rappelle jamais de la commande ssh-copy-id           |
 
 Les aliases actifs uniquement dans le cas où les applications sont installées :
 
 | Commande | Description                                                       |
 | -------- | ----------------------------------------------------------------- |
-| apt      | Ajoute sudo et la commande `upgrade`                              |
 | diff     | Remplace la commande par colordiff, pour une meilleure lisibilité |
 | df       | Remplace la commande par duf, bien plus agréable visuellement     |
 | fd       | Outil équivalent à find mais bien plus simple à utiliser          |
@@ -267,7 +267,7 @@ Les aliases actifs uniquement dans le cas où les applications sont installées 
 | ufw      | Un Firewall facile à utiliser, ajoute sudo devant                 |
 | ufws     | Affiche le status de ufw, avec les règles numérotées              |
 | vi       | Adapte vi selon votre choix d'éditeur (Vim, Neovim)               |
-| cd       | Utilise zoxide, un cd avancé                                      |
+| z        | Utilise zoxide, un cd avancé                                      |
 
 Et enfin, les fonctions :
 
