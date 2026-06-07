@@ -84,7 +84,11 @@ bindkey "\e[F" end-of-line
 [[ -f ~/.zsh_aliases ]] && source ~/.zsh_aliases
 ```
 
-> Chaque partie est suffisamment commentée pour vous permettre de comprendre les effets de chaque bloc
+Pour profiter pleinement des fonctionnalités de ce fichier, je vous suggère d'installer via [homebrew](/docs/macos/utilisation-de-homebrew) les éléments suivants : 
+
+```bash
+brew install zsh-autosuggestions zsh-completions zsh-syntax-highlighting
+```
 
 ## Fichier .zsh_aliases
 
