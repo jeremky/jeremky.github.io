@@ -6,8 +6,8 @@ weight: 80
 toc: true
 tags:
   - macos
-draft: true
-lastmod: 2026-05-31
+draft: false
+lastmod: 2026-06-08
 ---
 
 [UTM](https://mac.getutm.app/) est un outil de virtualisation gratuit et open source pour macOS. Il repose sur QEMU tout en proposant une interface graphique native, et peut tirer parti du framework Apple Virtualization pour faire tourner des machines virtuelles Linux ou macOS à des vitesses quasi natives sur Apple Silicon.
