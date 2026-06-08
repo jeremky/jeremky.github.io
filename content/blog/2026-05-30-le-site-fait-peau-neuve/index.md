@@ -37,7 +37,7 @@ La section blog reste présente pour les réflexions, news, retours d'expérienc
 
 ## Et l'ancien contenu ?
 
-Les anciens articles ont été transformés en pages de documentation. Certains ont simplement été archivés, soit parce qu'ils étaient tout simplement obsolètes, soit parce qu'ils étaient redondants.
+Les anciens articles ont été transformés en pages de documentation. Certains ont été archivés, soit parce qu'ils étaient tout simplement obsolètes, soit parce qu'ils étaient redondants.
 
 Pas mal de pages ont été revues, en supprimant les commentaires autour de mes usages personnels, pour me focaliser là encore davantage sur l'aspect documentation.
 
