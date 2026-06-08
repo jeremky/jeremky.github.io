@@ -1,5 +1,5 @@
 ---
-title: "Fzf"
+title: "fzf"
 slug: fzf
 contextMenu: true
 weight: 10

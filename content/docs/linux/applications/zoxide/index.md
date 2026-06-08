@@ -1,5 +1,5 @@
 ---
-title: "Zoxide"
+title: "zoxide"
 slug: zoxide
 contextMenu: true
 weight: 60

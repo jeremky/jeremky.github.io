@@ -1,5 +1,5 @@
 ---
-title: "Ncdu"
+title: "ncdu"
 slug: ncdu
 contextMenu: true
 weight: 30
