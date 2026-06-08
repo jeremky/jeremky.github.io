@@ -85,11 +85,11 @@ keybind = global:super+shift+space=toggle_quick_terminal
 keybind = super+shift+#=toggle_window_float_on_top
 keybind = escape=unbind
 
-# split	
-keybind = super+shift+left=goto_split:left
-keybind = super+shift+down=goto_split:bottom
-keybind = super+shift+up=goto_split:top
-keybind = super+shift+right=goto_split:right
+# split
+keybind = alt+left=goto_split:left
+keybind = alt+down=goto_split:bottom
+keybind = alt+up=goto_split:top
+keybind = alt+right=goto_split:right
 ```
 
 ### Options utiles
