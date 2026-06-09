@@ -111,7 +111,7 @@ Cette commande ouvre un shell dans le namespace utilisateur de Podman, vous perm
 
 ## Migration
 
-Maintenant que tout est prêt, vous devrez recréer vos conteneurs, images, volumes et réseaux sous votre utilisateur non root. Je vous laisse consulter les autres articles au sujet de [Docker](/docs/docker/premiers-pas-avec-docker/) s'il vous manque certaines commandes.
+Maintenant que tout est prêt, vous devrez recréer vos conteneurs, images, volumes et réseaux sous votre utilisateur non root. Je vous laisse consulter les autres articles au sujet de [Docker](/docs/docker/premiers-pas/) s'il vous manque certaines commandes.
 
 A noter que vos données ne sont pas perdues. Vous pouvez très bien changer les droits de vos volumes partagés par ceux de votre utilisateur. Les différents articles sur ce site proposent généralement de placer ces volumes dans `/opt`. Je vous conseille d'y créer un dossier `containers` avec les droits de votre utilisateur :
 
