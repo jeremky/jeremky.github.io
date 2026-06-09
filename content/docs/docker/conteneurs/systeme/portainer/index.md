@@ -76,7 +76,7 @@ Une fois Portainer installé, on créé notre compte :
 
 En théorie, Portainer devrait trouver votre environnement de conteneurs après quelques secondes et l'ajouter automatiquement :
 
-![home](home.wep)
+![home](home.webp)
 
 ### Exclusion des conteneurs
 
