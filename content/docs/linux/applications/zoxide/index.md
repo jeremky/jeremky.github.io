@@ -2,7 +2,7 @@
 title: "zoxide"
 slug: zoxide
 contextMenu: true
-weight: 60
+weight: 90
 toc: true
 tags:
   - linux
