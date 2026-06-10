@@ -2,7 +2,7 @@
 title: "Vim"
 slug: vim
 contextMenu: true
-weight: 50
+weight: 80
 toc: true
 tags:
   - linux
