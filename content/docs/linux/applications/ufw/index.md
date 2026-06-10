@@ -6,7 +6,7 @@ weight: 70
 toc: true
 tags:
   - linux
-draft: true
+draft: false
 lastmod: 2026-06-10
 ---
 
@@ -45,6 +45,8 @@ Une fois les règles de base en place, on peut activer le pare-feu :
 ```bash
 sudo ufw enable
 ```
+
+![ufw](ufw.webp)
 
 ## Gestion des règles
 
@@ -113,7 +115,6 @@ Si vous souhaitez désactiver la gestion de l'IPv6, vous devez modifier le fichi
 sudo sed -i "s,IPV6=yes,IPV6=no," /etc/default/ufw
 ```
 
-
 ## Consulter l'état du pare-feu
 
 Pour afficher les règles actives :
@@ -143,7 +144,7 @@ sudo ufw reset
 ```
 
 > [!NOTE]
-> Un `reset` désactivera aussi UFW. Pensez à le réactiver ensuite et à redéfinir vos règles de base, notamment celle pour SSH.
+> Un `reset` désactivera aussi UFW. Pensez à le réactiver après avoir redéfini vos règles de base, notamment celle pour SSH.
 
 ## Journalisation
 
