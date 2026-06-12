@@ -28,7 +28,6 @@ Sous Fedora :
 sudo dnf install duf
 ```
 
-
 ## Utilisation
 
 Sans argument, duf affiche tous les systèmes de fichiers montés :
