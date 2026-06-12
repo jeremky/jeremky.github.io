@@ -22,6 +22,13 @@ ncdu est disponible dans les dépôts Debian/Ubuntu :
 sudo apt install ncdu
 ```
 
+Sous Fedora :
+
+```bash
+sudo dnf install ncdu
+```
+
+
 ## Utilisation
 
 Lancez ncdu en lui passant un répertoire à analyser :

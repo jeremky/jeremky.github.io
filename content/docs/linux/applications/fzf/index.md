@@ -22,6 +22,13 @@ fzf est disponible dans les dépôts Debian/Ubuntu :
 sudo apt install fzf
 ```
 
+Sous Fedora :
+
+```bash
+sudo dnf install fzf
+```
+
+
 ## Configuration
 
 L'intégration de fzf dans bash se fait en ajoutant la ligne suivante dans le fichier `.bash_aliases` ou `.bashrc` :
