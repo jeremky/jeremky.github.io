@@ -6,7 +6,7 @@ weight: 10
 toc: true
 tags:
   - linux
-draft: true
+draft: false
 lastmod: 2026-06-12
 ---
 
