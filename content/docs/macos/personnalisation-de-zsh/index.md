@@ -118,6 +118,7 @@ export LESSHISTFILE=/dev/null
 if [[ -f $BREW_PREFIX/bin/brew ]]; then
   export HOMEBREW_NO_ENV_HINTS=1
   export HOMEBREW_NO_ANALYTICS=1
+  export HOMEBREW_NO_ASK=1
   alias upgrade='brew update && brew upgrade -g && brew cleanup'
 fi
 
