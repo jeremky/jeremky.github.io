@@ -56,7 +56,7 @@ services:
     env_file: diun.env
     volumes:
       - data:/data
-      - /var/run/podman/podman.sock:/var/run/docker.sock:ro
+      - /run/user/1000/podman/podman.sock:/var/run/docker.sock:ro
     healthcheck:
       test: ["CMD", "pgrep", "diun"]
       interval: 30s
