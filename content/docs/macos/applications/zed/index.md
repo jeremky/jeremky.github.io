@@ -93,7 +93,7 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
     "show_sign_in": false,
     "show_branch_name": false,
   },
-  "ui_font_size": 16.0,
+  "ui_font_size": 14.0,
   // "ui_font_family": "JetBrains Mono NL",
   "theme": {
     "mode": "system",
@@ -131,7 +131,7 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
     "use_smartcase_find": true,
   },
   // "buffer_font_family": "JetBrains Mono NL",
-  "buffer_font_size": 16,
+  "buffer_font_size": 14,
   "extend_comment_on_newline": false,
   "snippet_sort_order": "top",
   "soft_wrap": "editor_width",
@@ -241,7 +241,7 @@ brew install shfmt shellcheck
 
 Passant régulièrement de Zed version Mac et version Windows, j'ai tenté d'adapter des raccourcis pour les rendre communs aux 2 plateformes (`F1` pour exécuter une commande par exemple). Je me suis également basé sur certains raccourcis que j'utilise sous [Vim](/docs/linux/applications/vim).
 
-### Snippets
+### Snippets Markdown
 
 ```json {filename="~/.config/zed/snippets/markdown.json"}
 {
@@ -271,4 +271,4 @@ Passant régulièrement de Zed version Mac et version Windows, j'ai tenté d'ada
 }
 ```
 
-Ces snippets concernent l'édition Markdown. Il suffit de saisir les préfixes spécifiés dans le fichier pour insérer les blocs concernés. Le curseur va se placer automatiquement sur chaque élément à modifier en appuyant sur `TAB`.
+Il suffit de saisir les préfixes spécifiés dans le fichier pour insérer les blocs concernés (`code` par exemple). Le curseur va se placer automatiquement sur chaque élément à modifier en appuyant sur `TAB`.
