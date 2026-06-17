@@ -36,7 +36,6 @@ Vous pourrez ensuite l'ouvrir directement depuis Ghostty, via le raccourci **`Cm
 Voici la configuration que j'utilise :
 
 ```ini {filename="~/.config/ghostty/config"}
-###############################################################
 ## Ghostty
 
 # general
@@ -77,8 +76,7 @@ right-click-action = copy-or-paste
 quick-terminal-position = center
 quick-terminal-size = 1280px,800px
 
-###############################################################
-## Keybinds
+# ─── keybinds ─────────────────────────────────────────────────
 
 # general
 keybind = global:super+shift+space=toggle_quick_terminal
