@@ -58,7 +58,7 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
 > [!NOTE]
 > Les fichiers de configuration que je vous partage sont spécifiques à mon usage. Beaucoup d'éléments ont été désactivés ou déplacés, ce qui peut rendre l'expérience très différente des paramètres définis par défaut. Je vous suggère donc de construire votre fichier de configuration en prenant le temps de tester chaque paramètre
 
-### Paramètres généraux (settings.json)
+### Paramètres généraux
 
 ```json {filename="~/.config/zed/settings.json"}
 // Zed settings
@@ -218,7 +218,7 @@ Pour utiliser la reconnaissance intelligente des scripts bash, il est nécessair
 brew install shfmt shellcheck
 ```
 
-### Raccourcis clavier (keymap.json)
+### Raccourcis clavier
 
 ```json {filename="~/.config/zed/keymap.json"}
 [
@@ -271,4 +271,4 @@ Passant régulièrement de Zed version Mac et version Windows, j'ai tenté d'ada
 }
 ```
 
-Ces snippets concernent surtout l'édition Markdown. Il suffit de saisir les préfixes spécifiés dans le fichier pour insérer les blocs concernés. Le curseur va se placer automatiquement sur chaque élément à modifier en appuyant sur `TAB`.
+Ces snippets concernent l'édition Markdown. Il suffit de saisir les préfixes spécifiés dans le fichier pour insérer les blocs concernés. Le curseur va se placer automatiquement sur chaque élément à modifier en appuyant sur `TAB`.
