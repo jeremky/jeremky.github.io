@@ -22,6 +22,9 @@ case "$1" in
     fi
     (cd "$dir" && hugo new "blog/$(date +%Y-%m-%d)-${2}/index.md")
     ;;
+  mod)
+    hugo mod get -u
+    ;;
   version)
     hugo version
     ;;
