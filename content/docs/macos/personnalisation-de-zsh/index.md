@@ -123,6 +123,7 @@ if [[ -f $BREW_PREFIX/bin/brew ]]; then
 fi
 
 # ─── aliases ──────────────────────────────────────────────────
+
 alias l='ls -lh'                                       # Liste détaillée
 alias la='ls -lhA'                                     # Liste avec les fichiers cachés
 alias lr='ls -lLhR'                                    # Liste en récursif
