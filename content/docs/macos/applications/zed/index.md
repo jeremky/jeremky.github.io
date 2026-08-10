@@ -65,7 +65,7 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
 
 {
   // General
-  "auto_update": false,
+  "auto_update": true,
   "telemetry": {
     "metrics": false,
     "diagnostics": false,
@@ -81,6 +81,7 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
   // IA
   "disable_ai": false,
   "agent": {
+    "dock": "right",
     "enabled": false,
   },
   "edit_predictions": {
@@ -90,7 +91,7 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
 
   // Interface
   "title_bar": {
-    "show_sign_in": false,
+    "show_sign_in": true,
     "show_branch_name": false,
   },
   "ui_font_size": 14.0,
@@ -115,7 +116,7 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
   },
   "debugger": { "button": false },
   "collaboration_panel": { "dock": "left", "button": false },
-  "git_panel": { "dock": "left", "button": false },
+  "git_panel": { "dock": "left", "button": true },
   "outline_panel": { "dock": "left", "button": false },
 
   // Editor
@@ -130,6 +131,7 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
     "use_system_clipboard": "never",
     "use_smartcase_find": true,
   },
+  "cli_default_open_behavior": "existing_window",
   // "buffer_font_family": "JetBrains Mono NL",
   "buffer_font_size": 14,
   "extend_comment_on_newline": false,
@@ -168,11 +170,11 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
   // SSH
   "ssh_connections": [
     {
-      "host": "jpi",
+      "host": "host",
       "args": [],
       "projects": [
         {
-          "paths": ["/home/jeremky"],
+          "paths": ["/home/dir"],
         },
       ],
     },
