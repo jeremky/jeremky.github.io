@@ -180,7 +180,6 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
 
   // Extensions
   "auto_install_extensions": {
-    "basher": true,
     "catppuccin": true,
     "catppuccin-icons": true,
     "codebook": true,
