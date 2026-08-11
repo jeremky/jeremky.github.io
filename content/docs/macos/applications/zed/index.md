@@ -164,6 +164,7 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
     },
   },
   "file_types": {
+    "Shell Script": ["comp"],
     "TOML": ["cfg"],
   },
 
