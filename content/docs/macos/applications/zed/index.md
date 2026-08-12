@@ -125,6 +125,7 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
       "milliseconds": 1000,
     },
   },
+  "format_on_save": "modifications",
   "base_keymap": "Zed",
   "vim_mode": false,
   "vim": {
