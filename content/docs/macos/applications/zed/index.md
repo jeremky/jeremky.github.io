@@ -125,7 +125,7 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
       "milliseconds": 1000,
     },
   },
-  "base_keymap": "VSCode",
+  "base_keymap": "Zed",
   "vim_mode": false,
   "vim": {
     "use_system_clipboard": "never",
@@ -169,17 +169,17 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
   },
 
   // SSH
-  "ssh_connections": [
-    {
-      "host": "host",
-      "args": [],
-      "projects": [
-        {
-          "paths": ["/home/dir"],
-        },
-      ],
-    },
-  ],
+  // "ssh_connections": [
+  //   {
+  //     "host": "host",
+  //     "args": [],
+  //     "projects": [
+  //       {
+  //         "paths": ["/home/dir"],
+  //       },
+  //     ],
+  //   },
+  // ],
 
   // Extensions
   "auto_install_extensions": {
