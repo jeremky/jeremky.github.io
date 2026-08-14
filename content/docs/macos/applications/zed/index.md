@@ -166,7 +166,6 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
   },
   "file_types": {
     "Shell Script": ["comp"],
-    "TOML": ["cfg"],
   },
 
   // SSH
@@ -191,6 +190,8 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
     "docker-compose": true,
     "git-firefly": true,
     "html": true,
+    "ini": true,
+    "log": true,
     "make": true,
     "markdownlint": true,
     "scss": true,
