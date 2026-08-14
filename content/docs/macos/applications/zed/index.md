@@ -229,6 +229,7 @@ brew install shfmt shellcheck
     "context": "Editor",
     "bindings": {
       "f2": "workspace::ToggleVimMode",
+      "f3": "editor::SelectAllMatches",
       "f4": "editor::ToggleComments",
       "f5": "editor::Format",
     },
@@ -236,7 +237,6 @@ brew install shfmt shellcheck
   {
     "bindings": {
       "f1": "command_palette::Toggle",
-      "f3": "project_panel::ToggleHideHidden",
     },
   },
 ]
