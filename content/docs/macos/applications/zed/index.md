@@ -7,7 +7,7 @@ toc: true
 tags:
   - macos
 draft: false
-lastmod: 2026-05-23
+lastmod: 2026-08-15
 ---
 
 [Zed](https://zed.dev/) est un éditeur de code minimaliste, développé par les créateurs d'Atom après sa fermeture en 2022. Écrit entièrement en Rust, il a été conçu dès le départ pour offrir des performances élevées, une intégration de l'IA et une collaboration en temps réel. Disponible sur macOS et Linux (et plus récemment Windows), il se positionne comme une alternative sérieuse aux éditeurs traditionnels comme VS Code.
@@ -116,7 +116,7 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
   },
   "debugger": { "button": false },
   "collaboration_panel": { "dock": "left", "button": false },
-  "git_panel": { "dock": "left", "button": true },
+  "git_panel": { "dock": "right", "button": true },
   "outline_panel": { "dock": "left", "button": false },
 
   // Editor
@@ -215,6 +215,8 @@ Le fichier a été organisé pour regrouper les paramètres :
 - une section des connexions ssh (Zed peut se connecter nativement à un serveur ssh pour une édition directe)
 - et enfin, l'installation automatique des extensions listées
 
+> La police `JetBrains Mono NL` a été commentée dans le cas où vous ne l'utiliseriez pas. Si besoin : `brew install font-jetbrains-mono`
+
 #### Dépendances
 
 Pour utiliser la reconnaissance intelligente des scripts bash, il est nécessaire d'installer certains outils. Toujours avec [Homebrew](/docs/macos/utilisation-de-homebrew) :
@@ -277,3 +279,33 @@ Passant régulièrement de Zed version Mac et version Windows, j'ai tenté d'ada
 ```
 
 Il suffit de saisir les préfixes spécifiés dans le fichier pour insérer les blocs concernés (`code` par exemple). Le curseur va se placer automatiquement sur chaque élément à modifier en appuyant sur `TAB`.
+
+### Codebook
+
+Codebook est une extension Zed qui permet d'effectuer de la vérification orthographique. Sa configuration s'effectue via un fichier `toml` présent ici : `~/.config/codebook/codebook.toml`
+
+```toml {filename="~/.config/codebook/codebook.toml"}
+dictionaries = [
+  "fr",
+  "en_us",
+]
+
+include_paths = [
+  "**/*.md",
+  "**/*.txt",
+]
+
+words = [
+  "codeberg",
+  "cron",
+  "homebrew",
+  "keymaps",
+  "podman",
+  "shellcheck",
+  "tmux",
+  "ufw",
+  "vimrc",
+]
+```
+
+Cette configuration permet de ne vérifier que les extensions de la section `include_paths`, afin de ne pas charger l'extension inutilement pour les scripts.
