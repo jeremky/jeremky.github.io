@@ -25,6 +25,9 @@ case "$1" in
   mod)
     hugo mod get -u
     ;;
+  pub)
+    (cd $dir && git add -A && git commit -m "Update" && git push)
+    ;;
   version)
     hugo version
     ;;
