@@ -134,7 +134,6 @@ alias grep='grep -i --color=auto'                      # Grep sans sensibilité 
 alias zgrep='zgrep -i --color=auto'                    # Grep dans les fichiers compressés
 alias psp='ps -eaf | grep -v grep | grep'              # Chercher un process (psp <nom>)
 alias genkey='ssh-keygen -t ed25519 -a 100'            # Générer une clé ed25519
-alias ifconfig='ifconfig en0 && ifconfig en1'          # Afficher les adresses IP
 alias pubip='curl -s -4 ipecho.net/plain ; echo'       # Afficher l'adresse IP publique
 alias df='df -PlH'                                     # df en filtrant les montages inutiles
 alias rmds='find . -name ".DS_Store" -type f -delete'  # Supprimer les .DS_Store récursivement
@@ -188,6 +187,9 @@ zip() { for file in "$@"; do /usr/bin/zip -r "${file%/}.zip" "$file"; done; }
 
 # convweb : convertir des fichiers png en webp
 convweb() { for file in "$@"; do cwebp -q 100 "$file" -o "${file%.*}.webp" && rm -- "$file"; done; }
+
+# ifconfig : affiche les informations réseau
+ifconfig() { for service in "Ethernet" "Wi-Fi"; do echo "==> $service" ; networksetup -getinfo "$service" ; echo ; done; }
 ```
 
 Les aliases de base :
