@@ -81,12 +81,19 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
   // IA
   "disable_ai": false,
   "agent": {
+    "flexible": false,
+    "default_profile": "write",
+    "enabled": true,
     "dock": "right",
-    "enabled": false,
+    "default_model": {
+      "provider": "mistral",
+      "model": "codestral-latest",
+      "enable_thinking": false,
+    },
   },
   "edit_predictions": {
-    "mode": "eager",
-    "provider": "zed",
+    "mode": "subtle",
+    "provider": "codestral",
   },
 
   // Interface
@@ -95,7 +102,6 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
     "show_branch_name": false,
   },
   "ui_font_size": 14.0,
-  // "ui_font_family": "JetBrains Mono NL",
   "theme": {
     "mode": "system",
     "light": "Catppuccin Latte",
@@ -116,7 +122,7 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
   },
   "debugger": { "button": false },
   "collaboration_panel": { "dock": "left", "button": false },
-  "git_panel": { "dock": "right", "button": true },
+  "git_panel": { "dock": "left", "button": true },
   "outline_panel": { "dock": "left", "button": false },
 
   // Editor
@@ -134,7 +140,7 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
   },
   "cli_default_open_behavior": "existing_window",
   // "buffer_font_family": "JetBrains Mono NL",
-  "buffer_font_size": 14,
+  "buffer_font_size": 12,
   "extend_comment_on_newline": false,
   "snippet_sort_order": "top",
   "soft_wrap": "editor_width",
@@ -189,6 +195,7 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
     "codebook": true,
     "csv": true,
     "docker-compose": true,
+    "ghostty": true,
     "git-firefly": true,
     "html": true,
     "ini": true,
@@ -241,6 +248,8 @@ brew install shfmt shellcheck
   {
     "bindings": {
       "f1": "command_palette::Toggle",
+      "cmd-shift-g": "git_panel::ToggleFocus",
+      "cmd-shift-j": "multi_workspace::ToggleWorkspaceSidebar",
     },
   },
 ]
