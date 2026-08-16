@@ -40,7 +40,7 @@ fd <motif> <chemin>
 Sans chemin, fd recherche récursivement dans le répertoire courant :
 
 ```bash
-fd rapport
+fd motif
 ```
 
 Par défaut, la recherche se fait uniquement sur le nom du fichier, pas sur le chemin complet.
@@ -96,7 +96,7 @@ Cet exemple supprime tous les fichiers avec l'extension `.log`.
 ### Filtrer par extension
 
 ```bash
-fd -e conf
+fd -e sh
 ```
 
 ## Utilisation avec fzf
