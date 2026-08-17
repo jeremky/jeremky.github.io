@@ -65,17 +65,10 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
 
 {
   // General
-  "auto_update": true,
+  "auto_update": false,
   "telemetry": {
     "metrics": false,
     "diagnostics": false,
-  },
-  "session": {
-    "trust_all_worktrees": true,
-  },
-  "terminal": {
-    "copy_on_select": true,
-    "working_directory": "current_file_directory",
   },
 
   // IA
@@ -87,12 +80,12 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
     "dock": "right",
     "default_model": {
       "provider": "mistral",
-      "model": "codestral-latest",
+      "model": "mistral-medium-latest",
       "enable_thinking": false,
     },
   },
   "edit_predictions": {
-    "mode": "subtle",
+    "mode": "eager",
     "provider": "codestral",
   },
 
@@ -124,6 +117,7 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
   "collaboration_panel": { "dock": "left", "button": false },
   "git_panel": { "dock": "left", "button": true },
   "outline_panel": { "dock": "left", "button": false },
+  "terminal": { "copy_on_select": true },
 
   // Editor
   "autosave": {
@@ -147,19 +141,16 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
   "tab_size": 2,
 
   // Code
-  "lsp": {
-    "markdownlint": {
-      "initialization_options": {
-        "config": {
-          "MD013": false,
-          "MD041": false,
-        },
-      },
-    },
+  "file_types": {
+    "Shell Script": ["comp"],
+    "ini": ["cron"],
   },
   "languages": {
     "Make": {
       "hard_tabs": true,
+    },
+    "Markdown": {
+      "show_edit_predictions": false,
     },
     "Shell Script": {
       "formatter": {
@@ -170,9 +161,15 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
       },
     },
   },
-  "file_types": {
-    "Shell Script": ["comp"],
-    "ini": ["cron"],
+  "lsp": {
+    "markdownlint": {
+      "initialization_options": {
+        "config": {
+          "MD013": false,
+          "MD041": false,
+        },
+      },
+    },
   },
 
   // SSH
