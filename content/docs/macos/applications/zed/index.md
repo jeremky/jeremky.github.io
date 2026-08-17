@@ -214,7 +214,7 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
 Le fichier a été organisé pour regrouper les paramètres :
 
 - les paramètres généraux (désactivation de la télémétrie, configuration du terminal...)
-- désactivation des services d'agent IA (sauf la complétion)
+- Configuration des services IA
 - l'interface (La taille de police, le thème...)
 - les panneaux (position de l'explorateur de fichiers, désactivation des panneaux que je n'utilise pas...)
 - l'éditeur lui-même (sauvegarde automatique, taille des tabulations...)
