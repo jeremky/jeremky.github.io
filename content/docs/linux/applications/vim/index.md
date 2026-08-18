@@ -68,8 +68,7 @@ Ce fichier est à créer sous `~/.vimrc`, ou `~/.vim/vimrc`.
 > Avant de lancer Vim une fois le fichier créé, assurez-vous d'avoir git et curl installés. Il sont nécessaires pour le téléchargement de [vim-plug](https://github.com/junegunn/vim-plug) et des plugins
 
 ```vim {filename=".vimrc"}
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Configuration de vim
+" ─── vimrc ────────────────────────────────────────────────────
 
 " Paramétrage de base
 set nocompatible                " Désactive la compatibilité Vi
@@ -110,8 +109,7 @@ autocmd BufReadPost * if (line("'\"") > 1) && (line("'\"") <= line("$")) | silen
 " Désactivation des # au retour chariot
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Fonctions
+" ─── fonctions ────────────────────────────────────────────────
 
 function! ModeIDE()
   if get(g:, 'modeIDE_enabled', 0)
@@ -125,8 +123,7 @@ function! ModeIDE()
   endif
 endfunction
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Mapping
+" ─── mapping ──────────────────────────────────────────────────
 
 " Mode IDE
 nnoremap <F2> <Cmd>call ModeIDE()<CR>
@@ -148,15 +145,14 @@ nnoremap <F7> <Cmd>PlugClean<CR>
 nnoremap <F8> <Cmd>PlugUpdate<CR>
 
 " Changement de document
-nnoremap <S-TAB> <C-W>w
+nnoremap <S-TAB> <C-w>w
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Installation des Plugins
+" ─── plugins ──────────────────────────────────────────────────
 
 " Téléchargement de vim-plug si introuvable
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-        \ <https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim>
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 endif
 
 " Lance automatiquement PlugInstall
@@ -172,6 +168,7 @@ Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 Plug 'itchyny/lightline.vim'
 
 " Edition
+Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-commentary'
 Plug 'vim-scripts/VimCompletesMe'
 
@@ -181,8 +178,6 @@ Plug 'sheerun/vim-polyglot'
 
 call plug#end()
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Configuration des Plugins
 
 if isdirectory(expand("~/.vim/plugged"))
 
@@ -209,6 +204,7 @@ endif
 
 - catppuccin : applique le thème Catppuccin Mocha
 - lightline : améliore la barre de status
+- sleuth : configure automatiquement la tabulation
 - vim-commentary : commenter/décommenter rapidement
 - VimCompletesMe : gère l'auto-complétion
 - autopairs : ferme automatiquement certains brackets
