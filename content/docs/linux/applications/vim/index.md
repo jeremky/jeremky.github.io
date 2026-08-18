@@ -166,6 +166,7 @@ call plug#begin()
 " Interface
 Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 Plug 'itchyny/lightline.vim'
+Plug 'mhinz/vim-startify'
 
 " Edition
 Plug 'tpope/vim-sleuth'
@@ -195,6 +196,23 @@ if isdirectory(expand("~/.vim/plugged"))
   " AutoPairs
   let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'"}
 
+  " Startify
+  let g:startify_custom_header = []
+  let g:startify_files_number = 9
+  let g:startify_custom_indices = map(range(1, 9), 'string(v:val)')
+
+  let g:startify_lists = [
+        \ { 'type': 'bookmarks', 'header': ['  ──── Bookmarks'] },
+        \ { 'type': 'files',     'header': ['  ──── Historique'] },
+        \ ]
+
+  let g:startify_bookmarks = [
+        \ { 'a': '~/.bash_aliases' },
+        \ { 'r': '~/.bashrc' },
+        \ { 's': '~/.ssh/config' },
+        \ { 'v': '~/.vim/vimrc' },
+        \ ]
+
 endif
 ```
 
@@ -208,6 +226,7 @@ endif
 - vim-commentary : commenter/décommenter rapidement
 - VimCompletesMe : gère l'auto-complétion
 - autopairs : ferme automatiquement certains brackets
+- startify : affiche une interface de démarrage personnalisée
 - vim-polyglot : affichage du code amélioré
 
 #### Mapping
