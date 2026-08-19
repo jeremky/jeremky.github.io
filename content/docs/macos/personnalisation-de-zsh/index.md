@@ -84,7 +84,7 @@ bindkey "\e[F" end-of-line
 [[ -f ~/.zsh_aliases ]] && source ~/.zsh_aliases
 ```
 
-Pour profiter pleinement des fonctionnalités de ce fichier, je vous suggère d'installer via [homebrew](/docs/macos/utilisation-de-homebrew) les éléments suivants : 
+Pour profiter pleinement des fonctionnalités de ce fichier, je vous suggère d'installer via [homebrew](/docs/macos/utilisation-de-homebrew) les éléments suivants :
 
 ```bash
 brew install zsh-autosuggestions zsh-completions zsh-syntax-highlighting
@@ -105,7 +105,7 @@ Mon fichier `.zsh_aliases` se divise en plusieurs parties :
 Le contenu du fichier :
 
 ```bash {filename="~/.zsh_aliases"}
-## ~/.zsh_aliases
+# ─── .zsh_aliases ─────────────────────────────────────────────
 
 # variables
 export PATH="$HOME/.local/bin:$PATH"
@@ -206,7 +206,6 @@ Les aliases de base :
 | zgrep    | Même chose pour zgrep (grep dans les fichiers compressés)        |
 | psp      | Suivi d'une chaîne, permet de rechercher rapidement un process   |
 | genkey   | Génère une clé au format ed25519 (plus sécurisé que rsa)         |
-| ifconfig | Affiche les cartes ethernet et Wifi seulement                    |
 | pubip    | Affiche rapidement l'IP publique de la machine                   |
 | df       | Commande df, mais sans les volumes temporaires                   |
 | rmds     | Suppression recursive des fichiers `.DS_Store`                   |
@@ -233,3 +232,4 @@ Et enfin, les fonctions :
 | tarx     | Pour extraire un ou plusieurs tar.gz passés en paramètre                   |
 | zip      | Facilite l'utilisation de la commande zip (`zip <fichier>`)                |
 | convweb  | Transforme une image passée en paramètre au format webp                    |
+| ifconfig | Affiche les informations sur les cartes ethernet et Wifi                   |
