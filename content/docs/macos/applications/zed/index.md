@@ -258,6 +258,12 @@ Passant régulièrement de Zed version Mac et version Windows, j'ai tenté d'ada
 
 ```json {filename="~/.config/zed/snippets/markdown.json"}
 {
+  "Bash bloc": {
+    "prefix": "bash",
+    "body": ["```bash", "${1:}", "```", ""],
+    "description": "Bloc bash"
+  },
+  
   "Code bloc": {
     "prefix": "code",
     "body": ["```${1:code}", "${2:}", "```", ""],
