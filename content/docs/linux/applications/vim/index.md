@@ -104,7 +104,10 @@ let &t_SI = "\e[6 q"
 let &t_EI = "\e[2 q"
 
 " Mémoriser la dernière position du curseur
-autocmd BufReadPost * if (line("'\"") > 1) && (line("'\"") <= line("$")) | silent exe "silent! normal g'\"zO" | endif
+autocmd BufReadPost *
+  \ if (line("'\"") > 1) && (line("'\"") <= line("$"))
+  \ |   silent exe "silent! normal g'\"zO"
+  \ | endif
 
 " Désactivation des # au retour chariot
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
@@ -152,13 +155,13 @@ nnoremap <S-TAB> <C-w>w
 " Téléchargement de vim-plug si introuvable
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 endif
 
 " Lance automatiquement PlugInstall
 autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
-      \| PlugInstall --sync | source $MYVIMRC
-      \| endif
+  \| PlugInstall --sync | source $MYVIMRC
+  \| endif
 
 " Liste des plugins
 call plug#begin()
@@ -179,6 +182,7 @@ Plug 'sheerun/vim-polyglot'
 
 call plug#end()
 
+" ─── plugins config ───────────────────────────────────────────
 
 if isdirectory(expand("~/.vim/plugged"))
 
@@ -202,16 +206,16 @@ if isdirectory(expand("~/.vim/plugged"))
   let g:startify_custom_indices = map(range(1, 9), 'string(v:val)')
 
   let g:startify_lists = [
-        \ { 'type': 'bookmarks', 'header': ['  ──── Bookmarks'] },
-        \ { 'type': 'files',     'header': ['  ──── Historique'] },
-        \ ]
+    \ { 'type': 'bookmarks', 'header': ['  ──── Bookmarks'] },
+    \ { 'type': 'files',     'header': ['  ──── Historique'] },
+    \ ]
 
   let g:startify_bookmarks = [
-        \ { 'a': '~/.bash_aliases' },
-        \ { 'r': '~/.bashrc' },
-        \ { 's': '~/.ssh/config' },
-        \ { 'v': '~/.vim/vimrc' },
-        \ ]
+    \ { 'a': '~/.bash_aliases' },
+    \ { 'r': '~/.bashrc' },
+    \ { 's': '~/.ssh/config' },
+    \ { 'v': '~/.vim/vimrc' },
+    \ ]
 
 endif
 ```
