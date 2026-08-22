@@ -166,7 +166,6 @@ Si vous ne voulez pas avoir à gérer les mots de passe utilisateur, Tinyauth pe
 - [OAuth Google](https://tinyauth.app/docs/guides/google-oauth)
 - [Service LDAP](https://tinyauth.app/docs/guides/ldap)
 
-
 Dans cet exemple, nous allons utiliser GitHub OAuth. Je vous suggère d'aller voir la documentation sur [le site](https://tinyauth.app/docs/guides/github-oauth) pour obtenir davantage d'informations sur la création de l'application côté GitHub.
 
 Une fois votre configuration en place, vous devez modifier votre fichier `tinyauth.env` pour y ajouter les variables suivantes :
