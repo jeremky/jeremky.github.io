@@ -74,19 +74,18 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
   // IA
   "disable_ai": false,
   "agent": {
-    "flexible": false,
-    "default_profile": "write",
-    "enabled": true,
-    "dock": "right",
     "default_model": {
       "provider": "mistral",
       "model": "mistral-medium-latest",
       "enable_thinking": false,
     },
+    "flexible": false,
+    "enabled": true,
+    "dock": "right",
   },
   "edit_predictions": {
     "mode": "eager",
-    "provider": "codestral",
+    "provider": "zed",
   },
 
   // Interface
@@ -125,13 +124,7 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
       "milliseconds": 1000,
     },
   },
-  "format_on_save": "modifications",
   "base_keymap": "Zed",
-  "vim_mode": false,
-  "vim": {
-    "use_system_clipboard": "never",
-    "use_smartcase_find": true,
-  },
   "cli_default_open_behavior": "existing_window",
   // "buffer_font_family": "JetBrains Mono NL",
   "buffer_font_size": 12,
@@ -139,6 +132,11 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
   "snippet_sort_order": "top",
   "soft_wrap": "editor_width",
   "tab_size": 2,
+  "vim_mode": false,
+  "vim": {
+    "use_system_clipboard": "never",
+    "use_smartcase_find": true,
+  },
 
   // Code
   "file_types": {
@@ -148,9 +146,6 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
   "languages": {
     "Make": {
       "hard_tabs": true,
-    },
-    "Markdown": {
-      "show_edit_predictions": false,
     },
     "Shell Script": {
       "formatter": {
@@ -199,6 +194,7 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
     "log": true,
     "make": true,
     "markdownlint": true,
+    "scheme": true,
     "scss": true,
     "sql": true,
     "ssh-config": true,
