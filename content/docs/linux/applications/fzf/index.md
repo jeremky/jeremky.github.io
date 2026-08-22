@@ -28,7 +28,6 @@ Sous Fedora :
 sudo dnf install fzf
 ```
 
-
 ## Configuration
 
 L'intégration de fzf dans bash se fait en ajoutant la ligne suivante dans le fichier `.bash_aliases` ou `.bashrc` :
@@ -58,7 +57,7 @@ if [[ -f /usr/bin/fzf ]]; then
 fi
 ```
 
-- Pour utiliser le thème [Catppuccin Mocha](/docs/linux/theme-catppuccin) : 
+- Pour utiliser le thème [Catppuccin Mocha](/docs/linux/theme-catppuccin) :
 
 ```bash
 if [[ -f /usr/bin/fzf ]]; then
