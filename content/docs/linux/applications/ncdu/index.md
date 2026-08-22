@@ -28,7 +28,6 @@ Sous Fedora :
 sudo dnf install ncdu
 ```
 
-
 ## Utilisation
 
 Lancez ncdu en lui passant un répertoire à analyser :

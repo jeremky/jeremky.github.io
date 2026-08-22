@@ -28,7 +28,6 @@ Sous Fedora :
 sudo dnf install zoxide
 ```
 
-
 ## Configuration
 
 L'intégration de zoxide dans bash se fait en ajoutant la ligne suivante dans le fichier `.bash_aliases` ou `.bashrc` :
