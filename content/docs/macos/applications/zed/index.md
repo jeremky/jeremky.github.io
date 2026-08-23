@@ -310,7 +310,7 @@ Passant régulièrement de Zed version Mac et version Windows, j'ai tenté d'ada
   },
 
   "Card Hugo": {
-    "prefix": "hugocard",
+    "prefix": "hugo card",
     "body": [
       "{{</* card link=\"${1:}\" title=\"${1:}\" icon=\"${2:document}\" */>}}"
     ],
@@ -318,7 +318,7 @@ Passant régulièrement de Zed version Mac et version Windows, j'ai tenté d'ada
   },
 
   "Videos Hugo": {
-    "prefix": "hugovid",
+    "prefix": "hugo video",
     "body": ["{{</* youtube ${1:shorturl} */>}}", ""],
     "description": "Bloc de vidéo pour un blog avec Hugo"
   }
