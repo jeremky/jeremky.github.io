@@ -91,9 +91,22 @@ MAIL_FROM_NAME=
 
 Avant de lancer le déploiement de votre fichier `docker-compose.yml`, vous devez générer une clé pour la variable `APP_KEY`. Pour cela, dans votre terminal :
 
+{{< tabs >}}
+{{< tab name="Docker" >}}
+
 ```bash
 sudo docker run -it --rm --entrypoint /bin/bash lscr.io/linuxserver/bookstack:latest appkey
 ```
+
+{{< /tab >}}
+{{< tab name="Podman" >}}
+
+```bash
+podman run -it --rm --entrypoint /bin/bash lscr.io/linuxserver/bookstack:latest appkey
+```
+
+{{< /tab >}}
+{{< /tabs >}}
 
 ### Reverse proxy
 
@@ -116,7 +129,7 @@ sudo docker restart nginx
 
 ## Connexion
 
-Une fois vos conteneurs déployés, vous pouvez vous rendre à l'adresse que vous avez défini. Vous allez tomber sur la page de connexion :
+Une fois vos conteneurs déployés, vous pouvez vous rendre à l'adresse que vous avez définie. Vous allez tomber sur la page de connexion :
 
 ![init](init.webp)
 
@@ -129,10 +142,10 @@ Par défaut, les informations de connexion sont les suivantes :
 
 ## Configuration
 
-Une fois connecté, Vous allez pouvoir vous rendre dans les préférences en haut à droite de l'interface. L'interface, suffisamment claire, va vous permettre d'effectuer les réglages suivantes :
+Une fois connecté, vous allez pouvoir vous rendre dans les préférences en haut à droite de l'interface. L'interface, suffisamment claire, va vous permettre d'effectuer les réglages suivants :
 
 - Personnalisation du design, en changeant le logo, les couleurs...
-- Création / Modification des utilisateurs, et des différents roles
+- Création / Modification des utilisateurs, et des différents rôles
 - Maintenance de l'application
 
 Commencez par modifier les informations de l'utilisateur admin de base pour y changer l'adresse email et le mot de passe :
@@ -141,7 +154,7 @@ Commencez par modifier les informations de l'utilisateur admin de base pour y ch
 
 ## Rédaction
 
-Bookstack dispose d'une logique particulière pour le tri de la documentation. Au lieu de fonctionner par thème, catégorie, Il repose sur une logique "physique" : étagères, livres, chapitres, et pages. Commencez donc par créer votre 1ère étagère :
+Bookstack dispose d'une logique particulière pour le tri de la documentation. Au lieu de fonctionner par thème, catégorie, il repose sur une logique "physique" : étagères, livres, chapitres, et pages. Commencez donc par créer votre 1ère étagère :
 
 ![etagere](etagere.webp)
 
@@ -162,4 +175,4 @@ Une fois que vous aurez cliqué sur `Enregistrer`, il sera placé sur votre page
 
 ![diagram](diagram.webp)
 
-Attention, il n'est à ma connaissance pas possible de modifier le diagramme à posteriori.
+Attention, il n'est à ma connaissance pas possible de modifier le diagramme a posteriori.

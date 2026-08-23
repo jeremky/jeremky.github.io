@@ -10,7 +10,7 @@ draft: false
 lastmod: 2026-05-18
 ---
 
-[Catppuccin](https://catppuccin.com/) fait partie des thèmes hyper complets, disponibles sur une grande liste d'applications diverses, comme des IDE, des terminaux, des navigateurs Web, etc...
+[Catppuccin](https://catppuccin.com/) fait partie des thèmes hyper complets, disponibles sur une grande liste d'applications diverses, comme des IDE, des terminaux, des navigateurs Web, etc.
 
 ![catppuccin](catppuccin.webp)
 
@@ -21,7 +21,7 @@ A noter que Catppuccin propose 4 variantes, 1 claire et 3 sombres :
 - Macchiato
 - Mocha
 
-J'ai fait le choix de la variante Mocha. A vous d'adapter les configurations ci dessous selon vos préférences.
+J'ai fait le choix de la variante Mocha. A vous d'adapter les configurations ci-dessous selon vos préférences.
 
 ## Ports
 
@@ -48,7 +48,7 @@ Maintenant que votre terminal dispose des couleurs de Catppuccin, nous allons ad
 
 ### fzf
 
-Si vous n'avez pas encore installé fzf, je vous le recommande. Fzf permet entre autre d'améliorer la recherche dans l'historique via le raccourci `ctrl + r`.
+Si vous n'avez pas encore installé fzf, je vous le recommande. Fzf permet entre autres d'améliorer la recherche dans l'historique via le raccourci `ctrl + r`.
 
 Pour l'installer :
 
@@ -76,7 +76,7 @@ fi
 
 Rendez-vous sur [cette page](https://github.com/catppuccin/btop/tree/main/themes) pour récupérer le thème de votre choix, et déposez-le ici : `~/.config/btop/themes`.
 
-Relancez btop et rendez vous dans le menu de configuration (touche M) pour sélectionner votre thème.
+Relancez btop et rendez-vous dans le menu de configuration (touche M) pour sélectionner votre thème.
 
 ![btop](btop.webp)
 

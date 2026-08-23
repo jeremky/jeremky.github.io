@@ -216,8 +216,8 @@ Les aliases de base :
 | genkey   | Génère une clé au format ed25519 (plus sécurisé que rsa)         |
 | pubip    | Affiche rapidement l'IP publique de la machine                   |
 | df       | Commande df, mais sans les volumes temporaires                   |
-| rmds     | Suppression recursive des fichiers `.DS_Store`                   |
-| rmdot    | Suppression recursive des fichiers `._`                          |
+| rmds     | Suppression récursive des fichiers `.DS_Store`                   |
+| rmdot    | Suppression récursive des fichiers `._`                          |
 | top      | Commande top filtrée pour le user                                |
 | vi       | vim : vi amélioré avec ouverture multiple                        |
 

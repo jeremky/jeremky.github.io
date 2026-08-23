@@ -123,11 +123,11 @@ sudo docker restart nginx
 
 ## Initialisation
 
-Une fois le déploiement effectué, rendez vous sur l'url que vous avez défini dans votre reverse proxy. Cliquez sur "Get Started". Il vous sera ensuite demandé de créer le compte principal :
+Une fois le déploiement effectué, rendez-vous sur l'url que vous avez définie dans votre reverse proxy. Cliquez sur "Get Started". Il vous sera ensuite demandé de créer le compte principal :
 
 ![account](account.webp)
 
-Une fois connecté, vous allez pouvoir demander à Ollama de télécharger le(s) modèle(s) de votre choix directement depuis l'interface de Open WebUI. Tout d'abord, rendez vous sur [cette page](https://ollama.com/search) pour consulter la liste des modèles disponibles. Choisissez le modèle que vous voulez, et copiez la commande sur la droite. Par exemple avec gemma3 : `ollama run gemma3`.
+Une fois connecté, vous allez pouvoir demander à Ollama de télécharger le(s) modèle(s) de votre choix directement depuis l'interface d'Open WebUI. Tout d'abord, rendez-vous sur [cette page](https://ollama.com/search) pour consulter la liste des modèles disponibles. Choisissez le modèle que vous voulez, et copiez la commande sur la droite. Par exemple avec gemma3 : `ollama run gemma3`.
 
 ![gemma3](gemma3.webp)
 

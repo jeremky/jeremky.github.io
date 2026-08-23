@@ -10,7 +10,7 @@ draft: false
 lastmod: 2026-05-17
 ---
 
-_[FreshRSS](https://fr.wikipedia.org/wiki/FreshRSS) est un agrégateur de flux RSS, Atom Syndication Format et WebSub en ligne, sous licence libre GNU AGPL v32._
+_[FreshRSS](https://fr.wikipedia.org/wiki/FreshRSS) est un agrégateur de flux RSS, Atom Syndication Format et WebSub en ligne, sous licence libre GNU AGPL v3._
 
 _[RSS](https://fr.wikipedia.org/wiki/RSS) est une ressource du World Wide Web dont le contenu est produit automatiquement (sauf cas exceptionnels) en fonction des mises à jour d’un site Web. Les flux RSS sont des fichiers XML qui sont souvent utilisés par les sites d'actualité et les blogs pour présenter les titres des dernières informations consultables._
 
@@ -20,7 +20,7 @@ Petite capture de l'application présente sur le [site officiel](https://www.fre
 
 ## Utilisation
 
-Même si FreshRSS dispose d'une interface web dédiée pour consulter les articles, sa force est à mon sens sa compatibilité avec beaucoup d'applications mobile iOS/Android, mais aussi avec des applications Windows, MacOS et Linux.
+Même si FreshRSS dispose d'une interface web dédiée pour consulter les articles, sa force est à mon sens sa compatibilité avec beaucoup d'applications mobiles iOS/Android, mais aussi avec des applications Windows, MacOS et Linux.
 
 Vous pourrez alors centraliser vos sources de news et les consulter indépendamment de l'appareil que vous voulez utiliser.
 
@@ -58,7 +58,7 @@ TZ=Europe/Paris
 
 ### Moteur SQL
 
-A noter que cette configuration suppose que vous allez utilisez SQLite comme moteur de base de données. FreshRSS est compatible avec MariaDB et PosgreSQL. Si c'est pour de l'auto hébergement avec quelques utilisateurs, SQLite suffira largement. Je vous renvoie vers la [documentation officielle](https://freshrss.github.io/FreshRSS/en/) si vous désirez utiliser une autre base SQL.
+A noter que cette configuration suppose que vous allez utiliser SQLite comme moteur de base de données. FreshRSS est compatible avec MariaDB et PostgreSQL. Si c'est pour de l'auto hébergement avec quelques utilisateurs, SQLite suffira largement. Je vous renvoie vers la [documentation officielle](https://freshrss.github.io/FreshRSS/en/) si vous désirez utiliser une autre base SQL.
 
 ### Reverse proxy
 

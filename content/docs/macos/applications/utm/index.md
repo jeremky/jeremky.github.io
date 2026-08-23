@@ -79,7 +79,7 @@ Au démarrage, le menu GRUB s'affiche. Sélectionnez **Try or Install Ubuntu**. 
 
 ![final](final.webp)
 
-Au redémarrage, Ubuntu vous invite à éjecter le support d'installation. Dans la barre d'outils UTM, cliquez sur l'icône **CD/DVD** et sélectionnez l'image ISO de Ubuntu, cliquez sur **Éjecter**, puis appuyez sur Entrée dans la VM.
+Au redémarrage, Ubuntu vous invite à éjecter le support d'installation. Dans la barre d'outils UTM, cliquez sur l'icône **CD/DVD** et sélectionnez l'image ISO d'Ubuntu, cliquez sur **Éjecter**, puis appuyez sur Entrée dans la VM.
 
 ### Résolution d'écran
 

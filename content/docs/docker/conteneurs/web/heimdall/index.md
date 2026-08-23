@@ -10,7 +10,7 @@ draft: false
 lastmod: 2026-05-17
 ---
 
-_[Heimdall](https://heimdall.site/) est un moyen d'organiser de manière simple les liens vers vos sites Web et applications Web les plus utilisés. La simplicité est la clé de Heimdall. Pourquoi ne pas l'utiliser comme page de démarrage de votre navigateur ? Il a même la possibilité d'inclure une barre de recherche utilisant Google, Bing ou DuckDuckGo."_
+_[Heimdall](https://heimdall.site/) est un moyen d'organiser de manière simple les liens vers vos sites Web et applications Web les plus utilisés. La simplicité est la clé de Heimdall. Pourquoi ne pas l'utiliser comme page de démarrage de votre navigateur ? Il a même la possibilité d'inclure une barre de recherche utilisant Google, Bing ou DuckDuckGo._
 
 Vous pouvez y créer vos propres applications sous forme de lien web, mais il est parfois possible d'avoir davantage d'interactions, afin d'y afficher des informations supplémentaires sous forme de widget.
 

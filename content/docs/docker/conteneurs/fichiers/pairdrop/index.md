@@ -11,7 +11,7 @@ draft: false
 lastmod: 2026-05-17
 ---
 
-[Pairdrop](https://github.com/schlagmichdoch/pairdrop) été conçu pour reproduire le service [Airdrop](https://fr.wikipedia.org/wiki/AirDrop) disponible sur iOS et macOS. Totalement libre, il permettra à n’importe qui de se transférer des fichiers ou du texte directement d’un appareil à un autre, à partir du moment où ces appareils sont présents sur le même réseau local, et ce sans aucune configuration à effectuer.
+[Pairdrop](https://github.com/schlagmichdoch/pairdrop) a été conçu pour reproduire le service [Airdrop](https://fr.wikipedia.org/wiki/AirDrop) disponible sur iOS et macOS. Totalement libre, il permettra à n’importe qui de se transférer des fichiers ou du texte directement d’un appareil à un autre, à partir du moment où ces appareils sont présents sur le même réseau local, et ce sans aucune configuration à effectuer.
 
 Cette facilité d’utilisation n’est pas sans limite : vous ne pouvez transférer que des fichiers d’une taille inférieure à 200 Mo. Mais c’est en lien avec l’objectif de l’application : transférer simplement via une solution rapide, et ce sans aucun serveur de relai.
 
@@ -104,7 +104,7 @@ Comme dit plus haut, Pairdrop est terriblement simple à utiliser. Ouvrez la pag
 
 ### Association
 
-Si vous hébergez l’application et que vous avez activé le routage du traffic, vous devez créer un salon et relier vos appareils via un échange de clé (option en haut à droite). Vous pouvez même directement scanner un QR code pour faciliter l’association.
+Si vous hébergez l’application et que vous avez activé le routage du trafic, vous devez créer un salon et relier vos appareils via un échange de clé (option en haut à droite). Vous pouvez même directement scanner un QR code pour faciliter l’association.
 
 ![associate](associate.webp)
 
@@ -120,6 +120,6 @@ Pour du texte, c’est via un clic droit (ou une pression longue sur mobile).
 
 ![text](text.webp)
 
-Un popup s’affichera sur le 2ème appareil, afin d’accepter la réception. Il est d’ailleurs possible d’ accepter automatiquement les fichiers envoyés une fois le couplage effectué.
+Un popup s’affichera sur le 2ème appareil, afin d’accepter la réception. Il est d’ailleurs possible d’accepter automatiquement les fichiers envoyés une fois le couplage effectué.
 
 ![auto](auto.webp)

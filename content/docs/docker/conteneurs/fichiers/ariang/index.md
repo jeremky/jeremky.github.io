@@ -11,7 +11,7 @@ draft: false
 lastmod: 2026-05-17
 ---
 
-[AriaNG](https://github.com/hurlenko/aria2-ariang-docker) vous permet de centraliser la gestion de vos téléchargements, indépendamment du protocole : HTTP(s), FTP/SFTP, Bittorent, Metalink…
+[AriaNG](https://github.com/hurlenko/aria2-ariang-docker) vous permet de centraliser la gestion de vos téléchargements, indépendamment du protocole : HTTP(s), FTP/SFTP, BitTorrent, Metalink…
 
 ![ariang](ariang.webp)
 
@@ -54,9 +54,9 @@ ARIA2RPCPORT=443
 
 Les fichiers de configuration ci-dessus sont prévus pour être utilisés avec un reverse proxy.
 
-> Pour rappel, une page dédié est [disponible ici](/docs/docker/conteneurs/web/reverse-proxy-nginx).
+> Pour rappel, une page dédiée est [disponible ici](/docs/docker/conteneurs/web/reverse-proxy-nginx).
 
-L’image Docker de [Linuxserver.io](https://docs.linuxserver.io/general/swag/) ne propose pas de fichier sample de configuration pour cette version de AriaNG. Vous devez donc créer un fichier nommé `/opt/containers/nginx/nginx/proxy-confs/ariang.subdomain.conf`, et y coller le contenu suivant :
+L’image Docker de [Linuxserver.io](https://docs.linuxserver.io/general/swag/) ne propose pas de fichier sample de configuration pour cette version d'AriaNG. Vous devez donc créer un fichier nommé `/opt/containers/nginx/nginx/proxy-confs/ariang.subdomain.conf`, et y coller le contenu suivant :
 
 ```nginx {filename="ariang.subdomain.conf"}
 ## Version 2024/07/16
@@ -114,7 +114,7 @@ sudo docker restart nginx
 
 ## Démarrage
 
-Au 1er lancement de la page, assurez vous que le service web se soit correctement connecté à aria2 :
+Au 1er lancement de la page, assurez-vous que le service web se soit correctement connecté à aria2 :
 
 ![aria2](aria2.webp)
 

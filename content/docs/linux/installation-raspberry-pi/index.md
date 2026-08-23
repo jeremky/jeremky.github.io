@@ -14,7 +14,7 @@ Voici une documentation rapide sur ma manière d'installer Raspberry Pi OS, et d
 
 ## Installation
 
-Rien de particulier pour cette étape. Tout d'abord, on choisi son OS sur le [site officiel](https://www.raspberrypi.com/software/operating-systems). Pour ma part, c'est Raspberry Pi OS (Lite) en 64 bits, compatible à partir de la version 3B (Certaines images Docker ne fonctionnant pas sur la 32 bits).
+Rien de particulier pour cette étape. Tout d'abord, on choisit son OS sur le [site officiel](https://www.raspberrypi.com/software/operating-systems). Pour ma part, c'est Raspberry Pi OS (Lite) en 64 bits, compatible à partir de la version 3B (Certaines images Docker ne fonctionnant pas sur la 32 bits).
 
 ![download](download.webp)
 
@@ -22,7 +22,7 @@ Une fois l'image téléchargée, il vous faut un outil pour l'injecter dans votr
 
 ![etcher](etcher.webp)
 
-On choisi son image, sa carte SD, et on envoie le flash ! Une fois l'image injectée, on peut passer au démarrage.
+On choisit son image, sa carte SD, et on envoie le flash ! Une fois l'image injectée, on peut passer au démarrage.
 
 ## Démarrage
 
@@ -66,7 +66,7 @@ Ce script vous permet, à l’aide de son fichier de configuration, d'effectuer 
 - Désactiver ou non le swap, une horreur pour les cartes SD
 - Désactiver ou non le Wifi et le Bluetooth
 - Configurer le réseau du raspberry en IP fixe
-- Installer log2ram, pour réduire encore les écritures sur la carte (les logs seront stockées en RAM et écrites en une seule fois à l'arrêt du système)
+- Installer log2ram, pour réduire encore les écritures sur la carte (les logs seront stockés en RAM et écrits en une seule fois à l'arrêt du système)
 - Petit bonus : l'ajout de l'alias "temp" pour connaître rapidement la température du pi
 
 > [!CAUTION]

@@ -65,7 +65,7 @@ La liste est loin d'être exhaustive, mais vous avez déjà une bonne base pour 
 Je vous partage un exemple de configuration pour vim.
 Ce fichier est à créer sous `~/.vimrc`, ou `~/.vim/vimrc`.
 
-> Avant de lancer Vim une fois le fichier créé, assurez-vous d'avoir git et curl installés. Il sont nécessaires pour le téléchargement de [vim-plug](https://github.com/junegunn/vim-plug) et des plugins
+> Avant de lancer Vim une fois le fichier créé, assurez-vous d'avoir git et curl installés. Ils sont nécessaires pour le téléchargement de [vim-plug](https://github.com/junegunn/vim-plug) et des plugins
 
 ```vim {filename=".vimrc"}
 " ─── vimrc ────────────────────────────────────────────────────
@@ -225,7 +225,7 @@ endif
 #### Plugins
 
 - catppuccin : applique le thème Catppuccin Mocha
-- lightline : améliore la barre de status
+- lightline : améliore la barre de statut
 - sleuth : configure automatiquement la tabulation
 - vim-commentary : commenter/décommenter rapidement
 - VimCompletesMe : gère l'auto-complétion

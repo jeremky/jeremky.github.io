@@ -64,7 +64,7 @@ Il reste à modifier la partie `alsa` si vous souhaitez utiliser une autre carte
 
 ### Carte son
 
-Pour lister les cartes sons disponibles, utilisez la commande suivante :
+Pour lister les cartes son disponibles, utilisez la commande suivante :
 
 ```bash
 aplay -l

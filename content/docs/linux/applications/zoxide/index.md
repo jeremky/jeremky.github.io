@@ -10,7 +10,7 @@ draft: false
 lastmod: 2026-05-29
 ---
 
-[Zoxide](https://github.com/ajeetdsouza/zoxide) est un remplacement intelligent de la commande `cd`. Cet outil maintient une base de données de tous les répertoires visités, pondérée par la fréquence et l'historique'. en tapant `z <fragment>`, zoxide cherche la correspondance la plus probable dans cette base et nous y envoie directement, sans avoir à saisir le chemin complet.
+[Zoxide](https://github.com/ajeetdsouza/zoxide) est un remplacement intelligent de la commande `cd`. Cet outil maintient une base de données de tous les répertoires visités, pondérée par la fréquence et l'historique. En tapant `z <fragment>`, zoxide cherche la correspondance la plus probable dans cette base et nous y envoie directement, sans avoir à saisir le chemin complet.
 
 Par exemple, si `/var/log/nginx` fait partie de l'historique des répertoires consultés, un simple `z nginx` suffira pour y retourner.
 

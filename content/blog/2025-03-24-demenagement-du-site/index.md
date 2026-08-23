@@ -14,7 +14,7 @@ Après avoir fait un peu de recherche, je suis tombé sur le service proposé pa
 
 ![cover](cover.webp)
 
-Le renouvellement du nom de domaine arrivant pour Août, je me suis donc lancé dans différents tests du service de GitHub et j'ai été directement séduit par l'efficacité de leur solution, pour les raisons suivantes :
+Le renouvellement du nom de domaine arrivant pour août, je me suis donc lancé dans différents tests du service de GitHub et j'ai été directement séduit par l'efficacité de leur solution, pour les raisons suivantes :
 
 - Restrictions de stockage bien moins contraignantes
 - Possibilité de récupérer les sources de n'importe où via git

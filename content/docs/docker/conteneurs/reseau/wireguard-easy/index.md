@@ -92,7 +92,7 @@ UI_TRAFFIC_STATS=true
 
 D'autres options de paramétrage sont disponibles. Vous pouvez vous rendre sur [cette page](https://github.com/wg-easy/wg-easy) pour les consulter.
 
-A noter que les DNS que utilisés dans cet exemple sont ceux de Cloudflare, ceux bloquant les malwares.
+A noter que les DNS utilisés dans cet exemple sont ceux de Cloudflare, ceux bloquant les malwares.
 
 > [!IMPORTANT]
 L'accès à l'application n'est pas protégé par mot de passe dans cette configuration. Je vous propose de vous référer à la mise en place d'un serveur d'authentification [Tinyauth](/docs/docker/conteneurs/web/tinyauth/)
