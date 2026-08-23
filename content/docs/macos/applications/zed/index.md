@@ -61,34 +61,15 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
 ### Paramètres généraux
 
 ```json {filename="~/.config/zed/settings.json"}
-// Zed settings
+// ─── Zed settings ───────────────────────────────────────
 
 {
-  // General
   "auto_update": false,
   "telemetry": {
     "metrics": false,
     "diagnostics": false,
   },
 
-  // IA
-  "disable_ai": false,
-  "agent": {
-    "default_model": {
-      "provider": "mistral",
-      "model": "mistral-medium-latest",
-      "enable_thinking": false,
-    },
-    "flexible": false,
-    "enabled": true,
-    "dock": "right",
-  },
-  "edit_predictions": {
-    "mode": "eager",
-    "provider": "zed",
-  },
-
-  // Interface
   "title_bar": {
     "show_sign_in": true,
     "show_branch_name": false,
@@ -105,7 +86,41 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
     "dark": "Catppuccin Mocha",
   },
 
-  // Panels
+  // ─── IA ───────────────────────────────────────────────
+
+  "disable_ai": false,
+  "agent_servers": {
+    "claude-acp": {
+      "default_config_options": {
+        "mode": "auto",
+      },
+      "type": "registry",
+    },
+  },
+  "agent": {
+    "enable_feedback": false,
+    "inline_assistant_model": {
+      "provider": "mistral",
+      "model": "codestral-latest",
+      "enable_thinking": false,
+    },
+    "default_model": {
+      "provider": "mistral",
+      "model": "mistral-large-latest",
+      "enable_thinking": false,
+    },
+    "flexible": false,
+    "enabled": true,
+    "dock": "right",
+  },
+  "edit_predictions": {
+    "allow_data_collection": "no",
+    "mode": "eager",
+    "provider": "zed",
+  },
+
+  // ─── Panels ───────────────────────────────────────────
+
   "project_panel": {
     "dock": "left",
     "hide_hidden": false,
@@ -118,7 +133,8 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
   "outline_panel": { "dock": "left", "button": false },
   "terminal": { "copy_on_select": true },
 
-  // Editor
+  // ─── Editor ───────────────────────────────────────────
+
   "autosave": {
     "after_delay": {
       "milliseconds": 1000,
@@ -126,7 +142,7 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
   },
   "base_keymap": "Zed",
   "cli_default_open_behavior": "existing_window",
-  // "buffer_font_family": "JetBrains Mono NL",
+  "buffer_font_family": "JetBrains Mono NL",
   "buffer_font_size": 12,
   "extend_comment_on_newline": false,
   "snippet_sort_order": "top",
@@ -138,7 +154,8 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
     "use_smartcase_find": true,
   },
 
-  // Code
+  // ─── Code ─────────────────────────────────────────────
+
   "file_types": {
     "Shell Script": ["comp"],
     "ini": ["cron"],
@@ -167,7 +184,8 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
     },
   },
 
-  // SSH
+  // ─── SSH ──────────────────────────────────────────────
+
   // "ssh_connections": [
   //   {
   //     "host": "host",
@@ -180,7 +198,8 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
   //   },
   // ],
 
-  // Extensions
+  // ─── Extensions ───────────────────────────────────────
+
   "auto_install_extensions": {
     "catppuccin": true,
     "catppuccin-icons": true,
@@ -206,16 +225,16 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
 
 Le fichier a été organisé pour regrouper les paramètres :
 
-- les paramètres généraux (désactivation de la télémétrie, configuration du terminal...)
-- Configuration des services IA
-- l'interface (La taille de police, le thème...)
+- les paramètres généraux et d'interface (désactivation de la télémétrie, taille de police, thème...)
+- la configuration des services IA
 - les panneaux (position de l'explorateur de fichiers, désactivation des panneaux que je n'utilise pas...)
 - l'éditeur lui-même (sauvegarde automatique, taille des tabulations...)
 - la gestion du code (gestion de l'outil `shfmt` pour les scripts bash, les tabulations forcées pour les fichier `Makefile`...)
 - une section des connexions ssh (Zed peut se connecter nativement à un serveur ssh pour une édition directe)
 - et enfin, l'installation automatique des extensions listées
 
-> La police `JetBrains Mono NL` a été commentée dans le cas où vous ne l'utiliseriez pas. Si besoin : `brew install font-jetbrains-mono`
+> [!IMPORTANT]
+> La police utilisée est `JetBrains Mono NL`. Si vous ne l'avez pas : `brew install font-jetbrains-mono`
 
 #### Dépendances
 
@@ -242,7 +261,7 @@ brew install shfmt shellcheck
     "bindings": {
       "f1": "command_palette::Toggle",
       "cmd-shift-g": "git_panel::ToggleFocus",
-      "cmd-shift-j": "multi_workspace::ToggleWorkspaceSidebar",
+      "cmd-shift-c": "multi_workspace::ToggleWorkspaceSidebar",
     },
   },
 ]
@@ -259,29 +278,49 @@ Passant régulièrement de Zed version Mac et version Windows, j'ai tenté d'ada
     "body": ["```bash", "${1:}", "```", ""],
     "description": "Bloc bash"
   },
-  
+
   "Code bloc": {
     "prefix": "code",
     "body": ["```${1:code}", "${2:}", "```", ""],
-    "description": "Insérer un bloc de code"
+    "description": "Bloc texte"
   },
-  
+
   "Image bloc": {
     "prefix": "img",
-    "body": ["![${1:alt}](${2:})", ""],
-    "description": "Insérer une image"
+    "body": ["![${1:alt}](${1:}.webp)"],
+    "description": "Bloc image"
   },
 
   "Info bloc": {
     "prefix": "info",
-    "body": ["> ![${1:IMPORTANT}]", "> ${2:}", ""],
+    "body": ["> [!${1:IMPORTANT}]", "> ${2:}", ""],
     "description": "Bloc infos"
   },
-  
+
   "URL bloc": {
     "prefix": "url",
     "body": ["[${1:text}](${2:})", ""],
-    "description": "Insérer une URL"
+    "description": "Bloc URL"
+  },
+
+  "Code bloc Hugo": {
+    "prefix": "hugo codefile",
+    "body": ["```${1:code} {filename=\"${2:file}\"}", "${3:}", "```", ""],
+    "description": "Bloc fichier dans Hugo"
+  },
+
+  "Card Hugo": {
+    "prefix": "hugocard",
+    "body": [
+      "  {{< card link=\"${1:}\" title=\"${1:}\" icon=\"${2:document}\" >}}"
+    ],
+    "description": "Bloc de cards pour un blog avec Hugo"
+  },
+
+  "Videos Hugo": {
+    "prefix": "hugovid",
+    "body": ["{{< youtube ${1:shorturl} >}}", ""],
+    "description": "Bloc de vidéo pour un blog avec Hugo"
   }
 }
 ```
