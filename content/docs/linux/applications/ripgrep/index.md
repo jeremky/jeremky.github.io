@@ -6,8 +6,8 @@ weight: 35
 toc: true
 tags:
   - linux
-draft: true
-lastmod: 2026-06-17
+draft: false
+lastmod: 2026-08-22
 ---
 
 [ripgrep](https://github.com/BurntSushi/ripgrep) (ou `rg`) est une alternative moderne à `grep`, orientée recherche récursive dans des répertoires. Écrit en Rust, il est particulièrement rapide et respecte par défaut les règles `.gitignore`, en ignorant automatiquement les fichiers cachés et les binaires.

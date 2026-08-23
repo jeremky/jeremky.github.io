@@ -40,7 +40,7 @@ services:
     image: lscr.io/linuxserver/nextcloud:latest
     container_name: nextcloud
     hostname: nextcloud
-    nv_file: nextcloud.env
+    env_file: nextcloud.env
     networks:
       - default
       - nginx_proxy
