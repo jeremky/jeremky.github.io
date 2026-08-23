@@ -7,7 +7,7 @@ toc: true
 tags:
   - macos
 draft: false
-lastmod: 2026-08-17
+lastmod: 2026-08-23
 ---
 
 [Zed](https://zed.dev/) est un éditeur de code minimaliste, développé par les créateurs d'Atom après sa fermeture en 2022. Écrit entièrement en Rust, il a été conçu dès le départ pour offrir des performances élevées, une intégration de l'IA et une collaboration en temps réel. Disponible sur macOS et Linux (et plus récemment Windows), il se positionne comme une alternative sérieuse aux éditeurs traditionnels comme VS Code.
@@ -127,11 +127,17 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
     "hide_root": true,
     "scrollbar": { "horizontal_scroll": false },
   },
+
+  "terminal": {
+    "copy_on_select": true,
+    "font_weight": 300,
+    "line_height": "comfortable",
+  },
+
   "debugger": { "button": false },
   "collaboration_panel": { "dock": "left", "button": false },
   "git_panel": { "dock": "left", "button": true },
   "outline_panel": { "dock": "left", "button": false },
-  "terminal": { "copy_on_select": true },
 
   // ─── Editor ───────────────────────────────────────────
 
