@@ -105,7 +105,7 @@ Mon fichier `.zsh_aliases` se divise en plusieurs parties :
 Le contenu du fichier :
 
 ```bash {filename="~/.zsh_aliases"}
-# ─── .zsh_aliases ─────────────────────────────────────────────
+# ─── .zsh_aliases ────────────────────────────────────────────────────────────
 
 # variables
 export PATH="$HOME/.local/bin:$PATH"
@@ -115,45 +115,49 @@ export EDITOR=vim
 export LESSHISTFILE=/dev/null
 
 # homebrew
-if [[ -f $BREW_PREFIX/bin/brew ]]; then
+if command -v brew &>/dev/null; then
   export HOMEBREW_NO_ENV_HINTS=1
   export HOMEBREW_NO_ANALYTICS=1
   export HOMEBREW_NO_ASK=1
   alias upgrade='brew update && brew upgrade -g && brew cleanup'
 fi
 
-# ─── aliases ──────────────────────────────────────────────────
+# ─── aliases ─────────────────────────────────────────────────────────────────
 
-alias l='ls -lh'                                       # Liste détaillée
-alias la='ls -lhA'                                     # Liste avec les fichiers cachés
-alias lr='ls -lLhR'                                    # Liste en récursif
-alias lra='ls -lhRA'                                   # Liste en récursif avec les fichiers cachés
-alias lrt='ls -lLhrt'                                  # Liste par date
-alias lrta='ls -lLhrtA'                                # Liste par date avec les fichiers cachés
-alias grep='grep -i --color=auto'                      # Grep sans sensibilité à la casse
-alias zgrep='zgrep -i --color=auto'                    # Grep dans les fichiers compressés
-alias psp='ps -eaf | grep -v grep | grep'              # Chercher un process (psp <nom>)
-alias genkey='ssh-keygen -t ed25519 -a 100'            # Générer une clé ed25519
-alias pubip='curl -s -4 ipecho.net/plain ; echo'       # Afficher l'adresse IP publique
-alias df='df -PlH'                                     # df en filtrant les montages inutiles
-alias rmds='find . -name ".DS_Store" -type f -delete'  # Supprimer les .DS_Store récursivement
-alias rmdot="find . -name '._*' -type f -delete"       # Supprimer les ._ récursivement
-alias top='top -o cpu -U $(whoami)'                    # top filtré pour le user courant
-alias vi='vim -nO'                                     # vim avec ouverture multiple
-alias speedtest='networkQuality'                       # Speedtest Apple
-alias locate='mdfind -name'                            # Recherche via Spotlight
+alias l='ls -lh'                                      # Liste détaillée
+alias la='ls -lhA'                                    # Liste avec les fichiers cachés
+alias lr='ls -lLhR'                                   # Liste en récursif
+alias lra='ls -lhRA'                                  # Liste en récursif avec les fichiers cachés
+alias lrt='ls -lLhrt'                                 # Liste par date
+alias lrta='ls -lLhrtA'                               # Liste par date avec les fichiers cachés
+alias grep='grep -i --color=auto'                     # Grep sans sensibilité à la casse
+alias zgrep='zgrep -i --color=auto'                   # Grep dans les fichiers compressés
+alias psp='ps -eaf | grep -v grep | grep'             # Chercher un process (psp <nom>)
+alias genkey='ssh-keygen -t ed25519 -a 100'           # Générer une clé ed25519
+alias pubip='curl -s -4 ipecho.net/plain ; echo'      # Afficher l'adresse IP publique
+alias df='df -PlH'                                    # df en filtrant les montages inutiles
+alias rmds='find . -name ".DS_Store" -type f -delete' # Supprimer les .DS_Store récursivement
+alias rmdot="find . -name '._*' -type f -delete"      # Supprimer les ._ récursivement
+alias top='top -o cpu -U $(whoami)'                   # top filtré pour le user courant
+alias vi='vim -nO'                                    # vim avec ouverture multiple
+alias speedtest='networkQuality'                      # Speedtest Apple
+alias locate='mdfind -name'                           # Recherche via Spotlight
 
-# ─── applications facultatives ────────────────────────────────
+# ─── applications facultatives ───────────────────────────────────────────────
 
 # colordiff : diff avec couleur
-[[ -f $BREW_PREFIX/bin/colordiff ]] && alias diff='colordiff'
+command -v colordiff &>/dev/null && alias diff='colordiff'
 
 # duf : affiche les filesystems
-[[ -f $BREW_PREFIX/bin/duf ]] && alias df='duf -hide special'
+command -v duf &>/dev/null && alias df='duf -hide special'
 
 # fzf : recherche avancée avec thème Catppuccin Mocha
-if [[ -f $BREW_PREFIX/bin/fzf ]]; then
+if command -v fzf &>/dev/null; then
+  # shellcheck source=/opt/homebrew/bin/fzf
   source <(fzf --zsh)
+  if command -v fd &>/dev/null; then
+    export FZF_DEFAULT_COMMAND='fd'
+  fi
   export FZF_DEFAULT_OPTS=" \
     --color=bg+:#313244,bg:#1E1E2E,spinner:#F5E0DC,hl:#F38BA8 \
     --color=fg:#CDD6F4,header:#F38BA8,info:#CBA6F7,pointer:#F5E0DC \
@@ -163,15 +167,15 @@ if [[ -f $BREW_PREFIX/bin/fzf ]]; then
 fi
 
 # ncdu : équivalent à TreeSize
-[[ -f $BREW_PREFIX/bin/ncdu ]] && alias ncdu='ncdu --color dark'
+command -v ncdu &>/dev/null && alias ncdu='ncdu --color dark'
 
 # rg : plus performant que grep
-[[ -f $BREW_PREFIX/bin/rg ]] && alias rg='rg -i'
+command -v rg &>/dev/null && alias rg='rg -i'
 
 # zoxide : cd amélioré
-[[ -f $BREW_PREFIX/bin/zoxide ]] && eval "$(zoxide init zsh)"
+command -v zoxide &>/dev/null && eval "$(zoxide init zsh)"
 
-# ─── fonctions ────────────────────────────────────────────────
+# ─── fonctions ───────────────────────────────────────────────────────────────
 
 # cpsave : copie un fichier ou dossier avec suffixe .old
 cpsave() { cp -Rp "$1" "${1%/}.$(date +%Y%m%d).old"; }
@@ -189,7 +193,11 @@ zip() { for file in "$@"; do /usr/bin/zip -r "${file%/}.zip" "$file"; done; }
 convweb() { for file in "$@"; do cwebp -q 100 "$file" -o "${file%.*}.webp" && rm -- "$file"; done; }
 
 # ifconfig : affiche les informations réseau
-ifconfig() { for service in "Ethernet" "Wi-Fi"; do echo "==> $service" ; networksetup -getinfo "$service" ; echo ; done; }
+ifconfig() { for service in "Ethernet" "Wi-Fi"; do
+  echo "==> $service"
+  networksetup -getinfo "$service"
+  echo
+done; }
 ```
 
 Les aliases de base :
@@ -222,6 +230,7 @@ Les aliases actifs uniquement dans le cas où les applications sont installées 
 | fzf      | Outil de recherche avancé                                         |
 | ncdu     | L'équivalent de l'outil Treesize sous Windows                     |
 | rg       | Un grep récursif, bien plus lisible que le grep de base           |
+| z        | Utilise zoxide, un cd avancé                                      |
 
 Et enfin, les fonctions :
 
