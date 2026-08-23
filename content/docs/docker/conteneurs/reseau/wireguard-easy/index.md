@@ -11,7 +11,7 @@ draft: false
 lastmod: 2026-05-28
 ---
 
-[Wireguard Easy](https://github.com/wg-easy/wg-easy) est une interface graphique légère et open source conçue pour simplifier la gestion de [WireGuard](/docs/docker/conteneurs/wireguard). Elle permet de gérer facilement les pairs (clients), de visualiser l'état des connexions, ainsi que la volumétrie de données transitant en temps réel. Il est également possible d'exporter facilement la configuration en cas de réinstallation ultérieure.
+[Wireguard Easy](https://github.com/wg-easy/wg-easy) est une interface graphique légère et open source conçue pour simplifier la gestion de [WireGuard](/docs/docker/conteneurs/reseau/wireguard). Elle permet de gérer facilement les pairs (clients), de visualiser l'état des connexions, ainsi que la volumétrie de données transitant en temps réel. Il est également possible d'exporter facilement la configuration en cas de réinstallation ultérieure.
 
 ![dashboard](dashboard.webp)
 
