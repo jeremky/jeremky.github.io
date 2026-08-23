@@ -11,7 +11,7 @@ draft: false
 lastmod: 2026-05-17
 ---
 
-[ddclient](https://ddclient.net/) est un logiciel qui permet de mettre à jour son IP dynamiquement auprès de différents fournisseur. Dans cette documentation, nous allons utiliser le fournisseur [Dynu](https://www.dynu.com/fr-FR/). Je vous suggère de consulter [cette page](/docs/reseau/mise-a-jour-ip-dynamique) pour plus d'informations.
+[ddclient](https://ddclient.net/) est un logiciel qui permet de mettre à jour son IP dynamiquement auprès de différents fournisseur. Dans cette documentation, nous allons utiliser le fournisseur [Dynu](https://www.dynu.com/fr-FR/). Je vous suggère de consulter [cette page](/docs/reseau/ip-dynamique) pour plus d'informations.
 
 ## Installation
 

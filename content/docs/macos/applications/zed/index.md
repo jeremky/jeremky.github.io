@@ -35,7 +35,7 @@ lastmod: 2026-08-17
 
 ## Installation
 
-La méthode la plus simple reste d'utiliser brew. Un article [disponible ici](/docs/macos/homebrew) a été rédigé à son sujet.
+La méthode la plus simple reste d'utiliser brew. Un article [disponible ici](/docs/macos/utilisation-de-homebrew) a été rédigé à son sujet.
 
 Une fois brew installé, lancez la commande suivante :
 
