@@ -312,14 +312,14 @@ Passant régulièrement de Zed version Mac et version Windows, j'ai tenté d'ada
   "Card Hugo": {
     "prefix": "hugocard",
     "body": [
-      "  {{< card link=\"${1:}\" title=\"${1:}\" icon=\"${2:document}\" >}}"
+      "{{</* card link=\"${1:}\" title=\"${1:}\" icon=\"${2:document}\" */>}}"
     ],
     "description": "Bloc de cards pour un blog avec Hugo"
   },
 
   "Videos Hugo": {
     "prefix": "hugovid",
-    "body": ["{{< youtube ${1:shorturl} >}}", ""],
+    "body": ["{{</* youtube ${1:shorturl} */>}}", ""],
     "description": "Bloc de vidéo pour un blog avec Hugo"
   }
 }
