@@ -212,6 +212,7 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
     "codebook": true,
     "csv": true,
     "docker-compose": true,
+    "env": true,
     "ghostty": true,
     "git-firefly": true,
     "html": true,
