@@ -94,7 +94,7 @@ Le contenu du fichier :
 if [[ "$EUID" -eq 0 ]]; then
   PS1='\[\033[01;31m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w \$\[\033[00m\] '
 else
-  PS1='\[\033[01;35m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w \$\[\033[00m\] '
+  PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w \$\[\033[00m\] '
 fi
 
 # variables
@@ -114,53 +114,53 @@ if [[ $- == *i* ]]; then
   bind 'set show-all-if-unmodified on' # Affiche les correspondances immédiatement
 fi
 
-# ─── aliases ──────────────────────────────────────────────────
+# ─── aliases ─────────────────────────────────────────────────────────────────
 
-alias ls='ls --color=auto'                        # Ajoute la couleur
-alias l='ls -lh'                                  # Liste détaillée
-alias la='ls -lhA'                                # Liste avec les fichiers cachés
-alias lr='ls -lLhR'                               # Liste en récursif
-alias lra='ls -lhRA'                              # Liste en récursif avec les fichiers cachés
-alias lrt='ls -lLhrt'                             # Liste par date
-alias lrta='ls -lLhrtA'                           # Liste par date avec les fichiers cachés
-alias dus='du -sh * | sort -hr'                   # Tri par taille
-alias grep='grep -i --color=auto'                 # Grep sans sensibilité à la casse
-alias zgrep='zgrep -i --color=auto'               # Grep dans les fichiers compressés
-alias psp='ps -eaf | grep -v grep | grep'         # Chercher un process (psp <nom>)
-alias iostat='iostat -m --human'                  # iostat lisible
-alias ifconfig='ip -br -c addr | grep -v lo'      # Adresses IP (ifconfig obsolète)
-alias ss='ss -tunlH'                              # Ports d'écoute
-alias ssp='ss | grep'                             # Chercher un port (ssp <port>)
-alias netstat='ss'                                # Alias netstat obsolète → ss
-alias pubip='curl -s -4 ipecho.net/plain ; echo'  # IP publique
-alias df='df -h -x tmpfs -x devtmpfs -x overlay'  # df sans montages inutiles
-alias halt='sudo halt -p'                         # Arrêt système
-alias reboot='sudo reboot'                        # Redémarrage
+alias ls='ls --color=auto'                               # Ajoute la couleur
+alias l='ls -lh'                                         # Liste détaillée
+alias la='ls -lhA'                                       # Liste avec les fichiers cachés
+alias lr='ls -lLhR'                                      # Liste en récursif
+alias lra='ls -lhRA'                                     # Liste en récursif avec les fichiers cachés
+alias lrt='ls -lLhrt'                                    # Liste par date
+alias lrta='ls -lLhrtA'                                  # Liste par date avec les fichiers cachés
+alias dus='du -sh * | sort -hr'                          # Tri par taille
+alias grep='grep -i --color=auto'                        # Grep sans sensibilité à la casse
+alias zgrep='zgrep -i --color=auto'                      # Grep dans les fichiers compressés
+alias psp='ps -eaf | grep -v grep | grep'                # Chercher un process (psp <nom>)
+alias iostat='iostat -m --human'                         # iostat lisible
+alias ifconfig='ip -br -c addr | grep -vw lo'            # Adresses IP (ifconfig obsolète)
+alias ss='ss -tunlH'                                     # Ports d'écoute
+alias ssp='ss | grep'                                    # Chercher un port (ssp <port>)
+alias netstat='ss'                                       # Alias netstat obsolète → ss
+alias pubip='curl -s -4 https://ipecho.net/plain ; echo' # IP publique
+alias df='df -h -x tmpfs -x devtmpfs -x overlay'         # df sans montages inutiles
+alias halt='sudo halt -p'                                # Arrêt système
+alias reboot='sudo reboot'                               # Redémarrage
 
 # sudo
 [[ "$EUID" -ne 0 ]] && alias root='sudo -s'
 
 # ssh
-alias genkey='ssh-keygen -t ed25519 -a 100'         # Clé ed25519
-alias genkeyrsa='ssh-keygen -t rsa -b 4096 -a 100'  # Clé RSA
+alias genkey='ssh-keygen -t ed25519 -a 100'        # Clé ed25519
+alias genkeyrsa='ssh-keygen -t rsa -b 4096 -a 100' # Clé RSA
 
 # apt
 alias apt='sudo apt'
 alias upgrade='sudo apt update && sudo apt full-upgrade && sudo apt -y autoremove'
 
-# ─── applications facultatives ────────────────────────────────
+# ─── applications facultatives ───────────────────────────────────────────────
 
 # colordiff : diff avec couleur
-[[ -f /usr/bin/colordiff ]] && alias diff='colordiff'
+command -v colordiff &>/dev/null && alias diff='colordiff'
 
 # duf : df amélioré
-[[ -f /usr/bin/duf ]] && alias df='duf -hide special'
+command -v duf &>/dev/null && alias df='duf -hide special'
 
 # fd : find amélioré
-[[ -f /usr/bin/fdfind ]] && alias fd='fdfind -HI'
+command -v fdfind &>/dev/null && alias fd='fdfind -HI'
 
 # fzf : recherche avancée avec thème Catppuccin Mocha
-if [[ -f /usr/bin/fzf ]]; then
+if command -v fzf &>/dev/null; then
   eval "$(fzf --bash)"
   export FZF_DEFAULT_OPTS=" \
     --color=bg+:#313244,bg:#1E1E2E,spinner:#F5E0DC,hl:#F38BA8 \
@@ -171,30 +171,30 @@ if [[ -f /usr/bin/fzf ]]; then
 fi
 
 # htop : plus convivial que top
-[[ -f /usr/bin/htop ]] && alias top='htop'
+command -v htop &>/dev/null && alias top='htop'
 
 # ncdu : équivalent à TreeSize
-[[ -f /usr/bin/ncdu ]] && alias ncdu='ncdu --color dark'
+command -v ncdu &>/dev/null && alias ncdu='ncdu --color dark'
 
 # rg : plus performant que grep
-[[ -f /usr/bin/rg ]] && alias rg='rg -i --no-ignore'
+command -v rg &>/dev/null && alias rg='rg -i --no-ignore'
 
-# tty-clock : horloge en cli
-[[ -f /usr/bin/tty-clock ]] && alias clock='tty-clock -c -f %d/%m/%Y'
+# tty-clock : horloge en CLI
+command -v tty-clock &>/dev/null && alias clock='tty-clock -c -f %d/%m/%Y'
 
 # ufw : firewall simplifié
-if [[ -f /usr/sbin/ufw ]]; then
+if command -v ufw &>/dev/null; then
   alias ufw='sudo ufw'
   alias ufws='sudo ufw status numbered'
 fi
 
 # vim : vi amélioré
-[[ -f /usr/bin/vim ]] && alias vi='vim -nO'
+command -v vim &>/dev/null && alias vi='vim -nO'
 
 # zoxide : cd amélioré
-[[ -f /usr/bin/zoxide ]] && eval "$(zoxide init bash)"
+command -v zoxide &>/dev/null && eval "$(zoxide init bash)"
 
-# ─── fonctions ────────────────────────────────────────────────
+# ─── fonctions ───────────────────────────────────────────────────────────────
 
 # cleanlog : nettoyer les logs systemd
 cleanlog() { [[ -n "$1" ]] && sudo journalctl --vacuum-time=${1}d; }
@@ -205,10 +205,13 @@ cpsave() { cp -Rp "$1" "${1%/}.$(date +%Y%m%d).old"; }
 # gencert : générer un certificat avec certbot
 gencert() { sudo certbot certonly --standalone -d "$1"; }
 
+# md5 : MD5 d'une chaîne
+md5() { printf '%s' "$1" | md5sum | cut -d' ' -f1; }
+
 # newuser : créer un compte de service
 newuser() {
-  sudo adduser --no-create-home -q --disabled-password --comment "" $1
-  echo "Utilisateur $1 créé. ID : $(id -u $1)"
+  sudo adduser --no-create-home -q --disabled-password --comment "" "$1"
+  echo "Utilisateur $1 créé. ID : $(id -u "$1")"
 }
 
 # tarc : créer une archive tar.gz
@@ -217,14 +220,14 @@ tarc() { for file in "$@"; do tar czvf "${file%/}.tar.gz" "$file"; done; }
 # tarx : décompresser une archive tar
 tarx() { for file in "$@"; do tar xvf "$file"; done; }
 
-# testdisk : tester la vitesse d'écriture disque
-testdisk() {
+# diskbench : tester la vitesse d'écriture disque
+diskbench() {
   dd if=/dev/zero of=testfile bs=64M count=16 oflag=direct status=progress
   rm testfile
 }
 
-# zip : créer une archive zip
-zip() { for file in "$@"; do /usr/bin/zip -r "${file%/}.zip" "$file"; done; }
+# zipd : créer une archive zip par dossier/fichier donné
+zipd() { for file in "$@"; do /usr/bin/zip -r "${file%/}.zip" "$file"; done; }
 ```
 
 Les aliases de base :
@@ -272,13 +275,14 @@ Les aliases actifs uniquement dans le cas où les applications sont installées 
 
 Et enfin, les fonctions :
 
-| Commande | Description                                                                |
-| -------- | -------------------------------------------------------------------------- |
-| cleanlog | Supprimer les logs systemd en spécifiant le nombre de jours                |
-| cpsave   | Créer une copie en date.old d'un fichier ou d'un dossier spécifié          |
-| gencert  | Générer un certificat en précisant le nom de domaine en paramètre          |
-| newuser  | Créer un compte de service (pas de home ni de mot de passe)                |
-| tarc     | Créer un tar.gz d'un ou plusieurs fichiers ou dossiers passés en paramètre |
-| tarx     | Pour extraire un ou plusieurs tar.gz passés en paramètre                   |
-| testdisk | Tester la vitesse du disque courant en créant un fichier                   |
-| zip      | Facilite l'utilisation de la commande zip (zip \<fichier>)                 |
+| Commande  | Description                                                                |
+| --------- | -------------------------------------------------------------------------- |
+| cleanlog  | Supprimer les logs systemd en spécifiant le nombre de jours                |
+| cpsave    | Créer une copie en date.old d'un fichier ou d'un dossier spécifié          |
+| gencert   | Générer un certificat en précisant le nom de domaine en paramètre          |
+| md5       | Calculer le hash MD5 d'une chaîne de caractères                            |
+| newuser   | Créer un compte de service (pas de home ni de mot de passe)                |
+| tarc      | Créer un tar.gz d'un ou plusieurs fichiers ou dossiers passés en paramètre |
+| tarx      | Pour extraire un ou plusieurs tar.gz passés en paramètre                   |
+| diskbench | Tester la vitesse du disque courant en créant un fichier                   |
+| zipd      | Facilite l'utilisation de la commande zip (zip \<fichier>)                 |
