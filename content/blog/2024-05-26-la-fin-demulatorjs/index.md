@@ -19,11 +19,11 @@ Faire fonctionner un émulateur dans un navigateur Web, c'est techniquement une 
 
 Certaines consoles (PlayStation, Nintendo 64, Saturn...) ne peuvent pas fonctionner sur certaines plateformes, à cause de la limitation en RAM. C'est le cas par exemple du navigateur Edge de la Xbox, qui est limité en mémoire par Microsoft. Et même sur les rares navigateurs compatibles, le rendu n’est pas toujours au rendez-vous.
 
-A cela s'ajoute également des problèmes de craquement de son, mais aussi des latences au niveau de l'image, l'émulateur ne permettant pas un bon fonctionnement de la synchro entre le framerate du jeu et le rafraîchissement de l'écran, et ce malgré la synchro verticale activée.
+À cela s'ajoutent également des problèmes de craquement de son, mais aussi des latences au niveau de l'image, l'émulateur ne permettant pas un bon fonctionnement de la synchro entre le framerate du jeu et le rafraîchissement de l'écran, et ce malgré la synchro verticale activée.
 
 ## Manque de fonctionnalités
 
-EmulatorJS est principalement basé sur RetroArch. Ce frontend est un monstre en terme de personnalisation. Malheureusement, beaucoup d'options ne sont pas disponibles dans la version embarquée d’EmulatorJS.
+EmulatorJS est principalement basé sur RetroArch. Ce frontend est un monstre en termes de personnalisation. Malheureusement, beaucoup d'options ne sont pas disponibles dans la version embarquée d’EmulatorJS.
 
 Il manque un bon nombre de shaders, notamment des shaders permettant d'ajouter du scanline, ou un rendu rétro, afin de diminuer la difficulté que l'on peut avoir à revoir les bons vieux pixels de l'époque !
 
@@ -37,7 +37,7 @@ Et puis il manque tout simplement certaines consoles, incompatibles avec ce syst
 
 Les problèmes cités plus haut m'ont obligé à peaufiner certains choix de ROMs. En effet, les problèmes de rafraîchissement apportaient des problèmes avec les ROMs européennes (50hz).
 
-Autre élément fastidieux, l'émulateur qui a été retenu pour les bornes d'arcade. Dans EmulatorJS, seul MAME 2003 plus est disponible. Et encore, certains jeux d'un Full Romset sensé être 100% compatible ne fonctionnent pas. Et malheureusement, Final Burn Neo n'est pas présent, on se prive donc là encore d'une partie du catalogue arcade (Certains jeux CPS2 et CPS3 par exemple).
+Autre élément fastidieux, l'émulateur qui a été retenu pour les bornes d'arcade. Dans EmulatorJS, seul MAME 2003 plus est disponible. Et encore, certains jeux d'un Full Romset censé être 100% compatible ne fonctionnent pas. Et malheureusement, Final Burn Neo n'est pas présent, on se prive donc là encore d'une partie du catalogue arcade (Certains jeux CPS2 et CPS3 par exemple).
 
 ## Du coup, c'est quoi les alternatives ?
 

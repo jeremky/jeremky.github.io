@@ -57,6 +57,6 @@ FROM lscr.io/linuxserver/code-server:latest
 RUN apt-get update && apt-get install -y hugo
 ```
 
-L'image personnalisée sera alors automatiquement créée si elle n'est pas trouvée dans Docker. A l'inverse, Docker ne fera pas de build si l'image portant le nom spécifié dans le fichier `docker-compose.yml` est déjà présent dans sa base d'images.
+L'image personnalisée sera alors automatiquement créée si elle n'est pas trouvée dans Docker. A l'inverse, Docker ne fera pas de build si l'image portant le nom spécifié dans le fichier `docker-compose.yml` est déjà présente dans sa base d'images.
 
 Une fois votre application déployée, vous pourrez supprimer l'image d'origine, celle-ci ne sera pas automatiquement supprimée par le déploiement.

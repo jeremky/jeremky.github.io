@@ -19,11 +19,11 @@ D'après [Hostinger](https://www.hostinger.fr/vps/hebergement-portainer) :
 >
 > _Que vous soyez un développeur chevronné ou un débutant complet, son tableau de bord convivial vous permet de simplifier la gestion de Docker sans avoir recours à une interface en ligne de commande._
 
-Depuis la dernière version, Portainer est capable de contrôler également des environnements utilisant [Podman](/docs/docker/migration-vers-podman). Et même s'il est officiellement compatible qu'à partir de la version 5 de Podman, la version 4 inclue dans les packages de Debian 12 est d'après mes tests correctement prise en charge.
+Depuis la dernière version, Portainer est capable de contrôler également des environnements utilisant [Podman](/docs/docker/migration-vers-podman). Et même s'il est officiellement compatible qu'à partir de la version 5 de Podman, la version 4 incluse dans les packages de Debian 12 est d'après mes tests correctement prise en charge.
 
 ## Installation
 
-Pour installer Portainer, je considère que vous avez déjà suivi les tutos pour l'installation de Docker ou de Podman. Ensuite, et bien... C'est comme d'habitude :smile:
+Pour installer Portainer, je considère que vous avez déjà suivi les tutos pour l'installation de Docker ou de Podman. Ensuite, eh bien... C'est comme d'habitude :smile:
 
 Le fichier `docker-compose.yml` :
 
@@ -70,7 +70,7 @@ Pas de fichier `.env` ici, la configuration se fait directement via l'interface 
 
 ## Configuration
 
-Une fois Portainer installé, on créé notre compte :
+Une fois Portainer installé, on crée notre compte :
 
 ![account](account.webp)
 
@@ -92,11 +92,11 @@ Lorsque vous listez vos conteneurs, il affiche les ports ouverts sous forme de l
 
 ![environment](environment.webp)
 
-Profitez en pour personnaliser le nom de votre environnement, et y ajouter des tags si l'envie vous prend. Cela peut être utile si vous souhaitez ajouter plusieurs environnements à votre Portainer (je vous laisse consulter [cette page](https://docs.portainer.io/admin/environments/add/docker/agent) si besoin).
+Profitez-en pour personnaliser le nom de votre environnement, et y ajouter des tags si l'envie vous prend. Cela peut être utile si vous souhaitez ajouter plusieurs environnements à votre Portainer (je vous laisse consulter [cette page](https://docs.portainer.io/admin/environments/add/docker/agent) si besoin).
 
 ## Ajout de vos conteneurs
 
-Je ne vais pas m'attarder sur la création des réseaux, des volumes, et des conteneurs. Ce site se basant principalement sur les fichiers `docker-compose.yml`, nous allons intégrer les configurations tel quel dans Portainer. Cela se situe dans la partie `Stacks`.
+Je ne vais pas m'attarder sur la création des réseaux, des volumes, et des conteneurs. Ce site se basant principalement sur les fichiers `docker-compose.yml`, nous allons intégrer les configurations telles quelles dans Portainer. Cela se situe dans la partie `Stacks`.
 
 Cliquez sur `Add Stack` en haut à droite. Nommez votre stack et choisissez entre uploader votre fichier, ou insérer dans l'éditeur web le contenu de ce dernier :
 
@@ -117,7 +117,7 @@ Vous serez alors redirigé sur la page des stacks. Vous pouvez cliquer sur le no
 
 ## Administration des conteneurs
 
-En allant dans la partie `containers`, vous aurez une visualisation des conteneurs installés et de l'état de ces derniers. A noter que Portainer est capable de contrôler tous les conteneurs, même s'ils ont été déployés à l'extérieur. Il est également capable de détecter si compose à été utilisé, mais ne sera pas en mesure de récupérer les configurations (Contrôle limité).
+En allant dans la partie `containers`, vous aurez une visualisation des conteneurs installés et de l'état de ces derniers. A noter que Portainer est capable de contrôler tous les conteneurs, même s'ils ont été déployés à l'extérieur. Il est également capable de détecter si compose a été utilisé, mais ne sera pas en mesure de récupérer les configurations (Contrôle limité).
 
 ![containers](containers.webp)
 

@@ -63,7 +63,7 @@ INSTALL_PACKAGES=aspell|aspell-fr|colordiff|fd|font-jetbrains-mono-nerd|fzf|git|
 ```
 
 - la variable `START_DOCKER` permet de contrôler Docker via ce container. Il est désactivé dans cet exemple, car je n'en ai pas l'utilité : il est possible d'utiliser un terminal de ce conteneur comme rebond SSH vers votre serveur
-- la variable `INSTALL_PACKAGES` permet de lui préciser quels packages vous voulez installer après le déploiement, peu importe la distribution choisie. J'ai donc ajouté quelques outils qui m'ont semblé pertinent selon mes besoins
+- la variable `INSTALL_PACKAGES` permet de lui préciser quels packages vous voulez installer après le déploiement, peu importe la distribution choisie. J'ai donc ajouté quelques outils qui m'ont semblé pertinents selon mes besoins
 - Là encore, j'ai laissé l'ID 1000, correspondant au 1er user de votre hôte. A changer selon vos besoins
 
 ### Reverse proxy

@@ -11,7 +11,7 @@ draft: false
 lastmod: 2026-05-17
 ---
 
-_[Syncthing](https://fr.wikipedia.org/wiki/Syncthing) est une application de synchronisation de fichiers pair à pair open source disponible pour Windows, Mac, Linux, Android, Solaris, Darwin et BSD. Aucun compte ni enregistrement préalable à l'utilisation auprès d'un tiers (comme les géants du web, ou quelque autre entité) n'est nécessaire, ni même optionnelle. La sécurité et l'intégrité des données sont intégrées dans la conception du logiciel._
+_[Syncthing](https://fr.wikipedia.org/wiki/Syncthing) est une application de synchronisation de fichiers pair à pair open source disponible pour Windows, Mac, Linux, Android, Solaris, Darwin et BSD. Aucun compte ni enregistrement préalable à l'utilisation auprès d'un tiers (comme les géants du web, ou quelque autre entité) n'est nécessaire, ni même optionnel. La sécurité et l'intégrité des données sont intégrées dans la conception du logiciel._
 
 ![cover](https://upload.wikimedia.org/wikipedia/commons/b/bf/SyncthingWebInterface.jpg)
 
@@ -52,7 +52,7 @@ PGID=1000
 TZ=Europe/Paris
 ```
 
-Là encore, vérifiez l’id de votre user user ayant les droits sur les fichiers à synchroniser.
+Là encore, vérifiez l’id de votre user ayant les droits sur les fichiers à synchroniser.
 
 ### Reverse proxy
 
@@ -97,7 +97,7 @@ Commencez par supprimer le dossier créé par défaut, en vous rendant dans `gé
 
 ![dir](dir.webp)
 
-Rendez vous dans l’onglet `Partages` et choisissez l’appareil qui aura accès à ce dossier.
+Rendez-vous dans l’onglet `Partages` et choisissez l’appareil qui aura accès à ce dossier.
 
 ![share](share.webp)
 

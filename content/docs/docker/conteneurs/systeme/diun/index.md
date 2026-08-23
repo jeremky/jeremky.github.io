@@ -86,7 +86,7 @@ DIUN_PROVIDERS_DOCKER_WATCHBYDEFAULT=true
 
 Cette configuration permet d'effectuer une vérification toutes les 2 heures.
 
-Par défaut, il est normalement nécessaire de spécifier pour chaque conteneur un label pour lui indiquer que l'on souhaite l'inclure aux vérifications. Il est possible d'automatiquement les intégrer avec la variable `DIUN_PROVIDERS_DOCKER_WATCHBYDEFAULT`. A l'inverse, pour exclure une conteneur, il est nécessaire d'y placer le label suivant :
+Par défaut, il est normalement nécessaire de spécifier pour chaque conteneur un label pour lui indiquer que l'on souhaite l'inclure aux vérifications. Il est possible d'automatiquement les intégrer avec la variable `DIUN_PROVIDERS_DOCKER_WATCHBYDEFAULT`. A l'inverse, pour exclure un conteneur, il est nécessaire d'y placer le label suivant :
 
 ```yml
 labels:

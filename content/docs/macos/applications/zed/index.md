@@ -20,7 +20,7 @@ lastmod: 2026-08-17
 
 - **Performance** : écrit en Rust et rendu via le GPU, Zed est probablement l'éditeur le plus réactif du marché. Le démarrage est quasi-instantané, même sur de gros projets, et la latence de frappe est imperceptible.
 - **Mode Vim intégré** : le mode Vim est natif, sans extension. Il supporte les text objects, les marks, et s'intègre naturellement avec le reste de l'éditeur.
-- **IA native** : Zed intègre nativement plusieurs modèles (Claude, GPT, Gemini, Ollama…), aussi bien pour la complétion que pour un agent capable d'intervenir directement dans le code. La création d’un compte vous permet de profiter d’une complétion, dont 2000 mensuelles sont offertes avec un compte gratuit
+- **IA native** : Zed intègre nativement plusieurs modèles (Claude, GPT, Gemini, Ollama…), aussi bien pour la complétion que pour un agent capable d'intervenir directement dans le code. La création d’un compte vous permet de profiter de complétions, dont 2000 mensuelles sont offertes avec un compte gratuit
 - **Configuration en JSON** : tous les réglages se font dans un fichier texte, versionnable et facilement reproductible d'une machine à l'autre.
 - **Interface épurée** : l'interface est minimaliste et ne distrait pas du code. Pas de menus superflus, tout est accessible via la palette de commandes.
 
@@ -43,7 +43,7 @@ Une fois brew installé, lancez la commande suivante :
 brew install zed
 ```
 
-Si vous ne voulez installer Homebrew et préférez une méthode d’installation traditionnelle, vous pouvez récupérer le fichier `dmg` en suivant [ce lien](https://zed.dev/download-success?asset=Zed-aarch64.dmg&version=0.233.10&channel=stable).
+Si vous ne voulez pas installer Homebrew et préférez une méthode d’installation traditionnelle, vous pouvez récupérer le fichier `dmg` en suivant [ce lien](https://zed.dev/download-success?asset=Zed-aarch64.dmg&version=0.233.10&channel=stable).
 
 ## Configuration
 
@@ -267,7 +267,7 @@ brew install shfmt shellcheck
 ]
 ```
 
-Passant régulièrement de Zed version Mac et version Windows, j'ai tenté d'adapter des raccourcis pour les rendre communs aux 2 plateformes (`F1` pour exécuter une commande par exemple). Je me suis également basé sur certains raccourcis que j'utilise sous [Vim](/docs/linux/applications/vim).
+Passant régulièrement de Zed version Mac à version Windows, j'ai tenté d'adapter des raccourcis pour les rendre communs aux 2 plateformes (`F1` pour exécuter une commande par exemple). Je me suis également basé sur certains raccourcis que j'utilise sous [Vim](/docs/linux/applications/vim).
 
 ### Snippets Markdown
 

@@ -20,7 +20,7 @@ Tinyauth propose les fonctionnalités suivantes :
 
 - Déploiement ultra rapide via Docker/Podman
 - Possibilité de créer des users locaux directement dans les variables d'environnement (donc pas besoin de gérer un fichier de config)
-- Interfaçage avec des services d'authentification externe, comme du LDAP, du Oauth via Github, Google...
+- Interfaçage avec des services d'authentification externes, comme du LDAP, d'OAuth via Github, Google...
 - De la double authentification TOTP
 
 ## Installation

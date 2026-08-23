@@ -251,7 +251,7 @@ Les aliases de base :
 | df        | Commande df, mais sans les volumes temporaires                       |
 | halt      | Permet l'arrêt de la machine et non seulement le système             |
 | reboot    | Ajoute sudo devant la commande reboot                                |
-| root      | Permet de se connecter en root via sudu                              |
+| root      | Permet de se connecter en root via sudo                              |
 | apt       | Ajoute sudo et la commande `upgrade`                                 |
 | genkey    | Génère une clé au format ed25519 (plus sécurisé que rsa)             |
 | genkeyrsa | Génère une clé au format rsa en 4096 bits                            |

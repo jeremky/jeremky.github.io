@@ -10,7 +10,7 @@ draft: false
 lastmod: 2026-05-17
 ---
 
-_[Secure Shell](https://fr.wikipedia.org/wiki/Secure_Shell) Secure Shell (SSH) est un protocole de communication sécurisé. Le protocole de connexion impose un échange de clés de chiffrement en début de connexion. Par la suite, tous les segments TCP sont authentifiés et chiffrés. Il devient donc impossible d'utiliser un analyseur de paquets (sniffer) pour voir ce que fait l'utilisateur._
+_[Secure Shell](https://fr.wikipedia.org/wiki/Secure_Shell) (SSH) est un protocole de communication sécurisé. Le protocole de connexion impose un échange de clés de chiffrement en début de connexion. Par la suite, tous les segments TCP sont authentifiés et chiffrés. Il devient donc impossible d'utiliser un analyseur de paquets (sniffer) pour voir ce que fait l'utilisateur._
 
 _Le protocole SSH a été conçu avec l'objectif de remplacer les différents protocoles non chiffrés comme rlogin, telnet, rcp et rsh._
 
@@ -21,7 +21,7 @@ A noter que ce que je vais indiquer ici est valable aussi bien pour un client so
 Il existe différents algorithmes pour créer des clés. Le plus connu, le RSA. Toutefois, je vais vous proposer un algorithme plus récent, et surtout offrant un meilleur niveau de sécurité, le ed25519.
 _"Ed25519 a pour but de fournir une résistance aux attaques comparable à celle des chiffrements de 128-bits de qualité. Les clés publiques sont encodées sur 256 bits (32 octets) de long et les signatures sont deux fois plus longues."_
 
-Pour créer votre paire de clé de type **ed25519**, voici la commande à utiliser :
+Pour créer votre paire de clés de type **ed25519**, voici la commande à utiliser :
 
 ```bash
 ssh-keygen -t ed25519 -a 100
@@ -40,7 +40,7 @@ Une fois votre clé générée, nous allons utiliser la commande suivante pour l
 ssh-copy-id -i .ssh/id_ed25519.pub <user>@<serveur>
 ```
 
-Il vous faut spécifier la clé publique a utiliser, ainsi que le serveur de destination. Le mot de passe de connexion à ce dernier vous sera demandé.
+Il vous faut spécifier la clé publique à utiliser, ainsi que le serveur de destination. Le mot de passe de connexion à ce dernier vous sera demandé.
 
 ![copykey](copykey.webp)
 
@@ -66,7 +66,7 @@ Host recalbox
 
 La 1ère partie s'applique à tous les hosts. Les éléments sont les suivants :
 
-- `AddKeysToAgent` : ajoute le passphrase dans le trousseau du système, pour ne pas avoir à la ressaisir à chaque connexion
+- `AddKeysToAgent` : ajoute la passphrase dans le trousseau du système, pour ne pas avoir à la ressaisir à chaque connexion
 - `IdentitiesOnly` : spécifie à ssh de n'utiliser que les clés présentes dans ce fichier de config
 
 Ensuite, vous pouvez créer un bloc par serveur distant, et y indiquer les éléments suivants :

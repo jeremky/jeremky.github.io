@@ -19,7 +19,10 @@ L'image utilisée est fournie par [Linuxserver.io](https://www.linuxserver.io/).
 
 Le fichier `docker-compose.yml` :
 
-```yml {filename="docker-compose.yml"}
+{{< tabs >}}
+{{< tab name="Docker" >}}
+
+```yml {filename="compose.yml"}
 services:
   wireguard:
     image: lscr.io/linuxserver/wireguard:latest
@@ -37,6 +40,32 @@ services:
       - net.ipv4.conf.all.src_valid_mark=1
     restart: always
 ```
+
+{{< /tab >}}
+{{< tab name="Podman" >}}
+
+```yml {filename="compose.yml"}
+services:
+  wireguard:
+    image: lscr.io/linuxserver/wireguard:latest
+    container_name: wireguard
+    hostname: wireguard
+    env_file: wireguard.env
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+    volumes:
+      - /opt/containers/wireguard:/config
+      - /lib/modules:/lib/modules
+    ports:
+      - 51820:51820/udp
+    sysctls:
+      - net.ipv4.conf.all.src_valid_mark=1
+    restart: always
+```
+
+{{< /tab >}}
+{{< /tabs >}}
 
 Son fichier `wireguard.env` :
 
@@ -60,19 +89,45 @@ Dans ce fichier, vous avez quelques éléments à modifier :
 
 ## Configuration du client
 
-Pour l'installation du client, vous pouvez vous rendre sur [cette page](https://www.wireguard.com/install/). Le client est disponible pour tous les systèmes d'exploitation. Une fois installé, vous pouvez ajouter la configuration soit manuellement, soit en effectuant un scan d'un QR code depuis vos appareils mobile. Il peut s'afficher directement dans votre terminal :
+Pour l'installation du client, vous pouvez vous rendre sur [cette page](https://www.wireguard.com/install/). Le client est disponible pour tous les systèmes d'exploitation. Une fois installé, vous pouvez ajouter la configuration soit manuellement, soit en effectuant un scan d'un QR code depuis vos appareils mobiles. Il peut s'afficher directement dans votre terminal :
+
+{{< tabs >}}
+{{< tab name="Docker" >}}
 
 ```bash
 docker exec -it wireguard /app/show-peer client1
 ```
 
+{{< /tab >}}
+{{< tab name="Podman" >}}
+
+```bash
+podman exec -it wireguard /app/show-peer client1
+```
+
+{{< /tab >}}
+{{< /tabs >}}
+
 ![peer](peer.webp)
 
 Je vous conseille d'ajouter un alias dans votre fichier `.bash_aliases` pour plus de confort :
 
+{{< tabs >}}
+{{< tab name="Docker" >}}
+
 ```bash
 alias peer='docker exec -it wireguard /app/show-peer $1'
 ```
+
+{{< /tab >}}
+{{< tab name="Podman" >}}
+
+```bash
+alias peer='podman exec -it wireguard /app/show-peer $1'
+```
+
+{{< /tab >}}
+{{< /tabs >}}
 
 Si toutefois vous devez ajouter les infos manuellement, le fichier de configuration se trouve sur votre hôte dans un sous dossier de `/opt/containers/wireguard`. Dans notre exemple : `/opt/containers/wireguard/peer_client1/peer_client1.conf` Une fois la configuration importée, vous pouvez activer votre VPN !
 

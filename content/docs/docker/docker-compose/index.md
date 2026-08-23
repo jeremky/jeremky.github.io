@@ -49,16 +49,16 @@ Les éléments clés :
 
 - La définition des services, avec son nom, l'image utilisée, et le nom du conteneur
 - env_file : spécifie le nom du fichier où seront stockées les variables utilisées par le conteneur (que nous allons voir plus loin dans cet article)
-- volumes : se sont les répertoires partagés entre votre machine hôte et votre conteneur
+- volumes : ce sont les répertoires partagés entre votre machine hôte et votre conteneur
 - ports : les ports qui seront ouverts entre l'hôte et le conteneur. Vous remarquerez que pour la base mysql, le port n'a pas été ouvert. Mais ces 2 conteneurs seront dans le même réseau virtuel et le conteneur nextcloud-web pourra contacter la base via son hostname nextcloud-db
-- restart : défini le comportement du conteneur en cas de crash par exemple
+- restart : définit le comportement du conteneur en cas de crash par exemple
 
 > Les images utilisées sont celles de [Linuxserver.io](https://www.linuxserver.io/)
 
 ## Le fichier de variables .env
 
 En plus de votre fichier `docker-compose.yml`, vous devez y associer un fichier contenant les variables que va utiliser compose. Il est possible d'intégrer les valeurs directement dans le fichier yml, mais cela permet une meilleure flexibilité.
-Par défaut, il va chercher un fichier nommé `.env`. Mais il est possible de lui spécifier nous même le fichier grâce à l'entrée `env_file`.
+Par défaut, il va chercher un fichier nommé `.env`. Mais il est possible de lui spécifier nous-mêmes le fichier grâce à l'entrée `env_file`.
 
 Toujours pour notre exemple avec Nextcloud, voici le contenu :
 

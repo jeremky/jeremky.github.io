@@ -114,7 +114,7 @@ networks:
 ```
 
 A la fin du fichier, on lui spécifie quels réseaux seront à créer. Dans notre cas, il ne doit créer que "default" (qui s'appellera en réalité `nextcloud_default`), mais doit avoir accès au réseau `nginx_proxy` (external à _true_).
-Ensuite, pour chaque service, on lui spécifie quel(s) réseau(x) utiliser. La base de donnée n'est que dans le réseau network, et la partie web dans les 2. Le reverse proxy aura donc accès à l'application Web mais pas à la base.
+Ensuite, pour chaque service, on lui spécifie quel(s) réseau(x) utiliser. La base de données n'est que dans le réseau network, et la partie web dans les 2. Le reverse proxy aura donc accès à l'application Web mais pas à la base.
 
 > Vous remarquerez que les ports ne sont plus spécifiés pour le service nextcloud. Il n'est en effet plus nécessaire d'ouvrir l'accès : celui-ci se fera uniquement par le proxy.
 
