@@ -122,4 +122,4 @@ sudo chown -R $USER:$USER /opt/containers
 L'autre solution serait de déplacer les données dans un répertoire de votre dossier `$USER`.
 
 >[!IMPORTANT]
->Vérifiez bien que `/home` dispose de suffisamment d'espace disque' pour les données de Podman (les données seront stockées dans `~/.local/share/containers` par défaut)
+>Vérifiez bien que `/home` dispose de suffisamment d'espace disque pour les données de Podman (les données seront stockées dans `~/.local/share/containers` par défaut)

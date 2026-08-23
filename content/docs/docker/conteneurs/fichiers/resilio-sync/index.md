@@ -13,7 +13,7 @@ lastmod: 2026-05-17
 
 _[Resilio Sync](https://fr.wikipedia.org/wiki/Resilio_Sync) est un outil propriétaire de synchronisation de fichiers peer-to-peer disponible pour Windows, Mac, Linux, Android, iOS, Windows Phone, Amazon Kindle Fire et BSD. Il peut synchroniser des fichiers entre appareils sur un réseau local ou entre appareils distants sur Internet via une version modifiée du protocole BitTorrent. Bien qu'il ne soit pas présenté par les développeurs comme un remplacement direct ni un concurrent des services de synchronisation de fichiers basés sur le cloud, il a acquis une grande partie de sa publicité dans ce rôle potentiel._
 
-[Resilio Sync](https://www.resilio.com/sync/) propose une synchronisation par dossier. Chaque nouveau partage génère une clé, que vous pouvez communiquer à un autre client Resilio Sync, pour effectuer une synchronisation. Chaque modification d'un dossier associé à un partage sera automatiquement répliqué sur chaque dossier connecté.
+[Resilio Sync](https://www.resilio.com/sync/) propose une synchronisation par dossier. Chaque nouveau partage génère une clé, que vous pouvez communiquer à un autre client Resilio Sync, pour effectuer une synchronisation. Chaque modification d'un dossier associé à un partage sera automatiquement répliquée sur chaque dossier connecté.
 
 ## Installation de l'application
 
@@ -57,7 +57,7 @@ PGID=1000
 TZ=Europe/Paris
 ```
 
-Les variables `PUID` et `PGID` doivent correspondre à celui du user ayant les droits des dossiers que vous souhaitez synchroniser.
+Les variables `PUID` et `PGID` doivent correspondre à ceux du user ayant les droits des dossiers que vous souhaitez synchroniser.
 
 ### Reverse proxy
 
@@ -80,7 +80,7 @@ sudo docker restart nginx
 
 ## Initialisation
 
-Une fois votre application déployée, vous connecter à l'url que vous avez défini dans la configuration de votre proxy devrait vous amener à la page suivante :
+Une fois votre application déployée, vous connecter à l'url que vous avez définie dans la configuration de votre proxy devrait vous amener à la page suivante :
 
 ![init](init.webp)
 
@@ -104,7 +104,7 @@ Dans la partie `Avancées`, il est possible, via le dernier lien en bas, d'accé
 
 ![avances](reglages_avances.webp)
 
-Il faut rester prudent avec ces options. Je m'y rend surtout pour passer en mode `disk_low_priority` afin de diminuer la charge disque, et pour désactiver la télémétrie (`send_statistics`).
+Il faut rester prudent avec ces options. Je m'y rends surtout pour passer en mode `disk_low_priority` afin de diminuer la charge disque, et pour désactiver la télémétrie (`send_statistics`).
 
 ## Ajout d'un dossier
 

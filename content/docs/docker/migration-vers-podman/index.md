@@ -12,7 +12,7 @@ lastmod: 2026-05-17
 
 _[Podman](https://fr.wikipedia.org/wiki/Podman) est une alternative à Docker, qui permet de lancer les commandes sans les permissions root. À l’inverse de Docker, Podman n’intègre pas de daemon nécessaire à son fonctionnement._
 
-## Ca change quoi ?
+## Ça change quoi ?
 
 Les changements entre les 2 solutions sont minimes. En réalité, Docker et Podman se basent sur certaines applications de plus bas niveau. Tout d'abord, [seccomp](https://fr.wikipedia.org/wiki/Seccomp), pour gérer le lien avec le noyau Linux, et [runc](https://github.com/opencontainers/runc), pour la création et l'exécution des conteneurs. Docker et Podman partagent donc globalement le même fonctionnement.
 
@@ -51,7 +51,7 @@ Pour cela, modifiez la ligne suivante dans le fichier `/etc/containers/registrie
 # unqualified-search-registries = ["exemple.com"]
 ```
 
-Et remplacez là par :
+Et remplacez-la par :
 
 ```txt
 unqualified-search-registries = ["docker.io"]

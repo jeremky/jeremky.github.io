@@ -16,15 +16,15 @@ Utiliser un Adblock directement dans son navigateur rend la navigation plus agr�
 
 [Adguard](https://adguard.com/fr/welcome.html) existe sous la forme d'un bloqueur de pubs traditionnel, mais propose également des solutions de blocage DNS.
 
-Adguard DNS est la plus simple à mettre en place, puisque l'on peut utiliser des serveurs DNS que Adguard nous met à disposition. Vous trouverez sur [cette page](https://adguard-dns.io/fr/public-dns.html), les IPv4 et IPv6 de leurs serveurs. Ils proposent plusieurs possibilités de filtrage : classique, non filtrant, et avec une protection dite familiale.
+Adguard DNS est la plus simple à mettre en place, puisque l'on peut utiliser des serveurs DNS qu'Adguard nous met à disposition. Vous trouverez sur [cette page](https://adguard-dns.io/fr/public-dns.html), les IPv4 et IPv6 de leurs serveurs. Ils proposent plusieurs possibilités de filtrage : classique, non filtrant, et avec une protection dite familiale.
 
 ![adguard](adguard.webp)
 
-Le blocage fonctionne plutôt bien dans leur configuration. J'ai toutefois constaté quelques baisses de performance comparé à d'autre fournisseurs DNS, et cette configuration est limitée sur les appareils où vous pouvez manuellement changer les adresses IP DNS.
+Le blocage fonctionne plutôt bien dans leur configuration. J'ai toutefois constaté quelques baisses de performance comparé à d'autres fournisseurs DNS, et cette configuration est limitée sur les appareils où vous pouvez manuellement changer les adresses IP DNS.
 
 ### Configuration
 
-Sur les appareils ne permettant une configuration DNS brute, voici les IP à utiliser :
+Sur les appareils ne permettant pas une configuration DNS brute, voici les IP à utiliser :
 
 - IPv4 : 94.140.14.14, 94.140.15.15
 - IPv6 : 2a10:50c0::ad1:ff, 2a10:50c0::ad2:ff
@@ -38,7 +38,7 @@ Si jamais vous désirez héberger localement leur solution de blocage, vous avez
 
 ## NextDNS
 
-[NextDNS](https://nextdns.io/fr) est à mon sens le meilleur compromis entre personnalisation et simplicité d'utilisation. Ce service permet de profiter d'un blocage de publicités quelque soit le réseau utilisé (Wifi, cellulaire). Ce service dispose d'une version gratuite et payante, mais la version gratuite suffit déjà largement, la seule limitation étant de 300 000 requêtes par mois.
+[NextDNS](https://nextdns.io/fr) est à mon sens le meilleur compromis entre personnalisation et simplicité d'utilisation. Ce service permet de profiter d'un blocage de publicités quel que soit le réseau utilisé (Wifi, cellulaire). Ce service dispose d'une version gratuite et payante, mais la version gratuite suffit déjà largement, la seule limitation étant de 300 000 requêtes par mois.
 
 ![nextdnssite](nextdnssite.webp)
 

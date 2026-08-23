@@ -38,7 +38,7 @@ layout: "hextra-home"
 
   {{< hextra/feature-card
     title="Informations"
-    subtitle="Des articles concernant ce site web, ainsi que quelques réflexions sur des décisions techniques personnels."
+    subtitle="Des articles concernant ce site web, ainsi que quelques réflexions sur des décisions techniques personnelles."
     link="/blog"
     icon="pencil"
   >}}

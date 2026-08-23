@@ -14,7 +14,7 @@ lastmod: 2026-05-17
 
 - Il permet de regrouper ses applications web et ses favoris au même endroit
 - Les applications Docker peuvent automatiquement être ajoutées et retirées du dashboard, via des labels à ajouter à vos fichiers `docker-compose.yml`
-- Il dispose d'une barre de recherche unifiée, permettant de trouver rapidement un élément, et dans le cas contraire, vous renvoi sur le moteur de recherche de votre choix
+- Il dispose d'une barre de recherche unifiée, permettant de trouver rapidement un élément, et dans le cas contraire, vous renvoie sur le moteur de recherche de votre choix
 ![presentation](presentation.webp)
 
 ## Installation
@@ -161,7 +161,7 @@ Au 1er lancement de Flame, vous vous retrouverez sur une page austère vous prop
 
 ### Theme
 
-Dans l'onglet `Theme`, un choix de base vous est proposé, mais vous pouvez également créer le votre. Vous pouvez également spécifier un thème par défaut.
+Dans l'onglet `Theme`, un choix de base vous est proposé, mais vous pouvez également créer le vôtre. Vous pouvez également spécifier un thème par défaut.
 
 ### General
 
@@ -192,7 +192,7 @@ Pour la localisation, utilisez le système de localisation en cliquant sur `Clic
 
 Dans cette section, vous pouvez comme vu plus haut ajouter/retirer automatiquement vos applications Docker. Activez `Use Docker API` et `Unpin stopped containers / other apps`.
 
-Pour que Flame sache comment ajouter les applications, il est nécessaire de modifier vos fichier `docker-compose.yml`, et y ajouter une section `labels`. Exemple avec Portainer :
+Pour que Flame sache comment ajouter les applications, il est nécessaire de modifier vos fichiers `docker-compose.yml`, et y ajouter une section `labels`. Exemple avec Portainer :
 
 ```yml
 services:

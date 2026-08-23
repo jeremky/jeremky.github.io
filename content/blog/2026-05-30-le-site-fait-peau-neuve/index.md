@@ -21,7 +21,7 @@ Au fil du temps, le contenu du site a évolué : moins d'articles de fond, plus 
 
 Lorsque des changements avaient lieu sur un sujet, je ne savais pas si je devais refaire un nouvel article, ou modifier l'existant... Au risque qu'il ne soit pas vu, car perdu dans les archives. Il fallait donc que je revois la structure même du site, en adoptant une logique de documentation, tout en conservant une section blog pour ce genre d'informations.
 
-Et le thème Hello Friend que j'utilisais a été abandonné par son créateur. Je devais donc le maintenir moi même selon les évolutions du CMS [Hugo](https://gohugo.io/). Cette maintenance me faisait perdre pas mal de temps, temps que je ne mettais pas dans la rédaction du contenu.
+Et le thème Hello Friend que j'utilisais a été abandonné par son créateur. Je devais donc le maintenir moi-même selon les évolutions du CMS [Hugo](https://gohugo.io/). Cette maintenance me faisait perdre pas mal de temps, temps que je ne mettais pas dans la rédaction du contenu.
 
 ## Hextra
 

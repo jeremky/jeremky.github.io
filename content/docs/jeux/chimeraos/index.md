@@ -21,7 +21,7 @@ lastmod: 2026-05-30
 
 - Utilisez l'application web intégrée pour installer et gérer vos jeux depuis n'importe quel appareil
 
-- Mises à jour régulières en arrière plan  pour les pilotes et logiciels les plus récents
+- Mises à jour régulières en arrière-plan pour les pilotes et logiciels les plus récents
 
 - Interface 100% compatible avec les manettes (prise en charge des manettes Xbox, PlayStation…)
 
@@ -44,7 +44,7 @@ Pour les possesseurs d’une carte nVidia ou Intel, je vous conseille de vous re
 
 ## Configuration
 
-ChimeraOS dispose d'une interface web vous permettant d'effectuer certaines opérations. Vous pourrez y configurer vos connexions à Epic Games et Gog, afin d'installer facilement vos jeux et de les importer dans l'interface de Steam. Cette même interface vous permettra également d'ajouter directement vos ROMs. ChimeraOS utilise [RetroArch](https://retroarch.com/) pour l'exécution de vos jeux.
+ChimeraOS dispose d'une interface web vous permettant d'effectuer certaines opérations. Vous pourrez y configurer vos connexions à Epic Games et GOG, afin d'installer facilement vos jeux et de les importer dans l'interface de Steam. Cette même interface vous permettra également d'ajouter directement vos ROMs. ChimeraOS utilise [RetroArch](https://retroarch.com/) pour l'exécution de vos jeux.
 
 ![library](library.webp)
 

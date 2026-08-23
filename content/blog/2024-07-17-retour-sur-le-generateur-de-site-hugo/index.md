@@ -14,7 +14,7 @@ Le site [JeremKy Docs](https://jeremky.github.io) est de nouveau généré par l
 
 ## Le CMS Ghost
 
-Depuis quelques mois, ce site web fonctionnait sur le CMS [Ghost](https://ghost.org). OpenSource, Ghost a été créé par des anciens développeurs de Wordpress qui voulaient produire une solution plus légère, et plus orientée blog. C'est à mes yeux une promesse réussie, car même si les possibilités sont réduites, ce CMS est plutôt pertinent dans son approche. Son interface d'administration est claire, la rédaction des articles se fait efficacement.
+Depuis quelques mois, ce site web fonctionnait sur le CMS [Ghost](https://ghost.org). OpenSource, Ghost a été créé par d'anciens développeurs de Wordpress qui voulaient produire une solution plus légère, et plus orientée blog. C'est à mes yeux une promesse réussie, car même si les possibilités sont réduites, ce CMS est plutôt pertinent dans son approche. Son interface d'administration est claire, la rédaction des articles se fait efficacement.
 
 Cependant, il n'est pas sans défaut :
 
@@ -31,7 +31,7 @@ Mais combiné au générateur de sites statiques Hugo, c'est une solution pertin
 
 Et la génération des pages se faisant en amont, la réactivité est toujours au rendez-vous même si les performances sont moindres.
 
-L'écriture des pages se fait en [Markdown](https://fr.wikipedia.org/wiki/Markdown). A utiliser, c'est évidemment moins confortable qu'avec une interface dédiée à la rédaction, mais ce n'est pas comme si je sortais un article tous les jours...
+L'écriture des pages se fait en [Markdown](https://fr.wikipedia.org/wiki/Markdown). À utiliser, c'est évidemment moins confortable qu'avec une interface dédiée à la rédaction, mais ce n'est pas comme si je sortais un article tous les jours...
 
 ## Le site
 

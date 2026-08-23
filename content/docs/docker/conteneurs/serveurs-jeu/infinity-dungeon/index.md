@@ -92,7 +92,7 @@ ENFORCE_SECURE_PROFILE=true
 Quelques points importants :
 
 - le mode de jeu est en `adventure`. De ce fait, la protection par whitelist n'est pas nécessaire, rien ne peut être détruit par les joueurs.
-- Le serveur est en vanilla, forcé en 1.21, pour être 100% compatible avec version de la map, mise à jour très récemment.
+- Le serveur est en vanilla, forcé en 1.21, pour être 100% compatible avec la version de la map, mise à jour très récemment.
 - Les réglages préconisés par la map sont en place : difficulté en `easy`, nether désactivé, command-block activés...
 - La map téléchargée sur [ce lien](https://www.planetminecraft.com/project/infinity-dungeons/) sera à décompresser sous `/opt/containers/mcserver` avec comme nom de dossier `world`.
 - La distance d'affichage est réglée sur 8. La map n'ayant pas de très grandes zones, il n'est pas utile de solliciter la charge serveur pour rien.

@@ -15,7 +15,7 @@ _[Nextcloud](https://fr.wikipedia.org/wiki/Nextcloud) est un logiciel libre de s
 
 ![nextcloud](nextcloud.webp)
 
-[Nextcloud](https://nextcloud.com/fr/) est une plateforme de type "cloud" personnel, où vous allez pouvoir y stocker vos fichiers, mais aussi vos agendas, vos contacts, vos notes, vos photos... Il propose également une série d'applications facultatives (travail collaboratif, visio...).
+[Nextcloud](https://nextcloud.com/fr/) est une plateforme de type "cloud" personnel, où vous allez pouvoir stocker vos fichiers, mais aussi vos agendas, vos contacts, vos notes, vos photos... Il propose également une série d'applications facultatives (travail collaboratif, visio...).
 
 ## Installation
 
@@ -89,7 +89,7 @@ sudo cp /opt/containers/containers/nginx/nginx/proxy-confs/nextcloud.subdomain.c
 sudo sed -i "s,server_name nextcloud,server_name <votre_sous_domaine>,g" /opt/containers/containers/nginx/nginx/proxy-confs/nextcloud.subdomain.conf
 ```
 
-Autre point important, Nextcloud a besoin de certains éléments côté ssl. il faut donc modifier le fichier `/opt/containers/containers/nginx/nginx/ssl.conf` pour y décommenter les lignes suivantes :
+Autre point important, Nextcloud a besoin de certains éléments côté ssl. Il faut donc modifier le fichier `/opt/containers/containers/nginx/nginx/ssl.conf` pour y décommenter les lignes suivantes :
 
 ```nginx
 add_header Strict-Transport-Security "max-age=63072000" always;
@@ -106,7 +106,7 @@ sudo docker restart nginx
 
 ## Initialisation
 
-Une fois votre application déployée, vous connecter à l'url que vous avez défini dans votre proxy devrait vous amener à la page suivante :
+Une fois votre application déployée, vous connecter à l'url que vous avez définie dans votre proxy devrait vous amener à la page suivante :
 
 ![sqlselect](sqlselect.webp)
 

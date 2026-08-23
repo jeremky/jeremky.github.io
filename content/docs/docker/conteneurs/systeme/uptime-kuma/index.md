@@ -83,7 +83,7 @@ sudo docker restart nginx
 
 ## Configuration
 
-A la première connexion à l’interface, Il vous sera demandé de créer un identifiant de connexion.
+A la première connexion à l’interface, il vous sera demandé de créer un identifiant de connexion.
 
 ![login](login.webp)
 
@@ -93,9 +93,9 @@ Il est toutefois possible de le désactiver dans le cas où vous utiliseriez un 
 
 ### Notifications
 
-Uptime Kuma propose un service de notification. Une longue liste d'application est compatible, notamment par e-mail,Discord, Telegram, Teams...
+Uptime Kuma propose un service de notification. Une longue liste d'applications est compatible, notamment par e-mail, Discord, Telegram, Teams...
 
-Il vous notifiera lorsque un service est tombé, mais vous pouvez aussi demandé une alerte lorsque l'un de vos certificat SSL arrivera à expiration.
+Il vous notifiera lorsqu'un service est tombé, mais vous pouvez aussi demander une alerte lorsque l'un de vos certificats SSL arrivera à expiration.
 
 ![notif](notif.webp)
 
@@ -109,11 +109,11 @@ Si vous souhaitez contrôler vos conteneurs via le système de statut, vous devr
 
 Maintenant que la configuration initiale est terminée, cliquez sur `Ajouter une nouvelle sonde` pour commencer à alimenter vos surveillances.
 
-Afin d’effectuer vos contrôles, Uptime Kuma dispose de plusieurs méthodes d’authentification. Voici les principaux que j’ai utilisé pour mes différents contrôles.
+Afin d’effectuer vos contrôles, Uptime Kuma dispose de plusieurs méthodes d’authentification. Voici les principales que j’ai utilisées pour mes différents contrôles.
 
 ### HTTP(s)
 
-C'est en théorie celui que vous allez utiliser le plus souvent. Pour contrôler vos applications Web hébergées sous Docker, je vous recommande de bypass votre reverse proxy et de dialoguer directement avec le conteneur concerné (surtout si vous utilisez le service [Tinyauth](/docs/docker/conteneurs/web/tinyauth)). Exemple Le logiciel Pairdrop :
+C'est en théorie celui que vous allez utiliser le plus souvent. Pour contrôler vos applications Web hébergées sous Docker, je vous recommande de bypasser votre reverse proxy et de dialoguer directement avec le conteneur concerné (surtout si vous utilisez le service [Tinyauth](/docs/docker/conteneurs/web/tinyauth)). Exemple : le logiciel Pairdrop :
 
 ![pairdrop](pairdrop.webp)
 
@@ -121,7 +121,7 @@ Dans l'url, spécifiez le nom du conteneur, ainsi que le port. A noter que c'est
 
 ### TCP
 
-N'ayant pas d'application non redirigée sur mon reverse proxy, un bonne façon de le tester est d'effectuer un check de son port d'écoute :
+N'ayant pas d'application non redirigée sur mon reverse proxy, une bonne façon de le tester est d'effectuer un check de son port d'écoute :
 
 ![tcp](tcp.webp)
 
@@ -148,7 +148,7 @@ Une fois votre conteneur redémarré, il vous suffit d'ajouter une surveillance 
 
 ## Pages de statut
 
-Il est possible de créer des pages de statut accessibles publiquement. Rendez-vous en haut à droite pour créer une nouvelle page. Nommez-là pour arriver à la page de configuration. De là, vous pourrez ajouter les sondes, ajouter un pied de page...
+Il est possible de créer des pages de statut accessibles publiquement. Rendez-vous en haut à droite pour créer une nouvelle page. Nommez-la pour arriver à la page de configuration. De là, vous pourrez ajouter les sondes, ajouter un pied de page...
 
 ![statconf](statconf.webp)
 

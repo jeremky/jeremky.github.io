@@ -98,7 +98,7 @@ Une fois le déploiement effectué, vous pouvez aller vérifier que tout est en 
 
 ![default](default.webp)
 
-Pour accéder a la page d'administration, il faut ajouter `/ghost` après votre url. Il vous sera alors demandé de choisir un nom de site, et de saisir vos informations de compte principal.
+Pour accéder à la page d'administration, il faut ajouter `/ghost` après votre url. Il vous sera alors demandé de choisir un nom de site, et de saisir vos informations de compte principal.
 
 Ghost vous affichera ensuite un assistant de démarrage :
 
