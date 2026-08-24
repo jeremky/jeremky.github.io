@@ -3,24 +3,24 @@ layout: "hextra-home"
 ---
 
 {{< hextra/hero-container >}}
-  <div class="hx:mt-6 hx:mb-6">
+  <div class="hx:mt-6 hx:mb-6 hx:w-full">
   {{< hextra/hero-headline >}}
   JeremKy Docs
   {{< /hextra/hero-headline >}}
   </div>
 
-  <div class="hx:mt-6 hx:mb-6">
+  <div class="hx:mt-6 hx:mb-6 hx:w-full">
   {{< hextra/hero-subtitle >}}
   Infos et documentation autour du déploiement d’applications auto-hébergées
   {{< /hextra/hero-subtitle >}}
   </div>
 
-  <div class="hx:mt-6 hx:mb-6">
+  <div class="hx:mt-6 hx:mb-6 hx:w-full">
   {{< hextra/hero-button text="C'est parti !" link="docs/" >}}
   </div>
 {{< /hextra/hero-container >}}
 
-<div class="hx:mt-6 hx:mb-6">
+<div class="hx:mt-6 hx:mb-6 hx:w-full">
 {{< hextra/feature-grid cols="3" >}}
   {{< hextra/feature-card
     title="Conteneurisation"
@@ -43,19 +43,22 @@ layout: "hextra-home"
     icon="pencil"
   >}}
 {{< /hextra/feature-grid >}}
+</div>
 
-<div class="hx:mt-6 hx:mb-6">
+<div class="hx:mt-6 hx:mb-6 hx:w-full">
 {{< hextra/hero-section >}}
   </br>
   Modifications récentes
 {{< /hextra/hero-section >}}
 
 {{< docs >}}
+</div>
 
-<div class="hx:mt-6 hx:mb-6">
+<div class="hx:mt-6 hx:mb-6 hx:w-full">
 {{< hextra/hero-section >}}
   </br>
 Derniers articles
 {{< /hextra/hero-section >}}
 
 {{< posts >}}
+</div>
