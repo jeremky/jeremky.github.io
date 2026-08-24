@@ -90,6 +90,7 @@ set smartcase                   " Faire un appariement intelligent
 set incsearch                   " Recherche incrémentielle
 set wildmenu                    " Menu de complétion pour la ligne de commande
 set hidden                      " Cacher les tampons lorsqu'ils sont abandonnés
+set scrolloff=8                 " Garde 8 lignes de contexte visibles autour du curseur
 set splitbelow                  " Nouveau split horizontal en dessous
 set splitright                  " Nouveau split vertical à droite
 set mouse=                      " Désactive la souris par défaut
@@ -179,7 +180,6 @@ Plug 'vim-scripts/VimCompletesMe'
 " Code
 Plug 'jiangmiao/auto-pairs'
 Plug 'sheerun/vim-polyglot'
-"Plug 'tpope/vim-sleuth'
 
 call plug#end()
 
