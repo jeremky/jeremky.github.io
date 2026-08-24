@@ -65,6 +65,8 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
 
 {
   "auto_update": false,
+  "disable_ai": false,
+
   "telemetry": {
     "metrics": false,
     "diagnostics": false,
@@ -74,12 +76,15 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
     "show_sign_in": true,
     "show_branch_name": false,
   },
+
   "ui_font_size": 14.0,
+
   "theme": {
     "mode": "system",
     "light": "Catppuccin Latte",
     "dark": "Catppuccin Mocha",
   },
+
   "icon_theme": {
     "mode": "system",
     "light": "Catppuccin Latte",
@@ -88,16 +93,8 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
 
   // ─── IA ───────────────────────────────────────────────
 
-  "disable_ai": false,
-  "agent_servers": {
-    "claude-acp": {
-      "default_config_options": {
-        "mode": "auto",
-      },
-      "type": "registry",
-    },
-  },
   "agent": {
+    "sidebar_side": "right",
     "enable_feedback": false,
     "inline_assistant_model": {
       "provider": "mistral",
@@ -113,6 +110,16 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
     "enabled": true,
     "dock": "right",
   },
+
+  "agent_servers": {
+    "claude-acp": {
+      "default_config_options": {
+        "mode": "auto",
+      },
+      "type": "registry",
+    },
+  },
+
   "edit_predictions": {
     "allow_data_collection": "no",
     "mode": "eager",
@@ -120,6 +127,11 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
   },
 
   // ─── Panels ───────────────────────────────────────────
+
+  "debugger": { "button": false },
+  "collaboration_panel": { "dock": "left", "button": false },
+  "git_panel": { "dock": "left", "button": true },
+  "outline_panel": { "dock": "left", "button": false },
 
   "project_panel": {
     "dock": "left",
@@ -134,18 +146,8 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
     "line_height": "comfortable",
   },
 
-  "debugger": { "button": false },
-  "collaboration_panel": { "dock": "left", "button": false },
-  "git_panel": { "dock": "left", "button": true },
-  "outline_panel": { "dock": "left", "button": false },
-
   // ─── Editor ───────────────────────────────────────────
 
-  "autosave": {
-    "after_delay": {
-      "milliseconds": 1000,
-    },
-  },
   "base_keymap": "Zed",
   "cli_default_open_behavior": "existing_window",
   "buffer_font_family": "JetBrains Mono NL",
@@ -154,6 +156,7 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
   "snippet_sort_order": "top",
   "soft_wrap": "editor_width",
   "tab_size": 2,
+
   "vim_mode": false,
   "vim": {
     "use_system_clipboard": "never",
@@ -166,6 +169,7 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
     "Shell Script": ["comp"],
     "ini": ["cron"],
   },
+
   "languages": {
     "Make": {
       "hard_tabs": true,
@@ -179,6 +183,7 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
       },
     },
   },
+
   "lsp": {
     "markdownlint": {
       "initialization_options": {
