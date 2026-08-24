@@ -75,20 +75,7 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
   "title_bar": {
     "show_sign_in": true,
     "show_branch_name": false,
-  },
-
-  "ui_font_size": 14.0,
-
-  "theme": {
-    "mode": "system",
-    "light": "Catppuccin Latte",
-    "dark": "Catppuccin Mocha",
-  },
-
-  "icon_theme": {
-    "mode": "system",
-    "light": "Catppuccin Latte",
-    "dark": "Catppuccin Mocha",
+    "show_worktree_name": false,
   },
 
   // ─── IA ───────────────────────────────────────────────
@@ -141,8 +128,9 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
   },
 
   "terminal": {
+    "font_family": "JetBrains Mono NL",
+    "font_size": 12,
     "copy_on_select": true,
-    "font_weight": 300,
     "line_height": "comfortable",
   },
 
@@ -152,15 +140,36 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
   "cli_default_open_behavior": "existing_window",
   "buffer_font_family": "JetBrains Mono NL",
   "buffer_font_size": 12,
+  "ui_font_size": 14,
+  "agent_ui_font_size": 15,
+  "markdown_preview_font_size": 15,
   "extend_comment_on_newline": false,
   "snippet_sort_order": "top",
   "soft_wrap": "editor_width",
   "tab_size": 2,
 
+  "autosave": {
+    "after_delay": {
+      "milliseconds": 1000,
+    },
+  },
+
   "vim_mode": false,
   "vim": {
     "use_system_clipboard": "never",
     "use_smartcase_find": true,
+  },
+
+  "theme": {
+    "mode": "system",
+    "light": "Catppuccin Latte",
+    "dark": "Catppuccin Mocha",
+  },
+
+  "icon_theme": {
+    "mode": "system",
+    "light": "Catppuccin Latte",
+    "dark": "Catppuccin Mocha",
   },
 
   // ─── Code ─────────────────────────────────────────────
