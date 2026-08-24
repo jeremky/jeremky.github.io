@@ -68,7 +68,7 @@ Ce fichier est à créer sous `~/.vimrc`, ou `~/.vim/vimrc`.
 > Avant de lancer Vim une fois le fichier créé, assurez-vous d'avoir git et curl installés. Ils sont nécessaires pour le téléchargement de [vim-plug](https://github.com/junegunn/vim-plug) et des plugins
 
 ```vim {filename=".vimrc"}
-" ─── vimrc ────────────────────────────────────────────────────
+" ─── vimrc ───────────────────────────────────────────────────────────────────
 
 " Paramétrage de base
 set nocompatible                " Désactive la compatibilité Vi
@@ -88,7 +88,10 @@ set showmatch                   " Afficher les parenthèses correspondantes
 set ignorecase                  " Ignorer la casse
 set smartcase                   " Faire un appariement intelligent
 set incsearch                   " Recherche incrémentielle
+set wildmenu                    " Menu de complétion pour la ligne de commande
 set hidden                      " Cacher les tampons lorsqu'ils sont abandonnés
+set splitbelow                  " Nouveau split horizontal en dessous
+set splitright                  " Nouveau split vertical à droite
 set mouse=                      " Désactive la souris par défaut
 set nobackup                    " Désactive les sauvegardes automatiques
 set viminfo+=n~/.vim/.viminfo   " Place le fichier viminfo dans le dossier .vim
@@ -97,22 +100,14 @@ set viminfo+=n~/.vim/.viminfo   " Place le fichier viminfo dans le dossier .vim
 filetype plugin indent on
 
 " Definition des caractères invisibles
-let &listchars = "eol:$,space:\u00B7"
+let &listchars = "eol:$,space:\u00B7,tab:\u25B8\ ,trail:\u00B7"
 
 " Changement automatique du curseur en fonction du mode
 let &t_SI = "\e[6 q"
 let &t_EI = "\e[2 q"
+let &t_SR = "\e[4 q"
 
-" Mémoriser la dernière position du curseur
-autocmd BufReadPost *
-  \ if (line("'\"") > 1) && (line("'\"") <= line("$"))
-  \ |   silent exe "silent! normal g'\"zO"
-  \ | endif
-
-" Désactivation des # au retour chariot
-autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
-
-" ─── fonctions ────────────────────────────────────────────────
+" ─── fonctions ───────────────────────────────────────────────────────────────
 
 function! ModeIDE()
   if get(g:, 'modeIDE_enabled', 0)
@@ -126,7 +121,13 @@ function! ModeIDE()
   endif
 endfunction
 
-" ─── mapping ──────────────────────────────────────────────────
+function! ReindentFile()
+  let l:view = winsaveview()
+  normal! gg=G
+  call winrestview(l:view)
+endfunction
+
+" ─── mapping ─────────────────────────────────────────────────────────────────
 
 " Mode IDE
 nnoremap <F2> <Cmd>call ModeIDE()<CR>
@@ -135,11 +136,11 @@ nnoremap <F2> <Cmd>call ModeIDE()<CR>
 nnoremap <F3> <Cmd>set list!<CR>
 
 " Commentaire
-nnoremap <F4> <Plug>CommentaryLine
-xnoremap <F4> <Plug>Commentary
+nmap <F4> <Plug>CommentaryLine
+xmap <F4> <Plug>Commentary
 
 " Indentation automatique
-nnoremap <F5> gg=G
+nnoremap <F5> <Cmd>call ReindentFile()<CR>
 
 " Ménage des plugins
 nnoremap <F7> <Cmd>PlugClean<CR>
@@ -150,7 +151,7 @@ nnoremap <F8> <Cmd>PlugUpdate<CR>
 " Changement de document
 nnoremap <S-TAB> <C-w>w
 
-" ─── plugins ──────────────────────────────────────────────────
+" ─── plugins ─────────────────────────────────────────────────────────────────
 
 " Téléchargement de vim-plug si introuvable
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -172,22 +173,38 @@ Plug 'itchyny/lightline.vim'
 Plug 'mhinz/vim-startify'
 
 " Edition
-Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-commentary'
 Plug 'vim-scripts/VimCompletesMe'
 
 " Code
 Plug 'jiangmiao/auto-pairs'
 Plug 'sheerun/vim-polyglot'
+"Plug 'tpope/vim-sleuth'
 
 call plug#end()
 
-" ─── plugins config ───────────────────────────────────────────
+" ─── autocmds ────────────────────────────────────────────────────────────────
+
+augroup vimrc
+  autocmd!
+
+  " Mémoriser la dernière position du curseur
+  autocmd BufReadPost *
+    \ if (line("'\"") > 1) && (line("'\"") <= line("$"))
+    \ |   silent exe "silent! normal g'\"zO"
+    \ | endif
+
+  " Désactivation des # au retour chariot
+  autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
+augroup END
+
+" ─── plugins config ──────────────────────────────────────────────────────────
 
 if isdirectory(expand("~/.vim/plugged"))
 
   " Catppuccin
-  colorscheme catppuccin_mocha
+  silent! colorscheme catppuccin_mocha
   set cursorline
   set termguicolors
 
@@ -226,7 +243,6 @@ endif
 
 - catppuccin : applique le thème Catppuccin Mocha
 - lightline : améliore la barre de statut
-- sleuth : configure automatiquement la tabulation
 - vim-commentary : commenter/décommenter rapidement
 - VimCompletesMe : gère l'auto-complétion
 - autopairs : ferme automatiquement certains brackets
