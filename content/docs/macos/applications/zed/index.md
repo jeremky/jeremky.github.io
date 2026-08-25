@@ -180,6 +180,9 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
   },
 
   "languages": {
+    "Markdown": {
+      "show_edit_predictions": false
+    },
     "Make": {
       "hard_tabs": true,
     },
