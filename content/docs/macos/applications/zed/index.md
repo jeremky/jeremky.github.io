@@ -183,9 +183,11 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
     "Markdown": {
       "show_edit_predictions": false
     },
+    
     "Make": {
       "hard_tabs": true,
     },
+    
     "Shell Script": {
       "formatter": {
         "external": {
