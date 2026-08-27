@@ -10,9 +10,9 @@ draft: false
 lastmod: 2026-05-17
 ---
 
-_[FreshRSS](https://fr.wikipedia.org/wiki/FreshRSS) est un agrégateur de flux RSS, Atom Syndication Format et WebSub en ligne, sous licence libre GNU AGPL v3._
+*[FreshRSS](https://fr.wikipedia.org/wiki/FreshRSS) est un agrégateur de flux RSS, Atom Syndication Format et WebSub en ligne, sous licence libre GNU AGPL v3.*
 
-_[RSS](https://fr.wikipedia.org/wiki/RSS) est une ressource du World Wide Web dont le contenu est produit automatiquement (sauf cas exceptionnels) en fonction des mises à jour d’un site Web. Les flux RSS sont des fichiers XML qui sont souvent utilisés par les sites d'actualité et les blogs pour présenter les titres des dernières informations consultables._
+*[RSS](https://fr.wikipedia.org/wiki/RSS) est une ressource du World Wide Web dont le contenu est produit automatiquement (sauf cas exceptionnels) en fonction des mises à jour d’un site Web. Les flux RSS sont des fichiers XML qui sont souvent utilisés par les sites d'actualité et les blogs pour présenter les titres des dernières informations consultables.*
 
 Petite capture de l'application présente sur le [site officiel](https://www.freshrss.org/) :
 

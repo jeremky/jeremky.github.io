@@ -172,13 +172,13 @@ Dans l'onglet `General`, il est possible de spécifier comment trier les différ
 Cet onglet permet de modifier les éléments d'affichage principaux. C'est assez austère et particulier sur ce point. Je vous partage donc les éléments à remplacer pour une traduction en français.
 
 - `Custom greetings` :
-  _Bonsoir !;Bonjour !;Bonjour !;Bonsoir !_
+  *Bonsoir !;Bonjour !;Bonjour !;Bonsoir !*
 
 - `Custom weekday names` :
-  _Dimanche;Lundi;Mardi;Mercredi;Jeudi;Vendredi;Samedi_
+  *Dimanche;Lundi;Mardi;Mercredi;Jeudi;Vendredi;Samedi*
 
 - `Custom month names` :
-  _Janvier;Février;Mars;Avril;Mai;Juin;Juillet;Août;Septembre;Octobre;Novembre;Décembre_
+  *Janvier;Février;Mars;Avril;Mai;Juin;Juillet;Août;Septembre;Octobre;Novembre;Décembre*
 
 Enfin, vous pouvez choisir d'afficher ou non les sections `Applications` et `Bookmarks`.
 

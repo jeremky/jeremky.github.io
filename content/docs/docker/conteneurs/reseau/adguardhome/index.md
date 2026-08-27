@@ -11,9 +11,9 @@ draft: false
 lastmod: 2026-05-19
 ---
 
-_[AdGuard Home](https://github.com/AdguardTeam/Adguardhome) est un logiciel réseau permettant de bloquer les publicités et le pistage. Une fois configuré, il couvre TOUS tes appareils domestiques, sans qu'aucun logiciel client ne soit nécessaire._
+*[AdGuard Home](https://github.com/AdguardTeam/Adguardhome) est un logiciel réseau permettant de bloquer les publicités et le pistage. Une fois configuré, il couvre TOUS tes appareils domestiques, sans qu'aucun logiciel client ne soit nécessaire.*
 
-_Il fonctionne comme un serveur DNS qui redirige les domaines de pistage vers un « trou noir », empêchant ainsi tes appareils de se connecter à ces serveurs. Il est basé sur le logiciel utilisé pour les serveurs publics [AdGuard DNS](https://adguard-dns.io/fr/welcome.html)._
+*Il fonctionne comme un serveur DNS qui redirige les domaines de pistage vers un « trou noir », empêchant ainsi tes appareils de se connecter à ces serveurs. Il est basé sur le logiciel utilisé pour les serveurs publics [AdGuard DNS](https://adguard-dns.io/fr/welcome.html).*
 
 ## Installation
 
@@ -39,7 +39,7 @@ Et son fichier de configuration `adguard.env` :
 TZ=Europe/Paris
 ```
 
-Petite particularité par rapport à cette configuration : le mode réseau utilisé par Docker est en mode _host_. Cela signifie que l'intégralité des ports sera ouverte sur l'hôte, préférable pour s'assurer du bon fonctionnement du serveur DHCP.
+Petite particularité par rapport à cette configuration : le mode réseau utilisé par Docker est en mode *host*. Cela signifie que l'intégralité des ports sera ouverte sur l'hôte, préférable pour s'assurer du bon fonctionnement du serveur DHCP.
 
 > [!IMPORTANT]
 > Si vous utilisez Podman en mode rootless, AdGuard Home écoute par défaut sur le port DNS 53, un port privilégié (< 1024). Il vous faudra au préalable suivre la configuration réseau décrite dans l'article [Podman Rootless](/docs/docker/podman-rootless) pour autoriser votre utilisateur à ouvrir ce type de port

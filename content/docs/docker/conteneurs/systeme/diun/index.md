@@ -11,7 +11,7 @@ draft: false
 lastmod: 2026-05-17
 ---
 
-[Diun](https://crazymax.dev/diun/), pour _Docker Image Update Notifier_, est une application qui permet de recevoir des notifications lorsqu’une image Docker est mise à jour sur un registre.
+[Diun](https://crazymax.dev/diun/), pour *Docker Image Update Notifier*, est une application qui permet de recevoir des notifications lorsqu’une image Docker est mise à jour sur un registre.
 
 ![notification](notification.webp)
 

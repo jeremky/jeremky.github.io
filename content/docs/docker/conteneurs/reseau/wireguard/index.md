@@ -11,7 +11,7 @@ draft: false
 lastmod: 2026-05-17
 ---
 
-_[Wireguard](https://fr.wikipedia.org/wiki/WireGuard) est un protocole de communication et un logiciel libre et open source permettant de créer un réseau privé virtuel. Il est conçu avec des objectifs de facilité d'utilisation, de performances et de surface d'attaque basse. Il vise une meilleure performance et une plus grande économie d'énergie que les protocoles IPsec et OpenVPN Tunneling. Le protocole WireGuard transmet le trafic sur UDP. En mars 2020, la version Linux du logiciel a atteint une version de production stable et a été intégrée au noyau Linux 5.6. Les composants du noyau Linux sont sous licence GNU (GLPL) version 2. D'autres implémentations sont sous GPLV2 ou d'autres licences gratuites / Open-Source._
+*[Wireguard](https://fr.wikipedia.org/wiki/WireGuard) est un protocole de communication et un logiciel libre et open source permettant de créer un réseau privé virtuel. Il est conçu avec des objectifs de facilité d'utilisation, de performances et de surface d'attaque basse. Il vise une meilleure performance et une plus grande économie d'énergie que les protocoles IPsec et OpenVPN Tunneling. Le protocole WireGuard transmet le trafic sur UDP. En mars 2020, la version Linux du logiciel a atteint une version de production stable et a été intégrée au noyau Linux 5.6. Les composants du noyau Linux sont sous licence GNU (GLPL) version 2. D'autres implémentations sont sous GPLV2 ou d'autres licences gratuites / Open-Source.*
 
 ## Installation du serveur
 

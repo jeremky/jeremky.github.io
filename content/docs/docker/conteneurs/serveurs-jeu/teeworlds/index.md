@@ -11,7 +11,7 @@ draft: false
 lastmod: 2026-05-17
 ---
 
-_[Teeworlds](https://fr.wikipedia.org/wiki/Teeworlds), anciennement Teewars, est un jeu de tir TPS (third person shooter) multijoueur en 2D. Le joueur y incarne une petite créature ronde, le tee. A l'aide de plusieurs armes différentes, le joueur doit parcourir différentes cartes à la recherche de ses adversaires._
+*[Teeworlds](https://fr.wikipedia.org/wiki/Teeworlds), anciennement Teewars, est un jeu de tir TPS (third person shooter) multijoueur en 2D. Le joueur y incarne une petite créature ronde, le tee. A l'aide de plusieurs armes différentes, le joueur doit parcourir différentes cartes à la recherche de ses adversaires.*
 
 ![teeworlds](teeworlds.webp)
 

@@ -11,10 +11,10 @@ draft: false
 lastmod: 2026-06-06
 ---
 
-_[Hytale](https://fr.wikipedia.org/wiki/Hytale) est un jeu vidéo de type sandbox développé et édité par Hypixel Studios (équipe à l’origine du serveur Minecraft Hypixel), sorti en accès anticipé le 13 janvier 2026 sur Windows, Mac et Linux._
+*[Hytale](https://fr.wikipedia.org/wiki/Hytale) est un jeu vidéo de type sandbox développé et édité par Hypixel Studios (équipe à l’origine du serveur Minecraft Hypixel), sorti en accès anticipé le 13 janvier 2026 sur Windows, Mac et Linux.*
 
-_Le développement du jeu a débuté en 2015. Son annonce officielle a eu lieu fin 2018, accompagnée d'une bande-annonce sur YouTube qui a cumulé plus de 60 millions de vues. Initialement annoncé pour une sortie en 2021, le jeu a été racheté par Riot Games, repoussé plusieurs fois, abandonné en juin 2025, puis racheté en novembre 2025 par Simon Collins, co-créateur du studio et fondateur d'Hypixel._
-_Hytale est fondé sur un système de construction par blocs inspiré de Minecraft, tout en restant totalement indépendant._
+*Le développement du jeu a débuté en 2015. Son annonce officielle a eu lieu fin 2018, accompagnée d'une bande-annonce sur YouTube qui a cumulé plus de 60 millions de vues. Initialement annoncé pour une sortie en 2021, le jeu a été racheté par Riot Games, repoussé plusieurs fois, abandonné en juin 2025, puis racheté en novembre 2025 par Simon Collins, co-créateur du studio et fondateur d'Hypixel.*
+*Hytale est fondé sur un système de construction par blocs inspiré de Minecraft, tout en restant totalement indépendant.*
 
 ![hytale](hytale.webp)
 

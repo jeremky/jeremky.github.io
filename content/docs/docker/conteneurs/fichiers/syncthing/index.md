@@ -11,7 +11,7 @@ draft: false
 lastmod: 2026-05-17
 ---
 
-_[Syncthing](https://fr.wikipedia.org/wiki/Syncthing) est une application de synchronisation de fichiers pair à pair open source disponible pour Windows, Mac, Linux, Android, Solaris, Darwin et BSD. Aucun compte ni enregistrement préalable à l'utilisation auprès d'un tiers (comme les géants du web, ou quelque autre entité) n'est nécessaire, ni même optionnel. La sécurité et l'intégrité des données sont intégrées dans la conception du logiciel._
+*[Syncthing](https://fr.wikipedia.org/wiki/Syncthing) est une application de synchronisation de fichiers pair à pair open source disponible pour Windows, Mac, Linux, Android, Solaris, Darwin et BSD. Aucun compte ni enregistrement préalable à l'utilisation auprès d'un tiers (comme les géants du web, ou quelque autre entité) n'est nécessaire, ni même optionnel. La sécurité et l'intégrité des données sont intégrées dans la conception du logiciel.*
 
 ![cover](https://upload.wikimedia.org/wikipedia/commons/b/bf/SyncthingWebInterface.jpg)
 

@@ -10,16 +10,16 @@ draft: false
 lastmod: 2026-05-17
 ---
 
-_[Secure Shell](https://fr.wikipedia.org/wiki/Secure_Shell) (SSH) est un protocole de communication sécurisé. Le protocole de connexion impose un échange de clés de chiffrement en début de connexion. Par la suite, tous les segments TCP sont authentifiés et chiffrés. Il devient donc impossible d'utiliser un analyseur de paquets (sniffer) pour voir ce que fait l'utilisateur._
+*[Secure Shell](https://fr.wikipedia.org/wiki/Secure_Shell) (SSH) est un protocole de communication sécurisé. Le protocole de connexion impose un échange de clés de chiffrement en début de connexion. Par la suite, tous les segments TCP sont authentifiés et chiffrés. Il devient donc impossible d'utiliser un analyseur de paquets (sniffer) pour voir ce que fait l'utilisateur.*
 
-_Le protocole SSH a été conçu avec l'objectif de remplacer les différents protocoles non chiffrés comme rlogin, telnet, rcp et rsh._
+*Le protocole SSH a été conçu avec l'objectif de remplacer les différents protocoles non chiffrés comme rlogin, telnet, rcp et rsh.*
 
 ## Création d'une clé de sécurité
 
 A noter que ce que je vais indiquer ici est valable aussi bien pour un client sous Linux, Mac, ou Windows (10 et 11).
 
 Il existe différents algorithmes pour créer des clés. Le plus connu, le RSA. Toutefois, je vais vous proposer un algorithme plus récent, et surtout offrant un meilleur niveau de sécurité, le ed25519.
-_"Ed25519 a pour but de fournir une résistance aux attaques comparable à celle des chiffrements de 128-bits de qualité. Les clés publiques sont encodées sur 256 bits (32 octets) de long et les signatures sont deux fois plus longues."_
+*"Ed25519 a pour but de fournir une résistance aux attaques comparable à celle des chiffrements de 128-bits de qualité. Les clés publiques sont encodées sur 256 bits (32 octets) de long et les signatures sont deux fois plus longues."*
 
 Pour créer votre paire de clés de type **ed25519**, voici la commande à utiliser :
 
