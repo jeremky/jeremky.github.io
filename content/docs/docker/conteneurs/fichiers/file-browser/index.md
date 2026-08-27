@@ -127,6 +127,6 @@ sudo docker restart nginx
 
 ## Configuration
 
-Dans la partie _Paramètres_, vous avez dans l'onglet _Paramètres généraux_, des éléments à modifier, notamment le dossier par défaut qui sera utilisé lors de la création d'un nouvel utilisateur, ses droits, mais également la possibilité de créer un sous dossier directement par utilisateur.
+Dans la partie *Paramètres*, vous avez dans l'onglet *Paramètres généraux*, des éléments à modifier, notamment le dossier par défaut qui sera utilisé lors de la création d'un nouvel utilisateur, ses droits, mais également la possibilité de créer un sous dossier directement par utilisateur.
 
 ![filebrowser5](filebrowser5.webp)

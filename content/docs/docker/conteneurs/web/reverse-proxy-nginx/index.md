@@ -10,7 +10,7 @@ draft: false
 lastmod: 2026-05-17
 ---
 
-_[Un proxy inverse](https://fr.wikipedia.org/wiki/Proxy_inverse) (reverse proxy) ou serveur mandataire inverse est un type de serveur, habituellement placé en frontal de serveurs web. Contrairement au serveur proxy qui permet à un utilisateur d'accéder au réseau Internet, le proxy inverse permet à un utilisateur d'Internet d'accéder à des serveurs internes._
+*[Un proxy inverse](https://fr.wikipedia.org/wiki/Proxy_inverse) (reverse proxy) ou serveur mandataire inverse est un type de serveur, habituellement placé en frontal de serveurs web. Contrairement au serveur proxy qui permet à un utilisateur d'accéder au réseau Internet, le proxy inverse permet à un utilisateur d'Internet d'accéder à des serveurs internes.*
 
 ![nginx](nginx.webp)
 
@@ -22,7 +22,7 @@ L'intérêt est de pouvoir disposer de différentes applications Web conteneuris
 
 ## Déploiement du reverse proxy NGINX
 
-La team [Linuxserver](https://docs.linuxserver.io/general/swag) fournit une image appelée SWAG (pour _Secure Web Application Gateway_). Par rapport à une image NGINX classique, les avantages sont les suivants :
+La team [Linuxserver](https://docs.linuxserver.io/general/swag) fournit une image appelée SWAG (pour *Secure Web Application Gateway*). Par rapport à une image NGINX classique, les avantages sont les suivants :
 
 - Création automatisée des certificats SSL via Let's Encrypt
 - Intégration de PHP
@@ -113,7 +113,7 @@ networks:
     external: true
 ```
 
-A la fin du fichier, on lui spécifie quels réseaux seront à créer. Dans notre cas, il ne doit créer que "default" (qui s'appellera en réalité `nextcloud_default`), mais doit avoir accès au réseau `nginx_proxy` (external à _true_).
+A la fin du fichier, on lui spécifie quels réseaux seront à créer. Dans notre cas, il ne doit créer que "default" (qui s'appellera en réalité `nextcloud_default`), mais doit avoir accès au réseau `nginx_proxy` (external à *true*).
 Ensuite, pour chaque service, on lui spécifie quel(s) réseau(x) utiliser. La base de données n'est que dans le réseau network, et la partie web dans les 2. Le reverse proxy aura donc accès à l'application Web mais pas à la base.
 
 > Vous remarquerez que les ports ne sont plus spécifiés pour le service nextcloud. Il n'est en effet plus nécessaire d'ouvrir l'accès : celui-ci se fera uniquement par le proxy.

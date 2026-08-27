@@ -40,10 +40,10 @@ Vous arriverez sur cette interface :
 
 Voici quelques trucs que je vous propose de configurer / activer :
 
-- le hostname, dans _System Options_
-- SSH, dans _Interface Options_
+- le hostname, dans *System Options*
+- SSH, dans *Interface Options*
 - les infos de localisation (langue, timezone, clavier...)
-- étendre la taille de la partition, dans _Advanced Options_
+- étendre la taille de la partition, dans *Advanced Options*
 
 Une fois tout cela fait, on lance une mise à jour :
 

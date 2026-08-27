@@ -11,7 +11,7 @@ draft: false
 lastmod: 2026-05-17
 ---
 
-_[Resilio Sync](https://fr.wikipedia.org/wiki/Resilio_Sync) est un outil propriétaire de synchronisation de fichiers peer-to-peer disponible pour Windows, Mac, Linux, Android, iOS, Windows Phone, Amazon Kindle Fire et BSD. Il peut synchroniser des fichiers entre appareils sur un réseau local ou entre appareils distants sur Internet via une version modifiée du protocole BitTorrent. Bien qu'il ne soit pas présenté par les développeurs comme un remplacement direct ni un concurrent des services de synchronisation de fichiers basés sur le cloud, il a acquis une grande partie de sa publicité dans ce rôle potentiel._
+*[Resilio Sync](https://fr.wikipedia.org/wiki/Resilio_Sync) est un outil propriétaire de synchronisation de fichiers peer-to-peer disponible pour Windows, Mac, Linux, Android, iOS, Windows Phone, Amazon Kindle Fire et BSD. Il peut synchroniser des fichiers entre appareils sur un réseau local ou entre appareils distants sur Internet via une version modifiée du protocole BitTorrent. Bien qu'il ne soit pas présenté par les développeurs comme un remplacement direct ni un concurrent des services de synchronisation de fichiers basés sur le cloud, il a acquis une grande partie de sa publicité dans ce rôle potentiel.*
 
 [Resilio Sync](https://www.resilio.com/sync/) propose une synchronisation par dossier. Chaque nouveau partage génère une clé, que vous pouvez communiquer à un autre client Resilio Sync, pour effectuer une synchronisation. Chaque modification d'un dossier associé à un partage sera automatiquement répliquée sur chaque dossier connecté.
 

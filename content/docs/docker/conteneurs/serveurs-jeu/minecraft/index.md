@@ -11,7 +11,7 @@ draft: false
 lastmod: 2026-05-17
 ---
 
-_[Minecraft](https://fr.wikipedia.org/wiki/Minecraft) est un jeu vidéo de type aventure « bac à sable » développé par le Suédois Markus Persson, alias Notch, puis par la société Mojang Studios. Il s'agit d'un univers composé de voxels et généré de façon procédurale, qui intègre un système d'artisanat axé sur la collecte puis la transformation de ressources naturelles (minéralogiques, fossiles, animales et végétales)._
+*[Minecraft](https://fr.wikipedia.org/wiki/Minecraft) est un jeu vidéo de type aventure « bac à sable » développé par le Suédois Markus Persson, alias Notch, puis par la société Mojang Studios. Il s'agit d'un univers composé de voxels et généré de façon procédurale, qui intègre un système d'artisanat axé sur la collecte puis la transformation de ressources naturelles (minéralogiques, fossiles, animales et végétales).*
 
 ![minecraft](minecraft.webp)
 

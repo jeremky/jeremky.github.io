@@ -10,7 +10,7 @@ draft: false
 lastmod: 2026-05-18
 ---
 
-_[Le Z shell](https://fr.wikipedia.org/wiki/Z_Shell) ou zsh est un shell Unix qui peut être utilisé de façon interactive, à l'ouverture de la session ou en tant que puissant interpréteur de commande. zsh peut être vu comme un « Bourne shell » étendu avec beaucoup d'améliorations. Il reprend en plus la plupart des fonctions les plus pratiques de bash, ksh et tcsh. Zsh remplace bash dans macOS à partir de macOS Catalina 10.15._
+*[Le Z shell](https://fr.wikipedia.org/wiki/Z_Shell) ou zsh est un shell Unix qui peut être utilisé de façon interactive, à l'ouverture de la session ou en tant que puissant interpréteur de commande. zsh peut être vu comme un « Bourne shell » étendu avec beaucoup d'améliorations. Il reprend en plus la plupart des fonctions les plus pratiques de bash, ksh et tcsh. Zsh remplace bash dans macOS à partir de macOS Catalina 10.15.*
 
 > Il existe des solutions clé en main, comme [Oh My ZSH](https://ohmyz.sh/), mais l'idée est d'avoir une configuration la plus légère et optimisée possible
 
