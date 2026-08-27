@@ -36,7 +36,7 @@ Vous pourrez ensuite l'ouvrir directement depuis Ghostty, via le raccourci **`Cm
 Voici la configuration que j'utilise :
 
 ```ini {filename="~/.config/ghostty/config"}
-## Ghostty
+# ─── Ghostty ──────────────────────────────────────────────────
 
 # general
 auto-update = on
@@ -49,9 +49,9 @@ macos-titlebar-proxy-icon = hidden
 macos-titlebar-style = tabs
 
 # window
-window-width = 124
-window-height = 30
-window-padding-x = 20
+window-width = 98
+window-height = 26
+window-padding-x = 10
 window-padding-y = 10
 
 # appearance
@@ -62,7 +62,7 @@ adjust-cell-height = 10%
 # font
 font-family = JetBrains Mono NL
 font-thicken = false
-font-size = 17
+font-size = 14
 
 # mouse
 mouse-scroll-multiplier = discrete:1
@@ -74,7 +74,7 @@ right-click-action = copy-or-paste
 
 # quick terminal
 quick-terminal-position = center
-quick-terminal-size = 1280px,800px
+quick-terminal-size = 800px,500px
 
 # ─── keybinds ─────────────────────────────────────────────────
 
