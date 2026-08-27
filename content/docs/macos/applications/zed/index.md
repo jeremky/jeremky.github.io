@@ -180,6 +180,7 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
   "file_types": {
     "Shell Script": ["comp"],
     "ini": ["cron"],
+    "env": ["cfg"],
   },
 
   "languages": {
@@ -192,6 +193,7 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
     },
     
     "Shell Script": {
+      "format_on_save": "on",
       "formatter": {
         "external": {
           "command": "shfmt",
