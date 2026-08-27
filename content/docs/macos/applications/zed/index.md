@@ -81,21 +81,24 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
   // ─── IA ───────────────────────────────────────────────
 
   "agent": {
-    "sidebar_side": "right",
+    "default_profile": "ask",
     "enable_feedback": false,
+    "sidebar_side": "right",
+    "flexible": false,
+    "enabled": true,
+    "dock": "right",
+
     "inline_assistant_model": {
       "provider": "mistral",
       "model": "codestral-latest",
       "enable_thinking": false,
     },
+
     "default_model": {
       "provider": "mistral",
       "model": "mistral-large-latest",
       "enable_thinking": false,
     },
-    "flexible": false,
-    "enabled": true,
-    "dock": "right",
   },
 
   "agent_servers": {
@@ -109,7 +112,7 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
 
   "edit_predictions": {
     "allow_data_collection": "no",
-    "mode": "eager",
+    "mode": "subtle",
     "provider": "zed",
   },
 
