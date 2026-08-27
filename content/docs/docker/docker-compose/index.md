@@ -10,7 +10,7 @@ draft: false
 lastmod: 2026-05-17
 ---
 
-_[Docker Compose](<https://fr.wikipedia.org/wiki/Docker_(logiciel)>) est un logiciel pour définir et exécuter des applications à partir de multiples conteneurs. Il est basé sur un fichier YAML qui permet de définir les services et les paramètres de leurs créations et ainsi de les démarrer par une commande unique. La V1 avait son propre exécutable (docker-compose) alors que la V2 est un plugin de Docker, exécutable par la commande docker compose_
+*[Docker Compose](<https://fr.wikipedia.org/wiki/Docker_(logiciel)>) est un logiciel pour définir et exécuter des applications à partir de multiples conteneurs. Il est basé sur un fichier YAML qui permet de définir les services et les paramètres de leurs créations et ainsi de les démarrer par une commande unique. La V1 avait son propre exécutable (docker-compose) alors que la V2 est un plugin de Docker, exécutable par la commande docker compose*
 
 ## Exemple d'un fichier docker-compose
 

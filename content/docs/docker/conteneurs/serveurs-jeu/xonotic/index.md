@@ -11,9 +11,9 @@ draft: false
 lastmod: 2026-05-17
 ---
 
-_[Xonotic](https://fr.wikipedia.org/wiki/Xonotic) est un jeu de tir à la première personne développé par Team Xonotic. C'est un jeu libre et ses données (sons, etc.) sont des œuvres libres. Il est distribué sous licence GPL._
+*[Xonotic](https://fr.wikipedia.org/wiki/Xonotic) est un jeu de tir à la première personne développé par Team Xonotic. C'est un jeu libre et ses données (sons, etc.) sont des œuvres libres. Il est distribué sous licence GPL.*
 
-_Le but de Xonotic est de devenir le meilleur FPS open-source possible (jeu de tir à la première personne) de son genre. En 2020, Beebom classait Xonotic parmi les meilleurs jeux pour Linux en le comparant à Counter-Strike: Global Offensive, Team Fortress 2, et Doom (2016), rapportant que Xonotic se distinguait par ses mises à jour fréquentes, son haut niveau de finition et sa base d'utilisateurs actifs. Xonotic propose 16 types de jeux au choix et fournit des statistiques intégrées pour comparer et suivre la progression des joueurs._
+*Le but de Xonotic est de devenir le meilleur FPS open-source possible (jeu de tir à la première personne) de son genre. En 2020, Beebom classait Xonotic parmi les meilleurs jeux pour Linux en le comparant à Counter-Strike: Global Offensive, Team Fortress 2, et Doom (2016), rapportant que Xonotic se distinguait par ses mises à jour fréquentes, son haut niveau de finition et sa base d'utilisateurs actifs. Xonotic propose 16 types de jeux au choix et fournit des statistiques intégrées pour comparer et suivre la progression des joueurs.*
 
 ![xonotic](xonotic.webp)
 

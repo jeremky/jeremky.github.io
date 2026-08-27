@@ -10,8 +10,8 @@ draft: false
 lastmod: 2026-05-17
 ---
 
-_[Docker](<https://fr.wikipedia.org/wiki/Docker_(logiciel)>) est une plateforme permettant de lancer certaines applications dans des conteneurs logiciels lancée en 2013._
-_Docker est un outil qui peut empaqueter une application et ses dépendances dans un conteneur isolé, qui pourra être exécuté sur n'importe quel serveur. Il ne s'agit pas de virtualisation, mais de conteneurisation, une forme plus légère qui s'appuie sur certaines parties de la machine hôte pour son fonctionnement. Cette approche permet d'accroître la flexibilité et la portabilité d'exécution d'une application, laquelle va pouvoir tourner de façon fiable et prévisible sur une grande variété de machines hôtes, que ce soit sur la machine locale, un cloud privé ou public, une machine nue, etc._
+*[Docker](<https://fr.wikipedia.org/wiki/Docker_(logiciel)>) est une plateforme permettant de lancer certaines applications dans des conteneurs logiciels lancée en 2013.*
+*Docker est un outil qui peut empaqueter une application et ses dépendances dans un conteneur isolé, qui pourra être exécuté sur n'importe quel serveur. Il ne s'agit pas de virtualisation, mais de conteneurisation, une forme plus légère qui s'appuie sur certaines parties de la machine hôte pour son fonctionnement. Cette approche permet d'accroître la flexibilité et la portabilité d'exécution d'une application, laquelle va pouvoir tourner de façon fiable et prévisible sur une grande variété de machines hôtes, que ce soit sur la machine locale, un cloud privé ou public, une machine nue, etc.*
 
 Pour installer Docker sous Debian, vous pouvez soit suivre la documentation d'installation [ici](https://docs.docker.com/engine/install/debian/), soit utiliser la version fournie directement dans les packages Debian. Sans rentrer dans les détails, la version fournie par Debian a une gestion des dépendances qui est plus en phase avec le fonctionnement de l'OS. Vu la version de Docker fournie dans la Debian 13, je préfère désormais utiliser cette version.
 

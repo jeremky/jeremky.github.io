@@ -10,7 +10,7 @@ draft: false
 lastmod: 2026-05-17
 ---
 
-_[Podman](https://fr.wikipedia.org/wiki/Podman) est une alternative à Docker, qui permet de lancer les commandes sans les permissions root. À l’inverse de Docker, Podman n’intègre pas de daemon nécessaire à son fonctionnement._
+*[Podman](https://fr.wikipedia.org/wiki/Podman) est une alternative à Docker, qui permet de lancer les commandes sans les permissions root. À l’inverse de Docker, Podman n’intègre pas de daemon nécessaire à son fonctionnement.*
 
 ## Ça change quoi ?
 

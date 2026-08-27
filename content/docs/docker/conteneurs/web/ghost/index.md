@@ -10,9 +10,9 @@ draft: false
 lastmod: 2026-05-17
 ---
 
-_[Ghost](<https://fr.wikipedia.org/wiki/Ghost_(moteur_de_blog)>) est un moteur de blog libre et open source écrit en JavaScript et distribué sous licence MIT. Ghost est conçu pour simplifier le processus de publication en ligne par des blogueurs._
+*[Ghost](<https://fr.wikipedia.org/wiki/Ghost_(moteur_de_blog)>) est un moteur de blog libre et open source écrit en JavaScript et distribué sous licence MIT. Ghost est conçu pour simplifier le processus de publication en ligne par des blogueurs.*
 
-_L'idée de Ghost a été écrite pour la première fois début novembre 2012 dans un billet de blog par le fondateur John O'Nolan, ancien responsable de l'équipe interface utilisateur de WordPress, à la suite de sa frustration face à la complexité d'utilisation de WordPress en tant que moteur de blog plutôt qu'en tant que système de gestion de contenu._
+*L'idée de Ghost a été écrite pour la première fois début novembre 2012 dans un billet de blog par le fondateur John O'Nolan, ancien responsable de l'équipe interface utilisateur de WordPress, à la suite de sa frustration face à la complexité d'utilisation de WordPress en tant que moteur de blog plutôt qu'en tant que système de gestion de contenu.*
 
 ## Installation
 

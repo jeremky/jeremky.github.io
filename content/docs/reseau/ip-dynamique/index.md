@@ -14,7 +14,7 @@ Selon votre FAI, il est possible que votre IP publique change régulièrement. A
 
 ## Création d'un compte chez Dynu.com
 
-Il existe plusieurs fournisseurs de nom de domaine dynamique. Toutefois, je recommande [Dynu](https://www.dynu.com/fr-FR/), qui propose une solution gratuite, et surtout qui ne nécessite pas de confirmer que l'on existe toujours tous les mois... Vous créez votre compte, et vous allez dans _DDNS Services_. Vous cliquez ensuite sur le bouton _Ajouter_ :
+Il existe plusieurs fournisseurs de nom de domaine dynamique. Toutefois, je recommande [Dynu](https://www.dynu.com/fr-FR/), qui propose une solution gratuite, et surtout qui ne nécessite pas de confirmer que l'on existe toujours tous les mois... Vous créez votre compte, et vous allez dans *DDNS Services*. Vous cliquez ensuite sur le bouton *Ajouter* :
 
 ![account](account.webp)
 
