@@ -160,7 +160,7 @@ nnoremap <F7> <Cmd>PlugClean<CR>
 nnoremap <F8> <Cmd>PlugUpdate<CR>
 
 " Retour à l'écran d'accueil (split si fichier ouvert)
-nnoremap <F10> <Cmd>call OpenStartify()<CR>
+nnoremap <F9> <Cmd>call OpenStartify()<CR>
 
 " Changement de document
 nnoremap <S-TAB> <C-w>w
@@ -273,7 +273,7 @@ endif
 - F5 : effectue une indentation automatique sur l'intégralité du fichier
 - F7 : supprime les plugins non utilisés
 - F8 : lance une mise à jour des plugins
-- F10 : retourne à l'écran d'accueil Startify (dans un split si un fichier est déjà ouvert)
+- F9 : retourne à l'écran d'accueil Startify (dans un split si un fichier est déjà ouvert)
 - Esc Esc : retire la surbrillance de la dernière recherche
 
 ![vim](vim.webp)
