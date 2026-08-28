@@ -151,6 +151,9 @@ command -v colordiff &>/dev/null && alias diff='colordiff'
 # duf : affiche les filesystems
 command -v duf &>/dev/null && alias df='duf -hide special'
 
+# dust : du amlérioré
+command -v dust &>/dev/null && alias d='dust -rb'
+
 # fzf : recherche avancée avec thème Catppuccin Mocha
 if command -v fzf &>/dev/null; then
   # shellcheck source=/opt/homebrew/bin/fzf
@@ -168,6 +171,9 @@ fi
 
 # ncdu : équivalent à TreeSize
 command -v ncdu &>/dev/null && alias ncdu='ncdu --color dark'
+
+# procs : ps amélioré
+command -v procs &>/dev/null && alias psp='procs'
 
 # rg : plus performant que grep
 command -v rg &>/dev/null && alias rg='rg -i'
@@ -227,8 +233,10 @@ Les aliases actifs uniquement dans le cas où les applications sont installées 
 | -------- | ----------------------------------------------------------------- |
 | diff     | Remplace la commande par colordiff, pour une meilleure lisibilité |
 | df       | Remplace la commande par duf, bien plus agréable visuellement     |
+| d        | Outil dust, similaire à du, en couleur et très rapide             |
 | fzf      | Outil de recherche avancé                                         |
 | ncdu     | L'équivalent de l'outil Treesize sous Windows                     |
+| psp      | Outil procs, similaire à ps, en bien plus lisible                 |
 | rg       | Un grep récursif, bien plus lisible que le grep de base           |
 | z        | Utilise zoxide, un cd avancé                                      |
 
