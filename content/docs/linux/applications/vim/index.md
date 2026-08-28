@@ -7,7 +7,7 @@ toc: true
 tags:
   - linux
 draft: false
-lastmod: 2026-08-20
+lastmod: 2026-08-28
 ---
 
 *[Vim](https://fr.wikipedia.org/wiki/Vim) est un éditeur de texte extrêmement personnalisable, que ce soit par l'ajout d'extensions, ou par la modification de son fichier de configuration, écrits dans son propre langage d'extension, le Vim script.*
@@ -71,6 +71,7 @@ Ce fichier est à créer sous `~/.vimrc`, ou `~/.vim/vimrc`.
 " ─── vimrc ───────────────────────────────────────────────────────────────────
 
 " Paramétrage de base
+syntax on                       " Active la colorisation syntaxique
 set nocompatible                " Désactive la compatibilité Vi
 set hlsearch                    " Affiche en surbrillance les recherches
 set background=dark             " Optimise l'affiche pour un terminal sombre
@@ -95,6 +96,7 @@ set splitbelow                  " Nouveau split horizontal en dessous
 set splitright                  " Nouveau split vertical à droite
 set mouse=                      " Désactive la souris par défaut
 set nobackup                    " Désactive les sauvegardes automatiques
+set noswapfile                  " Désactive les fichiers .swp
 set viminfo+=n~/.vim/.viminfo   " Place le fichier viminfo dans le dossier .vim
 
 " Permet l'indentation automatique : gg=G
@@ -128,6 +130,13 @@ function! ReindentFile()
   call winrestview(l:view)
 endfunction
 
+function! OpenStartify()
+  if !empty(expand('%')) && &buftype ==# ''
+    vsplit
+  endif
+  Startify
+endfunction
+
 " ─── mapping ─────────────────────────────────────────────────────────────────
 
 " Mode IDE
@@ -149,8 +158,14 @@ nnoremap <F7> <Cmd>PlugClean<CR>
 " MAJ des plugins
 nnoremap <F8> <Cmd>PlugUpdate<CR>
 
+" Retour à l'écran d'accueil (split si fichier ouvert)
+nnoremap <F10> <Cmd>call OpenStartify()<CR>
+
 " Changement de document
 nnoremap <S-TAB> <C-w>w
+
+" Retirer la surbrillance de recherche
+nnoremap <Esc><Esc> <Cmd>nohlsearch<CR>
 
 " ─── plugins ─────────────────────────────────────────────────────────────────
 
@@ -257,5 +272,7 @@ endif
 - F5 : effectue une indentation automatique sur l'intégralité du fichier
 - F7 : supprime les plugins non utilisés
 - F8 : lance une mise à jour des plugins
+- F10 : retourne à l'écran d'accueil Startify (dans un split si un fichier est déjà ouvert)
+- Esc Esc : retire la surbrillance de la dernière recherche
 
 ![vim](vim.webp)
