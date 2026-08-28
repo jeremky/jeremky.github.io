@@ -90,6 +90,7 @@ set ignorecase                  " Ignorer la casse
 set smartcase                   " Faire un appariement intelligent
 set incsearch                   " Recherche incrémentielle
 set wildmenu                    " Menu de complétion pour la ligne de commande
+set wildoptions=pum             " Menu de complétion en popup vertical
 set hidden                      " Cacher les tampons lorsqu'ils sont abandonnés
 set scrolloff=8                 " Garde 8 lignes de contexte visibles autour du curseur
 set splitbelow                  " Nouveau split horizontal en dessous
