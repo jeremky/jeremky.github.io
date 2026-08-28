@@ -271,6 +271,5 @@ endif
 - F7 : supprime les plugins non utilisés
 - F8 : lance une mise à jour des plugins
 - F9 : retourne à l'écran d'accueil Startify (dans un split si un fichier est déjà ouvert)
-- Esc Esc : retire la surbrillance de la dernière recherche
 
 ![vim](vim.webp)
