@@ -71,7 +71,6 @@ Ce fichier est à créer sous `~/.vimrc`, ou `~/.vim/vimrc`.
 " ─── vimrc ───────────────────────────────────────────────────────────────────
 
 " Paramétrage de base
-syntax on                       " Active la colorisation syntaxique
 set nocompatible                " Désactive la compatibilité Vi
 set hlsearch                    " Affiche en surbrillance les recherches
 set background=dark             " Optimise l'affiche pour un terminal sombre
@@ -113,6 +112,7 @@ let &t_SR = "\e[4 q"
 
 " ─── fonctions ───────────────────────────────────────────────────────────────
 
+" Ajout des numéros de ligne et gestion de la souris
 function! ModeIDE()
   if get(g:, 'modeIDE_enabled', 0)
     let g:modeIDE_enabled = 0
@@ -125,17 +125,26 @@ function! ModeIDE()
   endif
 endfunction
 
+" Réindentation sans déplacement du curseur
 function! ReindentFile()
   let l:view = winsaveview()
   normal! gg=G
   call winrestview(l:view)
 endfunction
 
+" Ouverture de Startify
 function! OpenStartify()
   if !empty(expand('%')) && &buftype ==# ''
     vsplit
   endif
   Startify
+endfunction
+
+" Liste des fichiers dans le répertoire courant
+function! s:listCwd()
+  let files = sort(glob(getcwd() . '/*', 1, 1) + glob(getcwd() . '/.*', 1, 1))
+  call filter(files, "fnamemodify(v:val, ':t') !~ '^\\.\\.\\?$'")
+  return map(files, "{'line': fnamemodify(v:val, ':t'), 'path': v:val}")
 endfunction
 
 " ─── mapping ─────────────────────────────────────────────────────────────────
@@ -165,21 +174,18 @@ nnoremap <F9> <Cmd>call OpenStartify()<CR>
 " Changement de document
 nnoremap <S-TAB> <C-w>w
 
-" Retirer la surbrillance de recherche
-nnoremap <Esc><Esc> <Cmd>nohlsearch<CR>
-
 " ─── plugins ─────────────────────────────────────────────────────────────────
 
 " Téléchargement de vim-plug si introuvable
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 endif
 
 " Lance automatiquement PlugInstall
 autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
-  \| PlugInstall --sync | source $MYVIMRC
-  \| endif
+      \| PlugInstall --sync | source $MYVIMRC
+      \| endif
 
 " Liste des plugins
 call plug#begin()
@@ -206,9 +212,9 @@ augroup vimrc
 
   " Mémoriser la dernière position du curseur
   autocmd BufReadPost *
-    \ if (line("'\"") > 1) && (line("'\"") <= line("$"))
-    \ |   silent exe "silent! normal g'\"zO"
-    \ | endif
+        \ if (line("'\"") > 1) && (line("'\"") <= line("$"))
+        \ |   silent exe "silent! normal g'\"zO"
+        \ | endif
 
   " Désactivation des # au retour chariot
   autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
@@ -239,16 +245,16 @@ if isdirectory(expand("~/.vim/plugged"))
   let g:startify_custom_indices = map(range(1, 9), 'string(v:val)')
 
   let g:startify_lists = [
-    \ { 'type': 'bookmarks', 'header': ['  ──── Bookmarks'] },
-    \ { 'type': 'files',     'header': ['  ──── Historique'] },
-    \ ]
+        \ { 'type': 'bookmarks', 'header': ['  ──── Bookmarks'] },
+        \ { 'type': function('s:listCwd'), 'header': ['  ──── Folder'] },
+        \ ]
 
   let g:startify_bookmarks = [
-    \ { 'a': '~/.bash_aliases' },
-    \ { 'r': '~/.bashrc' },
-    \ { 's': '~/.ssh/config' },
-    \ { 'v': '~/.vim/vimrc' },
-    \ ]
+        \ { 'a': '~/.bash_aliases' },
+        \ { 'r': '~/.bashrc' },
+        \ { 's': '~/.ssh/config' },
+        \ { 'v': '~/.vim/vimrc' },
+        \ ]
 
 endif
 ```
