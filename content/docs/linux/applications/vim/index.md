@@ -242,19 +242,9 @@ if isdirectory(expand("~/.vim/plugged"))
 
   " Startify
   let g:startify_custom_header = []
-  let g:startify_files_number = 9
-  let g:startify_custom_indices = map(range(1, 9), 'string(v:val)')
-
+  let g:startify_files_number = 30
   let g:startify_lists = [
-        \ { 'type': function('s:listCwd'), 'header': ['  ──── Folder'] },
-        \ { 'type': 'bookmarks', 'header': ['  ──── Bookmarks'] },
-        \ ]
-
-  let g:startify_bookmarks = [
-        \ { 'a': '~/.bash_aliases' },
-        \ { 'r': '~/.bashrc' },
-        \ { 's': '~/.ssh/config' },
-        \ { 'v': '~/.vim/vimrc' },
+        \ { 'type': function('s:listCwd'), },
         \ ]
 
 endif
