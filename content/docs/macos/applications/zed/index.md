@@ -208,6 +208,7 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
       "initialization_options": {
         "config": {
           "MD013": false,
+          "MD033": false,
           "MD041": false,
         },
       },
