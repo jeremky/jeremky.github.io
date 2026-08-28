@@ -7,7 +7,7 @@ toc: true
 tags:
   - linux
 draft: false
-lastmod: 2026-05-17
+lastmod: 2026-08-28
 ---
 
 Le shell Linux sert d'interface entre l'utilisateur et le système d'exploitation. Différents shells existent, comme bash, zsh, fish... Mais **bash** étant par défaut sur la plupart des distributions Linux, c'est sur ce dernier que je vais me focaliser.
@@ -82,6 +82,7 @@ Mon fichier `.bash_aliases` se divise en plusieurs parties :
 - La liste des aliases de base que j'utilise
 - Des aliases supplémentaires pour des applications spécifiques, chargés uniquement si les applications sont installées
 - Quelques fonctions, dans le cas où un simple alias est trop limitant
+- Une transformation automatique des scripts présents dans `~/scripts` en aliases
 
 Vous pouvez le récupérer directement sur github en suivant [ce lien](https://github.com/jeremky/envbackup/blob/main/dotfiles/debian/.bash_aliases).
 
@@ -156,6 +157,9 @@ command -v colordiff &>/dev/null && alias diff='colordiff'
 # duf : df amélioré
 command -v duf &>/dev/null && alias df='duf -hide special'
 
+# dust : du amélioré
+command -v dust &>/dev/null && alias d='dust -rb'
+
 # fd : find amélioré
 command -v fdfind &>/dev/null && alias fd='fdfind -HI'
 
@@ -175,6 +179,9 @@ command -v htop &>/dev/null && alias top='htop'
 
 # ncdu : équivalent à TreeSize
 command -v ncdu &>/dev/null && alias ncdu='ncdu --color dark'
+
+# procs : ps amélioré
+command -v procs &>/dev/null && alias psp='procs'
 
 # rg : plus performant que grep
 command -v rg &>/dev/null && alias rg='rg -i --no-ignore'
@@ -228,7 +235,22 @@ diskbench() {
 
 # zipd : créer une archive zip par dossier/fichier donné
 zipd() { for file in "$@"; do /usr/bin/zip -r "${file%/}.zip" "$file"; done; }
+
+# ─── scripts ─────────────────────────────────────────────────────────────────
+
+# Transforme les scripts en alias
+scripts=~/scripts
+if [[ -d $scripts ]]; then
+  for i in "$scripts"/*; do
+    scr=$(basename "$i")
+    # shellcheck disable=SC2139
+    [[ -f "$scripts/$scr/$scr.sh" ]] && alias $scr="$scripts/$scr/$scr.sh"
+  done
+fi
 ```
+
+> [!NOTE]
+> Le dernier bloc, `scripts`, parcourt le dossier `~/scripts` et crée automatiquement un alias pour chacun d'eux, du moment qu'il respecte la convention `<nom>/<nom>.sh`
 
 Les aliases de base :
 
@@ -262,10 +284,12 @@ Les aliases actifs uniquement dans le cas où les applications sont installées 
 | -------- | ----------------------------------------------------------------- |
 | diff     | Remplace la commande par colordiff, pour une meilleure lisibilité |
 | df       | Remplace la commande par duf, bien plus agréable visuellement     |
+| d        | Lance dust, un du amélioré et plus lisible                        |
 | fd       | Outil équivalent à find mais bien plus simple à utiliser          |
 | fzf      | Outil de recherche avancé                                         |
 | top      | Remplace la commande top par htop                                 |
 | ncdu     | L'équivalent de l'outil Treesize sous Windows                     |
+| psp      | Remplace la commande par procs, plus lisible et plus rapide       |
 | rg       | Un grep récursif, bien plus lisible que le grep de base           |
 | clock    | Lance tty-clock, un petit outil pour afficher l'heure             |
 | ufw      | Un Firewall facile à utiliser, ajoute sudo devant                 |
