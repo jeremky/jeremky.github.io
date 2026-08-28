@@ -71,6 +71,7 @@ Ce fichier est à créer sous `~/.vimrc`, ou `~/.vim/vimrc`.
 " ─── vimrc ───────────────────────────────────────────────────────────────────
 
 " Paramétrage de base
+syntax on                       " Active la coloration syntaxique
 set nocompatible                " Désactive la compatibilité Vi
 set hlsearch                    " Affiche en surbrillance les recherches
 set background=dark             " Optimise l'affiche pour un terminal sombre
@@ -245,8 +246,8 @@ if isdirectory(expand("~/.vim/plugged"))
   let g:startify_custom_indices = map(range(1, 9), 'string(v:val)')
 
   let g:startify_lists = [
-        \ { 'type': 'bookmarks', 'header': ['  ──── Bookmarks'] },
         \ { 'type': function('s:listCwd'), 'header': ['  ──── Folder'] },
+        \ { 'type': 'bookmarks', 'header': ['  ──── Bookmarks'] },
         \ ]
 
   let g:startify_bookmarks = [
