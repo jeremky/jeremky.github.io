@@ -143,9 +143,9 @@ endfunction
 
 " Liste des fichiers dans le répertoire courant
 function! s:listCwd()
-  let files = sort(glob(getcwd() . '/*', 1, 1) + glob(getcwd() . '/.*', 1, 1))
-  call filter(files, "fnamemodify(v:val, ':t') !~ '^\\.\\.\\?$'")
-  return map(files, "{'line': fnamemodify(v:val, ':t'), 'path': v:val}")
+  let cwd = getcwd()
+  let files = sort(readdir(cwd))
+  return map(files, "{'line': v:val, 'path': cwd . '/' . v:val}")
 endfunction
 
 " ─── mapping ─────────────────────────────────────────────────────────────────
