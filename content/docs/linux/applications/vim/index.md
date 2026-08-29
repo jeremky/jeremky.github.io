@@ -63,7 +63,7 @@ La liste est loin d'être exhaustive, mais vous avez déjà une bonne base pour 
 ## Fichier .vimrc
 
 Je vous partage un exemple de configuration pour vim.
-Ce fichier est à créer sous `~/.vimrc`, ou `~/.vim/vimrc`.
+Ce fichier est à créer sous `.config/vim/vimrc`.
 
 > Avant de lancer Vim une fois le fichier créé, assurez-vous d'avoir git et curl installés. Ils sont nécessaires pour le téléchargement de [vim-plug](https://github.com/junegunn/vim-plug) et des plugins
 
@@ -97,8 +97,6 @@ set splitbelow                  " Nouveau split horizontal en dessous
 set splitright                  " Nouveau split vertical à droite
 set mouse=                      " Désactive la souris par défaut
 set nobackup                    " Désactive les sauvegardes automatiques
-set noswapfile                  " Désactive les fichiers .swp
-set viminfo+=n~/.vim/.viminfo   " Place le fichier viminfo dans le dossier .vim
 
 " Permet l'indentation automatique : gg=G
 filetype plugin indent on
@@ -178,8 +176,8 @@ nnoremap <S-TAB> <C-w>w
 " ─── plugins ─────────────────────────────────────────────────────────────────
 
 " Téléchargement de vim-plug si introuvable
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+if empty(glob('~/.config/vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.config/vim/autoload/plug.vim --create-dirs
         \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 endif
 
@@ -224,7 +222,7 @@ augroup END
 
 " ─── plugins config ──────────────────────────────────────────────────────────
 
-if isdirectory(expand("~/.vim/plugged"))
+if isdirectory(expand("~/.config/vim/plugged"))
 
   " Catppuccin
   silent! colorscheme catppuccin_mocha
