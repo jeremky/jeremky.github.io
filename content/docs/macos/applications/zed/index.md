@@ -90,20 +90,18 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
     "inline_assistant_model": {
       "provider": "mistral",
       "model": "mistral-medium-latest",
-      "enable_thinking": true,
     },
 
     "default_model": {
       "provider": "mistral",
       "model": "mistral-medium-latest",
-      "enable_thinking": true,
     },
   },
 
   "agent_servers": {
     "mistral-vibe": {
       "default_config_options": {
-        "mode": "auto-approve"
+        "mode": "accept-edits"
       },
       "type": "registry"
     },
