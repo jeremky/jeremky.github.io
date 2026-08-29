@@ -192,14 +192,14 @@ tarc() { for file in "$@"; do tar czvf "${file%/}.tar.gz" "$file"; done; }
 # tarx : décompresser une archive
 tarx() { for file in "$@"; do tar xzvf "$file"; done; }
 
-# zip : commande zip plus conviviale
-zip() { for file in "$@"; do /usr/bin/zip -r "${file%/}.zip" "$file"; done; }
+# zipd : créer une archive zip par fichier
+zipd() { for file in "$@"; do /usr/bin/zip -r "${file%/}.zip" "$file"; done; }
 
 # convweb : convertir des fichiers png en webp
 convweb() { for file in "$@"; do cwebp -q 100 "$file" -o "${file%.*}.webp" && rm -- "$file"; done; }
 
-# ifconfig : affiche les informations réseau
-ifconfig() { for service in "Ethernet" "Wi-Fi"; do
+# netinfo : affiche les informations réseau
+netinfo() { for service in "Ethernet" "Wi-Fi"; do
   echo "==> $service"
   networksetup -getinfo "$service"
   echo
@@ -249,4 +249,4 @@ Et enfin, les fonctions :
 | tarx     | Pour extraire un ou plusieurs tar.gz passés en paramètre                   |
 | zip      | Facilite l'utilisation de la commande zip (`zip <fichier>`)                |
 | convweb  | Transforme une image passée en paramètre au format webp                    |
-| ifconfig | Affiche les informations sur les cartes ethernet et Wifi                   |
+| netinfo  | Affiche les informations sur les cartes ethernet et Wifi                   |
