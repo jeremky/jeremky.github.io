@@ -245,9 +245,6 @@ if isdirectory(expand("~/.vim/plugged"))
   set laststatus=2
   set noshowmode
 
-  " AutoPairs
-  let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'"}
-
   " Startify
   let g:startify_custom_header = []
   let g:startify_files_number = 30
