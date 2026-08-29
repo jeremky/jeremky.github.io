@@ -73,7 +73,7 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
   },
 
   "title_bar": {
-    "show_sign_in": true,
+    "show_sign_in": false,
     "show_branch_name": false,
     "show_worktree_name": false,
   },
@@ -89,21 +89,27 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
 
     "inline_assistant_model": {
       "provider": "mistral",
-      "model": "mistral-medium-latest",
+      "model": "mistral-small-latest",
     },
 
     "default_model": {
-      "provider": "mistral",
-      "model": "mistral-medium-latest",
+      "effort": "medium",
+      "enable_thinking": true,
+      "provider": "google",
+      "model": "gemini-3.6-flash",
     },
+  },
+
+  "edit_predictions": {
+    "provider": "none",
   },
 
   "agent_servers": {
     "mistral-vibe": {
       "default_config_options": {
-        "mode": "accept-edits"
+        "mode": "ask",
       },
-      "type": "registry"
+      "type": "registry",
     },
     "claude-acp": {
       "default_config_options": {
@@ -113,18 +119,12 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
     },
   },
 
-  "edit_predictions": {
-    "allow_data_collection": "no",
-    "mode": "eager",
-    "provider": "zed",
-  },
-
   // ─── Interface ────────────────────────────────────────
-  
+
   "theme": "Catppuccin Mocha",
   "icon_theme": "Catppuccin Mocha",
   "buffer_font_family": "JetBrains Mono NL",
-  "buffer_font_size": 12,
+  "buffer_font_size": 13,
   "ui_font_size": 14,
   "agent_ui_font_size": 15,
   "markdown_preview_font_size": 15,
@@ -156,11 +156,10 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
   "snippet_sort_order": "top",
   "soft_wrap": "editor_width",
   "tab_size": 2,
-  
 
   "autosave": {
     "after_delay": {
-      "milliseconds": 1000,
+      "milliseconds": 3000,
     },
   },
 
@@ -179,13 +178,13 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
 
   "languages": {
     "Markdown": {
-      "show_edit_predictions": false
+      "show_edit_predictions": false,
     },
-    
+
     "Make": {
       "hard_tabs": true,
     },
-    
+
     "Shell Script": {
       "format_on_save": "on",
       "formatter": {
