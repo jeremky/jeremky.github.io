@@ -63,38 +63,48 @@ La liste est loin d'être exhaustive, mais vous avez déjà une bonne base pour 
 ## Fichier .vimrc
 
 Je vous partage un exemple de configuration pour vim.
-Ce fichier est à créer sous `.config/vim/vimrc`.
+Ce fichier est à créer sous `.vim/vimrc`.
 
 > Avant de lancer Vim une fois le fichier créé, assurez-vous d'avoir git et curl installés. Ils sont nécessaires pour le téléchargement de [vim-plug](https://github.com/junegunn/vim-plug) et des plugins
 
 ```vim {filename=".vimrc"}
 " ─── vimrc ───────────────────────────────────────────────────────────────────
 
-" Paramétrage de base
-syntax on                       " Active la coloration syntaxique
+" Compatibilité & syntaxe
 set nocompatible                " Désactive la compatibilité Vi
-set hlsearch                    " Affiche en surbrillance les recherches
-set background=dark             " Optimise l'affiche pour un terminal sombre
+syntax on                       " Active la coloration syntaxique
+
+" Indentation & tabulations
 set smartindent                 " Indentation intelligente
-set smarttab                    " Gestion des espaces en début de ligne
 set autoindent                  " Conserve l'indentation sur une nouvelle ligne
-set ruler                       " Affiche la position du curseur
+set smarttab                    " Gestion des espaces en début de ligne
 set tabstop=2                   " La largeur d'une tabulation est définie sur 2
 set shiftwidth=2                " Les retraits auront une largeur de 2
 set softtabstop=2               " Nombre de colonnes pour une tabulation
 set expandtab                   " Remplace les tab par des espaces
 set linebreak                   " Revient à la ligne sans couper les mots
-set showcmd                     " Afficher la commande dans la ligne d'état
-set showmatch                   " Afficher les parenthèses correspondantes
+
+" Recherche
+set hlsearch                    " Affiche en surbrillance les recherches
+set incsearch                   " Recherche incrémentielle
 set ignorecase                  " Ignorer la casse
 set smartcase                   " Faire un appariement intelligent
-set incsearch                   " Recherche incrémentielle
+
+" Interface & affichage
+set background=dark             " Optimise l'affiche pour un terminal sombre
+set ruler                       " Affiche la position du curseur
+set showcmd                     " Afficher la commande dans la ligne d'état
+set showmatch                   " Afficher les parenthèses correspondantes
 set wildmenu                    " Menu de complétion pour la ligne de commande
 set wildoptions=pum             " Menu de complétion en popup vertical
+
+" Fenêtres, buffers & navigation
 set hidden                      " Cacher les tampons lorsqu'ils sont abandonnés
 set scrolloff=8                 " Garde 8 lignes de contexte visibles autour du curseur
 set splitbelow                  " Nouveau split horizontal en dessous
 set splitright                  " Nouveau split vertical à droite
+
+" Comportement divers
 set mouse=                      " Désactive la souris par défaut
 set nobackup                    " Désactive les sauvegardes automatiques
 
@@ -176,8 +186,8 @@ nnoremap <S-TAB> <C-w>w
 " ─── plugins ─────────────────────────────────────────────────────────────────
 
 " Téléchargement de vim-plug si introuvable
-if empty(glob('~/.config/vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.config/vim/autoload/plug.vim --create-dirs
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
         \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 endif
 
@@ -222,7 +232,7 @@ augroup END
 
 " ─── plugins config ──────────────────────────────────────────────────────────
 
-if isdirectory(expand("~/.config/vim/plugged"))
+if isdirectory(expand("~/.vim/plugged"))
 
   " Catppuccin
   silent! colorscheme catppuccin_mocha
