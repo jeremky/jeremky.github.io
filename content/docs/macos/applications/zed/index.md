@@ -84,24 +84,29 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
     "default_profile": "ask",
     "enable_feedback": false,
     "sidebar_side": "right",
-    "flexible": false,
     "enabled": true,
     "dock": "right",
 
     "inline_assistant_model": {
       "provider": "mistral",
-      "model": "codestral-latest",
-      "enable_thinking": false,
+      "model": "mistral-medium-latest",
+      "enable_thinking": true,
     },
 
     "default_model": {
       "provider": "mistral",
       "model": "mistral-large-latest",
-      "enable_thinking": false,
+      "enable_thinking": true,
     },
   },
 
   "agent_servers": {
+    "mistral-vibe": {
+      "default_config_options": {
+        "mode": "auto-approve"
+      },
+      "type": "registry"
+    },
     "claude-acp": {
       "default_config_options": {
         "mode": "auto",
@@ -112,11 +117,19 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
 
   "edit_predictions": {
     "allow_data_collection": "no",
-    "mode": "subtle",
+    "mode": "eager",
     "provider": "zed",
   },
 
-  // ─── Panels ───────────────────────────────────────────
+  // ─── Interface ────────────────────────────────────────
+  
+  "theme": "Catppuccin Mocha",
+  "icon_theme": "Catppuccin Mocha",
+  "buffer_font_family": "JetBrains Mono NL",
+  "buffer_font_size": 12,
+  "ui_font_size": 14,
+  "agent_ui_font_size": 15,
+  "markdown_preview_font_size": 15,
 
   "debugger": { "button": false },
   "collaboration_panel": { "dock": "left", "button": false },
@@ -141,15 +154,11 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
 
   "base_keymap": "Zed",
   "cli_default_open_behavior": "existing_window",
-  "buffer_font_family": "JetBrains Mono NL",
-  "buffer_font_size": 12,
-  "ui_font_size": 14,
-  "agent_ui_font_size": 15,
-  "markdown_preview_font_size": 15,
   "extend_comment_on_newline": false,
   "snippet_sort_order": "top",
   "soft_wrap": "editor_width",
   "tab_size": 2,
+  
 
   "autosave": {
     "after_delay": {
@@ -163,24 +172,11 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
     "use_smartcase_find": true,
   },
 
-  "theme": {
-    "mode": "system",
-    "light": "Catppuccin Latte",
-    "dark": "Catppuccin Mocha",
-  },
-
-  "icon_theme": {
-    "mode": "system",
-    "light": "Catppuccin Latte",
-    "dark": "Catppuccin Mocha",
-  },
-
   // ─── Code ─────────────────────────────────────────────
 
   "file_types": {
     "Shell Script": ["comp"],
-    "ini": ["cron"],
-    "env": ["cfg"],
+    "ini": ["cron", "cfg"],
   },
 
   "languages": {
