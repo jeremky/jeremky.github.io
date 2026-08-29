@@ -278,6 +278,7 @@ brew install shfmt shellcheck
   {
     "bindings": {
       "f1": "command_palette::Toggle",
+      "cmd-shift-a": "workspace::ToggleZoom",
       "cmd-shift-g": "git_panel::ToggleFocus",
       "cmd-shift-c": "multi_workspace::ToggleWorkspaceSidebar",
     },
