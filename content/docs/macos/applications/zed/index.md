@@ -95,7 +95,7 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
 
     "default_model": {
       "provider": "mistral",
-      "model": "mistral-large-latest",
+      "model": "mistral-medium-latest",
       "enable_thinking": true,
     },
   },
