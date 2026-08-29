@@ -93,24 +93,13 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
     },
 
     "default_model": {
-      "effort": "medium",
-      "enable_thinking": true,
-      "provider": "google",
-      "model": "gemini-3.6-flash",
+      "enable_thinking": false,
+      "provider": "mistral",
+      "model": "mistral-medium-latest",
     },
-  },
-
-  "edit_predictions": {
-    "provider": "none",
   },
 
   "agent_servers": {
-    "mistral-vibe": {
-      "default_config_options": {
-        "mode": "ask",
-      },
-      "type": "registry",
-    },
     "claude-acp": {
       "default_config_options": {
         "mode": "auto",
@@ -119,13 +108,17 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
     },
   },
 
+  "edit_predictions": {
+    "provider": "none",
+  },
+
   // ─── Interface ────────────────────────────────────────
 
   "theme": "Catppuccin Mocha",
   "icon_theme": "Catppuccin Mocha",
   "buffer_font_family": "JetBrains Mono NL",
   "buffer_font_size": 13,
-  "ui_font_size": 14,
+  "ui_font_size": 15,
   "agent_ui_font_size": 15,
   "markdown_preview_font_size": 15,
 
@@ -143,7 +136,7 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
 
   "terminal": {
     "font_family": "JetBrains Mono NL",
-    "font_size": 12,
+    "font_size": 13,
     "copy_on_select": true,
     "line_height": "comfortable",
   },
