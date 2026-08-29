@@ -139,7 +139,7 @@ alias df='df -PlH'                                    # df en filtrant les monta
 alias rmds='find . -name ".DS_Store" -type f -delete' # Supprimer les .DS_Store récursivement
 alias rmdot="find . -name '._*' -type f -delete"      # Supprimer les ._ récursivement
 alias top='top -o cpu -U $(whoami)'                   # top filtré pour le user courant
-alias vi='vim -nO'                                    # vim avec ouverture multiple
+alias vi='vim -O'                                     # vim avec ouverture multiple
 alias speedtest='networkQuality'                      # Speedtest Apple
 alias locate='mdfind -name'                           # Recherche via Spotlight
 

@@ -196,7 +196,7 @@ if command -v ufw &>/dev/null; then
 fi
 
 # vim : vi amélioré
-command -v vim &>/dev/null && alias vi='vim -nO'
+command -v vim &>/dev/null && alias vi='vim -O'
 
 # zoxide : cd amélioré
 command -v zoxide &>/dev/null && eval "$(zoxide init bash)"
