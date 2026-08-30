@@ -1,5 +1,5 @@
 ---
-title: "UFW"
+title: "ufw"
 slug: ufw
 contextMenu: true
 weight: 70
