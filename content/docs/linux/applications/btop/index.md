@@ -125,7 +125,7 @@ rounded_corners = true
 terminal_sync = true
 
 #* Graph symbol.
-graph_symbol = "braille"
+graph_symbol = "block"
 
 #* Cpu graph symbol.
 graph_symbol_cpu = "default"
