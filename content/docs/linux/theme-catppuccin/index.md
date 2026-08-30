@@ -44,11 +44,11 @@ Certains terminaux proposent Catppuccin de base ([Ptyxis](https://flathub.org/en
 
 ## Bash
 
-Maintenant que votre terminal dispose des couleurs de Catppuccin, nous allons adapter certaines applications cli pour être en phase avec le thème. Dans mon cas, cela concerne 2 applications : [fzf](https://github.com/junegunn/fzf), et [tmux](https://github.com/tmux/tmux/wiki).
+Maintenant que votre terminal dispose des couleurs de Catppuccin, nous allons adapter certaines applications cli pour être en phase avec le thème.
 
 ### fzf
 
-Si vous n'avez pas encore installé fzf, je vous le recommande. Fzf permet entre autres d'améliorer la recherche dans l'historique via le raccourci `ctrl + r`.
+[fzf](https://github.com/junegunn/fzf) permet entre autres d'améliorer la recherche dans l'historique via le raccourci `ctrl + r`.
 
 Pour l'installer :
 
@@ -70,7 +70,7 @@ if [[ -f /usr/bin/fzf ]]; then
 fi
 ```
 
-### Btop
+### btop
 
 [Btop](https://github.com/aristocratos/btop) est un moniteur de ressources système comparable à htop.
 
@@ -80,7 +80,7 @@ Relancez btop et rendez-vous dans le menu de configuration (touche M) pour séle
 
 ![btop](btop.webp)
 
-### Vim
+### vim
 
 Je vous recommande de vous rendre à [cette page](/docs/linux/applications/vim) afin de récupérer mon fichier `.vimrc`. Cette configuration permet l'installation automatique de [vim-plug](https://github.com/junegunn/vim-plug) ainsi qu'une liste de plugins, dont Catppuccin.
 
