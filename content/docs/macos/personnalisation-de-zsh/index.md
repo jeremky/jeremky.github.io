@@ -7,7 +7,7 @@ toc: true
 tags:
   - macos
 draft: false
-lastmod: 2026-05-18
+lastmod: 2026-08-30
 ---
 
 *[Le Z shell](https://fr.wikipedia.org/wiki/Z_Shell) ou zsh est un shell Unix qui peut être utilisé de façon interactive, à l'ouverture de la session ou en tant que puissant interpréteur de commande. zsh peut être vu comme un « Bourne shell » étendu avec beaucoup d'améliorations. Il reprend en plus la plupart des fonctions les plus pratiques de bash, ksh et tcsh. Zsh remplace bash dans macOS à partir de macOS Catalina 10.15.*
@@ -23,14 +23,14 @@ Au démarrage d'une session shell, différents fichiers se chargent automatiquem
 Le fichier `.zshrc` n'existe pas par défaut. Zsh est chargé sans aucune personnalisation. Il va donc falloir le construire de 0. Comme base de départ, je vous partage le mien :
 
 ```bash {filename="~/.zshrc"}
-## ~/.zshrc
+# ─── .zshrc ──────────────────────────────────────────────────────────────────
 
 # options
-setopt AUTO_CD              # Naviguer sans 'cd'
-setopt HIST_IGNORE_DUPS     # Ignore les doublons dans l'historique
-setopt HIST_FIND_NO_DUPS    # Ignore les doublons lors de la recherche
-setopt SHARE_HISTORY        # Partage l'historique entre les sessions
-setopt INC_APPEND_HISTORY   # Ajoute immédiatement à l'historique
+setopt AUTO_CD            # Naviguer sans 'cd'
+setopt HIST_IGNORE_DUPS   # Ignore les doublons dans l'historique
+setopt HIST_FIND_NO_DUPS  # Ignore les doublons lors de la recherche
+setopt HIST_IGNORE_SPACE  # Ignore les commandes précédées d'un espace
+setopt SHARE_HISTORY      # Partage l'historique entre les sessions
 
 # history
 HISTSIZE=10000
@@ -38,42 +38,32 @@ SAVEHIST=10000
 HISTFILE="$HOME/.local/share/zsh/history"
 
 # prompt
-BOLD="%{%B%}"
-RESET="%{%b%f%}"
-CYAN="%{%F{cyan}%}"
-BLUE="%{%F{blue}%}"
-PROMPT="${BOLD}${CYAN}%n@%m${RESET}:${BLUE}%~${RESET}$ "
+PROMPT='%B%F{cyan}❱ %F{blue}%~ $ %f%b'
 
 # homebrew
-if command -v brew &>/dev/null; then
-  BREW_PREFIX=$(brew --prefix)
-  FPATH=$BREW_PREFIX/share/zsh-completions:$FPATH
+if [[ -z $HOMEBREW_PREFIX ]] && [[ -d /opt/homebrew ]]; then
+  export HOMEBREW_PREFIX=/opt/homebrew
+fi
+
+if [[ -n $HOMEBREW_PREFIX ]]; then
+  FPATH="$HOMEBREW_PREFIX/share/zsh-completions:$FPATH"
+
+  # zsh-autosuggestions
+  source "$HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh" 2>/dev/null
 fi
 
 # completion
-mkdir -p "$HOME/.local/share/zsh"
-autoload -Uz compinit && compinit -u -d "$HOME/.local/share/zsh/zcompdump"
+[[ -d "$HOME/.local/share/zsh" ]] || mkdir -p "$HOME/.local/share/zsh"
+autoload -Uz compinit && compinit -d "$HOME/.local/share/zsh/zcompdump"
+zstyle ':completion:*' cache-path "$HOME/.local/share/zsh/zcompcache"
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 zstyle ':completion:*' menu select
-zstyle ':completion:*' cache-path "$HOME/.local/share/zsh/zcompcache"
 
 # ls colors
 export CLICOLOR=1
-export LSCOLORS=ExFxBxDxCxegedabagacad
-
-# zsh-autosuggestions
-source $BREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
-
-# zsh-syntax-highlighting
-if source $BREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null; then
-  source ~/.config/zsh/catppuccin.zsh
-  typeset -A ZSH_HIGHLIGHT_STYLES
-  ZSH_HIGHLIGHT_STYLES[path]=none
-  ZSH_HIGHLIGHT_STYLES[path_pathseparator]=none
-  ZSH_HIGHLIGHT_STYLES[path_prefix]=none
-  ZSH_HIGHLIGHT_STYLES[path_prefix_pathseparator]=none
-  ZSH_HIGHLIGHT_STYLES[precommand]=none
-fi
+export LSCOLORS=ExfxbxdxCxegedabagacad
+export LS_COLORS="di=1;38;2;137;180;250:ln=38;2;203;166;247:ex=1;38;2;166;227;161"
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
 # keybindings
 bindkey -e
@@ -81,7 +71,17 @@ bindkey "\e[H" beginning-of-line
 bindkey "\e[F" end-of-line
 
 # aliases
-[[ -f ~/.zsh_aliases ]] && source ~/.zsh_aliases
+[[ -f ~/.zsh_aliases ]] && source "$HOME/.zsh_aliases"
+
+# zsh-syntax-highlighting
+if [[ -n $HOMEBREW_PREFIX ]] && source "$HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" 2>/dev/null; then
+  source "$HOME/.config/zsh/catppuccin.zsh"
+  ZSH_HIGHLIGHT_STYLES[path]=none
+  ZSH_HIGHLIGHT_STYLES[path_pathseparator]=none
+  ZSH_HIGHLIGHT_STYLES[path_prefix]=none
+  ZSH_HIGHLIGHT_STYLES[path_prefix_pathseparator]=none
+  ZSH_HIGHLIGHT_STYLES[precommand]=none
+fi
 ```
 
 Pour profiter pleinement des fonctionnalités de ce fichier, je vous suggère d'installer via [homebrew](/docs/macos/utilisation-de-homebrew) les éléments suivants :
@@ -144,6 +144,13 @@ alias speedtest='networkQuality'                      # Speedtest Apple
 alias locate='mdfind -name'                           # Recherche via Spotlight
 
 # ─── applications facultatives ───────────────────────────────────────────────
+
+# btop / htop : top amélioré
+if command -v btop &>/dev/null; then
+  alias top='btop'
+elif command -v htop &>/dev/null; then
+  alias top='htop'
+fi
 
 # colordiff : diff avec couleur
 command -v colordiff &>/dev/null && alias diff='colordiff'
@@ -231,6 +238,7 @@ Les aliases actifs uniquement dans le cas où les applications sont installées 
 
 | Commande | Description                                                       |
 | -------- | ----------------------------------------------------------------- |
+| top      | Remplace la commande par btop (ou htop à défaut)                  |
 | diff     | Remplace la commande par colordiff, pour une meilleure lisibilité |
 | df       | Remplace la commande par duf, bien plus agréable visuellement     |
 | d        | Outil dust, similaire à du, en couleur et très rapide             |

@@ -7,7 +7,7 @@ toc: true
 tags:
   - linux
 draft: false
-lastmod: 2026-08-28
+lastmod: 2026-08-30
 ---
 
 *[Vim](https://fr.wikipedia.org/wiki/Vim) est un éditeur de texte extrêmement personnalisable, que ce soit par l'ajout d'extensions, ou par la modification de son fichier de configuration, écrits dans son propre langage d'extension, le Vim script.*
@@ -63,11 +63,11 @@ La liste est loin d'être exhaustive, mais vous avez déjà une bonne base pour 
 ## Fichier .vimrc
 
 Je vous partage un exemple de configuration pour vim.
-Ce fichier est à créer sous `.vim/vimrc`.
+Ce fichier est à créer sous `~/.config/vim/vimrc`.
 
 > Avant de lancer Vim une fois le fichier créé, assurez-vous d'avoir git et curl installés. Ils sont nécessaires pour le téléchargement de [vim-plug](https://github.com/junegunn/vim-plug) et des plugins
 
-```vim {filename=".vimrc"}
+```vim {filename="~/.config/vim/vimrc"}
 " ─── vimrc ───────────────────────────────────────────────────────────────────
 
 " Compatibilité & syntaxe
@@ -186,8 +186,8 @@ nnoremap <S-TAB> <C-w>w
 " ─── plugins ─────────────────────────────────────────────────────────────────
 
 " Téléchargement de vim-plug si introuvable
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+if empty(glob('~/.config/vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.config/vim/autoload/plug.vim --create-dirs
         \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 endif
 
@@ -232,7 +232,7 @@ augroup END
 
 " ─── plugins config ──────────────────────────────────────────────────────────
 
-if isdirectory(expand("~/.vim/plugged"))
+if isdirectory(expand("~/.config/vim/plugged"))
 
   " Catppuccin
   silent! colorscheme catppuccin_mocha

@@ -7,7 +7,7 @@ toc: true
 tags:
   - linux
 draft: false
-lastmod: 2026-08-28
+lastmod: 2026-08-30
 ---
 
 Le shell Linux sert d'interface entre l'utilisateur et le système d'exploitation. Différents shells existent, comme bash, zsh, fish... Mais **bash** étant par défaut sur la plupart des distributions Linux, c'est sur ce dernier que je vais me focaliser.
@@ -151,6 +151,13 @@ alias upgrade='sudo apt update && sudo apt full-upgrade && sudo apt -y autoremov
 
 # ─── applications facultatives ───────────────────────────────────────────────
 
+# btop / htop : top amélioré
+if command -v btop &>/dev/null; then
+  alias top='btop'
+elif command -v htop &>/dev/null; then
+  alias top='htop'
+fi
+
 # colordiff : diff avec couleur
 command -v colordiff &>/dev/null && alias diff='colordiff'
 
@@ -173,9 +180,6 @@ if command -v fzf &>/dev/null; then
     --color=selected-bg:#45475A \
     --color=border:#6C7086,label:#CDD6F4"
 fi
-
-# htop : plus convivial que top
-command -v htop &>/dev/null && alias top='htop'
 
 # ncdu : équivalent à TreeSize
 command -v ncdu &>/dev/null && alias ncdu='ncdu --color dark'
@@ -287,7 +291,7 @@ Les aliases actifs uniquement dans le cas où les applications sont installées 
 | d        | Lance dust, la commande `du` améliorée                                      |
 | fd       | Outil équivalent à find mais bien plus simple à utiliser                    |
 | fzf      | [fzf](/docs/linux/applications/fzf/) est un outil de recherche avancé       |
-| top      | Remplace la commande top par htop                                           |
+| top      | Remplace la commande top par btop (ou htop à défaut)                        |
 | ncdu     | [ncdu](/docs/linux/applications/ncdu/) est un équivalent de Treesize        |
 | psp      | Remplace la commande par procs, plus lisible et plus rapide                 |
 | rg       | [ripgrep](/docs/linux/applications/ripgrep/) est un `grep` récursif lisible |
