@@ -1,5 +1,5 @@
 ---
-title: "Shairport Sync"
+title: "shairport-sync"
 slug: shairport-sync
 contextMenu: true
 weight: 40
