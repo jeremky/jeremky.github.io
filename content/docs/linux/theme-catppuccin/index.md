@@ -82,6 +82,6 @@ Relancez btop et rendez-vous dans le menu de configuration (touche M) pour séle
 
 ### vim
 
-Je vous recommande de vous rendre à [cette page](/docs/linux/applications/vim) afin de récupérer mon fichier `.vimrc`. Cette configuration permet l'installation automatique de [vim-plug](https://github.com/junegunn/vim-plug) ainsi qu'une liste de plugins, dont Catppuccin.
+Je vous recommande de vous rendre à [cette page](/docs/linux/applications/vim) afin de récupérer mon fichier `vimrc`. Cette configuration permet l'installation automatique de [vim-plug](https://github.com/junegunn/vim-plug) ainsi qu'une liste de plugins, dont Catppuccin.
 
 ![vim](vim.webp)
