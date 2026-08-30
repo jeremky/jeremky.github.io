@@ -280,22 +280,22 @@ Les aliases de base :
 
 Les aliases actifs uniquement dans le cas où les applications sont installées :
 
-| Commande | Description                                                       |
-| -------- | ----------------------------------------------------------------- |
-| diff     | Remplace la commande par colordiff, pour une meilleure lisibilité |
-| df       | Remplace la commande par duf, bien plus agréable visuellement     |
-| d        | Lance dust, un du amélioré et plus lisible                        |
-| fd       | Outil équivalent à find mais bien plus simple à utiliser          |
-| fzf      | Outil de recherche avancé                                         |
-| top      | Remplace la commande top par htop                                 |
-| ncdu     | L'équivalent de l'outil Treesize sous Windows                     |
-| psp      | Remplace la commande par procs, plus lisible et plus rapide       |
-| rg       | Un grep récursif, bien plus lisible que le grep de base           |
-| clock    | Lance tty-clock, un petit outil pour afficher l'heure             |
-| ufw      | Un Firewall facile à utiliser, ajoute sudo devant                 |
-| ufws     | Affiche le status de ufw, avec les règles numérotées              |
-| vi       | Permet d'ouvrir plusieurs fichiers en split vertical              |
-| z        | Utilise zoxide, un cd avancé                                      |
+| Commande | Description                                                                 |
+| -------- | --------------------------------------------------------------------------- |
+| diff     | Remplace la commande par colordiff, pour une meilleure lisibilité           |
+| df       | [duf](/docs/linux/applications/duf/) est un df amélioré                     |
+| d        | Lance dust, la commande `du` améliorée                                      |
+| fd       | Outil équivalent à find mais bien plus simple à utiliser                    |
+| fzf      | [fzf](/docs/linux/applications/fzf/) est un outil de recherche avancé       |
+| top      | Remplace la commande top par htop                                           |
+| ncdu     | [ncdu](/docs/linux/applications/ncdu/) est un équivalent de Treesize        |
+| psp      | Remplace la commande par procs, plus lisible et plus rapide                 |
+| rg       | [ripgrep](/docs/linux/applications/ripgrep/) est un `grep` récursif lisible |
+| clock    | Lance tty-clock, un petit outil pour afficher l'heure                       |
+| ufw      | [ufw](/docs/linux/applications/ufw/) est un Firewall accessible             |
+| ufws     | Affiche le status de ufw, avec les règles numérotées                        |
+| vi       | [vim](/docs/linux/applications/vim/) avec le split vertical actif           |
+| z        | [zoxide](/docs/linux/applications/zoxide/) est un cd intélligent            |
 
 Et enfin, les fonctions :
 

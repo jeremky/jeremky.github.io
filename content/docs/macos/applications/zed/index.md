@@ -156,6 +156,10 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
     },
   },
 
+  "focus_follows_mouse": {
+    "enabled": true
+  },
+
   "vim_mode": false,
   "vim": {
     "use_system_clipboard": "never",
@@ -279,7 +283,9 @@ brew install shfmt shellcheck
     "bindings": {
       "f1": "command_palette::Toggle",
       "cmd-shift-a": "workspace::ToggleZoom",
+      "cmd-shift-e": "project_panel::ToggleFocus",
       "cmd-shift-g": "git_panel::ToggleFocus",
+      "cmd-shift-z": "workspace::ToggleLeftDock",
       "cmd-shift-c": "multi_workspace::ToggleWorkspaceSidebar",
     },
   },
@@ -362,6 +368,7 @@ include_paths = [
 ]
 
 words = [
+  "Catppuccin",
   "codeberg",
   "cron",
   "homebrew",

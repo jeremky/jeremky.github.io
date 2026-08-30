@@ -1,5 +1,5 @@
 ---
-title: "Vim"
+title: "vim"
 slug: vim
 contextMenu: true
 weight: 80
