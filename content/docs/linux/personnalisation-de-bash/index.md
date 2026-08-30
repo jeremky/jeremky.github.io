@@ -23,7 +23,7 @@ Dans le home directory, se trouvent des fichiers cachés contenant ces informati
 
 ## Fichier .bashrc
 
-```code {filename="~/.bashrc"}
+```bash {filename="~/.bashrc"}
 # ─── .bashrc ─────────────────────────────────────────────
 
 # if not running interactively, don't do anything
