@@ -151,7 +151,7 @@ endfunction
 " Liste des fichiers dans le répertoire courant
 function! s:listCwd()
   let cwd = getcwd()
-  let files = sort(readdir(cwd))
+  let files = sort(readdir(cwd, {n -> !isdirectory(cwd . '/' . n)}))
   return map(files, "{'line': v:val, 'path': cwd . '/' . v:val}")
 endfunction
 
