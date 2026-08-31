@@ -62,13 +62,13 @@ La liste est loin d'être exhaustive, mais vous avez déjà une bonne base pour 
 
 ## Fichier .vimrc
 
-Je vous partage un exemple de configuration pour vim. Ce fichier est à créer sous `~/.config/vim/vimrc`.
+Je vous partage un exemple de configuration pour vim. Ce fichier est à créer sous `~/.vim/vimrc`.
 
 > [!IMPORTANT]
-> Ce fichier nécessite **Vim 9.1**, et la présence de `git` et `curl` sur votre machine (pour le téléchargement de [vim-plug](https://github.com/junegunn/vim-plug) et des plugins)
+> Ce fichier nécessite la présence de `git` et `curl` sur votre machine (pour le téléchargement de [vim-plug](https://github.com/junegunn/vim-plug) et des plugins)
 
 ```vim {filename="~/.config/vim/vimrc"}
-" ─── vimrc ───────────────────────────────────────────────────────────────────
+" ─── vimrc ────────────────────────────────────────────────────────────────────
 
 " Compatibilité & syntaxe
 set nocompatible                " Désactive la compatibilité Vi
@@ -96,7 +96,6 @@ set ruler                       " Affiche la position du curseur
 set showcmd                     " Afficher la commande dans la ligne d'état
 set showmatch                   " Afficher les parenthèses correspondantes
 set wildmenu                    " Menu de complétion pour la ligne de commande
-set wildoptions=pum             " Menu de complétion en popup vertical
 
 " Fenêtres, buffers & navigation
 set hidden                      " Cacher les tampons lorsqu'ils sont abandonnés
@@ -119,7 +118,7 @@ let &t_SI = "\e[6 q"
 let &t_EI = "\e[2 q"
 let &t_SR = "\e[4 q"
 
-" ─── fonctions ───────────────────────────────────────────────────────────────
+" ─── fonctions ────────────────────────────────────────────────────────────────
 
 " Ajout des numéros de ligne et gestion de la souris
 function! ModeIDE()
@@ -156,7 +155,7 @@ function! s:listCwd()
   return map(files, "{'line': v:val, 'path': cwd . '/' . v:val}")
 endfunction
 
-" ─── mapping ─────────────────────────────────────────────────────────────────
+" ─── mapping ──────────────────────────────────────────────────────────────────
 
 " Mode IDE
 nnoremap <F2> <Cmd>call ModeIDE()<CR>
@@ -183,11 +182,11 @@ nnoremap <F9> <Cmd>call OpenStartify()<CR>
 " Changement de document
 nnoremap <S-TAB> <C-w>w
 
-" ─── plugins ─────────────────────────────────────────────────────────────────
+" ─── plugins ──────────────────────────────────────────────────────────────────
 
 " Téléchargement de vim-plug si introuvable
-if empty(glob('~/.config/vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.config/vim/autoload/plug.vim --create-dirs
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
         \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 endif
 
@@ -197,7 +196,7 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
       \| endif
 
 " Liste des plugins
-call plug#begin()
+call plug#begin('~/.vim/plugged')
 
 " Interface
 Plug 'catppuccin/vim', { 'as': 'catppuccin' }
@@ -214,7 +213,7 @@ Plug 'sheerun/vim-polyglot'
 
 call plug#end()
 
-" ─── autocmds ────────────────────────────────────────────────────────────────
+" ─── autocmds ─────────────────────────────────────────────────────────────────
 
 augroup vimrc
   autocmd!
@@ -230,9 +229,9 @@ augroup vimrc
 
 augroup END
 
-" ─── plugins config ──────────────────────────────────────────────────────────
+" ─── plugins config ───────────────────────────────────────────────────────────
 
-if isdirectory(expand("~/.config/vim/plugged"))
+if isdirectory(expand("~/.vim/plugged"))
 
   " Catppuccin
   silent! colorscheme catppuccin_mocha
