@@ -62,10 +62,10 @@ La liste est loin d'être exhaustive, mais vous avez déjà une bonne base pour 
 
 ## Fichier .vimrc
 
-Je vous partage un exemple de configuration pour vim.
-Ce fichier est à créer sous `~/.config/vim/vimrc`.
+Je vous partage un exemple de configuration pour vim. Ce fichier est à créer sous `~/.config/vim/vimrc`.
 
-> Avant de lancer Vim une fois le fichier créé, assurez-vous d'avoir git et curl installés. Ils sont nécessaires pour le téléchargement de [vim-plug](https://github.com/junegunn/vim-plug) et des plugins
+> [!IMPORTANT]
+> Ce fichier nécessite **Vim 9.1**, et la présence de `git` et `curl` sur votre machine (pour le téléchargement de [vim-plug](https://github.com/junegunn/vim-plug) et des plugins)
 
 ```vim {filename="~/.config/vim/vimrc"}
 " ─── vimrc ───────────────────────────────────────────────────────────────────
@@ -270,11 +270,11 @@ endif
 #### Mapping
 
 - F2 : bascule en mode **IDE** : prise en charge de la souris et affichage des numéros de ligne
-- F3 : Affiche les caractères invisibles (espaces et fins de ligne)
+- F3 : affiche les caractères invisibles (espaces et fins de ligne)
 - F4 : commente automatiquement la ligne (s'adapte au type de fichier)
 - F5 : effectue une indentation automatique sur l'intégralité du fichier
 - F7 : supprime les plugins non utilisés
 - F8 : lance une mise à jour des plugins
-- F9 : retourne à l'écran d'accueil Startify (dans un split si un fichier est déjà ouvert)
+- F9 : ouvre l'écran d'accueil Startify dans un split vertical
 
 ![vim](vim.webp)
