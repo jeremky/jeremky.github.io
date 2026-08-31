@@ -285,7 +285,6 @@ brew install shfmt shellcheck
       "cmd-shift-a": "workspace::ToggleZoom",
       "cmd-shift-e": "project_panel::ToggleFocus",
       "cmd-shift-g": "git_panel::ToggleFocus",
-      "cmd-shift-z": "workspace::ToggleLeftDock",
       "cmd-shift-c": "multi_workspace::ToggleWorkspaceSidebar",
     },
   },
