@@ -155,11 +155,7 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
       "milliseconds": 3000,
     },
   },
-
-  "focus_follows_mouse": {
-    "enabled": true
-  },
-
+  
   "vim_mode": false,
   "vim": {
     "use_system_clipboard": "never",
