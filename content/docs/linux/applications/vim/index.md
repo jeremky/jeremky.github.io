@@ -118,6 +118,11 @@ let &t_SI = "\e[6 q"
 let &t_EI = "\e[2 q"
 let &t_SR = "\e[4 q"
 
+" Menu de complétion en popup vertical
+if has('patch-8.2.4325')
+  set wildoptions=pum
+endif
+
 " ─── fonctions ────────────────────────────────────────────────────────────────
 
 " Ajout des numéros de ligne et gestion de la souris
@@ -138,21 +143,6 @@ function! ReindentFile()
   let l:view = winsaveview()
   normal! gg=G
   call winrestview(l:view)
-endfunction
-
-" Ouverture de Startify
-function! OpenStartify()
-  if !empty(expand('%')) && &buftype ==# ''
-    vsplit
-  endif
-  Startify
-endfunction
-
-" Liste des fichiers dans le répertoire courant
-function! s:listCwd()
-  let cwd = getcwd()
-  let files = sort(readdir(cwd, {n -> !isdirectory(cwd . '/' . n)}))
-  return map(files, "{'line': v:val, 'path': cwd . '/' . v:val}")
 endfunction
 
 " ─── mapping ──────────────────────────────────────────────────────────────────
@@ -176,11 +166,11 @@ nnoremap <F7> <Cmd>PlugClean<CR>
 " MAJ des plugins
 nnoremap <F8> <Cmd>PlugUpdate<CR>
 
-" Retour à l'écran d'accueil (split si fichier ouvert)
-nnoremap <F9> <Cmd>call OpenStartify()<CR>
-
 " Changement de document
 nnoremap <S-TAB> <C-w>w
+
+" Désactivation de la surbrillance de la recherche
+nnoremap <silent> <CR> <Cmd>nohlsearch<CR><CR>
 
 " ─── plugins ──────────────────────────────────────────────────────────────────
 
@@ -201,7 +191,6 @@ call plug#begin('~/.vim/plugged')
 " Interface
 Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 Plug 'itchyny/lightline.vim'
-Plug 'mhinz/vim-startify'
 
 " Edition
 Plug 'tpope/vim-commentary'
@@ -244,13 +233,6 @@ if isdirectory(expand("~/.vim/plugged"))
   set laststatus=2
   set noshowmode
 
-  " Startify
-  let g:startify_custom_header = []
-  let g:startify_files_number = 30
-  let g:startify_lists = [
-        \ { 'type': function('s:listCwd'), },
-        \ ]
-
 endif
 ```
 
@@ -263,7 +245,6 @@ endif
 - vim-commentary : commenter/décommenter rapidement
 - VimCompletesMe : gère l'auto-complétion
 - autopairs : ferme automatiquement certains brackets
-- startify : affiche une interface de démarrage personnalisée
 - vim-polyglot : affichage du code amélioré
 
 #### Mapping
