@@ -7,7 +7,7 @@ toc: true
 tags:
   - linux
 draft: false
-lastmod: 2026-08-30
+lastmod: 2026-09-05
 ---
 
 Le shell Linux sert d'interface entre l'utilisateur et le système d'exploitation. Différents shells existent, comme bash, zsh, fish... Mais **bash** étant par défaut sur la plupart des distributions Linux, c'est sur ce dernier que je vais me focaliser.
@@ -24,15 +24,15 @@ Dans le home directory, se trouvent des fichiers cachés contenant ces informati
 ## Fichier .bashrc
 
 ```bash {filename="~/.bashrc"}
-# ─── .bashrc ──────────────────────────────────────────────────────────────────
+# ─── .bashrc ─────────────────────────────────────────────────────────────
 
-# if not running interactively, don't do anything
+# if not interactive
 case $- in
   *i*) ;;
   *) return ;;
 esac
 
-# Source global definitions
+# global definitions
 if [ -f /etc/bashrc ]; then
     . /etc/bashrc
 fi
@@ -72,6 +72,12 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+# solus
+[[ -f /usr/share/defaults/etc/profile ]] && source /usr/share/defaults/etc/profile
+
+# envman
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
 ```
 
 ## Fichier .bash_aliases
@@ -88,8 +94,9 @@ Il est utilisable aussi bien pour votre user que pour root. Attention dans ce ca
 
 Mon fichier `.bash_aliases` se divise en plusieurs parties :
 
-- La définition de certaines variables d'environnement (langue, éditeur par défaut)
+- Une coloration spécifique pour certains fichiers/dossiers cachés dans les listings (`LS_COLORS`)
 - Un paramètre pour ignorer la casse lors de la saisie (remplace automatiquement les caractères concernés lors d'une tabulation)
+- La définition de certaines variables d'environnement (langue, éditeur par défaut)
 - La gestion de sudo (pour la suite du fichier, et pour faire `su` au lieu de `sudo -s` pour passer root)
 - La liste des aliases de base que j'utilise
 - Des aliases supplémentaires pour des applications spécifiques, chargés uniquement si les applications sont installées
@@ -101,7 +108,20 @@ Vous pouvez le récupérer directement sur github en suivant [ce lien](https://g
 Le contenu du fichier :
 
 ```bash {filename="~/.bash_aliases"}
-# ─── .bash_aliases ────────────────────────────────────────────────────────────
+# ─── .bash_aliases ───────────────────────────────────────────────────────
+
+# ls colors
+hidden=".gitignore .history .old"
+for file in $hidden; do
+  export LS_COLORS="$LS_COLORS:*$file=00;90"
+done
+
+# options
+if [[ $- == *i* ]]; then
+  bind 'set colored-stats on'          # Couleurs lors de la complétion
+  bind 'set completion-ignore-case on' # Ignorer la casse lors de la complétion
+  bind 'set show-all-if-unmodified on' # Affiche les correspondances immédiatement
+fi
 
 # prompt
 if [[ "$EUID" -eq 0 ]]; then
@@ -116,16 +136,8 @@ export LANGUAGE=$LANG
 export LC_ALL=$LANG
 export EDITOR=vim
 export VISUAL=$EDITOR
-# export TMOUT=3600
 
-# options
-if [[ $- == *i* ]]; then
-  bind 'set colored-stats on'          # Couleurs lors de la complétion
-  bind 'set completion-ignore-case on' # Ignorer la casse lors de la complétion
-  bind 'set show-all-if-unmodified on' # Affiche les correspondances immédiatement
-fi
-
-# ─── aliases ──────────────────────────────────────────────────────────────────
+# ─── aliases ─────────────────────────────────────────────────────────────
 
 alias ls='ls --color=auto'                               # Ajoute la couleur
 alias l='ls -lh'                                         # Liste détaillée
@@ -139,7 +151,7 @@ alias grep='grep -i --color=auto'                        # Grep sans sensibilit�
 alias zgrep='zgrep -i --color=auto'                      # Grep dans les fichiers compressés
 alias psp='ps -eaf | grep -v grep | grep'                # Chercher un process (psp <nom>)
 alias iostat='iostat -m --human'                         # iostat lisible
-alias ifcg='ip -br -c addr | grep -vw lo'                # Adresses IP (ifconfig obsolète)
+alias ifc='ip -br -c addr | grep -vw lo'                 # Adresses IP (ifconfig obsolète)
 alias ssp='ss -tunlH | grep'                             # Chercher un port (ssp <port>)
 alias pubip='curl -s -4 https://ipecho.net/plain ; echo' # IP publique
 alias df='df -h -x tmpfs -x devtmpfs -x overlay'         # df sans montages inutiles
@@ -153,7 +165,7 @@ alias reboot='sudo reboot'                               # Redémarrage
 alias genkey='ssh-keygen -t ed25519 -a 100'        # Clé ed25519
 alias genkeyrsa='ssh-keygen -t rsa -b 4096 -a 100' # Clé RSA
 
-# ─── applications facultatives ────────────────────────────────────────────────
+# ─── applications facultatives ───────────────────────────────────────────
 
 # apt : gestionnaire de paquets deb
 if command -v apt &>/dev/null; then
@@ -186,8 +198,10 @@ command -v dust &>/dev/null && alias dus='dust -rb'
 # fd : find amélioré
 if command -v fdfind &>/dev/null; then
   alias fd='fdfind -HI'
+  export FZF_DEFAULT_COMMAND='fdfind -HI'
 elif command -v fd &>/dev/null; then
   alias fd='fd -HI'
+  export FZF_DEFAULT_COMMAND='fd -HI'
 fi
 
 # fzf : recherche avancée avec thème Catppuccin Mocha
@@ -201,6 +215,9 @@ if command -v fzf &>/dev/null; then
     --color=border:#6C7086,label:#CDD6F4"
 fi
 
+# icdiff : diff amélioré
+command -v icdiff &>/dev/null && alias diff='icdiff'
+
 # ncdu : équivalent à TreeSize
 command -v ncdu &>/dev/null && alias ncdu='ncdu --color dark'
 
@@ -209,6 +226,12 @@ command -v procs &>/dev/null && alias psp='procs'
 
 # rg : plus performant que grep
 command -v rg &>/dev/null && alias rg='rg -i --no-ignore'
+
+# tmux : émulateur de terminal
+if command -v tmux &>/dev/null; then
+  alias tm='tmux attach || tmux new'
+  alias tmr='tmux source-file ~/.config/tmux/tmux.conf'
+fi
 
 # tty-clock : horloge en CLI
 command -v tty-clock &>/dev/null && alias clock='tty-clock -c -f %d/%m/%Y'
@@ -225,13 +248,13 @@ command -v vim &>/dev/null && alias vi='vim -O'
 # zoxide : cd amélioré
 command -v zoxide &>/dev/null && eval "$(zoxide init bash)"
 
-# ─── fonctions ────────────────────────────────────────────────────────────────
+# ─── fonctions ──────────────────────────────────────────────────────────
 
 # cleanlog : nettoyer les logs systemd
 cleanlog() { [[ -n "$1" ]] && sudo journalctl --vacuum-time="${1}"d; }
 
 # cpsave : copier un fichier ou dossier avec suffixe .old
-cpsave() { cp -Rp "$1" "${1%/}.$(date +%Y%m%d).old"; }
+cpsave() { cp -Rp "$1" "${1%/}.old"; }
 
 # md5 : MD5 d'une chaîne
 md5() { printf '%s' "$1" | md5sum | cut -d' ' -f1; }
@@ -248,10 +271,16 @@ diskbench() {
   rm testfile
 }
 
+# webi : gestionnaire de paquets
+webinstall() {
+  curl -sS https://webi.sh/webi | sh
+  source "$HOME/.config/envman/PATH.env"
+}
+
 # zipd : créer une archive zip par dossier/fichier donné
 zipd() { for file in "$@"; do /usr/bin/zip -r "${file%/}.zip" "$file"; done; }
 
-# ─── scripts ──────────────────────────────────────────────────────────────────
+# ─── scripts ─────────────────────────────────────────────────────────────
 
 # Transforme les scripts en alias
 scripts=~/Documents/scripts
@@ -281,7 +310,7 @@ Les aliases de base :
 | zgrep     | Même chose pour zgrep (grep dans les fichiers compressés)            |
 | psp       | Suivi d'une chaîne, permet de rechercher rapidement un process       |
 | iostat    | Commande iostat, mais plus lisible                                   |
-| ifconfig  | Utilise le programme ip (ifconfig n'existe plus sous Debian)         |
+| ifc       | Utilise le programme ip (ifconfig n'existe plus sous Debian)         |
 | ss        | Remplaçant de netstat, mais épuré                                    |
 | ssp       | Suivi d'une chaîne, permet de rechercher rapidement un port d'écoute |
 | pubip     | Affiche rapidement l'IP publique de la machine                       |
@@ -295,33 +324,36 @@ Les aliases de base :
 
 Les aliases actifs uniquement dans le cas où les applications sont installées :
 
-| Commande | Description                                                                 |
-| -------- | --------------------------------------------------------------------------- |
-| diff     | Remplace la commande par colordiff, pour une meilleure lisibilité           |
-| df       | [duf](/docs/linux/applications/duf/) est un df amélioré                     |
-| d        | Lance dust, la commande `du` améliorée                                      |
-| fd       | Outil équivalent à find mais bien plus simple à utiliser                    |
-| fzf      | [fzf](/docs/linux/applications/fzf/) est un outil de recherche avancé       |
-| top      | Remplace la commande top par btop (ou htop à défaut)                        |
-| ncdu     | [ncdu](/docs/linux/applications/ncdu/) est un équivalent de Treesize        |
-| psp      | Remplace la commande par procs, plus lisible et plus rapide                 |
-| rg       | [ripgrep](/docs/linux/applications/ripgrep/) est un `grep` récursif lisible |
-| clock    | Lance tty-clock, un petit outil pour afficher l'heure                       |
-| ufw      | [ufw](/docs/linux/applications/ufw/) est un Firewall accessible             |
-| ufws     | Affiche le status de ufw, avec les règles numérotées                        |
-| vi       | [vim](/docs/linux/applications/vim/) avec le split vertical actif           |
-| z        | [zoxide](/docs/linux/applications/zoxide/) est un cd intélligent            |
+| Commande | Description                                                                   |
+| -------- | ----------------------------------------------------------------------------- |
+| diff     | Remplace la commande par colordiff (icdiff prend le relais s'il est installé) |
+| df       | [duf](/docs/linux/applications/duf/) est un df amélioré                       |
+| d        | Lance dust, la commande `du` améliorée                                        |
+| fd       | Outil équivalent à find mais bien plus simple à utiliser                      |
+| fzf      | [fzf](/docs/linux/applications/fzf/) est un outil de recherche avancé         |
+| top      | Remplace la commande top par btop (ou htop à défaut)                          |
+| ncdu     | [ncdu](/docs/linux/applications/ncdu/) est un équivalent de Treesize          |
+| psp      | Remplace la commande par procs, plus lisible et plus rapide                   |
+| rg       | [ripgrep](/docs/linux/applications/ripgrep/) est un `grep` récursif lisible   |
+| tm       | Attache la session tmux existante, ou en crée une nouvelle                    |
+| tmr      | Recharge la configuration de tmux à chaud                                     |
+| clock    | Lance tty-clock, un petit outil pour afficher l'heure                         |
+| ufw      | [ufw](/docs/linux/applications/ufw/) est un Firewall accessible               |
+| ufws     | Affiche le status de ufw, avec les règles numérotées                          |
+| vi       | [vim](/docs/linux/applications/vim/) avec le split vertical actif             |
+| z        | [zoxide](/docs/linux/applications/zoxide/) est un cd intélligent              |
 
 Et enfin, les fonctions :
 
-| Commande  | Description                                                                |
-| --------- | -------------------------------------------------------------------------- |
-| cleanlog  | Supprimer les logs systemd en spécifiant le nombre de jours                |
-| cpsave    | Créer une copie en date.old d'un fichier ou d'un dossier spécifié          |
-| gencert   | Générer un certificat en précisant le nom de domaine en paramètre          |
-| md5       | Calculer le hash MD5 d'une chaîne de caractères                            |
-| newuser   | Créer un compte de service (pas de home ni de mot de passe)                |
-| tarc      | Créer un tar.gz d'un ou plusieurs fichiers ou dossiers passés en paramètre |
-| tarx      | Pour extraire un ou plusieurs tar.gz passés en paramètre                   |
-| diskbench | Tester la vitesse du disque courant en créant un fichier                   |
-| zipd      | Facilite l'utilisation de la commande zip (zip \<fichier>)                 |
+| Commande   | Description                                                                |
+| ---------- | -------------------------------------------------------------------------- |
+| cleanlog   | Supprimer les logs systemd en spécifiant le nombre de jours                |
+| cpsave     | Créer une copie en .old d'un fichier ou d'un dossier spécifié              |
+| gencert    | Générer un certificat en précisant le nom de domaine en paramètre          |
+| md5        | Calculer le hash MD5 d'une chaîne de caractères                            |
+| newuser    | Créer un compte de service (pas de home ni de mot de passe)                |
+| tarc       | Créer un tar.gz d'un ou plusieurs fichiers ou dossiers passés en paramètre |
+| tarx       | Pour extraire un ou plusieurs tar.gz passés en paramètre                   |
+| diskbench  | Tester la vitesse du disque courant en créant un fichier                   |
+| webinstall | Installe [webi](https://webinstall.dev/), un gestionnaire de paquets       |
+| zipd       | Facilite l'utilisation de la commande zip (zip \<fichier>)                 |
