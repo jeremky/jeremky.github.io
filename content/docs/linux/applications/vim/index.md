@@ -7,7 +7,7 @@ toc: true
 tags:
   - linux
 draft: false
-lastmod: 2026-08-30
+lastmod: 2026-09-05
 ---
 
 *[Vim](https://fr.wikipedia.org/wiki/Vim) est un éditeur de texte extrêmement personnalisable, que ce soit par l'ajout d'extensions, ou par la modification de son fichier de configuration, écrits dans son propre langage d'extension, le Vim script.*
@@ -68,7 +68,7 @@ Je vous partage un exemple de configuration pour vim. Ce fichier est à créer s
 > Ce fichier nécessite la présence de `git` et `curl` sur votre machine (pour le téléchargement de [vim-plug](https://github.com/junegunn/vim-plug) et des plugins)
 
 ```vim {filename="~/.config/vim/vimrc"}
-" ─── vimrc ────────────────────────────────────────────────────────────────────
+" ─── vimrc ───────────────────────────────────────────────────────────────
 
 " Compatibilité & syntaxe
 set nocompatible                " Désactive la compatibilité Vi
@@ -119,21 +119,28 @@ let &t_EI = "\e[2 q"
 let &t_SR = "\e[4 q"
 
 " Menu de complétion en popup vertical
-if has('patch-8.2.4325')
-  set wildoptions=pum
-endif
+if has('patch-8.2.4325') | set wildoptions=pum | endif
 
-" ─── fonctions ────────────────────────────────────────────────────────────────
+" Gestion de tmux
+if !empty($TMUX) | set mouse=a | set clipboard=unnamed | if has('mouse_sgr') | set ttymouse=sgr | endif | endif
+
+" ─── fonctions ───────────────────────────────────────────────────────────
 
 " Ajout des numéros de ligne et gestion de la souris
 function! ModeIDE()
   if get(g:, 'modeIDE_enabled', 0)
     let g:modeIDE_enabled = 0
-    windo set nonumber mouse=
+    windo set nonumber
+    if empty($TMUX)
+      windo set mouse=
+    endif
     echo "Mode IDE désactivé"
   else
     let g:modeIDE_enabled = 1
-    windo set number mouse=a
+    windo set number
+    if empty($TMUX)
+      windo set mouse=a
+    endif
     echo "Mode IDE activé"
   endif
 endfunction
@@ -145,7 +152,7 @@ function! ReindentFile()
   call winrestview(l:view)
 endfunction
 
-" ─── mapping ──────────────────────────────────────────────────────────────────
+" ─── mapping ─────────────────────────────────────────────────────────────
 
 " Mode IDE
 nnoremap <F2> <Cmd>call ModeIDE()<CR>
@@ -172,7 +179,7 @@ nnoremap <S-TAB> <C-w>w
 " Désactivation de la surbrillance de la recherche
 nnoremap <silent> <CR> <Cmd>nohlsearch<CR><CR>
 
-" ─── plugins ──────────────────────────────────────────────────────────────────
+" ─── plugins ─────────────────────────────────────────────────────────────
 
 " Téléchargement de vim-plug si introuvable
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -202,7 +209,7 @@ Plug 'sheerun/vim-polyglot'
 
 call plug#end()
 
-" ─── autocmds ─────────────────────────────────────────────────────────────────
+" ─── autocmds ────────────────────────────────────────────────────────────
 
 augroup vimrc
   autocmd!
@@ -218,7 +225,7 @@ augroup vimrc
 
 augroup END
 
-" ─── plugins config ───────────────────────────────────────────────────────────
+" ─── plugins config ──────────────────────────────────────────────────────
 
 if isdirectory(expand("~/.vim/plugged"))
 
@@ -255,6 +262,9 @@ endif
 - F5 : effectue une indentation automatique sur l'intégralité du fichier
 - F7 : supprime les plugins non utilisés
 - F8 : lance une mise à jour des plugins
-- F9 : ouvre l'écran d'accueil Startify dans un split vertical
+
+#### Intégration tmux
+
+Lorsque Vim est lancé à l'intérieur d'une session tmux, la souris et le presse-papier sont pris en charge automatiquement (`mouse=a`, `clipboard=unnamed`, et `ttymouse=sgr` si le terminal le supporte). Le mode **IDE** (F2) en tient compte : il ne désactive plus la souris à la sortie du mode, puisque tmux la gère déjà nativement.
 
 ![vim](vim.webp)
