@@ -56,6 +56,9 @@ fi
 # aliases
 [[ -f ~/.bash_aliases ]] && . "$HOME/.bash_aliases"
 
+# solus
+[[ -f /usr/share/defaults/etc/profile ]] && source /usr/share/defaults/etc/profile
+
 # prompt
 case "$TERM" in
   xterm* | rxvt*)
@@ -72,9 +75,6 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-
-# solus
-[[ -f /usr/share/defaults/etc/profile ]] && source /usr/share/defaults/etc/profile
 
 # envman
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
