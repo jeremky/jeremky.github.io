@@ -7,7 +7,7 @@ toc: true
 tags:
   - linux
 draft: false
-lastmod: 2026-09-05
+lastmod: 2026-09-06
 ---
 
 *[Vim](https://fr.wikipedia.org/wiki/Vim) est un éditeur de texte extrêmement personnalisable, que ce soit par l'ajout d'extensions, ou par la modification de son fichier de configuration, écrits dans son propre langage d'extension, le Vim script.*
@@ -107,6 +107,9 @@ set splitright                  " Nouveau split vertical à droite
 set mouse=                      " Désactive la souris par défaut
 set nobackup                    " Désactive les sauvegardes automatiques
 
+" Correction orthographique
+set spelllang=en,fr
+
 " Permet l'indentation automatique : gg=G
 filetype plugin indent on
 
@@ -153,6 +156,9 @@ function! ReindentFile()
 endfunction
 
 " ─── mapping ─────────────────────────────────────────────────────────────
+
+" Corrrecteur orthographique
+nnoremap <F1> <Cmd>set spell!<CR>
 
 " Mode IDE
 nnoremap <F2> <Cmd>call ModeIDE()<CR>
@@ -256,6 +262,7 @@ endif
 
 #### Mapping
 
+- F1 : active/désactive la correction orthographique (anglais/français)
 - F2 : bascule en mode **IDE** : prise en charge de la souris et affichage des numéros de ligne
 - F3 : affiche les caractères invisibles (espaces et fins de ligne)
 - F4 : commente automatiquement la ligne (s'adapte au type de fichier)

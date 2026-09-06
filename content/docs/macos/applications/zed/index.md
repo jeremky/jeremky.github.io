@@ -7,7 +7,7 @@ toc: true
 tags:
   - macos
 draft: false
-lastmod: 2026-08-23
+lastmod: 2026-09-06
 ---
 
 [Zed](https://zed.dev/) est un éditeur de code minimaliste, développé par les créateurs d'Atom après sa fermeture en 2022. Écrit entièrement en Rust, il a été conçu dès le départ pour offrir des performances élevées, une intégration de l'IA et une collaboration en temps réel. Disponible sur macOS et Linux (et plus récemment Windows), il se positionne comme une alternative sérieuse aux éditeurs traditionnels comme VS Code.
@@ -88,14 +88,15 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
     "dock": "right",
 
     "inline_assistant_model": {
-      "provider": "mistral",
-      "model": "mistral-small-latest",
+      "provider": "google",
+      "model": "gemini-3.6-flash",
     },
 
     "default_model": {
-      "enable_thinking": false,
-      "provider": "mistral",
-      "model": "mistral-medium-latest",
+      "effort": "medium",
+      "enable_thinking": true,
+      "provider": "google",
+      "model": "gemini-3.6-flash",
     },
   },
 
@@ -118,9 +119,10 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
   "icon_theme": "Catppuccin Mocha",
   "buffer_font_family": "JetBrains Mono NL",
   "buffer_font_size": 13,
-  "ui_font_size": 15,
-  "agent_ui_font_size": 15,
-  "markdown_preview_font_size": 15,
+  "ui_font_size": 14,
+  "agent_ui_font_size": 14,
+  "agent_buffer_font_size": 13,
+  "markdown_preview_font_size": 14,
 
   "debugger": { "button": false },
   "collaboration_panel": { "dock": "left", "button": false },
@@ -144,6 +146,7 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
   // ─── Editor ───────────────────────────────────────────
 
   "base_keymap": "Zed",
+  "format_on_save": "modifications",
   "cli_default_open_behavior": "existing_window",
   "extend_comment_on_newline": false,
   "snippet_sort_order": "top",
@@ -165,25 +168,38 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
   // ─── Code ─────────────────────────────────────────────
 
   "file_types": {
+    "env": ["cfg", "conf", "cron"],
     "Shell Script": ["comp"],
-    "ini": ["cron", "cfg"],
   },
 
   "languages": {
-    "Markdown": {
-      "show_edit_predictions": false,
-    },
-
     "Make": {
       "hard_tabs": true,
     },
 
     "Shell Script": {
-      "format_on_save": "on",
       "formatter": {
         "external": {
           "command": "shfmt",
           "arguments": ["-i", "2", "-ci", "-"],
+        },
+      },
+    },
+
+    "Vimscript": {
+      "formatter": {
+        "external": {
+          "command": "vim",
+          "arguments": [
+            "-Nes",
+            "-u",
+            "NONE",
+            "-i",
+            "NONE",
+            "-c",
+            "set ft=vim | runtime! indent/vim.vim | set expandtab shiftwidth=2 | execute \"normal! gg=G\" | wq! /dev/stdout",
+            "/dev/stdin",
+          ],
         },
       },
     },
@@ -246,8 +262,8 @@ Le fichier a été organisé pour regrouper les paramètres :
 - les paramètres généraux et d'interface (désactivation de la télémétrie, taille de police, thème...)
 - la configuration des services IA
 - les panneaux (position de l'explorateur de fichiers, désactivation des panneaux que je n'utilise pas...)
-- l'éditeur lui-même (sauvegarde automatique, taille des tabulations...)
-- la gestion du code (gestion de l'outil `shfmt` pour les scripts bash, les tabulations forcées pour les fichier `Makefile`...)
+- l'éditeur lui-même (sauvegarde automatique, formatage à la sauvegarde, taille des tabulations...)
+- la gestion du code (gestion de l'outil `shfmt` pour les scripts bash, formatage des fichiers Vimscript via vim lui-même, les tabulations forcées pour les fichier `Makefile`...)
 - une section des connexions ssh (Zed peut se connecter nativement à un serveur ssh pour une édition directe)
 - et enfin, l'installation automatique des extensions listées
 

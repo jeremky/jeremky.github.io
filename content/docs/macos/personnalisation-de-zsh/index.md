@@ -7,7 +7,7 @@ toc: true
 tags:
   - macos
 draft: false
-lastmod: 2026-08-30
+lastmod: 2026-09-06
 ---
 
 *[Le Z shell](https://fr.wikipedia.org/wiki/Z_Shell) ou zsh est un shell Unix qui peut être utilisé de façon interactive, à l'ouverture de la session ou en tant que puissant interpréteur de commande. zsh peut être vu comme un « Bourne shell » étendu avec beaucoup d'améliorations. Il reprend en plus la plupart des fonctions les plus pratiques de bash, ksh et tcsh. Zsh remplace bash dans macOS à partir de macOS Catalina 10.15.*
@@ -25,6 +25,8 @@ Le fichier `.zshrc` n'existe pas par défaut. Zsh est chargé sans aucune person
 ```bash {filename="~/.zshrc"}
 # ─── .zshrc ──────────────────────────────────────────────────────────────────
 
+# shellcheck disable=all
+
 # options
 setopt AUTO_CD            # Naviguer sans 'cd'
 setopt HIST_IGNORE_DUPS   # Ignore les doublons dans l'historique
@@ -38,7 +40,7 @@ SAVEHIST=10000
 HISTFILE="$HOME/.local/share/zsh/history"
 
 # prompt
-PROMPT='%B%F{cyan}❱ %F{blue}%~ $ %f%b'
+PROMPT='%B%(?.%F{cyan}.%F{red})❱ %F{blue}%~ $ %f%b'
 
 # homebrew
 if [[ -z $HOMEBREW_PREFIX ]] && [[ -d /opt/homebrew ]]; then
@@ -62,6 +64,8 @@ zstyle ':completion:*' menu select
 # ls colors
 export CLICOLOR=1
 export LSCOLORS=ExfxbxdxCxegedabagacad
+
+# completion colors
 export LS_COLORS="di=1;38;2;137;180;250:ln=38;2;203;166;247:ex=1;38;2;166;227;161"
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
@@ -69,6 +73,7 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 bindkey -e
 bindkey "\e[H" beginning-of-line
 bindkey "\e[F" end-of-line
+bindkey "\e[3~" delete-char
 
 # aliases
 [[ -f ~/.zsh_aliases ]] && source "$HOME/.zsh_aliases"
@@ -108,6 +113,7 @@ Le contenu du fichier :
 # ─── .zsh_aliases ────────────────────────────────────────────────────────────
 
 # variables
+export XDG_CONFIG_HOME="$HOME/.config"
 export PATH="$HOME/.local/bin:$PATH"
 export LANG=fr_FR.UTF-8
 export LC_ALL=fr_FR.UTF-8
@@ -159,7 +165,7 @@ command -v colordiff &>/dev/null && alias diff='colordiff'
 command -v duf &>/dev/null && alias df='duf -hide special'
 
 # dust : du amlérioré
-command -v dust &>/dev/null && alias d='dust -rb'
+command -v dust &>/dev/null && alias du='dust -rb'
 
 # fzf : recherche avancée avec thème Catppuccin Mocha
 if command -v fzf &>/dev/null; then
@@ -176,6 +182,9 @@ if command -v fzf &>/dev/null; then
     --color=border:#6C7086,label:#CDD6F4"
 fi
 
+# icdiff : diff amélioré
+command -v icdiff &>/dev/null && alias diff='icdiff'
+
 # ncdu : équivalent à TreeSize
 command -v ncdu &>/dev/null && alias ncdu='ncdu --color dark'
 
@@ -185,13 +194,19 @@ command -v procs &>/dev/null && alias psp='procs'
 # rg : plus performant que grep
 command -v rg &>/dev/null && alias rg='rg -i'
 
+# tmux : émulateur de terminal
+if command -v tmux &>/dev/null; then
+  alias tm='tmux attach || tmux new'
+  alias tmr='tmux source-file ~/.config/tmux/tmux.conf'
+fi
+
 # zoxide : cd amélioré
 command -v zoxide &>/dev/null && eval "$(zoxide init zsh)"
 
 # ─── fonctions ───────────────────────────────────────────────────────────────
 
 # cpsave : copie un fichier ou dossier avec suffixe .old
-cpsave() { cp -Rp "$1" "${1%/}.$(date +%Y%m%d).old"; }
+cpsave() { cp -Rp "$1" "${1%/}.old"; }
 
 # tarc : créer une archive pour chaque fichier/dossier spécifié
 tarc() { for file in "$@"; do tar czvf "${file%/}.tar.gz" "$file"; done; }
@@ -236,23 +251,25 @@ Les aliases de base :
 
 Les aliases actifs uniquement dans le cas où les applications sont installées :
 
-| Commande | Description                                                       |
-| -------- | ----------------------------------------------------------------- |
-| top      | Remplace la commande par btop (ou htop à défaut)                  |
-| diff     | Remplace la commande par colordiff, pour une meilleure lisibilité |
-| df       | Remplace la commande par duf, bien plus agréable visuellement     |
-| d        | Outil dust, similaire à du, en couleur et très rapide             |
-| fzf      | Outil de recherche avancé                                         |
-| ncdu     | L'équivalent de l'outil Treesize sous Windows                     |
-| psp      | Outil procs, similaire à ps, en bien plus lisible                 |
-| rg       | Un grep récursif, bien plus lisible que le grep de base           |
-| z        | Utilise zoxide, un cd avancé                                      |
+| Commande | Description                                                                   |
+| -------- | ------------------------------------------------------------------------------ |
+| top      | Remplace la commande par btop (ou htop à défaut)                              |
+| diff     | Remplace la commande par colordiff (icdiff prend le relais s'il est installé) |
+| df       | Remplace la commande par duf, bien plus agréable visuellement                 |
+| du       | Outil dust, similaire à du, en couleur et très rapide                         |
+| fzf      | Outil de recherche avancé                                                     |
+| ncdu     | L'équivalent de l'outil Treesize sous Windows                                 |
+| psp      | Outil procs, similaire à ps, en bien plus lisible                             |
+| rg       | Un grep récursif, bien plus lisible que le grep de base                       |
+| tm       | Attache la session tmux existante, ou en crée une nouvelle                    |
+| tmr      | Recharge la configuration de tmux à chaud                                     |
+| z        | Utilise zoxide, un cd avancé                                                  |
 
 Et enfin, les fonctions :
 
 | Commande | Description                                                                |
 | -------- | -------------------------------------------------------------------------- |
-| cpsave   | Créer une copie en date.old d'un fichier ou d'un dossier spécifié          |
+| cpsave   | Créer une copie en .old d'un fichier ou d'un dossier spécifié             |
 | tarc     | Créer un tar.gz d'un ou plusieurs fichiers ou dossiers passés en paramètre |
 | tarx     | Pour extraire un ou plusieurs tar.gz passés en paramètre                   |
 | zip      | Facilite l'utilisation de la commande zip (`zip <fichier>`)                |

@@ -7,7 +7,7 @@ toc: true
 tags:
   - linux
 draft: false
-lastmod: 2026-09-05
+lastmod: 2026-09-06
 ---
 
 Le shell Linux sert d'interface entre l'utilisateur et le système d'exploitation. Différents shells existent, comme bash, zsh, fish... Mais **bash** étant par défaut sur la plupart des distributions Linux, c'est sur ce dernier que je vais me focaliser.
@@ -49,9 +49,19 @@ shopt -s checkwinsize
 shopt -s globstar
 
 # colors
+case "$TERM" in
+  *-256color)
+    export COLORTERM=truecolor
+    ;;
+esac
+
+# ls colors
 if [ -x /usr/bin/dircolors ]; then
   test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
 fi
+
+# envman
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
 
 # aliases
 [[ -f ~/.bash_aliases ]] && . "$HOME/.bash_aliases"
@@ -75,9 +85,6 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-
-# envman
-[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
 ```
 
 ## Fichier .bash_aliases
@@ -328,7 +335,7 @@ Les aliases actifs uniquement dans le cas où les applications sont installées 
 | -------- | ----------------------------------------------------------------------------- |
 | diff     | Remplace la commande par colordiff (icdiff prend le relais s'il est installé) |
 | df       | [duf](/docs/linux/applications/duf/) est un df amélioré                       |
-| d        | Lance dust, la commande `du` améliorée                                        |
+| dus      | Lance dust, la commande `du` améliorée                                        |
 | fd       | Outil équivalent à find mais bien plus simple à utiliser                      |
 | fzf      | [fzf](/docs/linux/applications/fzf/) est un outil de recherche avancé         |
 | top      | Remplace la commande top par btop (ou htop à défaut)                          |
