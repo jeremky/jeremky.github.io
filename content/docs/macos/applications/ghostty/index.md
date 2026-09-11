@@ -36,13 +36,17 @@ Vous pourrez ensuite l'ouvrir directement depuis Ghostty, via le raccourci **`Cm
 Voici la configuration que j'utilise :
 
 ```ini {filename="~/.config/ghostty/config"}
-# ─── Ghostty ──────────────────────────────────────────────────
+# ─── Ghostty ─────────────────────────────────────────────────────────────
 
 # general
 auto-update = off
 confirm-close-surface = false
 bell-features = no-attention,no-title,no-audio,no-system
 shell-integration-features = no-cursor,ssh-env
+
+# linux
+window-theme = ghostty
+gtk-titlebar = true
 
 # macos
 macos-titlebar-proxy-icon = hidden
@@ -70,23 +74,22 @@ mouse-hide-while-typing = true
 
 # clipboard
 copy-on-select = clipboard
-right-click-action = copy-or-paste
+right-click-action = paste
 
 # quick terminal
 quick-terminal-position = center
 quick-terminal-size = 800px,500px
 
-# ─── keybinds ─────────────────────────────────────────────────
+# ─── keybinds ────────────────────────────────────────────────────────────
 
 # general
 keybind = global:super+shift+space=toggle_quick_terminal
-keybind = super+shift+#=toggle_window_float_on_top
 
 # split
-keybind = super+shift+left=goto_split:left
-keybind = super+shift+down=goto_split:bottom
-keybind = super+shift+up=goto_split:top
-keybind = super+shift+right=goto_split:right
+keybind = ctrl+shift+left=goto_split:left
+keybind = ctrl+shift+down=goto_split:bottom
+keybind = ctrl+shift+up=goto_split:top
+keybind = ctrl+shift+right=goto_split:right
 ```
 
 ### Options utiles
