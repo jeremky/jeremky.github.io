@@ -7,7 +7,7 @@ toc: true
 tags:
   - macos
 draft: false
-lastmod: 2026-09-06
+lastmod: 2026-09-15
 ---
 
 *[Le Z shell](https://fr.wikipedia.org/wiki/Z_Shell) ou zsh est un shell Unix qui peut être utilisé de façon interactive, à l'ouverture de la session ou en tant que puissant interpréteur de commande. zsh peut être vu comme un « Bourne shell » étendu avec beaucoup d'améliorations. Il reprend en plus la plupart des fonctions les plus pratiques de bash, ksh et tcsh. Zsh remplace bash dans macOS à partir de macOS Catalina 10.15.*
@@ -23,7 +23,7 @@ Au démarrage d'une session shell, différents fichiers se chargent automatiquem
 Le fichier `.zshrc` n'existe pas par défaut. Zsh est chargé sans aucune personnalisation. Il va donc falloir le construire de 0. Comme base de départ, je vous partage le mien :
 
 ```bash {filename="~/.zshrc"}
-# ─── .zshrc ──────────────────────────────────────────────────────────────────
+# ─── .zshrc ──────────────────────────────────────────────────────────────
 
 # shellcheck disable=all
 
@@ -70,10 +70,12 @@ export LS_COLORS="di=1;38;2;137;180;250:ln=38;2;203;166;247:ex=1;38;2;166;227;16
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
 # keybindings
-bindkey -e
-bindkey "\e[H" beginning-of-line
-bindkey "\e[F" end-of-line
-bindkey "\e[3~" delete-char
+if [[ -o interactive ]]; then
+  bindkey -e
+  bindkey "\e[H" beginning-of-line
+  bindkey "\e[F" end-of-line
+  bindkey "\e[3~" delete-char
+fi
 
 # aliases
 [[ -f ~/.zsh_aliases ]] && source "$HOME/.zsh_aliases"
@@ -110,7 +112,9 @@ Mon fichier `.zsh_aliases` se divise en plusieurs parties :
 Le contenu du fichier :
 
 ```bash {filename="~/.zsh_aliases"}
-# ─── .zsh_aliases ────────────────────────────────────────────────────────────
+# ─── .zsh_aliases ────────────────────────────────────────────────────────
+
+# shellcheck disable=all
 
 # variables
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -128,7 +132,7 @@ if command -v brew &>/dev/null; then
   alias upgrade='brew update && brew upgrade -g && brew cleanup'
 fi
 
-# ─── aliases ─────────────────────────────────────────────────────────────────
+# ─── aliases ─────────────────────────────────────────────────────────────
 
 alias l='ls -lh'                                      # Liste détaillée
 alias la='ls -lhA'                                    # Liste avec les fichiers cachés
@@ -149,7 +153,7 @@ alias vi='vim -O'                                     # vim avec ouverture multi
 alias speedtest='networkQuality'                      # Speedtest Apple
 alias locate='mdfind -name'                           # Recherche via Spotlight
 
-# ─── applications facultatives ───────────────────────────────────────────────
+# ─── applications facultatives ───────────────────────────────────────────
 
 # btop / htop : top amélioré
 if command -v btop &>/dev/null; then
@@ -169,7 +173,6 @@ command -v dust &>/dev/null && alias du='dust -rb'
 
 # fzf : recherche avancée avec thème Catppuccin Mocha
 if command -v fzf &>/dev/null; then
-  # shellcheck source=/opt/homebrew/bin/fzf
   source <(fzf --zsh)
   if command -v fd &>/dev/null; then
     export FZF_DEFAULT_COMMAND='fd'
@@ -180,6 +183,12 @@ if command -v fzf &>/dev/null; then
     --color=marker:#B4BEFE,fg+:#CDD6F4,prompt:#CBA6F7,hl+:#F38BA8 \
     --color=selected-bg:#45475A \
     --color=border:#6C7086,label:#CDD6F4"
+fi
+
+# herdr : émulateur de terminal
+if command -v herdr &>/dev/null; then
+  alias hr='herdr'
+  alias hrstop='herdr session stop default'
 fi
 
 # icdiff : diff amélioré
@@ -194,18 +203,15 @@ command -v procs &>/dev/null && alias psp='procs'
 # rg : plus performant que grep
 command -v rg &>/dev/null && alias rg='rg -i'
 
-# tmux : émulateur de terminal
-if command -v tmux &>/dev/null; then
-  alias tm='tmux attach || tmux new'
-  alias tmr='tmux source-file ~/.config/tmux/tmux.conf'
-fi
+# zed : éditeur de code
+command -v zed &>/dev/null && alias e='zed'
 
 # zoxide : cd amélioré
 command -v zoxide &>/dev/null && eval "$(zoxide init zsh)"
 
-# ─── fonctions ───────────────────────────────────────────────────────────────
+# ─── fonctions ───────────────────────────────────────────────────────────
 
-# cpsave : copie un fichier ou dossier avec suffixe .old
+# cpsave : copie un fichier ou dossier avec un suffixe .old
 cpsave() { cp -Rp "$1" "${1%/}.old"; }
 
 # tarc : créer une archive pour chaque fichier/dossier spécifié
@@ -226,6 +232,23 @@ netinfo() { for service in "Ethernet" "Wi-Fi"; do
   networksetup -getinfo "$service"
   echo
 done; }
+
+# jback : backup local vers disque externe
+jback() { rsync -ah --no-perms --progress --exclude "._*" --exclude ".DS_Store" ~/Documents/ /Volumes/jdisk/Documents/; }
+
+# ─── scripts ─────────────────────────────────────────────────────────────
+
+# transforme en alias les scripts
+scripts=~/Documents/scripts
+if [[ -d $scripts ]]; then
+  for i in envbackup ggit; do
+    [[ -f $scripts/$i/$i.sh ]] && alias $i="$scripts/$i/$i.sh"
+  done
+fi
+
+# hugo
+sitedir=~/Documents/website
+[[ -f $sitedir/hugo.sh ]] && alias hugo="$sitedir/hugo.sh"
 ```
 
 Les aliases de base :
@@ -261,8 +284,9 @@ Les aliases actifs uniquement dans le cas où les applications sont installées 
 | ncdu     | L'équivalent de l'outil Treesize sous Windows                                 |
 | psp      | Outil procs, similaire à ps, en bien plus lisible                             |
 | rg       | Un grep récursif, bien plus lisible que le grep de base                       |
-| tm       | Attache la session tmux existante, ou en crée une nouvelle                    |
-| tmr      | Recharge la configuration de tmux à chaud                                     |
+| hr       | Lance herdr, un multiplexeur de terminal pour agents de code                  |
+| hrstop   | Arrête la session herdr par défaut                                            |
+| e        | Ouvre [Zed](/docs/macos/applications/zed/), l'éditeur de code                 |
 | z        | Utilise zoxide, un cd avancé                                                  |
 
 Et enfin, les fonctions :
@@ -275,3 +299,4 @@ Et enfin, les fonctions :
 | zip      | Facilite l'utilisation de la commande zip (`zip <fichier>`)                |
 | convweb  | Transforme une image passée en paramètre au format webp                    |
 | netinfo  | Affiche les informations sur les cartes ethernet et Wifi                   |
+| jback    | Sauvegarde `~/Documents` vers un disque externe (`/Volumes/jdisk`)         |

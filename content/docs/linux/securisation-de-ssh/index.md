@@ -57,11 +57,11 @@ Host *
     AddKeysToAgent yes
     IdentitiesOnly yes
 
-Host recalbox
-    HostName recalbox.local
-    User root
-    Port 22
-    IdentityFile ~/.ssh/id_recalbox
+Host github.com
+    IdentityFile ~/.ssh/id_github
+
+Host codeberg.org
+    IdentityFile ~/.ssh/id_codeberg
 ```
 
 La 1ère partie s'applique à tous les hosts. Les éléments sont les suivants :
@@ -71,11 +71,10 @@ La 1ère partie s'applique à tous les hosts. Les éléments sont les suivants :
 
 Ensuite, vous pouvez créer un bloc par serveur distant, et y indiquer les éléments suivants :
 
-- Le host : qui sera un alias pour vos connexions (`ssh recalbox` dans notre exemple)
-- Le hostname, qui peut être une IP
-- Le user
-- Le port à utiliser
-- Et enfin la clé, qui a été renommée
+- Le host : soit directement le nom du serveur distant (`github.com`), soit un alias pour vos connexions
+- Le hostname, si le host n'est pas déjà le nom réel du serveur (peut être une IP)
+- Le user et le port à utiliser, si besoin de sortir des valeurs par défaut
+- Et enfin la clé à utiliser pour ce host
 
 Désormais, au lieu de devoir saisir ssh `<user>@<machine>`, vous pouvez maintenant saisir simplement `ssh <host>`
 

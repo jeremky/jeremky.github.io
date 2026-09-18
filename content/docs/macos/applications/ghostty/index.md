@@ -53,10 +53,10 @@ macos-titlebar-proxy-icon = hidden
 macos-titlebar-style = tabs
 
 # window
-window-width = 98
-window-height = 26
-window-padding-x = 10
-window-padding-y = 10
+window-width = 110
+window-height = 30
+window-padding-x = 15
+window-padding-y = 15
 
 # appearance
 theme = Catppuccin Mocha
