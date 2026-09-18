@@ -7,7 +7,7 @@ toc: true
 tags:
   - macos
 draft: false
-lastmod: 2026-05-17
+lastmod: 2026-09-15
 ---
 
 [Homebrew](https://brew.sh/fr/) est un **gestionnaire de paquets** pour macOS (il existe aussi une version pour Linux, bien que moins couramment utilisée). Si vous êtes familier avec Linux, vous connaissez probablement `apt` (Debian/Ubuntu) ou `dnf` (Fedora/RHEL). Sous Windows, il existe `winget` ou `chocolatey`. Homebrew joue exactement ce rôle sous macOS : c'est un outil qui simplifie l'installation, la mise à jour et la suppression de logiciels et d'outils en ligne de commande.
@@ -61,6 +61,7 @@ Ajoutez ceci à votre fichier `.zsh_aliases` (ou `.zshrc`) :
 if [[ -f /opt/homebrew/bin/brew ]]; then
   export HOMEBREW_NO_ENV_HINTS=1
   export HOMEBREW_NO_ANALYTICS=1
+  export HOMEBREW_NO_ASK=1
 fi
 ```
 
@@ -71,6 +72,7 @@ Pour les appareils encore sous Intel :
 if [[ -f /usr/local/bin/brew ]]; then
   export HOMEBREW_NO_ENV_HINTS=1
   export HOMEBREW_NO_ANALYTICS=1
+  export HOMEBREW_NO_ASK=1
 fi
 ```
 
@@ -78,6 +80,7 @@ fi
 
 - `HOMEBREW_NO_ENV_HINTS=1` : désactive les messages d'avertissement concernant le `PATH`
 - `HOMEBREW_NO_ANALYTICS=1` : désactive l'envoi de données anonymes à Homebrew (pour ceux qui sont sensibles à la vie privée)
+- `HOMEBREW_NO_ASK=1` : désactive la confirmation interactive demandée avant certaines installations
 
 ### Alias de mise à jour pratique
 
@@ -129,52 +132,12 @@ brew tap
 
 > **Conseil** : maintenez le moins possible de taps pour éviter de surcharger votre installation. L'installation par défaut est suffisamment complète
 
-## Brewinstall : automatiser l'installation
+## Brewinit : automatiser l'installation
 
 Jusqu'à présent, nous avons vu comment installer Homebrew et l'utiliser manuellement. Mais si vous formatez votre Mac ou configurez une nouvelle machine, installer des dizaines de paquets ligne par ligne devient très fastidieux.
 
-C'est là qu'intervient **brewinstall** : un script perso qui automatise l'installation de brew et d'applications en masse à partir de listes.
+C'est là qu'intervient **brewinit** : un script perso qui automatise l'installation de brew et d'applications en masse à partir de listes.
 
-### Script
+### Récupération
 
-Le script est disponible directement sur GitHub, en suivant **[ce lien](https://github.com/jeremky/brewinstall)**. Pour le récupérer :
-
-```bash
-git clone https://github.com/jeremky/brewinstall
-```
-
-### Fichiers de configuration (.cfg)
-
-Les fichiers `.cfg` sont de simples fichiers texte, une application par ligne.
-
-Exemple de `brewinstall.apps.cfg` :
-
-```txt {filename="brewinstall.apps.cfg"}
-vim
-curl
-wget
-colordiff
-```
-
-Et de l'équivalent pour les casks, `brewinstall.cask.cfg` :
-
-```txt {filename="brewinstall.cask.cfg"}
-discord
-firefox
-iterm2
-vlc
-vscodium
-```
-
-> Les lignes vides et les commentaires (lignes commençant par `#`) sont ignorés, ce qui permet de bien organiser vos listes
-
-### Utilisation du script
-
-Une fois vos listes prêtes, il ne reste plus qu'à exécuter le script :
-
-```bash
-./brewinstall.sh
-```
-
-> [!NOTE]
-> Votre mot de passe vous sera demandé pour désactiver la création des fichiers `.DS_Store` sur les partages réseau
+Le script est disponible directement sur GitHub, en suivant **[ce lien](https://github.com/jeremky/brewinit)**.
