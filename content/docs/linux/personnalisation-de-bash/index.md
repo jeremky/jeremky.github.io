@@ -7,7 +7,7 @@ toc: true
 tags:
   - linux
 draft: false
-lastmod: 2026-09-06
+lastmod: 2026-09-15
 ---
 
 Le shell Linux sert d'interface entre l'utilisateur et le système d'exploitation. Différents shells existent, comme bash, zsh, fish... Mais **bash** étant par défaut sur la plupart des distributions Linux, c'est sur ce dernier que je vais me focaliser.
@@ -110,7 +110,7 @@ Mon fichier `.bash_aliases` se divise en plusieurs parties :
 - Quelques fonctions, dans le cas où un simple alias est trop limitant
 - Une transformation automatique des scripts présents dans `~/scripts` en aliases
 
-Vous pouvez le récupérer directement sur github en suivant [ce lien](https://github.com/jeremky/envbackup/blob/main/dotfiles/debian/.bash_aliases).
+Vous pouvez le récupérer directement sur github en suivant [ce lien](https://github.com/jeremky/envbackup/blob/main/dotfiles/.bash_aliases).
 
 Le contenu du fichier :
 
@@ -187,9 +187,6 @@ elif command -v htop &>/dev/null; then
   alias top='htop'
 fi
 
-# colordiff : diff avec couleur
-command -v colordiff &>/dev/null && alias diff='colordiff'
-
 # dnf : gestionnaire de paquets rpm
 if command -v dnf &>/dev/null; then
   alias dnf='sudo dnf'
@@ -197,10 +194,16 @@ if command -v dnf &>/dev/null; then
 fi
 
 # duf : df amélioré
-command -v duf &>/dev/null && alias duf='duf -hide special'
+command -v duf &>/dev/null && alias df='duf -hide special --hide-mp /boot'
 
 # dust : du amélioré
 command -v dust &>/dev/null && alias dus='dust -rb'
+
+# eopkg : gestionnaire de paquets solus
+if command -v eopkg &>/dev/null; then
+  alias eo='sudo eopkg'
+  alias upgrade='sudo eopkg up && sudo eopkg rmo'
+fi
 
 # fd : find amélioré
 if command -v fdfind &>/dev/null; then
@@ -222,8 +225,18 @@ if command -v fzf &>/dev/null; then
     --color=border:#6C7086,label:#CDD6F4"
 fi
 
+# herdr : émulateur de terminal
+if command -v herdr &>/dev/null; then
+  alias hr='herdr'
+  alias hrstop='herdr session stop default'
+fi
+
 # icdiff : diff amélioré
-command -v icdiff &>/dev/null && alias diff='icdiff'
+if command -v icdiff &>/dev/null; then
+  alias diff='icdiff -N'
+elif command -v colordiff &>/dev/null; then
+  alias diff='colordiff'
+fi
 
 # ncdu : équivalent à TreeSize
 command -v ncdu &>/dev/null && alias ncdu='ncdu --color dark'
@@ -233,12 +246,6 @@ command -v procs &>/dev/null && alias psp='procs'
 
 # rg : plus performant que grep
 command -v rg &>/dev/null && alias rg='rg -i --no-ignore'
-
-# tmux : émulateur de terminal
-if command -v tmux &>/dev/null; then
-  alias tm='tmux attach || tmux new'
-  alias tmr='tmux source-file ~/.config/tmux/tmux.conf'
-fi
 
 # tty-clock : horloge en CLI
 command -v tty-clock &>/dev/null && alias clock='tty-clock -c -f %d/%m/%Y'
@@ -252,10 +259,17 @@ fi
 # vim : vi amélioré
 command -v vim &>/dev/null && alias vi='vim -O'
 
+# zed : éditeur de code
+if command -v zed &>/dev/null; then
+  alias e='zed'
+elif command -v zedit &>/dev/null; then
+  alias e='zedit'
+fi
+
 # zoxide : cd amélioré
 command -v zoxide &>/dev/null && eval "$(zoxide init bash)"
 
-# ─── fonctions ──────────────────────────────────────────────────────────
+# ─── fonctions ───────────────────────────────────────────────────────────
 
 # cleanlog : nettoyer les logs systemd
 cleanlog() { [[ -n "$1" ]] && sudo journalctl --vacuum-time="${1}"d; }
@@ -333,21 +347,23 @@ Les aliases actifs uniquement dans le cas où les applications sont installées 
 
 | Commande | Description                                                                   |
 | -------- | ----------------------------------------------------------------------------- |
-| diff     | Remplace la commande par colordiff (icdiff prend le relais s'il est installé) |
+| diff     | Remplace la commande par icdiff (colordiff prend le relais à défaut)         |
 | df       | [duf](/docs/linux/applications/duf/) est un df amélioré                       |
 | dus      | Lance dust, la commande `du` améliorée                                        |
 | fd       | Outil équivalent à find mais bien plus simple à utiliser                      |
 | fzf      | [fzf](/docs/linux/applications/fzf/) est un outil de recherche avancé         |
 | top      | Remplace la commande top par btop (ou htop à défaut)                          |
+| hr       | Lance herdr, un multiplexeur de terminal pour agents de code                  |
+| hrstop   | Arrête la session herdr par défaut                                            |
 | ncdu     | [ncdu](/docs/linux/applications/ncdu/) est un équivalent de Treesize          |
 | psp      | Remplace la commande par procs, plus lisible et plus rapide                   |
 | rg       | [ripgrep](/docs/linux/applications/ripgrep/) est un `grep` récursif lisible   |
-| tm       | Attache la session tmux existante, ou en crée une nouvelle                    |
-| tmr      | Recharge la configuration de tmux à chaud                                     |
 | clock    | Lance tty-clock, un petit outil pour afficher l'heure                         |
 | ufw      | [ufw](/docs/linux/applications/ufw/) est un Firewall accessible               |
 | ufws     | Affiche le status de ufw, avec les règles numérotées                          |
 | vi       | [vim](/docs/linux/applications/vim/) avec le split vertical actif             |
+| e        | Ouvre Zed (ou zedit à défaut), l'éditeur de code                              |
+| eo       | Ajoute sudo devant eopkg (distributions Solus)                                |
 | z        | [zoxide](/docs/linux/applications/zoxide/) est un cd intélligent              |
 
 Et enfin, les fonctions :
@@ -356,9 +372,7 @@ Et enfin, les fonctions :
 | ---------- | -------------------------------------------------------------------------- |
 | cleanlog   | Supprimer les logs systemd en spécifiant le nombre de jours                |
 | cpsave     | Créer une copie en .old d'un fichier ou d'un dossier spécifié              |
-| gencert    | Générer un certificat en précisant le nom de domaine en paramètre          |
 | md5        | Calculer le hash MD5 d'une chaîne de caractères                            |
-| newuser    | Créer un compte de service (pas de home ni de mot de passe)                |
 | tarc       | Créer un tar.gz d'un ou plusieurs fichiers ou dossiers passés en paramètre |
 | tarx       | Pour extraire un ou plusieurs tar.gz passés en paramètre                   |
 | diskbench  | Tester la vitesse du disque courant en créant un fichier                   |

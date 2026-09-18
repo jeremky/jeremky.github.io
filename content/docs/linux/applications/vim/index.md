@@ -67,7 +67,7 @@ Je vous partage un exemple de configuration pour vim. Ce fichier est à créer s
 > [!IMPORTANT]
 > Ce fichier nécessite la présence de `git` et `curl` sur votre machine (pour le téléchargement de [vim-plug](https://github.com/junegunn/vim-plug) et des plugins)
 
-```vim {filename="~/.config/vim/vimrc"}
+```vim {filename="~/.vim/vimrc"}
 " ─── vimrc ───────────────────────────────────────────────────────────────
 
 " Compatibilité & syntaxe
@@ -124,26 +124,17 @@ let &t_SR = "\e[4 q"
 " Menu de complétion en popup vertical
 if has('patch-8.2.4325') | set wildoptions=pum | endif
 
-" Gestion de tmux
-if !empty($TMUX) | set mouse=a | set clipboard=unnamed | if has('mouse_sgr') | set ttymouse=sgr | endif | endif
-
 " ─── fonctions ───────────────────────────────────────────────────────────
 
 " Ajout des numéros de ligne et gestion de la souris
 function! ModeIDE()
   if get(g:, 'modeIDE_enabled', 0)
     let g:modeIDE_enabled = 0
-    windo set nonumber
-    if empty($TMUX)
-      windo set mouse=
-    endif
+    windo set nonumber mouse=
     echo "Mode IDE désactivé"
   else
     let g:modeIDE_enabled = 1
-    windo set number
-    if empty($TMUX)
-      windo set mouse=a
-    endif
+    windo set number mouse=a
     echo "Mode IDE activé"
   endif
 endfunction
@@ -208,9 +199,6 @@ Plug 'itchyny/lightline.vim'
 " Edition
 Plug 'tpope/vim-commentary'
 Plug 'vim-scripts/VimCompletesMe'
-
-" Code
-Plug 'jiangmiao/auto-pairs'
 Plug 'sheerun/vim-polyglot'
 
 call plug#end()
@@ -257,7 +245,6 @@ endif
 - lightline : améliore la barre de statut
 - vim-commentary : commenter/décommenter rapidement
 - VimCompletesMe : gère l'auto-complétion
-- autopairs : ferme automatiquement certains brackets
 - vim-polyglot : affichage du code amélioré
 
 #### Mapping
@@ -269,9 +256,5 @@ endif
 - F5 : effectue une indentation automatique sur l'intégralité du fichier
 - F7 : supprime les plugins non utilisés
 - F8 : lance une mise à jour des plugins
-
-#### Intégration tmux
-
-Lorsque Vim est lancé à l'intérieur d'une session tmux, la souris et le presse-papier sont pris en charge automatiquement (`mouse=a`, `clipboard=unnamed`, et `ttymouse=sgr` si le terminal le supporte). Le mode **IDE** (F2) en tient compte : il ne désactive plus la souris à la sortie du mode, puisque tmux la gère déjà nativement.
 
 ![vim](vim.webp)

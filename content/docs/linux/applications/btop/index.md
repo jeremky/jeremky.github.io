@@ -106,7 +106,10 @@ theme_background = true
 truecolor = true
 
 #* Graph symbol.
-graph_symbol = "block"
+graph_symbol = "braille"
+
+#* Process shorting
+proc_sorting = "cpu direct"
 ```
 
 ## Thèmes
