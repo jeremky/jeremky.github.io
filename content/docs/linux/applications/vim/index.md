@@ -7,7 +7,7 @@ toc: true
 tags:
   - linux
 draft: false
-lastmod: 2026-09-06
+lastmod: 2026-10-01
 ---
 
 *[Vim](https://fr.wikipedia.org/wiki/Vim) est un éditeur de texte extrêmement personnalisable, que ce soit par l'ajout d'extensions, ou par la modification de son fichier de configuration, écrits dans son propre langage d'extension, le Vim script.*
@@ -106,6 +106,7 @@ set splitright                  " Nouveau split vertical à droite
 " Comportement divers
 set mouse=                      " Désactive la souris par défaut
 set nobackup                    " Désactive les sauvegardes automatiques
+set noswapfile                  " Désactive les fichiers d'échange
 
 " Correction orthographique
 set spelllang=en,fr
@@ -158,8 +159,8 @@ nnoremap <F2> <Cmd>call ModeIDE()<CR>
 nnoremap <F3> <Cmd>set list!<CR>
 
 " Commentaire
-nmap <F4> <Plug>CommentaryLine
-xmap <F4> <Plug>Commentary
+nmap <F4> gcc
+xmap <F4> gc
 
 " Indentation automatique
 nnoremap <F5> <Cmd>call ReindentFile()<CR>
@@ -197,9 +198,11 @@ Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 Plug 'itchyny/lightline.vim'
 
 " Edition
-Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-sleuth'
 Plug 'vim-scripts/VimCompletesMe'
-Plug 'sheerun/vim-polyglot'
+
+" Commentaire (plugin natif à partir de Vim 9.1)
+try | packadd! comment | catch | Plug 'tpope/vim-commentary' | endtry
 
 call plug#end()
 
@@ -243,9 +246,9 @@ endif
 
 - catppuccin : applique le thème Catppuccin Mocha
 - lightline : améliore la barre de statut
-- vim-commentary : commenter/décommenter rapidement
+- vim-sleuth : détecte automatiquement l'indentation utilisée dans le fichier
 - VimCompletesMe : gère l'auto-complétion
-- vim-polyglot : affichage du code amélioré
+- comment : commenter/décommenter rapidement (plugin natif de Vim 9.1+, remplacé par vim-commentary sur les versions antérieures)
 
 #### Mapping
 
