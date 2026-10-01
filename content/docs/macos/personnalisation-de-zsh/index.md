@@ -7,10 +7,10 @@ toc: true
 tags:
   - macos
 draft: false
-lastmod: 2026-09-15
+lastmod: 2026-10-01
 ---
 
-*[Le Z shell](https://fr.wikipedia.org/wiki/Z_Shell) ou zsh est un shell Unix qui peut être utilisé de façon interactive, à l'ouverture de la session ou en tant que puissant interpréteur de commande. zsh peut être vu comme un « Bourne shell » étendu avec beaucoup d'améliorations. Il reprend en plus la plupart des fonctions les plus pratiques de bash, ksh et tcsh. Zsh remplace bash dans macOS à partir de macOS Catalina 10.15.*
+_[Le Z shell](https://fr.wikipedia.org/wiki/Z_Shell) ou zsh est un shell Unix qui peut être utilisé de façon interactive, à l'ouverture de la session ou en tant que puissant interpréteur de commande. zsh peut être vu comme un « Bourne shell » étendu avec beaucoup d'améliorations. Il reprend en plus la plupart des fonctions les plus pratiques de bash, ksh et tcsh. Zsh remplace bash dans macOS à partir de macOS Catalina 10.15._
 
 > Il existe des solutions clé en main, comme [Oh My ZSH](https://ohmyz.sh/), mais l'idée est d'avoir une configuration la plus légère et optimisée possible
 
@@ -152,6 +152,8 @@ alias top='top -o cpu -U $(whoami)'                   # top filtré pour le user
 alias vi='vim -O'                                     # vim avec ouverture multiple
 alias speedtest='networkQuality'                      # Speedtest Apple
 alias locate='mdfind -name'                           # Recherche via Spotlight
+alias hide='chflags hidden'                           # Masquer un dossier dans le Finder
+alias unhide='chflags nohidden'                       # Afficher un dossier dans le Finder
 
 # ─── applications facultatives ───────────────────────────────────────────
 
@@ -253,29 +255,33 @@ sitedir=~/Documents/website
 
 Les aliases de base :
 
-| Commande | Description                                                      |
-| -------- | ---------------------------------------------------------------- |
-| l        | Liste les fichiers et les répertoires                            |
-| la       | Même chose que l, dont les cachés                                |
-| lr       | Liste les fichiers et les répertoires en récursif                |
-| lra      | Même chose que lr, dont les cachés                               |
-| lrt      | Liste les fichiers et les répertoires dans l'ordre chronologique |
-| lrta     | Même chose que lrt, dont les cachés                              |
-| grep     | Ajoute la gestion de la couleur à grep                           |
-| zgrep    | Même chose pour zgrep (grep dans les fichiers compressés)        |
-| psp      | Suivi d'une chaîne, permet de rechercher rapidement un process   |
-| genkey   | Génère une clé au format ed25519 (plus sécurisé que rsa)         |
-| pubip    | Affiche rapidement l'IP publique de la machine                   |
-| df       | Commande df, mais sans les volumes temporaires                   |
-| rmds     | Suppression récursive des fichiers `.DS_Store`                   |
-| rmdot    | Suppression récursive des fichiers `._`                          |
-| top      | Commande top filtrée pour le user                                |
-| vi       | vim : vi amélioré avec ouverture multiple                        |
+| Commande  | Description                                                      |
+| --------- | ---------------------------------------------------------------- |
+| l         | Liste les fichiers et les répertoires                            |
+| la        | Même chose que l, dont les cachés                                |
+| lr        | Liste les fichiers et les répertoires en récursif                |
+| lra       | Même chose que lr, dont les cachés                               |
+| lrt       | Liste les fichiers et les répertoires dans l'ordre chronologique |
+| lrta      | Même chose que lrt, dont les cachés                              |
+| grep      | Ajoute la gestion de la couleur à grep                           |
+| zgrep     | Même chose pour zgrep (grep dans les fichiers compressés)        |
+| psp       | Suivi d'une chaîne, permet de rechercher rapidement un process   |
+| genkey    | Génère une clé au format ed25519 (plus sécurisé que rsa)         |
+| pubip     | Affiche rapidement l'IP publique de la machine                   |
+| df        | Commande df, mais sans les volumes temporaires                   |
+| rmds      | Suppression récursive des fichiers `.DS_Store`                   |
+| rmdot     | Suppression récursive des fichiers `._`                          |
+| top       | Commande top filtrée pour le user                                |
+| vi        | vim : vi amélioré avec ouverture multiple                        |
+| speedtest | Teste le débit de la connexion avec l'outil Apple                |
+| locate    | Recherche de fichiers par nom via Spotlight                      |
+| hide      | Masque un fichier ou dossier dans le Finder                      |
+| unhide    | Rend de nouveau visible un fichier ou dossier dans le Finder     |
 
 Les aliases actifs uniquement dans le cas où les applications sont installées :
 
 | Commande | Description                                                                   |
-| -------- | ------------------------------------------------------------------------------ |
+| -------- | ----------------------------------------------------------------------------- |
 | top      | Remplace la commande par btop (ou htop à défaut)                              |
 | diff     | Remplace la commande par colordiff (icdiff prend le relais s'il est installé) |
 | df       | Remplace la commande par duf, bien plus agréable visuellement                 |
@@ -293,7 +299,7 @@ Et enfin, les fonctions :
 
 | Commande | Description                                                                |
 | -------- | -------------------------------------------------------------------------- |
-| cpsave   | Créer une copie en .old d'un fichier ou d'un dossier spécifié             |
+| cpsave   | Créer une copie en .old d'un fichier ou d'un dossier spécifié              |
 | tarc     | Créer un tar.gz d'un ou plusieurs fichiers ou dossiers passés en paramètre |
 | tarx     | Pour extraire un ou plusieurs tar.gz passés en paramètre                   |
 | zip      | Facilite l'utilisation de la commande zip (`zip <fichier>`)                |
