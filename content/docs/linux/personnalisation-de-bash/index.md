@@ -7,7 +7,7 @@ toc: true
 tags:
   - linux
 draft: false
-lastmod: 2026-09-15
+lastmod: 2026-10-01
 ---
 
 Le shell Linux sert d'interface entre l'utilisateur et le système d'exploitation. Différents shells existent, comme bash, zsh, fish... Mais **bash** étant par défaut sur la plupart des distributions Linux, c'est sur ce dernier que je vais me focaliser.
@@ -34,7 +34,7 @@ esac
 
 # global definitions
 if [ -f /etc/bashrc ]; then
-    . /etc/bashrc
+  . /etc/bashrc
 fi
 
 # history
@@ -61,13 +61,13 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # envman
-[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+[[ -s "$HOME/.config/envman/load.sh" ]] && source "$HOME/.config/envman/load.sh"
 
 # aliases
 [[ -f ~/.bash_aliases ]] && . "$HOME/.bash_aliases"
 
 # solus
-[[ -f /usr/share/defaults/etc/profile ]] && source /usr/share/defaults/etc/profile
+[[ -f "/usr/share/defaults/etc/profile.d/50-prompt.sh" ]] && . "/usr/share/defaults/etc/profile.d/50-prompt.sh"
 
 # prompt
 case "$TERM" in
@@ -108,7 +108,7 @@ Mon fichier `.bash_aliases` se divise en plusieurs parties :
 - La liste des aliases de base que j'utilise
 - Des aliases supplémentaires pour des applications spécifiques, chargés uniquement si les applications sont installées
 - Quelques fonctions, dans le cas où un simple alias est trop limitant
-- Une transformation automatique des scripts présents dans `~/scripts` en aliases
+- Une transformation automatique des scripts présents dans `~/Documents/scripts` en aliases
 
 Vous pouvez le récupérer directement sur github en suivant [ce lien](https://github.com/jeremky/envbackup/blob/main/dotfiles/.bash_aliases).
 
@@ -168,9 +168,9 @@ alias reboot='sudo reboot'                               # Redémarrage
 # sudo
 [[ "$EUID" -ne 0 ]] && alias root='sudo -s'
 
-# ssh
-alias genkey='ssh-keygen -t ed25519 -a 100'        # Clé ed25519
-alias genkeyrsa='ssh-keygen -t rsa -b 4096 -a 100' # Clé RSA
+# ssh keygen
+alias genkey='ssh-keygen -t ed25519 -a 100'
+alias genkeyrsa='ssh-keygen -t rsa -b 4096 -a 100'
 
 # ─── applications facultatives ───────────────────────────────────────────
 
@@ -194,10 +194,14 @@ if command -v dnf &>/dev/null; then
 fi
 
 # duf : df amélioré
-command -v duf &>/dev/null && alias df='duf -hide special --hide-mp /boot'
+if command -v duf &>/dev/null; then
+  alias df='duf -hide special --hide-mp /boot'
+fi
 
 # dust : du amélioré
-command -v dust &>/dev/null && alias dus='dust -rb'
+if command -v dust &>/dev/null; then
+  alias dus='dust -rb'
+fi
 
 # eopkg : gestionnaire de paquets solus
 if command -v eopkg &>/dev/null; then
@@ -239,16 +243,24 @@ elif command -v colordiff &>/dev/null; then
 fi
 
 # ncdu : équivalent à TreeSize
-command -v ncdu &>/dev/null && alias ncdu='ncdu --color dark'
+if command -v ncdu &>/dev/null; then
+  alias ncdu='ncdu --color dark'
+fi
 
 # procs : ps amélioré
-command -v procs &>/dev/null && alias psp='procs'
+if command -v procs &>/dev/null; then
+  alias psp='procs'
+fi
 
 # rg : plus performant que grep
-command -v rg &>/dev/null && alias rg='rg -i --no-ignore'
+if command -v rg &>/dev/null; then
+  alias rg='rg -i --no-ignore'
+fi
 
 # tty-clock : horloge en CLI
-command -v tty-clock &>/dev/null && alias clock='tty-clock -c -f %d/%m/%Y'
+if command -v tty-clock &>/dev/null; then
+  alias clock='tty-clock -c -f %d/%m/%Y'
+fi
 
 # ufw : firewall simplifié
 if command -v ufw &>/dev/null; then
@@ -257,7 +269,9 @@ if command -v ufw &>/dev/null; then
 fi
 
 # vim : vi amélioré
-command -v vim &>/dev/null && alias vi='vim -O'
+if command -v vim &>/dev/null; then
+  alias vi='vim -O'
+fi
 
 # zed : éditeur de code
 if command -v zed &>/dev/null; then
@@ -267,11 +281,13 @@ elif command -v zedit &>/dev/null; then
 fi
 
 # zoxide : cd amélioré
-command -v zoxide &>/dev/null && eval "$(zoxide init bash)"
+if command -v zoxide &>/dev/null; then
+  eval "$(zoxide init bash)"
+fi
 
 # ─── fonctions ───────────────────────────────────────────────────────────
 
-# cleanlog : nettoyer les logs systemd
+# cleanlog : nettoyer les logs systemd (cleanlog <jours>)
 cleanlog() { [[ -n "$1" ]] && sudo journalctl --vacuum-time="${1}"d; }
 
 # cpsave : copier un fichier ou dossier avec suffixe .old
@@ -315,7 +331,7 @@ fi
 ```
 
 > [!NOTE]
-> Le dernier bloc, `scripts`, parcourt le dossier `~/scripts` et crée automatiquement un alias pour chacun d'eux, du moment qu'il respecte la convention `<nom>/<nom>.sh`
+> Le dernier bloc, `scripts`, parcourt le dossier `~/Documents/scripts` et crée automatiquement un alias pour chacun d'eux, du moment qu'il respecte la convention `<nom>/<nom>.sh`
 
 Les aliases de base :
 
@@ -332,7 +348,6 @@ Les aliases de base :
 | psp       | Suivi d'une chaîne, permet de rechercher rapidement un process       |
 | iostat    | Commande iostat, mais plus lisible                                   |
 | ifc       | Utilise le programme ip (ifconfig n'existe plus sous Debian)         |
-| ss        | Remplaçant de netstat, mais épuré                                    |
 | ssp       | Suivi d'une chaîne, permet de rechercher rapidement un port d'écoute |
 | pubip     | Affiche rapidement l'IP publique de la machine                       |
 | df        | Commande df, mais sans les volumes temporaires                       |
@@ -345,26 +360,26 @@ Les aliases de base :
 
 Les aliases actifs uniquement dans le cas où les applications sont installées :
 
-| Commande | Description                                                                   |
-| -------- | ----------------------------------------------------------------------------- |
-| diff     | Remplace la commande par icdiff (colordiff prend le relais à défaut)         |
-| df       | [duf](/docs/linux/applications/duf/) est un df amélioré                       |
-| dus      | Lance dust, la commande `du` améliorée                                        |
-| fd       | Outil équivalent à find mais bien plus simple à utiliser                      |
-| fzf      | [fzf](/docs/linux/applications/fzf/) est un outil de recherche avancé         |
-| top      | Remplace la commande top par btop (ou htop à défaut)                          |
-| hr       | Lance herdr, un multiplexeur de terminal pour agents de code                  |
-| hrstop   | Arrête la session herdr par défaut                                            |
-| ncdu     | [ncdu](/docs/linux/applications/ncdu/) est un équivalent de Treesize          |
-| psp      | Remplace la commande par procs, plus lisible et plus rapide                   |
-| rg       | [ripgrep](/docs/linux/applications/ripgrep/) est un `grep` récursif lisible   |
-| clock    | Lance tty-clock, un petit outil pour afficher l'heure                         |
-| ufw      | [ufw](/docs/linux/applications/ufw/) est un Firewall accessible               |
-| ufws     | Affiche le status de ufw, avec les règles numérotées                          |
-| vi       | [vim](/docs/linux/applications/vim/) avec le split vertical actif             |
-| e        | Ouvre Zed (ou zedit à défaut), l'éditeur de code                              |
-| eo       | Ajoute sudo devant eopkg (distributions Solus)                                |
-| z        | [zoxide](/docs/linux/applications/zoxide/) est un cd intélligent              |
+| Commande | Description                                                                 |
+| -------- | --------------------------------------------------------------------------- |
+| diff     | Remplace la commande par icdiff (colordiff prend le relais à défaut)        |
+| df       | [duf](/docs/linux/applications/duf/) est un df amélioré                     |
+| dus      | Lance dust, la commande `du` améliorée                                      |
+| fd       | Outil équivalent à find mais bien plus simple à utiliser                    |
+| fzf      | [fzf](/docs/linux/applications/fzf/) est un outil de recherche avancé       |
+| top      | Remplace la commande top par btop (ou htop à défaut)                        |
+| hr       | Lance herdr, un multiplexeur de terminal pour agents de code                |
+| hrstop   | Arrête la session herdr par défaut                                          |
+| ncdu     | [ncdu](/docs/linux/applications/ncdu/) est un équivalent de Treesize        |
+| psp      | Remplace la commande par procs, plus lisible et plus rapide                 |
+| rg       | [ripgrep](/docs/linux/applications/ripgrep/) est un `grep` récursif lisible |
+| clock    | Lance tty-clock, un petit outil pour afficher l'heure                       |
+| ufw      | [ufw](/docs/linux/applications/ufw/) est un Firewall accessible             |
+| ufws     | Affiche le status de ufw, avec les règles numérotées                        |
+| vi       | [vim](/docs/linux/applications/vim/) avec le split vertical actif           |
+| e        | Ouvre Zed (ou zedit à défaut), l'éditeur de code                            |
+| eo       | Ajoute sudo devant eopkg (distributions Solus)                              |
+| z        | [zoxide](/docs/linux/applications/zoxide/) est un cd intélligent            |
 
 Et enfin, les fonctions :
 
