@@ -7,7 +7,7 @@ toc: true
 tags:
   - linux
 draft: false
-lastmod: 2026-10-01
+lastmod: 2026-10-02
 ---
 
 *[Vim](https://fr.wikipedia.org/wiki/Vim) est un éditeur de texte extrêmement personnalisable, que ce soit par l'ajout d'extensions, ou par la modification de son fichier de configuration, écrits dans son propre langage d'extension, le Vim script.*
@@ -73,9 +73,10 @@ Je vous partage un exemple de configuration pour vim. Ce fichier est à créer s
 " Compatibilité & syntaxe
 set nocompatible                " Désactive la compatibilité Vi
 syntax on                       " Active la coloration syntaxique
+set ttimeout                    " Délai d'attente sur les codes de touches
+set ttimeoutlen=50              " Supprime le délai perceptible sur Échap
 
 " Indentation & tabulations
-set smartindent                 " Indentation intelligente
 set autoindent                  " Conserve l'indentation sur une nouvelle ligne
 set smarttab                    " Gestion des espaces en début de ligne
 set tabstop=2                   " La largeur d'une tabulation est définie sur 2
@@ -83,6 +84,7 @@ set shiftwidth=2                " Les retraits auront une largeur de 2
 set softtabstop=2               " Nombre de colonnes pour une tabulation
 set expandtab                   " Remplace les tab par des espaces
 set linebreak                   " Revient à la ligne sans couper les mots
+set breakindent                 " Les lignes coupées conservent leur indentation
 
 " Recherche
 set hlsearch                    " Affiche en surbrillance les recherches
@@ -91,7 +93,7 @@ set ignorecase                  " Ignorer la casse
 set smartcase                   " Faire un appariement intelligent
 
 " Interface & affichage
-set background=dark             " Optimise l'affiche pour un terminal sombre
+set background=dark             " Optimise l'affichage pour un terminal sombre
 set ruler                       " Affiche la position du curseur
 set showcmd                     " Afficher la commande dans la ligne d'état
 set showmatch                   " Afficher les parenthèses correspondantes
@@ -107,9 +109,7 @@ set splitright                  " Nouveau split vertical à droite
 set mouse=                      " Désactive la souris par défaut
 set nobackup                    " Désactive les sauvegardes automatiques
 set noswapfile                  " Désactive les fichiers d'échange
-
-" Correction orthographique
-set spelllang=en,fr
+set spelllang=en,fr             " Correction orthographique
 
 " Permet l'indentation automatique : gg=G
 filetype plugin indent on
@@ -121,6 +121,7 @@ let &listchars = "eol:$,space:\u00B7,tab:\u25B8\ ,trail:\u00B7"
 let &t_SI = "\e[6 q"
 let &t_EI = "\e[2 q"
 let &t_SR = "\e[4 q"
+let &t_te .= "\e[0 q"
 
 " Menu de complétion en popup vertical
 if has('patch-8.2.4325') | set wildoptions=pum | endif
@@ -129,15 +130,12 @@ if has('patch-8.2.4325') | set wildoptions=pum | endif
 
 " Ajout des numéros de ligne et gestion de la souris
 function! ModeIDE()
-  if get(g:, 'modeIDE_enabled', 0)
-    let g:modeIDE_enabled = 0
-    windo set nonumber mouse=
-    echo "Mode IDE désactivé"
-  else
-    let g:modeIDE_enabled = 1
-    windo set number mouse=a
-    echo "Mode IDE activé"
-  endif
+  let g:modeIDE_enabled = !get(g:, 'modeIDE_enabled', 0)
+  let &mouse = g:modeIDE_enabled ? 'a' : ''
+  let l:win = win_getid()
+  windo let &l:number = g:modeIDE_enabled
+  call win_gotoid(l:win)
+  echo 'Mode IDE ' . (g:modeIDE_enabled ? 'activé' : 'désactivé')
 endfunction
 
 " Réindentation sans déplacement du curseur
@@ -149,7 +147,7 @@ endfunction
 
 " ─── mapping ─────────────────────────────────────────────────────────────
 
-" Corrrecteur orthographique
+" Correcteur orthographique
 nnoremap <F1> <Cmd>set spell!<CR>
 
 " Mode IDE
@@ -193,12 +191,8 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 " Liste des plugins
 call plug#begin('~/.vim/plugged')
 
-" Interface
 Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 Plug 'itchyny/lightline.vim'
-
-" Edition
-Plug 'tpope/vim-sleuth'
 Plug 'vim-scripts/VimCompletesMe'
 
 " Commentaire (plugin natif à partir de Vim 9.1)
@@ -246,7 +240,6 @@ endif
 
 - catppuccin : applique le thème Catppuccin Mocha
 - lightline : améliore la barre de statut
-- vim-sleuth : détecte automatiquement l'indentation utilisée dans le fichier
 - VimCompletesMe : gère l'auto-complétion
 - comment : commenter/décommenter rapidement (plugin natif de Vim 9.1+, remplacé par vim-commentary sur les versions antérieures)
 
