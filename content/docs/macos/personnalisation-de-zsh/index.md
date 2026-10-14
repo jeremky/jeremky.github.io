@@ -7,7 +7,7 @@ toc: true
 tags:
   - macos
 draft: false
-lastmod: 2026-10-01
+lastmod: 2026-10-14
 ---
 
 _[Le Z shell](https://fr.wikipedia.org/wiki/Z_Shell) ou zsh est un shell Unix qui peut être utilisé de façon interactive, à l'ouverture de la session ou en tant que puissant interpréteur de commande. zsh peut être vu comme un « Bourne shell » étendu avec beaucoup d'améliorations. Il reprend en plus la plupart des fonctions les plus pratiques de bash, ksh et tcsh. Zsh remplace bash dans macOS à partir de macOS Catalina 10.15._
@@ -170,7 +170,7 @@ command -v colordiff &>/dev/null && alias diff='colordiff'
 # duf : affiche les filesystems
 command -v duf &>/dev/null && alias df='duf -hide special'
 
-# dust : du amlérioré
+# dust : du amélioré
 command -v dust &>/dev/null && alias du='dust -rb'
 
 # fzf : recherche avancée avec thème Catppuccin Mocha
@@ -187,7 +187,7 @@ if command -v fzf &>/dev/null; then
     --color=border:#6C7086,label:#CDD6F4"
 fi
 
-# herdr : émulateur de terminal
+# herdr : multiplexeur de terminal
 if command -v herdr &>/dev/null; then
   alias hr='herdr'
   alias hrstop='herdr session stop default'
@@ -302,7 +302,7 @@ Et enfin, les fonctions :
 | cpsave   | Créer une copie en .old d'un fichier ou d'un dossier spécifié              |
 | tarc     | Créer un tar.gz d'un ou plusieurs fichiers ou dossiers passés en paramètre |
 | tarx     | Pour extraire un ou plusieurs tar.gz passés en paramètre                   |
-| zip      | Facilite l'utilisation de la commande zip (`zip <fichier>`)                |
+| zipd     | Facilite l'utilisation de la commande zip (`zip <fichier>`)                |
 | convweb  | Transforme une image passée en paramètre au format webp                    |
 | netinfo  | Affiche les informations sur les cartes ethernet et Wifi                   |
 | jback    | Sauvegarde `~/Documents` vers un disque externe (`/Volumes/jdisk`)         |

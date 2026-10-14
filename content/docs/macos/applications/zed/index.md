@@ -7,7 +7,7 @@ toc: true
 tags:
   - macos
 draft: false
-lastmod: 2026-09-06
+lastmod: 2026-10-14
 ---
 
 [Zed](https://zed.dev/) est un éditeur de code minimaliste, développé par les créateurs d'Atom après sa fermeture en 2022. Écrit entièrement en Rust, il a été conçu dès le départ pour offrir des performances élevées, une intégration de l'IA et une collaboration en temps réel. Disponible sur macOS et Linux (et plus récemment Windows), il se positionne comme une alternative sérieuse aux éditeurs traditionnels comme VS Code.
@@ -61,7 +61,7 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
 ### Paramètres généraux
 
 ```json {filename="~/.config/zed/settings.json"}
-// ─── Zed settings ───────────────────────────────────────
+// ─── Zed settings ───────────────────────────────────────────────────────
 
 {
   "auto_update": false,
@@ -78,14 +78,16 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
     "show_worktree_name": false,
   },
 
-  // ─── IA ───────────────────────────────────────────────
+  // ─── IA ───────────────────────────────────────────────────────────────
 
   "agent": {
     "default_profile": "ask",
     "enable_feedback": false,
-    "sidebar_side": "right",
     "enabled": true,
     "dock": "right",
+    "threads_sidebar": {
+      "position": "right",
+    },
 
     "default_model": {
       "effort": "high",
@@ -113,7 +115,7 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
     "provider": "none",
   },
 
-  // ─── Interface ────────────────────────────────────────
+  // ─── Interface ────────────────────────────────────────────────────────
 
   "theme": {
     "mode": "dark",
@@ -131,7 +133,7 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
   "ui_font_size": 14,
   "agent_ui_font_size": 14,
   "agent_buffer_font_size": 13,
-  "markdown_preview_font_size": 14,
+  "markdown_preview": { "font_size": 14 },
 
   "debugger": { "button": false },
   "collaboration_panel": { "dock": "left", "button": false },
@@ -152,7 +154,7 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
     "line_height": "comfortable",
   },
 
-  // ─── Editor ───────────────────────────────────────────
+  // ─── Editor ───────────────────────────────────────────────────────────
 
   "base_keymap": "Zed",
   "format_on_save": "modifications",
@@ -167,14 +169,14 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
       "milliseconds": 3000,
     },
   },
-  
+
   "vim_mode": false,
   "vim": {
     "use_system_clipboard": "never",
     "use_smartcase_find": true,
   },
 
-  // ─── Code ─────────────────────────────────────────────
+  // ─── Code ─────────────────────────────────────────────────────────────
 
   "file_types": {
     "env": ["cfg", "conf", "cron"],
@@ -208,7 +210,7 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
     },
   },
 
-  // ─── SSH ──────────────────────────────────────────────
+  // ─── SSH ──────────────────────────────────────────────────────────────
 
   // "ssh_connections": [
   //   {
@@ -222,7 +224,7 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
   //   },
   // ],
 
-  // ─── Extensions ───────────────────────────────────────
+  // ─── Extensions ───────────────────────────────────────────────────────
 
   "auto_install_extensions": {
     "catppuccin": true,
@@ -271,6 +273,8 @@ brew install shfmt shellcheck
 ### Raccourcis clavier
 
 ```json {filename="~/.config/zed/keymap.json"}
+// ─── Zed keymap ─────────────────────────────────────────────────────────
+
 [
   {
     "context": "Editor",

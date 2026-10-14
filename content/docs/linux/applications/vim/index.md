@@ -7,7 +7,7 @@ toc: true
 tags:
   - linux
 draft: false
-lastmod: 2026-10-02
+lastmod: 2026-10-14
 ---
 
 *[Vim](https://fr.wikipedia.org/wiki/Vim) est un éditeur de texte extrêmement personnalisable, que ce soit par l'ajout d'extensions, ou par la modification de son fichier de configuration, écrits dans son propre langage d'extension, le Vim script.*
@@ -70,171 +70,178 @@ Je vous partage un exemple de configuration pour vim. Ce fichier est à créer s
 ```vim {filename="~/.vim/vimrc"}
 " ─── vimrc ───────────────────────────────────────────────────────────────
 
-" Compatibilité & syntaxe
-set nocompatible                " Désactive la compatibilité Vi
-syntax on                       " Active la coloration syntaxique
-set ttimeout                    " Délai d'attente sur les codes de touches
-set ttimeoutlen=50              " Supprime le délai perceptible sur Échap
+" Lancé en tant que 'vi', le vimrc système force 'compatible'
+if &compatible | set nocompatible | endif
 
 " Indentation & tabulations
-set autoindent                  " Conserve l'indentation sur une nouvelle ligne
-set smarttab                    " Gestion des espaces en début de ligne
-set tabstop=2                   " La largeur d'une tabulation est définie sur 2
-set shiftwidth=2                " Les retraits auront une largeur de 2
-set softtabstop=2               " Nombre de colonnes pour une tabulation
-set expandtab                   " Remplace les tab par des espaces
-set linebreak                   " Revient à la ligne sans couper les mots
-set breakindent                 " Les lignes coupées conservent leur indentation
+silent! set autoindent          " Conserve l'indentation sur une nouvelle ligne
+silent! set tabstop=2           " Largeur d'une tabulation
+silent! set shiftwidth=2        " Largeur des retraits
+silent! set softtabstop=2       " Nombre de colonnes pour une tabulation
+silent! set expandtab           " Remplace les tab par des espaces
 
 " Recherche
-set hlsearch                    " Affiche en surbrillance les recherches
-set incsearch                   " Recherche incrémentielle
-set ignorecase                  " Ignorer la casse
-set smartcase                   " Faire un appariement intelligent
+silent! set hlsearch            " Affiche en surbrillance les recherches
+silent! set incsearch           " Recherche incrémentielle
+silent! set ignorecase          " Ignore la casse...
+silent! set smartcase           " ...sauf si une majuscule est saisie
 
-" Interface & affichage
-set background=dark             " Optimise l'affichage pour un terminal sombre
-set ruler                       " Affiche la position du curseur
-set showcmd                     " Afficher la commande dans la ligne d'état
-set showmatch                   " Afficher les parenthèses correspondantes
-set wildmenu                    " Menu de complétion pour la ligne de commande
+" Interface
+silent! set ruler               " Affiche la position du curseur
+silent! set showcmd             " Affiche la commande en cours
+silent! set showmatch           " Affiche les parenthèses correspondantes
 
-" Fenêtres, buffers & navigation
-set hidden                      " Cacher les tampons lorsqu'ils sont abandonnés
-set scrolloff=8                 " Garde 8 lignes de contexte visibles autour du curseur
-set splitbelow                  " Nouveau split horizontal en dessous
-set splitright                  " Nouveau split vertical à droite
+" Buffers & navigation
+silent! set hidden              " Cache les tampons modifiés lorsqu'ils sont abandonnés
+silent! set scrolloff=8         " Lignes de contexte visibles autour du curseur
+silent! set splitbelow          " Nouveau split horizontal en dessous
+silent! set splitright          " Nouveau split vertical à droite
 
-" Comportement divers
-set mouse=                      " Désactive la souris par défaut
-set nobackup                    " Désactive les sauvegardes automatiques
-set noswapfile                  " Désactive les fichiers d'échange
-set spelllang=en,fr             " Correction orthographique
+" Divers
+silent! set ttimeout            " Délai d'attente sur les codes de touches
+silent! set ttimeoutlen=50      " Supprime le délai perceptible sur Échap
+silent! set mouse=              " Désactive la souris par défaut
+silent! set nobackup            " Désactive les sauvegardes automatiques
+silent! set noswapfile          " Désactive les fichiers d'échange
 
-" Permet l'indentation automatique : gg=G
-filetype plugin indent on
+" Mapping de base
+nnoremap <S-Tab> <C-w>w
+nnoremap <silent> <CR> :nohlsearch<CR><CR>
 
-" Definition des caractères invisibles
-let &listchars = "eol:$,space:\u00B7,tab:\u25B8\ ,trail:\u00B7"
+" ─── Vim complet uniquement (ignoré par vim.tiny) ────────────────────────
+if 1
 
-" Changement automatique du curseur en fonction du mode
-let &t_SI = "\e[6 q"
-let &t_EI = "\e[2 q"
-let &t_SR = "\e[4 q"
-let &t_te .= "\e[0 q"
+  " Syntaxe & types de fichiers
+  " syntax on
+  " filetype plugin indent on
 
-" Menu de complétion en popup vertical
-if has('patch-8.2.4325') | set wildoptions=pum | endif
+  " Affichage
+  silent! set linebreak         " Revient à la ligne sans couper les mots
+  silent! set breakindent       " Les lignes coupées conservent leur indentation
+  silent! set background=dark   " Optimise l'affichage pour un terminal sombre
+  silent! set wildmenu          " Menu de complétion pour la ligne de commande
+  silent! set wildoptions=pum   " Menu de complétion en popup vertical (Vim 8.2.4325+)
+  silent! set spelllang=en,fr   " Langues de la correction orthographique
 
-" ─── fonctions ───────────────────────────────────────────────────────────
+  " Caractères invisibles (affichés avec F3)
+  let &listchars = "eol:$,space:\u00B7,tab:\u25B8\ ,trail:\u00B7"
 
-" Ajout des numéros de ligne et gestion de la souris
-function! ModeIDE()
-  let g:modeIDE_enabled = !get(g:, 'modeIDE_enabled', 0)
-  let &mouse = g:modeIDE_enabled ? 'a' : ''
-  let l:win = win_getid()
-  windo let &l:number = g:modeIDE_enabled
-  call win_gotoid(l:win)
-  echo 'Mode IDE ' . (g:modeIDE_enabled ? 'activé' : 'désactivé')
-endfunction
+  " Forme du curseur selon le mode (insertion, normal, remplacement)
+  let &t_SI = "\e[6 q"
+  let &t_EI = "\e[2 q"
+  let &t_SR = "\e[4 q"
 
-" Réindentation sans déplacement du curseur
-function! ReindentFile()
-  let l:view = winsaveview()
-  normal! gg=G
-  call winrestview(l:view)
-endfunction
+  " Curseur bloc au démarrage, réinitialisé en quittant
+  if stridx(&t_ti, "\e[2 q") < 0 | let &t_ti .= "\e[2 q" | endif
+  if stridx(&t_te, "\e[0 q") < 0 | let &t_te .= "\e[0 q" | endif
 
-" ─── mapping ─────────────────────────────────────────────────────────────
+  " ─── fonctions ─────────────────────────────────────────────────────────
 
-" Correcteur orthographique
-nnoremap <F1> <Cmd>set spell!<CR>
+  " Bascule les numéros de ligne et la souris dans toutes les fenêtres
+  function! ModeIDE()
+    let l:on = empty(&mouse)
+    let &mouse = l:on ? 'a' : ''
+    let &g:number = l:on
+    for l:w in getwininfo()
+      call setwinvar(l:w.winid, '&number', l:on)
+    endfor
+    echo 'Mode IDE ' . (l:on ? 'activé' : 'désactivé')
+  endfunction
 
-" Mode IDE
-nnoremap <F2> <Cmd>call ModeIDE()<CR>
+  " Réindentation du fichier sans déplacement du curseur
+  function! ReindentFile()
+    let l:view = winsaveview()
+    keepjumps normal! gg=G
+    call winrestview(l:view)
+  endfunction
 
-" Affichage des caractères invisibles
-nnoremap <F3> <Cmd>set list!<CR>
+  " ─── mapping ───────────────────────────────────────────────────────────
 
-" Commentaire
-nmap <F4> gcc
-xmap <F4> gc
+  " Correcteur orthographique
+  nnoremap <F1> <Cmd>set spell!<CR>
 
-" Indentation automatique
-nnoremap <F5> <Cmd>call ReindentFile()<CR>
+  " Mode IDE
+  nnoremap <F2> <Cmd>call ModeIDE()<CR>
 
-" Ménage des plugins
-nnoremap <F7> <Cmd>PlugClean<CR>
+  " Affichage des caractères invisibles
+  nnoremap <F3> <Cmd>set list!<CR>
 
-" MAJ des plugins
-nnoremap <F8> <Cmd>PlugUpdate<CR>
+  " Commentaire
+  nmap <F4> gcc
+  xmap <F4> gc
 
-" Changement de document
-nnoremap <S-TAB> <C-w>w
+  " Indentation automatique
+  nnoremap <F5> <Cmd>call ReindentFile()<CR>
 
-" Désactivation de la surbrillance de la recherche
-nnoremap <silent> <CR> <Cmd>nohlsearch<CR><CR>
+  " Gestion des plugins
+  nnoremap <F7> <Cmd>PlugClean<CR>
+  nnoremap <F8> <Cmd>PlugUpdate<CR>
 
-" ─── plugins ─────────────────────────────────────────────────────────────
+  " ─── plugins (vim-plug) ────────────────────────────────────────────────
 
-" Téléchargement de vim-plug si introuvable
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-endif
+  " Téléchargement de vim-plug si introuvable
+  if empty(glob('~/.vim/autoload/plug.vim'))
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+          \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  endif
 
-" Lance automatiquement PlugInstall
-autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
-      \| PlugInstall --sync | source $MYVIMRC
-      \| endif
+  call plug#begin('~/.vim/plugged')
 
-" Liste des plugins
-call plug#begin('~/.vim/plugged')
+  Plug 'catppuccin/vim', { 'as': 'catppuccin' }
+  Plug 'itchyny/lightline.vim'
+  Plug 'vim-scripts/VimCompletesMe'
 
-Plug 'catppuccin/vim', { 'as': 'catppuccin' }
-Plug 'itchyny/lightline.vim'
-Plug 'vim-scripts/VimCompletesMe'
+  " Plugin de commentaire natif à partir de Vim 9.1, vim-commentary sinon
+  try | packadd! comment | catch | Plug 'tpope/vim-commentary' | endtry
 
-" Commentaire (plugin natif à partir de Vim 9.1)
-try | packadd! comment | catch | Plug 'tpope/vim-commentary' | endtry
+  call plug#end()
 
-call plug#end()
+  " ─── autocmds ──────────────────────────────────────────────────────────
 
-" ─── autocmds ────────────────────────────────────────────────────────────
+  augroup vimrc
+    autocmd!
 
-augroup vimrc
-  autocmd!
+    " Mémoriser la dernière position du curseur
+    autocmd BufReadPost *
+          \ if &ft !~# 'commit' && (line("'\"") > 1) && (line("'\"") <= line("$"))
+          \ |   exe "silent! normal! g'\"zO"
+          \ | endif
 
-  " Mémoriser la dernière position du curseur
-  autocmd BufReadPost *
-        \ if (line("'\"") > 1) && (line("'\"") <= line("$"))
-        \ |   silent exe "silent! normal g'\"zO"
-        \ | endif
+    " Installe les plugins manquants au démarrage, puis recharge
+    autocmd VimEnter *
+          \ if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+          \|  PlugInstall --sync | source $MYVIMRC
+          \| endif
 
-  " Désactivation des # au retour chariot
-  autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+    " Pas de prolongation des commentaires (r, o) ni de retour à la ligne auto (c)
+    autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+  augroup END
 
-augroup END
+  " ─── config des plugins (une fois installés) ───────────────────────────
 
-" ─── plugins config ──────────────────────────────────────────────────────
+  if isdirectory(expand("~/.vim/plugged"))
 
-if isdirectory(expand("~/.vim/plugged"))
+    " Thème
+    set cursorline
+    set termguicolors
+    colorscheme catppuccin_mocha
 
-  " Catppuccin
-  silent! colorscheme catppuccin_mocha
-  set cursorline
-  set termguicolors
+    " Barre de statut
+    let g:lightline = {'colorscheme': 'catppuccin_mocha'}
+    let g:lightline.separator = { 'left': '', 'right': '' }
+    set laststatus=2
+    set noshowmode
 
-  " LightLine
-  let g:lightline = {'colorscheme': 'catppuccin_mocha'}
-  let g:lightline.separator = { 'left': '', 'right': '' }
-  set laststatus=2
-  set noshowmode
+  endif
 
 endif
 ```
 
 ### Modifications
+
+#### Compatibilité vim.tiny
+
+La première partie du fichier ne contient que des options de base, préfixées par `silent!` pour ne pas générer d'erreur si une option n'est pas supportée. Tout le reste est placé dans un bloc `if 1` : les versions minimales de Vim (comme `vim.tiny` sous Debian), compilées sans le support des expressions, ignorent ce bloc. Le même fichier peut ainsi être utilisé par les deux versions.
 
 #### Plugins
 
