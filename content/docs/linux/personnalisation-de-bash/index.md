@@ -7,7 +7,7 @@ toc: true
 tags:
   - linux
 draft: false
-lastmod: 2026-10-01
+lastmod: 2026-10-14
 ---
 
 Le shell Linux sert d'interface entre l'utilisateur et le système d'exploitation. Différents shells existent, comme bash, zsh, fish... Mais **bash** étant par défaut sur la plupart des distributions Linux, c'est sur ce dernier que je vais me focaliser.
@@ -102,9 +102,9 @@ Il est utilisable aussi bien pour votre user que pour root. Attention dans ce ca
 Mon fichier `.bash_aliases` se divise en plusieurs parties :
 
 - Une coloration spécifique pour certains fichiers/dossiers cachés dans les listings (`LS_COLORS`)
-- Un paramètre pour ignorer la casse lors de la saisie (remplace automatiquement les caractères concernés lors d'une tabulation)
+- Des paramètres pour la complétion (couleurs, casse ignorée, affichage immédiat des correspondances)
 - La définition de certaines variables d'environnement (langue, éditeur par défaut)
-- La gestion de sudo (pour la suite du fichier, et pour faire `su` au lieu de `sudo -s` pour passer root)
+- La gestion de sudo (alias `root` pour passer root via `sudo -s`)
 - La liste des aliases de base que j'utilise
 - Des aliases supplémentaires pour des applications spécifiques, chargés uniquement si les applications sont installées
 - Quelques fonctions, dans le cas où un simple alias est trop limitant
@@ -118,7 +118,7 @@ Le contenu du fichier :
 # ─── .bash_aliases ───────────────────────────────────────────────────────
 
 # ls colors
-hidden=".gitignore .history .old"
+hidden=".gitignore .old"
 for file in $hidden; do
   export LS_COLORS="$LS_COLORS:*$file=00;90"
 done
@@ -180,13 +180,6 @@ if command -v apt &>/dev/null; then
   alias upgrade='sudo apt update && sudo apt full-upgrade && sudo apt -y autoremove'
 fi
 
-# btop / htop : top amélioré
-if command -v btop &>/dev/null; then
-  alias top='btop'
-elif command -v htop &>/dev/null; then
-  alias top='htop'
-fi
-
 # dnf : gestionnaire de paquets rpm
 if command -v dnf &>/dev/null; then
   alias dnf='sudo dnf'
@@ -229,10 +222,15 @@ if command -v fzf &>/dev/null; then
     --color=border:#6C7086,label:#CDD6F4"
 fi
 
-# herdr : émulateur de terminal
+# herdr : multiplexeur de terminal
 if command -v herdr &>/dev/null; then
   alias hr='herdr'
   alias hrstop='herdr session stop default'
+fi
+
+# htop : top amélioré
+if command -v htop &>/dev/null; then
+  alias top='htop'
 fi
 
 # icdiff : diff amélioré
@@ -271,6 +269,11 @@ fi
 # vim : vi amélioré
 if command -v vim &>/dev/null; then
   alias vi='vim -O'
+fi
+
+# vim.tiny
+if command -v vim.tiny &>/dev/null; then
+  alias v='vim.tiny -O'
 fi
 
 # zed : éditeur de code
@@ -351,6 +354,7 @@ Les aliases de base :
 | ssp       | Suivi d'une chaîne, permet de rechercher rapidement un port d'écoute |
 | pubip     | Affiche rapidement l'IP publique de la machine                       |
 | df        | Commande df, mais sans les volumes temporaires                       |
+| dus       | Liste les fichiers et dossiers triés par taille                      |
 | halt      | Permet l'arrêt de la machine et non seulement le système             |
 | reboot    | Ajoute sudo devant la commande reboot                                |
 | root      | Permet de se connecter en root via sudo                              |
@@ -367,7 +371,7 @@ Les aliases actifs uniquement dans le cas où les applications sont installées 
 | dus      | Lance dust, la commande `du` améliorée                                      |
 | fd       | Outil équivalent à find mais bien plus simple à utiliser                    |
 | fzf      | [fzf](/docs/linux/applications/fzf/) est un outil de recherche avancé       |
-| top      | Remplace la commande top par btop (ou htop à défaut)                        |
+| top      | Remplace la commande top par htop                                           |
 | hr       | Lance herdr, un multiplexeur de terminal pour agents de code                |
 | hrstop   | Arrête la session herdr par défaut                                          |
 | ncdu     | [ncdu](/docs/linux/applications/ncdu/) est un équivalent de Treesize        |
@@ -377,6 +381,7 @@ Les aliases actifs uniquement dans le cas où les applications sont installées 
 | ufw      | [ufw](/docs/linux/applications/ufw/) est un Firewall accessible             |
 | ufws     | Affiche le status de ufw, avec les règles numérotées                        |
 | vi       | [vim](/docs/linux/applications/vim/) avec le split vertical actif           |
+| v        | vim.tiny avec le split vertical actif (version minimale de vim)             |
 | e        | Ouvre Zed (ou zedit à défaut), l'éditeur de code                            |
 | eo       | Ajoute sudo devant eopkg (distributions Solus)                              |
 | z        | [zoxide](/docs/linux/applications/zoxide/) est un cd intélligent            |

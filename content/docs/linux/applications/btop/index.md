@@ -108,8 +108,14 @@ truecolor = true
 #* Graph symbol.
 graph_symbol = "braille"
 
-#* Process shorting
+#* Manually set which boxes to show.
+shown_boxes = "cpu mem net"
+
+#* Process shorting.
 proc_sorting = "cpu direct"
+
+#* Show cpu graph for each process.
+proc_cpu_graphs = false
 ```
 
 ## Thèmes

@@ -7,7 +7,7 @@ toc: true
 tags:
   - macos
 draft: false
-lastmod: 2026-10-01
+lastmod: 2026-10-14
 ---
 
 [Ghostty](https://ghostty.org/) est un émulateur de terminal moderne, rapide et natif sur macOS. Créé par Mitchell Hashimoto (co-fondateur de HashiCorp, l'auteur de Terraform et Vagrant), il est sorti en open source fin 2024 et a rapidement conquis la communauté des développeurs. Voici comment l'installer, le configurer et en tirer le meilleur parti.
@@ -26,7 +26,7 @@ Ghostty ne dispose pas d'interface de configuration. Tout se fait via un fichier
 
 ```bash
 mkdir -p ~/.config/ghostty
-touch ~/.config/ghostty/config
+touch ~/.config/ghostty/config.ghostty
 ```
 
 Vous pourrez ensuite l'ouvrir directement depuis Ghostty, via le raccourci **`Cmd + ,`**.
@@ -35,11 +35,10 @@ Vous pourrez ensuite l'ouvrir directement depuis Ghostty, via le raccourci **`Cm
 
 Voici la configuration que j'utilise :
 
-```ini {filename="~/.config/ghostty/config"}
+```ini {filename="~/.config/ghostty/config.ghostty"}
 # ─── Ghostty ─────────────────────────────────────────────────────────────
 
 # general
-title = " "
 auto-update = off
 confirm-close-surface = false
 bell-features = no-attention,no-title,no-audio,no-system
@@ -51,7 +50,7 @@ gtk-titlebar = false
 
 # macos
 macos-titlebar-proxy-icon = hidden
-macos-titlebar-style = tabs
+macos-titlebar-style = transparent
 
 # window
 window-width = 110
