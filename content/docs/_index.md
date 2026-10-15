@@ -3,6 +3,7 @@ linkTitle: Docs
 ---
 
 {{< cards >}}
+  {{< card link="applications" title="Applications" icon="view-grid" >}}
   {{< card link="docker" title="Docker" icon="server" >}}
   {{< card link="jeux" title="Jeux" icon="play" >}}
   {{< card link="linux" title="Linux" icon="terminal" >}}

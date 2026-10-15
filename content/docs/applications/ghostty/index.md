@@ -5,8 +5,11 @@ contextMenu: true
 weight: 30
 toc: true
 tags:
+  - linux
   - macos
 draft: false
+aliases:
+  - /docs/macos/applications/ghostty/
 lastmod: 2026-10-14
 ---
 
