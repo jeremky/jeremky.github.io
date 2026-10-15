@@ -17,23 +17,6 @@ lastmod: 2026-10-14
 
 ![bash](bash.webp)
 
-## Avantages et inconvénients
-
-### Points forts
-
-- **Performance** : écrit en Rust et rendu via le GPU, Zed est probablement l'éditeur le plus réactif du marché. Le démarrage est quasi-instantané, même sur de gros projets, et la latence de frappe est imperceptible.
-- **Mode Vim intégré** : le mode Vim est natif, sans extension. Il supporte les text objects, les marks, et s'intègre naturellement avec le reste de l'éditeur.
-- **IA native** : Zed intègre nativement plusieurs modèles (Claude, GPT, Gemini, Ollama…), aussi bien pour la complétion que pour un agent capable d'intervenir directement dans le code. La création d’un compte vous permet de profiter de complétions, dont 2000 mensuelles sont offertes avec un compte gratuit
-- **Configuration en JSON** : tous les réglages se font dans un fichier texte, versionnable et facilement reproductible d'une machine à l'autre.
-- **Interface épurée** : l'interface est minimaliste et ne distrait pas du code. Pas de menus superflus, tout est accessible via la palette de commandes.
-
-### Limites
-
-- **Écosystème d'extensions** : avec un peu plus de 500 extensions disponibles, le catalogue reste loin de celui de VS Code. Certains langages ou outils spécifiques peuvent manquer.
-- **Debugger** : intégré depuis 2025, mais encore limité par rapport à VS Code sur des fonctionnalités avancées comme les watch windows ou les data breakpoints.
-- **Modèle freemium** : certaines fonctionnalités IA (notamment la complétion prédictive avancée) sont limitées en nombre d'utilisations mensuelles sans abonnement.
-- **Support Markdown** : basique. La prévisualisation est là, mais l'éditeur manque de fonctionnalités pour les longues sessions d'écriture.
-
 ![markdown](markdown.webp)
 
 ## Installation
