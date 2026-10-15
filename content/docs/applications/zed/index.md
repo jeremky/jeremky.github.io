@@ -5,8 +5,11 @@ contextMenu: true
 weight: 90
 toc: true
 tags:
+  - linux
   - macos
 draft: false
+aliases:
+  - /docs/macos/applications/zed/
 lastmod: 2026-10-14
 ---
 
@@ -35,6 +38,8 @@ lastmod: 2026-10-14
 
 ## Installation
 
+## macOS
+
 La méthode la plus simple reste d'utiliser brew. Un article [disponible ici](/docs/macos/utilisation-de-homebrew) a été rédigé à son sujet.
 
 Une fois brew installé, lancez la commande suivante :
@@ -43,7 +48,16 @@ Une fois brew installé, lancez la commande suivante :
 brew install zed
 ```
 
-Si vous ne voulez pas installer Homebrew et préférez une méthode d’installation traditionnelle, vous pouvez récupérer le fichier `dmg` en suivant [ce lien](https://zed.dev/download-success?asset=Zed-aarch64.dmg&version=0.233.10&channel=stable).
+## Linux
+
+Vérifiez dans le gestionnaire de paquets votre distribution, ou utilisez directement leur script d'installation :
+
+```bash
+curl -f https://zed.dev/install.sh | sh
+```
+
+> [!IMPORTANT]
+> Une installation manuelle est également possible en suivant [ce lien](https://zed.dev/download)
 
 ## Configuration
 

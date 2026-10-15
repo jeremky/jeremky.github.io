@@ -193,9 +193,6 @@ if command -v herdr &>/dev/null; then
   alias hrstop='herdr session stop default'
 fi
 
-# icdiff : diff amélioré
-command -v icdiff &>/dev/null && alias diff='icdiff'
-
 # ncdu : équivalent à TreeSize
 command -v ncdu &>/dev/null && alias ncdu='ncdu --color dark'
 
@@ -204,9 +201,6 @@ command -v procs &>/dev/null && alias psp='procs'
 
 # rg : plus performant que grep
 command -v rg &>/dev/null && alias rg='rg -i'
-
-# zed : éditeur de code
-command -v zed &>/dev/null && alias e='zed'
 
 # zoxide : cd amélioré
 command -v zoxide &>/dev/null && eval "$(zoxide init zsh)"
@@ -238,19 +232,6 @@ done; }
 # jback : backup local vers disque externe
 jback() { rsync -ah --no-perms --progress --exclude "._*" --exclude ".DS_Store" ~/Documents/ /Volumes/jdisk/Documents/; }
 
-# ─── scripts ─────────────────────────────────────────────────────────────
-
-# transforme en alias les scripts
-scripts=~/Documents/scripts
-if [[ -d $scripts ]]; then
-  for i in envbackup ggit; do
-    [[ -f $scripts/$i/$i.sh ]] && alias $i="$scripts/$i/$i.sh"
-  done
-fi
-
-# hugo
-sitedir=~/Documents/website
-[[ -f $sitedir/hugo.sh ]] && alias hugo="$sitedir/hugo.sh"
 ```
 
 Les aliases de base :
@@ -292,7 +273,6 @@ Les aliases actifs uniquement dans le cas où les applications sont installées 
 | rg       | Un grep récursif, bien plus lisible que le grep de base                       |
 | hr       | Lance herdr, un multiplexeur de terminal pour agents de code                  |
 | hrstop   | Arrête la session herdr par défaut                                            |
-| e        | Ouvre [Zed](/docs/macos/applications/zed/), l'éditeur de code                 |
 | z        | Utilise zoxide, un cd avancé                                                  |
 
 Et enfin, les fonctions :
