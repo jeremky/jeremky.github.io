@@ -56,15 +56,15 @@ macos-titlebar-proxy-icon = hidden
 macos-titlebar-style = transparent
 
 # window
-window-width = 110
-window-height = 30
+window-width = 160
+window-height = 40
 window-padding-x = 15
 window-padding-y = 15
 
 # appearance
 theme = Catppuccin Mocha
-unfocused-split-opacity = 0.90
-adjust-cell-height = 10%
+unfocused-split-opacity = 1
+adjust-cell-height = 15%
 
 # font
 font-family = JetBrains Mono NL
@@ -78,17 +78,12 @@ mouse-hide-while-typing = true
 # clipboard
 copy-on-select = clipboard
 right-click-action = paste
-
-# quick terminal
-quick-terminal-position = center
-quick-terminal-size = 800px,500px
+app-notifications = no-clipboard-copy
 
 # ─── keybinds ────────────────────────────────────────────────────────────
 
-# general
-keybind = global:super+shift+space=toggle_quick_terminal
-
 # split
+keybind = ctrl+shift+D=new_split
 keybind = ctrl+shift+left=goto_split:left
 keybind = ctrl+shift+down=goto_split:bottom
 keybind = ctrl+shift+up=goto_split:top
@@ -109,13 +104,6 @@ keybind = ctrl+shift+right=goto_split:right
 | `window-save-state`  | Restaure l'état de la fenêtre au redémarrage          |
 
 Pour voir toutes les options disponibles, consultez la [documentation officielle](https://ghostty.org/docs/config/reference).
-
-### Quick Terminal (terminal déroulant)
-
-L'une des fonctionnalités les plus pratiques de Ghostty sur Mac : un terminal "dropdown" qui peut être appelé de n'importe où via le raccourci **`Cmd+Shift+Space`**.
-
-> [!IMPORTANT]
-> Le Quick Terminal nécessite une permission d'accessibilité. Il faut se rendre dans **Réglages Système > Confidentialité et sécurité > Accessibilité** et autoriser Ghostty
 
 ## Thèmes et apparence
 
