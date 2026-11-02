@@ -1,12 +1,10 @@
 ---
 title: "Herdr"
 slug: herdr
-contextMenu: true
 weight: 60
 toc: true
 tags:
-  - linux
-  - macos
+  - apps
 draft: false
 lastmod: 2026-10-16
 ---

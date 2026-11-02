@@ -1,7 +1,6 @@
 ---
 title: "Pairdrop"
 slug: pairdrop
-contextMenu: true
 weight: 40
 toc: true
 tags:

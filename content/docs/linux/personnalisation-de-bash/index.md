@@ -2,12 +2,11 @@
 title: "Personnalisation de Bash"
 slug: personnalisation-de-bash
 weight: 1
-contextMenu: true
 toc: true
 tags:
   - linux
 draft: false
-lastmod: 2026-10-14
+lastmod: 2026-10-28
 ---
 
 Le shell Linux sert d'interface entre l'utilisateur et le système d'exploitation. Différents shells existent, comme bash, zsh, fish... Mais **bash** étant par défaut sur la plupart des distributions Linux, c'est sur ce dernier que je vais me focaliser.
@@ -66,8 +65,18 @@ fi
 # aliases
 [[ -f ~/.bash_aliases ]] && . "$HOME/.bash_aliases"
 
-# solus
-[[ -f "/usr/share/defaults/etc/profile.d/50-prompt.sh" ]] && . "/usr/share/defaults/etc/profile.d/50-prompt.sh"
+case "$(cat /etc/hostname)" in
+  jpi)
+    PS1='\[\033[01;35m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w \$\[\033[00m\] '
+    ;;
+  jsolus)
+    . "/usr/share/defaults/etc/profile.d/50-prompt.sh"
+    ;;
+  jsteam)
+    __holo_prompt_command() { return; }
+    PS1='\[\033[01;36m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w \$\[\033[00m\] '
+    ;;
+esac
 
 # prompt
 case "$TERM" in
@@ -86,6 +95,9 @@ if ! shopt -oq posix; then
   fi
 fi
 ```
+
+> [!NOTE]
+> Le bloc `case "$(cat /etc/hostname)"` permet d'appliquer des réglages spécifiques selon la machine : un prompt d'une couleur différente pour repérer d'un coup d'œil sur quel système on se trouve (Raspberry Pi, Steam Deck), ou le chargement du prompt natif de Solus. Pensez à l'adapter avec les noms de vos propres machines
 
 ## Fichier .bash_aliases
 
@@ -110,7 +122,7 @@ Mon fichier `.bash_aliases` se divise en plusieurs parties :
 - Quelques fonctions, dans le cas où un simple alias est trop limitant
 - Une transformation automatique des scripts présents dans `~/Documents/scripts` en aliases
 
-Vous pouvez le récupérer directement sur github en suivant [ce lien](https://github.com/jeremky/envbackup/blob/main/dotfiles/.bash_aliases).
+Vous pouvez le récupérer directement sur Codeberg en suivant [ce lien](https://codeberg.org/jeremky/envbackup/src/branch/main/dotfiles/.bash_aliases).
 
 Le contenu du fichier :
 
@@ -180,6 +192,16 @@ if command -v apt &>/dev/null; then
   alias upgrade='sudo apt update && sudo apt full-upgrade && sudo apt -y autoremove'
 fi
 
+# colordiff : diff avec couleur
+if command -v colordiff &>/dev/null; then
+  alias diff='colordiff'
+fi
+
+# curlie : curl amélioré
+if command -v curlie &>/dev/null; then
+  alias curl='curlie'
+fi
+
 # dnf : gestionnaire de paquets rpm
 if command -v dnf &>/dev/null; then
   alias dnf='sudo dnf'
@@ -193,7 +215,7 @@ fi
 
 # dust : du amélioré
 if command -v dust &>/dev/null; then
-  alias dus='dust -rb'
+  alias dust='dust -rb'
 fi
 
 # eopkg : gestionnaire de paquets solus
@@ -211,21 +233,10 @@ elif command -v fd &>/dev/null; then
   export FZF_DEFAULT_COMMAND='fd -HI'
 fi
 
-# fzf : recherche avancée avec thème Catppuccin Mocha
+# fzf : recherche avancée
 if command -v fzf &>/dev/null; then
   eval "$(fzf --bash)"
-  export FZF_DEFAULT_OPTS=" \
-    --color=bg+:#313244,bg:#1E1E2E,spinner:#F5E0DC,hl:#F38BA8 \
-    --color=fg:#CDD6F4,header:#F38BA8,info:#CBA6F7,pointer:#F5E0DC \
-    --color=marker:#B4BEFE,fg+:#CDD6F4,prompt:#CBA6F7,hl+:#F38BA8 \
-    --color=selected-bg:#45475A \
-    --color=border:#6C7086,label:#CDD6F4"
-fi
-
-# herdr : multiplexeur de terminal
-if command -v herdr &>/dev/null; then
-  alias hr='herdr'
-  alias hrstop='herdr session stop default'
+  export FZF_DEFAULT_OPTS="--no-color"
 fi
 
 # htop : top amélioré
@@ -233,21 +244,9 @@ if command -v htop &>/dev/null; then
   alias top='htop'
 fi
 
-# icdiff : diff amélioré
-if command -v icdiff &>/dev/null; then
-  alias diff='icdiff -N'
-elif command -v colordiff &>/dev/null; then
-  alias diff='colordiff'
-fi
-
 # ncdu : équivalent à TreeSize
 if command -v ncdu &>/dev/null; then
   alias ncdu='ncdu --color dark'
-fi
-
-# procs : ps amélioré
-if command -v procs &>/dev/null; then
-  alias psp='procs'
 fi
 
 # rg : plus performant que grep
@@ -277,9 +276,7 @@ if command -v vim.tiny &>/dev/null; then
 fi
 
 # zed : éditeur de code
-if command -v zed &>/dev/null; then
-  alias e='zed'
-elif command -v zedit &>/dev/null; then
+if command -v zedit &>/dev/null; then
   alias e='zedit'
 fi
 
@@ -299,17 +296,23 @@ cpsave() { cp -Rp "$1" "${1%/}.old"; }
 # md5 : MD5 d'une chaîne
 md5() { printf '%s' "$1" | md5sum | cut -d' ' -f1; }
 
-# tarc : créer une archive tar.gz
-tarc() { for file in "$@"; do tar czvf "${file%/}.tar.gz" "$file"; done; }
-
-# tarx : décompresser une archive tar
-tarx() { for file in "$@"; do tar xvf "$file"; done; }
+# tarc/tarx : créer/extraire des archives tar.gz (avec pigz si disponible)
+if command -v pigz &>/dev/null; then
+  tarc() { for file in "$@"; do tar -I pigz -cvf "${file%/}.tar.gz" "$file"; done; }
+  tarx() { for file in "$@"; do tar -I pigz -xvf "$file"; done; }
+else
+  tarc() { for file in "$@"; do tar czvf "${file%/}.tar.gz" "$file"; done; }
+  tarx() { for file in "$@"; do tar xzvf "$file"; done; }
+fi
 
 # diskbench : tester la vitesse d'écriture disque
 diskbench() {
   dd if=/dev/zero of=testfile bs=64M count=16 oflag=direct status=progress
   rm testfile
 }
+
+# gencert : obtenir un certificat Let's Encrypt
+gencert() { sudo certbot --nginx -d "$1"; }
 
 # webi : gestionnaire de paquets
 webinstall() {
@@ -318,7 +321,14 @@ webinstall() {
 }
 
 # zipd : créer une archive zip par dossier/fichier donné
-zipd() { for file in "$@"; do /usr/bin/zip -r "${file%/}.zip" "$file"; done; }
+if [[ -x /usr/bin/zip ]]; then
+  zipd() { for file in "$@"; do /usr/bin/zip -r "${file%/}.zip" "$file"; done; }
+fi
+
+# convweb : convertir des fichiers png en webp
+if command -v cwebp &>/dev/null; then
+  convweb() { for file in "$@"; do cwebp -q 100 "$file" -o "${file%.*}.webp" && rm -- "$file"; done; }
+fi
 
 # ─── scripts ─────────────────────────────────────────────────────────────
 
@@ -366,23 +376,21 @@ Les aliases actifs uniquement dans le cas où les applications sont installées 
 
 | Commande | Description                                                                 |
 | -------- | --------------------------------------------------------------------------- |
-| diff     | Remplace la commande par icdiff (colordiff prend le relais à défaut)        |
+| diff     | Remplace la commande par colordiff (diff en couleur)                        |
+| curl     | Remplace la commande par curlie, un curl plus lisible                       |
 | df       | [duf](/docs/linux/applications/duf/) est un df amélioré                     |
-| dus      | Lance dust, la commande `du` améliorée                                      |
+| dust     | Lance dust, la commande `du` améliorée (affichage inversé, sans barres)     |
 | fd       | Outil équivalent à find mais bien plus simple à utiliser                    |
 | fzf      | [fzf](/docs/linux/applications/fzf/) est un outil de recherche avancé       |
 | top      | Remplace la commande top par htop                                           |
-| hr       | Lance herdr, un multiplexeur de terminal pour agents de code                |
-| hrstop   | Arrête la session herdr par défaut                                          |
 | ncdu     | [ncdu](/docs/linux/applications/ncdu/) est un équivalent de Treesize        |
-| psp      | Remplace la commande par procs, plus lisible et plus rapide                 |
 | rg       | [ripgrep](/docs/linux/applications/ripgrep/) est un `grep` récursif lisible |
 | clock    | Lance tty-clock, un petit outil pour afficher l'heure                       |
 | ufw      | [ufw](/docs/linux/applications/ufw/) est un Firewall accessible             |
 | ufws     | Affiche le status de ufw, avec les règles numérotées                        |
 | vi       | [vim](/docs/linux/applications/vim/) avec le split vertical actif           |
 | v        | vim.tiny avec le split vertical actif (version minimale de vim)             |
-| e        | Ouvre Zed (ou zedit à défaut), l'éditeur de code                            |
+| e        | Ouvre Zed (via la commande zedit), l'éditeur de code                        |
 | eo       | Ajoute sudo devant eopkg (distributions Solus)                              |
 | z        | [zoxide](/docs/linux/applications/zoxide/) est un cd intélligent            |
 
@@ -393,8 +401,10 @@ Et enfin, les fonctions :
 | cleanlog   | Supprimer les logs systemd en spécifiant le nombre de jours                |
 | cpsave     | Créer une copie en .old d'un fichier ou d'un dossier spécifié              |
 | md5        | Calculer le hash MD5 d'une chaîne de caractères                            |
-| tarc       | Créer un tar.gz d'un ou plusieurs fichiers ou dossiers passés en paramètre |
-| tarx       | Pour extraire un ou plusieurs tar.gz passés en paramètre                   |
+| tarc       | Créer un tar.gz d'un ou plusieurs fichiers ou dossiers (via pigz si dispo) |
+| tarx       | Extraire un ou plusieurs tar.gz passés en paramètre (via pigz si dispo)    |
 | diskbench  | Tester la vitesse du disque courant en créant un fichier                   |
+| gencert    | Obtenir un certificat Let's Encrypt via certbot (`gencert <domaine>`)      |
 | webinstall | Installe [webi](https://webinstall.dev/), un gestionnaire de paquets       |
 | zipd       | Facilite l'utilisation de la commande zip (zip \<fichier>)                 |
+| convweb    | Convertit une ou plusieurs images passées en paramètre au format webp      |

@@ -2,25 +2,34 @@
 title: "Personnalisation de Zsh"
 slug: personnalisation-de-zsh
 weight: 1
-contextMenu: true
 toc: true
 tags:
   - macos
 draft: false
-lastmod: 2026-10-14
+lastmod: 2026-10-28
 ---
 
-_[Le Z shell](https://fr.wikipedia.org/wiki/Z_Shell) ou zsh est un shell Unix qui peut être utilisé de façon interactive, à l'ouverture de la session ou en tant que puissant interpréteur de commande. zsh peut être vu comme un « Bourne shell » étendu avec beaucoup d'améliorations. Il reprend en plus la plupart des fonctions les plus pratiques de bash, ksh et tcsh. Zsh remplace bash dans macOS à partir de macOS Catalina 10.15._
+_[Le Z shell](https://fr.wikipedia.org/wiki/Z_Shell) ou zsh est un shell Unix
+qui peut être utilisé de façon interactive, à l'ouverture de la session ou en
+tant que puissant interpréteur de commande. zsh peut être vu comme un « Bourne
+shell » étendu avec beaucoup d'améliorations. Il reprend en plus la plupart des
+fonctions les plus pratiques de bash, ksh et tcsh. Zsh remplace bash dans macOS
+à partir de macOS Catalina 10.15._
 
-> Il existe des solutions clé en main, comme [Oh My ZSH](https://ohmyz.sh/), mais l'idée est d'avoir une configuration la plus légère et optimisée possible
+> Il existe des solutions clé en main, comme [Oh My ZSH](https://ohmyz.sh/),
+> mais l'idée est d'avoir une configuration la plus légère et optimisée possible
 
 ## Explication
 
-Au démarrage d'une session shell, différents fichiers se chargent automatiquement. Cela permet de charger les configurations nécessaires au fonctionnement du prompt, comme son apparence, les variables d'environnement...
+Au démarrage d'une session shell, différents fichiers se chargent
+automatiquement. Cela permet de charger les configurations nécessaires au
+fonctionnement du prompt, comme son apparence, les variables d'environnement...
 
 ## Fichier .zshrc
 
-Le fichier `.zshrc` n'existe pas par défaut. Zsh est chargé sans aucune personnalisation. Il va donc falloir le construire de 0. Comme base de départ, je vous partage le mien :
+Le fichier `.zshrc` n'existe pas par défaut. Zsh est chargé sans aucune
+personnalisation. Il va donc falloir le construire de 0. Comme base de départ,
+je vous partage le mien :
 
 ```bash {filename="~/.zshrc"}
 # ─── .zshrc ──────────────────────────────────────────────────────────────
@@ -79,35 +88,35 @@ fi
 
 # aliases
 [[ -f ~/.zsh_aliases ]] && source "$HOME/.zsh_aliases"
-
-# zsh-syntax-highlighting
-if [[ -n $HOMEBREW_PREFIX ]] && source "$HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" 2>/dev/null; then
-  source "$HOME/.config/zsh/catppuccin.zsh"
-  ZSH_HIGHLIGHT_STYLES[path]=none
-  ZSH_HIGHLIGHT_STYLES[path_pathseparator]=none
-  ZSH_HIGHLIGHT_STYLES[path_prefix]=none
-  ZSH_HIGHLIGHT_STYLES[path_prefix_pathseparator]=none
-  ZSH_HIGHLIGHT_STYLES[precommand]=none
-fi
 ```
 
-Pour profiter pleinement des fonctionnalités de ce fichier, je vous suggère d'installer via [homebrew](/docs/macos/utilisation-de-homebrew) les éléments suivants :
+Pour profiter pleinement des fonctionnalités de ce fichier, je vous suggère
+d'installer via [homebrew](/docs/macos/utilisation-de-homebrew) les éléments
+suivants :
 
 ```bash
-brew install zsh-autosuggestions zsh-completions zsh-syntax-highlighting
+brew install zsh-autosuggestions zsh-completions
 ```
 
 ## Fichier .zsh_aliases
 
-Afin de garder une cohérence avec le système Linux, nous allons créer un fichier `.zsh_aliases`. Ce fichier contiendra nos personnalisations, notamment les aliases, qui permettent de se créer des "raccourcis" de commande, ou des fonctions. Le fichier est lu comme un script, il est donc possible d'y placer des conditions, ou des boucles.
+Afin de garder une cohérence avec le système Linux, nous allons créer un fichier
+`.zsh_aliases`. Ce fichier contiendra nos personnalisations, notamment les
+aliases, qui permettent de se créer des "raccourcis" de commande, ou des
+fonctions. Le fichier est lu comme un script, il est donc possible d'y placer
+des conditions, ou des boucles.
 
 Mon fichier `.zsh_aliases` se divise en plusieurs parties :
 
-- La définition de certaines variables d'environnement (langue, éditeur par défaut)
+- La définition de certaines variables d'environnement (langue, éditeur par
+  défaut)
 - Des paramètres spécifiques à brew si vous l'avez installé
 - La liste des aliases de base que j'utilise
-- Des aliases supplémentaires pour des applications spécifiques, chargés uniquement si les applications sont installées
+- Des aliases supplémentaires pour des applications spécifiques, chargés
+  uniquement si les applications sont installées
 - Quelques fonctions, dans le cas où un simple alias est trop limitant
+- Une transformation automatique des scripts présents dans
+  `~/Documents/scripts` en aliases
 
 Le contenu du fichier :
 
@@ -119,8 +128,8 @@ Le contenu du fichier :
 # variables
 export XDG_CONFIG_HOME="$HOME/.config"
 export PATH="$HOME/.local/bin:$PATH"
-export LANG=fr_FR.UTF-8
-export LC_ALL=fr_FR.UTF-8
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
 export EDITOR=vim
 export LESSHISTFILE=/dev/null
 
@@ -129,7 +138,7 @@ if command -v brew &>/dev/null; then
   export HOMEBREW_NO_ENV_HINTS=1
   export HOMEBREW_NO_ANALYTICS=1
   export HOMEBREW_NO_ASK=1
-  alias upgrade='brew update && brew upgrade -g && brew cleanup'
+  alias upgrade='brew update && brew upgrade && brew cleanup'
 fi
 
 # ─── aliases ─────────────────────────────────────────────────────────────
@@ -140,6 +149,7 @@ alias lr='ls -lLhR'                                   # Liste en récursif
 alias lra='ls -lhRA'                                  # Liste en récursif avec les fichiers cachés
 alias lrt='ls -lLhrt'                                 # Liste par date
 alias lrta='ls -lLhrtA'                               # Liste par date avec les fichiers cachés
+alias dus='du -sh * | sort -hr'                       # Tri par taille
 alias grep='grep -i --color=auto'                     # Grep sans sensibilité à la casse
 alias zgrep='zgrep -i --color=auto'                   # Grep dans les fichiers compressés
 alias psp='ps -eaf | grep -v grep | grep'             # Chercher un process (psp <nom>)
@@ -160,8 +170,6 @@ alias unhide='chflags nohidden'                       # Afficher un dossier dans
 # btop / htop : top amélioré
 if command -v btop &>/dev/null; then
   alias top='btop'
-elif command -v htop &>/dev/null; then
-  alias top='htop'
 fi
 
 # colordiff : diff avec couleur
@@ -171,7 +179,7 @@ command -v colordiff &>/dev/null && alias diff='colordiff'
 command -v duf &>/dev/null && alias df='duf -hide special'
 
 # dust : du amélioré
-command -v dust &>/dev/null && alias du='dust -rb'
+command -v dust &>/dev/null && alias dust='dust -rb'
 
 # fzf : recherche avancée avec thème Catppuccin Mocha
 if command -v fzf &>/dev/null; then
@@ -187,17 +195,8 @@ if command -v fzf &>/dev/null; then
     --color=border:#6C7086,label:#CDD6F4"
 fi
 
-# herdr : multiplexeur de terminal
-if command -v herdr &>/dev/null; then
-  alias hr='herdr'
-  alias hrstop='herdr session stop default'
-fi
-
 # ncdu : équivalent à TreeSize
 command -v ncdu &>/dev/null && alias ncdu='ncdu --color dark'
-
-# procs : ps amélioré
-command -v procs &>/dev/null && alias psp='procs'
 
 # rg : plus performant que grep
 command -v rg &>/dev/null && alias rg='rg -i'
@@ -210,11 +209,14 @@ command -v zoxide &>/dev/null && eval "$(zoxide init zsh)"
 # cpsave : copie un fichier ou dossier avec un suffixe .old
 cpsave() { cp -Rp "$1" "${1%/}.old"; }
 
-# tarc : créer une archive pour chaque fichier/dossier spécifié
-tarc() { for file in "$@"; do tar czvf "${file%/}.tar.gz" "$file"; done; }
-
-# tarx : décompresser une archive
-tarx() { for file in "$@"; do tar xzvf "$file"; done; }
+# tarc/tarx : créer/extraire des archives tar.gz (avec pigz si disponible)
+if command -v pigz &>/dev/null; then
+  tarc() { for file in "$@"; do tar -I pigz -cvf "${file%/}.tar.gz" "$file"; done; }
+  tarx() { for file in "$@"; do tar -I pigz -xvf "$file"; done; }
+else
+  tarc() { for file in "$@"; do tar czvf "${file%/}.tar.gz" "$file"; done; }
+  tarx() { for file in "$@"; do tar xzvf "$file"; done; }
+fi
 
 # zipd : créer une archive zip par fichier
 zipd() { for file in "$@"; do /usr/bin/zip -r "${file%/}.zip" "$file"; done; }
@@ -229,10 +231,26 @@ netinfo() { for service in "Ethernet" "Wi-Fi"; do
   echo
 done; }
 
-# jback : backup local vers disque externe
+# jback : sauvegarde locale vers un disque externe
 jback() { rsync -ah --no-perms --progress --exclude "._*" --exclude ".DS_Store" ~/Documents/ /Volumes/jdisk/Documents/; }
 
+# ─── scripts ─────────────────────────────────────────────────────────────
+
+# Transforme les scripts en alias
+scripts=~/Documents/scripts
+if [[ -d $scripts ]]; then
+  for i in "$scripts"/*; do
+    scr=${i##*/}
+    # shellcheck disable=SC2139,SC2086
+    [[ -f "$scripts/$scr/$scr.sh" ]] && alias $scr="$scripts/$scr/$scr.sh"
+  done
+fi
 ```
+
+> [!NOTE]
+> Le dernier bloc, `scripts`, parcourt le dossier `~/Documents/scripts` et
+> crée automatiquement un alias pour chacun d'eux, du moment qu'il respecte la
+> convention `<nom>/<nom>.sh`
 
 Les aliases de base :
 
@@ -244,6 +262,7 @@ Les aliases de base :
 | lra       | Même chose que lr, dont les cachés                               |
 | lrt       | Liste les fichiers et les répertoires dans l'ordre chronologique |
 | lrta      | Même chose que lrt, dont les cachés                              |
+| dus       | Liste les fichiers et dossiers triés par taille                  |
 | grep      | Ajoute la gestion de la couleur à grep                           |
 | zgrep     | Même chose pour zgrep (grep dans les fichiers compressés)        |
 | psp       | Suivi d'une chaîne, permet de rechercher rapidement un process   |
@@ -263,16 +282,13 @@ Les aliases actifs uniquement dans le cas où les applications sont installées 
 
 | Commande | Description                                                                   |
 | -------- | ----------------------------------------------------------------------------- |
-| top      | Remplace la commande par btop (ou htop à défaut)                              |
-| diff     | Remplace la commande par colordiff (icdiff prend le relais s'il est installé) |
+| top      | Remplace la commande par btop                                                 |
+| diff     | Remplace la commande par colordiff                                            |
 | df       | Remplace la commande par duf, bien plus agréable visuellement                 |
-| du       | Outil dust, similaire à du, en couleur et très rapide                         |
+| dust     | Lance dust avec un affichage inversé et sans barres (`-rb`)                   |
 | fzf      | Outil de recherche avancé                                                     |
 | ncdu     | L'équivalent de l'outil Treesize sous Windows                                 |
-| psp      | Outil procs, similaire à ps, en bien plus lisible                             |
 | rg       | Un grep récursif, bien plus lisible que le grep de base                       |
-| hr       | Lance herdr, un multiplexeur de terminal pour agents de code                  |
-| hrstop   | Arrête la session herdr par défaut                                            |
 | z        | Utilise zoxide, un cd avancé                                                  |
 
 Et enfin, les fonctions :
@@ -280,9 +296,9 @@ Et enfin, les fonctions :
 | Commande | Description                                                                |
 | -------- | -------------------------------------------------------------------------- |
 | cpsave   | Créer une copie en .old d'un fichier ou d'un dossier spécifié              |
-| tarc     | Créer un tar.gz d'un ou plusieurs fichiers ou dossiers passés en paramètre |
-| tarx     | Pour extraire un ou plusieurs tar.gz passés en paramètre                   |
+| tarc     | Créer un tar.gz d'un ou plusieurs fichiers ou dossiers (via pigz si dispo) |
+| tarx     | Extraire un ou plusieurs tar.gz passés en paramètre (via pigz si dispo)    |
 | zipd     | Facilite l'utilisation de la commande zip (`zip <fichier>`)                |
 | convweb  | Transforme une image passée en paramètre au format webp                    |
 | netinfo  | Affiche les informations sur les cartes ethernet et Wifi                   |
-| jback    | Sauvegarde `~/Documents` vers un disque externe (`/Volumes/jdisk`)         |
+| jback    | Sauvegarde `~/Documents` vers un disque externe via rsync                  |

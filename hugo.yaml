@@ -1,4 +1,4 @@
-baseURL: https://jeremky.github.io
+baseURL: https://jeremky.dynu.net
 locale: fr
 defaultContentLanguage: fr
 title: JeremKy Docs
@@ -13,44 +13,20 @@ menu:
       pageRef: /docs
       weight: 1
 
-    - name: Blog
-      pageRef: /blog
+    - name: A propos
+      pageRef: /apropos
       weight: 2
 
-    - identifier: plus
-      name: Plus
-      weight: 3
-    - identifier: apropos
-      name: A propos
-      pageRef: /apropos
-      parent: plus
-    - identifier: archives
-      name: Archives
-      pageRef: /archives
-      parent: plus
-
     - name: Search
-      weight: 4
+      weight: 3
       params:
         type: search
 
     - name: Theme Toggle
       params:
-        weight: 5
+        weight: 4
         type: theme-toggle
         label: false
-
-  sidebar:
-    - name: Plus
-      params:
-        type: separator
-      weight: 1
-    - name: "À propos"
-      pageRef: "/apropos"
-      weight: 2
-    - name: "Archives"
-      pageRef: "/archives"
-      weight: 3
 
 markup:
   highlight:
@@ -63,7 +39,7 @@ taxonomies:
   tag: tags
 
 params:
-  description: "Infos et documentation autour du déploiement d’applications auto-hébergées"
+  description: "Infos et documentation autour du déploiement d’applications"
   images:
     - "images/opengraph.png"
 
@@ -86,16 +62,8 @@ params:
     width: wide
     contextMenu:
       enable: false
-      links:
-        - name: Ouvrir dans Claude
-          icon: claude
-          url: "https://claude.ai/new?q=Je+consulte+cette+documentation+%3A+{url}%0APeux-tu+m%27aider+à+comprendre+comment+l%27utiliser+?"
     tabs:
       sync: true
-
-  blog:
-    list:
-      displayTags: true
 
   toc:
     displayTags: true
@@ -103,15 +71,11 @@ params:
   imageZoom:
     enable: true
 
-  footer:
+  contextMenu:
     enable: true
+
+  footer:
+    enable: false
     width: wide
     displayCopyright: true
     displayPoweredBy: true
-
-  archives:
-    dateFormat: "02 Jan"
-
-outputs:
-  page: [html, markdown]
-  section: [html, rss, markdown]

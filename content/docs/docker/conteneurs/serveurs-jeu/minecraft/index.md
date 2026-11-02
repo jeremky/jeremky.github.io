@@ -2,7 +2,6 @@
 title: "Minecraft"
 slug: minecraft
 weight: 20
-contextMenu: true
 toc: true
 tags:
   - jeux

@@ -1,7 +1,6 @@
 ---
 title: "Migration vers Podman"
 slug: migration-vers-podman
-contextMenu: true
 weight: 4
 toc: true
 tags:

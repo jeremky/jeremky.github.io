@@ -1,7 +1,6 @@
 ---
 title: "duf"
 slug: duf
-contextMenu: true
 weight: 10
 toc: true
 tags:

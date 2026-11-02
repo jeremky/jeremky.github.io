@@ -1,7 +1,6 @@
 ---
 title: "Podman Rootless"
 slug: podman-rootless
-contextMenu: true
 weight: 5
 toc: true
 tags:

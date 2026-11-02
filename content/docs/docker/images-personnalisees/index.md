@@ -1,7 +1,6 @@
 ---
 title: "Images personnalisées"
 slug: images-personnalisees
-contextMenu: true
 weight: 3
 toc: true
 tags:

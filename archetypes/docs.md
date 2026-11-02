@@ -1,7 +1,6 @@
 ---
 title: "{{ .Name | replaceRE "-" " " | humanize }}"
 slug: {{ .Name }}
-contextMenu: true
 weight: 10
 toc: true
 tags:

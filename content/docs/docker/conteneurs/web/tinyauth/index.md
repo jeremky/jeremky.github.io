@@ -1,7 +1,6 @@
 ---
 title: "Tinyauth"
 slug: tinyauth
-contextMenu: true
 weight: 70
 toc: true
 tags:

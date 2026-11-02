@@ -1,7 +1,6 @@
 ---
 title: "Ddclient"
 slug: ddclient
-contextMenu: true
 weight: 20
 toc: true
 tags:

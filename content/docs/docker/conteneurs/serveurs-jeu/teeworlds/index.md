@@ -1,7 +1,6 @@
 ---
 title: "Teeworlds"
 slug: teeworlds
-contextMenu: true
 weight: 30
 toc: true
 tags:

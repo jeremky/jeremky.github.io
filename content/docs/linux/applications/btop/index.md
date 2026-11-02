@@ -1,7 +1,6 @@
 ---
 title: "btop"
 slug: btop
-contextMenu: true
 weight: 33
 toc: true
 tags:

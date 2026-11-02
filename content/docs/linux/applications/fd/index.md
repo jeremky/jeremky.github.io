@@ -1,7 +1,6 @@
 ---
 title: "fd"
 slug: fd
-contextMenu: true
 weight: 15
 toc: true
 tags:

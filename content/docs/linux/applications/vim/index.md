@@ -1,13 +1,12 @@
 ---
 title: "vim"
 slug: vim
-contextMenu: true
 weight: 80
 toc: true
 tags:
   - linux
 draft: false
-lastmod: 2026-10-14
+lastmod: 2026-10-27
 ---
 
 *[Vim](https://fr.wikipedia.org/wiki/Vim) est un éditeur de texte extrêmement personnalisable, que ce soit par l'ajout d'extensions, ou par la modification de son fichier de configuration, écrits dans son propre langage d'extension, le Vim script.*
@@ -106,7 +105,6 @@ silent! set noswapfile          " Désactive les fichiers d'échange
 
 " Mapping de base
 nnoremap <S-Tab> <C-w>w
-nnoremap <silent> <CR> :nohlsearch<CR><CR>
 
 " ─── Vim complet uniquement (ignoré par vim.tiny) ────────────────────────
 if 1
@@ -134,6 +132,9 @@ if 1
   " Curseur bloc au démarrage, réinitialisé en quittant
   if stridx(&t_ti, "\e[2 q") < 0 | let &t_ti .= "\e[2 q" | endif
   if stridx(&t_te, "\e[0 q") < 0 | let &t_te .= "\e[0 q" | endif
+
+  " Désactivation automatique de la surbrillance des recherches
+  try | packadd! nohlsearch | catch | endtry
 
   " ─── fonctions ─────────────────────────────────────────────────────────
 
@@ -187,8 +188,12 @@ if 1
 
   call plug#begin('~/.vim/plugged')
 
+  " Interface
   Plug 'catppuccin/vim', { 'as': 'catppuccin' }
   Plug 'itchyny/lightline.vim'
+
+  " Éditeur
+  Plug 'jiangmiao/auto-pairs'
   Plug 'vim-scripts/VimCompletesMe'
 
   " Plugin de commentaire natif à partir de Vim 9.1, vim-commentary sinon
@@ -215,6 +220,10 @@ if 1
 
     " Pas de prolongation des commentaires (r, o) ni de retour à la ligne auto (c)
     autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
+    " Coloration syntaxique des fichiers .lpl
+    autocmd BufRead,BufNewFile *.lpl setfiletype json
+
   augroup END
 
   " ─── config des plugins (une fois installés) ───────────────────────────
@@ -224,10 +233,11 @@ if 1
     " Thème
     set cursorline
     set termguicolors
-    colorscheme catppuccin_mocha
+    silent! colorscheme catppuccin_mocha
 
     " Barre de statut
     let g:lightline = {'colorscheme': 'catppuccin_mocha'}
+    let g:lightline.component = {'lineinfo': '%3l:%-2v'}
     let g:lightline.separator = { 'left': '', 'right': '' }
     set laststatus=2
     set noshowmode
@@ -247,8 +257,10 @@ La première partie du fichier ne contient que des options de base, préfixées 
 
 - catppuccin : applique le thème Catppuccin Mocha
 - lightline : améliore la barre de statut
+- auto-pairs : ferme automatiquement les parenthèses, crochets et guillemets
 - VimCompletesMe : gère l'auto-complétion
 - comment : commenter/décommenter rapidement (plugin natif de Vim 9.1+, remplacé par vim-commentary sur les versions antérieures)
+- nohlsearch : désactive automatiquement la surbrillance des recherches (plugin natif de Vim 9.1+, ignoré s'il est absent)
 
 #### Mapping
 

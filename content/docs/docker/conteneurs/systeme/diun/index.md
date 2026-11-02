@@ -1,7 +1,6 @@
 ---
 title: "Diun"
 slug: diun
-contextMenu: true
 weight: 10
 toc: true
 tags:

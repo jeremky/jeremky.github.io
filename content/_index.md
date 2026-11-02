@@ -2,9 +2,6 @@
 layout: "hextra-home"
 ---
 
-> [!CAUTION]
-> Le site fermera bientôt ses portes. Contactez-moi pour la suite
-
 {{< hextra/hero-container >}}
   <div class="hx:mt-6 hx:mb-6 hx:w-full">
   {{< hextra/hero-headline >}}
@@ -14,7 +11,7 @@ layout: "hextra-home"
 
   <div class="hx:mt-6 hx:mb-6 hx:w-full">
   {{< hextra/hero-subtitle >}}
-  Infos et documentation autour du déploiement d’applications auto-hébergées
+  Infos et documentation autour du déploiement d’applications
   {{< /hextra/hero-subtitle >}}
   </div>
 
@@ -40,7 +37,7 @@ layout: "hextra-home"
   >}}
 
   {{< hextra/feature-card
-    title="Application"
+    title="Applications"
     subtitle="Zed, Ghostty… Différentes applications multi plateforme pour augmenter votre productivité."
     link="/docs/applications"
     icon="pencil"
@@ -56,12 +53,3 @@ layout: "hextra-home"
 
 {{< docs >}}
 </div>
-
-<!--<div class="hx:mt-6 hx:mb-6 hx:w-full">
-{{< hextra/hero-section >}}
-  </br>
-Derniers articles
-{{< /hextra/hero-section >}}
-
-{{< posts >}}
-</div>-->

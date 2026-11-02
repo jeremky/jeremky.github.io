@@ -2,7 +2,6 @@
 title: "Thème Catppuccin"
 slug: theme-catppuccin
 weight: 40
-contextMenu: true
 toc: true
 tags:
   - linux

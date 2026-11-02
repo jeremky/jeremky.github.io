@@ -1,7 +1,6 @@
 ---
 title: "Webtop"
 slug: webtop
-contextMenu: true
 weight: 60
 toc: true
 tags:

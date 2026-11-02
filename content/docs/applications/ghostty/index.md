@@ -1,16 +1,14 @@
 ---
 title: "Ghostty"
 slug: ghostty
-contextMenu: true
 weight: 30
 toc: true
 tags:
-  - linux
-  - macos
+  - apps
 draft: false
 aliases:
   - /docs/macos/applications/ghostty/
-lastmod: 2026-10-14
+lastmod: 2026-10-27
 ---
 
 [Ghostty](https://ghostty.org/) est un émulateur de terminal moderne, rapide et natif sur macOS. Créé par Mitchell Hashimoto (co-fondateur de HashiCorp, l'auteur de Terraform et Vagrant), il est sorti en open source fin 2024 et a rapidement conquis la communauté des développeurs. Voici comment l'installer, le configurer et en tirer le meilleur parti.
@@ -42,7 +40,7 @@ Voici la configuration que j'utilise :
 # ─── Ghostty ─────────────────────────────────────────────────────────────
 
 # general
-auto-update = off
+auto-update = download
 confirm-close-surface = false
 bell-features = no-attention,no-title,no-audio,no-system
 shell-integration-features = no-cursor,ssh-env
@@ -69,7 +67,7 @@ adjust-cell-height = 15%
 # font
 font-family = JetBrains Mono NL
 font-thicken = false
-font-size = 14
+font-size = 10
 
 # mouse
 mouse-scroll-multiplier = discrete:1
@@ -82,12 +80,18 @@ app-notifications = no-clipboard-copy
 
 # ─── keybinds ────────────────────────────────────────────────────────────
 
-# split
+# split pane
 keybind = ctrl+shift+D=new_split
 keybind = ctrl+shift+left=goto_split:left
 keybind = ctrl+shift+down=goto_split:bottom
 keybind = ctrl+shift+up=goto_split:top
 keybind = ctrl+shift+right=goto_split:right
+
+# resize pane
+keybind = alt+shift+left=resize_split:left,20
+keybind = alt+shift+down=resize_split:down,20
+keybind = alt+shift+up=resize_split:up,20
+keybind = alt+shift+right=resize_split:right,20
 ```
 
 ### Options utiles
@@ -146,6 +150,14 @@ Ghostty suit les conventions macOS. Voici les raccourcis les plus utiles :
 | `Cmd + Shift + [` / `]` | Naviguer entre les panneaux                |
 | `Cmd + Shift + Entrée`  | Agrandir/réduire le panneau courant (zoom) |
 | `Cmd + Entrée`          | Plein écran                                |
+
+Ma configuration ajoute des raccourcis communs à Linux et macOS pour gérer les panneaux :
+
+| Raccourci                 | Action                                          |
+| ------------------------- | ----------------------------------------------- |
+| `Ctrl + Shift + D`        | Diviser le panneau courant                      |
+| `Ctrl + Shift + Flèches`  | Naviguer entre les panneaux                     |
+| `Alt + Shift + Flèches`   | Redimensionner le panneau courant (20 cellules) |
 
 ### Divers
 

@@ -1,7 +1,6 @@
 ---
 title: "Open WebUI"
 slug: openwebui
-contextMenu: true
 weight: 20
 toc: true
 tags:

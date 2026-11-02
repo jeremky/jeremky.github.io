@@ -1,7 +1,6 @@
 ---
 title: "RustDesk"
 slug: rustdesk
-contextMenu: true
 weight: 40
 toc: true
 tags:

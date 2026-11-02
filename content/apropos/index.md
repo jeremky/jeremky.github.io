@@ -1,7 +1,6 @@
 ---
-title: "Salut, moi c'est Jerem"
-sidebar:
-  exclude: true
+title: "A propos"
+toc: false
 imageZoom: false
 draft: false
 lastmod: 2026-08-24
@@ -16,25 +15,19 @@ lastmod: 2026-08-24
 
 ## Qui suis-je ?
 
-Administrateur applicatif passionné d’hébergement auto-géré, je partage ici mes retours d’expérience sur le monde du logiciel libre et des solutions orientées serveur. Je crois en l'idée de reprendre le contrôle sur nos usages d'outils informatiques.
+JeremKy, un passionné d'informatique et du monde libre. Je partage ici mes retours d’expérience sur la mise en place de diverses solutions orientées bureautique et serveur.
 
-## Pourquoi ce site ?
-
-L'objectif initial de ce site web était de partager, sous forme de blog, des astuces d'hébergement de solutions logicielles.
-
-Par la suite, ce site s'est vu transformé en un site de documentation plus classique, permettant une meilleure lecture du contenu.
-
-## Mes outils préférés
+## Mes outils ?
 
 {{< cards cols="3" >}}
   {{< card icon="server" title="Hébergement" subtitle="Debian · Podman · NGINX" >}}
   {{< card icon="terminal" title="Terminal" subtitle="Ghostty · Bash · Zsh · Vim" >}}
-  {{< card icon="pencil-alt" title="Édition" subtitle="Zed · Obsidian" >}}
+  {{< card icon="pencil-alt" title="Édition" subtitle="Zed · Obsidian · Helix" >}}
 {{< /cards >}}
 
 ## Où me retrouver ?
 
 {{< cards cols="2" >}}
-  {{< card link="https://github.com/jeremky" title="GitHub" icon="github" subtitle="Suivez mes différents projets" >}}
-  {{< card link="https://h4.io/@jeremky" title="Mastodon" icon="mastodon" subtitle="Suivez-moi au quotidien" >}}
+  {{< card link="https://codeberg.org/jeremky" title="Codeberg" icon="codeberg" subtitle="Pour consulter mes projets bash" >}}
+  {{< card link="https://h4.io/@jeremky" title="Mastodon" icon="mastodon" subtitle="Pour me contacter ou me suivre" >}}
 {{< /cards >}}

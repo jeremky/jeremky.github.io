@@ -1,7 +1,6 @@
 ---
 title: "ChimeraOS"
 slug: chimeraos
-contextMenu: true
 weight: 10
 toc: true
 tags:
@@ -13,7 +12,7 @@ lastmod: 2026-05-30
 
 [ChimeraOS](https://chimeraos.org/) est un système d'exploitation conçu pour transformer un PC en console de jeux, **clé en main**. Après l'installation, démarrez directement sur **Steam Big Picture**, connectez votre compte Steam et lancez vos jeux préférés.
 
-![chimeraos](https://chimeraos.org/logo.svg)
+![chimeraos](logo.svg)
 
 ## Fonctionnalités
 

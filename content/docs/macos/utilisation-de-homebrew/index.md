@@ -2,12 +2,11 @@
 title: "Utilisation de Homebrew"
 slug: utilisation-de-homebrew
 weight: 10
-contextMenu: true
 toc: true
 tags:
   - macos
 draft: false
-lastmod: 2026-09-15
+lastmod: 2026-10-28
 ---
 
 [Homebrew](https://brew.sh/fr/) est un **gestionnaire de paquets** pour macOS (il existe aussi une version pour Linux, bien que moins couramment utilisée). Si vous êtes familier avec Linux, vous connaissez probablement `apt` (Debian/Ubuntu) ou `dnf` (Fedora/RHEL). Sous Windows, il existe `winget` ou `chocolatey`. Homebrew joue exactement ce rôle sous macOS : c'est un outil qui simplifie l'installation, la mise à jour et la suppression de logiciels et d'outils en ligne de commande.
@@ -87,13 +86,13 @@ fi
 Ajoutez cet alias à votre `.zsh_aliases` pour simplifier la maintenance :
 
 ```bash
-alias upgrade='brew update && brew upgrade -g && brew cleanup'
+alias upgrade='brew update && brew upgrade && brew cleanup'
 ```
 
 Cet alias exécute :
 
 1. `brew update` : met à jour la liste des paquets disponibles
-2. `brew upgrade -g` : met à jour tous les paquets installés (l'option `-g` force la mise à jour)
+2. `brew upgrade` : met à jour tous les paquets installés
 3. `brew cleanup` : supprime les anciennes versions et les fichiers temporaires
 
 Dès lors, un simple `upgrade` mettra à jour tout votre système Homebrew en une seule commande.
@@ -140,4 +139,4 @@ C'est là qu'intervient **brewinit** : un script perso qui automatise l'installa
 
 ### Récupération
 
-Le script est disponible directement sur GitHub, en suivant **[ce lien](https://github.com/jeremky/brewinit)**.
+Le script est disponible directement sur GitHub, en suivant **[ce lien](https://codeberg.org/jeremky/brewinit)**.

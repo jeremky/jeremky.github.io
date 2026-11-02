@@ -1,7 +1,6 @@
 ---
 title: "Syncthing"
 slug: syncthing
-contextMenu: true
 weight: 60
 toc: true
 tags:

@@ -1,7 +1,6 @@
 ---
 title: "Bookstack"
 slug: bookstack
-contextMenu: true
 weight: 10
 toc: true
 tags:

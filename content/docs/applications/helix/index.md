@@ -1,14 +1,12 @@
 ---
 title: "Helix"
 slug: helix
-contextMenu: true
 weight: 50
 toc: true
 tags:
-  - linux
-  - macos
+  - apps
 draft: false
-lastmod: 2026-10-15
+lastmod: 2026-10-28
 ---
 
 [Helix](https://helix-editor.com/) est un éditeur de texte modal fonctionnant dans le terminal, écrit en Rust. Inspiré de Vim et surtout de [Kakoune](https://kakoune.org/), il se distingue par son approche **sélection → action** : là où Vim attend une action puis un mouvement (`dw`), Helix sélectionne d'abord le texte (`w`) puis applique l'action (`d`). Le résultat de chaque commande est ainsi visible avant d'être exécuté.
@@ -99,9 +97,12 @@ touch ~/.config/helix/config.toml ~/.config/helix/languages.toml
 ### Paramètres généraux
 
 ```toml {filename="~/.config/helix/config.toml"}
+# ─── Helix ───────────────────────────────────────────────────────────────
+
 theme = "catppuccin_mocha"
 
 [editor]
+continue-comments = false
 default-yank-register = "+"
 cursorline = true
 true-color = true
@@ -109,6 +110,10 @@ color-modes = true
 scrolloff = 4
 bufferline = "multiple"
 idle-timeout = 400
+
+[editor.auto-save]
+after-delay.enable = false
+after-delay.timeout = 5000
 
 [editor.cursor-shape]
 insert = "bar"
@@ -129,14 +134,14 @@ enable = true
 
 [keys.normal]
 "del" = "delete_char_forward"
-"D" = ["select_mode", "goto_line_end", "delete_selection"]
-"G" = "goto_last_line"
-"$" = "goto_line_end"
-"0" = "goto_line_start"
-
-"F2" = ":toggle mouse"
-"F4" = "toggle_comments"
-"F5" = ":format"
+"d"   = "delete_selection_noyank"
+"D"   = ["select_mode", "goto_line_end", "delete_selection"]
+"G"   = "goto_last_line"
+"$"   = "goto_line_end"
+"0"   = "goto_line_start"
+"F2"  = ":toggle mouse"
+"F4"  = "toggle_comments"
+"F5"  = ":format"
 ```
 
 Ce fichier permet notamment :
@@ -156,6 +161,7 @@ La section `[keys.normal]` redéfinit certains raccourcis afin de retrouver des 
 | Raccourci | Action                                              |
 | --------- | --------------------------------------------------- |
 | `Suppr`   | Supprimer le caractère sous le curseur              |
+| `d`       | Supprimer la sélection sans la copier               |
 | `D`       | Supprimer jusqu'à la fin de la ligne                |
 | `G`       | Aller à la fin du fichier                           |
 | `$` / `0` | Aller à la fin / au début de la ligne               |
@@ -163,12 +169,17 @@ La section `[keys.normal]` redéfinit certains raccourcis afin de retrouver des 
 | `F4`      | Commenter / décommenter la sélection                |
 | `F5`      | Formater le fichier                                 |
 
+> [!TIP]
+> Le presse-papier système étant utilisé comme registre par défaut, la touche `d` est redéfinie pour supprimer sans copier : le contenu du presse-papier n'est ainsi pas écrasé à chaque suppression. Pour couper une sélection, il suffit de la copier (`y`) avant de la supprimer
+
 > [!NOTE]
 > Les touches `F4` et `F5` reprennent les mêmes raccourcis que ceux définis pour [Zed](/docs/applications/zed), afin de conserver des habitudes communes entre les 2 éditeurs
 
 ### Langages
 
 ```toml {filename="~/.config/helix/languages.toml"}
+# ─── Helix Languages ─────────────────────────────────────────────────────
+
 [[language]]
 name = "bash"
 formatter = { command = "shfmt", args = ["-i", "2", "-ci", "-"] }

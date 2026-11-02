@@ -1,7 +1,6 @@
 ---
 title: "Premiers pas"
 slug: premiers-pas
-contextMenu: true
 weight: 1
 toc: true
 tags:

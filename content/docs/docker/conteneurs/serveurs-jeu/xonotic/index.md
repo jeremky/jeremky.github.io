@@ -1,7 +1,6 @@
 ---
 title: "Xonotic"
 slug: xonotic
-contextMenu: true
 weight: 40
 toc: true
 tags:

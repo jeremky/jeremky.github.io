@@ -1,7 +1,6 @@
 ---
 title: "fzf"
 slug: fzf
-contextMenu: true
 weight: 20
 toc: true
 tags:

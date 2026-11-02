@@ -1,7 +1,6 @@
 ---
 title: "UTM"
 slug: utm
-contextMenu: true
 weight: 80
 toc: true
 tags:

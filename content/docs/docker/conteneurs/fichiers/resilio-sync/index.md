@@ -1,7 +1,6 @@
 ---
 title: "Resilio Sync"
 slug: resilio-sync
-contextMenu: true
 weight: 50
 toc: true
 tags:

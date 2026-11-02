@@ -1,7 +1,6 @@
 ---
 title: "Flame"
 slug: flame
-contextMenu: true
 weight: 20
 toc: true
 tags:

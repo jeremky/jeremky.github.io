@@ -1,16 +1,14 @@
 ---
 title: "Zed"
 slug: zed
-contextMenu: true
 weight: 90
 toc: true
 tags:
-  - linux
-  - macos
+  - apps
 draft: false
 aliases:
   - /docs/macos/applications/zed/
-lastmod: 2026-10-14
+lastmod: 2026-10-28
 ---
 
 [Zed](https://zed.dev/) est un éditeur de code minimaliste, développé par les créateurs d'Atom après sa fermeture en 2022. Écrit entièrement en Rust, il a été conçu dès le départ pour offrir des performances élevées, une intégration de l'IA et une collaboration en temps réel. Disponible sur macOS et Linux (et plus récemment Windows), il se positionne comme une alternative sérieuse aux éditeurs traditionnels comme VS Code.
@@ -61,7 +59,7 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
 // ─── Zed settings ───────────────────────────────────────────────────────
 
 {
-  "auto_update": false,
+  "auto_update": true,
   "disable_ai": false,
 
   "telemetry": {
@@ -167,9 +165,10 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
     },
   },
 
+  "helix_mode": false,
   "vim_mode": false,
   "vim": {
-    "use_system_clipboard": "never",
+    "use_system_clipboard": "on_yank",
     "use_smartcase_find": true,
   },
 
@@ -177,6 +176,7 @@ Je vous recommande de consulter la [documentation officielle](https://zed.dev/do
 
   "file_types": {
     "env": ["cfg", "conf", "cron"],
+    "JSON": ["lpl"],
     "Shell Script": ["comp"],
   },
 
@@ -287,6 +287,7 @@ brew install shfmt shellcheck
       "f1": "command_palette::Toggle",
       "ctrl-<": "terminal_panel::Toggle",
       "cmd-shift-a": "workspace::ToggleZoom",
+      "cmd-shift-d": "workspace::ToggleLeftDock",
       "cmd-shift-e": "project_panel::ToggleFocus",
       "cmd-shift-g": "git_panel::ToggleFocus",
       "cmd-shift-c": "multi_workspace::ToggleWorkspaceSidebar",
@@ -378,11 +379,13 @@ words = [
   "flathub",
   "flatpak",
   "fzf",
+  "Ghostty",
   "homebrew",
   "hytale",
   "jerem",
   "jeremky",
   "keymaps",
+  "nginx",
   "podman",
   "shellcheck",
   "ufw",

@@ -2,19 +2,18 @@
 title: "Sécurisation de SSH"
 slug: securisation-de-ssh
 weight: 30
-contextMenu: true
 toc: true
 tags:
   - linux
 draft: false
-lastmod: 2026-05-17
+lastmod: 2026-10-27
 ---
 
 *[Secure Shell](https://fr.wikipedia.org/wiki/Secure_Shell) (SSH) est un protocole de communication sécurisé. Le protocole de connexion impose un échange de clés de chiffrement en début de connexion. Par la suite, tous les segments TCP sont authentifiés et chiffrés. Il devient donc impossible d'utiliser un analyseur de paquets (sniffer) pour voir ce que fait l'utilisateur.*
 
 *Le protocole SSH a été conçu avec l'objectif de remplacer les différents protocoles non chiffrés comme rlogin, telnet, rcp et rsh.*
 
-## Création d'une clé de sécurité
+## Création de votre paire de clé
 
 A noter que ce que je vais indiquer ici est valable aussi bien pour un client sous Linux, Mac, ou Windows (10 et 11).
 
@@ -54,14 +53,14 @@ Le fichier, appelé `config`, est à créer sous dans votre dossier utilisateur,
 
 ```txt {filename="~/.ssh/config"}
 Host *
-    AddKeysToAgent yes
-    IdentitiesOnly yes
+  AddKeysToAgent yes
+  IdentitiesOnly yes
 
 Host github.com
-    IdentityFile ~/.ssh/id_github
+  IdentityFile ~/.ssh/id_github
 
 Host codeberg.org
-    IdentityFile ~/.ssh/id_codeberg
+  IdentityFile ~/.ssh/id_codeberg
 ```
 
 La 1ère partie s'applique à tous les hosts. Les éléments sont les suivants :

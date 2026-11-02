@@ -1,7 +1,6 @@
 ---
 title: "procs"
 slug: procs
-contextMenu: true
 weight: 32
 toc: true
 tags:

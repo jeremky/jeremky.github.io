@@ -1,7 +1,6 @@
 ---
 title: "IP dynamique"
 slug: ip-dynamique
-contextMenu: true
 weight: 30
 toc: true
 tags:

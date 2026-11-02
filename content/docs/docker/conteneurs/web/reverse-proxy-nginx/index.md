@@ -1,7 +1,6 @@
 ---
 title: "Reverse Proxy NGINX"
 slug: reverse-proxy-nginx
-contextMenu: true
 weight: 60
 toc: true
 tags:

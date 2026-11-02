@@ -1,7 +1,6 @@
 ---
 title: "Filtrage des requêtes DNS"
 slug: filtrage-des-requetes-dns
-contextMenu: true
 weight: 10
 toc: true
 tags:

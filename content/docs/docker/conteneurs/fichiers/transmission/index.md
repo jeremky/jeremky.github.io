@@ -1,7 +1,6 @@
 ---
 title: "Transmission"
 slug: transmission
-contextMenu: true
 weight: 70
 toc: true
 tags:

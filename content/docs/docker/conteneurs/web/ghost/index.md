@@ -1,7 +1,6 @@
 ---
 title: "Ghost"
 slug: ghost
-contextMenu: true
 weight: 40
 toc: true
 tags:

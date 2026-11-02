@@ -1,7 +1,6 @@
 ---
 title: "Infinity Dungeon"
 slug: infinity-dungeon
-contextMenu: true
 weight: 21
 toc: true
 tags:

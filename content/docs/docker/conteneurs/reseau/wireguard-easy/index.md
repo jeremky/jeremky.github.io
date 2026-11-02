@@ -1,7 +1,6 @@
 ---
 title: "Wireguard Easy"
 slug: wireguard-easy
-contextMenu: true
 weight: 40
 toc: true
 tags:

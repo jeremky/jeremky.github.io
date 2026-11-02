@@ -1,7 +1,6 @@
 ---
 title: "ncdu"
 slug: ncdu
-contextMenu: true
 weight: 30
 toc: true
 tags:

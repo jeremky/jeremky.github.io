@@ -1,7 +1,6 @@
 ---
 title: "Docker Compose"
 slug: docker-compose
-contextMenu: true
 weight: 2
 toc: true
 tags:

@@ -1,7 +1,6 @@
 ---
 title: "WebRcade"
 slug: webrcade
-contextMenu: true
 weight: 30
 toc: true
 tags:
@@ -70,7 +69,7 @@ Quelques points importants :
 
 Voici un feed d'exemple pointant vers des ROMs hébergées publiquement sur [Internet Archive](https://archive.org). Pour le tester, il vous suffit d'importer le lien suivant :
 
-<https://jeremky.github.io/files/webrcade.zip>
+<https://jeremky.dynu.net/files/webrcade.zip>
 
 > [!IMPORTANT]
 > À noter que je ne suis en aucun cas responsable de la mise à disposition de jeux protégés par copyright sur Internet Archive

@@ -1,7 +1,6 @@
 ---
 title: "ripgrep"
 slug: ripgrep
-contextMenu: true
 weight: 35
 toc: true
 tags:

@@ -1,7 +1,6 @@
 ---
 title: "zoxide"
 slug: zoxide
-contextMenu: true
 weight: 90
 toc: true
 tags:
