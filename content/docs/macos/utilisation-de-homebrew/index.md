@@ -139,4 +139,4 @@ C'est là qu'intervient **brewinit** : un script perso qui automatise l'installa
 
 ### Récupération
 
-Le script est disponible directement sur GitHub, en suivant **[ce lien](https://codeberg.org/jeremky/brewinit)**.
+Le script est disponible directement sur GitHub, en suivant **[ce lien](https://github.com/jeremky/brewinit)**.

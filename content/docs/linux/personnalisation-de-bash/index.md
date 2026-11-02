@@ -122,7 +122,7 @@ Mon fichier `.bash_aliases` se divise en plusieurs parties :
 - Quelques fonctions, dans le cas où un simple alias est trop limitant
 - Une transformation automatique des scripts présents dans `~/Documents/scripts` en aliases
 
-Vous pouvez le récupérer directement sur Codeberg en suivant [ce lien](https://codeberg.org/jeremky/envbackup/src/branch/main/dotfiles/.bash_aliases).
+Vous pouvez le récupérer directement sur Github en suivant [ce lien](https://github.com/jeremky/envbackup/blob/main/dotfiles/.bash_aliases).
 
 Le contenu du fichier :
 
