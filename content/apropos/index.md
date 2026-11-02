@@ -28,6 +28,6 @@ JeremKy, un passionné d'informatique et du monde libre. Je partage ici mes reto
 ## Où me retrouver ?
 
 {{< cards cols="2" >}}
-  {{< card link="https://codeberg.org/jeremky" title="Codeberg" icon="codeberg" subtitle="Pour consulter mes projets bash" >}}
+  {{< card link="https://github.com/jeremky" title="GitHub" icon="github" subtitle="Pour consulter mes projets bash" >}}
   {{< card link="https://h4.io/@jeremky" title="Mastodon" icon="mastodon" subtitle="Pour me contacter ou me suivre" >}}
 {{< /cards >}}
