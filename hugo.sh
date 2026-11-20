@@ -1,4 +1,5 @@
-#!/bin/bash -e
+#!/bin/bash
+set -e
 
 dir=$(dirname "$(realpath "$0")")
 run() { (cd "$dir" && "$@"); }
