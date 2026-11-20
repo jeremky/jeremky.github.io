@@ -116,10 +116,6 @@ enabled = true
 
 [keys]
 prefix = "ctrl+space"
-previous_tab = "ctrl+w"
-next_tab = "ctrl+x"
-previous_workspace = "ctrl+q"
-next_workspace = "ctrl+s"
 new_workspace = "ctrl+shift+space"
 
 [session]
@@ -135,19 +131,3 @@ Ce fichier permet notamment :
 - de masquer les barres de défilement à côté des panneaux
 - d'afficher les notifications directement dans Herdr, accompagnées d'un son lorsqu'un agent change d'état
 - de relancer automatiquement les conversations des agents après un redémarrage du serveur
-
-### Raccourcis clavier
-
-La section `[keys]` redéfinit la touche préfixe ainsi que la navigation entre onglets et workspaces, qui ne nécessite plus de passer par le préfixe :
-
-| Raccourci                | Action                         |
-| ------------------------ | ------------------------------ |
-| `Ctrl + Espace`          | Touche préfixe                 |
-| `Ctrl + w` / `Ctrl + x`  | Onglet précédent / suivant     |
-| `Ctrl + q` / `Ctrl + s`  | Workspace précédent / suivant  |
-| `Ctrl + Shift + Espace`  | Créer un nouveau workspace     |
-
-> [!IMPORTANT]
-> Ces raccourcis sont interceptés par Herdr et ne sont donc plus transmis aux applications lancées dans les panneaux (par exemple `Ctrl + w` dans un shell, qui supprime le mot précédent)
-
-Pour voir toutes les options disponibles, consultez la [documentation officielle](https://herdr.dev/docs/config-reference/).
